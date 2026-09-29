@@ -237,8 +237,18 @@ def build_rituals(project: Project) -> list:
         if now is None:
             entries.append({"card": project.ref(ritual), "result": None})
         else:
-            entries.append({"card": project.ref(ritual), "tributes": [project.ref(t) for t in now[:3]],
-                            "result": project.ref(now[3])})
+            requirements = project.ritual_requirements.get(ritual)
+            if requirements:
+                tributes = []
+                for req in requirements:
+                    body = dict(req)
+                    if body.get("card"):
+                        body["card"] = project.ref(body["card"])
+                    tributes.append(body)
+                entries.append({"card": project.ref(ritual), "tributes": tributes, "result": project.ref(now[3])})
+            else:
+                entries.append({"card": project.ref(ritual), "tributes": [project.ref(t) for t in now[:3]],
+                                "result": project.ref(now[3])})
     return entries + project.kept["rituals"]
 
 
@@ -814,12 +824,44 @@ def read_rituals(project: Project, entries, messages: list):
         if not isinstance(tributes, list) or len(tributes) != 3:
             messages.append(f"{where}: \"tributes\" names three monsters; left out")
             continue
-        ids = [project.resolve(t) for t in tributes] + [project.resolve(entry.get("result"))]
-        if not all(ids):
-            messages.append(f"{where}: names a card the editor cannot place; kept as written")
-            project.kept["rituals"].append(entry)
-            continue
-        project.rituals[ritual] = tuple(ids)
+        result = project.resolve(entry.get("result"))
+        conditional = any(isinstance(t, dict) for t in tributes)
+        if conditional:
+            requirements, display_ids, valid = [], [], bool(result)
+            for tribute in tributes:
+                if isinstance(tribute, dict):
+                    req = {}
+                    if "card" in tribute:
+                        cid = project.resolve(tribute.get("card"))
+                        if not cid:
+                            valid = False
+                        else:
+                            req["card"] = cid
+                    for key in ("type", "min_attack", "min_defense", "defense_gt_attack"):
+                        if key in tribute:
+                            req[key] = tribute[key]
+                    if not req:
+                        valid = False
+                    requirements.append(req)
+                    display_ids.append(req.get("card", 0))
+                else:
+                    cid = project.resolve(tribute)
+                    valid &= bool(cid)
+                    requirements.append({"card": cid} if cid else {})
+                    display_ids.append(cid)
+            if not valid:
+                messages.append(f"{where}: has a ritual requirement the editor cannot place; kept as written")
+                project.kept["rituals"].append(entry)
+                continue
+            project.ritual_requirements[ritual] = requirements
+            project.rituals[ritual] = tuple(display_ids + [result])
+        else:
+            ids = [project.resolve(t) for t in tributes] + [result]
+            if not all(ids):
+                messages.append(f"{where}: names a card the editor cannot place; kept as written")
+                project.kept["rituals"].append(entry)
+                continue
+            project.rituals[ritual] = tuple(ids)
 
 
 def _read_pool(project: Project, where, duelists, pool, body, messages):
