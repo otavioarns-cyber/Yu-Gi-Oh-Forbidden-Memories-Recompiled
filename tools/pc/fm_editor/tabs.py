@@ -751,6 +751,10 @@ class RitualsTab(Tab):
                         parts.append(f'ATK ≥ {req["min_attack"]}')
                     if req.get("min_defense") is not None:
                         parts.append(f'DEF ≥ {req["min_defense"]}')
+                    if req.get("min_level") is not None:
+                        parts.append(f'Level ≥ {req["min_level"]}')
+                    if req.get("max_level") is not None:
+                        parts.append(f'Level ≤ {req["max_level"]}')
                     if req.get("defense_gt_attack"):
                         parts.append("DEF > ATK")
                     labels[i] = " & ".join(parts) or "-"
@@ -794,6 +798,10 @@ class RitualsTab(Tab):
                 parts.append("Minimum ATK")
             if req.get("min_defense") is not None:
                 parts.append("Minimum DEF")
+            if req.get("min_level") is not None:
+                parts.append("Minimum Level")
+            if req.get("max_level") is not None:
+                parts.append("Maximum Level")
             if req.get("defense_gt_attack"):
                 parts.append("DEF > ATK")
             return parts
@@ -823,13 +831,20 @@ class RitualsTab(Tab):
                     combo = ttk.Combobox(row, textvariable=value, values=TYPE_NAMES[:20], state="readonly", width=22)
                     combo.pack(side="left")
                     combo.bind("<<ComboboxSelected>>", lambda e, v=value, r=req: r.__setitem__("type", v.get()))
-                elif kind in ("Minimum ATK", "Minimum DEF"):
-                    key = "min_attack" if kind.endswith("ATK") else "min_defense"
+                elif kind in ("Minimum ATK", "Minimum DEF", "Minimum Level", "Maximum Level"):
+                    if kind == "Minimum ATK":
+                        key, limit = "min_attack", 9999
+                    elif kind == "Minimum DEF":
+                        key, limit = "min_defense", 9999
+                    elif kind == "Minimum Level":
+                        key, limit = "min_level", 12
+                    else:
+                        key, limit = "max_level", 12
                     value = tk.StringVar(value=str(req[key]))
                     entry = ttk.Entry(row, textvariable=value, width=10)
                     entry.pack(side="left")
-                    def number_changed(v=value, r=req, k=key):
-                        try: r[k] = max(0, min(9999, int(v.get())))
+                    def number_changed(v=value, r=req, k=key, maximum=limit):
+                        try: r[k] = max(0, min(maximum, int(v.get())))
                         except ValueError: pass
                     value.trace_add("write", lambda *_args, fn=number_changed: fn())
                 else:
@@ -837,7 +852,8 @@ class RitualsTab(Tab):
                 if len(kinds) > 1:
                     def delete(k=kind, r=req, n=index):
                         keys = {"Specific Card": "card", "Monster Type": "type", "Minimum ATK": "min_attack",
-                                "Minimum DEF": "min_defense", "DEF > ATK": "defense_gt_attack"}
+                                "Minimum DEF": "min_defense", "Minimum Level": "min_level",
+                                "Maximum Level": "max_level", "DEF > ATK": "defense_gt_attack"}
                         r.pop(keys[k], None)
                         render(n)
                     ttk.Button(row, text="Remove", command=delete).pack(side="right", padx=(6, 0))
@@ -848,7 +864,8 @@ class RitualsTab(Tab):
             req = requirements[index]
             menu = tk.Menu(dialog, tearoff=False)
             choices = [("Specific Card", "card"), ("Monster Type", "type"), ("Minimum ATK", "min_attack"),
-                       ("Minimum DEF", "min_defense"), ("DEF > ATK", "defense_gt_attack")]
+                       ("Minimum DEF", "min_defense"), ("Minimum Level", "min_level"),
+                       ("Maximum Level", "max_level"), ("DEF > ATK", "defense_gt_attack")]
             def add(key):
                 if key in req:
                     return
@@ -861,6 +878,10 @@ class RitualsTab(Tab):
                     req[key] = TYPE_NAMES[0]
                 elif key in ("min_attack", "min_defense"):
                     req[key] = 1000
+                elif key == "min_level":
+                    req[key] = 1
+                elif key == "max_level":
+                    req[key] = 12
                 else:
                     req[key] = True
                 render(index)
@@ -908,6 +929,10 @@ class RitualsTab(Tab):
                     cid = field.get()
                     if cid: req["card"] = cid
             result_id = result.get()
+            if any(req.get("min_level") is not None and req.get("max_level") is not None
+                   and req["min_level"] > req["max_level"] for req in requirements):
+                error.configure(text="Minimum Level cannot be greater than Maximum Level.")
+                return
             if not result_id or any(not req for req in requirements):
                 error.configure(text="Each tribute needs at least one requirement and Summons must name a monster.")
                 return
