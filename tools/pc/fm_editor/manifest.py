@@ -847,7 +847,10 @@ def read_rituals(project: Project, entries, messages: list):
                             req["type"] = TYPE_NAMES[named]
                     if "fusion_group" in tribute:
                         value = tribute["fusion_group"]
-                        if value not in ("Elf", "Female"):
+                        if value not in ("AngelWinged", "Bugrothian", "Egg", "Elf", "FeatherFromBear", "FeatherFromHarpie",
+                                             "FeatherFromMachine", "Female", "Jar", "Koumorian", "MercuryMagicUser",
+                                             "MercurySpellcaster", "Mirror", "MusKingian", "MystElfian", "Rainbow",
+                                             "Sheepian", "Thronian", "Turtle", "UsableBeast"):
                             valid = False
                         else:
                             req["fusion_group"] = value
