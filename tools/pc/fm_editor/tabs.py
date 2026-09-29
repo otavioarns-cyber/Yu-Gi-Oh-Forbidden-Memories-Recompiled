@@ -787,7 +787,8 @@ class RitualsTab(Tab):
         ttk.Label(body, text=self.project.card_label(ritual), font=("TkDefaultFont", 11, "bold")).pack(
             anchor="w", pady=(0, 8))
 
-        panels, rows = [], [None, None, None]
+        panels = []
+        numeric_inputs = [dict(), dict(), dict()]
         open_index = tk.IntVar(value=0)
 
         def describe(req):
@@ -829,7 +830,6 @@ class RitualsTab(Tab):
                         cid = field.get()
                         if cid: req["card"] = cid
                     field.var.trace_add("write", lambda *_args, fn=changed: fn())
-                    rows[index] = field
                 elif kind == "Monster Type":
                     value = tk.StringVar(value=req["type"])
                     combo = ttk.Combobox(row, textvariable=value, values=TYPE_NAMES[:20], state="readonly", width=22)
@@ -856,10 +856,7 @@ class RitualsTab(Tab):
                     value = tk.StringVar(value=str(req[key]))
                     entry = ttk.Entry(row, textvariable=value, width=10)
                     entry.pack(side="left")
-                    def number_changed(v=value, r=req, k=key, maximum=limit):
-                        try: r[k] = max(0, min(maximum, int(v.get())))
-                        except ValueError: pass
-                    value.trace_add("write", lambda *_args, fn=number_changed: fn())
+                    numeric_inputs[index][key] = (value, limit)
                 else:
                     ttk.Label(row, text="Required").pack(side="left")
                 if len(kinds) > 1:
@@ -941,10 +938,17 @@ class RitualsTab(Tab):
         buttons.pack(fill="x", pady=(8, 0))
 
         def save():
-            for field, req in zip(rows, requirements):
-                if field and field.winfo_exists():
-                    cid = field.get()
-                    if cid: req["card"] = cid
+            for index, req in enumerate(requirements):
+                for key, (value, limit) in numeric_inputs[index].items():
+                    try:
+                        number = int(value.get())
+                    except ValueError:
+                        error.configure(text="ATK, DEF and Level requirements must be whole numbers.")
+                        return
+                    if not 0 <= number <= limit:
+                        error.configure(text=f"{key.replace('_', ' ').title()} must be between 0 and {limit}.")
+                        return
+                    req[key] = number
             result_id = result.get()
             if any(req.get("min_level") is not None and req.get("max_level") is not None
                    and req["min_level"] > req["max_level"] for req in requirements):
