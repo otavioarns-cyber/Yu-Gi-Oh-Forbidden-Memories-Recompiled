@@ -399,6 +399,36 @@ static int same_letters(const char *a, const char *b)
     }
 }
 
+int Cards_FusionGroupNamed(const char *text)
+{
+    static const struct { const char *name; int group; } groups[] = {
+        {"AngelWinged", CARD_FUSION_GROUP_ANGEL_WINGED},
+        {"Bugrothian", CARD_FUSION_GROUP_BUGROTHIAN},
+        {"Egg", CARD_FUSION_GROUP_EGG},
+        {"Elf", CARD_FUSION_GROUP_ELF},
+        {"FeatherFromBear", CARD_FUSION_GROUP_FEATHER_FROM_BEAR},
+        {"FeatherFromHarpie", CARD_FUSION_GROUP_FEATHER_FROM_HARPIE},
+        {"FeatherFromMachine", CARD_FUSION_GROUP_FEATHER_FROM_MACHINE},
+        {"Female", CARD_FUSION_GROUP_FEMALE},
+        {"Jar", CARD_FUSION_GROUP_JAR},
+        {"Koumorian", CARD_FUSION_GROUP_KOUMORIAN},
+        {"MercuryMagicUser", CARD_FUSION_GROUP_MERCURY_MAGIC_USER},
+        {"MercurySpellcaster", CARD_FUSION_GROUP_MERCURY_SPELLCASTER},
+        {"Mirror", CARD_FUSION_GROUP_MIRROR},
+        {"MusKingian", CARD_FUSION_GROUP_MUS_KINGIAN},
+        {"MystElfian", CARD_FUSION_GROUP_MYST_ELFIAN},
+        {"Rainbow", CARD_FUSION_GROUP_RAINBOW},
+        {"Sheepian", CARD_FUSION_GROUP_SHEEPIAN},
+        {"Thronian", CARD_FUSION_GROUP_THRONIAN},
+        {"Turtle", CARD_FUSION_GROUP_TURTLE},
+        {"UsableBeast", CARD_FUSION_GROUP_USABLE_BEAST},
+    };
+    size_t i;
+    for (i = 0; i < sizeof(groups) / sizeof(groups[0]); i++)
+        if (same_letters(text, groups[i].name)) return groups[i].group;
+    return CARD_FUSION_GROUP_NONE;
+}
+
 /* The retail names, decoded once: a manifest may name hundreds of cards. */
 static char (*retail_names)[48];
 
@@ -474,35 +504,7 @@ int Cards_Level(int id)
     return Cards_Valid(id) ? gDuel_abCardLevelAttr[id] & 0x0F : -1;
 }
 
-int Cards_FusionGroupNamed(const char *text)
-{
-    static const struct { const char *name; int group; } groups[] = {
-        {"AngelWinged", CARD_FUSION_GROUP_ANGEL_WINGED},
-        {"Bugrothian", CARD_FUSION_GROUP_BUGROTHIAN},
-        {"Egg", CARD_FUSION_GROUP_EGG},
-        {"Elf", CARD_FUSION_GROUP_ELF},
-        {"FeatherFromBear", CARD_FUSION_GROUP_FEATHER_FROM_BEAR},
-        {"FeatherFromHarpie", CARD_FUSION_GROUP_FEATHER_FROM_HARPIE},
-        {"FeatherFromMachine", CARD_FUSION_GROUP_FEATHER_FROM_MACHINE},
-        {"Female", CARD_FUSION_GROUP_FEMALE},
-        {"Jar", CARD_FUSION_GROUP_JAR},
-        {"Koumorian", CARD_FUSION_GROUP_KOUMORIAN},
-        {"MercuryMagicUser", CARD_FUSION_GROUP_MERCURY_MAGIC_USER},
-        {"MercurySpellcaster", CARD_FUSION_GROUP_MERCURY_SPELLCASTER},
-        {"Mirror", CARD_FUSION_GROUP_MIRROR},
-        {"MusKingian", CARD_FUSION_GROUP_MUS_KINGIAN},
-        {"MystElfian", CARD_FUSION_GROUP_MYST_ELFIAN},
-        {"Rainbow", CARD_FUSION_GROUP_RAINBOW},
-        {"Sheepian", CARD_FUSION_GROUP_SHEEPIAN},
-        {"Thronian", CARD_FUSION_GROUP_THRONIAN},
-        {"Turtle", CARD_FUSION_GROUP_TURTLE},
-        {"UsableBeast", CARD_FUSION_GROUP_USABLE_BEAST},
-    };
-    size_t i;
-    for (i = 0; i < sizeof(groups) / sizeof(groups[0]); i++)
-        if (same_letters(text, groups[i].name)) return groups[i].group;
-    return CARD_FUSION_GROUP_NONE;
-}
+
 
 int Cards_InFusionGroup(int id, int group)
 {
