@@ -626,7 +626,7 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
     v = Json_Member(value, "min_attack");
     if (v) {
         long n = Json_Number(v, -1);
-        if (Json_TypeOf(v) != JSON_NUMBER || n < 0 || n > CARD_STAT_MAX) {
+        if (n < 0 || n > CARD_STAT_MAX) {
             Mods_Note(mod, "%s: \"min_attack\" is 0 to %d", where, CARD_STAT_MAX); return 0;
         }
         out->min_attack = (short)n;
@@ -634,7 +634,7 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
     v = Json_Member(value, "min_defense");
     if (v) {
         long n = Json_Number(v, -1);
-        if (Json_TypeOf(v) != JSON_NUMBER || n < 0 || n > CARD_STAT_MAX) {
+        if (n < 0 || n > CARD_STAT_MAX) {
             Mods_Note(mod, "%s: \"min_defense\" is 0 to %d", where, CARD_STAT_MAX); return 0;
         }
         out->min_defense = (short)n;
