@@ -674,7 +674,7 @@ class EquipsTab(Tab):
     def add(self):
         if not self.current:
             return
-        cid = pick_card(self, self.project, "Monster it may equip", only=lambda c: self.project.cards[c].is_monster())
+        cid = pick_card(self, self.project, "Monster it may equip", only=lambda c: 0 <= self.project.cards[c].type < 20)
         if cid:
             self.project.equips.setdefault(self.current, set()).add(cid)
             self.edited()
@@ -794,7 +794,7 @@ class RitualsTab(Tab):
                 ttk.Label(row, text=kind, width=18).pack(side="left")
                 if kind == "Specific Card":
                     field = CardField(row, lambda: self.project, width=36,
-                                      only=lambda c: self.project.cards[c].is_monster())
+                                      only=lambda c: 0 <= self.project.cards[c].type < 20)
                     field.pack(side="left", fill="x", expand=True)
                     field.set(req["card"])
                     def changed(field=field, req=req):
@@ -838,7 +838,7 @@ class RitualsTab(Tab):
                     return
                 if key == "card":
                     cid = pick_card(dialog, self.project, "Specific ritual tribute",
-                                    only=lambda c: self.project.cards[c].is_monster())
+                                    only=lambda c: 0 <= self.project.cards[c].type < 20)
                     if not cid: return
                     req[key] = cid
                 elif key == "type":
@@ -877,7 +877,7 @@ class RitualsTab(Tab):
         summon = ttk.Frame(body)
         summon.pack(fill="x")
         ttk.Label(summon, text="Summons", width=18).pack(side="left")
-        result = CardField(summon, lambda: self.project, width=38, only=lambda c: self.project.cards[c].is_monster())
+        result = CardField(summon, lambda: self.project, width=38, only=lambda c: 0 <= self.project.cards[c].type < 20)
         result.pack(side="left", fill="x", expand=True)
         if recipe[3]:
             result.set(recipe[3])
