@@ -988,7 +988,8 @@ static void add_entry(const char *mod, const char *directory, int index, const J
     unsigned char *record = NULL, *title = NULL, *named_plate = NULL;
     int parts = 0;
     int base = 0, count, n, value, has_password;
-    unsigned stats, password = CARD_PASSWORD_NONE;
+    unsigned stats, password = CARD_PASSWORD_NONE, entry_fusion_groups = 0;
+    int entry_has_fusion_groups = 0;
     unsigned char level_attr, frame;
     if (Json_TypeOf(entry) != JSON_OBJECT) {
         Mods_Note(mod, "cards[%d] is not an object", index);
@@ -1063,14 +1064,14 @@ static void add_entry(const char *mod, const char *directory, int index, const J
         const JsonValue *groups = Json_Member(entry, "fusion_groups");
         if (groups) {
             const JsonValue *g;
-            unsigned int mask = 0;
+            entry_has_fusion_groups = 1;
             for (g = Json_At(groups, 0); g; g = Json_Next(g)) {
                 int group = Cards_FusionGroupNamed(Json_String(g, NULL));
-                if (group > CARD_FUSION_GROUP_NONE && group <= CARD_FUSION_GROUP_USABLE_BEAST) mask |= 1u << group;
-                else Mods_Note(mod, "cards[%d]: unknown fusion_groups entry", index);
+                if (group > CARD_FUSION_GROUP_NONE && group <= CARD_FUSION_GROUP_USABLE_BEAST)
+                    entry_fusion_groups |= 1u << group;
+                else
+                    Mods_Note(mod, "cards[%d]: unknown fusion_groups entry", index);
             }
-            fusion_groups[replace ? base : gCard_nCount + 1] = mask;
-            has_fusion_groups[replace ? base : gCard_nCount + 1] = 1;
         }
     }
     /* Left out, the frame is the base's (its type's unless an earlier entry
@@ -1153,6 +1154,8 @@ static void add_entry(const char *mod, const char *directory, int index, const J
         gCard_awBaseId[id] = (unsigned short)base;
         gCard_asNameSortKey[id - 1] = gCard_asNameSortKey[base - 1];
     own:
+        fusion_groups[id] = entry_fusion_groups;
+        has_fusion_groups[id] = (unsigned char)entry_has_fusion_groups;
         gDuel_adwCardStats[id - 1] = (int)stats;
         gDuel_abCardLevelAttr[id] = level_attr;
         frames[id] = frame;
