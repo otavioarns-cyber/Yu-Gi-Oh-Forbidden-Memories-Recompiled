@@ -506,6 +506,10 @@ int Cards_FusionGroupNamed(const char *text)
 
 int Cards_InFusionGroup(int id, int group)
 {
+    /* Membership is the canonical "secondary card types by card" table from
+     * Marcelo Silvarolla's programmatically validated Forbidden Memories
+     * fusion guide.  Keep this explicit: several groups have conflict-driven
+     * exceptions which are not safely reconstructed from names or appearance. */
     static const struct { const char *name; unsigned int groups; } cards[] = {
         {"Ancient Elf", (1u << CARD_FUSION_GROUP_ELF) | (1u << CARD_FUSION_GROUP_FEMALE)},
         {"Celtic Guardian", 1u << CARD_FUSION_GROUP_ELF},
@@ -513,15 +517,52 @@ int Cards_InFusionGroup(int id, int group)
         {"Gemini Elf", (1u << CARD_FUSION_GROUP_ELF) | (1u << CARD_FUSION_GROUP_FEMALE)},
         {"Mystical Elf", (1u << CARD_FUSION_GROUP_ELF) | (1u << CARD_FUSION_GROUP_FEMALE)},
         {"Wing Egg Elf", (1u << CARD_FUSION_GROUP_ANGEL_WINGED) | (1u << CARD_FUSION_GROUP_EGG) | (1u << CARD_FUSION_GROUP_ELF) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_BEAR) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_MACHINE) | (1u << CARD_FUSION_GROUP_MYST_ELFIAN)},
+        {"Dark Elf", (1u << CARD_FUSION_GROUP_FEMALE) | (1u << CARD_FUSION_GROUP_MERCURY_MAGIC_USER) | (1u << CARD_FUSION_GROUP_MERCURY_SPELLCASTER)},
+        {"Ancient Jar", 1u << CARD_FUSION_GROUP_JAR},
+        {"Dragon Piper", 1u << CARD_FUSION_GROUP_JAR},
+        {"Morphing Jar", 1u << CARD_FUSION_GROUP_JAR},
+        {"Pot the Trick", 1u << CARD_FUSION_GROUP_JAR},
+        {"Gorgon Egg", 1u << CARD_FUSION_GROUP_EGG},
+        {"Monster Egg", 1u << CARD_FUSION_GROUP_EGG},
+        {"Winged Egg of New Life", (1u << CARD_FUSION_GROUP_ANGEL_WINGED) | (1u << CARD_FUSION_GROUP_EGG) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_MACHINE) | (1u << CARD_FUSION_GROUP_MUS_KINGIAN)},
+        {"Rainbow Flower", 1u << CARD_FUSION_GROUP_RAINBOW},
+        {"Rainbow Marine Mermaid", (1u << CARD_FUSION_GROUP_FEMALE) | (1u << CARD_FUSION_GROUP_RAINBOW)},
+        {"Fiend Refrection #1", 1u << CARD_FUSION_GROUP_MIRROR},
+        {"Fiend Refrection #2", (1u << CARD_FUSION_GROUP_FEATHER_FROM_MACHINE) | (1u << CARD_FUSION_GROUP_MIRROR)},
+        {"Fiend's Mirror", 1u << CARD_FUSION_GROUP_MIRROR},
+        {"Wicked Mirror", (1u << CARD_FUSION_GROUP_MIRROR) | (1u << CARD_FUSION_GROUP_SHEEPIAN) | (1u << CARD_FUSION_GROUP_THRONIAN)},
+        {"Job-change Mirror", (1u << CARD_FUSION_GROUP_MERCURY_MAGIC_USER) | (1u << CARD_FUSION_GROUP_MIRROR) | (1u << CARD_FUSION_GROUP_SHEEPIAN) | (1u << CARD_FUSION_GROUP_THRONIAN)},
+        {"Crab Turtle", 1u << CARD_FUSION_GROUP_TURTLE},
+        {"Turtle Bird", 1u << CARD_FUSION_GROUP_TURTLE},
+        {"Boulder Tortoise", (1u << CARD_FUSION_GROUP_BUGROTHIAN) | (1u << CARD_FUSION_GROUP_TURTLE)},
+        {"Catapult Turtle", (1u << CARD_FUSION_GROUP_BUGROTHIAN) | (1u << CARD_FUSION_GROUP_TURTLE)},
+        {"Giant Turtle Who Feeds on Flames", (1u << CARD_FUSION_GROUP_BUGROTHIAN) | (1u << CARD_FUSION_GROUP_TURTLE)},
+        {"Monsturtle", (1u << CARD_FUSION_GROUP_BUGROTHIAN) | (1u << CARD_FUSION_GROUP_TURTLE)},
+        {"Turtle Raccoon", (1u << CARD_FUSION_GROUP_BUGROTHIAN) | (1u << CARD_FUSION_GROUP_TURTLE)},
+        {"Turtle Tiger", (1u << CARD_FUSION_GROUP_BUGROTHIAN) | (1u << CARD_FUSION_GROUP_TURTLE)},
+        {"Mystical Sheep #1", 1u << CARD_FUSION_GROUP_USABLE_BEAST},
+        {"Mystical Sheep #2", 1u << CARD_FUSION_GROUP_USABLE_BEAST},
+        {"Prevent Rat", 1u << CARD_FUSION_GROUP_USABLE_BEAST},
+        {"Silver Fang", 1u << CARD_FUSION_GROUP_USABLE_BEAST},
+        {"Wolf", 1u << CARD_FUSION_GROUP_USABLE_BEAST},
+        {"Harpie Lady", (1u << CARD_FUSION_GROUP_FEATHER_FROM_BEAR) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_HARPIE) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_MACHINE) | (1u << CARD_FUSION_GROUP_FEMALE)},
+        {"Harpie Lady Sisters", (1u << CARD_FUSION_GROUP_FEATHER_FROM_BEAR) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_HARPIE) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_MACHINE) | (1u << CARD_FUSION_GROUP_FEMALE)},
+        {"Bear Trap", 1u << CARD_FUSION_GROUP_FEATHER_FROM_HARPIE},
+        {"Eatgaboon", 1u << CARD_FUSION_GROUP_FEATHER_FROM_HARPIE},
+        {"House of Adhesive Tape", 1u << CARD_FUSION_GROUP_FEATHER_FROM_HARPIE},
+        {"Invisible Wire", 1u << CARD_FUSION_GROUP_FEATHER_FROM_HARPIE},
+        {"Machine Conversion Factory", 1u << CARD_FUSION_GROUP_FEATHER_FROM_HARPIE},
+        {"Angelwitch", (1u << CARD_FUSION_GROUP_ANGEL_WINGED) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_BEAR) | (1u << CARD_FUSION_GROUP_FEATHER_FROM_MACHINE) | (1u << CARD_FUSION_GROUP_FEMALE) | (1u << CARD_FUSION_GROUP_MERCURY_MAGIC_USER) | (1u << CARD_FUSION_GROUP_MERCURY_SPELLCASTER)},
+        {"Witch's Apprentice", (1u << CARD_FUSION_GROUP_ANGEL_WINGED) | (1u << CARD_FUSION_GROUP_FEMALE) | (1u << CARD_FUSION_GROUP_MERCURY_MAGIC_USER) | (1u << CARD_FUSION_GROUP_MERCURY_SPELLCASTER)}
     };
     size_t i;
-    unsigned int bit;
+    unsigned int bit, found = 0;
     int base = Cards_BaseId(id);
     if (!base || group <= CARD_FUSION_GROUP_NONE || group > CARD_FUSION_GROUP_USABLE_BEAST) return 0;
     bit = 1u << group;
     for (i = 0; i < sizeof(cards) / sizeof(cards[0]); i++)
-        if (Cards_Named(cards[i].name) == base) return !!(cards[i].groups & bit);
-    return 0;
+        if (Cards_Named(cards[i].name) == base) found |= cards[i].groups;
+    return !!(found & bit);
 }
 
 typedef struct {
