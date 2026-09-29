@@ -625,6 +625,14 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
         }
         out->type = (signed char)type;
     }
+    v = Json_Member(value, "fusion_group");
+    if (v) {
+        int group = Cards_FusionGroupNamed(Json_String(v, NULL));
+        if (!group) {
+            Mods_Note(mod, "%s: \"fusion_group\" is Elf or Female", where); return 0;
+        }
+        out->fusion_group = (unsigned char)group;
+    }
     v = Json_Member(value, "min_attack");
     if (v) {
         long n = Json_Number(v, -1);
@@ -668,7 +676,7 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
         }
         out->defense_gt_attack = Json_Bool(v, 0) != 0;
     }
-    if (!out->card && out->type < 0 && !out->min_attack && !out->min_defense &&
+    if (!out->card && out->type < 0 && !out->fusion_group && !out->min_attack && !out->min_defense &&
         out->min_level < 0 && out->max_level < 0 && !out->defense_gt_attack) {
         Mods_Note(mod, "%s: ritual tribute has no requirement", where); return 0;
     }
