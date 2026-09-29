@@ -51,6 +51,7 @@ The release ships no card mod; the checks below were made with test mods
 | `type` | a number or a name (`"Dragon"`, `"Winged Beast"`). A copy of a monster stays a monster, since it has its base's 3D model; a copy of a magic, trap, ritual or equip card keeps its type, since it has its base's effect |
 | `attribute` | a number or a name (`"Light"` to `"Wind"`) |
 | `level` | 0 to 12 |
+| `fusion_groups` | optional secondary fusion-rule groups. Accepted names: `AngelWinged`, `Bugrothian`, `Egg`, `Elf`, `FeatherFromBear`, `FeatherFromHarpie`, `FeatherFromMachine`, `Female`, `Jar`, `Koumorian`, `MercuryMagicUser`, `MercurySpellcaster`, `Mirror`, `MusKingian`, `MystElfian`, `Rainbow`, `Sheepian`, `Thronian`, `Turtle`, `UsableBeast`. When omitted, the card inherits its retail base's groups; an empty list `[]` explicitly gives it none. Every card produced by `count` receives the same setting. |
 | `stars` | the two guardian stars, as numbers or names (`"Mars"` to `"Venus"`) |
 | `frame` | the colour of the card's frame, whatever its type: `"Monster"` (gold), `"Magic"` (green), `"Trap"` (pink), `"Ritual"` (blue), `"Purple"` or `"Orange"`, or a number 0-5 in that order; `"Type"` goes back to its type's ([below](#frame-colour)) |
 | `drops` | whether the card can be won in its base's place (default `true`, below) |
