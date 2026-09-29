@@ -144,8 +144,8 @@ jobs:
 
 
   ritual-editor-test-release:
-    if: github.event_name == 'pull_request' && github.head_ref == 'ritual-requirements'
     needs: package
+    if: always() && github.event_name == 'pull_request' && github.head_ref == 'ritual-requirements' && needs.package.result != 'cancelled'
     runs-on: ubuntu-24.04
     permissions:
       contents: write
