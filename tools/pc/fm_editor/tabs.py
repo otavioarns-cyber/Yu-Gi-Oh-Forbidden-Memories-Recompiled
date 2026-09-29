@@ -735,9 +735,25 @@ class RitualsTab(Tab):
             if ritual not in p.cards:
                 continue
             now, retail = p.rituals.get(ritual), p.retail.rituals.get(ritual)
-            state = "" if now == retail else "added" if retail is None else "removed" if now is None else "changed"
+            conditional = ritual in p.ritual_requirements
+            state = "changed" if conditional and retail is not None else "added" if conditional else (
+                "" if now == retail else "added" if retail is None else "removed" if now is None else "changed")
             recipe = now or (None, None, None, None)
             labels = [p.card_label(c) if c else "-" for c in recipe]
+            if conditional:
+                for i, req in enumerate(p.ritual_requirements[ritual]):
+                    parts = []
+                    if req.get("card"):
+                        parts.append(p.card_label(req["card"]))
+                    if req.get("type") is not None:
+                        parts.append(str(req["type"]))
+                    if req.get("min_attack") is not None:
+                        parts.append(f'ATK ≥ {req["min_attack"]}')
+                    if req.get("min_defense") is not None:
+                        parts.append(f'DEF ≥ {req["min_defense"]}')
+                    if req.get("defense_gt_attack"):
+                        parts.append("DEF > ATK")
+                    labels[i] = " & ".join(parts) or "-"
             self.tree.insert("", "end", iid=str(ritual), values=[p.card_label(ritual)] + labels + [state],
                              tags=(state,) if state else ())
 
@@ -800,7 +816,7 @@ class RitualsTab(Tab):
                     def changed(field=field, req=req):
                         cid = field.get()
                         if cid: req["card"] = cid
-                    field.bind("<FocusOut>", lambda e, fn=changed: fn())
+                    field.var.trace_add("write", lambda *_args, fn=changed: fn())
                     rows[index] = field
                 elif kind == "Monster Type":
                     value = tk.StringVar(value=req["type"])
@@ -815,7 +831,7 @@ class RitualsTab(Tab):
                     def number_changed(v=value, r=req, k=key):
                         try: r[k] = max(0, min(9999, int(v.get())))
                         except ValueError: pass
-                    entry.bind("<FocusOut>", lambda e, fn=number_changed: fn())
+                    value.trace_add("write", lambda *_args, fn=number_changed: fn())
                 else:
                     ttk.Label(row, text="Required").pack(side="left")
                 if len(kinds) > 1:
@@ -913,12 +929,14 @@ class RitualsTab(Tab):
         ritual = self.selected()
         if ritual:
             self.project.rituals.pop(ritual, None)
+            self.project.ritual_requirements.pop(ritual, None)
             self.app.changed()
             self.fill()
 
     def revert(self):
         ritual = self.selected()
         if ritual:
+            self.project.ritual_requirements.pop(ritual, None)
             if ritual in self.project.retail.rituals:
                 self.project.rituals[ritual] = self.project.retail.rituals[ritual]
             else:
