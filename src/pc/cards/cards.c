@@ -474,6 +474,47 @@ int Cards_Level(int id)
     return Cards_Valid(id) ? gDuel_abCardLevelAttr[id] & 0x0F : -1;
 }
 
+int Cards_FusionGroupNamed(const char *text)
+{
+    if (same_letters(text, "Elf")) return CARD_FUSION_GROUP_ELF;
+    if (same_letters(text, "Female")) return CARD_FUSION_GROUP_FEMALE;
+    return CARD_FUSION_GROUP_NONE;
+}
+
+int Cards_InFusionGroup(int id, int group)
+{
+    static const char *const elf[] = {
+        "Ancient Elf", "Celtic Guardian", "Dancing Elf", "Gemini Elf", "Mystical Elf", "Wing Egg Elf"
+    };
+    static const char *const female[] = {
+        "Amazon of the Seas", "Ancient Elf", "Angelwitch", "Arlownay", "Beautiful Beast Trainer",
+        "Beautiful Headhuntress", "Dancing Elf", "Dark Elf", "Dark Witch", "Dryad", "Eldeen",
+        "Enchanting Mermaid", "Fairy of the Fountain", "Fairy's Gift", "Gemini Elf", "Goddess of Whim",
+        "Goddess with the Third Eye", "Gyakutenno Megami", "Harpie Lady", "Harpie Lady Sisters",
+        "Hibikime", "Ice Water", "Ill Witch", "Invader of the Throne", "Kanan the Swordmistress",
+        "Key Mace", "Key Mace #2", "LaMoon", "Lady of Faith", "Lunar Queen Elzaim", "Magician of Faith",
+        "Maiden of the Moonlight", "Muse-A", "Mystical Elf", "Nekogal #1", "Nekogal #2", "Nemuriko",
+        "Princess of Tsurugi", "Protector of the Throne", "Queen of Autumn Leaves", "Queen's Double",
+        "Rainbow Marine Mermaid", "Rose Spectre of Dunn", "Sonic Maid", "Succubus Knight", "Vishwar Randi",
+        "Warrior of Tradition", "Water Element", "Water Girl", "Water Magician", "Water Omotics",
+        "Waterdragon Fairy", "Witch of the Black Forest", "Witch's Apprentice"
+    };
+    const char *const *names;
+    size_t i, count;
+    int base = Cards_BaseId(id);
+    if (!base) return 0;
+    if (group == CARD_FUSION_GROUP_ELF) {
+        names = elf; count = sizeof(elf) / sizeof(elf[0]);
+    } else if (group == CARD_FUSION_GROUP_FEMALE) {
+        names = female; count = sizeof(female) / sizeof(female[0]);
+    } else {
+        return 0;
+    }
+    for (i = 0; i < count; i++)
+        if (Cards_Named(names[i]) == base) return 1;
+    return 0;
+}
+
 typedef struct {
     int use_count[2][CARD_ID_END];  /* copies taking a base's place, per use */
     unsigned char use[CARD_TABLE_ID_END];
