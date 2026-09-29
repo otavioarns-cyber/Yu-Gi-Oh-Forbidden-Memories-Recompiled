@@ -61,6 +61,7 @@ s32 Duel_CheckRitual(DuelRitualResult *out, s32 ritualId)
                         if (requirements[j].card && id != requirements[j].card &&
                             Cards_BaseId(id) != requirements[j].card) ok = 0;
                         if (requirements[j].type >= 0 && Cards_Type(id) != requirements[j].type) ok = 0;
+                        if (requirements[j].fusion_group && !Cards_InFusionGroup(id, requirements[j].fusion_group)) ok = 0;
                         if (attack < requirements[j].min_attack || defense < requirements[j].min_defense) ok = 0;
                         if (requirements[j].min_level >= 0 && Cards_Level(id) < requirements[j].min_level) ok = 0;
                         if (requirements[j].max_level >= 0 && Cards_Level(id) > requirements[j].max_level) ok = 0;
