@@ -49,6 +49,18 @@ int Tables_EquipBonus(int equip, int monster, int retail);
  * 0 when a mod removed the ritual, -1 when the disc's recipe stands. */
 int Tables_Ritual(int ritual, unsigned short recipe[6]);
 
+/* A condition-based ritual tribute. A slot may require a specific card,
+ * a monster type, minimum printed ATK/DEF, and/or DEF greater than ATK.
+ * The requirements in one slot are ANDed. Returns 1 when the latest ritual
+ * rule has condition-based tributes and fills result, 0 otherwise. */
+typedef struct {
+    unsigned short card;
+    short min_attack, min_defense;
+    signed char type;
+    unsigned char defense_gt_attack;
+} TablesRitualRequirement;
+int Tables_RitualRequirements(int ritual, TablesRitualRequirement requirements[3], unsigned short *result);
+
 /* A weighted pool as the running opponent's mods have it: TABLES_POOL_DECK
  * (the cards an opponent's deck is dealt from), or a drop pool (S/A-POW,
  * B/C/D, S/A-TEC, in Duel_SelectCardDrop's order). `retail` is the pool the
