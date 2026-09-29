@@ -252,7 +252,7 @@ class Project:
         self.rituals = {r: rec for r, rec in self.rituals.items() if cid not in rec}
         self.ritual_requirements.pop(cid, None)
         for ritual, slots in list(self.ritual_requirements.items()):
-            if any(req.get("card") == cid for req in slots):
+            if ritual not in self.rituals or any(req.get("card") == cid for req in slots):
                 self.ritual_requirements.pop(ritual, None)
         for pools in self.pools:
             for pool in pools.values():
