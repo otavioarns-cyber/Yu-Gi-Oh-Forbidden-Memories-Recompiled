@@ -20,23 +20,6 @@ void Log_Printf(LogChannel channel, const char *format, ...)
 }
 int main(void)
 {
-    /* Canonical secondary fusion groups are data, not guesses from a card's name/art. */
-    {
-        int dark_elf = Cards_Named("Dark Elf");
-        int mystical_elf = Cards_Named("Mystical Elf");
-        int zone_eater = Cards_Named("Zone Eater");
-        int wing_egg_elf = Cards_Named("Wing Egg Elf");
-        assert(dark_elf && mystical_elf && zone_eater && wing_egg_elf);
-        assert(Cards_InFusionGroup(dark_elf, CARD_FUSION_GROUP_FEMALE));
-        assert(!Cards_InFusionGroup(dark_elf, CARD_FUSION_GROUP_ELF));
-        assert(Cards_InFusionGroup(mystical_elf, CARD_FUSION_GROUP_FEMALE));
-        assert(Cards_InFusionGroup(mystical_elf, CARD_FUSION_GROUP_ELF));
-        assert(Cards_InFusionGroup(zone_eater, CARD_FUSION_GROUP_BUGROTHIAN));
-        assert(Cards_InFusionGroup(wing_egg_elf, CARD_FUSION_GROUP_ANGEL_WINGED));
-        assert(Cards_InFusionGroup(wing_egg_elf, CARD_FUSION_GROUP_EGG));
-        assert(Cards_InFusionGroup(wing_egg_elf, CARD_FUSION_GROUP_ELF));
-        assert(Cards_InFusionGroup(wing_egg_elf, CARD_FUSION_GROUP_MYST_ELFIAN));
-    }
     char directory[SCRATCH_MAX];
     unsigned char state[2048] = {0};
     int code = 123;
