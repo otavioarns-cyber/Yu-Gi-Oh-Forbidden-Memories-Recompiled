@@ -747,6 +747,8 @@ class RitualsTab(Tab):
                         parts.append(p.card_label(req["card"]))
                     if req.get("type") is not None:
                         parts.append(str(req["type"]))
+                    if req.get("fusion_group") is not None:
+                        parts.append(f'Group: {req["fusion_group"]}')
                     if req.get("min_attack") is not None:
                         parts.append(f'ATK ≥ {req["min_attack"]}')
                     if req.get("min_defense") is not None:
@@ -794,6 +796,8 @@ class RitualsTab(Tab):
                 parts.append("Specific Card")
             if req.get("type") is not None:
                 parts.append("Monster Type")
+            if req.get("fusion_group") is not None:
+                parts.append("Fusion Group")
             if req.get("min_attack") is not None:
                 parts.append("Minimum ATK")
             if req.get("min_defense") is not None:
@@ -831,6 +835,12 @@ class RitualsTab(Tab):
                     combo = ttk.Combobox(row, textvariable=value, values=TYPE_NAMES[:20], state="readonly", width=22)
                     combo.pack(side="left")
                     combo.bind("<<ComboboxSelected>>", lambda e, v=value, r=req: r.__setitem__("type", v.get()))
+                elif kind == "Fusion Group":
+                    value = tk.StringVar(value=req["fusion_group"])
+                    combo = ttk.Combobox(row, textvariable=value, values=("Elf", "Female"), state="readonly", width=22)
+                    combo.pack(side="left")
+                    combo.bind("<<ComboboxSelected>>",
+                               lambda e, v=value, r=req: r.__setitem__("fusion_group", v.get()))
                 elif kind in ("Minimum ATK", "Minimum DEF", "Minimum Level", "Maximum Level"):
                     if kind == "Minimum ATK":
                         key, limit = "min_attack", 9999
@@ -851,9 +861,10 @@ class RitualsTab(Tab):
                     ttk.Label(row, text="Required").pack(side="left")
                 if len(kinds) > 1:
                     def delete(k=kind, r=req, n=index):
-                        keys = {"Specific Card": "card", "Monster Type": "type", "Minimum ATK": "min_attack",
-                                "Minimum DEF": "min_defense", "Minimum Level": "min_level",
-                                "Maximum Level": "max_level", "DEF > ATK": "defense_gt_attack"}
+                        keys = {"Specific Card": "card", "Monster Type": "type", "Fusion Group": "fusion_group",
+                                "Minimum ATK": "min_attack", "Minimum DEF": "min_defense",
+                                "Minimum Level": "min_level", "Maximum Level": "max_level",
+                                "DEF > ATK": "defense_gt_attack"}
                         r.pop(keys[k], None)
                         render(n)
                     ttk.Button(row, text="Remove", command=delete).pack(side="right", padx=(6, 0))
@@ -863,9 +874,10 @@ class RitualsTab(Tab):
         def add_requirement(index):
             req = requirements[index]
             menu = tk.Menu(dialog, tearoff=False)
-            choices = [("Specific Card", "card"), ("Monster Type", "type"), ("Minimum ATK", "min_attack"),
-                       ("Minimum DEF", "min_defense"), ("Minimum Level", "min_level"),
-                       ("Maximum Level", "max_level"), ("DEF > ATK", "defense_gt_attack")]
+            choices = [("Specific Card", "card"), ("Monster Type", "type"), ("Fusion Group", "fusion_group"),
+                       ("Minimum ATK", "min_attack"), ("Minimum DEF", "min_defense"),
+                       ("Minimum Level", "min_level"), ("Maximum Level", "max_level"),
+                       ("DEF > ATK", "defense_gt_attack")]
             def add(key):
                 if key in req:
                     return
@@ -876,6 +888,8 @@ class RitualsTab(Tab):
                     req[key] = cid
                 elif key == "type":
                     req[key] = TYPE_NAMES[0]
+                elif key == "fusion_group":
+                    req[key] = "Elf"
                 elif key in ("min_attack", "min_defense"):
                     req[key] = 1000
                 elif key == "min_level":
