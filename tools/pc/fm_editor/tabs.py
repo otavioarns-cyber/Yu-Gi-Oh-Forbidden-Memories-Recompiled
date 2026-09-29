@@ -721,7 +721,7 @@ class RitualsTab(Tab):
         ttk.Button(buttons, text="Remove recipe", command=self.remove).pack(side="left", padx=4)
         ttk.Button(buttons, text="Revert to retail", command=self.revert).pack(side="left")
         ttk.Label(buttons, text="A ritual is one of the disc's ritual cards; the three tributes are monsters on "
-                                "the field.", style="Hint.TLabel").pack(side="right")
+                                "the field; custom recipes may use conditions.", style="Hint.TLabel").pack(side="right")
 
     def refresh(self):
         self.fill()
