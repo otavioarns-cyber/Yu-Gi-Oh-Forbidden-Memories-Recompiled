@@ -65,6 +65,8 @@ static unsigned char not_exodia[EXODIA_PIECE_COUNT];  /* a replaced piece withou
 /* The frame a card is drawn in when its entry says ("frame"), plus one: 0
  * is its type's (cards.h Cards_FrameColor). */
 static unsigned char frames[CARD_TABLE_ID_END];
+/* Explicit secondary fusion groups for modded/replaced cards. Zero means inherit the retail base. */
+static unsigned int fusion_groups[CARD_TABLE_ID_END];
 const char *Cards_Identity(int id) { return id > CARD_COUNT && Cards_Valid(id) && identities[id] ? identities[id] : ""; }
 int Cards_FindIdentity(const char *identity)
 {
@@ -508,6 +510,10 @@ int Cards_Level(int id)
 
 int Cards_InFusionGroup(int id, int group)
 {
+    unsigned int explicit_groups;
+    if (!Cards_Valid(id) || group <= CARD_FUSION_GROUP_NONE || group > CARD_FUSION_GROUP_USABLE_BEAST) return 0;
+    explicit_groups = fusion_groups[id];
+    if (explicit_groups) return !!(explicit_groups & (1u << group));
     /* Membership is the canonical "secondary card types by card" table from
      * Marcelo Silvarolla's programmatically validated Forbidden Memories
      * fusion guide.  Keep this explicit: several groups have conflict-driven
@@ -834,7 +840,7 @@ int Cards_InFusionGroup(int id, int group)
     size_t i;
     unsigned int bit, found = 0;
     int base = Cards_BaseId(id);
-    if (!base || group <= CARD_FUSION_GROUP_NONE || group > CARD_FUSION_GROUP_USABLE_BEAST) return 0;
+    if (!base) return 0;
     bit = 1u << group;
     for (i = 0; i < sizeof(cards) / sizeof(cards[0]); i++)
         if (Cards_Named(cards[i].name) == base) found |= cards[i].groups;
@@ -1049,6 +1055,21 @@ static void add_entry(const char *mod, const char *directory, int index, const J
     }
     if ((value = choice(Json_Member(entry, "attribute"), attribute_names, 6)) >= 0) {
         level_attr = (unsigned char)((level_attr & 0x0F) | (clamp(value, 0, 15) << 4));
+    }
+    /* Optional secondary fusion groups. A new card inherits its retail base when omitted.
+     * Supplying fusion_groups gives the card its own membership instead. */
+    {
+        const JsonValue *groups = Json_Member(entry, "fusion_groups");
+        if (groups) {
+            const JsonValue *g;
+            unsigned int mask = 0;
+            for (g = Json_At(groups, 0); g; g = Json_Next(g)) {
+                int group = Cards_FusionGroupNamed(Json_String(g, NULL));
+                if (group > CARD_FUSION_GROUP_NONE && group <= CARD_FUSION_GROUP_USABLE_BEAST) mask |= 1u << group;
+                else Mods_Note(mod, "cards[%d]: unknown fusion_groups entry", index);
+            }
+            fusion_groups[replace ? base : gCard_nCount + 1] = mask;
+        }
     }
     /* Left out, the frame is the base's (its type's unless an earlier entry
      * chose one); "type" goes back to the type's. */
