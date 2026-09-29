@@ -782,6 +782,7 @@ class RitualsTab(Tab):
         dialog.minsize(px(dialog, 620), 0)
         dialog.grab_set()
         dialog.bind("<Escape>", lambda e: dialog.destroy())
+        dialog.protocol("WM_DELETE_WINDOW", dialog.destroy)
         body = ttk.Frame(dialog, padding=12)
         body.pack(fill="both", expand=True)
         ttk.Label(body, text=self.project.card_label(ritual), font=("TkDefaultFont", 11, "bold")).pack(
@@ -972,6 +973,7 @@ class RitualsTab(Tab):
 
         ttk.Button(buttons, text="Save", command=save).pack(side="right")
         ttk.Button(buttons, text="Cancel", command=dialog.destroy).pack(side="right", padx=4)
+        dialog.bind("<Control-s>", lambda e: save())
 
     def remove(self):
         ritual = self.selected()
