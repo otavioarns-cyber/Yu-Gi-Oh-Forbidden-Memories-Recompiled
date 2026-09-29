@@ -845,6 +845,12 @@ def read_rituals(project: Project, entries, messages: list):
                             valid = False
                         else:
                             req["type"] = TYPE_NAMES[named]
+                    if "fusion_group" in tribute:
+                        value = tribute["fusion_group"]
+                        if value not in ("Elf", "Female"):
+                            valid = False
+                        else:
+                            req["fusion_group"] = value
                     for key in ("min_attack", "min_defense"):
                         if key in tribute:
                             value = tribute[key]
