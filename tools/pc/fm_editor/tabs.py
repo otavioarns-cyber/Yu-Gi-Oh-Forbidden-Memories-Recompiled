@@ -859,15 +859,17 @@ class RitualsTab(Tab):
                     numeric_inputs[index][key] = (value, limit)
                 else:
                     ttk.Label(row, text="Required").pack(side="left")
-                if len(kinds) > 1:
-                    def delete(k=kind, r=req, n=index):
-                        keys = {"Specific Card": "card", "Monster Type": "type", "Fusion Group": "fusion_group",
-                                "Minimum ATK": "min_attack", "Minimum DEF": "min_defense",
-                                "Minimum Level": "min_level", "Maximum Level": "max_level",
-                                "DEF > ATK": "defense_gt_attack"}
-                        r.pop(keys[k], None)
-                        render(n)
-                    ttk.Button(row, text="Remove", command=delete).pack(side="right", padx=(6, 0))
+                def delete(k=kind, r=req, n=index):
+                    keys = {"Specific Card": "card", "Monster Type": "type", "Fusion Group": "fusion_group",
+                            "Minimum ATK": "min_attack", "Minimum DEF": "min_defense",
+                            "Minimum Level": "min_level", "Maximum Level": "max_level",
+                            "DEF > ATK": "defense_gt_attack"}
+                    if len(describe(r)) <= 1:
+                        return
+                    r.pop(keys[k], None)
+                    render(n)
+                ttk.Button(row, text="Remove", command=delete,
+                           state="normal" if len(kinds) > 1 else "disabled").pack(side="right", padx=(6, 0))
             ttk.Button(panel, text="+ Add requirement", command=lambda n=index: add_requirement(n)).pack(
                 anchor="w", pady=(6, 0))
 
