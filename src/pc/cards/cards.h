@@ -75,6 +75,8 @@ int Cards_Type(int id);
  * "Wind"), 0-5, or -1; and the attribute of a card. */
 int Cards_AttributeNamed(const char *text);
 int Cards_Attribute(int id);
+/* A monster's printed level (the number of stars), or -1 for no card. */
+int Cards_Level(int id);
 
 /* The retail card `id` is a copy of, or `id` itself; 0 for no card. */
 int Cards_BaseId(int id);
