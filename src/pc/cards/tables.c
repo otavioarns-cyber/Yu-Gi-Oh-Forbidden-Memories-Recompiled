@@ -640,7 +640,13 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
         out->min_defense = (short)n;
     }
     v = Json_Member(value, "defense_gt_attack");
-    if (v) out->defense_gt_attack = Json_Bool(v, 0) != 0;
+    if (v) {
+        if (Json_TypeOf(v) != JSON_BOOL) {
+            Mods_Note(mod, "%s: \"defense_gt_attack\" is true or false", where);
+            return 0;
+        }
+        out->defense_gt_attack = Json_Bool(v, 0) != 0;
+    }
     if (!out->card && out->type < 0 && !out->min_attack && !out->min_defense && !out->defense_gt_attack) {
         Mods_Note(mod, "%s: ritual tribute has no requirement", where); return 0;
     }
