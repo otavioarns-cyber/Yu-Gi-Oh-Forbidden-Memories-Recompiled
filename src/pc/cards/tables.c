@@ -627,9 +627,15 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
     }
     v = Json_Member(value, "fusion_group");
     if (v) {
-        int group = Cards_FusionGroupNamed(Json_String(v, NULL));
-        if (!group) {
-            Mods_Note(mod, "%s: \"fusion_group\" is Elf or Female", where); return 0;
+        static const char *const groups[] = {
+            "", "AngelWinged", "Bugrothian", "Egg", "Elf", "FeatherFromBear",
+            "FeatherFromHarpie", "FeatherFromMachine", "Female", "Jar", "Koumorian",
+            "MercuryMagicUser", "MercurySpellcaster", "Mirror", "MusKingian",
+            "MystElfian", "Rainbow", "Sheepian", "Thronian", "Turtle", "UsableBeast"
+        };
+        int group = choice(v, groups, (int)(sizeof(groups) / sizeof(groups[0])));
+        if (group <= CARD_FUSION_GROUP_NONE || group > CARD_FUSION_GROUP_USABLE_BEAST) {
+            Mods_Note(mod, "%s: \"fusion_group\" is a known secondary fusion group", where); return 0;
         }
         out->fusion_group = (unsigned char)group;
     }
