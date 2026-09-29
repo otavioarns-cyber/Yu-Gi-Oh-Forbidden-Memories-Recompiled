@@ -602,6 +602,8 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
     int id, type;
     memset(out, 0, sizeof(*out));
     out->type = -1;
+    out->min_level = -1;
+    out->max_level = -1;
     if (Json_TypeOf(value) != JSON_OBJECT) {
         id = card(mod, where, value);
         if (!id) return 0;
@@ -639,6 +641,25 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
         }
         out->min_defense = (short)n;
     }
+    v = Json_Member(value, "min_level");
+    if (v) {
+        long n = Json_Number(v, -1);
+        if (n < 0 || n > 12) {
+            Mods_Note(mod, "%s: \"min_level\" is 0 to 12", where); return 0;
+        }
+        out->min_level = (signed char)n;
+    }
+    v = Json_Member(value, "max_level");
+    if (v) {
+        long n = Json_Number(v, -1);
+        if (n < 0 || n > 12) {
+            Mods_Note(mod, "%s: \"max_level\" is 0 to 12", where); return 0;
+        }
+        out->max_level = (signed char)n;
+    }
+    if (out->min_level >= 0 && out->max_level >= 0 && out->min_level > out->max_level) {
+        Mods_Note(mod, "%s: ritual tribute minimum level is above maximum level", where); return 0;
+    }
     v = Json_Member(value, "defense_gt_attack");
     if (v) {
         if (Json_TypeOf(v) != JSON_BOOL) {
@@ -647,7 +668,8 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
         }
         out->defense_gt_attack = Json_Bool(v, 0) != 0;
     }
-    if (!out->card && out->type < 0 && !out->min_attack && !out->min_defense && !out->defense_gt_attack) {
+    if (!out->card && out->type < 0 && !out->min_attack && !out->min_defense &&
+        out->min_level < 0 && out->max_level < 0 && !out->defense_gt_attack) {
         Mods_Note(mod, "%s: ritual tribute has no requirement", where); return 0;
     }
     return 1;
