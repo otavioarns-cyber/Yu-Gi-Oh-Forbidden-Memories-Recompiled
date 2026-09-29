@@ -67,6 +67,7 @@ static unsigned char not_exodia[EXODIA_PIECE_COUNT];  /* a replaced piece withou
 static unsigned char frames[CARD_TABLE_ID_END];
 /* Explicit secondary fusion groups for modded/replaced cards. Zero means inherit the retail base. */
 static unsigned int fusion_groups[CARD_TABLE_ID_END];
+static unsigned char has_fusion_groups[CARD_TABLE_ID_END];
 const char *Cards_Identity(int id) { return id > CARD_COUNT && Cards_Valid(id) && identities[id] ? identities[id] : ""; }
 int Cards_FindIdentity(const char *identity)
 {
@@ -513,7 +514,7 @@ int Cards_InFusionGroup(int id, int group)
     unsigned int explicit_groups;
     if (!Cards_Valid(id) || group <= CARD_FUSION_GROUP_NONE || group > CARD_FUSION_GROUP_USABLE_BEAST) return 0;
     explicit_groups = fusion_groups[id];
-    if (explicit_groups) return !!(explicit_groups & (1u << group));
+    if (has_fusion_groups[id]) return !!(explicit_groups & (1u << group));
     /* Membership is the canonical "secondary card types by card" table from
      * Marcelo Silvarolla's programmatically validated Forbidden Memories
      * fusion guide.  Keep this explicit: several groups have conflict-driven
@@ -1069,6 +1070,7 @@ static void add_entry(const char *mod, const char *directory, int index, const J
                 else Mods_Note(mod, "cards[%d]: unknown fusion_groups entry", index);
             }
             fusion_groups[replace ? base : gCard_nCount + 1] = mask;
+            has_fusion_groups[replace ? base : gCard_nCount + 1] = 1;
         }
     }
     /* Left out, the frame is the base's (its type's unless an earlier entry
