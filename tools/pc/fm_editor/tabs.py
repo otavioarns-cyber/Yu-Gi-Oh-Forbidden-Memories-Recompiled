@@ -837,7 +837,10 @@ class RitualsTab(Tab):
                     combo.bind("<<ComboboxSelected>>", lambda e, v=value, r=req: r.__setitem__("type", v.get()))
                 elif kind == "Fusion Group":
                     value = tk.StringVar(value=req["fusion_group"])
-                    combo = ttk.Combobox(row, textvariable=value, values=("Elf", "Female"), state="readonly", width=22)
+                    combo = ttk.Combobox(row, textvariable=value, values=("AngelWinged", "Bugrothian", "Egg", "Elf", "FeatherFromBear", "FeatherFromHarpie",
+                                             "FeatherFromMachine", "Female", "Jar", "Koumorian", "MercuryMagicUser",
+                                             "MercurySpellcaster", "Mirror", "MusKingian", "MystElfian", "Rainbow",
+                                             "Sheepian", "Thronian", "Turtle", "UsableBeast"), state="readonly", width=22)
                     combo.pack(side="left")
                     combo.bind("<<ComboboxSelected>>",
                                lambda e, v=value, r=req: r.__setitem__("fusion_group", v.get()))
