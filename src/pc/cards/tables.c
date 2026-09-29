@@ -633,7 +633,10 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
             "MercuryMagicUser", "MercurySpellcaster", "Mirror", "MusKingian",
             "MystElfian", "Rainbow", "Sheepian", "Thronian", "Turtle", "UsableBeast"
         };
-        int group = choice(v, groups, (int)(sizeof(groups) / sizeof(groups[0])));
+        int group = -1, gi;
+        const char *group_name = Json_String(v, NULL);
+        for (gi = 1; group_name && gi < (int)(sizeof(groups) / sizeof(groups[0])); gi++)
+            if (!strcmp(group_name, groups[gi])) { group = gi; break; }
         if (group <= CARD_FUSION_GROUP_NONE || group > CARD_FUSION_GROUP_USABLE_BEAST) {
             Mods_Note(mod, "%s: \"fusion_group\" is a known secondary fusion group", where); return 0;
         }
