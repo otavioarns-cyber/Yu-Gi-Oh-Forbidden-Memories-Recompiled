@@ -852,6 +852,16 @@ def read_rituals(project: Project, entries, messages: list):
                                 valid = False
                             else:
                                 req[key] = int(value)
+                    for key in ("min_level", "max_level"):
+                        if key in tribute:
+                            value = tribute[key]
+                            if isinstance(value, bool) or not isinstance(value, (int, float)) or int(value) != value or not 0 <= int(value) <= 12:
+                                valid = False
+                            else:
+                                req[key] = int(value)
+                    if (req.get("min_level") is not None and req.get("max_level") is not None
+                            and req["min_level"] > req["max_level"]):
+                        valid = False
                     if "defense_gt_attack" in tribute:
                         if not isinstance(tribute["defense_gt_attack"], bool):
                             valid = False
