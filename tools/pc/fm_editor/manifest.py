@@ -819,6 +819,7 @@ def read_rituals(project: Project, entries, messages: list):
             continue
         if "result" in entry and entry["result"] is None:
             project.rituals.pop(ritual, None)
+            project.ritual_requirements.pop(ritual, None)
             continue
         tributes = entry.get("tributes")
         if not isinstance(tributes, list) or len(tributes) != 3:
@@ -837,9 +838,25 @@ def read_rituals(project: Project, entries, messages: list):
                             valid = False
                         else:
                             req["card"] = cid
-                    for key in ("type", "min_attack", "min_defense", "defense_gt_attack"):
+                    if "type" in tribute:
+                        value = tribute["type"]
+                        named = type_named(value) if isinstance(value, str) else -1
+                        if named < 0 or named >= TYPE_MAGIC:
+                            valid = False
+                        else:
+                            req["type"] = TYPE_NAMES[named]
+                    for key in ("min_attack", "min_defense"):
                         if key in tribute:
-                            req[key] = tribute[key]
+                            value = tribute[key]
+                            if isinstance(value, bool) or not isinstance(value, (int, float)) or int(value) != value or not 0 <= int(value) <= 9999:
+                                valid = False
+                            else:
+                                req[key] = int(value)
+                    if "defense_gt_attack" in tribute:
+                        if not isinstance(tribute["defense_gt_attack"], bool):
+                            valid = False
+                        elif tribute["defense_gt_attack"]:
+                            req["defense_gt_attack"] = True
                     if not req:
                         valid = False
                     requirements.append(req)
