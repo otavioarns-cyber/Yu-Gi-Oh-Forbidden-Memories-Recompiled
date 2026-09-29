@@ -50,15 +50,15 @@ int Tables_EquipBonus(int equip, int monster, int retail);
 int Tables_Ritual(int ritual, unsigned short recipe[6]);
 
 /* A condition-based ritual tribute. A slot may require a specific card,
- * a monster type, minimum printed ATK/DEF, a minimum/maximum printed level,
- * and/or DEF greater than ATK.
+ * a monster type, secondary fusion group (Elf/Female), minimum printed
+ * ATK/DEF, a minimum/maximum printed level, and/or DEF greater than ATK.
  * The requirements in one slot are ANDed. Returns 1 when the latest ritual
  * rule has condition-based tributes and fills result, 0 otherwise. */
 typedef struct {
     unsigned short card;
     short min_attack, min_defense;
     signed char type, min_level, max_level;
-    unsigned char defense_gt_attack;
+    unsigned char fusion_group, defense_gt_attack;
 } TablesRitualRequirement;
 int Tables_RitualRequirements(int ritual, TablesRitualRequirement requirements[3], unsigned short *result);
 
