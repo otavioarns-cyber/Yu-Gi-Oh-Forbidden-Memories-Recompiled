@@ -32,36 +32,52 @@ s32 Duel_CheckRitual(DuelRitualResult *out, s32 ritualId)
     TablesRitualRequirement requirements[DUEL_RITUAL_TRIBUTE_COUNT];
     u16 conditional_result = 0;
     if (Tables_RitualRequirements(ritualId, requirements, &conditional_result)) {
-        int used[DUEL_FIELD_ROW_SIZE] = {0};
+        int match[DUEL_RITUAL_TRIBUTE_COUNT];
+        int a, b, d;
         i = DUEL_FIELD_ROW_SIZE;
         if (D_8009B1D5 != 0) i = DUEL_CARD_SIDE_RECORD_COUNT + DUEL_FIELD_ROW_SIZE;
         c = &D_801A7AD8[i];
-        for (i = 0; i < DUEL_FIELD_ROW_SIZE; i++) cands[i] = (c[i].flags & DUEL_CARD_FLAG_OCCUPIED) ? &c[i] : 0;
-        for (j = 0; j < DUEL_RITUAL_TRIBUTE_COUNT; j++) {
-            found[j] = 0;
-            for (i = 0; i < DUEL_FIELD_ROW_SIZE; i++) {
-                int stats, attack, defense, id;
-                if (used[i] || !cands[i]) continue;
-                id = cands[i]->card_id;
-                stats = gDuel_adwCardStats[id - 1];
-                attack = (stats & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
-                defense = ((stats >> CARD_STAT_DEFENSE_SHIFT) & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
-                if (requirements[j].card && id != requirements[j].card &&
-                    Cards_BaseId(id) != requirements[j].card) continue;
-                if (requirements[j].type >= 0 && Cards_Type(id) != requirements[j].type) continue;
-                if (attack < requirements[j].min_attack || defense < requirements[j].min_defense) continue;
-                if (requirements[j].defense_gt_attack && defense <= attack) continue;
-                found[j] = cands[i];
-                used[i] = 1;
-                break;
+        for (i = 0; i < DUEL_FIELD_ROW_SIZE; i++)
+            cands[i] = (c[i].flags & DUEL_CARD_FLAG_OCCUPIED) ? &c[i] : 0;
+
+        /* There are only three tribute slots and five field monsters. Try
+         * every distinct assignment so a broad requirement cannot steal the
+         * only monster that satisfies a narrower later slot. */
+        for (a = 0; a < DUEL_FIELD_ROW_SIZE; a++) {
+            for (b = 0; b < DUEL_FIELD_ROW_SIZE; b++) {
+                if (b == a) continue;
+                for (d = 0; d < DUEL_FIELD_ROW_SIZE; d++) {
+                    int slots[DUEL_RITUAL_TRIBUTE_COUNT] = {a, b, d};
+                    int ok = d != a && d != b;
+                    if (!ok) continue;
+                    for (j = 0; j < DUEL_RITUAL_TRIBUTE_COUNT && ok; j++) {
+                        int stats, attack, defense, id;
+                        card = cands[slots[j]];
+                        if (!card) { ok = 0; break; }
+                        id = card->card_id;
+                        stats = gDuel_adwCardStats[id - 1];
+                        attack = (stats & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
+                        defense = ((stats >> CARD_STAT_DEFENSE_SHIFT) & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
+                        if (requirements[j].card && id != requirements[j].card &&
+                            Cards_BaseId(id) != requirements[j].card) ok = 0;
+                        if (requirements[j].type >= 0 && Cards_Type(id) != requirements[j].type) ok = 0;
+                        if (attack < requirements[j].min_attack || defense < requirements[j].min_defense) ok = 0;
+                        if (requirements[j].defense_gt_attack && defense <= attack) ok = 0;
+                    }
+                    if (ok) {
+                        match[0] = a; match[1] = b; match[2] = d;
+                        for (j = 0; j < DUEL_RITUAL_TRIBUTE_COUNT; j++) found[j] = cands[match[j]];
+                        if (out != 0) {
+                            for (i = 0; i < DUEL_RITUAL_TRIBUTE_COUNT; i++)
+                                out->tribute_objects[i] = found[i]->object;
+                            out->field_0C = 0;
+                        }
+                        return conditional_result;
+                    }
+                }
             }
-            if (!found[j]) return 0;
         }
-        if (out != 0) {
-            for (i = 0; i < DUEL_RITUAL_TRIBUTE_COUNT; i++) out->tribute_objects[i] = found[i]->object;
-            out->field_0C = 0;
-        }
-        return conditional_result;
+        return 0;
     }
 #endif
 #ifdef MEMORIES_PC
