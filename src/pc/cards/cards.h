@@ -77,6 +77,11 @@ int Cards_AttributeNamed(const char *text);
 int Cards_Attribute(int id);
 /* A monster's printed level (the number of stars), or -1 for no card. */
 int Cards_Level(int id);
+/* Forbidden Memories' secondary fusion groups used by general fusion rules.
+ * These are properties of the retail base card, not primary monster types. */
+enum { CARD_FUSION_GROUP_NONE, CARD_FUSION_GROUP_ELF, CARD_FUSION_GROUP_FEMALE };
+int Cards_FusionGroupNamed(const char *text);
+int Cards_InFusionGroup(int id, int group);
 
 /* The retail card `id` is a copy of, or `id` itself; 0 for no card. */
 int Cards_BaseId(int id);
