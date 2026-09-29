@@ -232,7 +232,7 @@ def build_rituals(project: Project) -> list:
     retail = project.retail.rituals
     for ritual in sorted(set(retail) | set(project.rituals)):
         now = project.rituals.get(ritual)
-        if retail.get(ritual) == now:
+        if retail.get(ritual) == now and ritual not in project.ritual_requirements:
             continue
         if now is None:
             entries.append({"card": project.ref(ritual), "result": None})
