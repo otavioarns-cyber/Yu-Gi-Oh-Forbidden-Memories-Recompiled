@@ -469,6 +469,11 @@ int Cards_Attribute(int id)
     return Cards_Valid(id) ? gDuel_abCardLevelAttr[id] >> 4 : -1;
 }
 
+int Cards_Level(int id)
+{
+    return Cards_Valid(id) ? gDuel_abCardLevelAttr[id] & 0x0F : -1;
+}
+
 typedef struct {
     int use_count[2][CARD_ID_END];  /* copies taking a base's place, per use */
     unsigned char use[CARD_TABLE_ID_END];
