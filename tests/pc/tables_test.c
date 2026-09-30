@@ -205,9 +205,9 @@ int main(void)
         TablesRitualRequirement req[3];
         unsigned short result = 0;
         add("conditions", "{\"rituals\": [{\"card\": 21, \"tributes\": ["
-            "{\"min_defense\": 1000, \"defense_gt_attack\": true},"
+            "{\"min_defense\": 1000, \"max_defense\": 2999, \"defense_gt_attack\": true},"
             "{\"card\": 11},"
-            "{\"type\": \"Dragon\", \"min_attack\": 500}], \"result\": 12}]}");
+            "{\"type\": \"Dragon\", \"min_attack\": 500, \"max_attack\": 2500}], \"result\": 12}]}");
         assert(Tables_Ritual(21, own) == -1);
         assert(Tables_RitualRequirements(21, req, &result) == 1 && result == 12);
         assert(req[0].card == 0 && req[0].min_defense == 1000 && req[0].max_defense == 2999 && req[0].defense_gt_attack == 1);
