@@ -753,6 +753,10 @@ class RitualsTab(Tab):
                         parts.append(f'ATK ≥ {req["min_attack"]}')
                     if req.get("min_defense") is not None:
                         parts.append(f'DEF ≥ {req["min_defense"]}')
+                    if req.get("max_attack") is not None:
+                        parts.append(f'ATK ≤ {req["max_attack"]}')
+                    if req.get("max_defense") is not None:
+                        parts.append(f'DEF ≤ {req["max_defense"]}')
                     if req.get("min_level") is not None:
                         parts.append(f'Level ≥ {req["min_level"]}')
                     if req.get("max_level") is not None:
@@ -804,6 +808,10 @@ class RitualsTab(Tab):
                 parts.append("Minimum ATK")
             if req.get("min_defense") is not None:
                 parts.append("Minimum DEF")
+            if req.get("max_attack") is not None:
+                parts.append("Maximum ATK")
+            if req.get("max_defense") is not None:
+                parts.append("Maximum DEF")
             if req.get("min_level") is not None:
                 parts.append("Minimum Level")
             if req.get("max_level") is not None:
@@ -845,11 +853,15 @@ class RitualsTab(Tab):
                     combo.pack(side="left")
                     combo.bind("<<ComboboxSelected>>",
                                lambda e, v=value, r=req: r.__setitem__("fusion_group", v.get()))
-                elif kind in ("Minimum ATK", "Minimum DEF", "Minimum Level", "Maximum Level"):
+                elif kind in ("Minimum ATK", "Minimum DEF", "Maximum ATK", "Maximum DEF", "Minimum Level", "Maximum Level"):
                     if kind == "Minimum ATK":
                         key, limit = "min_attack", 9999
                     elif kind == "Minimum DEF":
                         key, limit = "min_defense", 9999
+                    elif kind == "Maximum ATK":
+                        key, limit = "max_attack", 9999
+                    elif kind == "Maximum DEF":
+                        key, limit = "max_defense", 9999
                     elif kind == "Minimum Level":
                         key, limit = "min_level", 12
                     else:
@@ -863,6 +875,7 @@ class RitualsTab(Tab):
                 def delete(k=kind, r=req, n=index):
                     keys = {"Specific Card": "card", "Monster Type": "type", "Fusion Group": "fusion_group",
                             "Minimum ATK": "min_attack", "Minimum DEF": "min_defense",
+                            "Maximum ATK": "max_attack", "Maximum DEF": "max_defense",
                             "Minimum Level": "min_level", "Maximum Level": "max_level",
                             "DEF > ATK": "defense_gt_attack"}
                     if len(describe(r)) <= 1:
@@ -879,6 +892,7 @@ class RitualsTab(Tab):
             menu = tk.Menu(dialog, tearoff=False)
             choices = [("Specific Card", "card"), ("Monster Type", "type"), ("Fusion Group", "fusion_group"),
                        ("Minimum ATK", "min_attack"), ("Minimum DEF", "min_defense"),
+                       ("Maximum ATK", "max_attack"), ("Maximum DEF", "max_defense"),
                        ("Minimum Level", "min_level"), ("Maximum Level", "max_level"),
                        ("DEF > ATK", "defense_gt_attack")]
             def add(key):
@@ -893,7 +907,7 @@ class RitualsTab(Tab):
                     req[key] = TYPE_NAMES[0]
                 elif key == "fusion_group":
                     req[key] = "Elf"
-                elif key in ("min_attack", "min_defense"):
+                elif key in ("min_attack", "min_defense", "max_attack", "max_defense"):
                     req[key] = 1000
                 elif key == "min_level":
                     req[key] = 1
@@ -953,6 +967,14 @@ class RitualsTab(Tab):
                         return
                     req[key] = number
             result_id = result.get()
+            if any(req.get("min_attack") is not None and req.get("max_attack") is not None
+                   and req["min_attack"] > req["max_attack"] for req in requirements):
+                error.configure(text="Minimum ATK cannot be greater than Maximum ATK.")
+                return
+            if any(req.get("min_defense") is not None and req.get("max_defense") is not None
+                   and req["min_defense"] > req["max_defense"] for req in requirements):
+                error.configure(text="Minimum DEF cannot be greater than Maximum DEF.")
+                return
             if any(req.get("min_level") is not None and req.get("max_level") is not None
                    and req["min_level"] > req["max_level"] for req in requirements):
                 error.configure(text="Minimum Level cannot be greater than Maximum Level.")
