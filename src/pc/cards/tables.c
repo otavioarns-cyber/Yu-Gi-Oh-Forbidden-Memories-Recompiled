@@ -602,6 +602,8 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
     int id, type;
     memset(out, 0, sizeof(*out));
     out->type = -1;
+    out->max_attack = -1;
+    out->max_defense = -1;
     out->min_level = -1;
     out->max_level = -1;
     if (Json_TypeOf(value) != JSON_OBJECT) {
@@ -658,6 +660,28 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
         }
         out->min_defense = (short)n;
     }
+    v = Json_Member(value, "max_attack");
+    if (v) {
+        long n = Json_Number(v, -1);
+        if (n < 0 || n > CARD_STAT_MAX) {
+            Mods_Note(mod, "%s: \"max_attack\" is 0 to %d", where, CARD_STAT_MAX); return 0;
+        }
+        out->max_attack = (short)n;
+    }
+    v = Json_Member(value, "max_defense");
+    if (v) {
+        long n = Json_Number(v, -1);
+        if (n < 0 || n > CARD_STAT_MAX) {
+            Mods_Note(mod, "%s: \"max_defense\" is 0 to %d", where, CARD_STAT_MAX); return 0;
+        }
+        out->max_defense = (short)n;
+    }
+    if (out->max_attack >= 0 && out->min_attack > out->max_attack) {
+        Mods_Note(mod, "%s: ritual tribute minimum ATK is above maximum ATK", where); return 0;
+    }
+    if (out->max_defense >= 0 && out->min_defense > out->max_defense) {
+        Mods_Note(mod, "%s: ritual tribute minimum DEF is above maximum DEF", where); return 0;
+    }
     v = Json_Member(value, "min_level");
     if (v) {
         long n = Json_Number(v, -1);
@@ -685,7 +709,7 @@ static int ritual_requirement(const char *mod, const char *where, const JsonValu
         }
         out->defense_gt_attack = Json_Bool(v, 0) != 0;
     }
-    if (!out->card && out->type < 0 && !out->fusion_group && !out->min_attack && !out->min_defense &&
+    if (!out->card && out->type < 0 && !out->fusion_group && !out->min_attack && !out->min_defense && out->max_attack < 0 && out->max_defense < 0 &&
         out->min_level < 0 && out->max_level < 0 && !out->defense_gt_attack) {
         Mods_Note(mod, "%s: ritual tribute has no requirement", where); return 0;
     }
