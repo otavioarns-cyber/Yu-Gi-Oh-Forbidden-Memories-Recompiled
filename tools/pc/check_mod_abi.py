@@ -310,7 +310,10 @@ def fetch(tag, system):
         return unpacked
     os.makedirs(folder, exist_ok=True)
     name = f"yfm-redecomp-{tag}-{system}." + ("zip" if system == "windows" else "tar.gz")
-    url = f"https://github.com/{os.environ.get('GITHUB_REPOSITORY', REPOSITORY)}/releases/download/{tag}/{name}"
+    # Compatibility baselines belong to the upstream project. A fork normally
+    # has no copies of historical release assets, so GITHUB_REPOSITORY would
+    # make CI request a release that does not exist in the fork.
+    url = f"https://github.com/{REPOSITORY}/releases/download/{tag}/{name}"
     print(f"check_mod_abi: downloading {url}", flush=True)
     # Downloaded and unpacked in a folder of this run's, then moved in whole:
     # a check in another worktree may be fetching the same release.
