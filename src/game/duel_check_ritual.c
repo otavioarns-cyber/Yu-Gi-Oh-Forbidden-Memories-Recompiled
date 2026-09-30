@@ -32,17 +32,43 @@ s32 Duel_CheckRitual(DuelRitualResult *out, s32 ritualId)
     TablesRitualRequirement requirements[DUEL_RITUAL_TRIBUTE_COUNT];
     u16 conditional_result = 0;
     if (Tables_RitualRequirements(ritualId, requirements, &conditional_result)) {
-        int match[DUEL_RITUAL_TRIBUTE_COUNT];
-        int a, b, d;
+        int match[DUEL_RITUAL_TRIBUTE_COUNT] = {-1, -1, -1};
+        int order[DUEL_RITUAL_TRIBUTE_COUNT] = {0, 1, 2};
+        int specificity[DUEL_RITUAL_TRIBUTE_COUNT];
+        int a, b, d, x, y;
         i = DUEL_FIELD_ROW_SIZE;
         if (D_8009B1D5 != 0) i = DUEL_CARD_SIDE_RECORD_COUNT + DUEL_FIELD_ROW_SIZE;
         c = &D_801A7AD8[i];
         for (i = 0; i < DUEL_FIELD_ROW_SIZE; i++)
             cands[i] = (c[i].flags & DUEL_CARD_FLAG_OCCUPIED) ? &c[i] : 0;
 
-        /* There are only three tribute slots and five field monsters. Try
-         * every distinct assignment so a broad requirement cannot steal the
-         * only monster that satisfies a narrower later slot. */
+        /* Decide the tribute slots in specificity order. A named card is
+         * always reserved before a broad rule; otherwise the rule with more
+         * conditions is narrower. This makes a broad slot unable to consume
+         * the only monster a specific slot needs. */
+        for (j = 0; j < DUEL_RITUAL_TRIBUTE_COUNT; j++) {
+            specificity[j] = requirements[j].card ? 100 : 0;
+            specificity[j] += requirements[j].type >= 0;
+            specificity[j] += requirements[j].fusion_group != 0;
+            specificity[j] += requirements[j].min_attack != 0;
+            specificity[j] += requirements[j].min_defense != 0;
+            specificity[j] += requirements[j].max_attack >= 0;
+            specificity[j] += requirements[j].max_defense >= 0;
+            specificity[j] += requirements[j].min_level >= 0;
+            specificity[j] += requirements[j].max_level >= 0;
+            specificity[j] += requirements[j].defense_gt_attack != 0;
+        }
+        for (x = 0; x < DUEL_RITUAL_TRIBUTE_COUNT - 1; x++)
+            for (y = x + 1; y < DUEL_RITUAL_TRIBUTE_COUNT; y++)
+                if (specificity[order[y]] > specificity[order[x]]) {
+                    int swap = order[x]; order[x] = order[y]; order[y] = swap;
+                }
+
+        /* Try every distinct assignment. Among all valid assignments, compare
+         * slots in the specificity order above and keep the one with the
+         * lowest printed DEF, then lowest printed ATK, then lowest field
+         * position. Thus a specific-card slot is protected first and broad
+         * requirements spend the weakest qualifying monsters. */
         for (a = 0; a < DUEL_FIELD_ROW_SIZE; a++) {
             for (b = 0; b < DUEL_FIELD_ROW_SIZE; b++) {
                 if (b == a) continue;
@@ -63,22 +89,43 @@ s32 Duel_CheckRitual(DuelRitualResult *out, s32 ritualId)
                         if (requirements[j].type >= 0 && Cards_Type(id) != requirements[j].type) ok = 0;
                         if (requirements[j].fusion_group && !Cards_InFusionGroup(id, requirements[j].fusion_group)) ok = 0;
                         if (attack < requirements[j].min_attack || defense < requirements[j].min_defense) ok = 0;
+                        if (requirements[j].max_attack >= 0 && attack > requirements[j].max_attack) ok = 0;
+                        if (requirements[j].max_defense >= 0 && defense > requirements[j].max_defense) ok = 0;
                         if (requirements[j].min_level >= 0 && Cards_Level(id) < requirements[j].min_level) ok = 0;
                         if (requirements[j].max_level >= 0 && Cards_Level(id) > requirements[j].max_level) ok = 0;
                         if (requirements[j].defense_gt_attack && defense <= attack) ok = 0;
                     }
                     if (ok) {
-                        match[0] = a; match[1] = b; match[2] = d;
-                        for (j = 0; j < DUEL_RITUAL_TRIBUTE_COUNT; j++) found[j] = cands[match[j]];
-                        if (out != 0) {
-                            for (i = 0; i < DUEL_RITUAL_TRIBUTE_COUNT; i++)
-                                out->tribute_objects[i] = found[i]->object;
-                            out->field_0C = 0;
+                        int better = match[0] < 0;
+                        for (x = 0; x < DUEL_RITUAL_TRIBUTE_COUNT && !better && match[0] >= 0; x++) {
+                            int slot = order[x];
+                            int new_id = cands[slots[slot]]->card_id;
+                            int old_id = cands[match[slot]]->card_id;
+                            int new_stats = gDuel_adwCardStats[new_id - 1];
+                            int old_stats = gDuel_adwCardStats[old_id - 1];
+                            int new_def = ((new_stats >> CARD_STAT_DEFENSE_SHIFT) & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
+                            int old_def = ((old_stats >> CARD_STAT_DEFENSE_SHIFT) & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
+                            int new_atk = (new_stats & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
+                            int old_atk = (old_stats & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
+                            if (new_def != old_def) { better = new_def < old_def; break; }
+                            if (new_atk != old_atk) { better = new_atk < old_atk; break; }
+                            if (slots[slot] != match[slot]) { better = slots[slot] < match[slot]; break; }
                         }
-                        return conditional_result;
+                        if (better) {
+                            match[0] = a; match[1] = b; match[2] = d;
+                        }
                     }
                 }
             }
+        }
+        if (match[0] >= 0) {
+            for (j = 0; j < DUEL_RITUAL_TRIBUTE_COUNT; j++) found[j] = cands[match[j]];
+            if (out != 0) {
+                for (i = 0; i < DUEL_RITUAL_TRIBUTE_COUNT; i++)
+                    out->tribute_objects[i] = found[i]->object;
+                out->field_0C = 0;
+            }
+            return conditional_result;
         }
         return 0;
     }
