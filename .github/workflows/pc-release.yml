@@ -159,12 +159,12 @@ jobs:
           pattern: yfm-redecomp-*
           merge-multiple: true
           path: artifacts
-      - name: Collect FM Editor packages
+      - name: Collect Ritual test packages
         shell: bash
         run: |
           mkdir -p release
-          find artifacts -maxdepth 1 -type f \( -name 'fm-editor-*-windows.zip' -o -name 'fm-editor-*-linux.tar.gz' \) -exec cp {} release/ \;
-          test "$(find release -maxdepth 1 -type f | wc -l)" -eq 2
+          find artifacts -maxdepth 1 -type f \( -name 'fm-editor-*-windows.zip' -o -name 'fm-editor-*-linux.tar.gz' -o -name 'yfm-redecomp-*-windows.zip' \) -exec cp {} release/ \;
+          test "$(find release -maxdepth 1 -type f | wc -l)" -eq 3
       - name: Publish Ritual Editor test release
         env:
           GH_TOKEN: ${{ github.token }}
@@ -176,7 +176,7 @@ jobs:
           if gh release view "$tag" >/dev/null 2>&1; then
             gh release delete "$tag" --yes
           fi
-          gh release create "$tag" release/* --prerelease --title "Ritual Editor Test" --notes "Development builds of the condition-based Ritual recipe editor for Windows and Linux from PR #1."
+          gh release create "$tag" release/* --prerelease --title "Ritual Editor Test" --notes "Condition-based Ritual test build from PR #1. Includes FM Editor for Windows/Linux and the Windows game build required to test the new runtime ritual rules."
 
 
   draft-release:
