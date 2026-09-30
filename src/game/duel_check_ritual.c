@@ -65,10 +65,16 @@ s32 Duel_CheckRitual(DuelRitualResult *out, s32 ritualId)
                 }
 
         /* Try every distinct assignment. Among all valid assignments, compare
-         * slots in the specificity order above and keep the one with the
-         * lowest printed DEF, then lowest printed ATK, then lowest field
-         * position. Thus a specific-card slot is protected first and broad
-         * requirements spend the weakest qualifying monsters. */
+         * slots in the specificity order above. The ritual result decides
+         * what "weakest" means: a DEF-dominant result spends the lowest DEF
+         * first, while an ATK-dominant (or tied) result spends the lowest ATK
+         * first. The other printed stat and then field position break ties.
+         * Thus a specific-card slot is protected before this economy rule. */
+        {
+            int result_stats = gDuel_adwCardStats[conditional_result - 1];
+            int result_attack = (result_stats & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
+            int result_defense = ((result_stats >> CARD_STAT_DEFENSE_SHIFT) & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
+            int prefer_defense = result_defense > result_attack;
         for (a = 0; a < DUEL_FIELD_ROW_SIZE; a++) {
             for (b = 0; b < DUEL_FIELD_ROW_SIZE; b++) {
                 if (b == a) continue;
@@ -107,8 +113,13 @@ s32 Duel_CheckRitual(DuelRitualResult *out, s32 ritualId)
                             int old_def = ((old_stats >> CARD_STAT_DEFENSE_SHIFT) & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
                             int new_atk = (new_stats & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
                             int old_atk = (old_stats & CARD_STAT_VALUE_MASK) * CARD_STAT_SCALE;
-                            if (new_def != old_def) { better = new_def < old_def; break; }
-                            if (new_atk != old_atk) { better = new_atk < old_atk; break; }
+                            if (prefer_defense) {
+                                if (new_def != old_def) { better = new_def < old_def; break; }
+                                if (new_atk != old_atk) { better = new_atk < old_atk; break; }
+                            } else {
+                                if (new_atk != old_atk) { better = new_atk < old_atk; break; }
+                                if (new_def != old_def) { better = new_def < old_def; break; }
+                            }
                             if (slots[slot] != match[slot]) { better = slots[slot] < match[slot]; break; }
                         }
                         if (better) {
@@ -117,6 +128,7 @@ s32 Duel_CheckRitual(DuelRitualResult *out, s32 ritualId)
                     }
                 }
             }
+        }
         }
         if (match[0] >= 0) {
             for (j = 0; j < DUEL_RITUAL_TRIBUTE_COUNT; j++) found[j] = cands[match[j]];
