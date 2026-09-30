@@ -11,7 +11,7 @@ from dataclasses import dataclass
 
 from .gamedata import (CARD_COUNT, DECK_COPY_LIMIT, DECK_POOL_MIN_CARDS, DECK_SIZE, DUELIST_NAMES, POOLS,
                        POOL_LABELS, POOL_TOTAL, TYPE_MAGIC, TYPE_EQUIP, TYPE_RITUAL, exodia_piece)
-from . import art, fixed_decks
+from . import art, campaign_map, fixed_decks, limits
 from .model import KEY_RE, Project
 
 MOD_ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,63}$")
@@ -20,8 +20,8 @@ MANIFEST_KEYS = ("id", "name", "version", "author", "description", "library", "e
                  "legacy_setting", "data", "textures", "cards", "audio", "min_api", "game", "requires", "after",
                  "conflicts", "priority", "settings", "fusions", "equips", "rituals", "drops", "decks", "text", "font",
                  "chest_overflow", "terrain_bonus", "trap_thresholds", "equip_bonus_default", "passwords",
-                 "starter")
-HOST_API = 6
+                 "starter", "limits")
+HOST_API = 8
 
 
 @dataclass
@@ -213,12 +213,27 @@ def _check_tables(project: Project, out: list):
             elif not project.cards[m].is_monster():
                 out.append(Issue("warning", "Equips", where, f"{project.card_label(m)} is not a monster", equip))
     for ritual, recipe in project.rituals.items():
-        if project.retail.rituals.get(ritual) == recipe:
+        conditional = project.ritual_requirements.get(ritual)
+        if project.retail.rituals.get(ritual) == recipe and not conditional:
             continue
         where = project.card_label(ritual)
         if ritual > CARD_COUNT or not valid(ritual) or project.cards[ritual].type != TYPE_RITUAL:
             out.append(Issue("error", "Rituals", where, "\"card\" must be one of the disc's ritual cards", ritual))
-        if len(recipe) != 4 or not all(valid(c) for c in recipe):
+        if len(recipe) != 4 or not valid(recipe[3]):
+            out.append(Issue("error", "Rituals", where, "a valid result card is required", ritual))
+            continue
+        if conditional:
+            if len(conditional) != 3 or any(not req for req in conditional):
+                out.append(Issue("error", "Rituals", where, "three nonempty tribute requirements are required", ritual))
+            for req in conditional:
+                cid = req.get("card")
+                if cid and not valid(cid):
+                    out.append(Issue("error", "Rituals", where, f"no card {cid}", ritual))
+                elif cid and not project.cards[cid].is_monster():
+                    out.append(Issue("warning", "Rituals", where, f"{project.card_label(cid)} is not a monster", ritual))
+            if not project.cards[recipe[3]].is_monster():
+                out.append(Issue("warning", "Rituals", where, "the result should be a monster", ritual))
+        elif not all(valid(c) for c in recipe):
             out.append(Issue("error", "Rituals", where, "three tributes and a result, all cards", ritual))
         elif not all(project.cards[c].is_monster() for c in recipe):
             out.append(Issue("warning", "Rituals", where, "tributes and result should be monsters", ritual))
@@ -282,8 +297,11 @@ def validate(project: Project) -> list:
             _check_card(project, cid, out)
     _check_tables(project, out)
     _check_starter(project, out)
+    for level, where, message in limits.check(project.other.get("limits")):
+        out.append(Issue(level, "Limits", where, message))
     fixed_decks.check(project, out)
     art.check(project, out)
+    campaign_map.check(project, out)
     return out
 
 

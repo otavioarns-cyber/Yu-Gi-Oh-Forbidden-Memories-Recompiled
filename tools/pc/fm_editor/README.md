@@ -1,7 +1,7 @@
 # FM Editor
 
-A standalone editor for mods of the PC port: cards and their art, fusions, equips, rituals
-and the opponents' deck and drop pools. It is a program of its own, not part
+A standalone editor for mods of the PC port: cards and their art, fusions, equips, rituals,
+the opponents' deck and drop pools, and the campaign map. It is a program of its own, not part
 of the game, and needs nothing but Python 3 and Tkinter (part of Python on
 Windows and macOS; on Linux maybe a package of its own: `python3-tk`, or `tk`
 on Arch).
@@ -29,7 +29,9 @@ The window has a tab per table:
 | Rituals | per ritual card, its three tributes and the monster it summons |
 | Duelists | per opponent, the deck pool and the S/A-POW, B/C/D and S/A-TEC drop pools: weights, their chance, the retail weight, and the total against 2048 (**Normalize** scales a pool back to 2048 the way the port does). The deck is either the **Weighted deck (retail)** or a **Fixed deck (40 cards)**: forty specific cards by their copies, counted against 40, each beside its weighted chance; **Copy the weighted deck's most likely 40**, **Clear**, **Revert to retail** |
 | Starter decks | the decks a new game may be dealt in place of the disc's weighted pools: a deck's name, its weight against the other decks offered, and its cards by their copies, counted against the forty a deck holds |
-| Mod info | id, name, version, author, description, `settings`, and the other `mod.json` keys, kept as written |
+| Map | the campaign map's sixteen places (below): each exit's destination, direction, story-flag condition, length and arrow on the screen, the Millennium Puzzle marker's place in the town, Confirm's destination and each place's camera, over pictures of the map drawn from your disc; **Reset place**, **Reset all**; **Pictures...**: the marker, arrows and name panel, and the terrain's textures |
+| Limits | the numbers the game caps (`limits`, [gameplay tables](../../../notes/gameplay-tables.md#limits-atk-def-lp-starchips-and-more)). The simple part: the ATK and DEF cap, the LP a duel starts with, and how far healing goes. **Show advanced**: ATK and DEF apart, each side's starting LP, the two-player LP choice (start, most, step), the most starchips, the chest's copies, the Free Duel and two-player records, and a table of duelists with the LP each side starts with against them. An empty field is the game's own number (beside it, with the range the game keeps); a value past that range is warned about and held at the most the game keeps |
+| Mod info | id, name, version, author, description, `settings`, and the other `mod.json` keys, kept as written (`limits` is the Limits tab's) |
 | Conflicts | the loader's checks; double-click a line to go to it |
 
 **File > Save** writes the mod folder (Ctrl+S); the first save asks where
@@ -55,6 +57,14 @@ strip of menu buttons with the same menus stands in for it (Alt+letter and
 F10 open them). Left light: the thin frame Windows draws around an open
 menu, and the system's own dialogs (message boxes, choosing a file or
 folder).
+
+On Windows the editor tells the system it knows the screen's dpi (per
+monitor, `theme.dpi_awareness`, before the first window), so at 125% or
+150% it is drawn at that size itself instead of stretched and blurred: the
+fonts, in points, follow Tk's scaling, and so do the sizes the editor gives
+in pixels (`widgets.px`) and the dark theme's arrows and check boxes. Its
+face is Windows 11's Segoe UI Variable where there is one (Segoe UI before),
+Consolas for the fixed one. None of this runs elsewhere.
 
 ### Bulk fusions
 
@@ -93,6 +103,90 @@ would leave the mod past 300,000 rules is refused. Ports built before the
 bulk fusions read a long `fusions` list in quadratic time (20,000 rules took
 about a minute); use a current build.
 
+### The Map tab
+
+The campaign map (`campaign_map.py`) is the overworld module's table of
+sixteen places: 0-9 the world map's sites, 10-15 the town's, named as the
+game names them (strings `0x8350` + place; two town places read "before /
+after" when their label changes once the tournament is over). A place is
+what the game shows while the player stands there, so it is edited as a
+screen:
+
+* **Screen**: the place at 2x, over the map as its camera sees it (drawn
+  from the disc's own 3D map, `map_view.py`: the terrain model, its
+  textures, the camera of `ViewState_ApplyOrbit`, the game's fog and, on the
+  world map, its spotlight; close to the game's frame, not exact, because
+  the light is a fit). The name panel, each used exit's arrow (the game's
+  own sprite from the map's strip, `field_08`) and, in the town, the
+  Millennium Puzzle marker are drawn where the game draws them; drag an
+  arrow or the marker to move it. Exits at the same spot share one label,
+  with the flag each needs.
+* **Overview**: the world map from straight above (turned as its cameras
+  mostly look: -x up) with each world site where its camera looks, the town
+  (place 10's camera) with its places where the marker stands, and every
+  exit as an arrow to its destination: green always, amber while a flag is
+  set, blue while it is clear, dashed for Confirm; thicker for the selected
+  place. Dragging a world site moves its camera's target; dragging a town
+  place moves its marker. **Map** chooses the model before or after the
+  coup (the terrain changes; the table is one for both). A **Reference
+  picture...** (a screenshot of the game at this place) replaces the drawn
+  map for this camera while the editor is open.
+* The form: the camera (distance, heading, pitch in 4096ths of a turn, and
+  the x and z it looks at); the marker (the town only: the world map draws
+  none, so a world site's are kept as they are); Confirm's destination
+  ("enter the place's own scene" is the disc's 0) and whether it waits for
+  exit 1's condition (the record's gate); and four exits, each **Used** or
+  not (destination 16 on the disc), its destination by name, the direction
+  held as a D-pad (any of the four), **When**: always, while a story flag
+  is set, or while it is clear (the flag number is the one the game tests,
+  `0x8000` set in the record for "clear"), **Frames** (the move's length:
+  the camera and the marker take that many frames), the arrow's picture
+  (one of the eight the map has) and its x, y on the screen. A new exit
+  starts at 16 frames, the disc's usual length.
+
+The game takes the first exit whose direction is held and whose condition
+holds, so two exits may share a direction under opposite conditions (the
+disc does that); Cancel in the town, once the tournament is over
+(flag `0x47`), always leads back to the world map at Metropolis.
+
+**Pictures...** (`map_art.py`) replaces the map's own pictures, as
+texture pack entries in the mod's pack (the Art tab's pack, `textures/`,
+the map's PNGs under `textures/map/`); the Screen and Overview draw them
+at once:
+
+* **Sprites**: the map's one strip of sprites (WA sector `+141` of each
+  package, 256x256 at four bits, drawn through four 16-colour palettes:
+  0 the name panel, 2 the marker, 3 the arrows; a dump shows palette 1
+  read too). **Import picture...**
+  for one sprite (the marker, the name panel, an arrow) pastes it into every
+  cell of that sprite's animation (the marker turns through 16 frames, an
+  arrow pulses through 10; the name panel is one frame), so the new picture
+  keeps the sprite's motion but not the differences between its frames; an
+  arrow and its mirror share their cells (right and left, the diagonals).
+  The picture is the sprite's first frame as the preview shows it (the
+  marker 32x32, an arrow 16x24, 24x16 or, on a diagonal, 16x16, the panel
+  256x32); a bigger one is
+  kept at up to 4x. **Export sprites...** writes the strip through each
+  palette (`sprites-p0.png` to `p3.png`) to paint every frame yourself, and
+  **Import sprites...** takes those files back, any size up to 4x. The
+  mod's entry names the strip as the game reads it through one palette, in
+  both packages (the strips are the same, and share the PNG).
+* **Terrain textures**: the map is a 3D model whose textures are tiles
+  (86 in 100 of the texels of its upward faces are drawn more than once,
+  one up to 51 times), so there is no single picture of the map to swap:
+  its textures are replaced one by one. **Export textures...** writes each
+  texture of the chosen map (before or after the coup: two models, 60 and
+  61 textures, 4 or 8 bits) as the terrain draws it, one PNG per palette it
+  is drawn with (`textureNN-PPPP.png`: the upload's number and the palette
+  word), and **Import textures...** takes the files of a folder with those
+  names; a texture whose file is not there stays the disc's. A picture of
+  another shape is stretched to the texture's, and kept at up to 4x.
+
+At the console's resolution a bigger picture is averaged down to the
+texture (the game's 4 or 8 bits are gone: any colour goes); Internal 2x
+and 4x draw it at its own resolution. The game reads a pack at start, like
+the table, so the mod needs a restart.
+
 ## Game files
 
 The editor looks for the game where the port does: `MEMORIES_DISC`, the disc
@@ -111,6 +205,7 @@ What it reads (layouts in `gamedata.py`):
 | deck and drop pools | `WA_MRG.MRG` `0xE99800 + 0x1800 * opponent` |
 | the Password screen's passwords | `WA_MRG.MRG` `0xFB9800 + 8 * card`: price, then the password as BCD digits (`0xFFFFFFFE` for none) |
 | the text font and its colours (the card-text preview only) | `WA_MRG.MRG` sector `0x1690` (16 sectors, the 8x12 font's page) and the first 32 bytes of sector `0x16C2`, as `src/pc/cards/font_art.c` reads them |
+| the campaign map (the Map tab) | `WA_MRG.MRG`, the two overworld packages at sectors 8153 (before the coup) and 8311 (after): the module's first word `0x14`, the table at `+0x11A8` (16 x 66 bytes), the display resource bank at sector `+140`, the sprite strip `+141` (16 sectors, 256x256 at four bits) and its palettes `+157`; the terrain model at `+6` (134 sectors, an HMD) |
 
 The 15 "glitch" fusions the game's table reader makes by reading past an odd
 record are shown as retail fusions and marked.
@@ -137,6 +232,9 @@ record are shown as retail fusions and marked.
   which the game's reading of the rules confirms before saving. `bonus` and
   `bonus_if` are kept as written.
 * `rituals`: a changed recipe, or `"result": null`.
+* `limits`: what the Limits tab sets, a key per field that is not empty
+  (`"life_points": 16000` when only both sides' start is set); a key the tab
+  does not show is kept as written.
 * `drops` and `decks`: per opponent and pool, the fewest listed weights that
   make the port's arithmetic (`tables.c`, mirrored in `pools.py`) come out
   at exactly the edited pool; an edit every opponent shares is written once
@@ -181,6 +279,29 @@ record are shown as retail fusions and marked.
   given as the name of a file (`"decks": "tables/decks.json"`), which the
   editor does not read. A roster's `duelists/`, `decks/`, `drops/` and
   `portraits/` folders are copied with the mod's other files.
+* `data` (the Map tab): one entry patching `\DATA\WA_MRG.MRG;1` where the
+  map differs from the disc, the same bytes in both overworld packages'
+  tables (`0xFEC800 + 0x11A8` and `0x103B800 + 0x11A8`, each 1056 bytes),
+  as runs of changed bytes (`{"at": "0xFED9CF", "bytes": "01"}`). The PC
+  port reads the table from the package it loads
+  (`src/overlays/overworld/location_table.c`), as the console does, so the
+  patch works on either; the game reads it when the map loads, and data
+  mods need a restart. The module's alternate copy of the table
+  (`+0x1E54`) has no reader found on the map's paths and is not written. The mod's other
+  `data` entries are kept as written, before the map's; opening a mod
+  takes its patches of the two tables back into the map (a run across a
+  table's edge stays as written, with a note), and a mod whose two tables
+  differ opens with the one before the coup and saves both alike.
+* The map's pictures (the Map tab's **Pictures...**, `map_art.py`): texture
+  pack entries in the same `textures/manifest.json`, after the Art tab's,
+  PNGs under `textures/map/`: the sprite strip as one entry per palette and
+  package (`archive` `WA_MRG.MRG`, `offset` the strip's sector `+141`,
+  64 words x 256 rows at 4 bits, `clut_offset` the palette in sector
+  `+157`), and a terrain texture as one entry per palette it is drawn with
+  (the image's place in the model's image section, its words and rows, 4
+  or 8 bits, and the palette the polygons name, as the last upload to that
+  place in VRAM leaves it). Opening a mod takes such entries back into the
+  map; the pack's other entries are kept as written.
 * Art (the Art tab, `art.py`): a retail card's picture and thumbnail go in
   a texture pack, `textures/manifest.json` with PNGs under
   `textures/cards/`, one entry each addressed as `extract_images.py` and
@@ -299,6 +420,13 @@ the file inside the pack and there, its measures (offset, words 1-1024,
 rows 1-512, depth 4/8/16, stride, `crop_left` and `width` within the row),
 `row_offsets` as long as `rows`, and a `setting` the mod declares; and the
 cards' `art`, `thumbnail` and `title`: inside the mod, there, and PNGs.
+For the map: a destination past 15 (16 is "no exit") or Confirm past 15,
+and a move of 0 frames (the game divides by it) are errors; an exit that
+leads back to its own place, needs no direction or other buttons, is
+shadowed by an earlier exit in the same direction under the same condition,
+has a flag past `0x7FF` or its arrow off the screen, a marker off the
+screen, and a place no exit, Confirm or Cancel leads to any more are
+warnings.
 
 ## Card text preview
 
@@ -386,8 +514,187 @@ the source as above works too.
     python -m unittest discover -s tools/pc/fm_editor/tests -t tools/pc
 
 (ctest `pc_fm_editor`). The tests build synthetic game files at the retail
-offsets (`tests/fixtures.py`), art records included, and their PNGs in code;
+offsets (`tests/fixtures.py`), art records included, and their PNGs in code
+(`tests/map_fixture.py` adds the two overworld packages: a made-up table,
+resource bank, strip and a one-quad HMD);
 they need no game data (the bulk fusion tests time a 722 x 722 preview). PNGs are
 read and written by `pngio.py`, in plain Python like the rest; the card-text
 preview's tests build their font page and a TrueType file in code as well
 (`tests/test_card_text.py`).
+
+## Building another front end
+
+The window is one front end over an engine that has no Tk in it. Another
+front end (Qt, a web page, a script) reuses the engine as it is and replaces
+only the window; it does not rewrite the engine, whose rules are the port's
+(`tables.c`, `cards.c`, the loaders) and are pinned by the tests below.
+
+**The engine** (no `tkinter` import; plain Python 3, nothing to install):
+
+| Module | What it does |
+|---|---|
+| `disc.py` | finds and reads the game files (`load`, `find_game`, `user_dir`) into `GameFiles(slus, wa, source)` |
+| `gamedata.py` | the retail tables from them: `load_game(files)` → `GameData`; the names of types, attributes, stars, duelists, pools |
+| `model.py` | `Project`: the retail tables with the edits on top, and the edits themselves (below) |
+| `manifest.py` | reading a mod folder (`open_mod`, `apply`) and writing one (`build`, `dumps`, `save_mod`) |
+| `validate.py` | the loader's checks: `validate(project)` → `Issue` list |
+| `pools.py`, `fixed_decks.py`, `bulk_fusions.py` | the port's pool arithmetic, fixed decks, bulk fusions |
+| `art.py`, `campaign_map.py`, `map_art.py`, `map_view.py` | card art, the campaign map's table and pictures, the map drawn from the disc's 3D model (`map_view.py` has no Tk despite its name) |
+| `card_text.py`, `ttf.py`, `pngio.py` | the card-text layout and picture, TrueType outlines, PNGs and the `Image` type every picture is |
+| `importer.py`, `kit.py`, `ygomods.py` | importing a modified game, and converting a `.ygomods` package |
+| `cli.py` | `check` and `import` (the window only through a lazy import) |
+
+It needs `tools/pc/text_listing.py` beside the package (`gamedata.py`
+finds it). **The Tk front end** is `app.py`, `tabs.py`, `widgets.py`,
+`theme.py`, `art_tab.py`, `map_tab.py`, `fixed_deck_view.py`,
+`bulk_dialog.py`, `preview.py`, `importers.py` (the File menu's import
+dialogs) and `settings.py` (the window's own settings, no Tk).
+
+**The whole round trip, with no Tk** (run from the source tree's root; it
+prints `{"replace": 1, "attack": 3500}` in the mod.json for Blue-Eyes):
+
+```python
+import sys
+import tempfile
+from pathlib import Path
+
+sys.path.insert(0, "tools/pc")        # the folder holding fm_editor/ and text_listing.py
+from fm_editor import disc, gamedata, manifest, validate
+from fm_editor.model import Project
+
+files = disc.load("game")             # a folder, a .bin or an ISO; disc.find_game() looks where the port does
+retail = gamedata.load_game(files)    # the disc's tables, read once
+project = Project(retail)             # or: project, notes = manifest.open_mod(retail, "path/to/mod")
+project.info.id, project.info.name = "stronger-blue-eyes", "Stronger Blue-Eyes"
+
+card = project.cards[1]               # Blue-Eyes White Dragon
+project.cards[1] = card.copy(attack=card.attack + 500)
+
+issues = validate.validate(project)   # the loader's checks: Issue(level, area, where, message, target)
+for issue in issues:
+    print(issue)
+if not validate.errors(issues):
+    path = manifest.save_mod(project, Path(tempfile.mkdtemp()) / project.info.id)
+    print(path.read_text(encoding="utf-8"))
+
+assert "tkinter" not in sys.modules
+```
+
+**Opening.** `gamedata.load_game(files)` once per game; then either
+`Project(retail)` (a new mod, everything as retail) or
+`manifest.open_mod(retail, folder)` → `(project, messages)`: the folder's
+`mod.json` laid over retail, its texts, art and map taken back, and what
+could not be read said in `messages` (show them). `open_mod` raises
+`ValueError` or `OSError` for a `mod.json` that is not JSON or not there.
+`project.source_dir` is where it came from; `project.retail` stays the
+disc's, and every "changed" mark compares with it.
+
+**Reading and changing.** Change the project, then redraw what shows it;
+the engine keeps no undo (a front end may keep `project.clone()`s).
+
+* Cards: `project.cards[id]` is a `gamedata.Card` (name, description,
+  attack, defense, type, attribute, level, star1, star2, frame); replace it
+  with `card.copy(field=value)`; a function's `card` argument below is the
+  number, not the `Card`. `card_changed`, `revert_card`,
+  `add_card(base, key)` (an added card, id 723 and up, in
+  `project.added`), `remove_card`, `password`/`set_password`,
+  `set_notes`, `card_label`, `model.card_matches` (the search).
+* Fusions: `project.fusions[(low, high)] = result`, through
+  `set_fusion(a, b, result or None)`; `fusion_status`, `revert_fusion`.
+  Bulk: `bulk_fusions.plan(project, BulkSpec(...))`, then `apply` and `undo`.
+* Equips: `project.equips[equip]` is a set of monsters; `equip_baseline`
+  is what the disc gives it. Rituals: `project.rituals[ritual] = (t1, t2,
+  t3, result)`; `ritual_status`, `revert_ritual`.
+* Duelists: `project.pools[duelist][pool]` is `{card: weight}` for the
+  pools `gamedata.POOLS` (`"deck"`, `"pow"`, `"bcd"`, `"tec"`), out of
+  2048; `pools.normalize`, `revert_pool`. A fixed deck:
+  `fixed_decks.deck_of`, `set_deck(project, d, {card: copies})`,
+  `most_likely`, `remove`.
+* Starter decks: `project.starter`, a list of `model.StarterDeck`.
+* Mod info: `project.info` (`ModInfo`); other `mod.json` keys, kept as
+  written, in `project.other`.
+* Art: `art.set_image(project, card, part, image)` (part `"art"`,
+  `"thumbnail"` or `"title"`; returns notes), `art.revert`,
+  `art.changed_cards`.
+* The map: `campaign_map.state(project).locations`, a list of 16
+  `Location`s: store an edited `loc.copy()` back at its index;
+  `campaign_map.reset`, `reset_all`. Its pictures: `map_art.set_sprite`,
+  `set_texture`, `import_sprites`, `import_textures`, `revert_*`.
+* Importing: `importer.import_modded(retail_files, modded_files, id,
+  name)` → a result with `.project` and `.report` (saved with
+  `importer.save`); `ygomods.import_package(retail, files.wa, path, id,
+  name)` → `(project, report)`.
+
+**Checking.** `validate.validate(project)` is every check the window's
+Conflicts tab lists, `validate.errors(issues)` the ones the loader refuses,
+`validate.validate_card(project, card)` one card's. An `Issue` has `level`
+(`"error"`/`"warning"`), `area` (the tab: `"Cards"`, `"Fusions"`, `"Map"`...),
+`where`, `message`, and `target`, what to select to show it (a card id, a
+fusion pair, `(duelist, pool)`, a map place).
+
+**Saving.** `manifest.save_mod(project, folder)` writes the art's PNGs and
+texture pack first (that sets `"textures"`), then `mod.json`, holding only
+what differs from retail, and on a save somewhere new copies the source
+mod's other files. It refuses a folder that holds game files.
+`manifest.dumps(manifest.build(project))` is the text it would write, for a
+preview. **A front end never writes `mod.json`, the texture pack or the
+mod's PNGs itself**: only `manifest.save_mod` (or `importer.save`), so the
+diff, the order of the writes and what is kept as written stay the
+engine's.
+
+**Pictures.** Every picture is a `pngio.Image` (`width`, `height`,
+`rgba` bytes); `pngio.encode(image)` makes PNG bytes any toolkit reads.
+
+* Card text: `card_text.Renderer(card_text.RetailFont(files.wa), face).render(text,
+  scale)` → `(image, layout)`, with `face` `None` for the retail font or a
+  `ttf.Font(path)` (`card_text.port_face_path()` is the port's own);
+  `layout` has the rows, the cut rows and the glyphs to mark.
+* Art: `art.disc_image(files.wa, card, part)`, and `art.in_game(project,
+  files.wa, card, part, scale)` as the game draws the mod's at 1x, 2x, 4x.
+* The map: `map_view.render(map_view.model(files.wa, sector), camera,
+  spotlight=place < campaign_map.TOWN_FIRST,
+  overrides=map_art.texture_overrides(project, package))`, with `camera`
+  `(distance, heading, pitch, target_x, target_z)` of the place and
+  `(package, sector)` one of `campaign_map.PACKAGES`; `map_view.render_top`
+  the world from above. The sprites, as `(image, left, top)`:
+  `campaign_map.sprite_image(data, *campaign_map.PANEL, strips)` (or
+  `MARKER`) and `arrow_image(data, arrow, strips)`, with `data`
+  `campaign_map.state(project).retail` and `strips` the mod's strips,
+  `{p: map_art.strip_override(project, p)}` for the palettes that have one.
+
+**Still in the Tk layer** (a new front end redoes these, or they move to the
+engine first):
+
+* `App.save`: where a first save goes (an empty folder, or a folder named
+  after the mod id inside the chosen one; the id must be letters, digits,
+  `-` and `_`), and asking before replacing another mod's `mod.json`;
+  `App.load_mod` wants a `mod.json` in the folder.
+* Reading the forms: a password is up to 8 digits, padded with zeros
+  (`CardsTab.apply`); an added card's key is `model.KEY_RE` and unique; a
+  new card copies the selected card (not its base) and is named "... II";
+  a pool weight is 0-65535, a deck's copies 0-40, a starter deck's weight
+  0-`STARTER_WEIGHT_LIMIT`, and a card left at 0 is taken out of the pool
+  or deck; "Add every"/"Remove every" of a monster type (`EquipsTab.by_type`);
+  a card named by typing (`widgets.CardField.get`: a number, "7 Name",
+  `Project.resolve`, then the exact name).
+* `FixedDeckView.switch`: switching a duelist back to the weighted deck
+  keeps its fixed deck aside until the mod is closed.
+* `ModInfoTab.commit`: `settings` and the other keys parsed as JSON, and
+  the keys the tabs own refused there.
+* `MapTab`: the fields' ranges (-32768 to 32767, a flag up to `0x7FFF`,
+  frames up to 255), a new exit's 16 frames; the Screen put together from
+  the map picture, the name panel at `campaign_map.PANEL_AT`, the arrows
+  and the marker at their sprite offsets; the Overview's geometry, and
+  turning a drag into coordinates.
+* `importers.ask_modded_files`: a modified `SLUS_014.11`'s `WA_MRG.MRG`
+  looked for in `DATA/` beside it, then beside it.
+* `preview.describe`: the card-text layout's marks in words.
+
+**The tests a front end keeps passing** (the command above): `test_data`
+(tables, the diff to `mod.json` and back, the pools' arithmetic, the
+checks), `test_family` and `test_importer` (imports), `test_ygomods`,
+`test_art`, `test_card_text`, `test_campaign_map` and `test_map_art` need no
+Tk. `test_bulk_fusions`, `test_fixed_decks` and `test_starter` test the
+engine and then the Tk dialogs, and `test_gui` and `test_map_gui` drive the
+window; those Tk parts skip where Tk cannot start. A new front end adds its
+own tests beside them and leaves the engine's as they are.

@@ -284,9 +284,11 @@ game's debug menu, reached with the options case's input; see
 `MEMORIES_INPUT="700:0008,706:0000"` (scripted pad bits from a frame on;
 `MEMORIES_INPUT2` the same for the second pad, which then counts as
 connected: two-player trades and duels),
-`MEMORIES_DEBUG_CHEST=N` (N of every card in the trunk) and
+`MEMORIES_DEBUG_CHEST=N` (N of every card in the trunk),
 `MEMORIES_DEBUG_DECK="723-762"` (the deck, as ids and ranges repeated to
-forty), both once a save is live ([More cards](more-cards.md)),
+forty) and `MEMORIES_DEBUG_STARCHIPS=N` (the balance, as Set StarChips puts
+it, capped at 999999 or a mod's `limits`), all once a save is live
+([More cards](more-cards.md)),
 `MEMORIES_NO_AUDIO=1`, `MEMORIES_DUMP_AUDIO=path` (raw s16le stereo 44.1 kHz
 instead of a device),
 `MEMORIES_TEST_EXEC_GUEST=1` (guest RAM mapped executable, as without DEP,
@@ -558,7 +560,11 @@ before a duel, is open, and says **Leave Build Deck first**
 writes it back over the save as it closes, so cards given meanwhile were
 neither listed nor kept. `MEMORIES_DEBUG_CHEST` waits for the same. The settings
 rows (LP, free spending, the CPU's hand) change nothing in the save and work
-at any time.
+at any time. Starting LP is 1 to 32767 (`cheat_life_points`,
+`MEMORIES_CHEAT_LIFE_POINTS`; the menu offers 1000, 4000, 8000 and 9999); at
+the console's 8000 a mod's `limits` decide the start instead, and any other
+value comes first. Set StarChips and `MEMORIES_DEBUG_STARCHIPS` stop at the
+game's 999999, or at a mod's `limits` (notes/gameplay-tables.md).
 
 ### Back to the title screen
 
@@ -1248,8 +1254,13 @@ out pixel-identical to the sheets' crops, and a pack of the sheets as they
 are draws the same frame as no pack at 1x, 2x, in software and in GL. A
 mod with `"textures"` in its manifest replaces the images at draw time
 from such a directory (`notes/modding.md`, "Texture packs"). Not yet: the
-monster textures (`MODEL.MRG`) and the campaign map's own pictures, which
-its overlay uploads from a 134-sector block.
+monster textures (`MODEL.MRG`). The campaign map's own pictures (the
+terrain model's textures, uploaded from its 134-sector block) have no
+extractor family and a dump's `assets.txt` leaves them out: their palettes
+reach VRAM from memory with the semi-transparency bit set on every entry but
+the first, and an asset wants every entry traced. A pack replaces them all
+the same, since its palette rule keys on the first entry; the FM Editor's
+Map tab writes such entries (`tools/pc/fm_editor/map_art.py`).
 
 ### Texture dump (what is on screen)
 

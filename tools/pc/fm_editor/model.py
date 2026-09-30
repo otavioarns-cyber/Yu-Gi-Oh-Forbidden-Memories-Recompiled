@@ -74,6 +74,18 @@ def type_named(text: str) -> int:
     return -1
 
 
+def card_matches(project, cid: int, text: str) -> bool:
+    """The editor's card search: the card's number, or a part of its name in
+    any case; no text finds every card."""
+    if not text:
+        return True
+    text = text.lower().strip()
+    card = project.cards.get(cid)
+    if card is None:
+        return False
+    return text == str(cid) or text in card.name.lower()
+
+
 @dataclass
 class AddedCard:
     """A card the mod adds ("copy"): its stable key, its base, and the entry
@@ -129,6 +141,9 @@ class Project:
         self.fusions = dict(retail.fusions)
         self.equips = {e: set(m) for e, m in retail.equips.items()}
         self.rituals = dict(retail.rituals)
+        # ritual id -> three requirement dictionaries. Empty means the traditional
+        # three-specific-card recipe represented by self.rituals.
+        self.ritual_requirements = {}
         self.pools = [{p: dict(retail.pools[d][p]) for p in POOLS} for d in range(len(retail.pools))]
         self.info = ModInfo()
         self.other = {}                 # top-level keys the editor keeps as written (data, text, audio...)
@@ -247,6 +262,10 @@ class Project:
         for monsters in self.equips.values():
             monsters.discard(cid)
         self.rituals = {r: rec for r, rec in self.rituals.items() if cid not in rec}
+        self.ritual_requirements.pop(cid, None)
+        for ritual, slots in list(self.ritual_requirements.items()):
+            if ritual not in self.rituals or any(req.get("card") == cid for req in slots):
+                self.ritual_requirements.pop(ritual, None)
         for pools in self.pools:
             for pool in pools.values():
                 pool.pop(cid, None)
@@ -258,8 +277,12 @@ class Project:
             self.notes.pop(cid, None)
 
     def revert_card(self, cid: int):
-        """Back to the disc's card; its notes stay, as they are the modder's."""
-        if cid in self.retail.cards:
+        """Back to the disc's card, or an added card back to its base as the
+        mod has it; its notes stay, as they are the modder's."""
+        if cid in self.added:
+            self.cards[cid] = self.cards[self.added[cid].base].copy(id=cid)
+            self.passwords.pop(cid, None)
+        elif cid in self.retail.cards:
             self.cards[cid] = self.retail.cards[cid].copy()
             self.card_extra.pop(cid, None)
             self.passwords.pop(cid, None)
@@ -306,6 +329,26 @@ class Project:
         if retail is None:
             return "added"
         return "changed"
+
+    def ritual_status(self, ritual: int) -> str:
+        """The recipe against the disc's: "" the same, or "added", "removed" or
+        "changed"."""
+        now, retail = self.rituals.get(ritual), self.retail.rituals.get(ritual)
+        if ritual in self.ritual_requirements:
+            return "added" if retail is None else "changed"
+        return "" if now == retail else "added" if retail is None else "removed" if now is None else "changed"
+
+    def revert_ritual(self, ritual: int):
+        self.ritual_requirements.pop(ritual, None)
+        if ritual in self.retail.rituals:
+            self.rituals[ritual] = self.retail.rituals[ritual]
+        else:
+            self.rituals.pop(ritual, None)
+
+    def revert_pool(self, d: int, pool: str):
+        """A duelist's pool ("deck", "pow", "bcd", "tec") back to the disc's
+        weights (a fixed deck is fixed_decks.py's, and stays)."""
+        self.pools[d][pool] = dict(self.retail.pools[d][pool])
 
     def monsters(self):
         return [cid for cid, card in self.cards.items() if card.is_monster()]
