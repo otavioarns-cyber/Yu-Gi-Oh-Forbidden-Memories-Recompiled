@@ -210,9 +210,9 @@ int main(void)
             "{\"type\": \"Dragon\", \"min_attack\": 500}], \"result\": 12}]}");
         assert(Tables_Ritual(21, own) == -1);
         assert(Tables_RitualRequirements(21, req, &result) == 1 && result == 12);
-        assert(req[0].card == 0 && req[0].min_defense == 1000 && req[0].defense_gt_attack == 1);
+        assert(req[0].card == 0 && req[0].min_defense == 1000 && req[0].max_defense == 2999 && req[0].defense_gt_attack == 1);
         assert(req[1].card == 11 && req[1].type == -1);
-        assert(req[2].type == 0 && req[2].min_attack == 500);
+        assert(req[2].type == 0 && req[2].min_attack == 500 && req[2].max_attack == 2500);
         add("condition-groups", "{\"rituals\": [{\"card\": 21, \"tributes\": ["
             "{\"fusion_group\": \"Female\", \"min_level\": 4, \"max_level\": 6},"
             "{\"fusion_group\": \"Bugrothian\"},"
