@@ -1,0 +1,36 @@
+MOD Efeitos de Cartas Rituais v0.74 - LIMPEZA E DESEMPENHO (TESTE)
+Base: v0.73, com Black Chaos aprovado no teste do usuario.
+Compilado com o SDK oficial v0.2.0. Nenhuma carta/efeito novo.
+
+INSTALACAO
+Feche o jogo. Guarde a versao anterior fora da pasta mods.
+Substitua somente nosso MOD pelo conteudo completo deste ZIP.
+Mantenha assets/, text/, mod.json e ritual-card-effects.o juntos.
+Mantenha MelhoriaDosRituais, HD, decomp e demais mods como estao.
+Comece um duelo novo: as marcas e continuacoes nao sao recuperadas de
+save states. Nao instale outra copia deste MOD ao mesmo tempo.
+Diagnostic overlay fica OFF por padrao; pode ser ligado nos Settings
+para investigar um problema, aplicando a alteracao pelo launcher.
+
+O QUE FOI LIMPO
+- Sem cartas geradas pelo Yamadron, nosso MOD nao recarrega miniaturas
+  da mao. Antes essa transferencia extra ocorria a cada atualizacao.
+- Com cartas geradas, compara os pixels da VRAM e transfere apenas os
+  retangulos alterados. Detecta alteracoes feitas pelo jogo/outros mods,
+  sem depender apenas da lembranca do ultimo upload.
+- Registra a origem real no disco da copia privada de cada miniatura
+  gerada, para permitir sua identificacao pelo mecanismo de texturas HD.
+- Settings consultados na inicializacao/Apply, em vez de repetidamente
+  por carta. Comandos em lote e Recipe/Effect ON/OFF preservados.
+- Moeda ampliada desenha blocos de pixels iguais de uma vez; reducao
+  mantem o filtro anterior. Arte, transparencia, duracao, chances e
+  continuacoes dos efeitos preservadas. Nao adiciona buffers de imagem.
+- Selecao de tributos calcula a compatibilidade de cada candidato uma
+  vez por requisito. Continua avaliando as mesmas combinacoes e desempates.
+- Removido o hook de CanActThisTurn que apenas chamava a funcao original.
+- Diagnostico textual em tela passa a ser opcional.
+
+LIMITES E TESTE NO JOGO
+A perda de HD observada ainda precisa de confirmacao em jogo.
+Repita batalhas comuns, gere cartas com Yamadron, reconfirme moedas e rituais
+1 campo + 2 mao e 2 campo + 1 mao.

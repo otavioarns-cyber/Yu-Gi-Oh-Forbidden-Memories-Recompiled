@@ -1,0 +1,12 @@
+{
+  "id": "ritual-card-effects-test",
+  "name": "MOD Efeitos de Cartas Rituais",
+  "version": "0.74.0-test-performance",
+  "description": "Avoids redundant thumbnail transfers; cached settings, exact coin scaling and lighter ritual matching.",
+  "author": "Otavio",
+  "enabled": true,
+  "min_api": 4,
+  "game": "slus_01411",
+  "library": "ritual-card-effects",
+  "restart": true
+}
