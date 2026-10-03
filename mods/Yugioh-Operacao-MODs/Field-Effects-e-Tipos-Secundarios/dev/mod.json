@@ -1,0 +1,15 @@
+{
+  "id": "field-effects-secondary-types",
+  "name": "Field Effects + Secondary Types",
+  "version": "0.1-dev",
+  "author": "Otavio Arns",
+  "description": "Adds approved secondary-type field interactions and the revised Wasteland/Yami type rules.",
+  "min_api": 4,
+  "game": "slus_01411",
+  "library": "field_effects",
+  "enabled": false,
+  "terrain_bonus": {
+    "Wasteland": {"Fish": -500, "Aqua": -500, "Sea Serpent": -500},
+    "Yami": {"Zombie": 500}
+  }
+}
