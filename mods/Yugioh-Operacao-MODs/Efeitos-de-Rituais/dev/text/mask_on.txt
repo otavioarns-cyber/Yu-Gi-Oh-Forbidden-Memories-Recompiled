@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D3D0]
+Ritual Effect - Your
+opponent cannot
+Fusion Summon. Equip
+Cards still work.

@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D39A]
+Materials: 029
+Mountain Warrior,
+031 Koumori Dragon,
+101 Wings of Wicked
+Flame.

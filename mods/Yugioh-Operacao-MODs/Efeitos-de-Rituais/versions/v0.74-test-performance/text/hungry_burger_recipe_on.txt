@@ -1,0 +1,5 @@
+@bank descriptions
+
+[D3A5]
+Battle Steer + 1
+Plant + 1 Pyro

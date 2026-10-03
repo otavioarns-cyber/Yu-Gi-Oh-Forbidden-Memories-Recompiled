@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D3CD]
+Ritual Effect -
+Other allied Insects
+get +400 ATK/DEF per
+allied Insect. First
+battle destruction
+each turn is prevented.

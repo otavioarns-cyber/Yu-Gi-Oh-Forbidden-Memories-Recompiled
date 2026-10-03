@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D399]
+One-eyed Shield
+Dragon + 2 Defensive
+monsters

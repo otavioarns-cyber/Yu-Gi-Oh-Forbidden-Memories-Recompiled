@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D3A5]
+Materials: 014
+Battle Steer, 295
+Bioplant, 547
+Griggle.

@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D3B9]
+Materials: 239
+Vishwar Randi, 622
+Garma Sword, 624
+Wing Egg Elf.

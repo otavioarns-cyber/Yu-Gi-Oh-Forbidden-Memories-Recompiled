@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B5]
+1 Mask monster + 1
+Fiend + 1
+Spellcaster.

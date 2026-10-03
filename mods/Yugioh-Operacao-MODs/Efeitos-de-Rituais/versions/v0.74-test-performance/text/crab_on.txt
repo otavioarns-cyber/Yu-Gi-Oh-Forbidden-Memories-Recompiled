@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D3C6]
+Ritual Effect - Sets
+Umi. While Umi is
+active, battle
+protection by Type.
+Other allied sea
+monsters gain stats.

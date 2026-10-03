@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D3BD]
+Ritual Effect -
+If battle would
+destroy it, toss a
+coin. Heads: survive
+and take no battle
+damage.

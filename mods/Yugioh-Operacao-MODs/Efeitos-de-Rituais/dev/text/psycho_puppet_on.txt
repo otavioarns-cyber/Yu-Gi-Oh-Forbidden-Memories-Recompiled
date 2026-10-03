@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D3CB]
+Ritual Effect - Once
+per turn,
+temporarily takes
+control of 1 random
+enemy monster.

@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D3D1]
+Tribute:
+Dark Magician
++ Winged Dragon #1
++ Blast Juggler
+to summon Magician
+of Black Chaos.

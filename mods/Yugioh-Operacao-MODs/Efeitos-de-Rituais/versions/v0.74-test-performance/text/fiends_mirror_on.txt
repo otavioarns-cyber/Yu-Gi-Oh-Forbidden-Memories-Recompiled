@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D26D]
+Ritual Effect -
+Whenever you lose
+LP, your opponent
+loses the same
+amount.

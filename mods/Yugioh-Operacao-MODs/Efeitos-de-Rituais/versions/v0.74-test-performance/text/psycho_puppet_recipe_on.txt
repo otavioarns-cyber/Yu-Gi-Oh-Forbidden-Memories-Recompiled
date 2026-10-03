@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B7]
+Mysterious Puppeteer
++ 1 Machine + 1
+Fiend

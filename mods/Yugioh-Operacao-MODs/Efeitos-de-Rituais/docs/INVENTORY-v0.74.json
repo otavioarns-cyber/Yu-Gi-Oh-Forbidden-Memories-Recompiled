@@ -1,0 +1,790 @@
+{
+  "archive": "zzz Efeitos Rituais.zip",
+  "archive_sha256": "891e465a6898338e1b6c66f5b32d253d26f663584257e32a565ddb0abab4d8b2",
+  "files": [
+    {
+      "path": "LEIA-ME.txt",
+      "size": 4501,
+      "sha256": "d8e651ec30443d0bf7a6a51f0dcdab7eeb809dcd81836dd49499a7e56e4b8712",
+      "dev_before": "different",
+      "snapshot_before": "different"
+    },
+    {
+      "path": "assets/coin-atem/00.png",
+      "size": 33846,
+      "sha256": "1c2ced1b04dcb67ad89e242a861ae0cf9aeb779e325555e986745fa2bae06416",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/01.png",
+      "size": 32781,
+      "sha256": "b9d3134f5a3eeaa94e351c4bebf992ef4915ca3dc174af3ed27a0775ae602c1e",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/02.png",
+      "size": 29895,
+      "sha256": "3d839cfc0be55e7c2f00a5b3559813a2d32971935d7f1ba92633b682bcf9088f",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/03.png",
+      "size": 24767,
+      "sha256": "1b7119ae2b76962f119730d3972e61e6b25b3eb7dbfba11ab50158481a5545ca",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/04.png",
+      "size": 18170,
+      "sha256": "3a671b6f849e52102db52389dece4ea660604eea8167b51172f774999968aa5b",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/05.png",
+      "size": 9700,
+      "sha256": "2c1785c3c074fc11672cf4aa0209f5f2849c5224039a6ae02fab86c1c1ac0ca1",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/06.png",
+      "size": 3559,
+      "sha256": "3301b0585c936cd90d3557c2d09d08d630540953ac0a511faa18fa5ff98da607",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/07.png",
+      "size": 9573,
+      "sha256": "453bb326f4780d9222f8cf3dc9427f1750fba4c7f3ed202c494180d6587374b0",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/08.png",
+      "size": 17422,
+      "sha256": "365be3f2a2e4e7c28d90c357d609a0096bea730dedb4c37ae146c6dcbfa92e64",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/09.png",
+      "size": 23636,
+      "sha256": "cd9d8c081d869336b9fbda52467034d8ac3637a65ab6f18dc931f566bc47efa4",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/10.png",
+      "size": 28481,
+      "sha256": "c15326a25398bafe7411df9d5cadb1092e05c01b58551a1eb0e5ac78ae119e28",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/11.png",
+      "size": 31260,
+      "sha256": "064f497e1a2e95efa9421bd7e424fd1c7641fb38f352b107e704f4e4bbc4b3dc",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/12.png",
+      "size": 32222,
+      "sha256": "a806389de945744cf415405373c6c0d8900a86b8a76cd021eecfb752bff1fe3b",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/13.png",
+      "size": 31260,
+      "sha256": "064f497e1a2e95efa9421bd7e424fd1c7641fb38f352b107e704f4e4bbc4b3dc",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/14.png",
+      "size": 28481,
+      "sha256": "c15326a25398bafe7411df9d5cadb1092e05c01b58551a1eb0e5ac78ae119e28",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/15.png",
+      "size": 23636,
+      "sha256": "cd9d8c081d869336b9fbda52467034d8ac3637a65ab6f18dc931f566bc47efa4",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/16.png",
+      "size": 17422,
+      "sha256": "365be3f2a2e4e7c28d90c357d609a0096bea730dedb4c37ae146c6dcbfa92e64",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/17.png",
+      "size": 9573,
+      "sha256": "453bb326f4780d9222f8cf3dc9427f1750fba4c7f3ed202c494180d6587374b0",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/18.png",
+      "size": 3559,
+      "sha256": "3301b0585c936cd90d3557c2d09d08d630540953ac0a511faa18fa5ff98da607",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/19.png",
+      "size": 9700,
+      "sha256": "2c1785c3c074fc11672cf4aa0209f5f2849c5224039a6ae02fab86c1c1ac0ca1",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/20.png",
+      "size": 18170,
+      "sha256": "3a671b6f849e52102db52389dece4ea660604eea8167b51172f774999968aa5b",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/21.png",
+      "size": 24767,
+      "sha256": "1b7119ae2b76962f119730d3972e61e6b25b3eb7dbfba11ab50158481a5545ca",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/22.png",
+      "size": 29895,
+      "sha256": "3d839cfc0be55e7c2f00a5b3559813a2d32971935d7f1ba92633b682bcf9088f",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/23.png",
+      "size": 32781,
+      "sha256": "b9d3134f5a3eeaa94e351c4bebf992ef4915ca3dc174af3ed27a0775ae602c1e",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-atem/coin.txt",
+      "size": 19,
+      "sha256": "0bbd6c3c169181a27b19b9544d6ec869ffdc211ebb11ba9d706c9dec404cd25e",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/00.png",
+      "size": 31712,
+      "sha256": "497efdabc6ade9bd12dd92f2a479ac86a9564632c4ae04f33029c1c1a5f060df",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/01.png",
+      "size": 30524,
+      "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/02.png",
+      "size": 27114,
+      "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/03.png",
+      "size": 22635,
+      "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/04.png",
+      "size": 20041,
+      "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/05.png",
+      "size": 17136,
+      "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/06.png",
+      "size": 11145,
+      "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/07.png",
+      "size": 5867,
+      "sha256": "c0ccf63d06a13a6c38721c98aafb49a7a400e881e4e559bde4d9e5ee615719cf",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/08.png",
+      "size": 12004,
+      "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/09.png",
+      "size": 16379,
+      "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/10.png",
+      "size": 19341,
+      "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/11.png",
+      "size": 20385,
+      "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/12.png",
+      "size": 26475,
+      "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/13.png",
+      "size": 31413,
+      "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/14.png",
+      "size": 32512,
+      "sha256": "37291c8f07f327254b5531bb8142a457aad056806cb0b75662675710cddd699e",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/15.png",
+      "size": 31413,
+      "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/16.png",
+      "size": 26475,
+      "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/17.png",
+      "size": 20385,
+      "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/18.png",
+      "size": 19341,
+      "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/19.png",
+      "size": 16379,
+      "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/20.png",
+      "size": 12004,
+      "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/21.png",
+      "size": 6150,
+      "sha256": "a2ccc08933af7dd06db84a379382ad6f7e47687991b1c934a9935f180faef131",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/22.png",
+      "size": 11145,
+      "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/23.png",
+      "size": 17136,
+      "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/24.png",
+      "size": 20041,
+      "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/25.png",
+      "size": 22635,
+      "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/26.png",
+      "size": 27114,
+      "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/27.png",
+      "size": 30524,
+      "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/coin-normal/coin.txt",
+      "size": 19,
+      "sha256": "6a79338a43aa97ff3506d5fb93f9685769555abb1b6c9cdf9c8a85a649b95d22",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "assets/unicorn_horn.png",
+      "size": 244,
+      "sha256": "891fa1ab9c7e57256c4500c055b9db4bf7daa80beed3aca3aa082a3e2df60015",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "garma_visual.h",
+      "size": 6829,
+      "sha256": "d89242cf1bf2a489493fcbbf94fc8a6f410b2f6d80ff50f9e2fc7a34256dbcdd",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "mask_effect.h",
+      "size": 9626,
+      "sha256": "20db3c96b06215e520d65c4f445fd202ac970c0231b01790a9328d19d1b0cb4e",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "mod.c",
+      "size": 114281,
+      "sha256": "3151c152a2abd48df453b36b327fec182dc33966c9868265b31e1a44be8f1121",
+      "dev_before": "different",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "mod.json",
+      "size": 12994,
+      "sha256": "31b332b59fd2e6dff8f2231a2091114ad55e83ba696f44ea7398a065bcfaa0d7",
+      "dev_before": "different",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "performance_chaos.h",
+      "size": 14856,
+      "sha256": "2cc2a234392b45b49b0b51fe772196a71cddeb8de37d9d33d4822f9bab40320a",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "png.c",
+      "size": 11193,
+      "sha256": "a5a55b3b349046813fd8c8e26d347527acda6de856858e9aacb7028b95935d06",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "png.h",
+      "size": 353,
+      "sha256": "26a5ef08cf76239964ea952185c7f9428cd2aaed4e087f5d6feafc37b4a2272d",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "ritual-card-effects.o",
+      "size": 98596,
+      "sha256": "347392cebc0fc12a5b800b69469f3f417cce5c19b849ade7051cfd2ef25028e9",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "ritual_coin.h",
+      "size": 6464,
+      "sha256": "f4869e3c29b72bfef89c86801a5400e7ae2d1ef67ffd09f34c0ebe3159d529d3",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "ritual_recipe_compat.h",
+      "size": 7090,
+      "sha256": "b49862342896a4dd139ade212f43517c19702353a2dd8cf47f6e8911da4999ba",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "ritual_recipe_data.h",
+      "size": 5368,
+      "sha256": "cfad7bfc97dbdcf32dafcd87d74143625ee9373af1d3d065827d5931f062e775",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "serpent_fear.h",
+      "size": 16867,
+      "sha256": "ef84227d44e76a37831a436119596059e7cc2233433bd8ebc3d0ba0a3eade68e",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/black_chaos_on.txt",
+      "size": 161,
+      "sha256": "d9c10fbb0f38eee42add676b27d49919474e0918252961bcbd0db6dc32f65759",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/black_chaos_recipe_on.txt",
+      "size": 120,
+      "sha256": "6a1d9245b7c840186e3c24fca19836868701c23416924ecb6d8c1901fe80c9f9",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/crab_on.txt",
+      "size": 139,
+      "sha256": "79cda97f0741cbde3d1e550ba857c879290984d385b8c63e4269a00163f73d78",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/crab_recipe_off.txt",
+      "size": 76,
+      "sha256": "b320fca8ea11cd2f1f88590792ed44f4454a011a57ab8c251f1f36a489b896d1",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/crab_recipe_on.txt",
+      "size": 66,
+      "sha256": "1f3d07c433baa7d170c0088e91ea77de02df380ac5d9f533a563ad76563ec086",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/fiends_mirror_on.txt",
+      "size": 102,
+      "sha256": "53add568fb5eb0d65de215e0cc0f22230650ca3104cdcf1f0b55049f0083f9a0",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/fiends_mirror_recipe_off.txt",
+      "size": 109,
+      "sha256": "8bd2360e20e4358aa64946a7d2cefada891805705dc64407de889879621fc332",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/fiends_mirror_recipe_on.txt",
+      "size": 85,
+      "sha256": "958d076c7fa3ef96fcc4724a3338d6937f7d129e644312d19adc46695640ef83",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/fortress_on.txt",
+      "size": 152,
+      "sha256": "90428da982614bbb7a0e9a5a4764d6b9435d423e937b516ddaa76001f57b2563",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/fortress_recipe_off.txt",
+      "size": 83,
+      "sha256": "ec1cd6da2d6616926a2721c2921d76e30905567a7e74d8267cc2deed063f3a4b",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/fortress_recipe_on.txt",
+      "size": 46,
+      "sha256": "5c681832bacdc49ae45191a7e1f3ce34185ccaf1c1ebced3ee7a3e047784b176",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/garma_on.txt",
+      "size": 118,
+      "sha256": "dd15b3b5b5dd51a7d7dd1d77bfb5aa839bb0767ffb1c4f4b6194bae35af9870f",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/garma_recipe_off.txt",
+      "size": 92,
+      "sha256": "4d8563bc59a6784c69a225bffb4e891830fa72c0c0069bb74cfb01d209052050",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/garma_recipe_on.txt",
+      "size": 68,
+      "sha256": "ad8329eceb6d9386031e22d440bf9672093d6d489dd2be11da6eceefdb42f818",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/gate_on.txt",
+      "size": 78,
+      "sha256": "1e66e938d8e2a23f785936ea0be74d149234cf0e4704e4ba769df41d496ea5bf",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/gate_recipe_off.txt",
+      "size": 90,
+      "sha256": "6fc45104b972cd4120df221325cb01b1ddc7c8631e08165471599ece919715e5",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/gate_recipe_on.txt",
+      "size": 62,
+      "sha256": "81992c63591ec6e483f42eb8968a57bdef0de901a306565282006b9a7d9c9c8d",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/hungry_burger_on.txt",
+      "size": 115,
+      "sha256": "81e61850092e437bf5bea60c968653182651475f7ec0743332f4b4358336fc81",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/hungry_burger_recipe_off.txt",
+      "size": 83,
+      "sha256": "a27f3b1918fbe23f2903af5e437fb502be42bc2fff0291cbd6a0984e50eaf8cb",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/hungry_burger_recipe_on.txt",
+      "size": 59,
+      "sha256": "f92db80c5b455bc97c9e7c4aee5eea5f926b93fc1657aa6395041205d1236625",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/javelin_on.txt",
+      "size": 149,
+      "sha256": "6317fd7c53b03bdabaf57974fa1c494cd2e30d53e8fb68380380b7a23aeea7fb",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/javelin_recipe_off.txt",
+      "size": 100,
+      "sha256": "469410542af9216e06c8f0e95361fae4b4cc2bdea0f0415e3ca0a24bfc9d5f37",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/javelin_recipe_on.txt",
+      "size": 72,
+      "sha256": "1f26337a408af0b942209b803a5a091a1046d2c1546c19ae72e1c6baa7014351",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/mask_on.txt",
+      "size": 103,
+      "sha256": "0028e24771053b5d891b9db6f2e83a5a2a0bf1c566c5d59a21637eb5b00f12b3",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/mask_recipe_off.txt",
+      "size": 72,
+      "sha256": "5299b176c397f242a413d905de9b4b11bb8eb1e7c003535362fcd17765205a52",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/mask_recipe_on.txt",
+      "size": 69,
+      "sha256": "ef17bf9e8699211873cc57fa609f8105a19bc33bf8354d64aa0b4d509cf01362",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/millennium_shield_on.txt",
+      "size": 140,
+      "sha256": "ca70fdaa5d5d6e4db01c5d186638e5413514b201e817c20658fef0f851b45553",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/millennium_shield_recipe_off.txt",
+      "size": 100,
+      "sha256": "053ec3f16c6b83715c15529b14627075f1b7c0f152eb682e7e4a9109833c5fc4",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/millennium_shield_recipe_on.txt",
+      "size": 73,
+      "sha256": "bb0486d64d1ba3a03adadb6b12103a5036d865ce851286634cfd837ff935d22b",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/performance_on.txt",
+      "size": 126,
+      "sha256": "cd517d808afdd80b688ced13a5f75a8a7341048738486bca5a3136901dd504cd",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/performance_recipe_off.txt",
+      "size": 88,
+      "sha256": "bc184774b44f6ee128423ee1c7ea2365a3cda5353ce3f9e84a1d420e5aeb0e05",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/performance_recipe_on.txt",
+      "size": 63,
+      "sha256": "8a946f91ccf7f2d5dc8f9c9f233c4f13bee44b8bceaa310154806183fc1e691b",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/psycho_puppet_on.txt",
+      "size": 111,
+      "sha256": "54a99362c1b29e890b7cda3cde7802ba0d0bc3eaedaa696f17f00b629ab278b4",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/psycho_puppet_recipe_off.txt",
+      "size": 96,
+      "sha256": "9a5c4a170dc3b1efaca21c881916493b5fd5f3b8f9a0593fc924571a68b04e4a",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/psycho_puppet_recipe_on.txt",
+      "size": 70,
+      "sha256": "8b9cac9c9bc532a8c659be7599446677afefaef0713bc98240902987ed10d28c",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/serpent_on.txt",
+      "size": 179,
+      "sha256": "d85951f3e03345f165f2e689c23860c30333c9ae84650ab2c26f2773d02659e6",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/serpent_recipe_off.txt",
+      "size": 106,
+      "sha256": "c07fba617b817713b47f9033a1b8692c8bf2a76a3803e891177043d0d8875d05",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/serpent_recipe_on.txt",
+      "size": 77,
+      "sha256": "bd5d1ecd44c1b8586c2e49e2b1a363d279baf8bd5f4e4536a7180188458582cd",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/tri_horned_on.txt",
+      "size": 177,
+      "sha256": "4d39c24a79a7807eb234b1a9ff5727d28c4018e54bd1c8ee113380b37826139c",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/yamadron_on.txt",
+      "size": 95,
+      "sha256": "5748e579e860e6449314a4a4ef2ca75f44c27b84c7acf0a3c140f3a180631900",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/yamadron_recipe_off.txt",
+      "size": 107,
+      "sha256": "028f8b2500bd266e3a4c24376db9429d648642c97aa648a5783eaddcb115e37b",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "text/yamadron_recipe_on.txt",
+      "size": 61,
+      "sha256": "861787596d89a0f877cf022b34e370a14689937ae1e846f5e6836c9f4a8ba97a",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "tri_horn_sprite.h",
+      "size": 12442,
+      "sha256": "326ada40620bb5fcee4e9eba01d6bd368b5e083ea07eb6d938b88a146e4af6a5",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    },
+    {
+      "path": "tri_horned.h",
+      "size": 5220,
+      "sha256": "93723e48ba7f3612d4e4178ce6d9baf7d2174146566de6d356391c29db23b608",
+      "dev_before": "missing",
+      "snapshot_before": "missing"
+    }
+  ]
+}

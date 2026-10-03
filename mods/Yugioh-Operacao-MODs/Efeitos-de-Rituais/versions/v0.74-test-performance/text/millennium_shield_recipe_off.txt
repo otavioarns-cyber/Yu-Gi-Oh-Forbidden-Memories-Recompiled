@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D399]
+Materials: 255
+Prevent Rat, 296
+One-eyed Shield
+Dragon, 629 Armored
+Rat.

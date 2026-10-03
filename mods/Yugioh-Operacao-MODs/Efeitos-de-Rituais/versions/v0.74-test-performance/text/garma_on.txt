@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D3CC]
+Ritual Effect -
+Six blades thirst for
+battle. Each fallen
+enemy lets another
+blade strike.

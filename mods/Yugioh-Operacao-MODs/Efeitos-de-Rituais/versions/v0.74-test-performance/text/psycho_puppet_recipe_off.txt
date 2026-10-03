@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D3B7]
+Materials: 166
+Mysterious
+Puppeteer, 405 Saber
+Slasher, 416
+Blocker.

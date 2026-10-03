@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D265]
+Ritual Effect -
+Generates up to 3
+random burn Magic
+Cards each turn

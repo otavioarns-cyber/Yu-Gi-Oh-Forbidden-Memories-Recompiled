@@ -28,9 +28,51 @@ O QUE FOI LIMPO
 - Selecao de tributos calcula a compatibilidade de cada candidato uma
   vez por requisito. Continua avaliando as mesmas combinacoes e desempates.
 - Removido o hook de CanActThisTurn que apenas chamava a funcao original.
+  Removidos adaptadores antigos que nao eram mais instalados na v0.73.
 - Diagnostico textual em tela passa a ser opcional.
+- Objeto distribuido sem informacoes de depuracao; fontes C/H preservados.
+  Reduzir o arquivo no disco nao equivale a aumentar o FPS.
+
+DESCRICOES
+Dark Magic Ritual agora lista a receita original:
+Dark Magician + Winged Dragon #1 + Blast Juggler.
+A receita mecanica nao foi alterada. As descricoes dos demais monstros
+rituais e magias rituais, incluindo Performance/Black Chaos, permanecem.
+Textos continuam respeitando os mesmos interruptores da v0.73.
+
+COMPATIBILIDADE
+Preservada a publicacao de materiais exatos da v0.73. O MelhoriaDosRituais
+original continua criando proxies e consumindo os materiais da mao.
+Pelo menos um tributo deve estar no campo; tres registros distintos.
+Receitas privadas e restauracao em Recipe OFF preservadas.
+Somente o conteudo deste MOD foi alterado. Usa exportacoes publicas do
+SDK, sem alterar o executavel ou os fontes oficiais da decomp.
+
+VALIDACAO LOCAL
+- Build concluido com SDK v0.2.0, importacoes verificadas pelo build oficial.
+- 24.098 verificacoes aprovadas com Melhoria v1.0 Final inalterado.
+- 24.074 verificacoes aprovadas com Melhoria v1.1 inalterado.
+  Incluem regras exercitadas pela suite anterior, tributos/consumo nas duas
+  ordens de hooks, cache de Settings e restauracao de miniaturas.
+- 200 conjuntos de candidatos deram exatamente a mesma selecao da v0.73.
+  No pior caso medido, chamadas ao predicado cairam de 1.159 para ate 30.
+- 780 comparacoes renderizadas da moeda: nenhuma diferenca de pixels.
+  Todos os 52 quadros, escalas 1/2/4 e cinco alturas da animacao.
+  Chamadas totais de desenho nesses cenarios:
+    escala 1: 1.052.965 -> 1.052.965
+    escala 2: 2.737.969 -> 1.825.315
+    escala 4: 5.475.598 -> 1.825.315 (aproximadamente 67% menos)
+- 1.000 repeticoes de cada caminho com miniaturas inalteradas nao fizeram
+  novos uploads. Mudanca de um retangulo causou somente seu reenvio.
 
 LIMITES E TESTE NO JOGO
-A perda de HD observada ainda precisa de confirmacao em jogo.
-Repita batalhas comuns, gere cartas com Yamadron, reconfirme moedas e rituais
-1 campo + 2 mao e 2 campo + 1 mao.
+Essas medidas sao locais, com servicos nativos simulados no teste; nao
+medem FPS do jogo nem garantem estabilidade com toda combinacao de mods.
+A perda de HD observada no video ainda precisa de confirmacao em jogo.
+1. Repita batalhas comuns e volte ao campo com o HD e seus outros mods.
+2. Gere cartas com Yamadron; alterne mao/campo e batalhas 2D/3D. Confira
+   miniaturas, nomes, ausencia de trocas de arte e estabilidade do HD.
+3. Reconfirme a moeda de Black Chaos e de Performance e seus resultados.
+4. Confira um ritual com 1 campo + 2 mao e outro com 2 campo + 1 mao.
+Se houver queda, anote a acao/carta, modo 2D/3D e mods ativos; um video
+com indicador de FPS ajuda a separar lentidao de perda de textura HD.

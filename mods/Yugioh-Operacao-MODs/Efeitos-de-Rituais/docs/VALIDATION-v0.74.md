@@ -11,3 +11,15 @@ Fonte: LEIA-ME incluido no pacote v0.74 fornecido pelo usuario.
 - 1.000 repeticoes de cada caminho de miniaturas inalteradas nao fizeram novos uploads; alterar um retangulo causou somente seu reenvio.
 
 Esses testes sao locais/simulados e nao substituem validacao dentro do jogo com os demais MODs e HD ativos.
+
+## Auditoria atual
+
+Os números acima foram transcritos do LEIA-ME original; as suítes não estão
+no ZIP e não foram reexecutadas nesta migração. A conferência atual compara
+os 112 arquivos recebidos com dev e snapshot, incluindo binário e imagens.
+
+Build reexecutado em 2026-10-03 com o build_mod.py do SDK oficial v0.2.0
+fornecido no ZIP Windows: sucesso, 2 fontes C, importações aceitas pela lista
+exports.txt do SDK. Saída em diretório separado; objeto original preservado.
+Não foi executado duelo nesta auditoria nem comprovada identidade binária
+entre compiladores. Os 224 hashes dos dois destinos conferem com o pacote.

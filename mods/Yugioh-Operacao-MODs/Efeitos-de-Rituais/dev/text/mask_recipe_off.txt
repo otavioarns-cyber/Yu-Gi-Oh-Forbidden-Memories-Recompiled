@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B5]
+Sacrifice a masked
+one to summon a new
+mask.

@@ -1,11 +1,27 @@
-# Estado atual
+# Estado atual — auditoria de 2026-10-03
 
-Versao atual: `v0.74.0-test-performance`.
+Versão: `0.74.0-test-performance`, mantida sem alterações funcionais.
+Fonte efetivamente recebida: `zzz Efeitos Rituais.zip`, pasta `zzz Efeitos Rituais/`.
+O texto de transferência menciona outro nome de ZIP. Os hashes de LEIA-ME.txt,
+mod.c, mod.json e ritual-card-effects.o coincidem com os quatro hashes já
+registrados no commit inicial; o manifesto identifica a mesma v0.74.
+Não se afirma identidade byte a byte entre dois arquivos ZIP diferentes.
 
-Origem do snapshot: arquivo de teste `MOD-Efeitos-de-Cartas-Rituais-v0.74-test-Otimizacao(1).zip` fornecido pelo usuario em 2026-10-03.
+`dev/` contém os 112 arquivos originais; `versions/v0.74-test-performance/`
+contém os mesmos 112 arquivos e um manifesto SHA-256 completo.
+O objeto .o recebido é preservado nos dois lugares para reprodução do pacote
+que o usuário testou. Builds de verificação usam saída separada.
 
-Base declarada pelo proprio pacote: v0.73, com Black Chaos aprovado em teste de jogo. Compilado com SDK oficial v0.2.0. A v0.74 nao adiciona carta/efeito novo; e uma rodada de limpeza e desempenho.
+A v0.73 é a base funcional declarada pelo pacote e pelo usuário; nenhum
+snapshot dessa versão foi inventado. A v0.74 ainda tem bugs abertos.
+As suítes antigas não vieram neste ZIP: seus resultados são relatos históricos,
+não execuções reproduzidas nesta migração. Ver VALIDATION-v0.74.md.
 
-Objetivo permanente do MOD: adicionar/ajustar efeitos de monstros Ritual e receitas compativeis, mantendo o MOD separado dos fontes oficiais e do MOD Field Effects/Tipos Secundarios.
+O MOD MelhoriaDosRituais é uma dependência de integração para materiais da mão:
+este MOD publica as receitas exatas, enquanto aquele cria proxies e consome
+a mão. Preservar três registros distintos e pelo menos um tributo no campo.
+Não integrar nem modificar o outro MOD durante esta migração.
 
-Regra de compatibilidade de ritual ja consolidada: 3 materiais distintos no total, com pelo menos 1 material no campo; combinacoes validas incluem 1 campo + 2 mao e 2 campo + 1 mao. O MOD MelhoriaDosRituais pode continuar criando proxies/consumindo materiais da mao, e este MOD publica os materiais exatos esperados.
+Próxima prioridade: rastrear a resolução Black Hole e sua continuação com
+sobreviventes, preservando a proteção de Millennium Shield. Depois investigar
+lado/ownership na invocação. Não há correção desses bugs nesta migração.

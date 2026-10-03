@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3A4]
+Dancing Elf +
+1 Warrior +
+1 Female.

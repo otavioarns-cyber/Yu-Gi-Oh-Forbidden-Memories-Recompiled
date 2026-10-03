@@ -1,0 +1,10 @@
+@bank descriptions
+
+[D3D2]
+Ritual Effect -
+Battle cannot destroy
+it. At your turn's
+start, toss a coin.
+Heads: Black Hole.
+This monster is
+immune to Black Hole.

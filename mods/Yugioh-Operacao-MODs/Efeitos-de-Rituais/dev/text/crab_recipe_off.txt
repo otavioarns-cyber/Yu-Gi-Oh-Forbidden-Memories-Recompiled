@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B4]
+Sacrifice crab and
+turtle to summon
+Crab Turtle.

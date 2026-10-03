@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D3CE]
+Ritual Effect - Gains
+500 DEF per Fish in
+hand and field. Under
+Umi, allied sea types
+resist Magic/Trap
+destruction/debuffs.

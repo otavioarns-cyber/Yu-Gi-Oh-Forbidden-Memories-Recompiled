@@ -1,0 +1,11 @@
+@bank descriptions
+
+[D3C1]
+Ritual: Wasteland.
+3 horns stop battle/
+target destruction.
+Other allied Dinos:
++1000 ATK/DEF.
+Under Wasteland,
+those Dinos resist
+Magic destruction.

@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D3B8]
+Materials: 052
+Hercules Beetle, 480
+Kuwagata alpha, 533
+Kwagar Hercules.

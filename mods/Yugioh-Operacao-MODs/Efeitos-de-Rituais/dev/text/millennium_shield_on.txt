@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D26A]
+Ritual Effect - Can
+only be destroyed by
+battle. Gains 500
+DEF for each monster
+in Attack Position
+on the field.

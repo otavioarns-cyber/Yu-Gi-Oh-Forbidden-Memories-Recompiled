@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D3BE]
+Ritual Effect -
+Gains 500 ATK and
+DEF each time it
+destroys an enemy
+monster in battle.
