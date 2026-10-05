@@ -24,7 +24,8 @@ static void adjust_record(DuelCardRecord*c){if(c&&(c->flags&DUEL_CARD_FLAG_OCCUP
 static u8*setup_hook(s32 a,s32 b){u8*r=original_setup(a,b);adjust_record((DuelCardRecord*)r);return r;}
 static void apply_terrain_hook(void){s32 i;original_apply_terrain();for(i=0;i<DUEL_CARD_RECORD_COUNT;i++)adjust_record(&D_801A7AD8[i]);}
 /* TEST ONLY: highlight approved card names using a stock text colour. */
-typedef struct{u32 guest;u8 saved;u8 active;}SavedColor;static SavedColor saved[16];#define TEST_NAME_COLOR 6
+typedef struct{u32 guest;u8 saved;u8 active;}SavedColor;static SavedColor saved[16];
+#define TEST_NAME_COLOR 6
 static SavedColor*find_saved(DuelEffectChannel*o){int i;u32 g=(u32)(uintptr_t)o-0x80000000u;for(i=0;i<16;i++)if(saved[i].active&&saved[i].guest==g)return &saved[i];return 0;}
 static void restore_color(DuelEffectChannel*o){SavedColor*s=find_saved(o);if(!s)return;if(o->field_54==TEST_NAME_COLOR)o->field_54=s->saved;s->active=0;s->guest=0;}
 static void remember_color(DuelEffectChannel*o){int i;if(find_saved(o))return;if((uintptr_t)o<0x80000000u||(uintptr_t)o>0x80200000u-sizeof(*o))return;for(i=0;i<16;i++)if(!saved[i].active){saved[i].guest=(u32)(uintptr_t)o-0x80000000u;saved[i].saved=o->field_54;saved[i].active=1;return;}}
