@@ -30,6 +30,8 @@ extern unsigned char D_800EAE88[];
 static const MemoriesModHost *host;
 static void *original_init, *original_run, *original_window, *original_swap;
 static void *original_search[5];
+typedef s32 (*TerrainCardDeltaV1)(s32 card, s32 type, s32 terrain);
+static TerrainCardDeltaV1 terrain_card_delta;
 
 static int setting(const char *key, int fallback, int low, int high)
 {
@@ -121,13 +123,26 @@ static HmCard card_info(int id)
     c.star2 = (stats >> CARD_STAT_GUARDIAN_STAR_2_SHIFT) & 15;
     return c;
 }
-static int terrain(int type, int field)
+static TerrainCardDeltaV1 find_terrain_card_delta(void)
 {
-    int bonus;
+    /* Optional and lazy: load order stays irrelevant. The provider itself
+     * returns zero while its owning mod is disabled, so standalone AI Hard
+     * Mode remains byte-for-byte equivalent in its terrain decisions. */
+    if (!terrain_card_delta && host && host->api >= 4)
+        terrain_card_delta = (TerrainCardDeltaV1)host->find(
+            host, "field-effects-secondary-types:terrain-card-delta-v1");
+    return terrain_card_delta;
+}
+static int terrain(int card, int type, int field)
+{
+    TerrainCardDeltaV1 extra;
+    int bonus, base;
     /* A mod's "terrain_bonus" first, as Duel_GetTerrainBoost asks it. */
-    if (type >= 0 && type < 20 && Tables_TerrainBonus(field, type, &bonus)) return bonus;
-    return type >= 0 && type < 20 && field >= 1 && field <= 6 ?
+    if (type >= 0 && type < 20 && Tables_TerrainBonus(field, type, &bonus)) base = bonus;
+    else base = type >= 0 && type < 20 && field >= 1 && field <= 6 ?
         gDuel_aTerrainBoost[type][field - 1] * CARD_STAT_SCALE : 0;
+    extra = find_terrain_card_delta();
+    return base + (extra && card > 0 ? extra(card, type, field) : 0);
 }
 static int ritual(int id) { return Duel_CheckRitual(0, id); }
 static int star_matchup(int attacker, int defender) { return Duel_CalcGuardianStarMatchup(attacker, defender); }
