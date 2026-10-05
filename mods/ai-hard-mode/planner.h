@@ -24,7 +24,9 @@ typedef struct {
     HmCard (*card)(int id);
     int (*fusion)(int a, int b);
     int (*equip)(int equipment, int monster);
-    int (*terrain)(int type, int terrain);
+    /* card is passed separately so optional compatibility providers can
+     * refine terrain by card identity without changing normal type rules. */
+    int (*terrain)(int card, int type, int terrain);
     int (*ritual)(int card);
 } HmRules;
 typedef struct {
