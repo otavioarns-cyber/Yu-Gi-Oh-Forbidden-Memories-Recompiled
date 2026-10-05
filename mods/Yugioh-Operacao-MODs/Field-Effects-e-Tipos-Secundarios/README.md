@@ -18,4 +18,4 @@ Workspace isolado do MOD para Yu-Gi-Oh! Forbidden Memories Recompiled.
 
 ## Status
 
-Projeto inicializado. Proxima etapa: mapear o ponto de integracao da API v0.2.0 e implementar o nucleo de Field Effects + Tipos Secundarios.
+Migrado para a base oficial v0.2.0. O nucleo de Field Effects + Tipos Secundarios e a ponte opcional de compatibilidade com AI Hard Mode compilam no SDK v0.2.0. A proxima etapa e validacao funcional dentro do jogo antes de congelar uma versao de teste em `versions/`.
