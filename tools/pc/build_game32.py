@@ -18,7 +18,7 @@ leading underscore; sections cannot be placed at chosen addresses, so the
 fixed game sections (save states across rebuilds) are not available; the
 section renames edit the COFF headers directly (rename_coff_sections) and
 __start_/__stop_ come from grouped marker sections; overrides win by link order instead of weakened symbols."""
-import argparse, concurrent.futures, csv, glob, hashlib, json, os, re, shutil, struct, subprocess, sys
+import argparse, concurrent.futures, csv, filecmp, glob, hashlib, json, os, re, shutil, struct, subprocess, sys
 import build_process
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -124,8 +124,17 @@ NATIVE = sorted(glob.glob("src/pc/guest/*.[cS]") + glob.glob("src/pc/sdk/*.c") +
 MODULES = [("main_menu", "src/overlays/main_menu/*.c", 0x0F, 0),
            ("password", "src/overlays/password/*.c", 0x15, 0x80168000),
            ("overworld", "src/overlays/overworld/*.c", 0x14, 0x80168000),
-           ("free_duel", "src/overlays/free_duel/*.c", 0x13, 0x80168000)]
+           ("free_duel", "src/overlays/free_duel/*.c", 0x13, 0x80168000),
+           ("duel_effects", "src/overlays/duel_effects/*.c", 0x18, 0x80146000),
+           ("credits", "src/overlays/credits/*.c", 0x10, 0x80180000)]
 MODULE_CONFIG = {"overworld": "overworld_before_coup"}
+# Modules entered only through a native gate that checks the delivered bytes
+# first (src/pc/overlays/duel_effects.c, credits.c): their guest addresses
+# stay out of Memories_FunctionMap, so a call into a modded image is
+# interpreted instead. They must have no variables of their own (theirs stay
+# in guest memory), so they are left out of the module registry too, which
+# would otherwise tell the interpreter their range holds native code.
+GATED_MODULES = {"duel_effects", "credits"}
 
 # Save states outlive native rebuilds because everything a state can point at
 # in the game objects stays put (src/pc/guest/state.h): their code and
@@ -149,9 +158,24 @@ def run(command):
         sys.exit(f"{' '.join(command[:6])} ...\n{result.stderr}")
     return result.stdout
 
+def flags_changed(path, flags):
+    """When these flags were last different: path keeps them, rewritten
+    only when they change, so its time is when they did (--release adds or
+    drops one, in the same build directory)."""
+    text = "\n".join(flags) + "\n"
+    try:
+        with open(path) as handle:
+            same = handle.read() == text
+    except OSError:
+        same = False
+    if not same:
+        with open(path, "w") as handle:
+            handle.write(text)
+    return os.path.getmtime(path)
+
 def compile_unit(job):
-    source, obj, flags, renames = job
-    if os.path.exists(obj) and os.path.getmtime(obj) >= NEWEST_HEADER and \
+    source, obj, flags, renames, newest = job
+    if os.path.exists(obj) and os.path.getmtime(obj) >= newest and \
             os.path.getmtime(obj) >= os.path.getmtime(source):
         return
     run([CC, *flags, "-c", source, "-o", obj])
@@ -440,13 +464,14 @@ def build_mods(build, release=False):
 
     A mod is its manifest and whatever it ships; if it has C, that becomes
     one object file (tools/pc/build_mod.py), which the game's own loader
-    links in when the mod is applied (src/pc/mods/object_loader.c). The
-    object is built once, in tmp/pc/mod-build, and the same file is copied
-    beside both the Linux and the Windows game: one mod, every system. The
-    folder there is named by build_mod.py's flags: checkouts of other
-    branches share tmp, and an object built with other flags (the branch
-    thunks' flags need a game that lends the thunks) must not pass for up to
-    date in them.
+    links in when the mod is applied (src/pc/mods/object_loader.c). One
+    object serves every system, so the Linux and the Windows game can carry
+    the same file. build_mod.py keeps it in tmp/pc/mod-build/<mod>-<key>,
+    the key a digest of the compiler, the flags and the preprocessed
+    sources: every checkout shares tmp (the worktrees link it), and one
+    reuses an object only when it would build the same one. It is copied
+    beside this game when the copy there differs, and checked against this
+    game's exports either way.
 
     The SDK goes beside the game too, so a release carries what a mod author
     builds against: modapi.h and the game's headers under sdk/include, the C
@@ -462,9 +487,7 @@ def build_mods(build, release=False):
         shutil.rmtree(out_root, ignore_errors=True)
     os.makedirs(out_root, exist_ok=True)
     write_sdk(build)
-    flags = " ".join(build_mod.FLAGS + build_mod.CLANG_FLAGS + build_mod.GCC_FLAGS)
-    mod_build = f"tmp/pc/mod-build/{hashlib.sha256(flags.encode()).hexdigest()[:8]}"
-    built = []
+    mods = []
     for manifest in sorted(glob.glob("mods/*/mod.json")):
         if tracked is not None and manifest not in tracked:
             continue
@@ -477,17 +500,22 @@ def build_mods(build, release=False):
                 continue
             if path.endswith(".c") or path.endswith(".h") or os.path.isdir(path):
                 continue
-            copy_if_newer(path, os.path.join(out_dir, os.path.relpath(path, source_dir)))
-        # Checked against this build's own export table: the other system's
-        # may be older than this build.
-        obj = build_mod.build(source_dir, out_dir=f"{mod_build}/{name}", games=[build], quiet=True)
+            copy_if_changed(path, os.path.join(out_dir, os.path.relpath(path, source_dir)))
+        mods.append((name, source_dir, out_dir))
+    # All at once: a mod whose key is not remembered starts the preprocessor,
+    # and a new key the compiler. Checked against this build's own export
+    # table: the other system's may be older than this build. Written where
+    # the manifest's "library" puts it, which may be a subdirectory.
+    with concurrent.futures.ThreadPoolExecutor(max(1, len(mods))) as pool:
+        objects = list(pool.map(lambda mod: build_mod.build(mod[1], out_dir=mod[2], games=[build], quiet=True),
+                                mods))
+    built = []
+    for (name, source_dir, out_dir), obj in zip(mods, objects):
         if not obj:
             built.append(f"{name} (data)")
             continue
         for stale in glob.glob(f"{out_dir}/*.so") + glob.glob(f"{out_dir}/*.dll"):
             os.remove(stale)   # native libraries from before mods were objects
-        # Where the manifest's "library" puts it, which may be a subdirectory.
-        copy_if_newer(obj, os.path.join(out_dir, os.path.relpath(obj, f"{mod_build}/{name}")))
         built.append(name)
     if built:
         print(f"{out_root}: " + ", ".join(built))
@@ -504,14 +532,17 @@ def copy_languages(build, release=False):
         packs = [path for path in packs if path.replace(os.sep, "/") in tracked]
         shutil.rmtree(out_root, ignore_errors=True)
     for path in packs:
-        copy_if_newer(path, os.path.join(out_root, os.path.basename(path)))
+        copy_if_changed(path, os.path.join(out_root, os.path.basename(path)))
     if packs:
         print(f"{out_root}: " + ", ".join(os.path.splitext(os.path.basename(path))[0] for path in packs))
 
 
-def copy_if_newer(source, destination):
+def copy_if_changed(source, destination):
+    """Copy when the destination is missing or its bytes differ. Not by
+    date: a build folder in tmp is shared by every worktree (a junction),
+    and a newer file there may be another checkout's."""
     os.makedirs(os.path.dirname(destination), exist_ok=True)
-    if not os.path.exists(destination) or os.path.getmtime(destination) < os.path.getmtime(source):
+    if not os.path.exists(destination) or not filecmp.cmp(source, destination, shallow=False):
         shutil.copy2(source, destination)
 
 
@@ -522,20 +553,20 @@ def write_sdk(build):
         relative = os.path.relpath(header, "src")
         if relative.startswith(os.path.join("pc", "mods", "sdk")):
             relative = os.path.join("libc", os.path.relpath(header, "src/pc/mods/sdk"))
-        copy_if_newer(header, os.path.join(sdk, "include", relative))
+        copy_if_changed(header, os.path.join(sdk, "include", relative))
     for name in ("build_mod.py", "build_process.py"):
-        copy_if_newer(f"tools/pc/{name}", f"{sdk}/tools/{name}")
+        copy_if_changed(f"tools/pc/{name}", f"{sdk}/tools/{name}")
     # What else a mod author needs beside the headers: the texture pack tools
     # (the standard library only; upscale_pack.py also wants Pillow and
     # Upscayl, which it asks for), the example mods, and the notes that
     # describe all of it.
     for name in ("extract_images.py", "upscale_pack.py"):
-        copy_if_newer(f"tools/pc/{name}", f"{sdk}/tools/{name}")
+        copy_if_changed(f"tools/pc/{name}", f"{sdk}/tools/{name}")
     for path in glob.glob("examples/mods/**/*", recursive=True):
         if os.path.isfile(path):
-            copy_if_newer(path, os.path.join(sdk, os.path.relpath(path)))
+            copy_if_changed(path, os.path.join(sdk, os.path.relpath(path)))
     for name in ("modding.md", "mod-api-3.md", "more-cards.md"):
-        copy_if_newer(f"notes/{name}", f"{sdk}/notes/{name}")
+        copy_if_changed(f"notes/{name}", f"{sdk}/notes/{name}")
     # What this game lends a mod, for build_mod.py's check beside the game.
     import build_mod
     with open(f"{sdk}/exports.txt", "w") as handle:
@@ -561,14 +592,15 @@ def release_version():
             version = ""
     return version if re.fullmatch(VERSION_PATTERN, version) else ""
 
-def write_version(build):
+def write_version(build, force=False):
     """version.c: Memories_Version, rewritten only when it changes."""
     text = f'const char Memories_Version[] = "{release_version()}";\n'
     path = f"{build}/version.c"
     if not os.path.exists(path) or open(path).read() != text:
         with open(path, "w") as handle:
             handle.write(text)
-    if not os.path.exists(f"{build}/version.o") or os.path.getmtime(f"{build}/version.o") < os.path.getmtime(path):
+    stale = not os.path.exists(f"{build}/version.o") or os.path.getmtime(f"{build}/version.o") < os.path.getmtime(path)
+    if force or stale:
         run([CC, *NATIVE_CFLAGS, "-c", path, "-o", f"{build}/version.o"])
     return f"{build}/version.o"
 
@@ -604,6 +636,24 @@ def main():
     os.makedirs(options.build + "/obj", exist_ok=True)
     headers = glob.glob("src/**/*.h", recursive=True) + glob.glob("mods/**/*.h", recursive=True) + [__file__, "config/pc/host_symbol_renames.txt"]
     NEWEST_HEADER = max(os.path.getmtime(path) for path in headers)
+    # A build folder may have been built last by another checkout: tmp is
+    # shared by every worktree (a junction), and an object there newer than
+    # this checkout's source can be another checkout's code. checkout.txt
+    # names the checkout the folder was last built from, written when a
+    # build ends; when it is not this one (or not there), everything is
+    # compiled again. Another checkout's is removed first, so when this
+    # build stops halfway the next one compiles everything too. Two builds
+    # into one folder at once are not supported (no lock).
+    checkout = f"{options.build}/checkout.txt"
+    try:
+        with open(checkout, encoding="utf-8") as handle:
+            ours = handle.read() == os.path.realpath(ROOT) + "\n"
+    except OSError:
+        ours = False
+    if not ours:
+        if os.path.exists(checkout):
+            os.remove(checkout)
+        NEWEST_HEADER = float("inf")
     obj = lambda source: f"{options.build}/obj/{source.replace('/', '_')}.o"
     # main_menu is the only overlay with a private load address (0x80180000),
     # so it can simply be linked in. The 0x80168000 modules share one address
@@ -621,8 +671,14 @@ def main():
                 if line.split():
                     out.write(" ".join(PREFIX + name for name in line.split()) + "\n")
         renames_file = f"{options.build}/host_symbol_renames.txt"
-    jobs = [(s, obj(s), CFLAGS, renames_file) for s in game]
-    jobs += [(s, obj(s), NATIVE_CFLAGS, None) for s in NATIVE]
+    # Test-only paths (MEMORIES_TEST_EXEC_GUEST, src/pc/guest/image.c) are
+    # left out of a release: virus scanners' heuristics hold executable
+    # memory against a program. smoke.py runs them in the other builds.
+    if not options.release:
+        NATIVE_CFLAGS.append("-DMEMORIES_TEST_HOOKS")
+    native_newest = max(NEWEST_HEADER, flags_changed(f"{options.build}/native-flags.txt", NATIVE_CFLAGS))
+    jobs = [(s, obj(s), CFLAGS, renames_file, NEWEST_HEADER) for s in game]
+    jobs += [(s, obj(s), NATIVE_CFLAGS, None, native_newest) for s in NATIVE]
     with concurrent.futures.ThreadPoolExecutor(os.cpu_count()) as pool:
         list(pool.map(compile_unit, jobs))
 
@@ -645,6 +701,10 @@ def main():
                   if symbol in module_elf[name] and symbol not in resident_defined and any(
                       places.get(symbol, module_elf[name][symbol]) != module_elf[name][symbol]
                       for places in [resident_elf] + [module_elf[o] for o in others])}
+        if name in GATED_MODULES:
+            # Everything it defines: a resident call by the retail name (the
+            # credits' func_801807B0) must still reach the gate at that address.
+            clash |= defined | common
         renamed[name] = {symbol: f"{name}__{symbol}" for symbol in clash if not symbol.startswith(f"{name}__")}
         for source in module_sources[name]:
             command = [OBJCOPY]
@@ -661,6 +721,12 @@ def main():
                 run(command + [obj(source)])
         headers_text = run([OBJDUMP, "-h", *[obj(s) for s in module_sources[name]]])
         sections[name] = [kind for kind in ("data", "bss") if f"ovl_{name}_{kind}" in headers_text]
+        # A tentative definition (-fcommon) is in no section yet: it would
+        # become host data the image never sees, so it counts too.
+        if name in GATED_MODULES and (common or any(
+                len(parts) > 2 and parts[1].startswith(f"ovl_{name}_") and int(parts[2], 16)
+                for parts in (line.split() for line in headers_text.splitlines()))):
+            sys.exit(f"{name}: a gated module with variables of its own")
 
     for source in game if WINDOWS else []:
         rename_coff_sections(obj(source), {".text": "game_text$m", ".rdata": "game_rodata$m",
@@ -696,7 +762,8 @@ def main():
             for row in csv.DictReader(handle):
                 row["name"] = renamed.get(name, {}).get(row["name"], row["name"])
                 row["bank"], row["identifier"] = bank, identifier if bank else 0
-                overlay_rows.append(row)
+                if name not in GATED_MODULES:
+                    overlay_rows.append(row)
     by_address = {int(row["address"], 16): row["name"] for row in rows}
     addresses = dict(resident_elf)
     for name, _, _, _ in MODULES:
@@ -816,6 +883,9 @@ def main():
         mapped += [(0x8013A004, "Memories_ModelPrimaryControlA", 0, 0),
                    (0x8013B004, "Memories_ModelVariantControlA", 0, 0),
                    (0x801462B0, "Memories_DuelEffectControl", 0, 0),
+                   (0x801807B0, "Memories_CreditsInit", 0, 0),
+                   (0x80180A24, "Memories_CreditsUpdate", 0, 0),
+                   (0x80181C4C, "Memories_CreditsLines", 0, 0),
                    (0x8017A004, "Memories_ModelPrimaryControlB", 0, 0),
                    (0x8017B004, "Memories_ModelVariantControlB", 0, 0)]
         mapped.sort()
@@ -824,7 +894,8 @@ def main():
         handle.writelines(f"    {{0x{address:08X}u, {name}, 0x{bank:08X}u, 0x{identifier:X}u}},\n"
                           for address, name, bank, identifier in mapped)
         handle.write(f"}};\nconst unsigned Memories_FunctionMapCount = {len(mapped)};\n")
-        shared = [(name, identifier, bank) for name, _, identifier, bank in MODULES if bank]
+        shared = [(name, identifier, bank) for name, _, identifier, bank in MODULES
+                  if bank and name not in GATED_MODULES]
         for name, _, _ in shared:
             for kind in sections[name]:
                 handle.write(f"extern char __start_ovl_{name}_{kind}[], __stop_ovl_{name}_{kind}[];\n")
@@ -837,7 +908,7 @@ def main():
     run([CC, *NATIVE_CFLAGS, "-c", f"{options.build}/stubs.c", "-o", f"{options.build}/stubs.o"])
     write_mod_exports(options.build, game_defined | native_defined | tentative | set(pinned) | set(branches) | set(stubs),
                       aliases)
-    version = write_version(options.build)
+    version = write_version(options.build, force=not ours)
     output = f"{options.build}/memories-pc"
     if WINDOWS:
         output += ".exe"
@@ -854,8 +925,11 @@ def main():
         # -debug:symtab keeps the COFF symbol table beside the PDB (--pdb
         # alone drops it): the save-state tables below are read from it
         # with nm, and an empty one gave every build the same id.
+        # -pdbaltpath records the PDB by bare name, not the builder's path:
+        # the GitHub runner's D:/a/... path was enough for Bitdefender to
+        # flag the CI builds (Gen:Variant.Yogi) when local ones passed.
         run([CC, *(["-mwindows"] if options.release else []), "-o", output, f"-Wl,--pdb={options.build}/memories-pc.pdb",
-             "-Wl,-Xlink=-debug:symtab",
+             "-Wl,-Xlink=-debug:symtab", "-Wl,-Xlink=-pdbaltpath:%_PDB%",
              "-Wl,--large-address-aware", "-Wl,--disable-dynamicbase", "-Wl,--nxcompat",
              "-Wl,--allow-multiple-definition", f"{options.build}/guest_symbols.o",
              *[obj(s) for s in NATIVE + game], f"{options.build}/stubs.o", guest_branches, f"{options.build}/mod_exports.o",
@@ -931,6 +1005,8 @@ def main():
         json.dump(report, handle, indent=1)
     print(f"{output}: {len(game)} game units, {len(pinned)} pinned data symbols, " +
           ", ".join(f"{len(v)} {k} stubs" for k, v in report["stubbed"].items()))
+    with open(checkout, "w", encoding="utf-8") as handle:
+        handle.write(os.path.realpath(ROOT) + "\n")
 
 if __name__ == "__main__":
     main()
