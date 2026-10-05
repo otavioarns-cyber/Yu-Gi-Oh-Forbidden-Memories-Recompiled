@@ -30,6 +30,12 @@
 /* 1 on success; `why` says what went wrong otherwise. */
 int CardArt_FromImage(const char *path, unsigned char *record, char *why, size_t why_size);
 int CardArt_ThumbnailFromImage(const char *path, unsigned char *record, char *why, size_t why_size);
+/* Like CardArt_FromImage, but keeps the PNG's own transparency as a
+ * silhouette instead of flattening it to black: for "field_art"
+ * (notes/more-cards.md), the 2D Monsters mod's cutout alone, never a
+ * card's real record. A binary cutout (an alpha under 128 is fully out),
+ * not a softly feathered edge. */
+int CardArt_FieldArtFromImage(const char *path, unsigned char *record, char *why, size_t why_size);
 /* The rectangle of the PNG those take a w x h picture from (the middle at
  * that shape), and the PNG's size: for the full-resolution picture a
  * texture pack draws above the console's resolution (cards.c). 0 when the
@@ -38,8 +44,22 @@ int CardArt_Crop(const char *path, int w, int h, int *x, int *y, int *cw, int *c
 /* The title plate alone, CARD_TITLE_BYTES, what a record holds at
  * CARD_TITLE_PIXELS. */
 int CardArt_TitleFromImage(const char *path, unsigned char *plate, char *why, size_t why_size);
+/* A picture of any size with see-through parts, for the title screen
+ * (title_images.c): the PNG stretched to w x h, one byte a texel, entry 0
+ * clear and 1-255 its colours in `clut` (256 BGR555 entries). */
+int CardArt_IndexedImage(const char *path, int w, int h, unsigned char *indices, unsigned short *clut, char *why,
+                         size_t why_size);
+/* The PNG's size; 0 when it is not one. */
+int CardArt_ImageSize(const char *path, int *width, int *height);
 /* PORTRAIT_RECORD bytes: a duelist's face for the Free Duel grid. */
 int CardArt_PortraitFromImage(const char *path, unsigned char *record, char *why, size_t why_size);
+/* A guardian star's icon, CARD_ICON_SIDE square at 4 bits a pixel (128
+ * bytes, the low nibble first), from a PNG (stars.h): with `palette` its 16
+ * colours (the disc's stars'), else the PNG's own 15 in `clut` (entry 0
+ * transparent). */
+#define CARD_ICON_SIDE 16
+int CardArt_IconFromImage(const char *path, const unsigned short *palette, unsigned char *pixels,
+                          unsigned short *clut, char *why, size_t why_size);
 /* `name` in UTF-8. 0 when no serif font could be found; the plate is left
  * as it was. */
 int CardArt_TitleFromName(const char *name, unsigned char *plate);

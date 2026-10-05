@@ -123,6 +123,9 @@ int Paths_User(char *out, size_t size, const char *relative)
 }
 const char *Paths_UserDir(void) { return NULL; }  /* no roster folder in the cases */
 int Paths_MakeDirs(const char *path) { mkdir(path, 0777); return 0; }
+void Paths_WriteBegin(void) {}
+const char *Paths_WriteError(char *out, size_t size, const char *path)
+{ snprintf(out, size, "%s: failed.", path); return out; }
 int Log_Wanted(LogChannel channel) { (void)channel; return 0; }
 void Log_Printf(LogChannel channel, const char *format, ...) { (void)channel; (void)format; }
 
@@ -401,6 +404,16 @@ int main(void)
     /* The array form is the numbers alone and cannot say. */
     build("{\"duelists\":[{\"id\":\"x\",\"copy\":\"Heishin\",\"ai\":[20,20,10,3,2]}]}", NULL);
     assert(Duelists_HidesFaceDown(40, 1) && !Duelists_HidesFaceDown(40, 0));
+
+    /* "search" is the row's byte 0, which Ai_GetHandSize reads: 5 to 20,
+     * the most the AI's fusion search keeps flags for; past either end it is
+     * held there, and said so. */
+    notes = 0;
+    build("{\"duelists\":[{\"id\":\"x\",\"replace\":\"Simon Muran\",\"ai\":{\"search\":20}},"
+          "{\"id\":\"y\",\"copy\":\"Heishin\",\"ai\":{\"search\":40}},"
+          "{\"id\":\"z\",\"copy\":\"Heishin\",\"ai\":[0, 20]}]}", NULL);
+    assert(Duelists_AiRow(1)[0] == 20 && Duelists_AiRow(40)[0] == 20 && Duelists_AiRow(41)[0] == 5);
+    assert(notes == 2);
 
     /* How a duel against it is scored is the duelist's own, and reaches a
      * stock one through a replacement that changes nothing else. A rule with

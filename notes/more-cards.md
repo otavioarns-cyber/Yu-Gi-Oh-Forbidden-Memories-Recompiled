@@ -43,16 +43,18 @@ The release ships no card mod; the checks below were made with test mods
 | `count` | how many cards this entry adds (default 1) |
 | `count_setting` | read `count` from one of the mod's settings instead, so `MEMORIES_MOD_<ID>_COUNT=5000` or `mod.<id>.count=5000` in the settings file changes it without editing the manifest |
 | `name` | the cards' own name; `{n}` is the card's number within the entry and `{id}` its card id. Without one a card has its base's name. Letters, digits, spaces and ``!"#$%&'()*+,-./:<>?`` are what the game's font has; accented letters and others the port adds ([translations](translation.md)) work too |
-| `description` | the card's own text (UTF-8: accented letters work, [translations](translation.md)), wrapped as the retail texts are (lines of up to twenty letters, broken at spaces; `\n` breaks a line where it stands). Eight lines is the most any retail text has. Without one a card has its base's text |
+| `description` | the card's own text (UTF-8: accented letters work, [translations](translation.md)), wrapped as the retail texts are (lines of up to twenty letters, broken at spaces; `\n` breaks a line where it stands). The codes the FM Editor shows work too: `{f8 0B NN}` an icon (one letter wide), `{f8 0A NN}` a colour, `{g X}` a glyph by number. Eight lines is the most any retail text has. Without one a card has its base's text |
 | `art` | a PNG in the mod (a path relative to its directory): the card's picture and, made from the same image, the small one the hand and field show. Any size: the middle of it at the card's shape is taken and scaled to 102x96 and 40x32, and its colours reduced to the 255 and 63 each has. An image bigger than that is also drawn at its own resolution when View > Console resolution is set above 1x (Internal 2x, 4x), as a texture pack's image is ([HD pictures](#hd-pictures)), so 408x384 (4x) or 816x768 (8x) looks best |
 | `thumbnail` | a PNG for the small picture alone, when the scaled-down `art` does not read well at 40x32; bigger than 40x32, it is drawn at its own resolution too |
+| `field_art` | a PNG (same sizing rule as `art`) for the 3D Monsters mod's Card art style cutout alone, on top of the card on the duel field: never patched into the card's own record, so the Library, hand, trade screen and detail panel keep showing `art` (or the base's own picture) untouched. Without one the cutout shows the same picture everything else does |
 | `title` | a PNG for the name plate at the top of the card's picture (96x14; dark ink on white, or on a transparent background). Without one, a card with its own name gets a plate with that name set in Times at the retail plates' size (Times New Roman on Windows, fontconfig's match for `Times` elsewhere, Liberation Serif on most Linux systems), or a blank plate when there is none |
 | `attack`, `defense` | 0 to 5110, in tens, as the game stores them |
 | `type` | a number or a name (`"Dragon"`, `"Winged Beast"`). A copy of a monster stays a monster, since it has its base's 3D model; a copy of a magic, trap, ritual or equip card keeps its type, since it has its base's effect |
 | `attribute` | a number or a name (`"Light"` to `"Wind"`) |
 | `level` | 0 to 12 |
-| `stars` | the two guardian stars, as numbers or names (`"Mars"` to `"Venus"`) |
+| `stars` | the two guardian stars, as numbers or names (`"Mars"` to `"Venus"`, and a mod's own up to 15: [Guardian Stars](modding.md#guardian-stars-names-icons-new-stars-and-matchups)); a second of `0` (none) or the same as the first is a card with one star |
 | `frame` | the colour of the card's frame, whatever its type: `"Monster"` (gold), `"Magic"` (green), `"Trap"` (pink), `"Ritual"` (blue), `"Purple"` or `"Orange"`, or a number 0-5 in that order; `"Type"` goes back to its type's ([below](#frame-colour)) |
+| `fusion_groups` | the fusion guides' groups the card is in, for a ritual's `fusion_group` condition ([Gameplay tables](gameplay-tables.md#rituals)): a list such as `["Elf", "Female"]`, `[]` for none; without it, its base's |
 | `drops` | whether the card can be won in its base's place (default `true`, below) |
 | `opponents` | whether an opponent's deck can be dealt it in its base's place (default `false`) |
 | `password` | what View > Card passwords shows for it ([PC build](pc-build.md#card-passwords-view)): up to eight digits as a string (`"08124921"`, leading zeros kept) or a number, `""` or `null` for none. It is only shown: the Password screen does not know it (a disc card's
@@ -64,8 +66,18 @@ What an entry leaves out is its base's. Give entries explicit stable `id` keys. 
 IDs are remapped when mods change. Legacy numeric sidecars require explicit
 migration as described in [Mod API 3](mod-api-3.md#card-definitions-and-identities).
 
-The runtime ids follow each other in the order
-the mods are found (sorted by directory) and the entries are written. A mod
+The mods' `cards` are read in load order, as every other table is
+(`priority`, then `after` and `requires`, then the order the mods were
+found; the Mods window's Load order), and each mod's entries in the order
+they are written. The runtime ids follow each other in that order, so
+moving a mod in the load order renumbers the cards added after it for the
+run: saves and deck slots keep them by identity (above), and a save state
+made with another order is refused, as for any change of the mods' order
+([Mod API 3](mod-api-3.md#save-states)). The stats a copy leaves out are its
+base's as the entries before it left them: a copy of a card that an earlier
+mod in load order replaces has the replacement's stats, a later mod's
+replace does not reach them. A name, text or picture it leaves out is its
+base's as the game ends up with it, later mods' replaces included. A mod
 with `cards` needs a restart to apply or remove, like a data override: the
 cards are counted once, when the game starts. The window and the log
 (`MEMORIES_TRACE=mods`) say which ids each entry got.
@@ -82,7 +94,7 @@ so a mod can rework the existing cards without adding any:
 ```
 
 It takes the keys above that change what a player reads off the card:
-`name`, `description`, `art`, `thumbnail`, `title`, `attack`, `defense`,
+`name`, `description`, `art`, `thumbnail`, `title`, `field_art`, `attack`, `defense`,
 `type`, `attribute`, `level`, `stars`, `frame` and `password` (without one it shows
 the disc's). It gets no id of its own, so `id`,
 `count`, `count_setting`, `drops`, `opponents` and `fusions` do not apply:
@@ -100,6 +112,22 @@ nothing when played unless `effect` names the card whose effect it takes
 `equips` in the [gameplay tables](gameplay-tables.md). `model` and `effect`
 work the same on a card that stays on its side.
 
+A trap card springs as the trap its `effect` names (`"effect": "Bear Trap"`,
+stopping the attacks `trap_thresholds` gives Bear Trap), else as its own. A
+card made anything but a trap springs as no trap, even one that was a trap on
+the disc.
+
+A card that changes kind (monster, magic, trap, ritual or equip) leaves the
+disc's fusion and equip tables, which describe the card it was: it fuses and
+equips only by the mods' own rules, and no disc recipe makes it. Otherwise the
+CPU would plan with the old card, fusing a monster with what is now a magic
+card or taking a monster off the field for what is now an equip, and lose the
+cards. An equip made from another kind equips nothing until `equips` says
+what. A magic, trap, ritual or equip card has no ATK or DEF, so a monster made
+one loses its own, and `attack` or `defense` on it is noted and left out: the
+CPU ranks the cards in its hand by them whatever their type, and would set it
+face down turn after turn as its best monster.
+
 A replaced piece of Exodia (cards 17 to 21) is an ordinary card: a deck may
 hold three of it, and Exodia can no longer be assembled. `"exodia": true`
 keeps both rules, for a mod that only changes how the pieces look. Nothing of it goes in the save, so the mod can be
@@ -111,8 +139,14 @@ sort it by the new name. Copies of it that set no name, text or art of their
 own show the replaced ones.
 
 When two entries (or two mods) replace the same card, the later one goes over
-the earlier: what the later entry leaves out stays as the earlier one set it.
-The Mods window notes it.
+the earlier: of two mods, the later in load order, whatever their folders
+are called. Its stats, stars, level, attribute, type, frame, model and
+effect go over the earlier one's where it gives them, and what it leaves out
+of those stays as the earlier one set it. Its name (with the plate that says
+it), text, password, art, `title`, `field_art` and `fusion_groups` take the
+earlier one's place whether it gives them or not: left out, the card's own
+come back. Notes add up ([below](#notes-on-a-card)). The Mods window notes
+it.
 
 ## Frame colour
 

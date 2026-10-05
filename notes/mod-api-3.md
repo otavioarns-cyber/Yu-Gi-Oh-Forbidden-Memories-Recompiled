@@ -105,7 +105,8 @@ input before managed input hooks, so inspecting it cannot recurse into a hook.
 | `FUSION` | `a`, `b` input card IDs before base-card mapping; handled `result` is the resulting card, or zero to forbid a fusion. Unhandled, the mods' `fusions` rules ([gameplay tables](gameplay-tables.md)) come next |
 | `EFFECT` | Start: `a` presented card ID, `b` second-handler flag, `c=0`; update: `a` current effect card, `b` effect flags, `c=1`, `result` is returned flags. A custom multi-frame effect owns its flags and completion |
 | `AI` | Wraps the legacy `func_800279BC` selector; normal hand/field AI calls `AiScript_Run` directly. This event alone does not replace those decisions; see [AI hook research](ai-hard-mode-research.md#7-implementing-a-hard-mode-mod-in-this-port). A handled legacy call owns the selection record and supplies `result` |
-| `SCENE` | Wraps `Main_ApplyMenuSelection`: `a` menu selection, `b` prior main mode; modify `a`, or handle the transition yourself |
+| `SCENE` | Wraps `Main_ApplyMenuSelection`: `a` menu selection, `b` prior main mode; modify `a`, or handle the transition yourself. A title menu item's `MENU` result arrives here as `a` |
+| `MENU` | API 9: an item of the title's menus chosen ([The title's menus](modding.md#the-titles-menus)): `a` the item (0-10 the entries, 11 on the buttons, named by `host->menu_item`), `b` the menu (0 first, 1 second), `c` the item's `value`, `result` -1. Before: handle to replace the item's action, and set `result` to a selection to leave the title with; after observes |
 | `EQUIP` | `a` equip card, `b` monster; handled `result` nonzero lets the equip apply, zero refuses it. Unhandled, the mods' `equips` rules and then the disc's table decide |
 | `SETTINGS` | After only: `a` manager mod index, `b` option index, `c` new value after applying the settings batch |
 | `SAVE` | Before registered mod buffers are serialized: pack pointer-free state into your registered buffer |
@@ -146,7 +147,8 @@ that has no retail counterpart. New arbitrary 3D geometry still requires a code
 mod or a replacement of the corresponding model data; `model` is a retail ID.
 
 New sidecar sections persist identities for ownership, seen flags and decks.
-Changing discovery order remaps the same cards. A missing card falls back to its
+Runtime ids follow the load order, so changing it (or which mods are applied)
+remaps the same cards. A missing card falls back to its
 retail base in a deck; its stored ownership/seen flags survive saves made with
 other card packs, and return when it is reinstalled.
 
@@ -154,7 +156,11 @@ Old sidecars have numeric IDs only. By default their ambiguous ownership is not
 assigned to current cards, decks fall back to the recorded retail base, and the
 old numeric lines are carried over unchanged (a copy is kept as `.txt.legacy`)
 while new progress is still saved under stable identities. To migrate, restore the **original card mod set
-and entry order**, launch once with `MEMORIES_MIGRATE_CARD_IDS=1`, load the save,
+and entry order**, with the card mods in the load order of the folders' names
+(the order the ids were given in before they followed the load order: no
+`mod.<id>.order` or `priority` and no `after` or `requires` between them that
+moves one),
+launch once with `MEMORIES_MIGRATE_CARD_IDS=1`, load the save,
 and save again. Retained sections are then converted to identities. The game cannot infer a lost historical
 mod order; keep that backup if the original set is uncertain.
 

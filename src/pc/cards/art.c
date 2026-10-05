@@ -139,7 +139,14 @@ static unsigned short to555(int r, int g, int b)
 
 static int channel(const Rgb *c, int axis) { return axis == 0 ? c->r : axis == 1 ? c->g : c->b; }
 static int sort_axis;
-static int by_axis(const void *a, const void *b) { return channel(a, sort_axis) - channel(b, sort_axis); }
+/* By one channel, then the other two: a whole order, so every C library's
+ * qsort sorts alike and a picture is made the same on Linux and Windows. */
+static int by_axis(const void *a, const void *b)
+{
+    int k, d = channel(a, sort_axis) - channel(b, sort_axis);
+    for (k = 0; !d && k < 3; k++) d = channel(a, k) - channel(b, k);
+    return d;
+}
 
 /* Median cut of the pixels to `colours` entries, written to `clut` from
  * entry 1 on, and each pixel's entry to `indices`. */
@@ -245,6 +252,130 @@ int CardArt_ThumbnailFromImage(const char *path, unsigned char *record, char *wh
     return image_into(path, record, 1, why, why_size);
 }
 
+/* Like load_png, but keeps the PNG's own alpha instead of flattening it
+ * away: field_art's cutouts (below) need to know what to leave out; every
+ * other user of a card's art draws a full rectangle, so nothing else does.
+ * *alpha is the same length as the returned pixels, NULL on failure along
+ * with the return. */
+static Rgb *load_png_rgba(const char *path, int *width, int *height, unsigned char **alpha)
+{
+    png_image image;
+    FILE *file;
+    unsigned char *rgba;
+    Rgb *out;
+    size_t i, count;
+    memset(&image, 0, sizeof(image));
+    image.version = PNG_IMAGE_VERSION;
+    file = fopen(path, "rb");
+    if (!file) return NULL;
+    if (!png_image_begin_read_from_stdio(&image, file)) { fclose(file); return NULL; }
+    image.format = PNG_FORMAT_RGBA;
+    rgba = malloc(PNG_IMAGE_SIZE(image));
+    if (!rgba || !png_image_finish_read(&image, NULL, rgba, 0, NULL)) {
+        free(rgba);
+        fclose(file);
+        png_image_free(&image);
+        return NULL;
+    }
+    fclose(file);
+    count = (size_t)image.width * image.height;
+    out = malloc(count * sizeof(*out));
+    *alpha = malloc(count);
+    if (!out || !*alpha) {
+        free(out);
+        free(*alpha);
+        *alpha = NULL;
+        free(rgba);
+        png_image_free(&image);
+        return NULL;
+    }
+    for (i = 0; i < count; i++) {
+        out[i].r = rgba[i * 4];
+        out[i].g = rgba[i * 4 + 1];
+        out[i].b = rgba[i * 4 + 2];
+        (*alpha)[i] = rgba[i * 4 + 3];
+    }
+    *width = (int)image.width;
+    *height = (int)image.height;
+    free(rgba);
+    png_image_free(&image);
+    return out;
+}
+
+/* resample's own crop-and-average, for a single channel: called with the
+ * same source and target sizes resample itself is, so the same crop window
+ * (a deterministic function of those sizes alone) lines back up with it,
+ * texel for texel. */
+static void resample_alpha(const unsigned char *source, int sw, int sh, unsigned char *out, int w, int h)
+{
+    double cw = sw, ch = sh, x0, y0;
+    int x, y;
+    if (cw * h > ch * w) cw = ch * w / h; else ch = cw * h / w;
+    x0 = (sw - cw) / 2;
+    y0 = (sh - ch) / 2;
+    for (y = 0; y < h; y++) {
+        int top = (int)(y0 + ch * y / h), bottom = (int)(y0 + ch * (y + 1) / h);
+        if (bottom <= top) bottom = top + 1;
+        for (x = 0; x < w; x++) {
+            int left = (int)(x0 + cw * x / w), right = (int)(x0 + cw * (x + 1) / w), sx, sy;
+            unsigned long a = 0, n = 0;
+            if (right <= left) right = left + 1;
+            for (sy = top; sy < bottom && sy < sh; sy++) {
+                for (sx = left; sx < right && sx < sw; sx++) {
+                    a += source[(size_t)sy * sw + sx];
+                    n++;
+                }
+            }
+            if (!n) n = 1;
+            out[y * w + x] = (unsigned char)(a / n);
+        }
+    }
+}
+
+#define FIELD_ART_ALPHA_CUTOFF 128
+
+int CardArt_FieldArtFromImage(const char *path, unsigned char *record, char *why, size_t why_size)
+{
+    int width, height, i;
+    unsigned char *alpha;
+    Rgb *source = load_png_rgba(path, &width, &height, &alpha), *art;
+    unsigned char *art_alpha;
+    unsigned short clut[256];
+
+    if (!source) {
+        snprintf(why, why_size, "%s is not a PNG it could read", path);
+        return 0;
+    }
+    art = malloc(CARD_ART_WIDTH * CARD_ART_HEIGHT * sizeof(*art));
+    art_alpha = malloc(CARD_ART_WIDTH * CARD_ART_HEIGHT);
+    if (!art || !art_alpha) {
+        free(source);
+        free(alpha);
+        free(art);
+        free(art_alpha);
+        return 0;
+    }
+    resample(source, width, height, art, CARD_ART_WIDTH, CARD_ART_HEIGHT);
+    resample_alpha(alpha, width, height, art_alpha, CARD_ART_WIDTH, CARD_ART_HEIGHT);
+    quantize(art, CARD_ART_WIDTH * CARD_ART_HEIGHT, 255, clut, record + CARD_ART_PIXELS);
+    /* A texel this transparent is written as index 0 (never quantize's own
+     * output: every real pixel is 1-255), and its CLUT entry set to the
+     * PS1's own transparent colour, 0x0000 (to555's own comment) -- unlike
+     * quantize's own default for it, 0x8000, opaque black, since index 0
+     * never reaches a real pixel anywhere else a card's art is drawn. */
+    clut[0] = 0;
+    for (i = 0; i < CARD_ART_WIDTH * CARD_ART_HEIGHT; i++) {
+        if (art_alpha[i] < FIELD_ART_ALPHA_CUTOFF) record[CARD_ART_PIXELS + i] = 0;
+    }
+    put_clut(record + CARD_ART_CLUT, clut, 256);
+
+    free(source);
+    free(alpha);
+    free(art);
+    free(art_alpha);
+    return 1;
+}
+
 /* A Free Duel portrait record: the 48x48 image at 8 bits a pixel, then its
  * 64-entry palette, which is what the screen uploads and the disc holds forty
  * of (notes/more-duelists.md). The same shape as a card's, at another size. */
@@ -265,6 +396,104 @@ int CardArt_PortraitFromImage(const char *path, unsigned char *record, char *why
     put_clut(record + PORTRAIT_PIXELS, clut, 64);
     free(art);
     free(source);
+    return 1;
+}
+
+/* A guardian star's icon (stars.h): 16x16 at 4 bits a pixel, index 0 where
+ * the PNG is less than half covered. With `palette` (16 colours, 0 the
+ * transparent one) each pixel takes the nearest of its entries 1-15, as the
+ * disc's stars are drawn; without, the PNG's own 15 colours go to `clut`.
+ * The image is taken whole, squeezed to a square if it is not one. */
+int CardArt_IconFromImage(const char *path, const unsigned short *palette, unsigned char *pixels,
+                          unsigned short *clut, char *why, size_t why_size)
+{
+    png_image image;
+    FILE *file;
+    unsigned char *rgba;
+    Rgb cells[CARD_ICON_SIDE * CARD_ICON_SIDE], opaque[CARD_ICON_SIDE * CARD_ICON_SIDE];
+    unsigned char covered[CARD_ICON_SIDE * CARD_ICON_SIDE], indices[CARD_ICON_SIDE * CARD_ICON_SIDE];
+    int x, y, count = 0, i;
+    memset(&image, 0, sizeof(image));
+    image.version = PNG_IMAGE_VERSION;
+    if (!(file = fopen(path, "rb")) || !png_image_begin_read_from_stdio(&image, file)) {
+        if (file) fclose(file);
+        snprintf(why, why_size, "%s is not a PNG it could read", path);
+        return 0;
+    }
+    image.format = PNG_FORMAT_RGBA;
+    rgba = malloc(PNG_IMAGE_SIZE(image));
+    if (!rgba || !png_image_finish_read(&image, NULL, rgba, 0, NULL)) {
+        free(rgba);
+        fclose(file);
+        png_image_free(&image);
+        snprintf(why, why_size, "%s is not a PNG it could read", path);
+        return 0;
+    }
+    fclose(file);
+    /* Each cell the average of the pixels under it, weighted by their
+     * alpha, and how much of it they cover. */
+    for (y = 0; y < CARD_ICON_SIDE; y++) {
+        int top = (int)((long)image.height * y / CARD_ICON_SIDE);
+        int bottom = (int)((long)image.height * (y + 1) / CARD_ICON_SIDE);
+        if (bottom <= top) bottom = top + 1;
+        for (x = 0; x < CARD_ICON_SIDE; x++) {
+            int left = (int)((long)image.width * x / CARD_ICON_SIDE);
+            int right = (int)((long)image.width * (x + 1) / CARD_ICON_SIDE), sx, sy;
+            unsigned long r = 0, g = 0, b = 0, a = 0, n = 0;
+            if (right <= left) right = left + 1;
+            for (sy = top; sy < bottom && sy < (int)image.height; sy++) {
+                for (sx = left; sx < right && sx < (int)image.width; sx++) {
+                    const unsigned char *p = &rgba[((size_t)sy * image.width + sx) * 4];
+                    r += p[0] * p[3]; g += p[1] * p[3]; b += p[2] * p[3]; a += p[3]; n++;
+                }
+            }
+            i = y * CARD_ICON_SIDE + x;
+            covered[i] = n && a * 2 >= n * 255;
+            if (a) {
+                cells[i].r = (unsigned char)(r / a);
+                cells[i].g = (unsigned char)(g / a);
+                cells[i].b = (unsigned char)(b / a);
+            } else {
+                cells[i].r = cells[i].g = cells[i].b = 0;
+            }
+            if (covered[i]) opaque[count++] = cells[i];
+        }
+    }
+    free(rgba);
+    png_image_free(&image);
+    memset(indices, 0, sizeof(indices));
+    if (palette) {
+        for (i = 0; i < CARD_ICON_SIDE * CARD_ICON_SIDE; i++) {
+            long best_distance = -1;
+            int entry;
+            if (!covered[i]) continue;
+            for (entry = 1; entry < 16; entry++) {
+                unsigned short c = palette[entry];
+                long dr, dg, db, distance;
+                if (!(c & 0x7FFF) && !(c & 0x8000)) continue;   /* transparent */
+                dr = cells[i].r - (long)((c & 0x1F) << 3);
+                dg = cells[i].g - (long)(((c >> 5) & 0x1F) << 3);
+                db = cells[i].b - (long)(((c >> 10) & 0x1F) << 3);
+                distance = dr * dr * 3 + dg * dg * 4 + db * db * 2;
+                if (best_distance < 0 || distance < best_distance) { best_distance = distance; indices[i] = (unsigned char)entry; }
+            }
+        }
+        if (clut) memcpy(clut, palette, 16 * sizeof(*clut));
+    } else {
+        unsigned short own[256];
+        unsigned char chosen[CARD_ICON_SIDE * CARD_ICON_SIDE];
+        int k = 0;
+        memset(own, 0, sizeof(own));
+        if (count) quantize(opaque, count, 15, own, chosen);
+        for (i = 0; i < CARD_ICON_SIDE * CARD_ICON_SIDE; i++) {
+            if (covered[i]) indices[i] = chosen[k++];
+        }
+        own[0] = 0;   /* index 0 stays transparent */
+        if (clut) memcpy(clut, own, 16 * sizeof(*clut));
+    }
+    for (i = 0; i < CARD_ICON_SIDE * CARD_ICON_SIDE / 2; i++) {
+        pixels[i] = (unsigned char)(indices[i * 2] | (indices[i * 2 + 1] << 4));
+    }
     return 1;
 }
 
@@ -295,6 +524,92 @@ int CardArt_Crop(const char *path, int w, int h, int *x, int *y, int *cw, int *c
     *width = (int)sw;
     *height = (int)sh;
     return 1;
+}
+
+/* A PNG with see-through parts as 8-bit texels (title_images.c): stretched
+ * to `w` x `h`, each texel the average of the pixels under it, a texel under
+ * half covered clear (entry 0, the PS1's transparent 0x0000) and the rest
+ * reduced to 255 colours by median cut from entry 1. */
+int CardArt_IndexedImage(const char *path, int w, int h, unsigned char *indices, unsigned short *clut, char *why,
+                         size_t why_size)
+{
+    png_image image;
+    FILE *file;
+    unsigned char *rgba;
+    Rgb *opaque;
+    unsigned char *opaque_indices;
+    int x, y, sw, sh, count = 0, k;
+    memset(&image, 0, sizeof(image));
+    image.version = PNG_IMAGE_VERSION;
+    file = fopen(path, "rb");
+    if (!file || !png_image_begin_read_from_stdio(&image, file)) {
+        if (file) fclose(file);
+        snprintf(why, why_size, "%s is not a PNG it could read", path);
+        return 0;
+    }
+    image.format = PNG_FORMAT_RGBA;
+    rgba = malloc(PNG_IMAGE_SIZE(image));
+    if (!rgba || !png_image_finish_read(&image, NULL, rgba, 0, NULL)) {
+        free(rgba);
+        fclose(file);
+        png_image_free(&image);
+        snprintf(why, why_size, "%s is not a PNG it could read", path);
+        return 0;
+    }
+    fclose(file);
+    sw = (int)image.width;
+    sh = (int)image.height;
+    png_image_free(&image);
+    opaque = malloc((size_t)w * h * sizeof(*opaque));
+    opaque_indices = malloc((size_t)w * h);
+    if (!opaque || !opaque_indices) {
+        free(rgba);
+        free(opaque);
+        free(opaque_indices);
+        snprintf(why, why_size, "out of memory for %s", path);
+        return 0;
+    }
+    for (y = 0; y < h; y++) {
+        int top = (int)((long)sh * y / h), bottom = (int)((long)sh * (y + 1) / h);
+        if (bottom <= top) bottom = top + 1;
+        for (x = 0; x < w; x++) {
+            int left = (int)((long)sw * x / w), right = (int)((long)sw * (x + 1) / w), sx, sy;
+            unsigned long r = 0, g = 0, b = 0, a = 0, n = 0;
+            if (right <= left) right = left + 1;
+            for (sy = top; sy < bottom && sy < sh; sy++) {
+                for (sx = left; sx < right && sx < sw; sx++) {
+                    const unsigned char *p = rgba + ((size_t)sy * sw + sx) * 4;
+                    r += p[0] * p[3]; g += p[1] * p[3]; b += p[2] * p[3]; a += p[3]; n++;
+                }
+            }
+            if (!n || a * 2 < n * 255) {
+                indices[y * w + x] = 0;
+                continue;
+            }
+            opaque[count].r = (unsigned char)(r / a);
+            opaque[count].g = (unsigned char)(g / a);
+            opaque[count].b = (unsigned char)(b / a);
+            indices[y * w + x] = 1;   /* an opaque texel, numbered below */
+            count++;
+        }
+    }
+    free(rgba);
+    memset(clut, 0, 256 * sizeof(*clut));
+    if (count) quantize(opaque, count, 255, clut, opaque_indices);
+    clut[0] = 0x0000;
+    for (k = 0, x = 0; x < w * h; x++) {
+        if (indices[x]) indices[x] = opaque_indices[k++];
+    }
+    free(opaque);
+    free(opaque_indices);
+    return 1;
+}
+
+/* The PNG's width and height, from its header. */
+int CardArt_ImageSize(const char *path, int *width, int *height)
+{
+    int x, y, cw, ch;
+    return CardArt_Crop(path, 1, 1, &x, &y, &cw, &ch, width, height);
 }
 
 /* --- the title plate --------------------------------------------------- */
