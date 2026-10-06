@@ -37,20 +37,17 @@ static int subtype_blocked(s32 type,u32 bit){
  if(type==CARD_TYPE_BEAST_WARRIOR&&(bit==ST_BEAST||bit==ST_WARRIOR))return 1;
  return 0;
 }
-/* -1, 0 or +1: one subtype's relation to one Field. */
 static int subtype_relation(u32 bit,s32 terrain){
  switch(terrain){
- case 1:return (bit&(ST_BEAST|ST_PLANT|ST_INSECT))?1:0; /* Forest */
- case 2:if(bit&(ST_ZOMBIE|ST_ROCK|ST_DINOSAUR))return 1;if(bit&(ST_FISH|ST_AQUA|ST_SEA_SERPENT))return -1;return 0; /* Wasteland */
- case 3:return (bit&(ST_DRAGON|ST_WINGED|ST_THUNDER))?1:0; /* Mountain */
- case 4:return bit==ST_WARRIOR?1:0; /* Sogen */
- case 5:if(bit&(ST_THUNDER|ST_FISH|ST_AQUA|ST_SEA_SERPENT))return 1;if(bit&(ST_MACHINE|ST_PYRO))return -1;return 0; /* Umi */
- case 6:return (bit&(ST_SPELLCASTER|ST_FIEND|ST_ZOMBIE))?1:0; /* Yami */
+ case 1:return (bit&(ST_BEAST|ST_PLANT|ST_INSECT))?1:0;
+ case 2:if(bit&(ST_ZOMBIE|ST_ROCK|ST_DINOSAUR))return 1;if(bit&(ST_FISH|ST_AQUA|ST_SEA_SERPENT))return -1;return 0;
+ case 3:return (bit&(ST_DRAGON|ST_WINGED|ST_THUNDER))?1:0;
+ case 4:return bit==ST_WARRIOR?1:0;
+ case 5:if(bit&(ST_THUNDER|ST_FISH|ST_AQUA|ST_SEA_SERPENT))return 1;if(bit&(ST_MACHINE|ST_PYRO))return -1;return 0;
+ case 6:return (bit&(ST_SPELLCASTER|ST_FIEND|ST_ZOMBIE))?1:0;
  default:return 0;
  }
 }
-/* Secondary effects are set-like, not additive: any positive and no negative
-   is +200; any negative and no positive is -200; both cancel to zero. */
 static s32 secondary_bonus(s32 type,u32 mask,s32 terrain){
  u32 bit;int pos=0,neg=0,rel;
  if(terrain<1||terrain>6||!mask)return 0;
@@ -60,31 +57,21 @@ static s32 secondary_bonus(s32 type,u32 mask,s32 terrain){
  }
  if(pos&&neg)return 0;if(pos)return 200;if(neg)return -200;return 0;
 }
-/* The primary type's current rule for an arbitrary Field. This honors another
-   compatible mod's terrain table instead of assuming the retail +/-500. */
 static s32 primary_terrain_bonus(s32 type,s32 terrain){
  s32 bonus=0;if(terrain<1||terrain>6||type<0||type>=CARD_TYPE_MAGIC)return 0;
  if(Tables_TerrainBonus(terrain,type,&bonus))return bonus;
  return (s32)gDuel_aTerrainBoost[type][terrain-1]*CARD_STAT_SCALE;
 }
-/* Card-specific delta beyond the primary type. Metal Fish and Mech Bass are
-   special: on Umi their normal Machine penalty is intrinsically removed, then
-   their Fish subtype is resolved. */
 static s32 terrain_card_delta(s32 id,s32 type,s32 terrain){
  s32 delta=secondary_bonus(type,secondary_mask(id),terrain);
  if(terrain==5&&(id==438||id==441)&&type==CARD_TYPE_MACHINE)delta-=primary_terrain_bonus(type,terrain);
  return delta;
 }
 static s32 total_terrain_modifier(s32 id){s32 type=card_type(id),terrain=(s32)gDuel_bTerrain;return primary_terrain_bonus(type,terrain)+terrain_card_delta(id,type,terrain);}
-/* Cross-mod API for planners. Providers remain loaded while disabled, so this
-   must fail closed unless this mod is currently applied. */
 static s32 terrain_card_delta_v1(s32 id,s32 type,s32 terrain){if(!mod_host||!mod_host->applied(mod_host))return 0;return terrain_card_delta(id,type,terrain);}
 static void adjust_record(DuelCardRecord*c){if(c&&(c->flags&DUEL_CARD_FLAG_OCCUPIED)&&c->card_id>0)c->terrain_modifier=(s16)total_terrain_modifier(c->card_id);}
 static u8*setup_hook(s32 a,s32 b){u8*r=original_setup(a,b);adjust_record((DuelCardRecord*)r);return r;}
 static void apply_terrain_hook(void){s32 i;original_apply_terrain();for(i=0;i<DUEL_CARD_RECORD_COUNT;i++)adjust_record(&D_801A7AD8[i]);}
-/* Private footer pass: reuse the viewer text object's renderer synchronously,
-   but point it at our own entry array for a second draw pass. No extra
-   DuelEffectChannel and no shared entry-pool allocation are consumed. */
 #define FOOTER_ENTRY_CAP 128
 static DuelEffectEntry footer_entries[FOOTER_ENTRY_CAP];
 static void (*original_text_draw)(DisplayObject*, GsOT*);
@@ -107,26 +94,19 @@ static void footer_newline(void){footer_x=4;footer_y=(s16)(footer_y+FOOTER_LINE_
 static int footer_text_width(const char*s){int w=0;while(*s++)w+=FOOTER_ADV;return w;}
 static void footer_ensure(int width){if(footer_x>4&&footer_x+width>FOOTER_W)footer_newline();}
 static void footer_char_raw(char c,u8 color){DuelEffectEntry*e;u16 code;if(footer_n>=FOOTER_ENTRY_CAP-1)return;code=sjis_ascii(c);if(!code)return;e=&footer_entries[footer_n++];e->code_00=code;e->pad_02=0;e->field_04=0;e->field_08=0;e->x_0C=footer_x;e->y_0E=footer_y;e->field_10=0;e->flags_11=0x80;e->field_12=1;e->field_13=1;e->pad_14=0;e->field_15=0;e->field_16=color;e->field_17=0;e->field_18=0;footer_x=(s16)(footer_x+FOOTER_ADV);footer_entries[footer_n].flags_11=0;}
-/* Word-aware layout. A word is never split merely because the line ended.
-   Spaces are separators, not candidates for the start/end of a line. */
 static void footer_word(const char*s,u8 color){int w=footer_text_width(s);footer_ensure(w+(footer_x>4?FOOTER_ADV:0));if(footer_x>4)footer_char_raw(' ',color);while(*s)footer_char_raw(*s++,color);}
 static void footer_icon(u8 type){DuelEffectEntry*e;if(footer_n>=FOOTER_ENTRY_CAP-1)return;footer_ensure(FOOTER_ICON_ADV);e=&footer_entries[footer_n++];e->code_00=0;e->pad_02=0;e->field_04=0;e->field_08=0;e->x_0C=footer_x;e->y_0E=footer_y;e->field_10=type;e->flags_11=0xA0;e->field_12=1;e->field_13=1;e->pad_14=0;e->field_15=0;e->field_16=0;e->field_17=0;e->field_18=0;footer_x=(s16)(footer_x+FOOTER_ICON_ADV);footer_entries[footer_n].flags_11=0;}
 static void footer_punct(const char*s,u8 color){while(*s)footer_char_raw(*s++,color);}
 static void plus200(void){footer_word("+200",3);} static void minus200(void){footer_word("-200",6);} static void normal_word(const char*s){footer_word(s,0);}
-static void viewed_icon(u8 icon){normal_word("Viewed");normal_word("as");footer_ensure(FOOTER_ICON_ADV+(footer_x>4?FOOTER_ADV:0));if(footer_x>4)footer_char_raw(' ',0);footer_icon(icon);}
 static void atk_on(void){normal_word("ATK");normal_word("on");}
-static void field_word(const char*s,int period){normal_word(s);if(period)footer_punct(".",0);}
 static int bit_icon(u32 bit){switch(bit){case ST_DRAGON:return CARD_TYPE_DRAGON;case ST_WINGED:return CARD_TYPE_WINGED_BEAST;case ST_THUNDER:return CARD_TYPE_THUNDER;case ST_SPELLCASTER:return CARD_TYPE_SPELLCASTER;case ST_FIEND:return CARD_TYPE_FIEND;case ST_ZOMBIE:return CARD_TYPE_ZOMBIE;case ST_WARRIOR:return CARD_TYPE_WARRIOR;case ST_BEAST:return CARD_TYPE_BEAST;case ST_PLANT:return CARD_TYPE_PLANT;case ST_INSECT:return CARD_TYPE_INSECT;case ST_ROCK:return CARD_TYPE_ROCK;case ST_DINOSAUR:return CARD_TYPE_DINOSAUR;case ST_FISH:return CARD_TYPE_FISH;case ST_AQUA:return CARD_TYPE_AQUA;case ST_SEA_SERPENT:return CARD_TYPE_SEA_SERPENT;case ST_MACHINE:return CARD_TYPE_MACHINE;case ST_PYRO:return CARD_TYPE_PYRO;default:return -1;}}
 static const char*field_name(s32 terrain){switch(terrain){case 1:return "Forest";case 2:return "Wasteland";case 3:return "Mountain";case 4:return "Sogen";case 5:return "Umi";case 6:return "Yami";default:return "";}}
-/* A subtype belongs in the footer only when at least one of its Field
-   relations survives redundancy/blocking and final same-Field cancellation. */
 static int subtype_visible(s32 type,u32 mask,u32 bit){s32 t,rel,final;if(!(mask&bit)||subtype_blocked(type,bit))return 0;for(t=1;t<=6;t++){rel=subtype_relation(bit,t);if(!rel)continue;final=secondary_bonus(type,mask,t);if((rel>0&&final>0)||(rel<0&&final<0))return 1;}return 0;}
 static void footer_icons(s32 type,u32 mask){u32 bit;int first=1,icon;normal_word("Viewed");normal_word("as");for(bit=1;bit<=ST_SEA_SERPENT;bit<<=1){if(!subtype_visible(type,mask,bit))continue;icon=bit_icon(bit);if(icon<0)continue;if(first){footer_ensure(FOOTER_ICON_ADV+(footer_x>4?FOOTER_ADV:0));if(footer_x>4)footer_char_raw(' ',0);first=0;}else footer_punct("/",0);footer_icon((u8)icon);}footer_punct(",",0);}
 static void footer_fields(s32 type,u32 mask,int sign){
- /* Order deliberately preserves the approved combined examples: Thunder is
-    Umi/Mountain and Zombie is Yami/Wasteland. */
- static const u8 order[6]={5,3,6,2,4,1};int i,first=1;const char*name;
- for(i=0;i<6;i++){s32 t=order[i],delta=secondary_bonus(type,mask,t);const char*p;if((sign>0&&delta<=0)||(sign<0&&delta>=0))continue;name=field_name(t);if(first){normal_word(name);first=0;continue;}footer_ensure(FOOTER_ADV+footer_text_width(name));footer_punct("/",0);p=name;while(*p)footer_char_raw(*p++,0);}
+ static const u8 order[6]={5,3,6,2,4,1};char grouped[64];int i,n=0;const char*name;
+ for(i=0;i<6;i++){s32 t=order[i],delta=secondary_bonus(type,mask,t);const char*p;if((sign>0&&delta<=0)||(sign<0&&delta>=0))continue;if(n)grouped[n++]='/';name=field_name(t);p=name;while(*p&&n<(int)sizeof(grouped)-1)grouped[n++]=*p++;}
+ grouped[n]=0;if(n)normal_word(grouped);
 }
 static void build_footer(u16 id,u32 m){
  s32 type=card_type(id),t;int have_pos=0,have_neg=0,have_icon=0;u32 bit;
@@ -148,7 +128,7 @@ static void footer_quad(GsOT*ot,s32 pri,int x,int y,int dw,int dh,int u,int v,in
 static void draw_footer_scaled(DisplayObject*obj,GsOT*ot){
  int i,lines=1,base_y,x0=(s16)obj->field_30.h.field_30,y0=(s16)obj->field_30.h.field_32,pri=(s16)obj->field_14;
  for(i=0;i<footer_n;i++){int l=footer_entries[i].y_0E/FOOTER_LINE_H+1;if(l>lines)lines=l;}
- base_y=174-lines*FOOTER_LINE_H; /* keep both footer lines inside the blue description area with a safe bottom margin */
+ base_y=174-lines*FOOTER_LINE_H;
  for(i=0;i<footer_n;i++){
   DuelEffectEntry*e=&footer_entries[i];int x=x0+e->x_0C,y=y0+base_y+e->y_0E;
   if(e->flags_11&0x20){
@@ -156,22 +136,14 @@ static void draw_footer_scaled(DisplayObject*obj,GsOT*ot){
    footer_quad(ot,pri,x,y,10,10,u,v,15,15,0xB,(cy<<6)|((cx>>4)&0x3F));
   }else{
    int u=0,v=0,tpage=obj->field_66;
-   if(!Glyphs_RetailCell((u32)(e->code_00>=0x824F&&e->code_00<=0x8258?'0'+(e->code_00-0x824F):
-      e->code_00>=0x8260&&e->code_00<=0x8279?'A'+(e->code_00-0x8260):
-      e->code_00>=0x8281&&e->code_00<=0x829A?'a'+(e->code_00-0x8281):
-      e->code_00==0x8140?' ':e->code_00==0x8143?',':e->code_00==0x8144?'.':e->code_00==0x8146?':':e->code_00==0x8147?';':e->code_00==0x815E?'/':e->code_00==0x817B?'+':e->code_00==0x817C?'-':'?'),0,&u,&v))continue;
+   if(!Glyphs_RetailCell((u32)(e->code_00>=0x824F&&e->code_00<=0x8258?'0'+(e->code_00-0x824F):e->code_00>=0x8260&&e->code_00<=0x8279?'A'+(e->code_00-0x8260):e->code_00>=0x8281&&e->code_00<=0x829A?'a'+(e->code_00-0x8281):e->code_00==0x8140?' ':e->code_00==0x8143?',':e->code_00==0x8144?'.':e->code_00==0x8146?':':e->code_00==0x8147?';':e->code_00==0x815E?'/':e->code_00==0x817B?'+':e->code_00==0x817C?'-':'?'),0,&u,&v))continue;
    if(HdText_Enabled())tpage|=HD_TEXT_MARK;
    footer_quad(ot,pri,x,y+1,5,9,u,v,7,11,tpage,((e->field_16+0xE8)<<6)|0x28);
   }
  }
 }
 static int footer_viewer_is_live(DisplayObject*obj,DuelEffectChannel*box){
- DisplayObject*bg=D_8009B240;
- DisplayObject*card=D_8009B24C;
- /* Fail closed: the footer is allowed only while the complete card-viewer
-    object set is alive, visible and still synchronized to this text object.
-    This prevents stale viewer pointers from leaking a second render pass into
-    result screens or into display objects reused by another mod/screen. */
+ DisplayObject*bg=D_8009B240;DisplayObject*card=D_8009B24C;
  if(!obj||!box||!bg||!card)return 0;
  if(D_8009B250!=box||box->field_28!=obj)return 0;
  if(!(box->flags_34&DUEL_EFFECT_CHANNEL_FLAG_ACTIVE))return 0;
