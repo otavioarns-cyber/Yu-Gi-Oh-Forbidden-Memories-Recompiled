@@ -1,9 +1,9 @@
 {
   "id": "field-effects-secondary-types",
   "name": "Field Effects + Secondary Types",
-  "version": "0.18-vanilla-v2-test",
+  "version": "0.19-adaptive-description-test",
   "author": "Otavio Arns",
-  "description": "Vanilla V2: Fusion-derived secondary types, overlap/cancellation rules, runtime type compatibility, viewer footer and planner provider.",
+  "description": "Vanilla V2: secondary Field Effects with adaptive live card-description sizing so the footer never overlaps the description.",
   "min_api": 4,
   "game": "slus_01411",
   "library": "field_effects",
