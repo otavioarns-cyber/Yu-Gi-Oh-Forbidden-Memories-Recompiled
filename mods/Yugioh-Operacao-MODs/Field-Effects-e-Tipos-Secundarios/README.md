@@ -8,14 +8,18 @@ Workspace isolado do MOD para Yu-Gi-Oh! Forbidden Memories Recompiled.
 - Os arquivos do MOD ficam sob esta pasta dedicada.
 - A branch `master` nao deve ser alterada pelo desenvolvimento deste MOD.
 - O codigo-base da decompilacao serve como referencia/integracao; alteracoes do MOD devem permanecer isoladas.
-- Versoes de teste serao preservadas em pastas/versionamento proprio para permitir acompanhar a evolucao.
+- Versoes de teste sao preservadas em pastas/versionamento proprio para permitir acompanhar a evolucao.
 
-## Estrutura planejada
+## Estrutura
 
-- `dev/` - codigo-fonte em desenvolvimento.
-- `versions/` - snapshots das versoes de teste relevantes (`v0.1`, `v0.2`, etc.).
+- `dev/` - codigo-fonte e manifesto em desenvolvimento.
+- `versions/` - snapshots das versoes de teste relevantes.
 - `docs/` - especificacao, mapeamentos e notas tecnicas do MOD.
 
 ## Status
 
-Migrado para a base oficial v0.2.0. O nucleo de Field Effects + Tipos Secundarios e a ponte opcional de compatibilidade com AI Hard Mode compilam no SDK v0.2.0. A proxima etapa e validacao funcional dentro do jogo antes de congelar uma versao de teste em `versions/`.
+Versao de desenvolvimento atual: **v0.18 Vanilla V2 test**.
+
+O MOD foi consolidado com as regras da especificacao Vanilla V2: herancas adicionais de subtipos, sobreposicao aquatica, bloqueio de subtipo igual ao tipo principal, resolucao/cancelamento de multiplos subtipos, casos especiais de Metal Fish/Mech Bass, rodape dinamico e provedor de compatibilidade `terrain-card-delta-v1`.
+
+Base alvo: `v0.2.1-preview.1`. O release oficial informa compatibilidade com MODs feitos para v0.2.0; o objeto v0.18 foi compilado com sucesso pelo SDK oficial v0.2.0 e as APIs utilizadas foram conferidas na arvore v0.2.1-preview.1. A validacao final dentro do jogo continua necessaria antes de congelar a versao como definitiva.
