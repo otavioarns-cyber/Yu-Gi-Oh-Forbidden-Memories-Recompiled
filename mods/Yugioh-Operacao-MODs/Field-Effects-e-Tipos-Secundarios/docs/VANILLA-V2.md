@@ -1,6 +1,6 @@
 # Especificacao implementada - Vanilla V2
 
-Este documento registra as regras consolidadas implementadas na v0.18 do MOD Field Effects + Secondary Types.
+Este documento registra as regras consolidadas implementadas no MOD Field Effects + Secondary Types.
 
 ## Regras centrais
 
@@ -62,3 +62,14 @@ Este documento registra as regras consolidadas implementadas na v0.18 do MOD Fie
 - `+200` usa a cor verde e `-200` usa a cor vermelha.
 - O texto curto menciona ATK, embora a mecanica altere ATK e DEF.
 - Fields equivalentes sao agrupados com `/`.
+- A posicao aprovada do rodape e fixa e nao deve ser movida para acomodar descricoes longas.
+
+## Ajuste adaptativo da descricao
+
+- O rodape tem prioridade visual: a descricao nunca deve ser desenhada por cima da area reservada ao rodape.
+- A descricao permanece no tamanho Vanilla quando ja cabe sem colisao.
+- Somente quando houver colisao, a fonte e o pitch vertical da descricao sao reduzidos progressivamente ate harmonizar com o espaco disponivel.
+- Nome da carta, tipo, cabecalho de Guardian Star e nomes das Guardian Stars nao participam desse redimensionamento.
+- O layout preserva as posicoes horizontais e a quebra de linhas construidas pelo jogo sempre que possivel, evitando transformar o paragrafo em um bloco estreito e mantendo a sensacao de preenchimento da caixa azul.
+- A decisao de redimensionar usa a lista viva de `DuelEffectEntry` criada para a carta aberta no viewer, em vez de uma lista fixa de Card IDs. Assim, descricoes substituidas por outros MODs ou traducoes compativeis tambem sao analisadas automaticamente.
+- Existe uma guarda inferior final: em um caso extremo que ainda nao caiba no menor pitch permitido, nenhum glifo da descricao pode invadir a faixa reservada ao rodape.
