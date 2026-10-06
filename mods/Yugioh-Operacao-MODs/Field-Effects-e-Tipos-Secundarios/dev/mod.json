@@ -1,15 +1,30 @@
 {
   "id": "field-effects-secondary-types",
   "name": "Field Effects + Secondary Types",
-  "version": "0.1-dev",
+  "version": "0.18-vanilla-v2-test",
   "author": "Otavio Arns",
-  "description": "Adds approved secondary-type field interactions and the revised Wasteland/Yami type rules.",
+  "description": "Vanilla V2: Fusion-derived secondary types, overlap/cancellation rules, runtime type compatibility, viewer footer and planner provider.",
   "min_api": 4,
   "game": "slus_01411",
   "library": "field_effects",
   "enabled": false,
   "terrain_bonus": {
-    "Wasteland": {"Fish": -500, "Aqua": -500, "Sea Serpent": -500},
-    "Yami": {"Zombie": 500}
-  }
+    "Wasteland": {
+      "Fish": -500,
+      "Aqua": -500,
+      "Sea Serpent": -500
+    },
+    "Yami": {
+      "Zombie": 500
+    }
+  },
+  "settings": [
+    {
+      "key": "description_notes",
+      "label": "Secondary type note",
+      "type": "bool",
+      "default": 1,
+      "description": "Show the secondary-type Field Effects footnote in card details."
+    }
+  ]
 }
