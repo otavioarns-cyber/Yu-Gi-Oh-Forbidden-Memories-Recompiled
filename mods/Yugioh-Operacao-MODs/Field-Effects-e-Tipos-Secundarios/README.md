@@ -18,8 +18,10 @@ Workspace isolado do MOD para Yu-Gi-Oh! Forbidden Memories Recompiled.
 
 ## Status
 
-Versao de desenvolvimento atual: **v0.18 Vanilla V2 test**.
+Versao de desenvolvimento atual: **v0.19 Adaptive Description test**.
 
-O MOD foi consolidado com as regras da especificacao Vanilla V2: herancas adicionais de subtipos, sobreposicao aquatica, bloqueio de subtipo igual ao tipo principal, resolucao/cancelamento de multiplos subtipos, casos especiais de Metal Fish/Mech Bass, rodape dinamico e provedor de compatibilidade `terrain-card-delta-v1`.
+O nucleo Vanilla V2 permanece o mesmo da v0.18: herancas adicionais de subtipos, sobreposicao aquatica, bloqueio de subtipo igual ao tipo principal, resolucao/cancelamento de multiplos subtipos, casos especiais de Metal Fish/Mech Bass, rodape dinamico e provedor de compatibilidade `terrain-card-delta-v1`.
 
-Base alvo: `v0.2.1-preview.1`. O release oficial informa compatibilidade com MODs feitos para v0.2.0; o objeto v0.18 foi compilado com sucesso pelo SDK oficial v0.2.0 e as APIs utilizadas foram conferidas na arvore v0.2.1-preview.1. A validacao final dentro do jogo continua necessaria antes de congelar a versao como definitiva.
+A v0.19 mantem o rodape na posicao aprovada e adiciona ajuste adaptativo apenas para a descricao da carta. Quando a descricao viva ocuparia a area reservada ao rodape, o MOD reduz progressivamente a fonte/pitch da descricao; nome, tipo e Guardian Stars continuam no tamanho normal. A analise e feita sobre os `DuelEffectEntry` que o jogo realmente construiu, portanto tambem abrange descricoes substituidas por outros MODs ou traducoes compativeis.
+
+Base alvo: `v0.2.1-preview.1`. O objeto v0.19 foi compilado com sucesso usando o `build_mod.py` do SDK oficial distribuido com essa propria preview e passou pela verificacao de simbolos do SDK. A validacao visual/funcional dentro do jogo continua necessaria antes de congelar a versao como definitiva.
