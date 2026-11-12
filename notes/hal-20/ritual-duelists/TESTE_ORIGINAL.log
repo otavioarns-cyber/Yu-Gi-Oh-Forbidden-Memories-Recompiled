@@ -1,0 +1,229 @@
+=== packages ===
+Jono Story: 0=0 1=1588 2=753 3=59 / 2400
+Jono Free OFF: 0=1370 1=864 2=158 3=8 / 2400
+Jono Free ON: 0=0 1=1612 2=714 3=74 / 2400
+Jono 2nd Story: 0=0 1=1518 2=819 3=63 / 2400
+Jono 2nd Free OFF: 0=1372 1=872 2=150 3=6 / 2400
+Jono 2nd Free ON: 0=0 1=1521 2=817 3=62 / 2400
+Weevil Underwood Story: 0=0 1=1498 2=834 3=68 / 2400
+Weevil Underwood Free OFF: 0=1384 1=863 2=150 3=3 / 2400
+Weevil Underwood Free ON: 0=0 1=1505 2=845 3=50 / 2400
+Shadi Story: 0=0 1=1429 2=815 3=156 / 2400
+Shadi Free OFF: 0=1319 1=884 2=184 3=13 / 2400
+Shadi Free ON: 0=0 1=1472 2=789 3=139 / 2400
+Heishin Story: 0=0 1=1480 2=812 3=108 / 2400
+Heishin Free OFF: 0=1356 1=903 2=138 3=3 / 2400
+Heishin Free ON: 0=0 1=1502 2=788 3=110 / 2400
+Heishin 2nd Story: 0=0 1=1467 2=783 3=150 / 2400
+Heishin 2nd Free OFF: 0=1341 1=868 2=178 3=13 / 2400
+Heishin 2nd Free ON: 0=0 1=1453 2=800 3=147 / 2400
+Rex Raptor Story: 0=0 1=1351 2=875 3=174 / 2400
+Rex Raptor Free OFF: 0=1246 1=900 2=218 3=36 / 2400
+Rex Raptor Free ON: 0=0 1=1425 2=781 3=194 / 2400
+High Mage Martis Story: 0=0 1=1488 2=766 3=146 / 2400
+High Mage Martis Free OFF: 0=1327 1=849 2=218 3=6 / 2400
+High Mage Martis Free ON: 0=0 1=1440 2=805 3=155 / 2400
+Desert Mage Story: 0=0 1=1448 2=821 3=131 / 2400
+Desert Mage Free OFF: 0=1324 1=895 2=166 3=15 / 2400
+Desert Mage Free ON: 0=0 1=1457 2=835 3=108 / 2400
+Yami Bakura Story: 0=0 1=1502 2=770 3=128 / 2400
+Yami Bakura Free OFF: 0=1358 1=852 2=185 3=5 / 2400
+Yami Bakura Free ON: 0=0 1=1499 2=796 3=105 / 2400
+Pegasus Story: 0=0 1=1374 2=811 3=215 / 2400
+Pegasus Free OFF: 0=1310 1=859 2=211 3=20 / 2400
+Pegasus Free ON: 0=0 1=1386 2=792 3=222 / 2400
+Mage Soldier Story: 0=0 1=1466 2=808 3=126 / 2400
+Mage Soldier Free OFF: 0=1262 1=922 2=209 3=7 / 2400
+Mage Soldier Free ON: 0=0 1=1446 2=828 3=126 / 2400
+Teana 2nd Story: 0=0 1=1636 2=696 3=68 / 2400
+Teana 2nd Free OFF: 0=1409 1=873 2=113 3=5 / 2400
+Teana 2nd Free ON: 0=0 1=1653 2=675 3=72 / 2400
+Ocean Mage Story: 0=0 1=1541 2=778 3=81 / 2400
+Ocean Mage Free OFF: 0=1336 1=912 2=150 3=2 / 2400
+Ocean Mage Free ON: 0=0 1=1554 2=773 3=73 / 2400
+High Mage Secmeton Story: 0=0 1=1565 2=778 3=57 / 2400
+High Mage Secmeton Free OFF: 0=1385 1=879 2=136 3=0 / 2400
+High Mage Secmeton Free ON: 0=0 1=1573 2=775 3=52 / 2400
+Forest Mage Story: 0=0 1=1535 2=802 3=63 / 2400
+Forest Mage Free OFF: 0=1403 1=823 2=172 3=2 / 2400
+Forest Mage Free ON: 0=0 1=1590 2=752 3=58 / 2400
+High Mage Anubisius Story: 0=0 1=1517 2=837 3=46 / 2400
+High Mage Anubisius Free OFF: 0=1367 1=860 2=171 3=2 / 2400
+High Mage Anubisius Free ON: 0=0 1=1521 2=823 3=56 / 2400
+Mountain Mage Story: 0=0 1=1644 2=713 3=43 / 2400
+Mountain Mage Free OFF: 0=1382 1=866 2=151 3=1 / 2400
+Mountain Mage Free ON: 0=0 1=1655 2=693 3=52 / 2400
+PASS Ritual Package distributions, legal decks, dynamic materials, cap and IDs 721/722
+=== rex_ready_distribution ===
+REX Tri-Horned ready-made presence: Story 3670/30000 (12.23%), Free OFF 4360/30000 (14.53%), Free ON 3748/30000 (12.49%). Package never contains #705.
+=== beta_profiles ===
+PASS: sixteen approved real pools (2018+30=2048), exact Heishin cuts, protected ritual monsters and Forest identity
+=== new_profiles ===
+PASS: Bakura/Pegasus/Mage Soldier exact 36 cuts; 3 ready cards and 3 virtual packages; 2018+30/40-card prerequisites
+=== tea_ocean_secmeton ===
+PASS: three approved profiles: real totals, 69/78/90, explicit bans, weighted ready cards, package-only magic
+=== v3_forest_anubisius_mountain ===
+PASS V3: 19 profiles, 83/162/60 cards, exact identity weights, rituals package-only
+=== v3_recipes ===
+PASS V3 Forest Mage (exact): 3000 decks, modes Story/Free OFF/Free ON, correct materials
+PASS V3 Forest Mage (dynamic): 3000 decks, modes Story/Free OFF/Free ON, correct materials
+PASS V3 High Mage Anubisius (exact): 3000 decks, modes Story/Free OFF/Free ON, correct materials
+PASS V3 High Mage Anubisius (dynamic): 3000 decks, modes Story/Free OFF/Free ON, correct materials
+PASS V3 Mountain Mage (exact): 3000 decks, modes Story/Free OFF/Free ON, correct materials
+PASS V3 Mountain Mage (dynamic): 3000 decks, modes Story/Free OFF/Free ON, correct materials
+PASS V3 dynamic: no Time Wizard tribute, invalid recipe atomic refusal
+=== v3_atenza_meadow_kepura ===
+PASS High Mage Atenza: 3000 40-card decks; active exact recipes; Story / Free OFF / Free ON
+PASS High Mage Atenza: 3000 40-card decks; active typed recipes; Story / Free OFF / Free ON
+PASS Meadow Mage: 3000 40-card decks; active exact recipes; Story / Free OFF / Free ON
+PASS Meadow Mage: 3000 40-card decks; active typed recipes; Story / Free OFF / Free ON
+PASS High Mage Kepura: 3000 40-card decks; active exact recipes; Story / Free OFF / Free ON
+PASS High Mage Kepura: 3000 40-card decks; active typed recipes; Story / Free OFF / Free ON
+PASS V3 Atenza/Meadow/Kepura: no nonapproved changes, 3 virtual packages
+=== v3_labyrinth_sebek_neku_isis ===
+PASS: Labyrinth Mage complete 40-card decks, Story / Free OFF / Free ON, active mock recipe
+PASS: Guardian Sebek complete 40-card decks, Story / Free OFF / Free ON, active mock recipe
+PASS: Guardian Neku complete 40-card decks, Story / Free OFF / Free ON, active mock recipe
+=== v3_seto_darknite_nitemare ===
+PASS: V3 Seto 3rd, DarkNite, Nitemare — Story/Free and Chakra dynamic/Vanilla, copy cap, 40 cards, package safety
+=== v4_round ===
+PASS V4: five profiles, source weights, Story and Free Duel, 40 cards, virtual packages and active-recipe examples
+=== new_lot_recipes ===
+PASS Teana 2nd vanilla: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF
+PASS Teana 2nd modified: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF
+PASS Ocean Mage vanilla: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF
+PASS Ocean Mage modified: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF
+PASS High Mage Secmeton vanilla: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF
+PASS High Mage Secmeton modified: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF
+PASS: dynamic three profiles and invalid recipe
+=== core ===
+PASS variable recipe sizes 0..10; engine-authoritative Deck tribute source; zero/no-source safety
+PASS legacy Isis planner regression, 21 skulls, ritual distinctness, protection, urgency and persistent ritual setup
+=== recipe_decks ===
+PASS: 3-role atomic package, Vanilla/out-of-pool materials, caps, incompatible recipe fallback
+=== v030_adapter ===
+PASS v0.3 adapter: 15 official combinations, 1-5 tributes, Field/Hand/Both, 
+high card IDs #850-854, Ritual Package rejects unsupported cardinalities, Vanilla/removal and shared matching
+=== provider_adapter ===
+PASS provider priority/fallback + v0.3 adapter: 15 official combinations, 1-5 tributes, Field/Hand/Both, 
+high card IDs #850-854, Ritual Package rejects unsupported cardinalities, Vanilla/removal and shared matching
+=== diagnostics ===
+PASS: access window vs physical hand/back; no false playable status; decision labels
+=== ritual_strategy ===
+PASS: ritual planner including Martis legal/high-power board regression
+=== activation_priority ===
+PASS: legal negative-value Rituals are activated across profiles; illegal, unset and lethal emergencies remain protected
+=== bakura_emergency ===
+PASS: Bakura permits face-down field tribute under nonlethal pressure, still respects lethal and engine oracle
+=== adaptive_rules ===
+PASS adaptive rules: live provider, ON/OFF, ABI, 0-3 Field, Hand/Deck, result, risk and fallback
+=== field_guard ===
+PASS: protected Field Warrior and post-Ritual Dokurorider survive stock fusion placement; Equip/emergency/full-field checks
+=== effect_intelligence ===
+PASS: optional ABI, settings off, no imaginary buffs, tribute exclusion
+=== ai_policy ===
+PASS: real ritual instance fusion block, identity,
+=== hand_play ===
+PASS: all forced hand selections explicitly set face-down; clear stale flags
+=== deck_access ===
+In file included from ./deck_access.h:4,
+                 from tests/test_deck_access.c:4:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:21:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   21 |     DUEL_DECK_CARD_OFFSET(id) == 0 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope
+   22 | ];
+      | ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:24:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   24 |     DUEL_DECK_CARD_OFFSET(deck_index) == 2 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope
+   25 | ];
+      | ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:27:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   27 |     DUEL_DECK_CARD_OFFSET(data_block_index) == 3 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope
+   28 | ];
+      | ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:30:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   30 |     DUEL_DECK_CARD_OFFSET(flags_04) == 4 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope
+   31 | ];
+      | ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:33:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   33 |     DUEL_DECK_CARD_OFFSET(unk_05) == 5 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope
+   34 | ];
+      | ^
+In file included from deck_access.h:4,
+                 from deck_access.c:1:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:21:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   21 |     DUEL_DECK_CARD_OFFSET(id) == 0 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope
+   22 | ];
+      | ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:24:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   24 |     DUEL_DECK_CARD_OFFSET(deck_index) == 2 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope
+   25 | ];
+      | ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:27:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   27 |     DUEL_DECK_CARD_OFFSET(data_block_index) == 3 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope
+   28 | ];
+      | ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:30:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   30 |     DUEL_DECK_CARD_OFFSET(flags_04) == 4 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope
+   31 | ];
+      | ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
+   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))
+      |                                        ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:33:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’
+   33 |     DUEL_DECK_CARD_OFFSET(unk_05) == 5 ? 1 : -1
+      |     ^~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope
+   34 | ];
+      | ^
+PASS deck peek: real upcoming slots, safe displaced hand, set facing, bounds and already-held guards
+=== tribute_fetch ===
+PASS tribute search: field/hand/deck quotas, distinct roles, real deck, emergency, protected physical hand, prior AI, result requirement, settings and legal engine
+=== post_ritual ===
+PASS: existing Ritual, Skull Guardian +500/+500 from Summoned Skull, risk, source safety and generic Beacon callback
+test_drop_rewards: tests/test_drop_rewards.c:94: main: Assertion `bits==1' failed.
+tests/run_all_beta.sh: line 43:  3820 Aborted                 "$work/test_drop_rewards"

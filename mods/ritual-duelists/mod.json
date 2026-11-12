@@ -1,0 +1,523 @@
+{
+  "id": "ritual-duelists",
+  "name": "Ritual Duelists — Starter + Simon + Drops 01/02/03",
+  "version": "0.4.0-alpha.8",
+  "author": "Otavio",
+  "description": "Mantém decks/rituais/IA, tabelas de drops 01/02/03, recompensas de História e limite de Blue-Eyes. Consulta de drops no Free Duel é responsabilidade exclusiva do MOD Droplist independente.",
+  "min_api": 12,
+  "game": "slus_01411",
+  "library": "ritual-duelists",
+  "enabled": true,
+  "restart": true,
+  "settings": [
+    {
+      "key": "expansion_enabled",
+      "label": "Expansion — 27 ritual duelists (Isis Vanilla)",
+      "type": "bool",
+      "default": 1,
+      "restart": true
+    },
+    {
+      "key": "guaranteed_package_free",
+      "label": "Guaranteed Ritual Package in Free Duel",
+      "type": "bool",
+      "default": 0,
+      "description": "Guarantees at least one complete Ritual Package in Free Duel, matching Story Mode behavior. Disable for normal weighted selection.",
+      "restart": true
+    },
+    {
+      "key": "recipe_source",
+      "label": "Deck ritual recipe source",
+      "type": "choice",
+      "default": 0,
+      "choices": [
+        "Auto (providers, game tables, Vanilla)",
+        "Force Vanilla",
+        "Force configured Ritual Effects recipe"
+      ],
+      "description": "Auto reads v0.3.0 official 1-5 tribute rules, classic game tables and available providers. Only the active game/ritual mod performs a summon. Manual fallbacks are optional.",
+      "restart": true
+    },
+    {
+      "key": "ai_planner",
+      "label": "Ritual Duelists — Ritual Planner",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "diagnostics",
+      "label": "Log diagnostic events",
+      "type": "bool",
+      "default": 1,
+      "description": "Logs significant AI decisions with origin, reasons, physical/logical Ritual Magic position and whether legality was actually checked. May increase log size during long tests."
+    },
+    {
+      "key": "debug_overlay",
+      "label": "Ritual Duelists diagnostic overlay",
+      "type": "choice",
+      "default": 1,
+      "choices": [
+        "Off",
+        "Compact",
+        "Detailed"
+      ],
+      "description": "Read-only test panel: recipe, deck, physical/logical Ritual Magic, reason and source of decisions, last significant request. No extra Ritual legality probes per frame."
+    }
+  ],
+  "after": [
+    "drop-missing-cards"
+  ],
+  "drops": {
+    "all": {
+      "pow": {
+        "29": 0,
+        "31": 0,
+        "101": 0,
+        "249": 0,
+        "395": 0,
+        "511": 0,
+        "102": 0,
+        "182": 0,
+        "220": 0,
+        "666": 0,
+        "676": 0,
+        "693": 0,
+        "665": 0,
+        "667": 0,
+        "670": 0,
+        "671": 0,
+        "673": 0,
+        "674": 0,
+        "675": 0,
+        "677": 0,
+        "678": 0,
+        "679": 0,
+        "680": 0,
+        "691": 0,
+        "692": 0,
+        "694": 0,
+        "695": 0,
+        "696": 0,
+        "697": 0,
+        "698": 0,
+        "699": 0,
+        "700": 0,
+        "721": 0
+      },
+      "bcd": {
+        "666": 0,
+        "676": 0,
+        "693": 0,
+        "665": 0,
+        "667": 0,
+        "670": 0,
+        "671": 0,
+        "673": 0,
+        "674": 0,
+        "675": 0,
+        "677": 0,
+        "678": 0,
+        "679": 0,
+        "680": 0,
+        "691": 0,
+        "692": 0,
+        "694": 0,
+        "695": 0,
+        "696": 0,
+        "697": 0,
+        "698": 0,
+        "699": 0,
+        "700": 0,
+        "721": 0
+      },
+      "tec": {
+        "29": 0,
+        "31": 0,
+        "101": 0,
+        "249": 0,
+        "395": 0,
+        "511": 0,
+        "102": 0,
+        "182": 0,
+        "220": 0,
+        "666": 0,
+        "676": 0,
+        "693": 0,
+        "665": 0,
+        "667": 0,
+        "670": 0,
+        "671": 0,
+        "673": 0,
+        "674": 0,
+        "675": 0,
+        "677": 0,
+        "678": 0,
+        "679": 0,
+        "680": 0,
+        "691": 0,
+        "692": 0,
+        "694": 0,
+        "695": 0,
+        "696": 0,
+        "697": 0,
+        "698": 0,
+        "699": 0,
+        "700": 0,
+        "721": 0
+      }
+    },
+    "Simon Muran": {
+      "pow": {
+        "357": 16,
+        "701": 16,
+        "720": 16
+      },
+      "tec": {
+        "666": 16,
+        "676": 16,
+        "693": 16
+      }
+    },
+    "Duel Master K": {
+      "pow": {
+        "357": 32,
+        "701": 32,
+        "720": 32
+      },
+      "tec": {
+        "666": 32,
+        "676": 32,
+        "693": 32
+      }
+    },
+    "Mountain Mage": {
+      "pow": {
+        "357": 96
+      },
+      "tec": {
+        "666": 64
+      }
+    },
+    "Mai Valentine": {
+      "pow": {
+        "701": 96
+      },
+      "tec": {
+        "676": 64
+      }
+    },
+    "Shadi": {
+      "pow": {
+        "720": 96
+      },
+      "tec": {
+        "693": 64
+      }
+    },
+    "Pegasus": {
+      "pow": {
+        "357": 30,
+        "715": 25
+      },
+      "tec": {
+        "695": 64
+      }
+    },
+    "Isis": {
+      "pow": {
+        "701": 30
+      },
+      "bcd": {
+        "449": 25
+      }
+    },
+    "High Mage Martis": {
+      "pow": {
+        "720": 20,
+        "705": 25,
+        "356": 20,
+        "706": 20
+      },
+      "tec": {
+        "680": 64
+      }
+    },
+    "Jono": {
+      "tec": {
+        "677": 64
+      },
+      "pow": {
+        "702": 25
+      },
+      "bcd": {
+        "64": 48
+      }
+    },
+    "Jono 2nd": {
+      "tec": {
+        "677": 64
+      },
+      "pow": {
+        "702": 25
+      },
+      "bcd": {
+        "64": 64
+      }
+    },
+    "Weevil Underwood": {
+      "tec": {
+        "696": 64
+      },
+      "pow": {
+        "717": 25
+      },
+      "bcd": {
+        "535": 48
+      }
+    },
+    "Heishin": {
+      "tec": {
+        "721": 64
+      },
+      "pow": {
+        "722": 25
+      }
+    },
+    "Heishin 2nd": {
+      "tec": {
+        "721": 64
+      },
+      "pow": {
+        "722": 0,
+        "708": 20,
+        "713": 4,
+        "35": 32
+      },
+      "bcd": {
+        "35": 15
+      }
+    },
+    "Rex Raptor": {
+      "tec": {
+        "680": 64
+      },
+      "pow": {
+        "705": 25
+      }
+    },
+    "Desert Mage": {
+      "tec": {
+        "699": 64
+      },
+      "pow": {
+        "719": 25,
+        "360": 10,
+        "704": 20
+      }
+    },
+    "Yami Bakura": {
+      "tec": {
+        "674": 64
+      },
+      "pow": {
+        "365": 25,
+        "719": 30
+      }
+    },
+    "Mage Soldier": {
+      "tec": {
+        "665": 64
+      },
+      "pow": {
+        "362": 25
+      }
+    },
+    "Teana 2nd": {
+      "tec": {
+        "698": 64
+      },
+      "pow": {
+        "708": 25
+      }
+    },
+    "Ocean Mage": {
+      "tec": {
+        "700": 64
+      },
+      "pow": {
+        "718": 25
+      },
+      "bcd": {
+        "449": 32
+      }
+    },
+    "High Mage Secmeton": {
+      "tec": {
+        "692": 64
+      },
+      "pow": {
+        "710": 20,
+        "718": 20
+      },
+      "bcd": {
+        "449": 64
+      }
+    },
+    "Forest Mage": {
+      "tec": {
+        "673": 64
+      },
+      "pow": {
+        "356": 25,
+        "702": 20,
+        "709": 20
+      },
+      "bcd": {
+        "483": 32,
+        "535": 32
+      }
+    },
+    "High Mage Anubisius": {
+      "tec": {
+        "678": 64
+      },
+      "pow": {
+        "703": 25,
+        "717": 20
+      },
+      "bcd": {
+        "483": 25,
+        "535": 64
+      }
+    },
+    "High Mage Atenza": {
+      "tec": {
+        "691": 64
+      },
+      "pow": {
+        "706": 25,
+        "705": 20
+      }
+    },
+    "Meadow Mage": {
+      "tec": {
+        "697": 64
+      },
+      "pow": {
+        "716": 25,
+        "362": 10,
+        "365": 20,
+        "703": 10,
+        "722": 10
+      },
+      "bcd": {
+        "64": 96
+      }
+    },
+    "High Mage Kepura": {
+      "tec": {
+        "670": 64
+      },
+      "pow": {
+        "364": 10,
+        "716": 20
+      },
+      "bcd": {
+        "64": 160
+      }
+    },
+    "Labyrinth Mage": {
+      "tec": {
+        "667": 64
+      },
+      "pow": {
+        "374": 10
+      },
+      "bcd": {
+        "371": 32,
+        "372": 32,
+        "373": 32,
+        "667": 0
+      }
+    },
+    "Guardian Sebek": {
+      "tec": {
+        "679": 64
+      },
+      "pow": {
+        "704": 0,
+        "217": 10
+      },
+      "bcd": {
+        "704": 25
+      }
+    },
+    "Guardian Neku": {
+      "tec": {
+        "671": 64
+      },
+      "pow": {
+        "360": 25,
+        "85": 0
+      },
+      "bcd": {
+        "85": 67
+      }
+    },
+    "Seto 3rd": {
+      "tec": {
+        "675": 64,
+        "449": 0,
+        "535": 0
+      },
+      "pow": {
+        "380": 10,
+        "1": 26,
+        "449": 0,
+        "535": 0
+      },
+      "bcd": {
+        "1": 20,
+        "449": 12,
+        "535": 32
+      }
+    },
+    "DarkNite": {
+      "tec": {
+        "694": 64
+      },
+      "pow": {
+        "709": 25,
+        "64": 0,
+        "483": 0
+      },
+      "bcd": {
+        "64": 20,
+        "483": 46
+      }
+    },
+    "Nitemare": {
+      "tec": {
+        "694": 64
+      },
+      "pow": {
+        "709": 25
+      }
+    },
+    "Seto": {
+      "pow": {
+        "1": 10
+      }
+    },
+    "Kaiba": {
+      "pow": {
+        "1": 16
+      }
+    },
+    "Seto 2nd": {
+      "pow": {
+        "1": 25
+      }
+    }
+  }
+}
