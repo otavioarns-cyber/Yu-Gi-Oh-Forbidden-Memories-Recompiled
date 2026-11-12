@@ -12,6 +12,8 @@ Em 11/11/2026, o usuário pediu que as informações das entregas e mudanças se
 
 ## Ponto de partida atual
 
+- Etapa mais recente nesta branch: [Melhoria + Surrender 1.3.6 recompilado](notes/HAL20_MELHORIA_RITUAIS_PREVIEW2.md); fontes e manifest preservados, alvo i386, integração com outros MODs pendente.
+
 - Entrega mais recente: [HAL-20 — base oficial atualizada e resultados](notes/HAL20_BASE_OFICIAL_V031_PREVIEW2.md), [PR #8](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/8).
 - Inventário anterior: [HAL-20 — inventário e plano](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/docs/hal-20-inventario-plano/notes/HAL20_INVENTARIO_E_PLANO.md), [PR #7](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/7).
 - Evidência integral: [495 arquivos do ZIP, tamanhos e SHA-256](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/docs/hal-20-inventario-plano/notes/hal-20/INVENTARIO_ARQUIVOS.csv).
