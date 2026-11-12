@@ -1,0 +1,251 @@
+{
+  "base_commit": "d649647c159c91d615c07d6960928a37e270b461",
+  "official_commit": "aceac3782902746f35ddb0148809450933327cb3",
+  "package_files": {
+    "README.md": {
+      "bytes": 9211,
+      "sha256": "5155426a5fa42103f2ae4e1322c18e745497da82be74222fc7fe0175663ae3d0"
+    },
+    "dual-play.c": {
+      "bytes": 50496,
+      "sha256": "f0bcd6837945364aa01e7ed465280b3dd8b992aefe7ee707a0d87720dca510ff"
+    },
+    "dual-play.o": {
+      "bytes": 67832,
+      "sha256": "e08e198aa84783b4c04b9c9f117de0f521240a1c19b8f12e8bc1d30fc0769b90"
+    },
+    "mod.json": {
+      "bytes": 341,
+      "sha256": "c3244ab680764a0d930c12929c5adf8ae3128e4d6b981f5e06ff3eb624839563"
+    }
+  },
+  "old": {
+    "size": 67832,
+    "sha256": "e08e198aa84783b4c04b9c9f117de0f521240a1c19b8f12e8bc1d30fc0769b90",
+    "elf_class": 32,
+    "machine": "EM_386",
+    "imports": [
+      "func_8001B780"
+    ],
+    "exports": [
+      "MemoriesModInit"
+    ],
+    "symbols": {
+      "dual_draw_phase": {
+        "offset": 6704,
+        "size": 148
+      },
+      "g_state": {
+        "offset": 52,
+        "size": 50
+      },
+      "MemoriesModInit": {
+        "offset": 0,
+        "size": 1851
+      }
+    },
+    "allocated_sections": {
+      ".text": {
+        "size": 13138,
+        "sha256": "89ad33286db42b54f6392cbaf2ce04804e790399ab44738b842623a5a11dfa3a"
+      },
+      ".rodata": {
+        "size": 16,
+        "sha256": "5472ebe00ed84c2249ae291417ba422d693c8b514b72b1549976b8e5447e0088"
+      },
+      ".bss": {
+        "size": 196,
+        "sha256": "d904e1f1e028ba9058a128a6fd724f0f9892ae8fe49c8f7dc2613183f7f8bbca"
+      },
+      ".rodata.str1.1": {
+        "size": 1001,
+        "sha256": "9cfe17f28b3b76e3d9d754cd1f60207aa4668c8b0417f81425c9aa2bee2bcca2"
+      }
+    },
+    "allocated_relocations_by_numeric_type": {
+      "1": 537,
+      "2": 2
+    },
+    "raw_time_wizard_opcode_predicate": true
+  },
+  "rebuilt": {
+    "size": 68196,
+    "sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+    "elf_class": 32,
+    "machine": "EM_386",
+    "imports": [
+      "__x86_indirect_thunk_eax",
+      "func_8001B780"
+    ],
+    "exports": [
+      "MemoriesModInit"
+    ],
+    "symbols": {
+      "dual_draw_phase": {
+        "offset": 7040,
+        "size": 152
+      },
+      "g_state": {
+        "offset": 52,
+        "size": 50
+      },
+      "MemoriesModInit": {
+        "offset": 0,
+        "size": 2168
+      }
+    },
+    "allocated_sections": {
+      ".text": {
+        "size": 13644,
+        "sha256": "6625e38bb63d72612d1ccc90199c97cd07213ffc0f6a11ea9afd549f7550a5d3"
+      },
+      ".bss": {
+        "size": 196,
+        "sha256": "d904e1f1e028ba9058a128a6fd724f0f9892ae8fe49c8f7dc2613183f7f8bbca"
+      },
+      ".rodata.str1.1": {
+        "size": 1001,
+        "sha256": "9cfe17f28b3b76e3d9d754cd1f60207aa4668c8b0417f81425c9aa2bee2bcca2"
+      }
+    },
+    "allocated_relocations_by_numeric_type": {
+      "1": 533,
+      "2": 97
+    },
+    "raw_time_wizard_opcode_predicate": true
+  },
+  "dwarf_layout_comparison": {
+    "common_count": 19,
+    "common_names": [
+      "AiActiveCard",
+      "AiSelection",
+      "DisplayObject",
+      "DualPlayState",
+      "DuelCardDisplayObject",
+      "DuelCardRecord",
+      "DuelDeckCardRecord",
+      "DuelHandSlot",
+      "DuelHandStackState",
+      "DuelRankStatistics",
+      "DuelSelectionRecord",
+      "DuelSideLifePoints",
+      "DuelSideState",
+      "FILE",
+      "HandCardObject",
+      "MemoriesMod",
+      "MemoriesModEvent",
+      "MemoriesModHost",
+      "MemoriesSdkFile"
+    ],
+    "different": [
+      "DuelCardRecord",
+      "MemoriesModHost"
+    ],
+    "method": "DWARF aggregate byte size and member names/offsets/bit sizes; not recursive member type equivalence",
+    "differences_explained": {
+      "DuelCardRecord": "size 28 both, previous fields retained; defense_modifier newly named at offset 26",
+      "MemoriesModHost": "120 -> 216 bytes; previous fields retained, API services appended from offset 120"
+    }
+  },
+  "dynamic_symbols": [
+    "Ai_GetHandSize",
+    "D_8009B162",
+    "D_8009B174",
+    "D_8009B1B4",
+    "D_8009B1D5",
+    "D_8009B1F8",
+    "D_800E9EF0",
+    "D_800E9F10",
+    "D_800E9FF0",
+    "D_800EA030",
+    "D_800EAE88",
+    "D_801A7AD8",
+    "DisplayObject_ReleaseIfPresent",
+    "DuelScene_UpdateDrawPhase",
+    "DuelScene_UpdateFieldActions",
+    "DuelScene_UpdateHandActions",
+    "Duel_ClearHandSlots",
+    "Duel_InitScene",
+    "Duel_SetupCardRecord",
+    "func_80018004",
+    "func_8001BAF0",
+    "func_80028220",
+    "gDuel_aActiveCards",
+    "gDuel_aDeckCardRecords",
+    "gDuel_adwCardStats",
+    "gDuel_wSceneStateFlags",
+    "gInput_wPad1Pressed",
+    "gInput_wPad1Repeat"
+  ],
+  "missing_sdk_exports": {
+    "win32": [],
+    "game32": []
+  },
+  "source_and_manifest_unchanged": true,
+  "loader": {
+    "old": {
+      "hash": "cb16d37a",
+      "api": 5
+    },
+    "rebuilt": {
+      "hash": "3028c68a",
+      "api": 24
+    },
+    "state_bytes": 50,
+    "state_version": 10,
+    "assertions_each": 2903,
+    "cycles_each": 20,
+    "relocated_fingerprint_both": true
+  },
+  "source_fixture": {
+    "assertions": 269,
+    "platform": "Linux i386 under QEMU",
+    "fake_engine": true
+  },
+  "redistribution": {
+    "verified": false,
+    "package_license": null,
+    "author_in_manifest": "Community mod",
+    "public_artifacts": "report only"
+  },
+  "runtime_gameplay_verified": false,
+  "chain_fixture": {
+    "assertions": 53,
+    "real_api24_hooks_c": true,
+    "fake_target_functions": true,
+    "direct_dual_signature": true,
+    "dual_inactive_rejected": true,
+    "intervening_foreign_hook_rejected": true,
+    "time_wizard_module_loaded": false
+  },
+  "save_state_compatibility": "Code hash changed; official Mods_Signature includes it and StateCompatibleMods requires equality. Same state version/size alone does not authorize old snapshots.",
+  "fixture_hashes": {
+    "source_fixture.c": "f7ae5e43b326d928d4cff0a07e1539130000401184175df48ab4925a4d517486",
+    "loader_fixture.c": "e766c14cdf819b42320f700ce6a5d2a94357c4d6061e9aa67b78f80fa6bfcbf5",
+    "chain_fixture.c": "517efc62eb370fc62171ea1b1ea99f149f23cde233c3351a1505f088b1936e61"
+  },
+  "toolchain": {
+    "compiler": "Clang 23.1.2, llvm-mingw 20260922",
+    "compiler_sha256": "bab7f174d7e136ae093ad232d5a894ee00f0a8f9051bcff4eb6a70c132898248",
+    "sdk_api": 24,
+    "builder_sha256": "181ba2e2d5363b90bae87e5a0c531b1ba3640e74d4d17f6f026d1db055a609b9",
+    "target": "i386",
+    "elf_runner": "QEMU i386 5.2, Debian 11 sysroot",
+    "analysis_library": "pyelftools 0.32; local-only"
+  },
+  "sdk_exports_sha256": {
+    "win32": "7aae333e2548e5b884bfcc8ea65ccc8ff753fbad72ed98bd2c7acbff334e5da0",
+    "game32": "4ced636164387bf0b0d2714bc15bbb560c8df54d02aed4a0764775e0cfab4184"
+  },
+  "sdk_include_digest_method": "SHA256 of newline-joined relative-path:sha256 per file, sorted by relative path",
+  "sdk_include_digest": "12a683c57ebb419ebc43493647ca54fbaee403ccc08e957371b1ce66677bfcab",
+  "sdk_include_files": 808,
+  "scope": {
+    "published": "documentation only; no third-party source/manifest/README/object",
+    "production_logic_changed": false,
+    "gameplay_tests": false,
+    "windows_execution": false,
+    "actual_time_wizard_loaded": false,
+    "pr9_modified": false
+  }
+}
