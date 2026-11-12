@@ -1,5 +1,7 @@
 # HAL-20 — Primeira integração controlada / HAL-6 e HAL-18
 
+[PR #14 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14) · [Branch experimental](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-20-integracao-inicial) · [Publicação e refs preservadas](hal-20/integracao-inicial/PUBLICACAO.json)
+
 ## Resultado e decisão
 
 **Ambiente experimental publicado com os quatro pacotes próprios preservados. Foram executados 25 perfis em 28 execuções de ELF: 480 verificações PASS e 29 ocorrências FAIL, quatro bloqueios e quatro skips globais. Não aprovar a integração para lançamento.** As ocorrências repetem F1 e três condições de interação; não são 29 bugs distintos. Nenhuma correção de produção foi aplicada.
