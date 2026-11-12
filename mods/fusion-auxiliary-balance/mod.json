@@ -1,0 +1,821 @@
+{
+  "id": "fusion-auxiliary-balance",
+  "name": "Balanceamento de Fusoes e Efeitos Auxiliares",
+  "version": "0.1.0-beta.44-effect-ai",
+  "author": "Otavio",
+  "description": "Beta.43: same six custom LIGHT/DARK/EARTH/WATER/FIRE/WIND attribute icons, now supplied at 256x256 for smooth high-resolution description rendering; their logical sprite remains 16x16. All effects and Mavelus fire unchanged. CPU effect forecast.",
+  "game": "slus_01411",
+  "min_api": 15,
+  "enabled": true,
+  "library": "fusion-auxiliary-balance",
+  "restart": true,
+  "cards": [
+    {
+      "replace": 37,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIts charge knows no mercy. Inflicts 500 damage to the opponent's LP after destroying a monster in battle."
+    },
+    {
+      "replace": 168,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nDoubles Explosive Damage.\n{f8 0A 07}<Fusion Effect>{f8 0A 00}\nSummons 2 Explosive Magic Cards each turn."
+    },
+    {
+      "replace": 369,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nAfter attacking, this monster returns to {f8 0A 06}Defense Position{f8 0A 00}."
+    },
+    {
+      "replace": 390,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 392,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 409,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 438,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 412,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 441,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 508,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 358,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nOther allied {f8 0B 00}\nmonsters of Level 6\nor below cannot be\ndestroyed in battle\nor by Magic/monster\neffects while face-up."
+    },
+    {
+      "replace": 713,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nA blazing meteor scorches the sky. Inflicts 1000 damage to the opponent's LP."
+    },
+    {
+      "replace": 217,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIts terrifying aura weakens all foes. All opposing monsters lose 500 ATK and DEF."
+    },
+    {
+      "replace": 92,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIts fierce charge shatters defenses. Inflicts piercing battle damage against monsters in Defense Position."
+    },
+    {
+      "replace": 495,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nEncore!!! One retry.\n{f8 0A 07}<Fusion Effect>{f8 0A 00}\nSHOW MUST GO ON!!!\nBattle-proof. Can't switch to Defense Mode"
+    },
+    {
+      "replace": 100,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\n50%: swap ATK vs Level 4+ foes."
+    },
+    {
+      "replace": 115,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nIts mystical aura rejects enemy equipment.\n{f8 0A 07}<Fusion Effect>{f8 0A 00}\nDoubles allied Equip bonuses. Does not stack."
+    },
+    {
+      "replace": 551,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nHalf the LP you recover damages your opponent."
+    },
+    {
+      "replace": 2,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nFace-up: restores 1000 LP once while on the field."
+    },
+    {
+      "replace": 189,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nSecond material: weakest possible fusion.\n{f8 0A 07}<Fusion Effect>{f8 0A 00}\nFirst material: strongest possible fusion."
+    },
+    {
+      "replace": 318,
+      "type": "Equip",
+      "effect": 303,
+      "description": "Achieving true potential never goes out of style. A touch of elegance is all it takes to let yours shine."
+    },
+    {
+      "replace": 613,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nAfter destroying a foe in battle,\nits adjacent allies lose {f8 0A 06}200{f8 0A 00} ATK/DEF."
+    },
+    {
+      "replace": 707,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nAfter destroying a foe in battle,\nsummons 1 Zombie Warrior\nif a Monster Zone is empty."
+    },
+    {
+      "replace": 370,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nDestroy a Defense target if\nits DEF >= this card's ATK.\nNo battle damage; lose up to\n{f8 0A 06}500{f8 0A 00} LP (0 = defeat)."
+    },
+    {
+      "replace": 69,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking a Defense\nPosition monster, that foe\nloses {f8 0A 06}300{f8 0A 00} DEF for the battle."
+    },
+    {
+      "replace": 385,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking, swaps the\ntarget's ATK and DEF\nfor that battle only."
+    },
+    {
+      "replace": 427,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nCannot be destroyed\nin battle if another\nallied {f8 0B 00} is on field\n(excluding Kaisers)."
+    },
+    {
+      "replace": 467,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking, the foe\nloses {f8 0A 06}200{f8 0A 00} ATK/DEF\nduring battle. The loss\nis permanent if it lives."
+    },
+    {
+      "replace": 442,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nAfter destroying a foe in battle,\nputs another random eligible\nenemy monster in Defense."
+    },
+    {
+      "replace": 509,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIn Forest, gains {f8 0A 03}800{f8 0A 00}\nATK/DEF and cannot be\ndestroyed in battle\nby {f8 0B 09} monsters."
+    },
+    {
+      "replace": 471,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nAfter destroying a foe in battle,\nrecovers LP equal to half\nthat foe's original ATK."
+    },
+    {
+      "replace": 564,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen destroyed in battle,\nits surviving destroyer loses\n{f8 0A 06}500{f8 0A 00} ATK/DEF permanently."
+    },
+    {
+      "replace": 223,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking a Defense\nPosition monster, changes it\nto Attack before damage."
+    },
+    {
+      "replace": 465,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nEnemies attacking its adjacent\nallies lose {f8 0A 06}400{f8 0A 00} ATK/DEF\nfor that battle only."
+    },
+    {
+      "replace": 531,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nYour other {f8 0B F2}\nmonsters gain {f8 0A 03}200{f8 0A 00}\nATK/DEF while this\neffect is active."
+    },
+    {
+      "replace": 572,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nYour other Female monsters\ncannot be destroyed in battle.\nBattle damage is unchanged."
+    },
+    {
+      "replace": 565,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking a foe whose ATK\nis below its original value,\ngains {f8 0A 03}1000{f8 0A 00} ATK for the battle."
+    },
+    {
+      "replace": 521,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking, gains 400 ATK\nand lowers the target's ATK\nby 400 for that battle."
+    },
+    {
+      "replace": 618,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen another allied Female\nis destroyed in battle,\ngains 400 ATK/DEF permanently."
+    },
+    {
+      "replace": 437,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nAttacking a face-down foe:\ngains 700 ATK for the battle,\neven after the foe flips up."
+    },
+    {
+      "replace": 473,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nGains {f8 0A 03}200{f8 0A 00} ATK/DEF\nfor each OTHER allied\n{f8 0B F4} monster on field."
+    },
+    {
+      "replace": 482,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nGains 300 ATK per\nother allied {f8 0B 0A}\nwhen attacking, for\nthat battle only."
+    },
+    {
+      "replace": 389,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking a {f8 0B F1}\nfoe, gains {f8 0A 03}600{f8 0A 00} ATK\nfor that battle only."
+    },
+    {
+      "replace": 639,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIn Umi, gains 800 ATK.\nIn Wasteland, gains 800 DEF.\nField bonuses still apply."
+    },
+    {
+      "replace": 15,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking a {f8 0B 13}\nor {f8 0B 02}, gains 600 ATK\nfor that battle only."
+    },
+    {
+      "replace": 545,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nAttacks on {f8 0B 00}-like\ncreatures (type or\nsubtype): gains {f8 0A 03}800{f8 0A 00}\nATK for that battle."
+    },
+    {
+      "replace": 617,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nAgainst a foe with higher\ncurrent ATK, lowers that\nfoe's ATK by 600 for battle."
+    },
+    {
+      "replace": 230,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking a {f8 0B 05} or\n{f8 0B 04}, gains 700 ATK\nfor that battle only."
+    },
+    {
+      "replace": 86,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen attacking, swaps its\ncurrent ATK and DEF for\nthat battle only."
+    },
+    {
+      "replace": 294,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nGains 500 ATK/DEF\nwith another allied\n{f8 0B 00}, plus 500 with\nanother {f8 0B 03}."
+    },
+    {
+      "replace": 133,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nOn destruction in battle,\nsummons 1 Hinotama Soul\nto a free allied Monster Zone."
+    },
+    {
+      "replace": 215,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen destroyed in battle,\ninflicts 500 extra damage\nto the opponent's LP."
+    },
+    {
+      "replace": 594,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen an allied {f8 0B 13}\ntakes LP damage from\nbattle, the foe loses\nhalf that LP damage."
+    },
+    {
+      "replace": 533,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nPrevents its first battle\ndestruction once per duel.\nBattle LP damage remains."
+    },
+    {
+      "replace": 43,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nAttacking a stronger foe:\nflip a coin. On success,\nswap current ATKs for battle."
+    },
+    {
+      "replace": 272,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIf destroyed, returns next\nturn of its controller\nif a zone is free. Once only."
+    },
+    {
+      "replace": 30,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nWhen destroyed in battle,\nOTHER allied Skull Monsters\ngain 300 ATK/DEF permanently."
+    },
+    {
+      "replace": 487,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIf another allied {f8 0B 13}\nmonster is on field,\nenemies cannot target\nthis with attacks."
+    },
+    {
+      "replace": 458,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nOn a valid Fusion Summon, prevents\nall enemy attacks during their\nnext turn."
+    }
+  ],
+  "fusions": [
+    {
+      "remove": 168
+    },
+    {
+      "remove": 613
+    },
+    {
+      "remove": 433
+    },
+    {
+      "with": [
+        122,
+        343
+      ],
+      "result": 168
+    },
+    {
+      "with": [
+        122,
+        344
+      ],
+      "result": 168
+    },
+    {
+      "with": [
+        425,
+        425
+      ],
+      "result": 613
+    },
+    {
+      "with": [
+        16,
+        72
+      ],
+      "result": 67
+    },
+    {
+      "with": [
+        72,
+        56
+      ],
+      "result": 57
+    },
+    {
+      "with": [
+        57,
+        339
+      ],
+      "result": 67
+    },
+    {
+      "with": [
+        368,
+        366
+      ],
+      "result": 369
+    },
+    {
+      "with": [
+        61,
+        658
+      ],
+      "result": 412
+    },
+    {
+      "with": [
+        65,
+        658
+      ],
+      "result": 412
+    },
+    {
+      "with": [
+        542,
+        658
+      ],
+      "result": 441
+    },
+    {
+      "with": [
+        436,
+        658
+      ],
+      "result": 441
+    },
+    {
+      "with": [
+        568,
+        658
+      ],
+      "result": 508
+    },
+    {
+      "with": [
+        573,
+        658
+      ],
+      "result": 508
+    },
+    {
+      "with": [
+        208,
+        282
+      ],
+      "result": 189
+    },
+    {
+      "with": [
+        62,
+        318
+      ],
+      "result": 63
+    },
+    {
+      "with": [
+        162,
+        175
+      ],
+      "result": 707
+    },
+    {
+      "with": [
+        412,
+        512
+      ],
+      "result": 370
+    },
+    {
+      "with": [
+        95,
+        120
+      ],
+      "result": 385
+    },
+    {
+      "with": [
+        7,
+        603
+      ],
+      "result": 427
+    },
+    {
+      "with": [
+        125,
+        466
+      ],
+      "result": 467
+    },
+    {
+      "with": [
+        603,
+        626
+      ],
+      "result": 442
+    },
+    {
+      "with": [
+        32,
+        81
+      ],
+      "result": 509
+    },
+    {
+      "with": [
+        149,
+        560
+      ],
+      "result": 471
+    },
+    {
+      "with": [
+        36,
+        97
+      ],
+      "result": 564
+    },
+    {
+      "with": [
+        387,
+        647
+      ],
+      "result": 223
+    },
+    {
+      "with": [
+        636,
+        538
+      ],
+      "result": 465
+    },
+    {
+      "with": [
+        635,
+        649
+      ],
+      "result": 572
+    },
+    {
+      "with": [
+        646,
+        626
+      ],
+      "result": 565
+    }
+  ],
+  "settings": [
+    {
+      "key": "ignore_effect_conditions",
+      "label": "Ignore Metalmorph / Fusion summon conditions",
+      "type": "bool",
+      "default": 0,
+      "description": "Test mode: effects activate on eligible monsters even when they were not Fusion Summoned. OFF preserves the required fusions."
+    },
+    {
+      "key": "fusionist_effects",
+      "label": "Fusionist: Weakest / Strongest Fusion",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "elegant_egotist",
+      "label": "Elegant Egotist: unlock origin effects",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "thtd_discharge",
+      "label": "Twin-headed Thunder Dragon: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "skull_knight_army",
+      "label": "Skull Knight: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "tank_siege",
+      "label": "Labyrinth Tank: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "thousand_flames",
+      "label": "Thousand Dragon: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "bickuribox_trick",
+      "label": "Bickuribox: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "kaiser_protection",
+      "label": "Kaiser Dragon: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "sunbird_feathers",
+      "label": "Crimson Sunbird: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "aqua_whirlpool",
+      "label": "Aqua Dragon: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "bracchio_forest",
+      "label": "Bracchio-raidus: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "soul_hunter_feast",
+      "label": "Soul Hunter: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "mammoth_curse",
+      "label": "Great Mammoth of Goldfine: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "ocean_snake_tide",
+      "label": "Roaring Ocean Snake: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "eagle_watch",
+      "label": "Punished Eagle: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "sand_blessing",
+      "label": "Mystical Sand: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "empress_protection",
+      "label": "Empress Judge: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "shark_blood",
+      "label": "Man-eating Black Shark: Fusion Effect",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "skullbird_breath",
+      "label": "Sopro Devorador (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "warrior_memories",
+      "label": "Memorias de Guerra (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "deepsea_ambush",
+      "label": "Emboscada nas Profundezas (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "sparrow_beacon",
+      "label": "Beacon (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "pragtical_hunt",
+      "label": "Cacada em Grupo (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "giltia_lance",
+      "label": "Lanca Sagrada (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "bugroth_adaptation",
+      "label": "Adaptacao Anfibia (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "flame_sword",
+      "label": "Espada Flamejante (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "skelgon_fury",
+      "label": "Furia dos Mortos (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "marine_instinct",
+      "label": "Instinto Abissal (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "rare_fish_hunt",
+      "label": "Fera Marinha (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "barox_twist",
+      "label": "Natureza Distorcida (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "dragoness_armor",
+      "label": "Armadura Draconica (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "charubin_spark",
+      "label": "Ultima Centelha (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "flame_ghost_burst",
+      "label": "Labareda Final (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "rose_thorns",
+      "label": "Cursed Thorns (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "kwagar_shell",
+      "label": "Hercules Shell (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "karbonala_inversion",
+      "label": "Magnetic Inversion (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "mavelus_rebirth",
+      "label": "Rise from Ashes (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "zombie_sacrifice",
+      "label": "Last Sacrifice (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "flower_wolf_camouflage",
+      "label": "Camuflagem Floral (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "kaminari_paralysis",
+      "label": "Choque Paralisante (Fusion Effect)",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "effect_ai",
+      "label": "Effect-aware CPU decisions",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "effect_ai_trace",
+      "label": "Log effect-aware decisions",
+      "type": "bool",
+      "default": 0
+    }
+  ],
+  "equips": [
+    {
+      "card": 318,
+      "bonus": 0
+    }
+  ],
+  "palette_ramps": {
+    "7": "#D78BE8"
+  },
+  "card_types": {
+    "types": [
+      {
+        "id": 249,
+        "name": "FXAttributeLight",
+        "icon": "assets/attribute-icons/light.png"
+      },
+      {
+        "id": 250,
+        "name": "FXAttributeDark",
+        "icon": "assets/attribute-icons/dark.png"
+      },
+      {
+        "id": 251,
+        "name": "FXAttributeEarth",
+        "icon": "assets/attribute-icons/earth.png"
+      },
+      {
+        "id": 252,
+        "name": "FXAttributeWater",
+        "icon": "assets/attribute-icons/water.png"
+      },
+      {
+        "id": 253,
+        "name": "FXAttributeFire",
+        "icon": "assets/attribute-icons/fire.png"
+      },
+      {
+        "id": 254,
+        "name": "FXAttributeWind",
+        "icon": "assets/attribute-icons/wind.png"
+      }
+    ]
+  }
+}

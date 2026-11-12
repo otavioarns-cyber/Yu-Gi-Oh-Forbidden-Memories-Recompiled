@@ -1,0 +1,22 @@
+{
+  "engine_commit": "aceac3782902746f35ddb0148809450933327cb3",
+  "integration_base": "d649647c159c91d615c07d6960928a37e270b461",
+  "test_sources": {
+    "tests/hal20-integration/harness.c": "efe752fe7832d40ea69c969ad93c9ac677e6b7711f96740a0b8ae088260dfb50",
+    "tests/hal20-integration/cases.inc": "d977ac8b7fdf7bde07630314a9f97abfac73a18cbd6db111692b66bf1fbb6a4a",
+    "tests/hal20-integration/order.c": "321b24189fd3503a15938e8c313cf8ba770adee1477e08a51019399faab30ce9",
+    "tests/hal20-integration/run.py": "de81f3917ecbcf2621f29840f21f4b1bd3a1b9f7411976bd17bc3b9e776cd63d"
+  },
+  "official_runtime_sources": {
+    "src/pc/mods/object_loader.c": "c5455d6ecb00f0bae375cc54c94d97b74f92bc20e3814ee5157ab409bf9ccf64",
+    "src/pc/mods/hooks.c": "87f512876556972b168fba3b53a86256e1b68c72fa81ff559a12bb17bdc79c95",
+    "src/pc/mods/events.c": "f7068a45a4d5f35b535bdd507cf5a92d9d6973d0ddd5bfbc3b81c28b80b3489f",
+    "src/pc/mods/manager.c": "ec8136925fb1b8b6b2cf89491568c3e20aeb8960008b036d35509cd5b36a1fb0",
+    "src/pc/mods/json.c": "9d21745738d8c8ea18e57fd8887124b35dcc2c3a6157f968b923dc8ce9337fbe"
+  },
+  "compiler": "gcc (Debian 14.2.0-19) 14.2.0",
+  "runner": "qemu-i386 version 5.2.0 (Debian 1:5.2+dfsg-11+deb11u3)",
+  "sanitizers_new_harness": false,
+  "real_gameplay": false,
+  "execution_batches": "25-profile matrix, focused minimal AI/Dual counterexample included in those 25 profiles, plus 3 focused lifecycle transitions. Detailed commands/logs in RESULTADOS.json."
+}

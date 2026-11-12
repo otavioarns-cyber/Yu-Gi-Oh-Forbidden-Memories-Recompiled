@@ -1,0 +1,828 @@
+PROFILE stage=4 hm=0 dual=1 order=1 drop-missing-cards=ON-in-profile (table execution separate)
+REGISTER hook owner=melhoria-dos-rituais target=Duel_CheckRitual token=1
+REGISTER hook owner=melhoria-dos-rituais target=Duel_RitualFieldObjects token=2
+REGISTER hook owner=melhoria-dos-rituais target=DuelCard_DeactivateRecord token=3
+REGISTER hook owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions token=4
+REGISTER hook owner=melhoria-dos-rituais target=Duel_PopulateCombinedDeckData token=5
+PROVIDER owner=melhoria-dos-rituais name=rules_v1
+REGISTER hook owner=melhoria-dos-rituais target=Duel_CheckQuitInput token=6
+REGISTER hook owner=melhoria-dos-rituais target=DuelScene_UpdateWithSideInput token=7
+LOADED owner=melhoria-dos-rituais api=4 hash=1fe34a1e enabled=1
+REGISTER hook owner=ai-hard-mode target=AiScript_Init token=8
+REGISTER hook owner=ai-hard-mode target=AiScript_Run token=9
+REGISTER hook owner=ai-hard-mode target=Ai_GetHandSize token=10
+REGISTER hook owner=ai-hard-mode target=func_8001BAF0 token=11
+REGISTER hook owner=ai-hard-mode target=AiScript_FindStrongest token=12
+REGISTER hook owner=ai-hard-mode target=AiScript_FindWeakest token=13
+REGISTER hook owner=ai-hard-mode target=AiScript_FindCard token=14
+REGISTER hook owner=ai-hard-mode target=AiScript_MatchType token=15
+REGISTER hook owner=ai-hard-mode target=AiScript_FindDefenseStopper token=16
+LOADED owner=ai-hard-mode api=4 hash=3e0648cb enabled=0
+PROVIDER owner=fusion-auxiliary-balance name=encore-v1
+PROVIDER owner=fusion-auxiliary-balance name=origin-unlock-v1
+PROVIDER owner=fusion-auxiliary-balance name=origin-effects-v1
+PROVIDER owner=fusion-auxiliary-balance name=effect_forecast_v2
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_FindBestAttack token=17
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_PlayFieldCard token=18
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_LoadGuardianStarChoice token=19
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_FindKiller token=20
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_CalcCardPower token=21
+REGISTER hook owner=fusion-auxiliary-balance target=Duel_CheckFusion token=22
+REGISTER hook owner=fusion-auxiliary-balance target=func_80023144 token=23
+REGISTER hook owner=fusion-auxiliary-balance target=func_80035E20 token=24
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_AppendEntry token=25
+REGISTER hook owner=fusion-auxiliary-balance target=Duel_CheckEquip token=26
+REGISTER hook owner=fusion-auxiliary-balance target=Ai_CompleteFusion token=27
+REGISTER hook owner=fusion-auxiliary-balance target=Duel_CalcCardStats token=28
+REGISTER hook owner=fusion-auxiliary-balance target=func_8001EFD4 token=29
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_ApplyLifePointRecovery token=30
+REGISTER hook owner=fusion-auxiliary-balance target=DuelCard_RemoveFromField token=31
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_ApplyBoardDestruction token=32
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_ApplyRaigeki token=33
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_ApplyMonsterRemoval token=34
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateBattle token=35
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateTurnSwitch token=36
+REGISTER hook owner=fusion-auxiliary-balance target=DuelCard_UpdateDefenseRotation token=37
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateResume token=38
+REGISTER hook owner=fusion-auxiliary-balance target=func_80024D34 token=39
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_Update token=40
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions token=41
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateCardPlacement token=42
+REGISTER hook owner=fusion-auxiliary-balance target=func_8001B170 token=43
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_UpdateCardEffect token=44
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateFieldActions token=45
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_UpdateRequests token=46
+REGISTER hook owner=fusion-auxiliary-balance target=Duel_GetBaseCardStat token=47
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_FindBestCombo token=48
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_EvaluateFusion token=49
+LOADED owner=fusion-auxiliary-balance api=24 hash=e6f40fd4 enabled=1
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER hook owner=ritual-card-effects-test target=Input_UpdatePads token=50
+REGISTER hook owner=ritual-card-effects-test target=Main_RunDuel token=51
+REGISTER hook owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=52
+REGISTER hook owner=ritual-card-effects-test target=func_800559D4 token=53
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=54
+REGISTER hook owner=ritual-card-effects-test target=func_80017F04 token=55
+REGISTER hook owner=ritual-card-effects-test target=AiScript_Run token=56
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindWeakest token=57
+REGISTER hook owner=ritual-card-effects-test target=Ai_IsCardInSets token=58
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindBestAttack token=59
+REGISTER hook owner=ritual-card-effects-test target=func_80037DA4 token=60
+REGISTER hook owner=ritual-card-effects-test target=func_80035E20 token=61
+REGISTER hook owner=ritual-card-effects-test target=func_80027508 token=62
+REGISTER hook owner=ritual-card-effects-test target=func_80024D34 token=63
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_Update token=64
+REGISTER hook owner=ritual-card-effects-test target=func_80023144 token=65
+REGISTER hook owner=ritual-card-effects-test target=Duel_DrawFieldCards token=66
+REGISTER hook owner=ritual-card-effects-test target=func_80016784 token=67
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=68
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcCardStats token=69
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=70
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=71
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=72
+REGISTER hook owner=ritual-card-effects-test target=func_8001EFD4 token=73
+REGISTER hook owner=ritual-card-effects-test target=func_8001B170 token=74
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=75
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=76
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=77
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=78
+REGISTER hook owner=ritual-card-effects-test target=Duel_ResetCardRecords token=79
+REGISTER hook owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=80
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=81
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=82
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=83
+REGISTER hook owner=ritual-card-effects-test target=func_8001BAF0 token=84
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=85
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=86
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=87
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=88
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=89
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=90
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=91
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=92
+REGISTER hook owner=ritual-card-effects-test target=Duel_CheckFusion token=93
+REGISTER hook owner=ritual-card-effects-test target=Duel_CheckRitual token=94
+REGISTER hook owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=95
+REGISTER hook owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=96
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindKiller token=97
+REGISTER hook owner=ritual-card-effects-test target=AiScript_CalcCardPower token=98
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindBestAttack token=99
+PROVIDER owner=ritual-card-effects-test name=effect_forecast_v2
+PROVIDER owner=ritual-card-effects-test name=recipe_v1
+PROVIDER owner=ritual-card-effects-test name=effect_intelligence_v1
+PROVIDER owner=ritual-card-effects-test name=position-rules-v1
+LOADED owner=ritual-card-effects-test api=4 hash=52ce4829 enabled=1
+STATE owner=ritual-duelists bytes=288 version=4
+REGISTER hook owner=ritual-duelists target=DuelEffect_ApplyRitual token=100
+REGISTER hook owner=ritual-duelists target=Duel_CheckFusion token=101
+REGISTER hook owner=ritual-duelists target=Duel_ShuffleDeck token=102
+REGISTER hook owner=ritual-duelists target=Ai_GetHandSize token=103
+REGISTER hook owner=ritual-duelists target=func_8001BAF0 token=104
+REGISTER hook owner=ritual-duelists target=AiScript_Run token=105
+REGISTER hook owner=ritual-duelists target=NameEntry_BuildStarterDeck token=106
+REGISTER hook owner=ritual-duelists target=Duel_SelectCardDrop token=107
+LOADED owner=ritual-duelists api=12 hash=57b53592 enabled=1
+REGISTER hook owner=dual-play target=DuelScene_UpdateHandActions token=108
+REGISTER hook owner=dual-play target=DuelScene_UpdateDrawPhase token=109
+REGISTER hook owner=dual-play target=DuelScene_UpdateFieldActions token=110
+REGISTER hook owner=dual-play target=func_80028220 token=111
+REGISTER hook owner=dual-play target=func_8001BAF0 token=112
+REGISTER hook owner=dual-play target=Duel_InitScene token=113
+STATE owner=dual-play bytes=50 version=10
+LOADED owner=dual-play api=24 hash=3028c68a enabled=1
+CASE load-and-lifecycle
+RESULT load-and-lifecycle PASS actual loader/hooks/events initialized
+CASE relay-OFF-ON
+CHAIN phase=initial target=AiScript_Run ritual-duelists -> ritual-card-effects-test -> engine
+CHAIN phase=initial target=Ai_GetHandSize ritual-duelists -> engine
+CHAIN phase=initial target=func_8001BAF0 dual-play -> ritual-duelists -> ritual-card-effects-test -> engine
+CHAIN phase=initial target=Duel_CheckRitual ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CHAIN phase=initial target=Duel_CheckFusion ritual-duelists -> ritual-card-effects-test -> fusion-auxiliary-balance -> engine
+CHAIN phase=initial target=DuelEffect_ApplyRitual ritual-duelists -> ritual-card-effects-test -> engine
+CHAIN phase=initial target=Duel_CalcCardStats ritual-card-effects-test -> fusion-auxiliary-balance -> engine
+TRACE case=relay-OFF-ON owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=relay-OFF-ON owner=engine name=Ai_GetHandSize
+TOGGLE owner=melhoria-dos-rituais on=0
+TOGGLE owner=ai-hard-mode on=0
+TOGGLE owner=dual-play on=0
+TOGGLE owner=fusion-auxiliary-balance on=0
+TOGGLE owner=ritual-card-effects-test on=0
+TOGGLE owner=ritual-duelists on=0
+TRACE case=relay-OFF-ON owner=engine name=Ai_GetHandSize
+CHAIN phase=all-OFF target=AiScript_Run engine
+CHAIN phase=all-OFF target=Ai_GetHandSize engine
+CHAIN phase=all-OFF target=func_8001BAF0 engine
+CHAIN phase=all-OFF target=Duel_CheckRitual engine
+CHAIN phase=all-OFF target=Duel_CheckFusion engine
+CHAIN phase=all-OFF target=DuelEffect_ApplyRitual engine
+CHAIN phase=all-OFF target=Duel_CalcCardStats engine
+TOGGLE owner=melhoria-dos-rituais on=1
+TOGGLE owner=ai-hard-mode on=0
+TOGGLE owner=dual-play on=1
+TOGGLE owner=fusion-auxiliary-balance on=1
+TOGGLE owner=ritual-card-effects-test on=1
+TOGGLE owner=ritual-duelists on=1
+TRACE case=relay-OFF-ON owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=relay-OFF-ON owner=engine name=Ai_GetHandSize
+CHAIN phase=restored target=AiScript_Run ritual-duelists -> ritual-card-effects-test -> engine
+CHAIN phase=restored target=Ai_GetHandSize ritual-duelists -> engine
+CHAIN phase=restored target=func_8001BAF0 dual-play -> ritual-duelists -> ritual-card-effects-test -> engine
+CHAIN phase=restored target=Duel_CheckRitual ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CHAIN phase=restored target=Duel_CheckFusion ritual-duelists -> ritual-card-effects-test -> fusion-auxiliary-balance -> engine
+CHAIN phase=restored target=DuelEffect_ApplyRitual ritual-duelists -> ritual-card-effects-test -> engine
+CHAIN phase=restored target=Duel_CalcCardStats ritual-card-effects-test -> fusion-auxiliary-balance -> engine
+TRACE case=relay-OFF-ON owner=fusion-auxiliary-balance kind=event name=event-1-priority-50
+TRACE case=relay-OFF-ON owner=ritual-card-effects-test kind=event name=event-1-priority--10000
+TRACE case=relay-OFF-ON owner=fusion-auxiliary-balance kind=event name=event-1-priority-50
+TRACE case=relay-OFF-ON owner=ritual-card-effects-test kind=event name=event-1-priority--10000
+RESULT relay-OFF-ON PASS official Hooks_Relink excludes OFF callbacks and restores active chain
+CASE optional-contracts
+TOGGLE owner=melhoria-dos-rituais on=0
+TOGGLE owner=melhoria-dos-rituais on=1
+TOGGLE owner=ritual-card-effects-test on=0
+TOGGLE owner=ritual-card-effects-test on=1
+TOGGLE owner=melhoria-dos-rituais on=0
+TOGGLE owner=melhoria-dos-rituais on=1
+TOGGLE owner=ritual-card-effects-test on=0
+TOGGLE owner=ritual-card-effects-test on=1
+TRACE case=optional-contracts owner=ritual-card-effects-test kind=hook name=AiScript_PlayFieldCard
+TRACE case=optional-contracts owner=fusion-auxiliary-balance kind=hook name=AiScript_PlayFieldCard
+TRACE case=optional-contracts owner=engine name=AiScript_PlayFieldCard
+TOGGLE owner=ritual-card-effects-test on=0
+TRACE case=optional-contracts owner=fusion-auxiliary-balance kind=hook name=AiScript_PlayFieldCard
+TRACE case=optional-contracts owner=engine name=AiScript_PlayFieldCard
+TOGGLE owner=ritual-card-effects-test on=1
+TOGGLE owner=fusion-auxiliary-balance on=0
+TRACE case=optional-contracts owner=ritual-card-effects-test kind=hook name=AiScript_PlayFieldCard
+TRACE case=optional-contracts owner=engine name=AiScript_PlayFieldCard
+TOGGLE owner=fusion-auxiliary-balance on=1
+RESULT optional-contracts PASS actual providers/consumers, absent stages, OFF lookup retained with guarded response
+CASE quota-Monster
+TRACE case=quota-Monster owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=quota-Monster owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=quota-Monster owner=engine name=Ai_GetHandSize
+TRACE case=quota-Monster owner=engine name=Duelists_Named
+TRACE case=quota-Monster owner=engine name=Duelists_Named
+TRACE case=quota-Monster owner=engine name=Duelists_Named
+TRACE case=quota-Monster owner=engine name=Duelists_Named
+TRACE case=quota-Monster owner=engine name=Duelists_Named
+TRACE case=quota-Monster owner=engine name=Duelists_Named
+TRACE case=quota-Monster owner=engine name=Duelists_Named
+TRACE case=quota-Monster owner=engine name=Duelists_Named
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED quota card=101 used=1 dual_callbacks=1 rejected=1 selection=0
+RESULT quota-Monster PASS actual Dual gate; synthetic bonus state; no full action/turn award
+CASE quota-Support
+TRACE case=quota-Support owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=quota-Support owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=quota-Support owner=engine name=Ai_GetHandSize
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED quota card=337 used=2 dual_callbacks=1 rejected=1 selection=0
+RESULT quota-Support PASS actual Dual gate; synthetic bonus state; no full action/turn award
+CASE quota-Ritual-in-bonus
+TRACE case=quota-Ritual-in-bonus owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=quota-Ritual-in-bonus owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=quota-Ritual-in-bonus owner=engine name=Ai_GetHandSize
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED quota card=679 used=0 dual_callbacks=1 rejected=1 selection=0
+RESULT quota-Ritual-in-bonus PASS actual Dual gate; synthetic bonus state; no full action/turn award
+CASE RD-own-materialization-Dual-gate
+TRACE case=RD-own-materialization-Dual-gate owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=RD-own-materialization-Dual-gate owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Ai_GetHandSize
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED rd_materialization dest=-1 rd_pending=1 dual_callbacks=1 hm_callbacks=0 rejected=1 quota=0 selection=0
+RESULT RD-own-materialization-Dual-gate PASS pending RD action explicitly seeded; actual hook chain called at engine entry
+CASE RD-planner-through-Dual-setup-and-swap
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=dual-play kind=hook name=func_80028220
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=engine name=func_80028220
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=engine name=Ai_GetHandSize
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=ritual-duelists kind=hook name=AiScript_Run
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=ritual-card-effects-test kind=hook name=AiScript_Run
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=engine name=AiScript_Run
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=engine name=Ai_GetHandSize
+TRACE case=RD-planner-through-Dual-setup-and-swap owner=dual-play kind=hook name=func_8001BAF0
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED RD_planner setup_card=0 decision=1 selection_before=12 pending_before=0 obtained_Ritual=0 dual_swap_calls=1 rejected=1
+RESULT RD-planner-through-Dual-setup-and-swap PASS real AI/setup/materializer sequence; no private pending action seed
+CASE AI-decision-and-physical-selection
+TRACE case=AI-decision-and-physical-selection owner=dual-play kind=hook name=func_80028220
+TRACE case=AI-decision-and-physical-selection owner=engine name=func_80028220
+TRACE case=AI-decision-and-physical-selection owner=ritual-duelists kind=hook name=AiScript_Run
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=AiScript_Run
+TRACE case=AI-decision-and-physical-selection owner=engine name=AiScript_Run
+TRACE case=AI-decision-and-physical-selection owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=AI-decision-and-physical-selection owner=engine name=Ai_GetHandSize
+OBSERVED AI result=1 selected_count=1 first=12 physical_or_existing_logical=1
+RESULT AI-decision-and-physical-selection PASS synthetic small board only; strategic optimality/gameplay not certified
+TOGGLE owner=ritual-card-effects-test on=0
+CASE Vanilla-three-field-ritual
+TRACE case=Vanilla-three-field-ritual owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-three-field-ritual owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-three-field-ritual owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=engine name=DuelCard_DeactivateRecord
+RESULT Vanilla-three-field-ritual PASS actual Melhoria hook/consumer; bounded synthetic native oracle
+TOGGLE owner=ritual-card-effects-test on=0
+CASE Vanilla-mixed-ritual-consumption
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_SetupCardRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=func_80024C1C
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=func_80017E3C
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_SetupCardRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=func_80024C1C
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=func_80017E3C
+OBSERVED ritual mode=0 probe=357 out=357 probe_preserves_hand=1
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_RitualFieldObjects
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DisplayObject_ReleaseIfPresent
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DisplayObject_ReleaseIfPresent
+OBSERVED consumed hands=-1,-1 unselected_same_ID=3 bystander_flags=8000
+RESULT Vanilla-mixed-ritual-consumption PASS actual public hooks, exact selected instances, spare identical copy retained
+TOGGLE owner=ritual-card-effects-test on=1
+CASE modified-mixed-ritual-consumption
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=engine name=Duel_SetupCardRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=func_80024C1C
+TRACE case=modified-mixed-ritual-consumption owner=engine name=func_80017E3C
+TRACE case=modified-mixed-ritual-consumption owner=engine name=Duel_SetupCardRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=func_80024C1C
+TRACE case=modified-mixed-ritual-consumption owner=engine name=func_80017E3C
+OBSERVED ritual mode=1 probe=357 out=357 probe_preserves_hand=1
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_RitualFieldObjects
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DisplayObject_ReleaseIfPresent
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DisplayObject_ReleaseIfPresent
+OBSERVED consumed hands=-1,-1 unselected_same_ID=3 bystander_flags=8000
+RESULT modified-mixed-ritual-consumption PASS actual public hooks, exact selected instances, spare identical copy retained
+TOGGLE owner=ritual-card-effects-test on=0
+CASE repeated-material-physical-copies
+TRACE case=repeated-material-physical-copies owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=engine name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=engine name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=engine name=Duel_CheckRitual
+OBSERVED Ultimate Dragon ritual two_copies=0 three_copies=380
+RESULT repeated-material-physical-copies PASS three actual Blue-Eyes copies required, no alias reuse
+TOGGLE owner=ritual-card-effects-test on=1
+CASE ritual-commit-shared-identity
+TRACE case=ritual-commit-shared-identity owner=ritual-duelists kind=hook name=DuelEffect_ApplyRitual
+TRACE case=ritual-commit-shared-identity owner=ritual-card-effects-test kind=hook name=DuelEffect_ApplyRitual
+TRACE case=ritual-commit-shared-identity owner=engine name=DuelEffect_ApplyRitual
+MODLOG owner=ritual-card-effects-test [Ritual Card Effects] CPU lado 0 aprendeu o efeito completo da carta 704
+TRACE case=ritual-commit-shared-identity owner=ritual-duelists kind=hook name=Duel_CheckFusion
+TRACE case=ritual-commit-shared-identity owner=ritual-duelists kind=hook name=Duel_CheckFusion
+TRACE case=ritual-commit-shared-identity owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=ritual-commit-shared-identity owner=fusion-auxiliary-balance kind=hook name=Duel_CheckFusion
+TRACE case=ritual-commit-shared-identity owner=engine name=Duel_CheckFusion
+TRACE case=ritual-commit-shared-identity owner=engine name=Tower_Refuses
+OBSERVED shared_commit RD_mark=1 Ritual_mark=1 protected_fusion=0 changed_origin_fusion=42
+RESULT ritual-commit-shared-identity PASS actual Ritual/RD commit and three-mod fusion chain; only controller advance is native stub
+CASE effects-per-instance-and-equipment
+TRACE case=effects-per-instance-and-equipment owner=ritual-card-effects-test kind=hook name=Duel_CalcCardStats
+TRACE case=effects-per-instance-and-equipment owner=fusion-auxiliary-balance kind=hook name=Duel_CalcCardStats
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_CalcCardStats
+TRACE case=effects-per-instance-and-equipment owner=ritual-card-effects-test kind=hook name=Duel_CalcCardStats
+TRACE case=effects-per-instance-and-equipment owner=fusion-auxiliary-balance kind=hook name=Duel_CalcCardStats
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_CalcCardStats
+OBSERVED whale marked=3000 ordinary_copy=1000
+RESULT effects-per-instance PASS actual Ritual/Fusion stats hook chain; other Whale and one synthetic Fish ally
+TRACE case=effects-per-instance-and-equipment owner=fusion-auxiliary-balance kind=hook name=Duel_CheckEquip
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_CheckEquip
+TOGGLE owner=ritual-card-effects-test on=0
+TRACE case=effects-per-instance-and-equipment owner=fusion-auxiliary-balance kind=hook name=Duel_CheckEquip
+TOGGLE owner=ritual-card-effects-test on=1
+OBSERVED Egotist ritual_provider_ON=704 OFF=0
+RESULT equipment-real-provider-OFF PASS Fusion queries actual Ritual intelligence provider
+TRACE case=effects-per-instance-and-equipment owner=engine name=CardRules_Fusion
+TRACE case=effects-per-instance-and-equipment owner=engine name=Tower_Refuses
+OBSERVED Metalmorph pair=1 result=412 origin=8
+RESULT Metalmorph-forecast PASS real Fusion contract; executor/animation not run here
+TRACE case=effects-per-instance-and-equipment owner=ritual-card-effects-test kind=hook name=DuelCard_RemoveFromField
+TRACE case=effects-per-instance-and-equipment owner=fusion-auxiliary-balance kind=hook name=DuelCard_RemoveFromField
+TRACE case=effects-per-instance-and-equipment owner=engine name=DuelCard_RemoveFromField
+RESULT remove-one-instance-retain-other PASS real Ritual/Fusion removal chain, distinct leases
+TRACE case=effects-per-instance-and-equipment owner=ritual-card-effects-test kind=hook name=func_80024D34
+TRACE case=effects-per-instance-and-equipment owner=fusion-auxiliary-balance kind=hook name=func_80024D34
+TRACE case=effects-per-instance-and-equipment owner=engine name=func_80024D34
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_GetTerrainBoost
+TRACE case=effects-per-instance-and-equipment owner=engine name=func_80024C1C
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_ApplyCardObjectFlags
+TRACE case=effects-per-instance-and-equipment owner=ritual-card-effects-test kind=hook name=func_80024D34
+TRACE case=effects-per-instance-and-equipment owner=fusion-auxiliary-balance kind=hook name=func_80024D34
+TRACE case=effects-per-instance-and-equipment owner=engine name=func_80024D34
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_GetTerrainBoost
+TRACE case=effects-per-instance-and-equipment owner=engine name=func_80024C1C
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_ApplyCardObjectFlags
+RESULT generated-card-reconstruction-both-sides PASS real restore hook chain; synthetic engine/object spawn; no texture proof
+CASE reset-new-duel-save-load
+TRACE case=reset-new-duel-save-load owner=ritual-duelists kind=event name=event-7-priority-0
+SAVE owner=dual-play size=50 version=10
+SAVE owner=ritual-duelists size=288 version=4
+TRACE case=reset-new-duel-save-load owner=ritual-duelists kind=event name=event-8-priority-0
+TRACE case=reset-new-duel-save-load owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=reset-new-duel-save-load owner=engine name=Duel_InitScene
+TRACE case=reset-new-duel-save-load owner=ritual-duelists kind=hook name=Duel_ShuffleDeck
+TRACE case=reset-new-duel-save-load owner=engine name=Duelists_Named
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+TRACE case=reset-new-duel-save-load owner=engine name=Rand_GetInterval
+RESULT RD-new-duel-deck-and-state PASS actual 40-card Story generator, cap three, paired permutation, new-duel ritual marks cleared; not drop-balance proof
+RESULT reset-new-duel-save-load PASS official VisitState/events; active registered blocks only; effects reset rather than persist
+CASE F1-fusion-provider-OFF
+TOGGLE owner=fusion-auxiliary-balance on=0
+OBSERVED F1 encore=1 lease=77 extended=77 forecast=0 expected_all_zero
+RESULT F1-fusion-provider-OFF FAIL HAL-21 preexisting; no production fix
+TOGGLE owner=fusion-auxiliary-balance on=1
+SUMMARY assertions=2758 cases=17 failures=1 (synthetic engine; no gameplay)

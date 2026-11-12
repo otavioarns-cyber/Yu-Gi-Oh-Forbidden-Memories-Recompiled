@@ -1,0 +1,59 @@
+{
+  "id": "melhoria-dos-rituais",
+  "name": "Melhorias de Rituais + Surrender",
+  "version": "1.3.6",
+  "description": "Expanded Ritual Summoning (v1.3.5), plus Select-to-Surrender against CPU: native Yes/No confirmation, Yes follows the ordinary LOSE result flow, No resumes the duel. No ritual rules changed.",
+  "author": "Otavio",
+  "enabled": true,
+  "min_api": 4,
+  "game": "slus_01411",
+  "library": "rituals",
+  "settings": [
+    {
+      "key": "min_field",
+      "label": "Minimum tributes on Field",
+      "type": "int",
+      "default": 1,
+      "min": 0,
+      "max": 3,
+      "step": 1,
+      "description": "Minimum number of the 3 Ritual tributes that must already be on the field. 3 gives Vanilla tribute placement."
+    },
+    {
+      "key": "use_deck",
+      "label": "Use tributes from Deck",
+      "type": "bool",
+      "default": 0,
+      "description": "Allows missing Ritual tributes to be taken from the undrawn Deck."
+    },
+    {
+      "key": "min_hand",
+      "label": "Minimum tributes in Hand",
+      "type": "int",
+      "default": 0,
+      "min": 0,
+      "max": 3,
+      "step": 1,
+      "description": "Minimum number of Ritual tributes that must be in the hand when Deck tributes are enabled."
+    },
+    {
+      "key": "require_result",
+      "label": "Require Ritual Monster card",
+      "type": "choice",
+      "default": 0,
+      "choices": [
+        "Off",
+        "Hand",
+        "Hand or Deck"
+      ],
+      "description": "Require the summoned Ritual Monster itself. Hand requires the real copy in hand; Hand or Deck accepts hand or the undrawn deck and consumes that physical copy."
+    },
+    {
+      "key": "ritual_only_player",
+      "label": "Player must Ritual Summon Ritual Monsters",
+      "type": "bool",
+      "default": 0,
+      "description": "Prevents human players from placing Ritual-result monsters directly from the hand. CPU play is unchanged. With Require Ritual Monster = Hand or Deck, player Ritual-result cards start at the bottom of the shuffled deck."
+    }
+  ]
+}

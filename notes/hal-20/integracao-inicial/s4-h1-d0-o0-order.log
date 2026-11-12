@@ -1,0 +1,2 @@
+EFFECTIVE_ORDER drop-missing-cards melhoria-dos-rituais ai-hard-mode fusion-auxiliary-balance ritual-card-effects-test ritual-duelists
+RESULT official-manager-order PASS Drop Missing Cards enabled in test profile; after is ordering, not requires

@@ -1,0 +1,37 @@
+{
+  "base": "d649647c159c91d615c07d6960928a37e270b461",
+  "module_trees": [
+    {
+      "id": "melhoria-dos-rituais",
+      "source_commit": "0d28d844c3b88b38ab0db71635959ddd223d8c14",
+      "expected_tree": "994c3f35bb027535effb09c62b869fe4574738a5",
+      "actual_tree": "994c3f35bb027535effb09c62b869fe4574738a5",
+      "preserved": true
+    },
+    {
+      "id": "ritual-card-effects-test",
+      "source_commit": "2cf0de31e88e9f1c058b3747b2b2add3db0e347c",
+      "expected_tree": "99b657abee7c5dd124c02934ca7e5302b73abd8b",
+      "actual_tree": "99b657abee7c5dd124c02934ca7e5302b73abd8b",
+      "preserved": true
+    },
+    {
+      "id": "fusion-auxiliary-balance",
+      "source_commit": "907ed98cfb763a96f5aa1ad6369f809cceca5f1c",
+      "expected_tree": "634198008ec94a72a14045b708af30efa9a6667f",
+      "actual_tree": "634198008ec94a72a14045b708af30efa9a6667f",
+      "preserved": true
+    },
+    {
+      "id": "ritual-duelists",
+      "source_commit": "9a363f28f6dbfe779b1b901ddecab74ab1be57e9",
+      "expected_tree": "5ad8e6d57f31fea3e261423419082a27db9cdcb1",
+      "actual_tree": "5ad8e6d57f31fea3e261423419082a27db9cdcb1",
+      "preserved": true
+    }
+  ],
+  "base_ai_and_drop_manifests_unchanged": true,
+  "production_patches": [],
+  "dual_play_published": false,
+  "profile_files": 25
+}

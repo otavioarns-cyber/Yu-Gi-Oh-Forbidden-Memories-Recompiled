@@ -1,0 +1,2248 @@
+{
+  "input_zip_sha256": "745f6fbbd5f3c9451ca37735626abbbc4c6704bc5326ab3691be33d86b66281b",
+  "base_commit": "d649647c159c91d615c07d6960928a37e270b461",
+  "official_commit": "aceac3782902746f35ddb0148809450933327cb3",
+  "claimed_old_hashes": {
+    "ritual-card-effects.o": "c501c5c5fe5406a2606651f8df9f5ba98f895242e10c50f116778c9ecc3361e6",
+    "ritual-card-effects.x86_64-windows.o": "b07075974d99a815c1cd4ae33916ca972c9f92021196f654aff0a4fa2365cc56"
+  },
+  "received_objects": {
+    "ritual-card-effects.o": {
+      "bytes": 964464,
+      "sha256": "f30934e77d9705b0e1122f9eed23e015533d47e85d0b01f98c0b37912c264170",
+      "class": 32,
+      "machine": "EM_386",
+      "imports": [
+        "AiScript_CalcCardPower",
+        "AiScript_FindBestAttack",
+        "AiScript_FindKiller",
+        "AiScript_FindWeakest",
+        "AiScript_LoadGuardianStarChoice",
+        "AiScript_PlayFieldCard",
+        "AiScript_Run",
+        "Ai_IsCardInSets",
+        "AudioReplace_Sfx",
+        "Cards_Attribute",
+        "Cards_AttributeNamed",
+        "Cards_BaseId",
+        "Cards_EffectId",
+        "Cards_InFusionGroup",
+        "Cards_Level",
+        "Cards_PatchArtRecord",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907CC",
+        "D_800907D8",
+        "D_80090800",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009AF94",
+        "D_8009AF9A",
+        "D_8009B0F4_abs",
+        "D_8009B134_abs",
+        "D_8009B154",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B17A",
+        "D_8009B19C",
+        "D_8009B1A4",
+        "D_8009B1B0",
+        "D_8009B1B4",
+        "D_8009B1B9",
+        "D_8009B1C8",
+        "D_8009B1D5",
+        "D_8009B204",
+        "D_8009B208",
+        "D_8009B20C",
+        "D_8009B210",
+        "D_8009B229",
+        "D_8009B22A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B26C",
+        "D_8009B26E",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA0E8",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EAE91",
+        "D_800EAE92",
+        "D_800EB0F8",
+        "D_800EF658",
+        "D_800EFE48",
+        "D_800F2848",
+        "D_800F2C40",
+        "D_800F56F0",
+        "D_8015C424",
+        "D_80177EA4",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "DiscArt_Read",
+        "DisplayObject_ReleaseIfPresent",
+        "DisplayObject_SetDepthOffset",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelCard_UpdateDefenseRotation",
+        "DuelEffect_AllocateRequest",
+        "DuelEffect_ApplyBoardDestruction",
+        "DuelEffect_ApplyCursebreaker",
+        "DuelEffect_ApplyMonsterRemoval",
+        "DuelEffect_ApplyRaigeki",
+        "DuelEffect_ApplyRitual",
+        "DuelEffect_ApplyStatPenalty",
+        "DuelEffect_ClearResourceObjectPointers",
+        "DuelEffect_CreateRequest",
+        "DuelEffect_StartCardEffect",
+        "DuelEffect_UpdateCardEffect",
+        "DuelEffect_UpdateRequests",
+        "DuelScene_Update",
+        "DuelScene_UpdateBattle",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "DuelScene_UpdateTurnSwitch",
+        "Duel_ApplyCardObjectFlags",
+        "Duel_CalcBattleAttack",
+        "Duel_CalcBattleDefense",
+        "Duel_CalcCardStats",
+        "Duel_CalcGuardianStarBonus",
+        "Duel_CalcGuardianStarMatchup",
+        "Duel_CheckFusion",
+        "Duel_CheckRitual",
+        "Duel_CreateCardEffectOverlay",
+        "Duel_DrawFieldCards",
+        "Duel_GetCardEffectVariant",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_ResetCardRecords",
+        "Duel_SelectTrapPlay",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSetRefView2",
+        "GsSortBoxFill",
+        "GsSortPoly",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "Main_RunAnimatedBattle",
+        "Main_RunDuel",
+        "SD_SEPlayFull",
+        "SetGeomOffset",
+        "SetGeomScreen",
+        "SetPolyFT4",
+        "SoftGpu_Bank",
+        "SoftGpu_Vram",
+        "Spu_GetBusVolume",
+        "Spu_SetBusVolume",
+        "TextEntries_Total",
+        "TextureDump_Delivered",
+        "ViewState_ApplyOrbit",
+        "__x86_indirect_thunk_eax",
+        "__x86_indirect_thunk_ebx",
+        "__x86_indirect_thunk_ecx",
+        "__x86_indirect_thunk_edi",
+        "__x86_indirect_thunk_edx",
+        "__x86_indirect_thunk_esi",
+        "abs",
+        "atoi",
+        "fclose",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80016784",
+        "func_80017F04",
+        "func_8001944C",
+        "func_8001B170",
+        "func_8001BAF0",
+        "func_8001EFD4",
+        "func_80022D94",
+        "func_80023144",
+        "func_80024C1C",
+        "func_80024D34",
+        "func_80027508",
+        "func_80029164",
+        "func_800291E0",
+        "func_80029528",
+        "func_80035E20",
+        "func_80037DA4",
+        "func_8004DE24",
+        "func_800540B4",
+        "func_800559D4",
+        "gAiScript_State",
+        "gAiScript_aMemory",
+        "gDuelEffect_abGroupByEffectId",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_awRitualData",
+        "gDuel_bEffectState",
+        "gDuel_bTerrain",
+        "gDuel_wCardEffectFlags",
+        "gDuel_wEffectCardID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "gInput_wPad2Pressed",
+        "gInput_wPad2Repeat",
+        "malloc",
+        "memcmp",
+        "rand",
+        "realloc",
+        "snprintf",
+        "strlen",
+        "strstr"
+      ],
+      "exports": [
+        "MemoriesModInit",
+        "Png_Decode"
+      ],
+      "text_bytes": 160788,
+      "bss_bytes": 167588,
+      "dwarf_compilers": [
+        "GNU C11 13.3.0 -march=i686 -mno-sse -mno-mmx -m32 -mstackrealign -mincoming-stack-boundary=2 -mindirect-branch=thunk-extern -mindirect-branch-register -g -O2 -std=gnu11 -fno-pie -fno-common -fno-stack-protector -fno-asynchronous-unwind-tables -fno-unwind-tables -ffreestanding -fstack-clash-protection",
+        "GNU C11 13.3.0 -march=i686 -mno-sse -mno-mmx -m32 -mstackrealign -mincoming-stack-boundary=2 -mindirect-branch=thunk-extern -mindirect-branch-register -g -O2 -std=gnu11 -fno-pie -fno-common -fno-stack-protector -fno-asynchronous-unwind-tables -fno-unwind-tables -ffreestanding -fstack-clash-protection"
+      ],
+      "source_checksums_available": false,
+      "relocations": {
+        "1": 5489,
+        "2": 500
+      }
+    },
+    "ritual-card-effects.x86_64-windows.o": {
+      "bytes": 1147880,
+      "sha256": "3dfcd399fb5c3a48aa8c3839b5cfebfedb79b8e9717c5a7b27056bda94d39517",
+      "class": 64,
+      "machine": "EM_X86_64",
+      "imports": [
+        "AiScript_CalcCardPower",
+        "AiScript_FindBestAttack",
+        "AiScript_FindKiller",
+        "AiScript_FindWeakest",
+        "AiScript_LoadGuardianStarChoice",
+        "AiScript_PlayFieldCard",
+        "AiScript_Run",
+        "Ai_IsCardInSets",
+        "AudioReplace_Sfx",
+        "Cards_Attribute",
+        "Cards_AttributeNamed",
+        "Cards_BaseId",
+        "Cards_EffectId",
+        "Cards_InFusionGroup",
+        "Cards_Level",
+        "Cards_PatchArtRecord",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907CC",
+        "D_800907D8",
+        "D_80090800",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009AF94",
+        "D_8009AF9A",
+        "D_8009B0F4_abs",
+        "D_8009B134_abs",
+        "D_8009B154",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B17A",
+        "D_8009B19C",
+        "D_8009B1A4",
+        "D_8009B1B0",
+        "D_8009B1B4",
+        "D_8009B1B9",
+        "D_8009B1C8",
+        "D_8009B1D5",
+        "D_8009B204",
+        "D_8009B208",
+        "D_8009B20C",
+        "D_8009B210",
+        "D_8009B229",
+        "D_8009B22A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B26C",
+        "D_8009B26E",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA0E8",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EAE91",
+        "D_800EAE92",
+        "D_800EB0F8",
+        "D_800EF658",
+        "D_800EFE48",
+        "D_800F2848",
+        "D_800F2C40",
+        "D_800F56F0",
+        "D_8015C424",
+        "D_80177EA4",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "DiscArt_Read",
+        "DisplayObject_ReleaseIfPresent",
+        "DisplayObject_SetDepthOffset",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelCard_UpdateDefenseRotation",
+        "DuelEffect_AllocateRequest",
+        "DuelEffect_ApplyBoardDestruction",
+        "DuelEffect_ApplyCursebreaker",
+        "DuelEffect_ApplyMonsterRemoval",
+        "DuelEffect_ApplyRaigeki",
+        "DuelEffect_ApplyRitual",
+        "DuelEffect_ApplyStatPenalty",
+        "DuelEffect_ClearResourceObjectPointers",
+        "DuelEffect_CreateRequest",
+        "DuelEffect_StartCardEffect",
+        "DuelEffect_UpdateCardEffect",
+        "DuelEffect_UpdateRequests",
+        "DuelScene_Update",
+        "DuelScene_UpdateBattle",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "DuelScene_UpdateTurnSwitch",
+        "Duel_ApplyCardObjectFlags",
+        "Duel_CalcBattleAttack",
+        "Duel_CalcBattleDefense",
+        "Duel_CalcCardStats",
+        "Duel_CalcGuardianStarBonus",
+        "Duel_CalcGuardianStarMatchup",
+        "Duel_CheckFusion",
+        "Duel_CheckRitual",
+        "Duel_CreateCardEffectOverlay",
+        "Duel_DrawFieldCards",
+        "Duel_GetCardEffectVariant",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_ResetCardRecords",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSetRefView2",
+        "GsSortBoxFill",
+        "GsSortPoly",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "Main_RunAnimatedBattle",
+        "Main_RunDuel",
+        "SD_SEPlayFull",
+        "SetGeomOffset",
+        "SetGeomScreen",
+        "SetPolyFT4",
+        "SoftGpu_Bank",
+        "SoftGpu_Vram",
+        "Spu_GetBusVolume",
+        "Spu_SetBusVolume",
+        "TextEntries_Total",
+        "TextureDump_Delivered",
+        "ViewState_ApplyOrbit",
+        "__x86_indirect_thunk_r11",
+        "abs",
+        "atoi",
+        "fclose",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80016784",
+        "func_80017F04",
+        "func_8001944C",
+        "func_8001B170",
+        "func_8001BAF0",
+        "func_8001EFD4",
+        "func_80022D94",
+        "func_80023144",
+        "func_80024C1C",
+        "func_80024D34",
+        "func_80027508",
+        "func_80029164",
+        "func_800291E0",
+        "func_80029528",
+        "func_80035E20",
+        "func_80037DA4",
+        "func_8004DE24",
+        "func_800540B4",
+        "func_800559D4",
+        "gAiScript_State",
+        "gAiScript_aMemory",
+        "gDuelEffect_abGroupByEffectId",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_awRitualData",
+        "gDuel_bEffectState",
+        "gDuel_bTerrain",
+        "gDuel_wCardEffectFlags",
+        "gDuel_wEffectCardID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "gInput_wPad2Pressed",
+        "gInput_wPad2Repeat",
+        "malloc",
+        "memcmp",
+        "memcpy",
+        "memset",
+        "rand",
+        "realloc",
+        "snprintf",
+        "strlen",
+        "strstr"
+      ],
+      "exports": [
+        "MemoriesModInit",
+        "Png_Decode"
+      ],
+      "text_bytes": 188040,
+      "bss_bytes": 172917,
+      "dwarf_compilers": [
+        "clang version 19.1.7 (https://github.com/ziglang/zig-bootstrap de1b01a8c1dddf75a560123ac1c2ab182b4830da)",
+        "clang version 19.1.7 (https://github.com/ziglang/zig-bootstrap de1b01a8c1dddf75a560123ac1c2ab182b4830da)"
+      ],
+      "source_checksums_available": false,
+      "relocations": {
+        "2": 3760,
+        "10": 554,
+        "4": 574,
+        "11": 2324,
+        "1": 108
+      }
+    }
+  },
+  "new_object": {
+    "bytes": 715520,
+    "sha256": "c95cbf3c9e0396b6b42b6226aa7f42ad3e1036f49e1f19a624a67311c13374b1",
+    "class": 32,
+    "machine": "EM_386",
+    "imports": [
+      "AiScript_CalcCardPower",
+      "AiScript_FindBestAttack",
+      "AiScript_FindKiller",
+      "AiScript_FindWeakest",
+      "AiScript_LoadGuardianStarChoice",
+      "AiScript_PlayFieldCard",
+      "AiScript_Run",
+      "Ai_IsCardInSets",
+      "AudioReplace_Sfx",
+      "Cards_Attribute",
+      "Cards_AttributeNamed",
+      "Cards_BaseId",
+      "Cards_EffectId",
+      "Cards_InFusionGroup",
+      "Cards_Level",
+      "Cards_PatchArtRecord",
+      "Cards_Type",
+      "Cards_Valid",
+      "D_800907CC",
+      "D_800907D8",
+      "D_80090800",
+      "D_800908A0",
+      "D_8009AF20",
+      "D_8009AF94",
+      "D_8009AF9A",
+      "D_8009B0F4_abs",
+      "D_8009B134_abs",
+      "D_8009B154",
+      "D_8009B162",
+      "D_8009B174",
+      "D_8009B17A",
+      "D_8009B19C",
+      "D_8009B1A4",
+      "D_8009B1B0",
+      "D_8009B1B4",
+      "D_8009B1B9",
+      "D_8009B1C8",
+      "D_8009B1D5",
+      "D_8009B204",
+      "D_8009B208",
+      "D_8009B20C",
+      "D_8009B210",
+      "D_8009B229",
+      "D_8009B22A",
+      "D_8009B240",
+      "D_8009B24C",
+      "D_8009B250",
+      "D_8009B26C",
+      "D_8009B26E",
+      "D_8009B360",
+      "D_800E9EF0",
+      "D_800E9F10",
+      "D_800E9FF0",
+      "D_800EA0E8",
+      "D_800EAD88",
+      "D_800EAE88",
+      "D_800EAE91",
+      "D_800EAE92",
+      "D_800EB0F8",
+      "D_800EF658",
+      "D_800EFE48",
+      "D_800F2848",
+      "D_800F2C40",
+      "D_800F56F0",
+      "D_8015C424",
+      "D_80177EA4",
+      "D_8018C2D8",
+      "D_801A7AD8",
+      "DiscArt_Read",
+      "DisplayObject_ReleaseIfPresent",
+      "DisplayObject_SetDepthOffset",
+      "DrawSync",
+      "DuelCard_DeactivateRecord",
+      "DuelCard_RemoveFromField",
+      "DuelCard_UpdateDefenseRotation",
+      "DuelEffect_AllocateRequest",
+      "DuelEffect_ApplyBoardDestruction",
+      "DuelEffect_ApplyCursebreaker",
+      "DuelEffect_ApplyMonsterRemoval",
+      "DuelEffect_ApplyRaigeki",
+      "DuelEffect_ApplyRitual",
+      "DuelEffect_ApplyStatPenalty",
+      "DuelEffect_ClearResourceObjectPointers",
+      "DuelEffect_CreateRequest",
+      "DuelEffect_StartCardEffect",
+      "DuelEffect_UpdateCardEffect",
+      "DuelEffect_UpdateRequests",
+      "DuelScene_Update",
+      "DuelScene_UpdateBattle",
+      "DuelScene_UpdateCardPlacement",
+      "DuelScene_UpdateDrawPhase",
+      "DuelScene_UpdateFieldActions",
+      "DuelScene_UpdateHandActions",
+      "DuelScene_UpdateTurnSwitch",
+      "Duel_ApplyCardObjectFlags",
+      "Duel_CalcBattleAttack",
+      "Duel_CalcBattleDefense",
+      "Duel_CalcCardStats",
+      "Duel_CalcGuardianStarBonus",
+      "Duel_CalcGuardianStarMatchup",
+      "Duel_CheckFusion",
+      "Duel_CheckRitual",
+      "Duel_CreateCardEffectOverlay",
+      "Duel_DrawFieldCards",
+      "Duel_GetCardEffectVariant",
+      "Duel_PopulateCombinedDeckData",
+      "Duel_ResetCardRecords",
+      "Glyphs_Cell",
+      "Glyphs_TinyCell",
+      "GsSetRefView2",
+      "GsSortBoxFill",
+      "GsSortPoly",
+      "HdText_Enabled",
+      "Input_UpdatePads",
+      "LoadImage",
+      "Main_RunAnimatedBattle",
+      "Main_RunDuel",
+      "SD_SEPlayFull",
+      "SetGeomOffset",
+      "SetGeomScreen",
+      "SetPolyFT4",
+      "SoftGpu_Bank",
+      "SoftGpu_Vram",
+      "Spu_GetBusVolume",
+      "Spu_SetBusVolume",
+      "TextEntries_Total",
+      "TextureDump_Delivered",
+      "ViewState_ApplyOrbit",
+      "__x86_indirect_thunk_eax",
+      "abs",
+      "atoi",
+      "fclose",
+      "fread",
+      "free",
+      "fseek",
+      "ftell",
+      "func_80016784",
+      "func_80017F04",
+      "func_8001944C",
+      "func_8001B170",
+      "func_8001BAF0",
+      "func_8001EFD4",
+      "func_80022D94",
+      "func_80023144",
+      "func_80024C1C",
+      "func_80024D34",
+      "func_80027508",
+      "func_80029164",
+      "func_800291E0",
+      "func_80029528",
+      "func_80035E20",
+      "func_80037DA4",
+      "func_8004DE24",
+      "func_800540B4",
+      "func_800559D4",
+      "gAiScript_State",
+      "gAiScript_aMemory",
+      "gDuelEffect_abGroupByEffectId",
+      "gDuel_aActiveCards",
+      "gDuel_aDeckCardRecords",
+      "gDuel_adwCardStats",
+      "gDuel_awRitualData",
+      "gDuel_bEffectState",
+      "gDuel_bTerrain",
+      "gDuel_wCardEffectFlags",
+      "gDuel_wEffectCardID",
+      "gDuel_wSceneStateFlags",
+      "gDuel_wViewerCardID",
+      "gInput_wPad1Pressed",
+      "gInput_wPad1Repeat",
+      "gInput_wPad2Pressed",
+      "gInput_wPad2Repeat",
+      "malloc",
+      "memcmp",
+      "memcpy",
+      "memset",
+      "rand",
+      "realloc",
+      "snprintf",
+      "strlen",
+      "strstr"
+    ],
+    "exports": [
+      "MemoriesModInit",
+      "Png_Decode"
+    ],
+    "text_bytes": 179088,
+    "bss_bytes": 165101,
+    "dwarf_compilers": [
+      "clang version 23.1.2 (https://github.com/llvm/llvm-project.git 85ac560262434c9ccfc0c183ec22d4138ed647fb)",
+      "clang version 23.1.2 (https://github.com/llvm/llvm-project.git 85ac560262434c9ccfc0c183ec22d4138ed647fb)"
+    ],
+    "source_checksums_available": false,
+    "relocations": {
+      "1": 6567,
+      "2": 622
+    }
+  },
+  "missing_sdk_exports": {
+    "win32": [],
+    "game32": []
+  },
+  "source_equivalence_old_object": "Not established: supplied provenance hashes differ; no exact source checksums available in received objects",
+  "input_files": {
+    "AUDITORIA-OFICIAL.md": {
+      "bytes": 15316,
+      "sha256": "562debb46a7a698c9ffa4149317360fc5112419866884d47ffc4420c4864880a"
+    },
+    "CHECKPOINT-CONTINUACAO.md": {
+      "bytes": 77200,
+      "sha256": "4165192fbcde801b078409b914b4eee66a05dff7091caf964eb6f255644e7f9d"
+    },
+    "LEIA-ME.txt": {
+      "bytes": 79207,
+      "sha256": "ee8d76fd45202b294cc7085fd1cc9f711a4d946cba0cc9a5e98488c379dac165"
+    },
+    "RELATORIO-DESEMPENHO.md": {
+      "bytes": 9736,
+      "sha256": "7814088efc388d2270d197ad81fd080a27d15df55698f017b05189cf047110e3"
+    },
+    "SDK-PROVENANCE.json": {
+      "bytes": 766,
+      "sha256": "250d738c0255722014991ecbcbab5e9148d5adc52b49940b8ae8f01acd4992a5"
+    },
+    "assets/chakra_green_atlas.png": {
+      "bytes": 4460,
+      "sha256": "ceeb1dbca65a1db6af7c736fe8c421871a49b2d94648282de5afd556bd0d2457"
+    },
+    "assets/coin-atem/00.png": {
+      "bytes": 33846,
+      "sha256": "1c2ced1b04dcb67ad89e242a861ae0cf9aeb779e325555e986745fa2bae06416"
+    },
+    "assets/coin-atem/01.png": {
+      "bytes": 32781,
+      "sha256": "b9d3134f5a3eeaa94e351c4bebf992ef4915ca3dc174af3ed27a0775ae602c1e"
+    },
+    "assets/coin-atem/02.png": {
+      "bytes": 29895,
+      "sha256": "3d839cfc0be55e7c2f00a5b3559813a2d32971935d7f1ba92633b682bcf9088f"
+    },
+    "assets/coin-atem/03.png": {
+      "bytes": 24767,
+      "sha256": "1b7119ae2b76962f119730d3972e61e6b25b3eb7dbfba11ab50158481a5545ca"
+    },
+    "assets/coin-atem/04.png": {
+      "bytes": 18170,
+      "sha256": "3a671b6f849e52102db52389dece4ea660604eea8167b51172f774999968aa5b"
+    },
+    "assets/coin-atem/05.png": {
+      "bytes": 9700,
+      "sha256": "2c1785c3c074fc11672cf4aa0209f5f2849c5224039a6ae02fab86c1c1ac0ca1"
+    },
+    "assets/coin-atem/06.png": {
+      "bytes": 3559,
+      "sha256": "3301b0585c936cd90d3557c2d09d08d630540953ac0a511faa18fa5ff98da607"
+    },
+    "assets/coin-atem/07.png": {
+      "bytes": 9573,
+      "sha256": "453bb326f4780d9222f8cf3dc9427f1750fba4c7f3ed202c494180d6587374b0"
+    },
+    "assets/coin-atem/08.png": {
+      "bytes": 17422,
+      "sha256": "365be3f2a2e4e7c28d90c357d609a0096bea730dedb4c37ae146c6dcbfa92e64"
+    },
+    "assets/coin-atem/09.png": {
+      "bytes": 23636,
+      "sha256": "cd9d8c081d869336b9fbda52467034d8ac3637a65ab6f18dc931f566bc47efa4"
+    },
+    "assets/coin-atem/10.png": {
+      "bytes": 28481,
+      "sha256": "c15326a25398bafe7411df9d5cadb1092e05c01b58551a1eb0e5ac78ae119e28"
+    },
+    "assets/coin-atem/11.png": {
+      "bytes": 31260,
+      "sha256": "064f497e1a2e95efa9421bd7e424fd1c7641fb38f352b107e704f4e4bbc4b3dc"
+    },
+    "assets/coin-atem/12.png": {
+      "bytes": 32222,
+      "sha256": "a806389de945744cf415405373c6c0d8900a86b8a76cd021eecfb752bff1fe3b"
+    },
+    "assets/coin-atem/13.png": {
+      "bytes": 31260,
+      "sha256": "064f497e1a2e95efa9421bd7e424fd1c7641fb38f352b107e704f4e4bbc4b3dc"
+    },
+    "assets/coin-atem/14.png": {
+      "bytes": 28481,
+      "sha256": "c15326a25398bafe7411df9d5cadb1092e05c01b58551a1eb0e5ac78ae119e28"
+    },
+    "assets/coin-atem/15.png": {
+      "bytes": 23636,
+      "sha256": "cd9d8c081d869336b9fbda52467034d8ac3637a65ab6f18dc931f566bc47efa4"
+    },
+    "assets/coin-atem/16.png": {
+      "bytes": 17422,
+      "sha256": "365be3f2a2e4e7c28d90c357d609a0096bea730dedb4c37ae146c6dcbfa92e64"
+    },
+    "assets/coin-atem/17.png": {
+      "bytes": 9573,
+      "sha256": "453bb326f4780d9222f8cf3dc9427f1750fba4c7f3ed202c494180d6587374b0"
+    },
+    "assets/coin-atem/18.png": {
+      "bytes": 3559,
+      "sha256": "3301b0585c936cd90d3557c2d09d08d630540953ac0a511faa18fa5ff98da607"
+    },
+    "assets/coin-atem/19.png": {
+      "bytes": 9700,
+      "sha256": "2c1785c3c074fc11672cf4aa0209f5f2849c5224039a6ae02fab86c1c1ac0ca1"
+    },
+    "assets/coin-atem/20.png": {
+      "bytes": 18170,
+      "sha256": "3a671b6f849e52102db52389dece4ea660604eea8167b51172f774999968aa5b"
+    },
+    "assets/coin-atem/21.png": {
+      "bytes": 24767,
+      "sha256": "1b7119ae2b76962f119730d3972e61e6b25b3eb7dbfba11ab50158481a5545ca"
+    },
+    "assets/coin-atem/22.png": {
+      "bytes": 29895,
+      "sha256": "3d839cfc0be55e7c2f00a5b3559813a2d32971935d7f1ba92633b682bcf9088f"
+    },
+    "assets/coin-atem/23.png": {
+      "bytes": 32781,
+      "sha256": "b9d3134f5a3eeaa94e351c4bebf992ef4915ca3dc174af3ed27a0775ae602c1e"
+    },
+    "assets/coin-atem/coin.txt": {
+      "bytes": 19,
+      "sha256": "0bbd6c3c169181a27b19b9544d6ec869ffdc211ebb11ba9d706c9dec404cd25e"
+    },
+    "assets/coin-normal/00.png": {
+      "bytes": 31712,
+      "sha256": "497efdabc6ade9bd12dd92f2a479ac86a9564632c4ae04f33029c1c1a5f060df"
+    },
+    "assets/coin-normal/01.png": {
+      "bytes": 30524,
+      "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+    },
+    "assets/coin-normal/02.png": {
+      "bytes": 27114,
+      "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+    },
+    "assets/coin-normal/03.png": {
+      "bytes": 22635,
+      "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+    },
+    "assets/coin-normal/04.png": {
+      "bytes": 20041,
+      "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+    },
+    "assets/coin-normal/05.png": {
+      "bytes": 17136,
+      "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+    },
+    "assets/coin-normal/06.png": {
+      "bytes": 11145,
+      "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+    },
+    "assets/coin-normal/07.png": {
+      "bytes": 5867,
+      "sha256": "c0ccf63d06a13a6c38721c98aafb49a7a400e881e4e559bde4d9e5ee615719cf"
+    },
+    "assets/coin-normal/08.png": {
+      "bytes": 12004,
+      "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+    },
+    "assets/coin-normal/09.png": {
+      "bytes": 16379,
+      "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+    },
+    "assets/coin-normal/10.png": {
+      "bytes": 19341,
+      "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+    },
+    "assets/coin-normal/11.png": {
+      "bytes": 20385,
+      "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+    },
+    "assets/coin-normal/12.png": {
+      "bytes": 26475,
+      "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+    },
+    "assets/coin-normal/13.png": {
+      "bytes": 31413,
+      "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+    },
+    "assets/coin-normal/14.png": {
+      "bytes": 32512,
+      "sha256": "37291c8f07f327254b5531bb8142a457aad056806cb0b75662675710cddd699e"
+    },
+    "assets/coin-normal/15.png": {
+      "bytes": 31413,
+      "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+    },
+    "assets/coin-normal/16.png": {
+      "bytes": 26475,
+      "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+    },
+    "assets/coin-normal/17.png": {
+      "bytes": 20385,
+      "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+    },
+    "assets/coin-normal/18.png": {
+      "bytes": 19341,
+      "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+    },
+    "assets/coin-normal/19.png": {
+      "bytes": 16379,
+      "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+    },
+    "assets/coin-normal/20.png": {
+      "bytes": 12004,
+      "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+    },
+    "assets/coin-normal/21.png": {
+      "bytes": 6150,
+      "sha256": "a2ccc08933af7dd06db84a379382ad6f7e47687991b1c934a9935f180faef131"
+    },
+    "assets/coin-normal/22.png": {
+      "bytes": 11145,
+      "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+    },
+    "assets/coin-normal/23.png": {
+      "bytes": 17136,
+      "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+    },
+    "assets/coin-normal/24.png": {
+      "bytes": 20041,
+      "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+    },
+    "assets/coin-normal/25.png": {
+      "bytes": 22635,
+      "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+    },
+    "assets/coin-normal/26.png": {
+      "bytes": 27114,
+      "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+    },
+    "assets/coin-normal/27.png": {
+      "bytes": 30524,
+      "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+    },
+    "assets/coin-normal/coin.txt": {
+      "bytes": 19,
+      "sha256": "6a79338a43aa97ff3506d5fb93f9685769555abb1b6c9cdf9c8a85a649b95d22"
+    },
+    "assets/dokurorider_escape.wav": {
+      "bytes": 541944,
+      "sha256": "05f94b9fd2bf5b51e2643b6fb96d82e9953e09ef249fb0f15fc9331d696dc338"
+    },
+    "assets/garma_sword_spend.wav": {
+      "bytes": 387116,
+      "sha256": "95fced6c229ab4c4ba6dfd9a306a8335fa0e2228aba88dd2fb44b18481561e9f"
+    },
+    "assets/hungry_bite.wav": {
+      "bytes": 106236,
+      "sha256": "e5ad4052b87d04b0ab99da4d6a979dc341985cf19a8f964201844139f05dbc0d"
+    },
+    "assets/hungry_plus500.png": {
+      "bytes": 943951,
+      "sha256": "99af80e5081b5042d559b2de39b7f96fe4867a8656e3bbb0356f21ec8092293c"
+    },
+    "assets/javelin_shell.wav": {
+      "bytes": 188972,
+      "sha256": "741d4dfaf9869a937d08fa882921136cf41f0da1348d7ba1f2383be46b272bd9"
+    },
+    "assets/javelin_shell_counter.png": {
+      "bytes": 1266,
+      "sha256": "8c0c7bd4580f01800960d85c33b74c64b3bf70de7f291c58dbfab31c0f676d0f"
+    },
+    "assets/tri_horn_break.wav": {
+      "bytes": 57374,
+      "sha256": "324e75ab13d8cc3a41f243056aa44f1de1396373359c3b0dfba80d7c5e9a716a"
+    },
+    "assets/unicorn_horn.png": {
+      "bytes": 244,
+      "sha256": "891fa1ab9c7e57256c4500c055b9db4bf7daa80beed3aca3aa082a3e2df60015"
+    },
+    "chakra_green_atlas.h": {
+      "bytes": 34299,
+      "sha256": "00d47913d906f596f0afc489a15b53be928d067d3b533d3cdbb82185e0647694"
+    },
+    "effect_title_instance.h": {
+      "bytes": 2437,
+      "sha256": "484b37201af8c606cdb9dde8d8885d5f1affde80acbecc6a9884ccf0cda258b8"
+    },
+    "effect_title_visual.h": {
+      "bytes": 8296,
+      "sha256": "5504d473eece2f76a60b668cfbabe1769442ef7a1aff19b8a44af9d8c99eec33"
+    },
+    "egotist_bridge.h": {
+      "bytes": 5456,
+      "sha256": "0d9f06b48c4d8dc7c04e97395e3b2c00022938a1c1fc6a12410673a70a670c4d"
+    },
+    "garma_visual.h": {
+      "bytes": 6413,
+      "sha256": "f5fb91adf1044512f691ffece612198a9df0b700c9bb45826b6d84f51160e999"
+    },
+    "hungry_plus500_sprite.h": {
+      "bytes": 18033,
+      "sha256": "f8eb45b53994c2e72781ac07aae690c2341f7684b54613bcbf4b79f320bd40a8"
+    },
+    "javelin_shell_sprite.h": {
+      "bytes": 12459,
+      "sha256": "3514f82e1b8b5bcea79b8e9e7d50dd308e72dc0c16a7ebbc4f263652a01641cb"
+    },
+    "mask_effect.h": {
+      "bytes": 18744,
+      "sha256": "50e724dacbcd2d02189fe690e89d7a467d88bd25a6a808b9f602539b5e1adec9"
+    },
+    "mod.c": {
+      "bytes": 367588,
+      "sha256": "dc6a185154a4896e3f082ae6465e024b29155c6a3fee8a3fa26dd479002240e9"
+    },
+    "mod.json": {
+      "bytes": 20549,
+      "sha256": "c334e2cb1d6b1b85a321498f9cf25286e7a887aaadaf4425c10b2102832af056"
+    },
+    "model.h": {
+      "bytes": 8222,
+      "sha256": "9646f4c50c51dea2470400d7f01521bebf9e9d047e9356885b3a9536b2f376eb"
+    },
+    "native.h": {
+      "bytes": 2817,
+      "sha256": "5890a4e33435d6515b571ca14ca6dbd483c765dcc0027d86c33dffde08b9d2d9"
+    },
+    "native_actions.h": {
+      "bytes": 2504,
+      "sha256": "70749174b4208864f3c062b81c90f338f64421b4c801c30b289b8001787326e0"
+    },
+    "native_vfx_textures.h": {
+      "bytes": 13003,
+      "sha256": "8e5f872f5b4b59230f5df1faf8b4e99d839fce6085662c9ebc85eb23fbbd22ec"
+    },
+    "owner_r.h": {
+      "bytes": 1605,
+      "sha256": "9b6da48f3b533ce7953f34a79cf05e86520cc8e7aceb913f9ada208e4f2d5583"
+    },
+    "performance_chaos.h": {
+      "bytes": 22011,
+      "sha256": "5aa5ad4f9a0ed696296b37d57f5712c0042226754b59247b38fc0bba87c0ad10"
+    },
+    "png.c": {
+      "bytes": 11193,
+      "sha256": "a5a55b3b349046813fd8c8e26d347527acda6de856858e9aacb7028b95935d06"
+    },
+    "png.h": {
+      "bytes": 353,
+      "sha256": "26a5ef08cf76239964ea952185c7f9428cd2aaed4e087f5d6feafc37b4a2272d"
+    },
+    "ritual-card-effects.o": {
+      "bytes": 964464,
+      "sha256": "f30934e77d9705b0e1122f9eed23e015533d47e85d0b01f98c0b37912c264170"
+    },
+    "ritual-card-effects.x86_64-windows.o": {
+      "bytes": 1147880,
+      "sha256": "3dfcd399fb5c3a48aa8c3839b5cfebfedb79b8e9717c5a7b27056bda94d39517"
+    },
+    "ritual_ai_burn_policy.h": {
+      "bytes": 2033,
+      "sha256": "aa5cb5216dfd318a17e1ac36117f9eba346d136142a1269f8ea428729068efa7"
+    },
+    "ritual_ai_effect_source.h": {
+      "bytes": 2449,
+      "sha256": "1ace81ded172e34bd0b18bdfdba3df56670b6488985c17011eaf809bbc6b9cdd"
+    },
+    "ritual_coin.h": {
+      "bytes": 8014,
+      "sha256": "c4bb5c4fe4b1ec738f0445215fe4cdba69a3de94abacd9608de30b1f239dafc4"
+    },
+    "ritual_effect_intelligence_v1.h": {
+      "bytes": 1476,
+      "sha256": "dc46868090ad84a2b4ece1dc40e4a6fe2898bfd2fd5b8f79c28bbca8f3a0e579"
+    },
+    "ritual_recipe_compat.h": {
+      "bytes": 15561,
+      "sha256": "3666e77b78652d90e5779ef36114a02a1209f48b0bdab7832ca79f63fcb6df10"
+    },
+    "ritual_recipe_data.h": {
+      "bytes": 10583,
+      "sha256": "b6a14f67d405bb51ac820734fc0a0ee7bbea63e7e278aa781e2562db8a85c9cf"
+    },
+    "ritual_recipe_export.h": {
+      "bytes": 3769,
+      "sha256": "1fdc2237a01e4b1f82379df95389e13dc68f31a328f1b685d7136da762ee903a"
+    },
+    "ritual_recipe_provider_v1.h": {
+      "bytes": 1245,
+      "sha256": "138ed4699e54bd5c0e54b5d0ef53020b5cce81da897984e526702fde59c23f7c"
+    },
+    "ritual_viewer_description_fit.h": {
+      "bytes": 7403,
+      "sha256": "bd614f848ea9a27741a3283644b87f70b10c5b4ccae244642fcf437c6d5b9987"
+    },
+    "serpent_fear.h": {
+      "bytes": 38263,
+      "sha256": "34ad1663d0412d97e9bcf532150ca7125e703e7efa07fb638bd2fd55b78bce2c"
+    },
+    "skull_monster.h": {
+      "bytes": 642,
+      "sha256": "3a8c889df2b8801fe2cc2c5965253fa138ebf2af13780c82b8f38d21c7aa478e"
+    },
+    "snapshot.h": {
+      "bytes": 1974,
+      "sha256": "33b45eff6855d6da800367a35a6fd1f165b970fd800124a388be8b2d436a9982"
+    },
+    "tests/mask_equip_staging_test.c": {
+      "bytes": 5377,
+      "sha256": "324f98846065816a7d0a389fbdcbc80e615b29c7fb4b1e9ba77f2a0a72a6dbe5"
+    },
+    "tests/test_automatic_field_gate.py": {
+      "bytes": 3229,
+      "sha256": "42f45de54f2821dcc476fad1977572ed30cebba2d95279dd8c65c5931c7bdad8"
+    },
+    "tests/test_battle_marker_retention.py": {
+      "bytes": 3605,
+      "sha256": "7bd8f37acf1a9189ea255b786c71a59065e8d38f5754f1a1f40d6601e08478a9"
+    },
+    "tests/test_effect_intelligence.c": {
+      "bytes": 1944,
+      "sha256": "183111972afee54ca5d01e6357f872ce4546b2c41a315a9a52c0561068a57f4e"
+    },
+    "tests/test_effect_title_instance.c": {
+      "bytes": 3417,
+      "sha256": "0d02c207134db14c400e4cf0eb743647d2bffeb4b9d7a4b05a7cddd8a0a3f319"
+    },
+    "tests/test_effect_title_visual.c": {
+      "bytes": 11332,
+      "sha256": "39b780364d2181654910f9a75add7add8cac0ee7d92f2a43bdac343deefb239c"
+    },
+    "tests/test_egotist_bridge.py": {
+      "bytes": 6003,
+      "sha256": "9bbecb3cd09941de05df19a59e47a2468adc69bbe9bd65873fa5b42dd1f1bdda"
+    },
+    "tests/test_hungry_cpu_battle.py": {
+      "bytes": 9774,
+      "sha256": "2e943b535608275e72e71fcbba77fd503da83c3618c626121af78bee82726932"
+    },
+    "tests/test_logic_performance.c": {
+      "bytes": 19533,
+      "sha256": "ed542c6664d9496925f60c64816b057562f12fbbdb470499aec481cfab7e9ae2"
+    },
+    "tests/test_logic_performance.py": {
+      "bytes": 6754,
+      "sha256": "43132092c2630f45f2a793b3dd6916034d34aca3a4edd5f6ca7d379c630c0816"
+    },
+    "tests/test_mirror_defense.py": {
+      "bytes": 3779,
+      "sha256": "d158f36c4e7c2f1efa67efd665cc85d33e94b443d738bede033debd1d3a0897d"
+    },
+    "tests/test_mirror_direct_lp.py": {
+      "bytes": 2898,
+      "sha256": "8a841c3e7070f6a15bac1c68dc844d344761fad29c114994f23512a00092bda8"
+    },
+    "tests/test_mirror_lp_commit.py": {
+      "bytes": 3210,
+      "sha256": "b3ba7973ad2b4191a6cf1b8f57a237eb54131ba592eb668f2180fa64163fa4fa"
+    },
+    "tests/test_provider_generated.c": {
+      "bytes": 12920,
+      "sha256": "18981c81d53ae801ad58fb4a7ced43344cd76e8f15c7f9601a399d2897480ca2"
+    },
+    "tests/test_psycho_cpu_symmetry.py": {
+      "bytes": 11334,
+      "sha256": "49dce9599a4f1c3c89b2035f9fdcf9e3f64177f7bbfae2da62c8739541a98cca"
+    },
+    "tests/test_psycho_permanent.py": {
+      "bytes": 4047,
+      "sha256": "227c07ee66f29a34926ff1eba2d6a9f731835a7cb17c267b3ebc2b0e6bbfc2c0"
+    },
+    "tests/test_puppet_rebuild_identity.py": {
+      "bytes": 2729,
+      "sha256": "72b5150f426feae8f4fda630b318569536f42b1d0a8205d20df120bba43c297c"
+    },
+    "tests/test_recipe_performance.c": {
+      "bytes": 3796,
+      "sha256": "9a949cb02d1f53ae9f9e41f96b6e93eff6d6e2cfc1a3cf11b3e91fea4cc95484"
+    },
+    "tests/test_recipe_performance.py": {
+      "bytes": 3906,
+      "sha256": "638b19986545ba9af5a776f77bfb2eece7e19261a46922b48d682928235779c7"
+    },
+    "tests/test_render_performance.c": {
+      "bytes": 20764,
+      "sha256": "11eb6535825f6b42b2a5cc4892a88b628a4c3944cd364d55d9691a8e2d37cc00"
+    },
+    "tests/test_render_performance.py": {
+      "bytes": 5647,
+      "sha256": "f5eb5fd9169713cd080700d32c10fb90c5d13d878337fdada554bc0f05e891b4"
+    },
+    "tests/test_tea_cosmo_whale.py": {
+      "bytes": 3023,
+      "sha256": "ce964f38a875fb616207382649a00dbe153b0363415f1ccb263a22000f3cdb6d"
+    },
+    "tests/test_tri_horned_beacon.py": {
+      "bytes": 3403,
+      "sha256": "f15b96137726b0db7cff46520463b486e533d23dadd3108ff5f4203db56899fd"
+    },
+    "tests/test_v4_rules.py": {
+      "bytes": 2070,
+      "sha256": "adf01db0339243c36204060825dc297cdc11e967372a231ae9ea336fa4188e1f"
+    },
+    "tests/test_whale_crab_v07855.py": {
+      "bytes": 5158,
+      "sha256": "33cfe6fa39b62ce6165fa83ddbbd60a08f20546f1333f2eed0ee844711959276"
+    },
+    "tests/test_yamadron_ai_policy.c": {
+      "bytes": 1947,
+      "sha256": "28f5e636fbc55f0dc392bc387b07c8795c5759cefd7e682aca2622c992605421"
+    },
+    "tests/test_zera_ultimate_debuff.py": {
+      "bytes": 4788,
+      "sha256": "5bf81267d2dc0bb4603e550119fffcbdd9e02d95e48a4c9878b148b702347a8d"
+    },
+    "text/black_chaos_on.txt": {
+      "bytes": 178,
+      "sha256": "4982bd02c954150312c4ec710914178d3bb46ef41077ddb44630e454c909cc08"
+    },
+    "text/black_chaos_recipe.txt": {
+      "bytes": 76,
+      "sha256": "62b6093eb24b98e72a341feef664d0dccc2d0e76f7feddd226f7646015f9c09c"
+    },
+    "text/black_luster_soldier_on.txt": {
+      "bytes": 184,
+      "sha256": "0191626f7eb3d402fd24a7b16b5b68c794feecb5d6b6f8b95257ededbde2f948"
+    },
+    "text/black_luster_soldier_recipe.txt": {
+      "bytes": 77,
+      "sha256": "a2c12047490c55399ecc0527f5481c065d53094cf4d6733f82529e9176eaa62f"
+    },
+    "text/chakra_on.txt": {
+      "bytes": 116,
+      "sha256": "80081eab20ab6d067847adde2757cb5ae945fc506efec456d2af894d0731f896"
+    },
+    "text/chakra_recipe_off.txt": {
+      "bytes": 78,
+      "sha256": "302a15d325feb197d3a339ba00a0ac76c77142d50e19ca8a13920b59328d9817"
+    },
+    "text/chakra_recipe_on.txt": {
+      "bytes": 86,
+      "sha256": "7c5da9f7aaa596f24eb966665c85e6541b6dd2270ce490557b4380bc48d184a9"
+    },
+    "text/cosmo_queen_on.txt": {
+      "bytes": 175,
+      "sha256": "34f49f95e913a439e2a4e4edcc74226aa991c9dcc820281d299a7afe4c3afabf"
+    },
+    "text/cosmo_queen_recipe.txt": {
+      "bytes": 89,
+      "sha256": "63aa523ba56a15a313870bab7acf1b6e90cfbadc1157488201713385ce472aac"
+    },
+    "text/crab_on.txt": {
+      "bytes": 273,
+      "sha256": "cb68b949a2a41f8db4364cca51f700b0b945a3bddcb985e00d0db70a77d8a1e8"
+    },
+    "text/crab_recipe_off.txt": {
+      "bytes": 83,
+      "sha256": "cecb1ce4ab4cd3a293dc22d1d9c798b6f59c1d2ef94d517fd1a485c066bcaee9"
+    },
+    "text/crab_recipe_on.txt": {
+      "bytes": 72,
+      "sha256": "d0e870187a578185f7e009698560f02b03ac429431049543aac6810a2f8aa3c7"
+    },
+    "text/dokurorider_on.txt": {
+      "bytes": 182,
+      "sha256": "90359126e2991606bb78f3ccd7ecd3220ca63b50912985dd6fcbdcd64b963343"
+    },
+    "text/dokurorider_recipe_off.txt": {
+      "bytes": 75,
+      "sha256": "4fbc28643a0670a2cd32d8eca5a1a00b17fe0a9112fafd5f89132026242e0dbe"
+    },
+    "text/dokurorider_recipe_on.txt": {
+      "bytes": 68,
+      "sha256": "b7d7a91a1c88d3b91cdeed8cb64ee6c7c1b3cf7de4827ccc399b30533ebb225d"
+    },
+    "text/fiends_mirror_on.txt": {
+      "bytes": 191,
+      "sha256": "d06d6cdb6573bbcc341698723c0773bc10e0bdd6928d5ebe9d3eb8d38df26901"
+    },
+    "text/fiends_mirror_recipe_off.txt": {
+      "bytes": 87,
+      "sha256": "50c5ea2cae691c046a06d96bf21d682260f4a8554bdccde8624a41430be0ac45"
+    },
+    "text/fiends_mirror_recipe_on.txt": {
+      "bytes": 85,
+      "sha256": "958d076c7fa3ef96fcc4724a3338d6937f7d129e644312d19adc46695640ef83"
+    },
+    "text/fortress_on.txt": {
+      "bytes": 268,
+      "sha256": "a4ba822f2a3a814d989c5d06437d0418561e8c6056a31608f900ef9c53954063"
+    },
+    "text/fortress_recipe_off.txt": {
+      "bytes": 67,
+      "sha256": "365912213cd658875a09a185ce9147fa9bc99d317c0ca2c219a90577b7960011"
+    },
+    "text/fortress_recipe_on.txt": {
+      "bytes": 52,
+      "sha256": "82441dfce47b49ecc1d96e86912b6d0fa24c8bd28d83bb633b10e5622ea9cecf"
+    },
+    "text/garma_on.txt": {
+      "bytes": 204,
+      "sha256": "7a9cbccf6c395ba98cda71c6a678f406112322797d4a9973507f62ec2cf1637c"
+    },
+    "text/garma_recipe_off.txt": {
+      "bytes": 74,
+      "sha256": "8b6dceb1dc73c875b9146089741e132a886afc3ac18feca7c373cc4d436f4c7e"
+    },
+    "text/garma_recipe_on.txt": {
+      "bytes": 76,
+      "sha256": "7645f22c9a643f8963e7b7bcb8b0ebe01eb52766a9b7df7bb0f96c3173829fa9"
+    },
+    "text/gate_on.txt": {
+      "bytes": 118,
+      "sha256": "91f27535859d8a3426dfaf4e93c8166117d3e79c5b3faef66f273436ac6cb871"
+    },
+    "text/gate_recipe_off.txt": {
+      "bytes": 67,
+      "sha256": "76b8438a521e3e52853c3d26253e9dcf7aef4267845282e2f00cffe4d840de07"
+    },
+    "text/gate_recipe_on.txt": {
+      "bytes": 67,
+      "sha256": "76b8438a521e3e52853c3d26253e9dcf7aef4267845282e2f00cffe4d840de07"
+    },
+    "text/hungry_burger_on.txt": {
+      "bytes": 120,
+      "sha256": "715d883be7580910dd4e3240587a8cf4b224134c181cb5077d65f253aff193a7"
+    },
+    "text/hungry_burger_recipe_off.txt": {
+      "bytes": 61,
+      "sha256": "ec57bf455b6d93e7cc9fe58de3b719d393ea252d2a0a3a6d5d1e471d04ec56cc"
+    },
+    "text/hungry_burger_recipe_on.txt": {
+      "bytes": 70,
+      "sha256": "7b3c2e3545989ce94d1e09c0f8b5c7bbaaaa9af08ffa4a5490d5326d56b9f7fb"
+    },
+    "text/javelin_on.txt": {
+      "bytes": 183,
+      "sha256": "bde4c8b8f06be4328194bff3589a2a944e2be2e29f9cf1a4311c6f3d545cc6d1"
+    },
+    "text/javelin_recipe_off.txt": {
+      "bytes": 78,
+      "sha256": "3fce4a8193e21d1ab1a69c93573425192b9a0eb08a5da19b6b4a3da25ee558dc"
+    },
+    "text/javelin_recipe_on.txt": {
+      "bytes": 76,
+      "sha256": "07f7bae564b4bb17069f6158e7c0762144cfd81700f48035e12ce74aed6e8e71"
+    },
+    "text/mask_on.txt": {
+      "bytes": 167,
+      "sha256": "57b0ba7f6839a149f2f50cc9685b7f59f6dbacd1dba5a595182a8b65cb53e1fb"
+    },
+    "text/mask_recipe_off.txt": {
+      "bytes": 77,
+      "sha256": "9e73c3080d579582b9b3e6c972b9acb5f6f37d50fe8409e3faac2202b43b2890"
+    },
+    "text/mask_recipe_on.txt": {
+      "bytes": 73,
+      "sha256": "e4d777968056def53bd2e829a701346d05c193d6d0987480792e71fde25ede3e"
+    },
+    "text/millennium_shield_on.txt": {
+      "bytes": 160,
+      "sha256": "48293e7feabc513d882fd75e547ba433aa1fd496538d8b1fb8dc5d845a41cd28"
+    },
+    "text/millennium_shield_recipe_off.txt": {
+      "bytes": 78,
+      "sha256": "6c3ed8158f921e8300fc68715bfd2dcc293f790c064edd34a5ed9ba6fcad69a7"
+    },
+    "text/millennium_shield_recipe_on.txt": {
+      "bytes": 73,
+      "sha256": "fb0a3c7d24d674c86945fd0ea3ae06de23c7d3041076b2d79197a63281ac8be3"
+    },
+    "text/novox_recipe.txt": {
+      "bytes": 83,
+      "sha256": "5ce1875d7834c894d2592f7b76a3a53d3f9864b85d3599436fce46ed3ce0d006"
+    },
+    "text/performance_on.txt": {
+      "bytes": 192,
+      "sha256": "074b6a0b8fe7ab01231b54d155ea7045f757bd829d84cacad6fbf1c771ab08e6"
+    },
+    "text/performance_recipe_off.txt": {
+      "bytes": 70,
+      "sha256": "826085a74da25565ef7f7e004b212583a40a30c3786a2d7a788a5e04f371bd2c"
+    },
+    "text/performance_recipe_on.txt": {
+      "bytes": 66,
+      "sha256": "205c470ec12c5c47fc31c9571dda0ca157c68fb951a8038592df63837c3d2b9d"
+    },
+    "text/psycho_puppet_on.txt": {
+      "bytes": 180,
+      "sha256": "6f395737661c6ef4aa67a126b36cab91178eb547df95a48e209cba4feedcfd9d"
+    },
+    "text/psycho_puppet_recipe_off.txt": {
+      "bytes": 74,
+      "sha256": "2cef2f01ddb87e7bad367a59f105cc6f3a7c3537b8dba0638ffd95419c79356e"
+    },
+    "text/psycho_puppet_recipe_on.txt": {
+      "bytes": 78,
+      "sha256": "c410d8b53f86e3207d7d8bc24c4ff978db23a19ee6d19672d22e63f95d8ed1c3"
+    },
+    "text/sengenjin_on.txt": {
+      "bytes": 153,
+      "sha256": "af2ad34c0536624aeff0fbe20716e43b24d385262a4fec43b34cd92d667637ee"
+    },
+    "text/sengenjin_recipe_off.txt": {
+      "bytes": 75,
+      "sha256": "1ce05f3f19c88e3e3f532df7bd8151962d261e13fcb02b76aab51a81a180cae9"
+    },
+    "text/sengenjin_recipe_on.txt": {
+      "bytes": 98,
+      "sha256": "dde4dc1f95d9e59a1e315d7829517064565f33190658a110baea5703f276f1ef"
+    },
+    "text/serpent_on.txt": {
+      "bytes": 147,
+      "sha256": "ab230f5f89b268b5e3f734e46518e26afad24097b52370a0bdfae5145b47b3e8"
+    },
+    "text/serpent_recipe_off.txt": {
+      "bytes": 105,
+      "sha256": "34e3175135e1b3478796335831b681569533866f9d5ad45907b0227b44151e95"
+    },
+    "text/serpent_recipe_on.txt": {
+      "bytes": 86,
+      "sha256": "56480532ba36ac751acef165043c1f8f064c01e98cae715cb520166569b8057b"
+    },
+    "text/skull_guardian_on.txt": {
+      "bytes": 218,
+      "sha256": "70a2300a0ab5ca3f86221b8991d38978f0d2113aa2d1487e6c22c877b3fb7b3e"
+    },
+    "text/super_war_lion_on.txt": {
+      "bytes": 180,
+      "sha256": "922dda3344fc6ffa4a6911c613dac588bedc39921435f128c9f5ed8b74afef8a"
+    },
+    "text/super_war_lion_recipe_off.txt": {
+      "bytes": 60,
+      "sha256": "49352e0d5f1c9c985a5c4de6b29e9ea44a3d71ec94c1b6234599977f965fd51d"
+    },
+    "text/super_war_lion_recipe_on.txt": {
+      "bytes": 58,
+      "sha256": "62c1b1bd24af3417ec7e4a3af57d5a8ea4e4a74b3172f075945a18c1e6048496"
+    },
+    "text/tri_horned_on.txt": {
+      "bytes": 216,
+      "sha256": "c6f062ff154ff777b183132a9ad1e009a4b5490caa4662be69aa06859a591497"
+    },
+    "text/tri_horned_recipe.txt": {
+      "bytes": 70,
+      "sha256": "66730dbca55be0bcaeefae0d58f4a16f843aa64d65267882a5d36767871137b2"
+    },
+    "text/ultimate_dragon_on.txt": {
+      "bytes": 119,
+      "sha256": "7dae8942e5e27e2c9c36cb99708cccdbcf2e8659d64aff51337b0d749c63a6b9"
+    },
+    "text/ultimate_dragon_recipe.txt": {
+      "bytes": 100,
+      "sha256": "6e71cd243de8452f1fa9c0f40b1b80bb1d8c99ffd2f325298dbf597b207a0023"
+    },
+    "text/yamadron_on.txt": {
+      "bytes": 129,
+      "sha256": "8a9e4248fe87cee2b9dd40a97849e9d2660a9ffe384a1aa09e9ed718fcebe803"
+    },
+    "text/yamadron_recipe_off.txt": {
+      "bytes": 85,
+      "sha256": "31f5cc0574213291c68fa1b6f081f41e4a7d2f22dbc2ec99265a4baab14d412b"
+    },
+    "text/yamadron_recipe_on.txt": {
+      "bytes": 64,
+      "sha256": "7190f42166c014d8e281bc32bdd859d8841b069a48cb131d6531c7853d294eb1"
+    },
+    "text/zera_on.txt": {
+      "bytes": 200,
+      "sha256": "3c19909348c52193de8d7169ddd3d0f88f83fa3f447bed117825360a5cc16f60"
+    },
+    "text/zera_recipe.txt": {
+      "bytes": 114,
+      "sha256": "e35b57638d6cc9404b492bc26ec26256976110754fc0a46d0345c23e843bcbb8"
+    },
+    "tri_horn_sprite.h": {
+      "bytes": 12442,
+      "sha256": "326ada40620bb5fcee4e9eba01d6bd368b5e083ea07eb6d938b88a146e4af6a5"
+    },
+    "tri_horned.h": {
+      "bytes": 7057,
+      "sha256": "97304ace30b78def04a15c33606c497cf297c4e89b012079cf78fc5a01246d0d"
+    }
+  },
+  "preserved_input_files": [
+    "AUDITORIA-OFICIAL.md",
+    "CHECKPOINT-CONTINUACAO.md",
+    "LEIA-ME.txt",
+    "RELATORIO-DESEMPENHO.md",
+    "assets/chakra_green_atlas.png",
+    "assets/coin-atem/00.png",
+    "assets/coin-atem/01.png",
+    "assets/coin-atem/02.png",
+    "assets/coin-atem/03.png",
+    "assets/coin-atem/04.png",
+    "assets/coin-atem/05.png",
+    "assets/coin-atem/06.png",
+    "assets/coin-atem/07.png",
+    "assets/coin-atem/08.png",
+    "assets/coin-atem/09.png",
+    "assets/coin-atem/10.png",
+    "assets/coin-atem/11.png",
+    "assets/coin-atem/12.png",
+    "assets/coin-atem/13.png",
+    "assets/coin-atem/14.png",
+    "assets/coin-atem/15.png",
+    "assets/coin-atem/16.png",
+    "assets/coin-atem/17.png",
+    "assets/coin-atem/18.png",
+    "assets/coin-atem/19.png",
+    "assets/coin-atem/20.png",
+    "assets/coin-atem/21.png",
+    "assets/coin-atem/22.png",
+    "assets/coin-atem/23.png",
+    "assets/coin-atem/coin.txt",
+    "assets/coin-normal/00.png",
+    "assets/coin-normal/01.png",
+    "assets/coin-normal/02.png",
+    "assets/coin-normal/03.png",
+    "assets/coin-normal/04.png",
+    "assets/coin-normal/05.png",
+    "assets/coin-normal/06.png",
+    "assets/coin-normal/07.png",
+    "assets/coin-normal/08.png",
+    "assets/coin-normal/09.png",
+    "assets/coin-normal/10.png",
+    "assets/coin-normal/11.png",
+    "assets/coin-normal/12.png",
+    "assets/coin-normal/13.png",
+    "assets/coin-normal/14.png",
+    "assets/coin-normal/15.png",
+    "assets/coin-normal/16.png",
+    "assets/coin-normal/17.png",
+    "assets/coin-normal/18.png",
+    "assets/coin-normal/19.png",
+    "assets/coin-normal/20.png",
+    "assets/coin-normal/21.png",
+    "assets/coin-normal/22.png",
+    "assets/coin-normal/23.png",
+    "assets/coin-normal/24.png",
+    "assets/coin-normal/25.png",
+    "assets/coin-normal/26.png",
+    "assets/coin-normal/27.png",
+    "assets/coin-normal/coin.txt",
+    "assets/dokurorider_escape.wav",
+    "assets/garma_sword_spend.wav",
+    "assets/hungry_bite.wav",
+    "assets/hungry_plus500.png",
+    "assets/javelin_shell.wav",
+    "assets/javelin_shell_counter.png",
+    "assets/tri_horn_break.wav",
+    "assets/unicorn_horn.png",
+    "chakra_green_atlas.h",
+    "effect_title_instance.h",
+    "effect_title_visual.h",
+    "egotist_bridge.h",
+    "garma_visual.h",
+    "hungry_plus500_sprite.h",
+    "javelin_shell_sprite.h",
+    "mask_effect.h",
+    "mod.c",
+    "mod.json",
+    "model.h",
+    "native.h",
+    "native_actions.h",
+    "native_vfx_textures.h",
+    "owner_r.h",
+    "performance_chaos.h",
+    "png.c",
+    "png.h",
+    "ritual_ai_burn_policy.h",
+    "ritual_ai_effect_source.h",
+    "ritual_coin.h",
+    "ritual_effect_intelligence_v1.h",
+    "ritual_recipe_compat.h",
+    "ritual_recipe_data.h",
+    "ritual_recipe_export.h",
+    "ritual_recipe_provider_v1.h",
+    "ritual_viewer_description_fit.h",
+    "serpent_fear.h",
+    "skull_monster.h",
+    "snapshot.h",
+    "tests/mask_equip_staging_test.c",
+    "tests/test_automatic_field_gate.py",
+    "tests/test_battle_marker_retention.py",
+    "tests/test_effect_intelligence.c",
+    "tests/test_effect_title_instance.c",
+    "tests/test_effect_title_visual.c",
+    "tests/test_egotist_bridge.py",
+    "tests/test_logic_performance.c",
+    "tests/test_logic_performance.py",
+    "tests/test_mirror_defense.py",
+    "tests/test_mirror_direct_lp.py",
+    "tests/test_mirror_lp_commit.py",
+    "tests/test_provider_generated.c",
+    "tests/test_psycho_cpu_symmetry.py",
+    "tests/test_psycho_permanent.py",
+    "tests/test_puppet_rebuild_identity.py",
+    "tests/test_recipe_performance.c",
+    "tests/test_recipe_performance.py",
+    "tests/test_render_performance.c",
+    "tests/test_render_performance.py",
+    "tests/test_tri_horned_beacon.py",
+    "tests/test_v4_rules.py",
+    "tests/test_yamadron_ai_policy.c",
+    "tests/test_zera_ultimate_debuff.py",
+    "text/black_chaos_on.txt",
+    "text/black_chaos_recipe.txt",
+    "text/black_luster_soldier_on.txt",
+    "text/black_luster_soldier_recipe.txt",
+    "text/chakra_on.txt",
+    "text/chakra_recipe_off.txt",
+    "text/chakra_recipe_on.txt",
+    "text/cosmo_queen_on.txt",
+    "text/cosmo_queen_recipe.txt",
+    "text/crab_on.txt",
+    "text/crab_recipe_off.txt",
+    "text/crab_recipe_on.txt",
+    "text/dokurorider_on.txt",
+    "text/dokurorider_recipe_off.txt",
+    "text/dokurorider_recipe_on.txt",
+    "text/fiends_mirror_on.txt",
+    "text/fiends_mirror_recipe_off.txt",
+    "text/fiends_mirror_recipe_on.txt",
+    "text/fortress_on.txt",
+    "text/fortress_recipe_off.txt",
+    "text/fortress_recipe_on.txt",
+    "text/garma_on.txt",
+    "text/garma_recipe_off.txt",
+    "text/garma_recipe_on.txt",
+    "text/gate_on.txt",
+    "text/gate_recipe_off.txt",
+    "text/gate_recipe_on.txt",
+    "text/hungry_burger_on.txt",
+    "text/hungry_burger_recipe_off.txt",
+    "text/hungry_burger_recipe_on.txt",
+    "text/javelin_on.txt",
+    "text/javelin_recipe_off.txt",
+    "text/javelin_recipe_on.txt",
+    "text/mask_on.txt",
+    "text/mask_recipe_off.txt",
+    "text/mask_recipe_on.txt",
+    "text/millennium_shield_on.txt",
+    "text/millennium_shield_recipe_off.txt",
+    "text/millennium_shield_recipe_on.txt",
+    "text/novox_recipe.txt",
+    "text/performance_on.txt",
+    "text/performance_recipe_off.txt",
+    "text/performance_recipe_on.txt",
+    "text/psycho_puppet_on.txt",
+    "text/psycho_puppet_recipe_off.txt",
+    "text/psycho_puppet_recipe_on.txt",
+    "text/sengenjin_on.txt",
+    "text/sengenjin_recipe_off.txt",
+    "text/sengenjin_recipe_on.txt",
+    "text/serpent_on.txt",
+    "text/serpent_recipe_off.txt",
+    "text/serpent_recipe_on.txt",
+    "text/skull_guardian_on.txt",
+    "text/super_war_lion_on.txt",
+    "text/super_war_lion_recipe_off.txt",
+    "text/super_war_lion_recipe_on.txt",
+    "text/tri_horned_on.txt",
+    "text/tri_horned_recipe.txt",
+    "text/ultimate_dragon_on.txt",
+    "text/ultimate_dragon_recipe.txt",
+    "text/yamadron_on.txt",
+    "text/yamadron_recipe_off.txt",
+    "text/yamadron_recipe_on.txt",
+    "text/zera_on.txt",
+    "text/zera_recipe.txt",
+    "tri_horn_sprite.h",
+    "tri_horned.h"
+  ],
+  "changed_input_files": [
+    "SDK-PROVENANCE.json",
+    "ritual-card-effects.o",
+    "tests/test_hungry_cpu_battle.py",
+    "tests/test_tea_cosmo_whale.py",
+    "tests/test_whale_crab_v07855.py"
+  ],
+  "scope": {
+    "production_source_changed": false,
+    "manifest_changed": false,
+    "assets_or_text_changed": false,
+    "other_mods_changed": false,
+    "new_target": "i386 only",
+    "game_runtime_tested": false
+  },
+  "asset_validation": {
+    "png_integrity_and_pillow_decode": 56,
+    "coin_pngs_production_decoder_ASan_UBSan": 52,
+    "wav_structure": 5,
+    "text_references": 65,
+    "settings_preserved": 48
+  },
+  "loader": {
+    "object_hash": "52ce4829",
+    "assertions": 7415,
+    "successful_initializations": 11,
+    "full_lifecycle_cycles": 10,
+    "no_provider_service_success": true,
+    "missing_assets_rejected": true,
+    "hooks": 50,
+    "subscriptions": 2,
+    "provider_abis": {
+      "recipe_v1": 1,
+      "effect_intelligence_v1": 1,
+      "effect_forecast_v2": 2,
+      "position-rules-v1": 1
+    },
+    "actual_manager": false,
+    "native_state_registration_count": 0,
+    "synthetic_save_load": "reset clears native Ritual markers; re-ritual needed by existing design"
+  },
+  "initial_tests": [
+    {
+      "name": "test_automatic_field_gate",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_automatic_field_gate.py"
+      ],
+      "returncode": 0,
+      "output": "PASS automatic terrain action gate: Tri, BLS, Zera, Crab; complete visual before attack; disabled/normal unaffected\n"
+    },
+    {
+      "name": "test_battle_marker_retention",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_battle_marker_retention.py"
+      ],
+      "returncode": 0,
+      "output": "Shield/Yamadron/Hungry/Javelin native battle staging: OK\n"
+    },
+    {
+      "name": "test_egotist_bridge",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_egotist_bridge.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: all 24 Ritual families, one-shot arming, revocation, true Ritual preservation, settings and face-down gate\n"
+    },
+    {
+      "name": "test_hungry_cpu_battle",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_hungry_cpu_battle.py"
+      ],
+      "returncode": 1,
+      "output": "identifier is reported only once for each function it appears in\n/tmp/hungry-cpu-5fymehaz/test.c:143:50: error: ‘STAT_HINT_GARMA’ undeclared (first use in this function)\n  143 |     if ((garma_live_hint || (stat_effect_hints & STAT_HINT_GARMA)) && new_effect_monster &&\n      |                                                  ^~~~~~~~~~~~~~~\n/tmp/hungry-cpu-5fymehaz/test.c:143:71: error: ‘new_effect_monster’ undeclared (first use in this function)\n  143 |     if ((garma_live_hint || (stat_effect_hints & STAT_HINT_GARMA)) && new_effect_monster &&\n      |                                                                       ^~~~~~~~~~~~~~~~~~\n/tmp/hungry-cpu-5fymehaz/test.c:144:17: error: ‘garma_marks’ undeclared (first use in this function)\n  144 |         i>=0 && garma_marks[i].ritual && card->card_id==GARMA_SWORD_ID &&\n      |                 ^~~~~~~~~~~\n/tmp/hungry-cpu-5fymehaz/test.c:144:57: error: ‘GARMA_SWORD_ID’ undeclared (first use in this function)\n  144 |         i>=0 && garma_marks[i].ritual && card->card_id==GARMA_SWORD_ID &&\n      |                                                         ^~~~~~~~~~~~~~\nTraceback (most recent call last):\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_hungry_cpu_battle.py\", line 183, in <module>\n    subprocess.run(['gcc','-std=c99','-O1','-Wall','-Wextra','-Wno-unused-function','-o',str(exe),str(code)],check=True)\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/subprocess.py\", line 571, in run\n    raise CalledProcessError(retcode, process.args,\nsubprocess.CalledProcessError: Command '['gcc', '-std=c99', '-O1', '-Wall', '-Wextra', '-Wno-unused-function', '-o', '/tmp/hungry-cpu-5fymehaz/test', '/tmp/hungry-cpu-5fymehaz/test.c']' returned non-zero exit status 1.\n"
+    },
+    {
+      "name": "test_logic_performance",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_logic_performance.py"
+      ],
+      "returncode": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_logic_performance.py\", line 145, in <module>\n    main()\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_logic_performance.py\", line 77, in main\n    old = (args.baseline / \"mod.c\").read_text()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/workspace/work/hal20-ritual/repo/baseline/ritual-card-effects/mod.c'\n"
+    },
+    {
+      "name": "test_mirror_defense",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_mirror_defense.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: ritual Mirror defensive direct damage ignores DEF; stale marks rejected\n"
+    },
+    {
+      "name": "test_mirror_direct_lp",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_mirror_direct_lp.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: Mirror defensive damage, lethal reflection, no repeat or trap-aborted damage\n"
+    },
+    {
+      "name": "test_mirror_lp_commit",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_mirror_lp_commit.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: no duplicated battle LP event or phantom Spellbinding reflection; other real losses preserved\n"
+    },
+    {
+      "name": "test_psycho_cpu_symmetry",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_psycho_cpu_symmetry.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: CPU/human Puppet target routing, instance isolation and Deck identity after move\n"
+    },
+    {
+      "name": "test_psycho_permanent",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_psycho_permanent.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: Puppet permanent control, delayed death return, Raigeki, occupied zone and retry\n"
+    },
+    {
+      "name": "test_puppet_rebuild_identity",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_puppet_rebuild_identity.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: CPU borrowed-card reconstruction uses original combined Deck index and original identity\n"
+    },
+    {
+      "name": "test_recipe_performance",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_recipe_performance.py"
+      ],
+      "returncode": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_recipe_performance.py\", line 80, in <module>\n    main()\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_recipe_performance.py\", line 27, in main\n    fixture = (args.baseline / 'tests/test_provider_generated.c').read_text()\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/workspace/work/hal20-ritual/repo/baseline/ritual-card-effects/tests/test_provider_generated.c'\n"
+    },
+    {
+      "name": "test_render_performance",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_render_performance.py"
+      ],
+      "returncode": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_render_performance.py\", line 105, in <module>\n    main()\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_render_performance.py\", line 85, in main\n    generated_sources(args.baseline.resolve(), current, temporary)\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_render_performance.py\", line 41, in generated_sources\n    old = (baseline / \"mod.c\").read_text()\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1027, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/pathlib.py\", line 1013, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '/workspace/work/hal20-ritual/repo/baseline/ritual-card-effects/mod.c'\n"
+    },
+    {
+      "name": "test_tea_cosmo_whale",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_tea_cosmo_whale.py"
+      ],
+      "returncode": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_tea_cosmo_whale.py\", line 21, in <module>\n    assert 'fish_in_hand_and_field(side,i)*FORTRESS_FISH_DEF' in src\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+    },
+    {
+      "name": "test_tri_horned_beacon",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_tri_horned_beacon.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: Tri-Horned same-ID allied Dinosaur aura, source self-exclusion, opponent exclusion and magic protection\n"
+    },
+    {
+      "name": "test_v4_rules",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_v4_rules.py"
+      ],
+      "returncode": 0,
+      "output": "PASS V4 static contracts: dodge rewards and 50/35/15; face-down; Mask Equip aura; Garma sixth combat; descriptions\n"
+    },
+    {
+      "name": "test_whale_crab_v07855",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_whale_crab_v07855.py"
+      ],
+      "returncode": 1,
+      "output": "Traceback (most recent call last):\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_whale_crab_v07855.py\", line 14, in <module>\n    whale=extract('static unsigned fish_in_hand_and_field(')\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_whale_crab_v07855.py\", line 6, in extract\n    a=s.index(signature); p=s.index('{',a); depth=0\n      ^^^^^^^^^^^^^^^^^^\nValueError: substring not found\n"
+    },
+    {
+      "name": "test_zera_ultimate_debuff",
+      "command": [
+        "python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_zera_ultimate_debuff.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: Zera affects ordinary Ultimate, excludes only live Ritual Ultimate, respects settings/identity/staging\n"
+    },
+    {
+      "name": "test_provider_generated",
+      "command": [
+        "/workspace/work/hal20-ritual/test_provider_generated"
+      ],
+      "returncode": 0,
+      "output": "PASS producer: 18 recipes, Skull Monster, Chakra exclusion, 3 specials, toggles, disabled mod\n"
+    },
+    {
+      "name": "test_effect_intelligence",
+      "command": [
+        "/workspace/work/hal20-ritual/test_effect_intelligence"
+      ],
+      "returncode": 0,
+      "output": "PASS: effect owner live Settings/activation, stats, tribute selection, strategy (pure)\n"
+    },
+    {
+      "name": "test_effect_title_instance",
+      "command": [
+        "/workspace/work/hal20-ritual/test_effect_title_instance"
+      ],
+      "returncode": 0,
+      "output": "PASS: per-instance hand/field selection and off-duel isolation\n"
+    },
+    {
+      "name": "test_effect_title_visual",
+      "command": [
+        "/workspace/work/hal20-ritual/test_effect_title_visual"
+      ],
+      "returncode": 0,
+      "output": "PASS: active silver/lilac/orange, inactive white, restore, untouched body\n"
+    },
+    {
+      "name": "test_yamadron_ai_policy",
+      "command": [
+        "/workspace/work/hal20-ritual/test_yamadron_ai_policy"
+      ],
+      "returncode": 0,
+      "output": "Yamadron mandatory burn policy and both field layouts: PASS\n"
+    },
+    {
+      "name": "mask_equip_staging_test",
+      "command": [
+        "/workspace/work/hal20-ritual/mask_equip_staging_test"
+      ],
+      "returncode": 0,
+      "output": "PASS: 14 source-backed Mask Equip cases (staging, both sides, OFF, source removal, self, types)\n"
+    }
+  ],
+  "final_tests": [
+    {
+      "name": "test_automatic_field_gate",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_automatic_field_gate.py"
+      ],
+      "returncode": 0,
+      "output": "PASS automatic terrain action gate: Tri, BLS, Zera, Crab; complete visual before attack; disabled/normal unaffected\n"
+    },
+    {
+      "name": "test_battle_marker_retention",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_battle_marker_retention.py"
+      ],
+      "returncode": 0,
+      "output": "Shield/Yamadron/Hungry/Javelin native battle staging: OK\n"
+    },
+    {
+      "name": "test_egotist_bridge",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_egotist_bridge.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: all 24 Ritual families, one-shot arming, revocation, true Ritual preservation, settings and face-down gate\n"
+    },
+    {
+      "name": "test_hungry_cpu_battle",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_hungry_cpu_battle.py"
+      ],
+      "returncode": 0,
+      "output": "Hungry Burger player/CPU battle lifecycle: OK\n"
+    },
+    {
+      "name": "test_logic_performance",
+      "status": "SKIP",
+      "reason": "Historical v0.78.39 baseline absent from uploaded package; no performance claim"
+    },
+    {
+      "name": "test_mirror_defense",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_mirror_defense.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: ritual Mirror defensive direct damage ignores DEF; stale marks rejected\n"
+    },
+    {
+      "name": "test_mirror_direct_lp",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_mirror_direct_lp.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: Mirror defensive damage, lethal reflection, no repeat or trap-aborted damage\n"
+    },
+    {
+      "name": "test_mirror_lp_commit",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_mirror_lp_commit.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: no duplicated battle LP event or phantom Spellbinding reflection; other real losses preserved\n"
+    },
+    {
+      "name": "test_preview2_assets",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_preview2_assets.py"
+      ],
+      "returncode": 0,
+      "output": "PASS production PNG decoder: 52 images (ASan/UBSan, no rendering)\nPASS asset integrity: 56 PNGs, 5 WAVs, 65 texts, both coin sequences\nWAV (name, channels, bytes/sample, Hz, frames): [('dokurorider_escape.wav', 2, 2, 44100, 135475), ('garma_sword_spend.wav', 2, 2, 44100, 96768), ('hungry_bite.wav', 1, 2, 44100, 53096), ('javelin_shell.wav', 2, 2, 44100, 47232), ('tri_horn_break.wav', 1, 2, 44100, 28665)]\n"
+    },
+    {
+      "name": "test_psycho_cpu_symmetry",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_psycho_cpu_symmetry.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: CPU/human Puppet target routing, instance isolation and Deck identity after move\n"
+    },
+    {
+      "name": "test_psycho_permanent",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_psycho_permanent.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: Puppet permanent control, delayed death return, Raigeki, occupied zone and retry\n"
+    },
+    {
+      "name": "test_puppet_rebuild_identity",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_puppet_rebuild_identity.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: CPU borrowed-card reconstruction uses original combined Deck index and original identity\n"
+    },
+    {
+      "name": "test_recipe_performance",
+      "status": "SKIP",
+      "reason": "Historical v0.78.39 baseline absent from uploaded package; no performance claim"
+    },
+    {
+      "name": "test_render_performance",
+      "status": "SKIP",
+      "reason": "Historical v0.78.39 baseline absent from uploaded package; no performance claim"
+    },
+    {
+      "name": "test_tea_cosmo_whale",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_tea_cosmo_whale.py"
+      ],
+      "returncode": 0,
+      "output": "PASS Cosmo: Female group + exact 531/708, self-inclusive +500 logic; Whale regression delegated to test_whale_crab_v07855\n"
+    },
+    {
+      "name": "test_tri_horned_beacon",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_tri_horned_beacon.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: Tri-Horned same-ID allied Dinosaur aura, source self-exclusion, opponent exclusion and magic protection\n"
+    },
+    {
+      "name": "test_v4_rules",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_v4_rules.py"
+      ],
+      "returncode": 0,
+      "output": "PASS V4 static contracts: dodge rewards and 50/35/15; face-down; Mask Equip aura; Garma sixth combat; descriptions\n"
+    },
+    {
+      "name": "test_whale_crab_v07855",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_whale_crab_v07855.py"
+      ],
+      "returncode": 0,
+      "output": "PASS Fortress hand +500/field +1000 only, Crab Umi/type/Ultimate/provenance, Performance preserved\nPASS source wiring + compact description\n"
+    },
+    {
+      "name": "test_zera_ultimate_debuff",
+      "status": "PASS",
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_zera_ultimate_debuff.py"
+      ],
+      "returncode": 0,
+      "output": "PASS: Zera affects ordinary Ultimate, excludes only live Ritual Ultimate, respects settings/identity/staging\n"
+    },
+    {
+      "name": "test_provider_generated-build",
+      "status": "PASS",
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-ritual/repo/src",
+        "-I/workspace/work/hal20-ritual/repo/mods/ritual-card-effects",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_provider_generated.c",
+        "-o",
+        "/tmp/tmpjvo7tcui/test_provider_generated"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "name": "test_provider_generated",
+      "status": "PASS",
+      "command": [
+        "/tmp/tmpjvo7tcui/test_provider_generated"
+      ],
+      "returncode": 0,
+      "output": "PASS producer: 18 recipes, Skull Monster, Chakra exclusion, 3 specials, toggles, disabled mod\n"
+    },
+    {
+      "name": "test_effect_intelligence-build",
+      "status": "PASS",
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-ritual/repo/src",
+        "-I/workspace/work/hal20-ritual/repo/mods/ritual-card-effects",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_effect_intelligence.c",
+        "-o",
+        "/tmp/tmpjvo7tcui/test_effect_intelligence"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "name": "test_effect_intelligence",
+      "status": "PASS",
+      "command": [
+        "/tmp/tmpjvo7tcui/test_effect_intelligence"
+      ],
+      "returncode": 0,
+      "output": "PASS: effect owner live Settings/activation, stats, tribute selection, strategy (pure)\n"
+    },
+    {
+      "name": "test_effect_title_instance-build",
+      "status": "PASS",
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-ritual/repo/src",
+        "-I/workspace/work/hal20-ritual/repo/mods/ritual-card-effects",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_effect_title_instance.c",
+        "-o",
+        "/tmp/tmpjvo7tcui/test_effect_title_instance"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "name": "test_effect_title_instance",
+      "status": "PASS",
+      "command": [
+        "/tmp/tmpjvo7tcui/test_effect_title_instance"
+      ],
+      "returncode": 0,
+      "output": "PASS: per-instance hand/field selection and off-duel isolation\n"
+    },
+    {
+      "name": "test_effect_title_visual-build",
+      "status": "PASS",
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-ritual/repo/src",
+        "-I/workspace/work/hal20-ritual/repo/mods/ritual-card-effects",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_effect_title_visual.c",
+        "-o",
+        "/tmp/tmpjvo7tcui/test_effect_title_visual"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "name": "test_effect_title_visual",
+      "status": "PASS",
+      "command": [
+        "/tmp/tmpjvo7tcui/test_effect_title_visual"
+      ],
+      "returncode": 0,
+      "output": "PASS: active silver/lilac/orange, inactive white, restore, untouched body\n"
+    },
+    {
+      "name": "test_yamadron_ai_policy-build",
+      "status": "PASS",
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-ritual/repo/src",
+        "-I/workspace/work/hal20-ritual/repo/mods/ritual-card-effects",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/test_yamadron_ai_policy.c",
+        "-o",
+        "/tmp/tmpjvo7tcui/test_yamadron_ai_policy"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "name": "test_yamadron_ai_policy",
+      "status": "PASS",
+      "command": [
+        "/tmp/tmpjvo7tcui/test_yamadron_ai_policy"
+      ],
+      "returncode": 0,
+      "output": "Yamadron mandatory burn policy and both field layouts: PASS\n"
+    },
+    {
+      "name": "mask_equip_staging_test-build",
+      "status": "PASS",
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-ritual/repo/src",
+        "-I/workspace/work/hal20-ritual/repo/mods/ritual-card-effects",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/mask_equip_staging_test.c",
+        "-o",
+        "/tmp/tmpjvo7tcui/mask_equip_staging_test"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "name": "mask_equip_staging_test",
+      "status": "PASS",
+      "command": [
+        "/tmp/tmpjvo7tcui/mask_equip_staging_test"
+      ],
+      "returncode": 0,
+      "output": "PASS: 14 source-backed Mask Equip cases (staging, both sides, OFF, source removal, self, types)\n"
+    },
+    {
+      "name": "preview2_loader-build",
+      "status": "PASS",
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-ritual/repo/src",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/preview2_loader.c",
+        "/workspace/work/hal20-ritual/repo/src/pc/mods/object_loader.c",
+        "/workspace/work/hal20-ritual/repo/src/pc/mods/mod_libc.c",
+        "/workspace/work/hal20-ritual/repo/src/pc/guest/branch_thunks.c",
+        "/workspace/work/hal20-ritual/repo/src/pc/compat/fs.c",
+        "-lm",
+        "-o",
+        "/tmp/tmpjvo7tcui/loader"
+      ],
+      "returncode": 0,
+      "output": "In file included from /workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/preview2_loader.c:12:\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:50:1: warning: variably modified ‘DuelCardRecord_object_offset_must_be_0x00’ at file scope\n   50 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:53:1: warning: variably modified ‘DuelCardRecord_data_offset_must_be_0x04’ at file scope\n   53 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:56:1: warning: variably modified ‘DuelCardRecord_card_id_offset_must_be_0x0C’ at file scope\n   56 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:59:1: warning: variably modified ‘DuelCardRecord_attack_offset_must_be_0x0E’ at file scope\n   59 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:62:1: warning: variably modified ‘DuelCardRecord_defense_offset_must_be_0x10’ at file scope\n   62 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:65:1: warning: variably modified ‘DuelCardRecord_stat_modifier_offset_must_be_0x12’ at file scope\n   65 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:69:1: warning: variably modified ‘DuelCardRecord_defense_modifier_offset_must_be_0x1A’ at file scope\n   69 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:73:1: warning: variably modified ‘DuelCardRecord_terrain_modifier_offset_must_be_0x14’ at file scope\n   73 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:76:1: warning: variably modified ‘DuelCardRecord_flags_offset_must_be_0x16’ at file scope\n   76 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card.h:79:1: warning: variably modified ‘DuelCardRecord_table_index_offset_must_be_0x18’ at file scope\n   79 | ];\n      | ^\nIn file included from /workspace/work/hal20-ritual/repo/src/game/duel_side_state.h:8,\n                 from /workspace/work/hal20-ritual/repo/mods/ritual-card-effects/tests/preview2_loader.c:13:\n/workspace/work/hal20-ritual/repo/src/game/duel_card_effects.h:36:1: warning: variably modified ‘DuelFieldEffectObject_callback_offset_must_be_0x24’ at file scope\n   36 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card_effects.h:39:1: warning: variably modified ‘DuelFieldEffectObject_mark_offset_must_be_0x67’ at file scope\n   39 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_card_effects.h:42:1: warning: variably modified ‘DuelFieldEffectObject_active_offset_must_be_0x6C’ at file scope\n   42 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_side_state.h:79:1: warning: variably modified ‘DuelSideState_hand_must_be_at_0x1A’ at file scope\n   79 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_side_state.h:85:1: warning: variably modified ‘DuelSideState_deck_draw_cursor_must_be_at_0x18’ at file scope\n   85 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_side_state.h:88:1: warning: variably modified ‘DuelSideState_swords_turns_remaining_must_be_at_0x19’ at file scope\n   88 | ];\n      | ^\n/workspace/work/hal20-ritual/repo/src/game/duel_side_state.h:91:1: warning: variably modified ‘DuelSideState_card_view_mode_must_be_at_0x1F’ at file scope\n   91 | ];\n      | ^\n"
+    },
+    {
+      "name": "preview2_loader",
+      "status": "PASS",
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/tmp/tmpjvo7tcui/loader",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects/ritual-card-effects.o",
+        "/workspace/work/hal20-ritual/repo/mods/ritual-card-effects"
+      ],
+      "returncode": 0,
+      "output": "object_hash=52ce4829 hooks=50 provider_count=4 api=4; PNG coin assets decoded by production code\nPASS 7415 assertions; 10 full provider/lifecycle cycles, publication-absent init, assets-absent rejection; synthetic host, no duel\n"
+    }
+  ],
+  "permission": {
+    "coin_credit": "PeterIron, coin-flip-lib 1.0 adaptation",
+    "basis": "User explicitly confirmed having permission to redistribute the coin supplied by PeterIron during this task",
+    "not_a_new_license": true
+  }
+}
