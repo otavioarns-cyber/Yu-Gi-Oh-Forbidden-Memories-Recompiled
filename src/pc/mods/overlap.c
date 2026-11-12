@@ -638,6 +638,15 @@ static void read_cards(ModsOverlaps *x, int mod)
     }
 }
 
+/* {"remove": "all"} (tables.c): every disc recipe, unless a card is named "all". */
+#define ALL_RECIPES (1ull << 62)
+static int removes_all(ModsOverlaps *x, const JsonValue *removed)
+{
+    const char *text = Json_String(removed, NULL);
+    if (!text || strcmp(text, "all")) return 0;
+    return !x->source.card || x->source.card(text, 0, x->source.context) <= 0;
+}
+
 /* "fusions": a pair in either order, the later mod's rule winning;
  * "remove"s add up (a mod's own recipes still make the card). */
 static void read_fusions(ModsOverlaps *x, int mod)
@@ -646,7 +655,7 @@ static void read_fusions(ModsOverlaps *x, int mod)
         const JsonValue *with = Json_Member(rule, "with"), *removed = Json_Member(rule, "remove");
         if (!switched_on(x, mod, rule)) continue;
         if (removed) {
-            uint64_t key = card_key(x, removed);
+            uint64_t key = removes_all(x, removed) ? ALL_RECIPES : card_key(x, removed);
             if (key) claim(x, MODS_OVERLAP_FUSIONS, mod, (1ull << 63) | key, ADD, 0, rule);
         } else if (Json_Count(with) == 2) {
             uint64_t a = card_key(x, Json_At(with, 0)), b = card_key(x, Json_Next(Json_At(with, 0)));
@@ -685,14 +694,20 @@ static void read_equips(ModsOverlaps *x, int mod)
     if (bonus) claim(x, MODS_OVERLAP_EQUIPS, mod, DEFAULT_EQUIP_BONUS, SET, value_of(bonus), bonus);
 }
 
-/* "rituals": the latest recipe of a ritual card is the one used. */
+/* "rituals": the latest recipe of a ritual card is the one used. Where its
+ * tributes come from is part of it; "field", the default, written out or
+ * not, is the same recipe. */
 static void read_rituals(ModsOverlaps *x, int mod)
 {
     for (const JsonValue *e = Json_At(list_of(member(x, mod, "rituals")), 0); e; e = Json_Next(e)) {
         uint64_t key = card_key(x, Json_Member(e, "card"));
-        if (key && switched_on(x, mod, e))
-            claim(x, MODS_OVERLAP_RITUALS, mod, key, SET,
-                  hash_json(value_of(Json_Member(e, "tributes")), Json_Member(e, "result"), 0), e);
+        const JsonValue *from = Json_Member(e, "tributes_from");
+        uint32_t value;
+        if (!key || !switched_on(x, mod, e)) continue;
+        value = hash_json(value_of(Json_Member(e, "tributes")), Json_Member(e, "result"), 0);
+        if (from && !(Json_TypeOf(from) == JSON_STRING && !strcmp(Json_String(from, ""), "field")))
+            value = hash_json(value, from, 0);
+        claim(x, MODS_OVERLAP_RITUALS, mod, key, SET, value, e);
     }
 }
 
@@ -1026,7 +1041,7 @@ static Claim *limit_claim(ModsOverlaps *x, int mod, const char *path, const char
 {
     char label[200];
     Claim *c = claim(x, MODS_OVERLAP_LIMITS, mod, hash_text(key ? key : path), SET, value, v);
-    snprintf(label, sizeof(label), "Limit %s", path);
+    snprintf(label, sizeof(label), "Value %s", path);
     labelled(x, c, label);
     return c;
 }
@@ -1229,7 +1244,7 @@ static void read_text(ModsOverlaps *x, int mod)
 
 /* "title" and "menu": each key the latest mod's (title_config.c). Both say
  * "spacing" and "entries", which are one setting: an entry by its name or
- * its number 0-10. The title's "text" lines add up. A button belongs to the
+ * its number 0-10. The title's "text" lines and "images" add up. A button belongs to the
  * mod that makes it; another changes it by naming it "<mod id>:<id>", and
  * only when it loads after that mod. */
 static const char *const entry_names[] = {"new_game", "load",       "duel",    "trade",    "options", "campaign",
@@ -1277,9 +1292,10 @@ static void read_title(ModsOverlaps *x, int mod)
         char path[128];
         const char *name = name_of(m);
         snprintf(path, sizeof(path), "title.%.60s", name);
-        if (!strcmp(name, "text")) {
+        if (!strcmp(name, "text") || !strcmp(name, "images")) {
             if (Json_TypeOf(m) == JSON_ARRAY)
-                labelled(x, claim(x, MODS_OVERLAP_TITLE, mod, hash_text(path), ADD, 0, m), "title.text (lines)");
+                labelled(x, claim(x, MODS_OVERLAP_TITLE, mod, hash_text(path), ADD, 0, m),
+                         !strcmp(name, "text") ? "title.text (lines)" : "title.images (pictures)");
         } else if (!strcmp(name, "entries"))
             title_entries(x, mod, path, m);
         else
@@ -1380,6 +1396,19 @@ static void pack_passwords(ModsOverlaps *x, int mod, const JsonValue *list)
         }
     }
 }
+/* "ui": each element's keys the latest mod's (ui_config.c). */
+static void read_ui(ModsOverlaps *x, int mod)
+{
+    const JsonValue *duel = object_of(Json_Member(object_of(member(x, mod, "ui")), "duel"));
+    for (const JsonValue *e = Json_At(duel, 0); e; e = Json_Next(e)) {
+        for (const JsonValue *k = Json_At(object_of(e), 0); k; k = Json_Next(k)) {
+            char path[160];
+            snprintf(path, sizeof(path), "ui.duel.%.60s.%.60s", name_of(e), name_of(k));
+            labelled(x, claim(x, MODS_OVERLAP_UI, mod, hash_text(path), SET, value_of(k), k), path);
+        }
+    }
+}
+
 static void read_packs(ModsOverlaps *x, int mod)
 {
     const JsonValue *packs = member(x, mod, "packs");
@@ -2055,6 +2084,7 @@ ModsOverlaps *Mods_OverlapCompute(const ModsOverlapMod *mods, int count, const M
         if (having(x, "font") >= 2 && member(x, mod, "font"))
             claim(x, MODS_OVERLAP_FONT, mod, 0, ADD, 0, member(x, mod, "font"));
         if (having(x, "title") + having(x, "menu") >= 2) read_title(x, mod);
+        if (having(x, "ui") >= 2) read_ui(x, mod);
     }
     read_code(x);
     sector_runs(x);
@@ -2111,8 +2141,9 @@ const char *Mods_OverlapKindName(int kind)
 {
     static const char *const names[MODS_OVERLAP_KINDS] = {
         "Disc data", "Sounds",   "Texture images", "Cards",        "Fusions",  "Equips",          "Rituals",
-        "Drops and decks", "Starter decks", "Passwords", "Card packs", "Guardian Stars", "Limits", "Terrain bonuses",
-        "Attack traps", "Duelists", "Text", "Fonts", "Title screen and menus", "Code hooks", "Game events"};
+        "Drops and decks", "Starter decks", "Passwords", "Card packs", "Guardian Stars", "Values", "Terrain bonuses",
+        "Attack traps", "Duelists", "Text", "Fonts", "Title screen and menus", "Duel pictures", "Code hooks",
+        "Game events"};
     return kind >= 0 && kind < MODS_OVERLAP_KINDS ? names[kind] : "";
 }
 
@@ -2169,7 +2200,9 @@ void Mods_OverlapLabel(const ModsOverlaps *x, int index, char *out, size_t size)
         snprintf(out, size, "Card %s", a);
         return;
     case MODS_OVERLAP_FUSIONS:
-        if (Json_Member(c->src, "remove")) {
+        if (c->key == ((1ull << 63) | ALL_RECIPES)) {
+            snprintf(out, size, "Every disc recipe removed");
+        } else if (Json_Member(c->src, "remove")) {
             card_words(x, Json_Member(c->src, "remove"), a, sizeof(a));
             snprintf(out, size, "Disc recipes for %s removed", a);
         } else {

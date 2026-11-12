@@ -46,16 +46,28 @@ int CardArt_Crop(const char *path, int w, int h, int *x, int *y, int *cw, int *c
 int CardArt_TitleFromImage(const char *path, unsigned char *plate, char *why, size_t why_size);
 /* A picture of any size with see-through parts, for the title screen
  * (title_images.c): the PNG stretched to w x h, one byte a texel, entry 0
- * clear and 1-255 its colours in `clut` (256 BGR555 entries). */
+ * clear and 1-255 its colors in `clut` (256 BGR555 entries). */
 int CardArt_IndexedImage(const char *path, int w, int h, unsigned char *indices, unsigned short *clut, char *why,
                          size_t why_size);
+/* Several such pictures at once, all `w` x `h` and sharing the one palette
+ * in `clut`: the colors of all of them are reduced together, so a texel the
+ * same color in two of them is the same entry in both (a duelist's bust,
+ * busts.c, draws a talking frame's changes over its base by that). */
+int CardArt_IndexedImages(const char *const *paths, int count, int w, int h, unsigned char *const *indices,
+                          unsigned short *clut, char *why, size_t why_size);
+/* A sheet of `count` pictures one under another, each its share of the
+ * sheet's rows, made into `count` sets of texels as CardArt_IndexedImage
+ * makes one, all through the one palette (title_images.c's animations):
+ * the sheet's own colors, exactly, when it has 255 or fewer. */
+int CardArt_IndexedSheet(const char *path, int count, int w, int h, unsigned char *const *indices,
+                         unsigned short *clut, char *why, size_t why_size);
 /* The PNG's size; 0 when it is not one. */
 int CardArt_ImageSize(const char *path, int *width, int *height);
 /* PORTRAIT_RECORD bytes: a duelist's face for the Free Duel grid. */
 int CardArt_PortraitFromImage(const char *path, unsigned char *record, char *why, size_t why_size);
 /* A guardian star's icon, CARD_ICON_SIDE square at 4 bits a pixel (128
  * bytes, the low nibble first), from a PNG (stars.h): with `palette` its 16
- * colours (the disc's stars'), else the PNG's own 15 in `clut` (entry 0
+ * colors (the disc's stars'), else the PNG's own 15 in `clut` (entry 0
  * transparent). */
 #define CARD_ICON_SIDE 16
 int CardArt_IconFromImage(const char *path, const unsigned short *palette, unsigned char *pixels,

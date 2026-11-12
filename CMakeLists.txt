@@ -11,6 +11,11 @@ if(WIN32)
 endif()
 include(CTest)
 option(MEMORIES_SANITIZERS "Enable host address/undefined behavior checks" OFF)
+if(APPLE)
+    include(tools/pc/cmake/macos.cmake)
+    return()
+endif()
+
 set(MEMORIES_PSYZ_ROOT "" CACHE PATH "Optional pinned PSY-Z checkout (repository root)")
 
 add_library(memories_pc_core STATIC
@@ -18,6 +23,7 @@ add_library(memories_pc_core STATIC
     src/pc/compat/pgxp.c
     src/pc/compat/libgs_ot.c
     src/pc/memory.c
+    src/pc/mod_packets.c
     src/pc/render/packets.c
     src/pc/render/soft_gpu.c
     src/pc/render/texture_dump.c
@@ -77,6 +83,17 @@ if(BUILD_TESTING)
             target_compile_options(memories_trap_effects_test PRIVATE -mno-ms-bitfields)
         endif()
         add_test(NAME pc_trap_effects COMMAND memories_trap_effects_test)
+        # Not "dispatch": Windows takes an unmanifested exe whose name has
+        # "patch" in it for an installer and asks to elevate it.
+        add_executable(memories_card_effects_start_test tests/pc/card_effects_start_test.c)
+        target_include_directories(memories_card_effects_start_test PRIVATE src)
+        target_compile_definitions(memories_card_effects_start_test PRIVATE MEMORIES_PC)
+        target_compile_options(memories_card_effects_start_test PRIVATE -m32 -ffunction-sections -fdata-sections)
+        target_link_options(memories_card_effects_start_test PRIVATE -m32 -Wl,--gc-sections)
+        if(WIN32)
+            target_compile_options(memories_card_effects_start_test PRIVATE -mno-ms-bitfields)
+        endif()
+        add_test(NAME pc_card_effects_start COMMAND memories_card_effects_start_test)
     endif()
     add_executable(memories_deck_draft_test tests/pc/deck_draft_test.c)
     target_include_directories(memories_deck_draft_test PRIVATE src)
@@ -130,13 +147,18 @@ if(BUILD_TESTING)
     add_executable(memories_deck_shop_test tests/pc/deck_shop_test.c src/pc/saves/deck_shop.c)
     add_executable(memories_entry_layout_test tests/pc/entry_layout_test.c src/pc/text/entry_layout.c)
     add_executable(memories_state_remap_test tests/pc/state_remap_test.c src/pc/guest/state_remap.c)
+    add_executable(memories_state_io_test tests/pc/state_io_test.c src/pc/guest/state_io.c)
+    add_executable(memories_translated_state_symbols_test tests/pc/translated_state_symbols_test.c
+                   src/pc/guest/translated_state_symbols.c)
     add_executable(memories_control_protocol_test tests/pc/control_protocol_test.c src/pc/debug/control_protocol.c)
     add_executable(memories_control_net_test tests/pc/control_net_test.c src/pc/debug/control_net.c)
+    add_executable(memories_symbols_test tests/pc/symbols_test.c src/pc/debug/symbols.c src/pc/compat/fs.c)
     if(WIN32)
         target_link_libraries(memories_control_net_test PRIVATE ws2_32)
     endif()
     foreach(target memories_deck_shop_test memories_entry_layout_test memories_state_remap_test
-            memories_control_protocol_test memories_control_net_test)
+            memories_state_io_test memories_control_protocol_test memories_control_net_test memories_symbols_test
+            memories_translated_state_symbols_test)
         target_include_directories(${target} PRIVATE src)
         if(NOT MSVC)
             target_compile_options(${target} PRIVATE -Wall -Wextra -Wpedantic -Werror)
@@ -149,8 +171,12 @@ if(BUILD_TESTING)
     add_test(NAME pc_deck_shop COMMAND memories_deck_shop_test)
     add_test(NAME pc_entry_layout COMMAND memories_entry_layout_test)
     add_test(NAME pc_state_remap COMMAND memories_state_remap_test)
+    add_test(NAME pc_state_io COMMAND memories_state_io_test)
+    # Save states across translated builds: carried right or refused.
+    add_test(NAME pc_translated_state_symbols COMMAND memories_translated_state_symbols_test)
     add_test(NAME pc_control_protocol COMMAND memories_control_protocol_test)
     add_test(NAME pc_control_net COMMAND memories_control_net_test)
+    add_test(NAME pc_symbols COMMAND memories_symbols_test)
     set_tests_properties(pc_control_net PROPERTIES TIMEOUT 15)
     add_executable(memories_fusion_test tests/pc/fusion_test.c src/pc/cards/fusion.c)
     target_include_directories(memories_fusion_test PRIVATE src)
@@ -216,6 +242,14 @@ if(BUILD_TESTING)
         target_compile_options(memories_fs_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_fs COMMAND memories_fs_test)
+    # The Android crash report offer's reports folder (report_folder.h).
+    add_executable(memories_report_folder_test tests/pc/report_folder_test.c src/pc/platform/report_folder.c)
+    target_include_directories(memories_report_folder_test PRIVATE src tests/pc)
+    target_compile_definitions(memories_report_folder_test PRIVATE MEMORIES_REPORT_FOLDER_TEST)
+    if(NOT MSVC)
+        target_compile_options(memories_report_folder_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_report_folder COMMAND memories_report_folder_test)
     add_executable(memories_pc_core_test tests/pc/core_test.c)
     target_link_libraries(memories_pc_core_test PRIVATE memories_pc_core)
     add_test(NAME pc_core COMMAND memories_pc_core_test)
@@ -225,6 +259,34 @@ if(BUILD_TESTING)
     add_executable(memories_libgs_ot_test tests/pc/libgs_ot_test.c)
     target_link_libraries(memories_libgs_ot_test PRIVATE memories_pc_core)
     add_test(NAME pc_libgs_ot COMMAND memories_libgs_ot_test)
+    add_executable(memories_texture_dump_clear_test tests/pc/texture_dump_clear_test.c
+        src/pc/render/texture_dump.c)
+    target_include_directories(memories_texture_dump_clear_test PRIVATE src)
+    if(WIN32)
+        target_link_libraries(memories_texture_dump_clear_test PRIVATE memories_pc_fs)
+    endif()
+    if(NOT MSVC)
+        target_compile_options(memories_texture_dump_clear_test PRIVATE
+            -Wall -Wextra -Wpedantic -Werror -Wno-strict-prototypes)
+    endif()
+    add_test(NAME pc_texture_dump_clear COMMAND memories_texture_dump_clear_test)
+    # The translated runtime models a 64-bit host; 32-bit native targets
+    # retain their existing direct-memory contracts and test inventory.
+    if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+        add_executable(memories_texture_dump_guest_pointer_test tests/pc/texture_dump_guest_pointer_test.c
+            src/pc/render/texture_dump.c)
+        target_include_directories(memories_texture_dump_guest_pointer_test PRIVATE src)
+        target_compile_definitions(memories_texture_dump_guest_pointer_test PRIVATE MEMORIES_TRANSLATED)
+        if(WIN32)
+            target_link_libraries(memories_texture_dump_guest_pointer_test PRIVATE memories_pc_fs)
+        endif()
+        if(NOT MSVC)
+            target_compile_options(memories_texture_dump_guest_pointer_test PRIVATE
+                -Wall -Wextra -Wpedantic -Werror -Wno-strict-prototypes)
+        endif()
+        add_test(NAME pc_texture_dump_guest_pointer COMMAND memories_texture_dump_guest_pointer_test)
+    endif()
+
     add_executable(memories_pgxp_test tests/pc/pgxp_test.c)
     target_link_libraries(memories_pgxp_test PRIVATE memories_pc_core)
     add_test(NAME pc_pgxp COMMAND memories_pgxp_test)
@@ -237,6 +299,20 @@ if(BUILD_TESTING)
     add_executable(memories_libgpu_test tests/pc/libgpu_test.c)
     target_include_directories(memories_libgpu_test PRIVATE src)
     add_test(NAME pc_libgpu COMMAND memories_libgpu_test)
+    # Clang's per-file fp-contract pragma in libpress must preserve its
+    # reference pixels even when the caller enables FMA contraction.
+    if(CMAKE_C_COMPILER_ID MATCHES "Clang")
+        foreach(contract fast off)
+            add_executable(memories_libpress_${contract}_test tests/pc/libpress_test.c src/pc/sdk/libpress.c)
+            target_include_directories(memories_libpress_${contract}_test PRIVATE src)
+            target_compile_options(memories_libpress_${contract}_test PRIVATE
+                -O2 -Wall -Wextra -Wpedantic -Werror -Wno-strict-prototypes -ffp-contract=${contract})
+            if(UNIX)
+                target_link_libraries(memories_libpress_${contract}_test PRIVATE m)
+            endif()
+            add_test(NAME pc_libpress_contract_${contract} COMMAND memories_libpress_${contract}_test)
+        endforeach()
+    endif()
     add_executable(memories_soft_gpu_test tests/pc/soft_gpu_test.c)
     target_link_libraries(memories_soft_gpu_test PRIVATE memories_pc_core)
     add_test(NAME pc_soft_gpu COMMAND memories_soft_gpu_test)
@@ -302,6 +378,12 @@ if(BUILD_TESTING)
         target_compile_options(memories_button_layout_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_button_layout COMMAND memories_button_layout_test)
+    add_executable(memories_model_gate_command_test tests/pc/model_gate_command_test.c)
+    target_include_directories(memories_model_gate_command_test PRIVATE src)
+    if(NOT MSVC)
+        target_compile_options(memories_model_gate_command_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_model_gate_command COMMAND memories_model_gate_command_test)
     add_executable(memories_touch_pad_test tests/pc/touch_pad_test.c src/pc/platform/touch_pad.c)
     target_include_directories(memories_touch_pad_test PRIVATE src)
     if(NOT MSVC)
@@ -347,10 +429,12 @@ if(BUILD_TESTING)
     # Guest addresses are 32-bit words: a 32-bit build only.
     if(NOT MSVC AND (CMAKE_SIZEOF_VOID_P EQUAL 4 OR NOT WIN32))
         add_executable(memories_mips_varargs_test tests/pc/mips_varargs_test.c src/pc/guest/mips.c
-            src/game/func_80058838.c)
+            src/pc/guest/state_io.c src/game/func_80058838.c)
         target_include_directories(memories_mips_varargs_test PRIVATE src)
         target_compile_definitions(memories_mips_varargs_test PRIVATE MEMORIES_PC _LANGUAGE_C LANGUAGE_C)
         target_compile_options(memories_mips_varargs_test PRIVATE -Wall)
+        # clock_gettime (mips.c's trace): winpthread's on MinGW
+        target_link_libraries(memories_mips_varargs_test PRIVATE Threads::Threads)
         set_source_files_properties(src/game/func_80058838.c PROPERTIES COMPILE_OPTIONS "-fno-strict-aliasing")
         if(NOT WIN32)
             target_compile_options(memories_mips_varargs_test PRIVATE -m32)
@@ -359,27 +443,54 @@ if(BUILD_TESTING)
             target_compile_options(memories_mips_varargs_test PRIVATE -mno-ms-bitfields)
         endif()
         add_test(NAME pc_mips_varargs COMMAND memories_mips_varargs_test)
+        # The interpreter's stack as save states carry it (chunk "mips-stack").
+        add_executable(memories_mips_stack_test tests/pc/mips_stack_test.c src/pc/guest/mips.c
+            src/pc/guest/state_io.c)
+        target_include_directories(memories_mips_stack_test PRIVATE src)
+        target_compile_definitions(memories_mips_stack_test PRIVATE MEMORIES_PC _LANGUAGE_C LANGUAGE_C)
+        target_compile_options(memories_mips_stack_test PRIVATE -Wall)
+        target_link_libraries(memories_mips_stack_test PRIVATE Threads::Threads)
+        if(NOT WIN32)
+            target_compile_options(memories_mips_stack_test PRIVATE -m32)
+            target_link_options(memories_mips_stack_test PRIVATE -m32)
+        else()
+            target_compile_options(memories_mips_stack_test PRIVATE -mno-ms-bitfields)
+        endif()
+        add_test(NAME pc_mips_stack COMMAND memories_mips_stack_test)
     endif()
     # mod_libc.c lends mods the indirect-branch thunks (src/pc/guest/branch_thunks.c).
     add_executable(memories_mods_test tests/pc/mods_test.c src/pc/mods/mods.c src/pc/mods/events.c src/pc/mods/hooks.c src/pc/mods/manager.c src/pc/mods/overlap.c src/pc/mods/mod_libc.c
-        src/pc/mods/object_loader.c src/pc/mods/json.c src/pc/guest/branch_thunks.c
+        src/pc/mods/object_loader.c src/pc/mods/json.c src/pc/guest/branch_thunks.c src/pc/mod_packets.c
         src/pc/platform/paths.c src/pc/platform/settings.c)
     target_include_directories(memories_mods_test PRIVATE src)
     # The mod C library hands mods the maths functions and reads the monotonic
-    # clock, which on Windows (clock_gettime) comes from the threads library.
+    # clock, which on Windows (clock_gettime) comes from the threads library;
+    # libpng reads a mod's pictures (host->load_image).
     find_package(Threads REQUIRED)
-    target_link_libraries(memories_mods_test PRIVATE m Threads::Threads)
+    find_package(PNG REQUIRED)
+    target_link_libraries(memories_mods_test PRIVATE m Threads::Threads PNG::PNG)
     if(NOT MSVC)
         target_compile_options(memories_mods_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_mods COMMAND memories_mods_test)
     set(MOD_TEST_SOURCES src/pc/mods/mods.c src/pc/mods/manager.c src/pc/mods/overlap.c src/pc/mods/events.c src/pc/mods/hooks.c
-        src/pc/mods/mod_libc.c src/pc/mods/object_loader.c src/pc/mods/json.c src/pc/guest/branch_thunks.c
+        src/pc/mods/mod_libc.c src/pc/mods/object_loader.c src/pc/mods/json.c src/pc/guest/branch_thunks.c src/pc/mod_packets.c
         src/pc/platform/paths.c src/pc/platform/settings.c)
     add_executable(memories_mods_manager_test tests/pc/mods_manager_test.c ${MOD_TEST_SOURCES})
     target_include_directories(memories_mods_manager_test PRIVATE src)
-    target_link_libraries(memories_mods_manager_test PRIVATE m Threads::Threads)
+    target_link_libraries(memories_mods_manager_test PRIVATE m Threads::Threads PNG::PNG)
     add_test(NAME pc_mods_manager COMMAND memories_mods_manager_test)
+    # The mods folder the player chose (src/pc/mods/mods.c, Mods_Folder): each case
+    # is a process of its own, as Mods_Load scans once.
+    find_package(ZLIB REQUIRED)
+    add_executable(memories_mods_folder_test tests/pc/mods_folder_test.c src/pc/mods/import.c ${MOD_TEST_SOURCES})
+    target_include_directories(memories_mods_folder_test PRIVATE src)
+    target_link_libraries(memories_mods_folder_test PRIVATE m Threads::Threads ZLIB::ZLIB PNG::PNG)
+    foreach(mods_folder_case file precedence missing notfolder owned owned-up owned-user env envempty exclusive code)
+        add_test(NAME pc_mods_folder_${mods_folder_case} COMMAND memories_mods_folder_test ${mods_folder_case})
+    endforeach()
+    # envempty has nothing to test on Windows, which removes a variable set to nothing: it exits 77 there.
+    set_tests_properties(pc_mods_folder_envempty PROPERTIES SKIP_RETURN_CODE 77)
     # What enabled mods change in common (src/pc/mods/overlap.c): the mods in
     # tests/pc/mod_overlaps, whose lines the FM Editor's check must find too.
     add_executable(memories_mods_overlap_test tests/pc/mods_overlap_test.c src/pc/mods/overlap.c src/pc/mods/json.c
@@ -398,8 +509,11 @@ if(BUILD_TESTING)
     add_test(NAME pc_starchip_award COMMAND memories_starchip_award_test)
     add_executable(memories_disc_test tests/pc/disc_test.c src/pc/sdk/libds.c ${MOD_TEST_SOURCES})
     target_include_directories(memories_disc_test PRIVATE src)
-    target_compile_definitions(memories_disc_test PRIVATE MEMORIES_PC _POSIX_C_SOURCE=200809L)
-    target_link_libraries(memories_disc_test PRIVATE m Threads::Threads)
+    # The bigger models' arenas where a test process (32 bits without
+    # --large-address-aware, or under ASan) can map them.
+    target_compile_definitions(memories_disc_test PRIVATE MEMORIES_PC _POSIX_C_SOURCE=200809L
+                               MODEL_ARENA_BASE=0x50000000u)
+    target_link_libraries(memories_disc_test PRIVATE m Threads::Threads PNG::PNG)
     if(NOT MSVC)
         target_compile_options(memories_disc_test PRIVATE -Wall -Wextra -Werror)
     endif()
@@ -410,6 +524,8 @@ if(BUILD_TESTING)
     add_test(NAME pc_disc COMMAND memories_disc_test)
     add_test(NAME pc_disc_capacity COMMAND memories_disc_test capacity)
     add_test(NAME pc_disc_failed_code COMMAND memories_disc_test failed-code)
+    add_test(NAME pc_disc_models COMMAND memories_disc_test models)
+    add_test(NAME pc_disc_bigger_models COMMAND memories_disc_test bigger-models)
     # The test includes cards.c and relies on --gc-sections to drop the parts
     # that need the game and renderer. ELF linkers resolve symbols after GC;
     # the PE linker reports them before it, so this test is ELF-only.
@@ -433,13 +549,20 @@ if(BUILD_TESTING)
     target_include_directories(memories_password_data_test PRIVATE src)
     target_compile_definitions(memories_password_data_test PRIVATE MEMORIES_PC)
     add_test(NAME pc_password_data COMMAND memories_password_data_test)
-    add_executable(memories_tables_test tests/pc/tables_test.c tests/pc/duelists_stubs.c src/pc/mods/json.c)
+    add_executable(memories_tables_test tests/pc/tables_test.c tests/pc/duelists_stubs.c tests/pc/fields_texture_pack_stub.c src/pc/cards/fields.c src/pc/mods/json.c)
     target_include_directories(memories_tables_test PRIVATE src)
     target_compile_definitions(memories_tables_test PRIVATE MEMORIES_PC)
     if(NOT MSVC)
         target_compile_options(memories_tables_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_tables COMMAND memories_tables_test)
+    add_executable(memories_fields_test tests/pc/fields_test.c src/pc/mods/json.c)
+    target_include_directories(memories_fields_test PRIVATE src)
+    target_compile_definitions(memories_fields_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_fields_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_fields COMMAND memories_fields_test)
     # Guardian Stars: the matchup table a mod's "guardian_stars" gives, pair by
     # pair against tests/pc/guardian_stars/*.expected, which the FM Editor's
     # test checks its own arithmetic against too.
@@ -452,9 +575,16 @@ if(BUILD_TESTING)
         target_compile_options(memories_stars_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_stars COMMAND memories_stars_test)
+    add_executable(memories_attributes_test tests/pc/attributes_test.c src/pc/mods/json.c)
+    target_include_directories(memories_attributes_test PRIVATE src)
+    target_compile_definitions(memories_attributes_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_attributes_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_attributes COMMAND memories_attributes_test)
     # A card's "stars" through cards.c's own add_entry, on a stand-in for the
     # disc's tables (notes/modding.md, "No star").
-    add_executable(memories_cards_stars_test tests/pc/cards_stars_test.c src/pc/cards/stars.c
+    add_executable(memories_cards_stars_test tests/pc/cards_stars_test.c tests/pc/attribute_icons_stub.c tests/pc/fields_texture_pack_stub.c src/pc/cards/stars.c src/pc/cards/attributes.c src/pc/cards/fields.c
                    src/pc/mods/json.c src/pc/cards/monster_effects.c tests/pc/effect_groups_stub.c)
     target_include_directories(memories_cards_stars_test PRIVATE src)
     target_compile_definitions(memories_cards_stars_test PRIVATE MEMORIES_PC)
@@ -468,17 +598,47 @@ if(BUILD_TESTING)
     # Two mods' "cards" in the load order the settings give, through the real
     # mod loader and cards.c's Cards_Build: once as the folders sort, once
     # with the second moved first (notes/more-cards.md).
-    add_executable(memories_cards_order_test tests/pc/cards_order_test.c src/pc/cards/stars.c ${MOD_TEST_SOURCES}
+    add_executable(memories_cards_order_test tests/pc/cards_order_test.c tests/pc/battle_models_stub.c tests/pc/attribute_icons_stub.c tests/pc/fields_texture_pack_stub.c src/pc/cards/stars.c src/pc/cards/attributes.c src/pc/cards/fields.c ${MOD_TEST_SOURCES}
                    src/pc/cards/monster_effects.c tests/pc/effect_groups_stub.c)
     target_include_directories(memories_cards_order_test PRIVATE src)
     target_compile_definitions(memories_cards_order_test PRIVATE MEMORIES_PC)
-    target_link_libraries(memories_cards_order_test PRIVATE m Threads::Threads)
+    target_link_libraries(memories_cards_order_test PRIVATE m Threads::Threads PNG::PNG)
     if(NOT MSVC)
         target_compile_options(memories_cards_order_test PRIVATE -Wall -Wextra)
     endif()
     add_test(NAME pc_cards_order_found COMMAND memories_cards_order_test found)
     add_test(NAME pc_cards_order_moved COMMAND memories_cards_order_test b-first)
-    add_executable(memories_free_duel_progress_test tests/pc/free_duel_progress_test.c tests/pc/duelists_stubs.c src/pc/mods/json.c)
+    # Custom monster types (API 15, cards.c's "card_types"):
+    # a retail type renamed, the whole 24-255 bank, a retail card converted
+    # to and from a custom monster type, a name collision, two mods
+    # redefining one id, and a name the game has no letters for.
+    add_executable(memories_card_types_test tests/pc/card_types_test.c tests/pc/battle_models_stub.c tests/pc/attribute_icons_stub.c tests/pc/fields_texture_pack_stub.c src/pc/cards/stars.c src/pc/cards/attributes.c src/pc/cards/fields.c ${MOD_TEST_SOURCES}
+                   src/pc/cards/monster_effects.c tests/pc/effect_groups_stub.c)
+    target_include_directories(memories_card_types_test PRIVATE src)
+    target_compile_definitions(memories_card_types_test PRIVATE MEMORIES_PC)
+    target_link_libraries(memories_card_types_test PRIVATE m Threads::Threads PNG::PNG)
+    if(NOT MSVC)
+        target_compile_options(memories_card_types_test PRIVATE -Wall -Wextra)
+    endif()
+    add_test(NAME pc_card_types_rename COMMAND memories_card_types_test rename)
+    add_test(NAME pc_card_types_range COMMAND memories_card_types_test range)
+    add_test(NAME pc_card_types_magic_to_monster COMMAND memories_card_types_test magic-to-monster)
+    add_test(NAME pc_card_types_monster_to_trap COMMAND memories_card_types_test monster-to-trap)
+    add_test(NAME pc_card_types_collision COMMAND memories_card_types_test collision)
+    add_test(NAME pc_card_types_multi_mod COMMAND memories_card_types_test multi-mod)
+    add_test(NAME pc_card_types_bad_glyphs COMMAND memories_card_types_test bad-glyphs)
+    # Custom monster type icons (type_icons.c): a successful load's slot
+    # math, a missing/corrupt PNG's throttled retry, a lost HD
+    # registration's diagnostic, and the mark/cell round trip the duel's and
+    # the card view's drawing use to find a type's icon.
+    add_executable(memories_type_icons_test tests/pc/type_icons_test.c)
+    target_include_directories(memories_type_icons_test PRIVATE src)
+    target_compile_definitions(memories_type_icons_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_type_icons_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_type_icons COMMAND memories_type_icons_test)
+    add_executable(memories_free_duel_progress_test tests/pc/free_duel_progress_test.c tests/pc/duelists_stubs.c tests/pc/fields_texture_pack_stub.c src/pc/cards/fields.c src/pc/mods/json.c)
     target_include_directories(memories_free_duel_progress_test PRIVATE src)
     target_compile_definitions(memories_free_duel_progress_test PRIVATE MEMORIES_PC)
     if(NOT MSVC)
@@ -495,7 +655,7 @@ if(BUILD_TESTING)
     endif()
     add_test(NAME pc_font_art COMMAND memories_font_art_test)
     set_tests_properties(pc_font_art PROPERTIES SKIP_RETURN_CODE 77)
-    add_executable(memories_card_drops_test tests/pc/card_drops_test.c src/pc/cards/tables.c tests/pc/duelists_stubs.c src/pc/mods/json.c)
+    add_executable(memories_card_drops_test tests/pc/card_drops_test.c src/pc/cards/tables.c tests/pc/duelists_stubs.c tests/pc/fields_texture_pack_stub.c src/pc/cards/fields.c src/pc/mods/json.c)
     target_include_directories(memories_card_drops_test PRIVATE src)
     target_compile_definitions(memories_card_drops_test PRIVATE MEMORIES_PC)
     # The game's headers (drops.c's save and reward layouts) are 32-bit.
@@ -506,6 +666,18 @@ if(BUILD_TESTING)
         target_compile_options(memories_card_drops_test PRIVATE -mno-ms-bitfields)
     endif()
     add_test(NAME pc_card_drops COMMAND memories_card_drops_test)
+    # A win's starchips past the results row's eight (src/pc/cards/starchip_prize.c):
+    # the results record's layout is 32-bit.
+    add_executable(memories_starchip_prize_test tests/pc/starchip_prize_test.c)
+    target_include_directories(memories_starchip_prize_test PRIVATE src)
+    target_compile_definitions(memories_starchip_prize_test PRIVATE MEMORIES_PC)
+    if(NOT WIN32)
+        target_compile_options(memories_starchip_prize_test PRIVATE -m32)
+        target_link_options(memories_starchip_prize_test PRIVATE -m32)
+    else()
+        target_compile_options(memories_starchip_prize_test PRIVATE -mno-ms-bitfields)
+    endif()
+    add_test(NAME pc_starchip_prize COMMAND memories_starchip_prize_test)
     # The decks a mod offers a new game (src/pc/cards/starter.c). It reads
     # manifests and its own records only, with none of the game's 32-bit
     # layouts, so this one builds at the host's own width.
@@ -525,6 +697,75 @@ if(BUILD_TESTING)
         target_compile_options(memories_title_config_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_title_config COMMAND memories_title_config_test)
+    # A duelist's bust (src/pc/free_duel/busts.c): "bust" as read, and the
+    # records it is made into read back as the game reads a character's
+    # parts bank, on the test's own pictures.
+    add_executable(memories_busts_test tests/pc/busts_test.c src/pc/mods/json.c)
+    target_include_directories(memories_busts_test PRIVATE src)
+    target_compile_definitions(memories_busts_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_busts_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    if(MEMORIES_SANITIZERS)
+        target_compile_options(memories_busts_test PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer)
+        target_link_options(memories_busts_test PRIVATE -fsanitize=address,undefined)
+    endif()
+    add_test(NAME pc_busts COMMAND memories_busts_test)
+    # The mods' "tower" key and a save's progress in it
+    # (src/pc/tower/tower_config.c): manifests and numbers only.
+    add_executable(memories_tower_test tests/pc/tower_test.c src/pc/mods/json.c)
+    target_include_directories(memories_tower_test PRIVATE src)
+    target_compile_definitions(memories_tower_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_tower_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    if(MEMORIES_SANITIZERS)
+        target_compile_options(memories_tower_test PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer)
+        target_link_options(memories_tower_test PRIVATE -fsanitize=address,undefined)
+    endif()
+    add_test(NAME pc_tower COMMAND memories_tower_test)
+    # What the game asks of the tower (src/pc/tower/tower.c): its unlock,
+    # the floor's rules only in its own duel, the duelists' conditions, and
+    # the progress beside the save, with the game's bytes as variables.
+    add_executable(memories_tower_game_test tests/pc/tower_game_test.c src/pc/tower/tower.c
+        src/pc/tower/tower_config.c src/pc/mods/json.c)
+    target_include_directories(memories_tower_game_test PRIVATE src)
+    target_compile_definitions(memories_tower_game_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_tower_game_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    if(MEMORIES_SANITIZERS)
+        target_compile_options(memories_tower_game_test PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer)
+        target_link_options(memories_tower_game_test PRIVATE -fsanitize=address,undefined)
+    endif()
+    add_test(NAME pc_tower_game COMMAND memories_tower_game_test)
+    # The mods' "ui" key as read (src/pc/platform/ui_config.c): manifests only,
+    # so at the host's own width too.
+    add_executable(memories_ui_config_test tests/pc/ui_config_test.c src/pc/mods/json.c)
+    target_include_directories(memories_ui_config_test PRIVATE src)
+    target_compile_definitions(memories_ui_config_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_ui_config_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_ui_config COMMAND memories_ui_config_test)
+    # The mods' "card_layout" key as read (src/pc/cards/card_layout.c):
+    # manifests only, none of the game's own rendering.
+    add_executable(memories_card_layout_test tests/pc/card_layout_test.c src/pc/mods/json.c)
+    target_include_directories(memories_card_layout_test PRIVATE src)
+    target_compile_definitions(memories_card_layout_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_card_layout_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_card_layout COMMAND memories_card_layout_test)
+    # The mods' "palette_ramps" key (src/pc/mods/palette_ramps.c), VRAM
+    # uploads caught.
+    add_executable(memories_palette_ramps_test tests/pc/palette_ramps_test.c src/pc/mods/json.c)
+    target_include_directories(memories_palette_ramps_test PRIVATE src)
+    target_compile_definitions(memories_palette_ramps_test PRIVATE MEMORIES_PC)
+    if(NOT MSVC)
+        target_compile_options(memories_palette_ramps_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_palette_ramps COMMAND memories_palette_ramps_test)
     # Card packs (src/pc/cards/packs.c): the reader, the dealer and the
     # golden deals the FM Editor's Simulate is held to (packs_golden.txt).
     add_executable(memories_packs_test tests/pc/packs_test.c src/pc/mods/json.c)
@@ -540,6 +781,24 @@ if(BUILD_TESTING)
         target_compile_options(memories_text_listing_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_text_listing COMMAND memories_text_listing_test)
+    # The duel results screens' names (View > Opponent's name for COM) when a
+    # translation has result strings of its own: translation.c is included,
+    # with the rest stubbed.
+    add_executable(memories_results_names_test tests/pc/results_names_test.c src/pc/text/listing.c
+                   src/pc/text/utf8.c)
+    target_include_directories(memories_results_names_test PRIVATE src)
+    target_compile_definitions(memories_results_names_test PRIVATE MEMORIES_PC)
+    if(NOT WIN32)
+        target_compile_options(memories_results_names_test PRIVATE -m32)
+        target_link_options(memories_results_names_test PRIVATE -m32)
+    else()
+        target_compile_options(memories_results_names_test PRIVATE -mno-ms-bitfields)
+    endif()
+    if(MEMORIES_SANITIZERS)
+        target_compile_options(memories_results_names_test PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer)
+        target_link_options(memories_results_names_test PRIVATE -fsanitize=address,undefined)
+    endif()
+    add_test(NAME pc_results_names COMMAND memories_results_names_test)
     add_executable(memories_menu_cut_test tests/pc/menu_cut_test.c src/pc/text/menu_cut.c)
     target_include_directories(memories_menu_cut_test PRIVATE src)
     if(NOT MSVC)
@@ -567,13 +826,29 @@ if(BUILD_TESTING)
         target_compile_options(memories_serif_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_serif COMMAND memories_serif_test)
-    add_executable(memories_mods_window_test tests/pc/mods_window_test.c src/pc/platform/mods_window.c ${MOD_TEST_SOURCES})
-    target_link_libraries(memories_mods_window_test PRIVATE m Threads::Threads)
+    # Import mod... (src/pc/mods/import.c) inflates with zlib.
+    find_package(ZLIB REQUIRED)
+    add_executable(memories_mods_window_test tests/pc/mods_window_test.c src/pc/platform/mods_window.c
+        src/pc/mods/import.c src/pc/mods/hd_pack.c src/pc/mods/import_job.c src/pc/platform/update.c ${MOD_TEST_SOURCES})
+    target_link_libraries(memories_mods_window_test PRIVATE m Threads::Threads ZLIB::ZLIB PNG::PNG)
     target_include_directories(memories_mods_window_test PRIVATE src)
     if(NOT MSVC)
         target_compile_options(memories_mods_window_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
     endif()
     add_test(NAME pc_mods_window COMMAND memories_mods_window_test)
+    # Mods folder...: the run where MEMORIES_MODS_DIR is not set.
+    add_test(NAME pc_mods_window_folder COMMAND memories_mods_window_test folder)
+    # The same with no code mod loader (MEMORIES_NO_CODE_MODS, which no game
+    # build sets now): what an import says about a code mod there.
+    add_executable(memories_mods_window_no_code_test tests/pc/mods_window_test.c src/pc/platform/mods_window.c
+        src/pc/mods/import.c src/pc/mods/hd_pack.c src/pc/mods/import_job.c src/pc/platform/update.c ${MOD_TEST_SOURCES})
+    target_compile_definitions(memories_mods_window_no_code_test PRIVATE MEMORIES_NO_CODE_MODS)
+    target_link_libraries(memories_mods_window_no_code_test PRIVATE m Threads::Threads ZLIB::ZLIB PNG::PNG)
+    target_include_directories(memories_mods_window_no_code_test PRIVATE src)
+    if(NOT MSVC)
+        target_compile_options(memories_mods_window_no_code_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_mods_window_no_code COMMAND memories_mods_window_no_code_test)
     # Audio replacement: WAV/Ogg decoding, resampling, the "audio" manifest
     # object and the mixer side. stb_vorbis is upstream's file, built as is.
     add_executable(memories_audio_replace_test tests/pc/audio_replace_test.c src/pc/audio/replace.c
@@ -635,6 +910,29 @@ if(BUILD_TESTING)
         target_compile_options(memories_texture_pack_test PRIVATE -Wall -Wextra -Werror)
     endif()
     add_test(NAME pc_texture_pack COMMAND memories_texture_pack_test)
+    # The card frames' bank pictures (card_layout_art.c) against the real texture pack:
+    # the card-viewer back per style, and pictures read again after a mod change.
+    add_executable(memories_card_layout_art_test tests/pc/card_layout_art_test.c src/pc/render/texture_pack.c
+        src/pc/mods/json.c src/pc/platform/paths.c ${memories_platform_support})
+    target_compile_definitions(memories_card_layout_art_test PRIVATE _POSIX_C_SOURCE=200809L)
+    target_include_directories(memories_card_layout_art_test PRIVATE src)
+    target_link_libraries(memories_card_layout_art_test PRIVATE memories_pc_core PNG::PNG Threads::Threads)
+    if(NOT MSVC)
+        # -Wno-comment: card_layout_art.c writes "*w/*h" inside a comment.
+        target_compile_options(memories_card_layout_art_test PRIVATE -Wall -Wextra -Wno-comment -Werror)
+    endif()
+    add_test(NAME pc_card_layout_art COMMAND memories_card_layout_art_test)
+    # A mod's .zip into the mods folder (src/pc/mods/import.c, the Android
+    # Mods panel's Import): layouts, what counts as code, Replace, and the
+    # .zip files refused before anything is written.
+    add_executable(memories_mod_import_test tests/pc/mod_import_test.c src/pc/mods/import.c src/pc/mods/json.c
+        src/pc/platform/paths.c)
+    target_include_directories(memories_mod_import_test PRIVATE src)
+    target_link_libraries(memories_mod_import_test PRIVATE ZLIB::ZLIB)
+    if(NOT MSVC)
+        target_compile_options(memories_mod_import_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+    endif()
+    add_test(NAME pc_mod_import COMMAND memories_mod_import_test)
     # Card title plates (src/pc/cards/art.c), set from a name in the serif
     # face as a translated card's is: where FreeType is at hand (beside
     # libpng, as in the Windows dependencies), and skipped (77) on a system
@@ -660,6 +958,33 @@ if(BUILD_TESTING)
         endif()
         add_test(NAME pc_card_plate COMMAND memories_card_plate_test)
         set_tests_properties(pc_card_plate PROPERTIES SKIP_RETURN_CODE 77)
+        # The records art.c makes of a PNG, byte for byte (card picture,
+        # thumbnail, field cutout, portrait) against hashes held.
+        add_executable(memories_card_art_test tests/pc/card_art_test.c src/pc/cards/art.c)
+        target_include_directories(memories_card_art_test PRIVATE src ${MEMORIES_FREETYPE_INCLUDE})
+        target_link_libraries(memories_card_art_test PRIVATE ${MEMORIES_FREETYPE_LIBRARY} ${memories_plate_fonts}
+            PNG::PNG)
+        if(WIN32)
+            target_link_libraries(memories_card_art_test PRIVATE memories_pc_fs)
+        endif()
+        if(NOT MSVC)
+            target_compile_options(memories_card_art_test PRIVATE -Wall -Wextra -Werror)
+        endif()
+        add_test(NAME pc_card_art COMMAND memories_card_art_test "${CMAKE_CURRENT_BINARY_DIR}/card-art-test")
+        # What a duelist's bust costs the start (busts.c Busts_Make with the
+        # real art.c): the biggest bust and a typical one, drawn at runtime.
+        add_executable(memories_busts_make_test tests/pc/busts_make_test.c src/pc/cards/art.c src/pc/mods/json.c)
+        target_include_directories(memories_busts_make_test PRIVATE src ${MEMORIES_FREETYPE_INCLUDE})
+        target_compile_definitions(memories_busts_make_test PRIVATE MEMORIES_PC)
+        target_link_libraries(memories_busts_make_test PRIVATE ${MEMORIES_FREETYPE_LIBRARY} ${memories_plate_fonts}
+            PNG::PNG)
+        if(WIN32)
+            target_link_libraries(memories_busts_make_test PRIVATE memories_pc_fs)
+        endif()
+        if(NOT MSVC)
+            target_compile_options(memories_busts_make_test PRIVATE -Wall -Wextra -Werror)
+        endif()
+        add_test(NAME pc_busts_make COMMAND memories_busts_make_test "${CMAKE_CURRENT_BINARY_DIR}/busts-make-test")
     endif()
     # The update check's version order and release choice
     # (src/pc/platform/update.h, notes/updates.md); no network. The program's
@@ -695,6 +1020,26 @@ if(BUILD_TESTING)
     endif()
     add_test(NAME pc_scratch_rules COMMAND memories_scratch_rules_test)
 
+    # Shared guest helpers also run on fixed 32-bit and native 64-bit hosts.
+    add_executable(memories_state_requests_test tests/pc/state_requests_test.c src/pc/guest/state_requests.c)
+    add_executable(memories_image_loader_test tests/pc/image_loader_test.c src/pc/guest/image_loader.c)
+    add_executable(memories_function_map_test tests/pc/function_map_test.c)
+    add_executable(memories_ot_chain_test tests/pc/ot_chain_test.c)
+    foreach(helper state_requests image_loader function_map ot_chain)
+        target_include_directories(memories_${helper}_test PRIVATE src tests/pc)
+        if(WIN32)
+            target_link_libraries(memories_${helper}_test PRIVATE memories_pc_fs)
+        endif()
+        if(NOT MSVC)
+            target_compile_options(memories_${helper}_test PRIVATE -Wall -Wextra -Wpedantic -Werror)
+        endif()
+        if(MEMORIES_SANITIZERS)
+            target_compile_options(memories_${helper}_test PRIVATE -fsanitize=address,undefined -fno-omit-frame-pointer)
+            target_link_options(memories_${helper}_test PRIVATE -fsanitize=address,undefined)
+        endif()
+        add_test(NAME pc_${helper} COMMAND memories_${helper}_test)
+    endforeach()
+
     # The tests state every expectation with assert(). A Release configuration
     # defines NDEBUG, which would leave them running and checking nothing;
     # the Windows CI job builds Release, so this is what makes it a test run.
@@ -721,6 +1066,18 @@ endif()
 
 find_package(Python3 COMPONENTS Interpreter)
 if(Python3_Interpreter_FOUND)
+    if(WIN32)
+        set(memories_default_game_target windows)
+    else()
+        set(memories_default_game_target linux)
+    endif()
+    set(MEMORIES_GAME_TARGET "${memories_default_game_target}" CACHE STRING "Game target: linux, windows, windows-x64 or macos")
+    set_property(CACHE MEMORIES_GAME_TARGET PROPERTY STRINGS linux windows windows-x64 macos)
+    add_custom_target(pc_game
+        COMMAND "${Python3_EXECUTABLE}" tools/pc/build.py --target "${MEMORIES_GAME_TARGET}"
+        WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}"
+        USES_TERMINAL
+        COMMENT "Build the native ${MEMORIES_GAME_TARGET} game")
     add_custom_target(pc_audit
         COMMAND "${Python3_EXECUTABLE}" tools/pc/audit.py
             --output "${CMAKE_BINARY_DIR}/port-audit.json"
@@ -743,15 +1100,64 @@ if(Python3_Interpreter_FOUND)
         add_test(NAME pc_mod_cache
             COMMAND "${Python3_EXECUTABLE}" tools/pc/test_mod_cache.py
             WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
-    endif()
-    # The FM Editor's data layer (tools/pc/fm_editor), on synthetic game files.
-    if(BUILD_TESTING)
-        add_test(NAME pc_fm_editor
-            COMMAND "${Python3_EXECUTABLE}" -m unittest discover -s tools/pc/fm_editor/tests -t tools/pc
+        # What build_mod.py says when the 64-bit targets cannot be built, and
+        # the llvm-mingw it points to (no compiler needed).
+        add_test(NAME pc_build_mod_toolchain
+            COMMAND "${Python3_EXECUTABLE}" tools/pc/test_build_mod_toolchain.py
             WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+        # Every function the SDK's C library declares is lent to a mod of the
+        # translated game (Android, macOS), not only to the Windows ones.
+        add_test(NAME pc_mod_libc_lent
+            COMMAND "${Python3_EXECUTABLE}" tools/pc/test_mod_libc_lent.py
+            WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+        # The SDK's one-click build (tools/pc/sdk): the pins the launchers carry,
+        # the embeddable Python's sys.path, and both launchers run on a fake SDK with
+        # archives made in the test (nothing downloaded, no compiler started).
+        add_test(NAME pc_sdk_launchers
+            COMMAND "${Python3_EXECUTABLE}" tools/pc/test_sdk_launchers.py
+            WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+        # The guest pass an SDK ships (tools/pc/build_sdk_guest_ir.py): its
+        # pin, the check of an LLVM archive, and package.py's use of it
+        # (synthetic archives, nothing downloaded, no compiler started).
+        add_test(NAME pc_build_sdk_guest_ir
+            COMMAND "${Python3_EXECUTABLE}" tools/pc/test_build_sdk_guest_ir.py
+            WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+        # check_mod_abi.py unpacks only the release packages whose sha256
+        # mod_compat.txt pins (synthetic packages, nothing downloaded).
+        add_test(NAME pc_mod_compat_fetch
+            COMMAND "${Python3_EXECUTABLE}" tools/pc/test_mod_compat_fetch.py
+            WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+    endif()
+    # The FM Editor (tools/pc/fm_editor), on synthetic game files: one case
+    # per test file (pc_fm_editor_gui for test_gui.py, ...), as the whole
+    # suite outgrew CTest's 1500 s. Most open Tk windows, some take the focus:
+    # one at a time, other tests beside them. test_gui.py, a window built for
+    # nearly every one of its 96 tests, took 540 s with the machine half busy
+    # and passed 1500 s with it full, so it has a limit of its own.
+    if(BUILD_TESTING)
+        file(GLOB fm_editor_tests CONFIGURE_DEPENDS
+            "${CMAKE_SOURCE_DIR}/tools/pc/fm_editor/tests/test_*.py")
+        foreach(test_file IN LISTS fm_editor_tests)
+            get_filename_component(test_name "${test_file}" NAME_WE)
+            string(REGEX REPLACE "^test_" "" test_name "${test_name}")
+            get_filename_component(test_file "${test_file}" NAME)
+            add_test(NAME pc_fm_editor_${test_name}
+                COMMAND "${Python3_EXECUTABLE}" -m unittest discover -s tools/pc/fm_editor/tests
+                    -t tools/pc -p "${test_file}"
+                WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+            set_tests_properties(pc_fm_editor_${test_name} PROPERTIES RESOURCE_LOCK fm_editor_tk)
+            if(test_name STREQUAL "gui")
+                set_tests_properties(pc_fm_editor_gui PROPERTIES TIMEOUT 3600)
+            endif()
+        endforeach()
         # replay.py's check on made-up recordings (notes/agent-control.md).
         add_test(NAME pc_replay_check
             COMMAND "${Python3_EXECUTABLE}" tests/pc/replay_check_test.py
+            WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
+        # model_oracle.py's comparison and coverage on made-up games
+        # (notes/pc-build.md, "MIPS-only effects").
+        add_test(NAME pc_model_oracle_check
+            COMMAND "${Python3_EXECUTABLE}" tests/pc/model_oracle_test.py
             WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}")
         # Native units that name files reach compat/fs.h (notes/pc-build.md).
         add_test(NAME pc_utf8_paths
@@ -811,7 +1217,7 @@ if(BUILD_TESTING)
     # (src/pc/guest/low_memory.h): real functions in a 64-bit clang build,
     # malloc and free elsewhere, where low_memory.c compiles to nothing.
     foreach(target memories_duelists_test memories_stars_test memories_cards_stars_test memories_cards_order_test
-                   memories_cards_identity_test memories_card_notes_test)
+                   memories_cards_identity_test memories_card_notes_test memories_card_types_test)
         if(TARGET ${target})
             target_sources(${target} PRIVATE src/pc/guest/low_memory.c)
         endif()

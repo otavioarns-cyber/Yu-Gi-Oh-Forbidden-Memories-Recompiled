@@ -113,7 +113,7 @@ You may give one pool, two or all three. A pool you leave out stays the base's.
 ### Its own face
 
 **`portraits/dark-simon.png`** — any size, any proportions. The middle of it is
-taken at the portrait's shape and reduced to the 48×48 of 64 colours the
+taken at the portrait's shape and reduced to the 48×48 of 64 colors the
 console's slot holds, **and** the file itself is kept whole for the scaled
 picture. So one file gives both: the portrait is as sharp as your image is at
 View → Internal 2x and above, and correct at 1x.
@@ -312,9 +312,22 @@ Every condition given must hold. Without `unlock` it is shown from the start.
 | `story` | a campaign story flag. `0x6E0 + n` is "duelist *n* is unlocked in Free Duel", so `1762` is Teana's |
 | `card` | a card the trunk or deck must hold — by id or name |
 | `copies` | how many of `card` (**1** by default) |
+| `tower` | this run's [tower](tower-mode.md) (the last mod's that has one; with none on, it does not hold): `true` for it won to its top, or a floor, `1` up, won on this save |
+
+**Only in the tower.** `"tower_only": true` on an added duelist keeps it off
+the Free Duel grid until the [tower](tower-mode.md) lets it out: a won floor
+fights it, or names it in its reward's `unlock_duelist`. Whatever else its
+`unlock` says must hold too. The tower itself fights it all the same; a
+stock duelist keeps its campaign (`tower_only` on a `replace` is noted and
+left out).
+
+```json
+{ "id": "ghost", "copy": "Simon Muran", "name": "Ghost Simon", "tower_only": true }
+```
 
 **Nothing is stored.** Each condition is read from the save's own records,
-trunk and flags every time the Free Duel screen is built. So an unlock follows
+trunk and flags (and its climb of the tower) every time the Free Duel screen
+is built. So an unlock follows
 whichever save is loaded, needs no file of its own, and a win in the duel you
 just left opens up whatever it was the condition for — the screen is built
 again on the way back.
@@ -751,13 +764,19 @@ The Free Duel grid's slot is tiny: 48×48 pixels, 8 bits a pixel, through a
 Your PNG becomes both of these:
 
 1. **The console's portrait.** Centre-cropped to a square, box-averaged down to
-   48×48, and reduced to a palette of 64 colours. This is what the game draws at
-   View → Internal 1x, and it is what the grid's cell genuinely contains.
-2. **The picture itself, kept whole.** At Internal 2x and above, the renderer
-   draws your file at its own resolution instead of the 48×48 cell.
+   48×48, and reduced to a palette of 64 colors. It is what the grid's cell
+   genuinely contains, and what the game draws when your picture is 48×48 or
+   smaller.
+2. **The picture itself, kept whole.** A picture bigger than 48×48 is
+   registered the way a texture pack's image is, and a pack's image stands in
+   for the cell's texels at every scale: at View → Internal 1x its middle
+   square averaged down to 48×48 in the console's 15-bit color (not reduced
+   to 64), and at Internal 2x and above drawn at its own resolution.
 
 So a portrait is as sharp as the file you give it, with no second image and no
-"hd" folder. Give it one good picture.
+"hd" folder. Give it one good picture. The FM Editor's Duelists tab shows each
+of these as the game draws it, and `tests/pc/editor_duelists_runtime.py`
+holds its 1x picture to the game's frames pixel for pixel.
 
 #### What to give it
 
@@ -767,8 +786,9 @@ So a portrait is as sharp as the file you give it, with no second image and no
 - **Large is fine.** 512×512 or more is drawn at its own size when the internal
   resolution is high enough.
 - Transparency is not kept: the portrait slot has no alpha.
-- Strong, flat colour survives the 64-colour reduction better than a soft
-  gradient, which can band at 1x. The full-size picture is unaffected.
+- A picture of 48×48 or less is shown in its 64 colors: strong, flat color
+  survives that reduction better than a soft gradient, which can band. A
+  bigger picture is unaffected.
 
 ---
 
@@ -833,6 +853,231 @@ portraits/heishin-remade.png
 The disc's own duelists keep their faces unless a mod replaces them, and a
 texture pack's HD portraits still apply to those, since theirs *do* come from
 the disc.
+
+---
+
+## `bust` — the large character
+
+The portrait is the small face on the Free Duel grid. The **bust** is the large
+character the campaign's dialogue stands on its stone-framed box, the one a
+[tower](tower-mode.md#story)'s stories bring in. A duelist's entry may give it
+one of its own, with **named expressions** that talk and blink as the disc's
+do (mod API 17, [Which game a mod needs](modding.md#which-game-a-mod-needs)):
+
+```json
+{
+    "id": "ghost",
+    "copy": "Simon Muran",
+    "name": "Ghost Simon",
+    "bust": {
+        "default": "calm",
+        "expressions": [
+            {
+                "name": "calm",
+                "image": "busts/ghost/calm.png",
+                "talk": ["busts/ghost/calm-talk1.png", "busts/ghost/calm-talk2.png"],
+                "blink": "busts/ghost/calm-blink.png"
+            },
+            { "name": "angry", "image": "busts/ghost/angry.png", "talk": "busts/ghost/angry-talk1.png" },
+            { "name": "sad", "image": "busts/ghost/sad.png" }
+        ]
+    }
+}
+```
+
+`"bust": "busts/ghost.png"` is the short form: one expression, named
+`default`, that neither speaks nor blinks.
+
+| Key | Meaning |
+| --- | --- |
+| `default` | the expression a story shows when it names none; required (without it, or naming none of them, the first is taken, noted) |
+| `expressions` | the list, at most 16, each with a `name` (up to 31 bytes; two may not share one, whatever their case) and an `image` |
+| `image` | the expression's picture: a PNG with clear parts, a path inside the mod |
+| `talk` | a PNG, or a list of up to 4: the frames the mouth moves through while the words are typed |
+| `blink` | a PNG: the eyes shut, shown for a moment at the game's random times |
+
+**The pictures.** Every picture of a bust is the default expression's size
+(another size is stretched to it, noted), and a picture larger than 256 x 256
+is shrunk to fit, keeping its shape. It stands on the box as the campaign's
+characters do: its middle over the side's place, its bottom just under the
+box's top, or, taller than the 178 rows above it, its top at the screen's and
+the rest under the box. It is drawn at the console's resolution. All the
+pictures of a bust share one palette of 255 colors.
+
+**Talking and blinking** are the game's own (`DisplayEffect_UpdateMenuRecord`):
+the speaker's mouth takes the shape its letters ask for, and a speaker's eyes
+close now and then. A talking frame and a blink frame are drawn **over** the
+expression's picture where they differ from it, as the disc's mouths and eyes
+are parts drawn over a body: so draw them as the same picture with the mouth
+open, or the eyes shut. A frame can change and add pixels, not clear them. An
+expression without `talk` keeps its mouth still; without `blink` it never
+blinks; a frame the same as its picture is no frame. Nothing missing is ever a
+blank or a crash: the picture alone is what is left.
+
+**The expressions' numbers.** The game's codes number a character's
+expressions 0 to 3. A bust's are, in order: the **default** first, then the
+others **in the list's order** (above: calm 0, angry 1, sad 2). A story may name
+an expression by its name or by that number.
+
+**How many change in place.** The game changes a character's face in place
+(`F6 id 4e`) among four expressions of one record: one sheet of 256 x 256 texels
+and 2 KB of parts. The first expression of a record is its picture whole; the
+others are that picture where they are the same and their own parts where they
+differ, cut in squares from 128 texels down to 8; a talking or blink frame is
+the squares where it differs from its expression. So a bust whose expressions
+share a body and change their faces keeps four to a record easily (the tests'
+128 x 192 figure: three expressions with two talking frames and a blink each fit
+one record). What does not fit, and a fifth expression on, goes in the bust's
+next record: changing to it brings it in as another character -- the old one
+slides out and the new one in. An expression too big to fit a record even alone
+is made without its blink, then with fewer talking frames, the last first; the
+note says exactly which went and what it then does ("never blinks and talks
+with 1 frame"). The mods' busts have 127 records in all.
+
+**The picture's size: room to talk and blink.** The sheet's page is 256 x 256
+texels, 1024 squares of 8 x 8. A record's first expression takes the
+picture's rectangle (shrunk to fit, then rounded up to 8 each way) whole, and
+everything else -- the other expressions' differences and every talking and
+blink frame's -- goes in the squares it leaves, a square alike cut once. So:
+
+| picture | squares left for the frames |
+|---|---|
+| 256 x 256 (or larger, square) | none: it never talks or blinks |
+| 240 x 256 | 64 (a strip of 16 columns) |
+| 192 x 256, 256 x 192 | 256 |
+| 160 x 224 | 464 |
+| 128 x 192 | 640 |
+
+A mouth or eyes changed in a 32 x 16 area is about 8 squares a frame (more
+when it does not sit on the 8-texel grid). Keep a bust's picture to what the
+figure needs -- a bust shown from the waist up is taller than wide -- and its
+clear border small. The FM Editor's Conflicts warns when an expression's
+frames need more than its picture leaves, saying what the game will leave out
+(it compares colors where the game compares the palette's, so "about"), and
+the Bust page shows the room under the preview.
+
+### A disc duelist's bust
+
+A [replacement](#replacing-one-of-the-discs-duelists) entry may give one of the
+disc's duelists a bust:
+
+```json
+{ "replace": "Seto", "bust": { "default": "smug", "expressions": [ ... ] } }
+```
+
+That changes nothing in Free Duel (its name, face and play stay the disc's
+unless the entry says otherwise). By default it **adds** expressions: a story
+naming Seto, or Seto with a number, still shows the campaign's own character;
+only a story naming one of the bust's expressions by name shows the bust. The
+campaign is untouched.
+
+**`"replace_bust": true`** makes the bust the duelist's character **in the
+campaign too**. Off by default, because it changes the campaign:
+
+- the campaign character the duelist is (the table below) is drawn from the
+  bust in **every** scene that shows it -- every scene of the story, not only
+  that duelist's duels. A character several duelists share is the bust's for
+  all of them: replacing Seto's is Seto 2nd's and Seto 3rd's too (all three are
+  character 4), Teana's is Teana 2nd's, Jono's Jono 2nd's, Heishin's Heishin
+  2nd's;
+- the campaign's expression *n* (0-3) of that character is the bust's
+  expression *n* (the default, then the list's order); one the bust lacks, or
+  one past its first record, is its default;
+- talking and blinking are the bust's frames; the scenes themselves -- the
+  words, the box, the small portraits beside it, the backgrounds, the music,
+  what happens -- are the campaign's;
+- a tower's stories show the bust wherever they show that character, and
+  naming the duelist with no expression is the bust's default;
+- two duelists replacing the same character (Seto and Seto 3rd, say, from two
+  mods): the later mod in the load order has it, whichever duelist's id is
+  the higher -- within one mod, the later entry -- as with any other
+  replacement; the Mods window tells both mods which bust the campaign shows.
+
+Without `replace_bust` the campaign is the game's frame for frame (the
+end-to-end test compares the campaign's first scene with a master build's and
+with the same mod's without the bust). The villagers and the five shrine mages
+are no character in the campaign, so `replace_bust` changes nothing for them
+(noted). The campaign's other characters (the prince, 0x0C, and those that are
+nobody's duelist) are no duelist's to replace.
+
+### Which character a disc duelist is
+
+The large character the campaign brings in before each duelist's duel (the
+last `F6 01-40` of the text that starts it, `F8 0D <duelist>`; Jono's duels
+show none there, and he is 0x02 where he speaks; `tower_config.c`,
+`Tower_DuelistCharacter`). This is what a duelist shows on a tower's stage
+today, and what `replace_bust` replaces. An added duelist without a bust of
+its own is its base's.
+
+| # | duelist | character |
+| --- | --- | --- |
+| 1 | Simon Muran | 0x01 |
+| 2 | Teana | 0x03 |
+| 3 | Jono | 0x02 |
+| 4-6 | Villager 1-3 | none |
+| 7 | Seto | 0x04 |
+| 8 | Heishin | 0x07 |
+| 9 | Rex Raptor | 0x10 |
+| 10 | Weevil Underwood | 0x11 |
+| 11 | Mai Valentine | 0x12 |
+| 12 | Bandit Keith | 0x13 |
+| 13 | Shadi | 0x0F |
+| 14 | Yami Bakura | 0x14 |
+| 15 | Pegasus | 0x15 |
+| 16 | Isis | 0x2F |
+| 17 | Kaiba | 0x0E |
+| 18 | Mage Soldier | 0x18 |
+| 19 | Jono 2nd | 0x02 |
+| 20 | Teana 2nd | 0x03 |
+| 21, 23, 25, 27, 29 | Ocean, Forest, Mountain, Desert, Meadow Mage | none |
+| 22 | High Mage Secmeton | 0x1A |
+| 24 | High Mage Anubisius | 0x1C |
+| 26 | High Mage Atenza | 0x1E |
+| 28 | High Mage Martis | 0x20 |
+| 30 | High Mage Kepura | 0x22 |
+| 31 | Labyrinth Mage | 0x2E |
+| 32 | Seto 2nd | 0x04 |
+| 33 | Guardian Sebek | 0x23 |
+| 34 | Guardian Neku | 0x24 |
+| 35 | Heishin 2nd | 0x07 |
+| 36 | Seto 3rd | 0x04 |
+| 37 | DarkNite | 0x25 |
+| 38 | Nitemare | 0x26 |
+
+### On a tower's stage
+
+`{"duelist": "ghost", "expression": "angry"}` on a side of a story
+([Story](tower-mode.md#story)): the duelist's bust in that expression. A later
+line naming another expression of the same record changes the face in place.
+An added duelist with a bust is its bust wherever a story shows it, `"opponent"`
+included; a disc duelist only with `replace_bust`, or when a name of its bust's
+is asked for.
+
+### How a bust is made
+
+`src/pc/free_duel/busts.c`, once every mod is read (`Busts_Make`, from
+`Duelists_Build`): all of a bust's pictures through one palette
+(`CardArt_IndexedImages`), then into records of the disc's kind -- what
+`func_8003A560` keeps in a cache slot for a character it read from WA sector
+15182 + id x 50: a 384 x 256 sheet at 8 bits (the parts in its first 256
+columns, one texture page, as the disc's characters have them), two rows of 256
+colors (the second semi-transparent) and a 0x800-byte parts bank
+(`DisplayEffect_BuildResourceObjects`): per expression a body (variant 0
+held), eyes (variant 0 held with nothing over the body, variant 1 the blink's
+parts for eight frames, then a stop, which `DisplayEffect_UpdateMenuRecord`
+waits for to open them again) and a mouth (variants 0-7 for the glyph's kind:
+0 and 4-7 closed, 1 and 2 the first two talking frames held, 3 played through
+them and closed again). Each frame's parts have the disc's ten-bit offsets
+(flag 0x10). An expression without eyes or mouth has no such piece, as Simon
+Muran has no mouth on the disc. The four expression slots a record has are
+never empty: one it does not hold is its first's.
+
+A record is given to the game where a character's cache slot is filled
+(`Tower_FillCharacter`, `zz_tower_storage.c`, asked by `func_8003A560` before
+it reads the disc, `#ifdef MEMORIES_PC`): for a `replace_bust` character
+always, for a story's bust through the characters the disc keeps empty (0x27,
+0x28, 0x29, 0x0B, 0x05, the tower's pool). Without a replacing bust and a story
+on the screen it does nothing, and the disc is read as always.
 
 ---
 
@@ -1053,7 +1298,7 @@ along the top of the picture, above the FREE DUEL artwork: the button to go
 back at the left, "PAGE n/m" centred, the button to go on at the right, and
 beside each button the game's own red arrow — the sprite the card viewer puts
 at the foot of its page and the hand's card cycling puts either side of a card
-(texture `0x20C`, the operand before the colour choosing which way it faces).
+(texture `0x20C`, the operand before the color choosing which way it faces).
 A single page says nothing at all.
 
 All three runs are one string in one box on channel 2. Channel 3 is Build
@@ -1068,7 +1313,7 @@ number goes, and the English when a translation gives anything else. "L1" and
 "R1" are the buttons' own names and stay as they are.
 
 **The size command decides whether a box is drawn from the font.** `0xF8 0x04`
-is the cell size, not the colour — the colour is `0x0A`. Size 1 is the 8x8
+is the cell size, not the color — the color is `0x0A`. Size 1 is the 8x8
 sheet the card counts are drawn in and it sets `flags_34`'s `0x100`, after
 which `DuelEffect_AppendEntry` stamps every entry `flags_11 = 0xC0` and
 `func_80035E20` draws them through `sprites[2]` from that sheet. Those entries
@@ -1205,6 +1450,10 @@ would reach nothing but byte 0.
 * A duelist is a copy of one of the disc's: its model of play, its script and
   where the disc is read are its base's.
 * The strategy distributions in the bytecode are not reachable from `"ai"`.
+* A bust: 16 expressions, 4 talking frames each, pictures of 256 x 256 at
+  most, 4 expressions changed in place a record, 127 records for all the
+  mods' busts; a talking or blink frame draws over its expression, it cannot
+  clear what is there.
 
 ## Checking it
 
@@ -1216,14 +1465,46 @@ What the rest of the port does with a roster it cannot see is covered too.
 `pc_tables`, `pc_free_duel_progress`, `pc_card_drops` and `pc_rank` link units
 this touches, and share `tests/pc/duelists_stubs.c`: the list as a run with no
 duelist mod, the disc's forty, which is what their cases are written against.
-`pc_fm_editor` keeps a `decks` or `drops` entry naming an added duelist, or
-either table named as a file, exactly as the mod wrote it.
+`pc_fm_editor_roster` reads a mod's own roster as duelists to edit and writes it back
+in these folders (`fm_editor/tests/test_roster.py`), and keeps a `decks` or
+`drops` entry naming another mod's duelist, or either table named as a file,
+exactly as the mod wrote it. `tests/pc/editor_duelists_runtime.py` plays a
+roster the FM Editor made: the pages, the portraits against the game's frames,
+a duel's deck and its drop.
 
 `tests/pc/duelists_test.c` (`ctest -R pc_duelists`) covers what is settled
 without a screen: slots and their collisions, replacement precedence, the AI
 row's layering, face-down sight, every unlock condition, the rank rules, the
 folder reader, the mod API's resolver, which string id names a duelist, what a
 name in a manifest reaches, a record round-tripped through the sidecar by an
-identity with a space in it, and NEW GAME clearing the added records. It runs real manifests through the real
+identity with a space in it, NEW GAME clearing the added records, and which
+entry keeps a `bust` and a `replace_bust`. It runs real manifests through the real
 JSON reader, and is checked by mutation — better than twenty deliberate
 breaks, each of which fails it.
+
+`tests/pc/busts_test.c` (`ctest -R pc_busts`) reads `bust` right and wrong
+(every note it can raise) and reads the records it is made into back the way
+the game reads a character's parts bank: every expression's body drawn from
+the sheet is its picture texel for texel, its blink and talking frames drawn
+over it are those pictures, the variants the game may ask for are all there
+and stop where they must, an expression without frames has no eyes or mouth,
+a picture too big for a record with another goes on in the next, and a disc
+duelist's `replace_bust` takes over its character (the later of two in load
+order having it, both orders tried). `tests/pc/tower/busts_e2e.py` plays it in the game: a mod's duelist with
+three expressions talking, blinking and changing face in place in a tower
+story, the old forms beside it, and the campaign's first scene with Simon
+Muran's bust kept (frames hashed against a master build and the same mod's
+without the bust) and replaced.
+
+**What a bust costs the start.** The busts are made once, when the mods are
+read (`MEMORIES_TRACE=mods` logs `busts: N made into R records in T ms`). The
+cost is the pictures' colors: every picture of a bust goes through one
+palette (median cut, `art.c`), which once worked pixel by pixel -- 9 s for
+the most a bust can be (sixteen expressions of six frames at 256 x 256) and
+half a second for a typical one (three expressions of four frames at 160 x
+224) on a desktop's 32-bit build. It now works on the colors and how many
+pixels have each, sorts by counting and finds each color's entry once: the
+same palette and entries, byte for byte, in about 480 and 45 ms. What is
+left of the most is mostly reading its ninety-six PNGs. `pc_busts_make`
+(`tests/pc/busts_make_test.c`) draws both busts, makes them with the real
+`art.c` and prints the times.

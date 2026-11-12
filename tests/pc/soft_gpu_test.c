@@ -6,11 +6,11 @@
 } } while (0)
 #define AT(x, y) (SoftGpu_Vram()[(y) * SOFT_GPU_WIDTH + (x)])
 
-static int count(uint16_t colour)
+static int count(uint16_t color)
 {
     int n = 0, i;
     for (i = 0; i < SOFT_GPU_WIDTH * SOFT_GPU_HEIGHT; i++) {
-        n += SoftGpu_Vram()[i] == colour;
+        n += SoftGpu_Vram()[i] == color;
     }
     return n;
 }
@@ -32,7 +32,7 @@ int main(void)
     /* Flat quad (2,3)-(12,13): top-left rule gives exactly 10x10 pixels, and
      * the shared diagonal is drawn once (semi-transparency would show twice). */
     const uint32_t quad[] = {0xe1000000u, 0x2a0000f8u, 0x00030002u, 0x0003000cu, 0x000d0002u, 0x000d000cu};
-    /* 4bpp sprite through a CLUT, texel 0 transparent, raw colours. */
+    /* 4bpp sprite through a CLUT, texel 0 transparent, raw colors. */
     const uint32_t sprite[] = {0xe1000001u, 0x65808080u, 0x00200020u, 0x00500000u, 0x00020004u};
     const uint16_t clut[16] = {0, 0x001f, 0x03e0, 0x7c00};
     const uint16_t texture[2] = {0x3210, 0x0123};
@@ -144,6 +144,75 @@ int main(void)
         SoftGpu_SetWidescreen(0);
     }
     SoftGpu_SetRecorder(NULL);
-    puts("Software GPU fill-rule, CLUT, clip, transfer and widescreen checks passed");
+    /* Global fades use full-width flat rectangles, including 8-line wipe
+     * bands. Both directions and tinted/additive flashes must reach every
+     * side pixel, once, at native and scaled resolutions. Smaller UI
+     * rectangles and textured sprites keep their existing clipping. */
+    for (int scale = 1; scale <= 4; scale *= 2) {
+        const uint32_t area[] = {0xe3000000u | (256 << 10), 0xe4000000u | 319 | (495 << 10),
+                                 0xe5000000u | (256 << 11)};
+        const uint32_t make_target[] = {0x60000000u, 0, 0x00010001u};
+        const uint32_t band[] = {0xe1000040u, 0x62404040u, 0x00180000u, (8u << 16) | 320};
+        const uint32_t tint[] = {0xe1000020u, 0x62000020u, 0, (240u << 16) | 320};
+        const uint32_t black[] = {0xe1000040u, 0x62ffffffu, 0, (240u << 16) | 320};
+        const uint32_t white[] = {0xe1000020u, 0x62ffffffu, 0, (240u << 16) | 320};
+        const uint16_t *pixels;
+        const uint32_t *picture;
+        int x, w;
+        CHECK(SoftGpu_SetScale(scale));
+        SoftGpu_Reset();
+        SoftGpu_SetWidescreen(1);
+        CHECK(SoftGpu_Gp0(area, 3) == 3);
+        CHECK(SoftGpu_Gp0(make_target, 3) == 3);
+        SoftGpu_Fill(0, 256, 320, 240, 0xffffff);
+        CHECK(SoftGpu_Gp0(band, 4) == 4);
+        CHECK(SoftGpu_WideFrameView(0, 256, 320, 240, &pixels, &x, &w) && w == 428);
+        picture = SoftGpu_WidePicture(0, 256, 320, 240);
+        for (int column = 0; column < w; column++) {
+            CHECK(pixels[280 * SOFT_GPU_WIDTH + column] == AT(0, 280));
+            CHECK(pixels[279 * SOFT_GPU_WIDTH + column] == 0x7fff);
+            CHECK(pixels[288 * SOFT_GPU_WIDTH + column] == 0x7fff);
+            if (picture) CHECK(picture[(size_t)(280 * scale) * SOFT_GPU_WIDTH * scale + column * scale] ==
+                               picture[(size_t)(280 * scale) * SOFT_GPU_WIDTH * scale + 160 * scale]);
+        }
+        CHECK(AT(0, 280) != AT(0, 279));
+        CHECK(SoftGpu_Gp0(black, 4) == 4);
+        for (int column = 0; column < w; column++) CHECK(pixels[300 * SOFT_GPU_WIDTH + column] == 0);
+        CHECK(SoftGpu_Gp0(tint, 4) == 4);
+        for (int column = 0; column < w; column++) CHECK(pixels[300 * SOFT_GPU_WIDTH + column] == 4);
+        CHECK(SoftGpu_Gp0(white, 4) == 4);
+        for (int column = 0; column < w; column++) CHECK(pixels[300 * SOFT_GPU_WIDTH + column] == 0x7fff);
+        SoftGpu_SetWidescreen(0);
+    }
+    CHECK(SoftGpu_SetScale(1));
+
+    /* Texture banks: a polygon's page word names 1-15 by bits 11-14 and
+     * 16-31 with bit 10 too; an E1 word's bit 10 names no bank. */
+    {
+        const uint32_t area[] = {0xe3000000u, 0xe4000000u | 1023 | (511 << 10), 0xe5000000u};
+        uint32_t triangle[] = {0x25808080u, 200 | (200 << 16), 0, 204 | (200 << 16), 0, 200 | (204 << 16), 0};
+        const uint32_t page = 0xe1000000u | 0x100 | (1 << 10) | SOFT_GPU_BANK_TPAGE(1);
+        const uint32_t sprite15[] = {0x65808080u, 210 | (210 << 16), 0, 2 | (2 << 16)};
+        const uint16_t blue = 0x7c00;
+        uint16_t *seventeen = SoftGpu_Bank(17), *one = SoftGpu_Bank(1);
+        uint32_t state[6];
+        SoftGpu_Reset();
+        CHECK(SoftGpu_Gp0(area, 3) == 3);
+        CHECK(seventeen && one && SoftGpu_BankPixels(17) == seventeen && !SoftGpu_BankPixels(18));
+        CHECK(SOFT_GPU_BANK_TPAGE(17) == ((1u << 11) | (1u << 10)) && SOFT_GPU_BANK_TPAGE(15) == 15u << 11);
+        seventeen[0] = 0x001f;
+        one[0] = 0x03e0;
+        SoftGpu_Load(0, 0, 1, 1, &blue);
+        triangle[4] = (0x100 | SOFT_GPU_BANK_TPAGE(17)) << 16;
+        CHECK(SoftGpu_Gp0(triangle, 7) == 7 && AT(201, 201) == 0x001f);
+        SoftGpu_StateWords(state);
+        CHECK(((state[0] >> 11) & 15) == 0); /* an E1 cannot name 17 */
+        triangle[4] = (0x100 | SOFT_GPU_BANK_TPAGE(1)) << 16;
+        CHECK(SoftGpu_Gp0(triangle, 7) == 7 && AT(201, 201) == 0x03e0);
+        triangle[4] = (0x100 | SOFT_GPU_BANK_TPAGE(18)) << 16; /* never made: VRAM */
+        CHECK(SoftGpu_Gp0(triangle, 7) == 7 && AT(201, 201) == blue);
+        CHECK(SoftGpu_Gp0(&page, 1) == 1 && SoftGpu_Gp0(sprite15, 4) == 4 && AT(210, 210) == 0x03e0);
+    }
+    puts("Software GPU fill-rule, CLUT, clip, transfer, widescreen and texture bank checks passed");
     return 0;
 }

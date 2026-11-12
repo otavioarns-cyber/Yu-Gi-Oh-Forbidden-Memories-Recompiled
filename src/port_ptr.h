@@ -3,8 +3,8 @@
 
 /* Guest-width pointer annotations for native 64-bit builds of this source.
  *
- * Nothing in this repository defines MEMORIES_PC, so for the console and
- * for every build and check here the macros expand to what they replace:
+ * For the console and the matching-source checks the macros expand to
+ * what they replace:
  * G32 to nothing, CALL32(type, f) to f and PSXLONG to long. The
  * preprocessed tokens, and therefore the objects, are unchanged.
  *
@@ -38,10 +38,40 @@
 #define CALL32(type, pointer) pointer
 #endif
 
+/* MEMORIES_TRANSLATED selects the translated memory model, used in production
+ * by macOS ARM64. Portable test harnesses may select it on other hosts.
+ * TRANSLATED_G32 is G32 only in the translated build and empty on the
+ * fixed-memory 64-bit ones (Windows x64, Android arm64). It fits only a
+ * name some declaration in src/ initializes: the port's own table in native
+ * .data, which the translated build shares with guest memory. Data of the
+ * retail image (a pinned global, such as the text command table
+ * D_80090F18), a member, or a local walking either, takes G32;
+ * tools/project/check_g32.py rejects TRANSLATED_G32 there. */
+#if defined(MEMORIES_TRANSLATED)
+#define TRANSLATED_G32 G32
+#else
+#define TRANSLATED_G32
+#endif
+
 #if defined(MEMORIES_PC) && defined(__LP64__)
 #define PSXLONG int
 #else
 #define PSXLONG long
+#endif
+
+/* Mach-O cannot express ELF section names. The translated backend places
+ * guest globals through its address manifest, rather than host sections. */
+#if defined(MEMORIES_TRANSLATED) && defined(__APPLE__)
+#define PSX_SECTION(name)
+#else
+#define PSX_SECTION(name) __attribute__((section(name)))
+#endif
+
+/* Guest lists encode their terminator as a word, not an LP64 pointer. */
+#ifdef MEMORIES_TRANSLATED
+#define PSX_POINTER_END 0xFFFFFFFFu
+#else
+#define PSX_POINTER_END -1
 #endif
 
 #endif

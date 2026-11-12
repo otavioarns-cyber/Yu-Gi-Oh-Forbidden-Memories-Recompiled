@@ -5,6 +5,8 @@
 #include "scratch.h"
 #include <unistd.h>
 int Menu_Scale(void) { return 1; }
+static int test_touch; /* Menu_TouchTarget: 0 with a mouse */
+int Menu_TouchTarget(void) { return test_touch; }
 int Menu_TextWidthScaled(const char *s, int sc) { return (int)strlen(s) * 7 * sc; }
 void Menu_DrawTextScaled(MenuCanvas *c, int x, int y, const char *s, uint32_t color, int sc)
 {
@@ -18,7 +20,18 @@ void Menu_DrawTextScaled(MenuCanvas *c, int x, int y, const char *s, uint32_t co
 void Monitor_Modal(int on) { (void)on; }
 int Log_Wanted(LogChannel channel) { (void)channel; return 0; } /* the pump logs keys with MEMORIES_TRACE=input */
 void CrashTest_Present(void) {}
+/* Opening a panel (MEMORIES_PANELS=overlay, sdl.c open_panel) pauses the
+ * game clock: there is none here. */
+int Platform_ClockRate(void) { return 0; }
+void Platform_SetClockRate(int percent) { (void)percent; }
 void ModsWindow_Init(void) {}
+/* The pump sets up the desktop window's folder picker and ticks the window. */
+void ModsWindow_SetFolderPicker(int (*pick)(char *, size_t), int (*picked)(char *, size_t, char *, size_t))
+{
+    (void)pick;
+    (void)picked;
+}
+int ModsWindow_Tick(void) { return 0; }
 void ModsWindow_Size(int *w, int *h)
 {
     *w = 780;

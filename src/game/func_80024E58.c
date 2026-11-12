@@ -17,6 +17,10 @@
 #include "display_object_config.h"
 #include "../unmatched.h"
 #include "func_80024E58.h"
+#ifdef MEMORIES_PC
+#include "pc/cards/cards.h"
+#include "pc/cards/fields.h"
+#endif
 
 #define DUEL_EFFECT_REQUEST_VIEW(request) \
     ((DuelEffectRequest *)(request))
@@ -42,6 +46,9 @@ void DuelEffect_ApplyTerrain(void) {
         r->rank.field_0A = r->rank.field_0A + 1;
         v = (u8)gDuel_wEffectCardID - 0x49;
         gDuel_bTerrain = v;
+#ifdef MEMORIES_PC
+        Fields_Observe();
+#endif
         n = gDuel_bTerrain - 1;
         e = DuelEffect_AllocateRequest(0xA);
         D_8009B17C = e;
@@ -86,8 +93,12 @@ void DuelEffect_ApplyTerrain(void) {
     i = 0;
     do {
         if ((q->flags & DUEL_CARD_FLAG_OCCUPIED) != 0) {
+#ifdef MEMORIES_PC
+            q->terrain_modifier = Duel_GetTerrainBoost(Cards_Type(q->card_id));
+#else
             q->terrain_modifier =
                 Duel_GetTerrainBoost(((DisplayObject *)q->object)->field_68);
+#endif
         }
         i++;
         q++;

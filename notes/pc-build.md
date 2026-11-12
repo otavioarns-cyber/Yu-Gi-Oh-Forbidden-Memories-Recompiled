@@ -238,7 +238,7 @@ How it works:
   `src/pc/compat/inline_c_native.h` natively, backed by the software GTE in
   `src/pc/compat/gte.c` (all COP2 commands found in the retail executable:
   RTPS, RTPT, MVMVA, SQR, NCDS, NCCS, NCCT, NCLIP, AVSZ3/4, GPF, plus the
-  remaining colour commands). `pc_gte` holds hand-computed known answers;
+  remaining color commands). `pc_gte` holds hand-computed known answers;
   it has **not** been compared against hardware or an emulator yet.
 
 ### Guest-width pointers (G32, CALL32, PSXLONG)
@@ -251,8 +251,16 @@ in memory (a structure member or a global pinned to a retail address),
 a call through a stored function pointer, and `PSXLONG` for the Psy-Q
 32-bit `long`. On the console and in this 32-bit build all three expand to
 what they replace, so the objects do not change. `make check-g32`
-(`tools/project/check_g32.py`, run by the metadata workflow) rejects game code
-under `src/` without them; `src/pc`, the port's own host code, is exempt.
+(`tools/project/check_g32.py`, run by the metadata and pc-build workflows)
+rejects game code under `src/` without them; `src/pc`, the port's own host
+code, is exempt. `TRANSLATED_G32` is `G32` only in the translated macOS build
+and empty on Windows x64 and Android arm64, so the check does not count it as
+`G32`: it fits only a global some declaration initializes, the port's own
+table in native .data, and locals walking such a table. #301 put it on the pinned text command table
+D_80090F18, and both 64-bit games crashed reading that table 8 bytes an entry
+(fixed by #319). The check also rejects an object-like macro of `port_ptr.h`
+it does not know where a declarator's name or type should be, which is how
+`TRANSLATED_G32` hid D_80090F18 from it before.
 
 ### What runs (2026-09-20)
 
@@ -269,7 +277,7 @@ Triangle: turn animation, art, name, level, attribute, type, guardian stars,
 text, ATK/DEF, from either pane), and the post-LOAD menu with LIBRARY: the
 722-card grid, crosshair and scrolling, the card view, and the 3D model view
 (Square or Cross in the card view): the monster stands on the wireframe floor
-and animates. Checked with Ryu-Kishin only; its colours have not been compared
+and animates. Checked with Ryu-Kishin only; its colors have not been compared
 with hardware. The Free Duel `0x80168000` module is integrated; its opponent
 grid initializes from the save's unlock flags and accepts cursor input.
 The duel's 3D battle presentation loads and renders both monster models, the
@@ -279,7 +287,7 @@ control modules are retail MIPS overlays with no C source, and by default
 decomp's native C when the disc delivered the retail bytes, else as MIPS: see
 [MIPS-only effects](#mips-only-effects) below. Every duel effect id and every
 monster's own attack choreography therefore plays with its retail timing,
-colours and particles.
+colors and particles.
 Music tempo was checked by measurement: the retail `SetRCnt` (read from the
 resident assembly) programs counter 2 as mode `0x248`, sysclk/8, so target
 `0xE000` is 73.83 Hz; `MEMORIES_TRACE_FRAMES=1` reports 73.7-74.0 delivered
@@ -339,14 +347,53 @@ after-hook sees what the game gets ([mod API](mod-api-3.md)).
 
 **View > Touch controls** (`touch_controls`, `MEMORIES_TOUCH_CONTROLS`: 0
 Automatic, the default; 1 Show; 2 Hide) is an on-screen controller for touch
-screens (phones, tablets, touch laptops): a D-pad and the four face buttons
-at the middle of the left and right sides, L2/L1 and R1/R2 above them,
-SELECT and START below (`platform/touch_pad.c`). It is drawn with the game's
-own pictures, cut off the disc from the boot package the game keeps in VRAM
-(`touch_pad_art.c`, `cards/disc_art.h`): the round Cross, Circle, Triangle and
-Square, START, the L1/L2/R1/R2 tabs and the boxed arrows (Left is Right's,
-turned round); SELECT is set in the game's text font. A button let go is
-see-through; held, it is solid and a little smaller. Automatic shows it once
+screens (phones, tablets, touch laptops) (`platform/touch_pad.c`), in one of
+two styles, **View > Touch controls > Style** (`touch_style`,
+`MEMORIES_TOUCH_STYLE`):
+
+- **Game** (0, the default): a D-pad and the four face buttons at the
+  middle of the left and right sides, L2/L1 and R1/R2 above them, SELECT
+  and START below. It is drawn with the game's own pictures, cut off the
+  disc from the boot package the game keeps in VRAM (`touch_pad_art.c`,
+  `cards/disc_art.h`): the round Cross, Circle, Triangle and Square, START,
+  the L1/L2/R1/R2 tabs and the boxed arrows (Left is Right's, turned
+  round); SELECT is set in the game's text font. A button let go is
+  see-through; held, it is solid and a little smaller. **MENU**, in the
+  game's font under L2/L1 (the D-pad below it), opens the menu bar's first
+  menu as it is touched (`TouchPad_TakeMenu`, taken in the event pump): the
+  way to the menus where the bar is hidden, as in fullscreen or on a phone.
+  The D-pad and the face buttons take a touch two buttons from their
+  middles.
+- **Simple** (1): laid out as a handheld's: L2, L1 and SELECT down the top
+  left corner and R2, R1 and START down the top right, each a frame 1.6
+  buttons wide; the D-pad in the bottom left corner, its arrows in a ring
+  3.2 buttons across, and the four face buttons in the bottom right, each
+  ring taking a touch only inside what is drawn of it; the picture's middle
+  is left clear, and on a phone the corners fall in the black bars beside
+  the 4:3 picture. It is drawn in one grey scale (`touch_pad_simple_art.c`):
+  frames and the face buttons' discs are dark with a light edge; the
+  D-pad's arrows are solid triangles in dark discs inside a light ring; the
+  face buttons' marks are outlines (triangle, circle, cross, square), with
+  none of the PlayStation's colours. Everything is drawn (no picture of the
+  game's), and each part is drawn whole into a layer first, so its edge,
+  fill and mark fade together. L1/L2/R1/R2, SELECT and START are words in
+  the game text's font (`overlay_text.h`). A column's frames take a touch
+  between them by the nearer middle. **The top row**, three frames in the
+  middle of the top edge, presses no pad button; each takes its tap as the
+  finger lifts on it (so one brushing SPEED changes nothing, and a touch
+  the system cancels, `TOUCH_FINGER_CANCEL`, taps nothing), in the event
+  pump (`TouchPad_TakeMenu`, `TouchPad_TakeStates`, `TouchPad_TakeSpeed`):
+  **MENU** (a cog) opens the menu bar's Game menu and **STATES** (a
+  triangle pointing down) its File menu, Save state, Load state and the
+  state slot (`Menu_OpenAt`); **SPEED** (two triangles and the speed, x1 to
+  x4) steps Game speed through 100% to 400% a tap, back to 100% after 400%
+  or from any other speed, and saves it as the menu does.
+
+Either style is laid over the picture at **View > Touch controls >
+Opacity** (`touch_opacity`, `MEMORIES_TOUCH_OPACITY`): 0, the default, is
+the style's own (Game's 59%, as it always was; Simple's 25%); 25%, 50% or
+75% from the menu, any 1-100 in the file; a button held is twice as solid.
+Changing the style lets go of what the pad held. Automatic shows it once
 the screen is touched (that touch presses nothing) and hides it when a key or
 a controller button is pressed. Several fingers work at once; a finger that
 lands on the pad stays the pad's while it slides (the D-pad goes by the angle
@@ -354,10 +401,9 @@ from its middle, so between two arrows presses both), and one that lands
 elsewhere is the mouse SDL makes of it (the menu bar). It presses the button
 it shows: its bits join the pad state beside the mouse's, which View >
 Japanese buttons does not exchange, and a tap shorter than a frame counts
-once. Hidden, it draws nothing and takes no touch.
-**MENU**, in the game's font under L2/L1 (the D-pad below it), opens the
-menu bar's first menu (`TouchPad_TakeMenu`, taken in the event pump): the
-way to the menus where the bar is hidden, as in fullscreen or on a phone.
+once. Hidden, it draws nothing and takes no touch. `MEMORIES_SDL_SCRIPT`'s
+`tap:x:y`, `fdown:x:y` and `fup:x:y` put a finger there, which is how both
+layouts and the top row were checked in a window.
 While a menu, a notice or a bar drawn over the picture is up, the pad
 steps aside (`TouchPad_Block`: it draws nothing, takes no touch and lets
 go of what it held), so their rows and buttons are the finger's; it is
@@ -369,14 +415,50 @@ the top of the screen shows a hidden bar under it. Where the window is
 always the whole screen (`Platform_HasWindowModes` 0, an Android app) the
 bar is drawn over the picture instead of pushing it down. Where the system
 gives the density (Android), a button is 48 to 80 dp wide (13% of the
-short side otherwise, and never above 16% of it), and SELECT, START and
-MENU take a touch a button tall. The save slot and deck slot menus, which
-the pad plays, keep between its columns while it shows
-(`TouchPad_FreeSpan`, `Menu_SetOverlayArea`); narrower than their one-row
+short side otherwise, and never above 16% of it; with Simple, nor so big
+that the columns would reach the D-pad's ring: 6.4 buttons tall in all),
+and SELECT, START, MENU and Simple's frames take a touch a button tall. The
+save slot and deck slot menus, which the pad plays, keep between its
+columns (and below Simple's top row) while it shows (`TouchPad_FreeSpan`,
+`TouchPad_TopRowBottom`, `Menu_SetOverlayArea`); narrower than their one-row
 layout, a slot's details go on lines under its name and the hints wrap
 (`saves/flow_text.h`); the deck slot menu's messages break at spaces where
 the box is narrower than them (`centred_words`, `deck_menu.c`); the text
 gets smaller only when even that does not fit.
+
+The mods' overlays (`MemoriesMod.overlay`) are drawn under the pad while it
+shows: `draw_overlay` (`sdl.c`) calls `Hud_DrawMods` first, then
+`TouchPadArt_Draw`, then `Hud_Draw` (which leaves the mods out that frame
+and still counts their rectangle in `Hud_Bounds`) and `Menu_Draw`. A mod's
+full-screen panel (a drop list on Triangle, say) used to cover the pad, so
+the player could not see where to tap; the pad's touches always reached it
+(`TouchPad_Finger` runs in the event pump, and mods take no touch). So,
+with the pad, the order from the bottom is: picture, mods, pad, then the
+HUD (frame rate, fusion helper, rank meter, Free Duel progress, title
+text) with the save/deck slot menus over it, and the menu bar (over the
+HUD while a menu is open or the full statistics show, under it otherwise,
+as before). Without the pad (`TouchPad_Shown` 0: a desktop unless View >
+Touch controls is Show, or Automatic after a touch on a touch screen) the
+mods keep their place in `Hud_Draw`,
+over the HUD and under the slot menus: window shots of the 32-bit build
+with a full-screen test overlay at the title (`MEMORIES_WINDOW_SHOT`,
+deterministic, stepped by `yfm_control.py`) are byte-identical to
+origin/master's with the HUD off, and differ only in the frame-rate digits
+with `MEMORIES_SHOW_HUD=1` (the mod over the box, as before). The x11
+backend has no touch pad and is unchanged.
+
+**Touch pad's free span (proposed, not done).** `TouchPad_FreeSpan(&left,
+&right)` gives the columns between the pad's two sides, which the save and
+deck slot menus keep to (`Menu_SetOverlayArea`). A mod has no such call,
+so its panel either spans the pad (now under it, the buttons see-through
+over it) or guesses. A host entry at the end of `MemoriesModHost` (a new
+API number), `overlay_free_span(host, &left, &right)`, valid inside the
+overlay callback and giving the whole width when the pad is hidden, would
+let a mod lay out between the pad's columns. The pad showing, hiding or
+moving already recomposes the overlay (`menu_dirty`), which runs every
+overlay callback again, so the span read there is always current; only a
+mod that keeps a layout worked out outside the callback would need to
+watch it.
 
 Esc quits (it closes an open menu first): it is the default key of Game >
 Controls' **Exit game**. With **File > Confirm before quitting** on (the
@@ -424,6 +506,10 @@ stored volume and applies headless too), `MEMORIES_SETTINGS` (another
 settings file), `MEMORIES_HEADLESS=1`,
 `MEMORIES_DUMP_FRAME=N` with `MEMORIES_DUMP_PATH` and optional
 `MEMORIES_DUMP_VRAM=1` (write frame N as PPM and exit),
+`MEMORIES_DUMP_FRAMES=<first>:<step>:<count>` (frames first, first + step,
+... as PPMs, `MEMORIES_DUMP_PATH` a printf pattern of the frame number such
+as `/tmp/x/f%05d.ppm`, and exit after the last; selects the virtual clock as
+`MEMORIES_DUMP_FRAME` does),
 `MEMORIES_DETERMINISTIC=1` (the virtual clock for the whole run, headless
 or in a window, with no frame dump needed: two runs with the same input
 give the same frames; in a window the frames are shown at the game speed
@@ -536,6 +622,32 @@ of MODEL, WA and SU found no other variadic callee: `printf` is handled in
 `Model_SetSlotProperties` are never called from them.
 `tests/pc/mips_varargs_test.c` runs such a call through the interpreter.
 
+Retail module code reads stack words it never wrote, as on the console,
+where they hold what earlier code left at that depth. Variant module 128
+(record 330, slot A; 258 in slot B) sets only the colour bytes of the two
+`CVECTOR`s it hands `Model_QueueTintRequestForParts` (`0x8013B474`-`0x8013B4D4`:
+`lbu` of `sp+0x3BB` and `sp+0x3C3`), and the start colour's fourth byte is the
+tint pass's draw mode (`func_800528AC`, `Model_HasInsufficientBufferSpace`);
+it also reads the corners of a `POLY_FT4` that only `SetPolyFT4` touched
+(`sp+0x80`/`0x82`, `0x8013C0AC`) for a `ratan2`. Those are the only reads
+whose values differed between the two histories below (an instrumented
+interpreter, 2026-11-02). The bridge forwards eight stack words to every
+native call, written or not; every callee that got an unwritten one in those
+battles takes fewer parameters than that word's place, so it is not among
+them. On the console the words are game RAM and a
+save state holds them; the port's interpreted code runs on its own stack, and
+since "Port: save states carry the interpreter's stack" a state holds it too
+(chunk `mips-stack`, all 256 KiB; the translated build already kept it with
+its mappings). Before, a battle started from a state looked different after
+other battles in the same game: record 330's second-star battle drew other
+sparks from 679 frames in after record 320's (the model oracle;
+`tests/pc/replays/state-load-mips-stack`). A state from before the chunk
+clears the stack. Within one game the words still hold what earlier
+interpreted modules left (the console's would hold what its native code
+left, which the port's native frames on the host stack cannot give).
+`tests/pc/mips_stack_test.c` checks the stack the states carry is the one
+the interpreter runs on.
+
 Checked from `slot1.state`: the AI's attack (card clash, damage lettering,
 burn destruction: ids 2 and 3), the player's attack committed with Square
 (the 3D battle: arena, both monsters, the variant module's setup command and
@@ -573,11 +685,194 @@ is retail (the reference for comparisons); `MEMORIES_DUEL_EFFECTS=skip`
 (called `native` before the bank ran as native C; `native` now means the
 default) restores the bring-up behaviour
 (ids 1-3 interpreted, others complete at once); `MEMORIES_FRAME_HASHES=<file>`
-writes a hash of VRAM per presented frame for comparing two runs; `MEMORIES_MODEL_MODULES=native`
-uses the resident spark burst instead of the monster's module; an effect or
-module the interpreter cannot run is reported once on stderr and falls back
-the same way. `MEMORIES_TRACE_MIPS_PRINTF=1` prints the modules' own
-`printf` format strings.
+writes a hash of VRAM per presented frame for comparing two runs;
+`MEMORIES_MODEL_MODULES=interpreter` interprets every battle model module
+even one native C stands in for (the reference, as the duel effects'
+switch);
+`MEMORIES_MODEL_MODULES=spark` puts the resident spark burst in place of
+every monster's module (it was called `native`; `native` now means the
+default, as for the duel effects: the decomp's C for the shapes the gate
+table ports, the interpreter for the rest; any other value is the default
+too, and says so once on stderr);
+an effect or module the interpreter cannot run is reported once on stderr
+and falls back the same way. `MEMORIES_TRACE=model` logs every call
+of a model module with the module's identifier, its slot and what ran it
+(`variant slot=0 command=1 module 418 in A: native`, or `interpreter` or
+`stand-in`; `slot=` is the active model, `D_8009AFA0`); with
+`MEMORIES_TRACE=mods` each slot logs once, when its module's code changes,
+whether it is the retail code of a native shape (`model variant module 418
+in slot A: retail code, native C`) or not. `MEMORIES_TRACE_MIPS_PRINTF=1` prints the
+modules' own `printf` format strings.
+
+**The model modules in native C** (the gate, `src/pc/overlays/model_modules.c`).
+Upstream matched every variant module (2,362 distinct images, #8531); the
+port links the decomp's C for the shapes `config/pc/model_gate.csv` lists
+as `native` and interprets the rest. A **shape** is a code layout: the
+first word of the slot A image names one (418 is one; slot B's image of the
+same code is linked at `0x8017B000` and its first word is 568), and the disc
+has 324 of them, 183 on more than one image. A row has the shape, its
+`backend` (`native`; `interpret`, the default of a shape not ported yet;
+`keep`, a shape that must stay interpreted, with the reason in its note:
+shape 128 reads stack bytes it never wrote, which native C would take from
+the host's stack), its `span`, the SHA-256 of the first `span` bytes of each
+slot's image, and the images and identifiers it was written from, the
+decomp's `data_start` and, for a module made of the C of two headers, the
+`sources` (header numbers separated by `;`; empty: the shape's own).
+`span` is where the hash stops. **By default it is the data start** (where the
+decomp's layout starts the module's data): the hash then covers code and
+constants only, so a mod that changes a model's tables or textures
+(`MODEL.MRG` data, #398/#399) still runs the C, and one that changes the
+code is interpreted. **A batch widens it** to cover any word of the slot's
+data that the C divides by, takes a remainder by, or indexes with: the
+interpreter survives a zero divisor (`divu` leaves lo = `0xFFFFFFFF`,
+`break 7` is a no-op) where native C faults on x86 (and gives 0 on arm64),
+so a mod that zeroed such a word must get the interpreter. The batch's
+reviewer greps the shape's C for `/`, `%` and `[` on values derived from the
+slot, and the row's note says which words the widening covers. `check --disc`
+fails when the images of a row differ anywhere inside its span, and
+`problems` when a span is wider than the data start with no note. The rows
+are written from the disc by `tools/pc/model_gate.py update --disc` (never by
+hand; only `backend`, `note`, `data_start`, `sources`, `command_table` and a
+native or kept row's `span` are kept from the row), which also writes the
+table the game is built with, `src/pc/overlays/model_gate_table.inc`;
+`check` verifies the table, that file and the address sections against each other, and
+against the disc with `--disc` (the images of a shape must agree over its
+span; the report says how far beyond it they agree). Shape 418 is the
+example of a widened span: its data start is `0x396C`, but
+`variant418_bands.c`, `variant418_sheet.c` and `variant418_quad.c` divide by
+the timing words of the attack's config entry (`+0x28..+0x3C` of the entry at
+`D_8013E96C + 0xFC + cmd * 0x44`), so its span is `0x3F60`, the common prefix
+of its 11 (slot A) and 12 (slot B) retail images: a mod that changes
+those 1,524 bytes runs the interpreter, and one that changes anything after
+them (the model's tables and textures) still runs the C.
+
+**The command is an index too, and the caller chooses it.** The setup of a
+variant module is called with a word of the record `% 1000`
+(`model_control.c`, `model_load_step.c`), which a MODEL.MRG mod controls, and
+418's setup takes `D_8013E96C + 0xFC + command * 0x44` as its config entry
+without a bound. The retail table has 18 entries (commands 0 to 17, ending
+at `0x3F30`, inside the span). A native row therefore has a `command_table`
+(`table:stride:count:field`, or `none` when its C takes no command index; for
+418 `0x3A68:0x44:18:0x1B74`): `problems` fails when the entries are not
+inside the span, and `model_modules.c` sends to the interpreter a setup whose
+command is `>= count` and any update whose entry pointer (the work area's word
+at `field`, where the setup stored its choice) is not one of the `count`
+entries. That makes the decision stateless: an attack the interpreter set up
+stays with it, so does one a saved state resumes, and an update with no setup
+before it. When such a setup falls to the stand-in (the interpreter could not
+run it), the stand-in does not write the entry word, so `model_modules.c`
+clears it: one left by an earlier attack would send the updates to the C.
+The first such call of a slot's code is logged under
+`MEMORIES_TRACE=mods`; the model trace shows `interpreter` for each. The
+batch reviewer therefore greps the shape's C for an index taken from the
+command or the work area, as well as from slot data, and sets `command_table`
+by hand from the C (`count` is where the retail table ends; the gated oracle
+fails a retail record whose command or entry pointer a wrong `count` or
+`field` would send to the interpreter). The gate only
+matches the US disc's modules: the other regions' 418 images differ and are
+interpreted. To port a shape:
+copy the decomp's `variant<shape>_*.c` into `src/native_overlays/model_variant` (not
+`src/overlays`: every C file there must be a subsegment of a split, which
+these modules do not have here; the headers' relative includes are the
+same depth) and
+the slot B wrappers (the same C under `#define`s of the `0x8017Bxxx`
+names) into `src/native_overlays/model_variant_slot1`, set the row to `native` with
+the decomp's data start as its span, run `update --disc` and a build.
+`build_config.py` makes two gated modules of it (`model_variant_<shape>` and
+`_slot1`, banks `0x8013B000` and `0x8017B000`, every name prefixed as for the
+effect bank), and their entry is the function at the slot base + 4. These
+modules have no retail ELF, so `config/pc/guest_addresses.txt` gets their
+sections from the C's own names (`func_8013B004`, `D_8013E96C`: the decomp
+names things by address), which `build_game32.py` writes after the ELF-derived
+ones whenever it runs; the committed file has them, and
+`tools/pc/test_model_gate.py` fails when it does not. At run time a slot's
+verdict (native entry or none) is kept with a copy of the words it was taken
+from and stands while the slot holds them: the gate costs one pass over the
+span a call (about 4,060 words for 418's `0x3F60` bytes), and sees every way a
+module arrives. Shape 418 was
+ported first: 13 records have it (Dark Magician, Cocoon of Evolution, Faith
+Bird, Ancient Jar, Lucky Trinket, Ray & Temperature, Protector of the
+Throne, Millennium Shield, Magical Ghost, Hoshiningen, Takuhee, Morphing Jar
+and Invader of the Throne), on the first guardian star's image for nine of
+them and the second's for four (records 166, 275, 419 and 540).
+
+**The model modules' oracle** (`tools/pc/model_oracle.py`): before native C
+replaces any variant module, every MODEL.MRG record's 3D battle run two
+ways, frame for frame. A record holds four variant images: one per guardian
+star of the card (the "alternative": `D_800EF658`'s last byte, set by the
+duel from the card's `DUEL_CARD_FLAG_USE_GUARDIAN_STAR_2`) in each slot
+(stages 7-10 of the load, `func_80056D7C`: alternative 0 slot A, 0 B, 1 A,
+1 B; ten sectors each from sector 180 of the record). On the disc that is
+1,181 distinct images per slot (595 and 602 per alternative in slot A, 595
+and 600 in slot B). The script drives one battle per alternative with the
+record's monster on both sides, no duel needed: from a state saved at the
+debug menu (`goto("debug")`) it pokes the two model records into
+`D_800EF658`, the mode to come back to into `D_8009B269` and the animated
+battle (1) into `D_8009B26C`, as the duel's phase 5 does
+(`duel_scene_battle.c`), and steps until the mode byte leaves 1. Each battle
+starts from that state, so none depends on what ran before it. Which slot
+runs: the attacker's (A) always; the defender's (B) only when the attacker
+does not win (`field_02`: 1 is the side that wins), so the default outcome
+is a tie (both modules run; `--outcomes attacker,defender` adds the other
+paths). Every battle runs twice, by default the build's default against
+`MEMORIES_MODEL_MODULES=interpreter`, in games of their own (`--jobs`), and
+the two must agree on every frame hash and every module call the trace logs
+(setup commands by frame, updates by count). A battle where either run did
+not call the variant module of a slot its outcome runs (A always, B unless
+the attacker wins) is an error, not a match: two battles that never started
+would agree on everything. Slot B's images are asked for only from battles
+that run it. The report gives per record
+identical or the first differing frame counted from the battle's start, the
+modules that ran (identifier and slot) and those that cannot run. **What ran
+each module is checked, not assumed:** the trace names the backend of every
+call (`native`, `interpreter`, `stand-in`), and a default-mode side must have
+run native C in exactly the slots whose disc image is a native row's code of
+`config/pc/model_gate.csv` (its first `span` bytes by SHA-256), and the
+interpreter in the others; a reference in `interpreter` mode that ran native C
+is as much an error as a gated shape that ran interpreted, so a gate that
+silently stopped matching cannot pass as "identical". The summary counts the
+battle slots by backend (`backends ...: subject interpreter 65, native 65`),
+and `--records gated` selects the records that have a native image
+(`tools/pc/test_model_gate.py` holds the check's cases). Coverage:
+the script steps a VBlank at a time while the two models load and peeks
+each slot's 0x5000 bytes once its transfer has landed (the slot's load step,
+`field_E14`, past 0) and before step 9, the first that can call the module;
+it hashes them against the disc's image for that record, alternative and
+slot. An image counts when its slot held the disc's bytes, hashed before its
+module's first call, and its module was called there on both sides, and
+every distinct image of the records asked for must count. Hashing after the
+battle is not enough: record 40's second-star modules (762 in slot A, 859
+in B) write six bytes at +0x1FFC inside their own image. The primary
+modules are reported too: 10 of the 605 distinct ones in slot A (604 in B)
+are called in these battles. The VRAM hash covers the frame being drawn, so
+it differs a frame before the screen does: `--shots N` pictures the first
+differing frame, the one before and the one after.
+
+Checked on Windows (i7-8700K, 6 cores): all 621 records, both
+alternatives, tie, the default against `interpreter` (on master the same
+code, so this is the determinism check at scale): 1,242 of 1,242 battles
+identical, 1,181 of 1,181 distinct images covered in each slot, in 40 min
+with `--jobs 11` (a battle is 1,053 to 2,544 frames, 1,559 on average,
+about 7 s alone; 1.2 s a battle and side with eleven games at once). It catches a difference where
+it is: a build whose default skipped the 200th update of module 418 in slot
+A (that call at frame +836 of record 34's battle) was reported "first
+differing frame +838" for that battle only, and its pictures differ from
++839 on (the stand-in: +639, its first update at +637). With shape 418
+linked as native C (the gate above): all 621 records, both alternatives, tie,
+the default against `interpreter`: 1,242 of 1,242 identical in 41 min with
+`--jobs 11`, 1,181 of 1,181 images covered in each slot, native C in the 26
+battle slots that hold shape 418's code and the interpreter in the other
+2,458 (the 13 records, all three outcomes, 78 battles: 78 identical, native in
+65 slots, on the 32-bit and the 64-bit Windows game). **Battles are only comparable with
+the same history:** the interpreter's stack (`0x9FF00000`, mips.c) is not in
+save states, and a module that reads a stack word it never wrote sees what
+the battle before left there. With `--reverse-reference` (the reference
+runs the battles in the opposite order) record 330's second-star battle
+differed at +679 (a few sparks) whenever record 320's second-star battle
+came just before it, and was identical with the interpreter's stack zeroed
+before each outermost call (a diagnostic build). The sweep's two sides run
+the same battles in the same order, so they compare alike; native C for such
+a module would read the host's stack instead, and differ.
 
 ### Credits
 
@@ -647,9 +942,11 @@ under it:
 | `controls.txt` | the control bindings (`MEMORIES_CONTROLS`) |
 | `saves/slot01.sav` ... `slot10.sav` | the game saves, one per slot (see "Saves" below) |
 | `memcard1.mcd`, `memcard2.mcd` | memory cards of older builds, only read now (`MEMORIES_MEMCARD1/2`) |
+| `saves/*.mcr`, `*.mcd`, `*.gme`, `*.mcs`, ... | memory card files to import, renamed `*.imported` once imported (see "Saves") |
 | `states/slot1.state` ... | save states (`MEMORIES_STATE_DIR`) |
 | `screenshots/` | F12 and **File > Screenshot** (`MEMORIES_SCREENSHOT_DIR`) |
 | `mods/` | mods the player installed (`notes/modding.md`) |
+| `mods-folder.txt` | the path of a mods folder the player chose, read but never written to (`MEMORIES_MODS_FOLDER` names another for one run; `notes/modding.md`, "Your own mods folder") |
 | `mod-data/<id>/` | whatever a mod stores, the only place one may write |
 
 Portable mode: when a file named `portable.txt` sits beside the executable
@@ -738,7 +1035,13 @@ clock stays on the main thread; Windows will still need the clock replaced
 (`platform_common.c`). `MEMORIES_SDL_SCRIPT="200:click:20:13,260:move:60:69,
 420:key:escape"` pushes pointer and key events at presented frames for
 tests: synthetic X input does not reach SDL correctly (XI2, and XTest is
-refused by this compositor), so the menu was verified that way.
+refused by this compositor), so the menu was verified that way. For a mod
+that steers with the mouse (mod API 23), `rel:dx:dy` moves it by dx, dy over
+the middle of the picture and `mdown:left` / `mup:left` (`right`, `middle`)
+hold a button; key names (`w`, `a`, `d`, `e`, `q`, `f`, `v`, `space`,
+`lshift` and the rest) match whole, so `f` is F and not F10. With
+`SDL_VIDEODRIVER=offscreen` the window is never shown, and the events and
+`shot` work the same.
 
 **X11** (`x11.c`, `audio_alsa.c`, `gamepad_evdev.c`) is the Linux-only
 fallback with no dependency beyond Xlib: it is plain Xlib. The frame it shows is one ARGB32 buffer the port
@@ -769,7 +1072,7 @@ move, Enter activates, Esc closes (with no menu open it is Exit game, asking fir
 | Video | Window scale and Menu size submenus, window mode, scaling/aspect/filter/VSync choices |
 | View | Fusion helper (`fusion_helper`, [notes/fusion-helper.md](fusion-helper.md)), Card passwords, Library: show every card, Free Duel progress (see [View > Free Duel progress](#view--free-duel-progress)); Duel rank submenu: Off, Rank, Rank and score (`rank_meter` 0/1/2, see [Duel rank](#duel-rank)); Opponent's name for COM; Japanese buttons |
 | Game | Game speed, Frame rate and Cheats submenus (see [Cheats](#cheats)), Card drops, Deck slots, card browsing, Restart game |
-| Mods | opens the mods window, which lists every mod found in `mods/` beside the executable and in the user directory (`notes/modding.md`) |
+| Mods | opens the mods window, which lists every mod found in `mods/` beside the executable, in the player's mods folder if they chose one, and in the user directory (`notes/modding.md`) |
 | Debug | HUD levels, pause/step, frame and VRAM dumps |
 | Trace | Live frames, disc, SPU, input and state log-channel switches |
 
@@ -811,6 +1114,28 @@ send a key with Left Alt held (`alt+return` is Alt+Enter; `kp_plus` and
 key across frames (a `key` is pressed and released in one pump, before the
 game reads the pad; `s` is Circle and `x` Cross by default), which is how
 Japanese buttons was checked through the keyboard; `f8` is one of the names.
+
+### Screenshots
+
+**F12** (and File > Screenshot) saves the source picture, **Shift+F12** the
+composed window (menu and HUD included), as `<yyyy-mm-dd-hhmmss>-<frame>.bmp`
+in `MEMORIES_SCREENSHOT_DIR` or the user folder's `screenshots/`. The
+picture is the frame at the internal scale (320x240 at 1x, 640x480 at 2x,
+1280x960 at 4x; the widened picture in widescreen), before the filter, the
+colour settings and the menu. At 1x and on the software GPU the frame is in
+`picture_pixels`, which F12 saves as it was presented. With the OpenGL pass
+(`gl_picture.c`, internal scale 2x and up) the picture lives only in GPU
+textures and `picture_pixels` is never filled, so F12 read it black at 2x
+and 4x until `Platform_Screenshot` read the shown area back from the texture
+(`GlPicture_ReadShown`, the picture's or the widescreen target's) when the
+key is pressed. Nothing is read per frame: each present only notes which
+texture and area it showed (`pass_shown`). Shift+F12 is taken by the next
+`show()` from the back buffer before the swap, so it was always right at
+every scale. `tests/pc/screenshot_scales_runtime.py` drives the game in a
+window at 1x, 2x and 4x (the OpenGL pass and `MEMORIES_GL_PICTURE=0`) and in
+widescreen at 2x, presses F12 and the script's `shot` at one frame, and
+checks each file against the control channel's own picture of that frame
+(size, not black, 40x30 thumbnail within a few levels).
 
 ### Rewind (removed)
 
@@ -1173,7 +1498,7 @@ settings that are off at their defaults:
 - xBR pixel smoothing (Video > Effects, `xbr`). The picture is read through
   xBR level 2 (written from its published rules, in the same program). A
   texel's corner is cut along a 45, 30 or 60 degree edge found in its
-  neighbours and filled with the nearer neighbour's colour. The cut is
+  neighbours and filled with the nearer neighbour's color. The cut is
   antialiased over one window pixel, so it works at any window size.
   - At internal resolution 1x it works on the finished picture's texels,
     and replaces Smooth and Sharp bilinear filtering while it is on.
@@ -1182,18 +1507,33 @@ settings that are off at their defaults:
     rules as it is drawn, so sprites, fonts and 3D textures are smoothed
     at the internal resolution, over whatever lies under them, and the
     picture is not smoothed again (Filtering still applies to it).
-    Transparent texels count as one colour
+    Transparent texels count as one color
     far from all others, so a sprite's outline rounds too, and where a
     corner is filled with transparency nothing is drawn. A primitive only
     sees its own rectangle of texture (the edge repeats past it), so a
     picture made of several rectangles shows no seams. HD text and texture
     pack images are left as they are. A texel like the four beside it is
     drawn after five reads, so at 4x the duel's replay time stays within
-    its noise (about 2 to 3.5 ms here, on or off).
+    its noise (about 2 to 3.5 ms here, on or off). The neighbourhood is
+    kept as 25 words and each color made from its word where it is read,
+    the outer 16 fetched one by one: a phone's GPU (Adreno 660) keeps an
+    array of 25 colors filled in a loop in memory, and the Free Duel screen
+    at 4x took 120 ms a frame (7.5 frames a second, 27 at 2x). Now 44 at 4x
+    with 2x anti-aliasing and 60 at 2x, the picture the same pixel for
+    pixel (on the phone, and on NVIDIA against the base build). Named
+    variables instead of any array ran faster still but that driver then
+    read some texels as transparent (black corners).
 
 While every effect is at its default, the pass is not used, and the picture
 is drawn by the fixed-function quad exactly as before. The SDL_Render
-fallback (no OpenGL) has no pass.
+fallback (no OpenGL) has no pass, and neither has the OpenGL ES path
+(Android, below): where it does not run, Video > Color, CRT scanlines,
+Reduce flashes and Sharp bilinear are dimmed with the reason beside them
+("not on Android yet", "needs OpenGL"), and xBR, the OpenGL picture's at
+2x and up there, says "needs Internal 2x" at 1x (`Menu_SetPresentPass`,
+from `use_gl`). On a phone (2400x1080) with Integer scaling, Internal 4x
+shows the 1280x960 picture pixel for pixel, so Filtering has nothing to
+filter there; at 1x and 2x, or with Fit to window, Smooth shows.
 
 ### Speed, frame rate and vsync
 
@@ -1214,8 +1554,13 @@ Three independent controls (`platform.h`, `platform_common.c`):
   the game while game frames come no faster than the display refreshes;
   above that (200% on a 60 Hz display, or uncapped) the backend presents
   unsynced and the frame-rate cap alone limits presents. At 100% on a 60 Hz
-  display the game's VBlank is re-phased to the display so the two rates do
-  not beat.
+  display the swap paces the game: the game's VBlank comes when a swap that
+  waited for the display returns, and the next a refresh later (less a 64th,
+  so a driver that queues swaps fills its queue and starts to wait), and a
+  cap at the refresh or above drops nothing. It used to come a refresh less
+  1.5 ms after every swap, which added whatever the game and the present
+  took past 1.5 ms to every frame: 45 fps with widescreen, the CRT pass and
+  a model mod on an older PC.
 
 `VSync(0)` presents, then waits for the next VBlank after entry. It must
 not return at once because a VBlank passed since the previous call:
@@ -1247,7 +1592,33 @@ second at fewer game frames.
 
 The HUD (F3) shows game frames a second and shown frames a second; with
 `MEMORIES_TRACE=frames` the same appears every 120 frames with the clock
-rate, VBlank rate and sequencer rate.
+rate, VBlank rate and sequencer rate, and the spread of the time between
+two `VSync(0)` returns (`frame interval`); every 600 VBlanks how late they
+came against when they were due (`VBlank lateness`).
+
+Where a frame's time goes, from the same channel (Debug > Trace > Frames
+turns it on while the game runs; on Android the lines go to `adb logcat -s
+memories`), every 120 frames: `game ... present ...` (libetc.c: the game's
+code with the software GPU, which rasterizes every primitive into the
+console's VRAM at 1x whatever the internal resolution, against
+`Memories_PresentDisplay`); `draws:` (the software GPU's share of the
+game's time, per `DrawOTag`); `OpenGL picture: ... per replay` (the CPU
+side of the OpenGL picture's replay) with what it costs the GPU and what
+goes up to it (`uploads per replay`: VRAM whole after each replay, the
+texture pack's two maps whenever they changed); and `present phases`
+(sdl.c: the events and menu, the picture's copy into the window's texture,
+and the swap, which waits while the GPU is behind or, with vsync, for the
+display; and the texture pack's PNGs read on the main thread, which the
+frame they are read in waits for); and `interpreter:` (mips.c: the share
+of the game's time spent interpreting MIPS, mostly the battle models'
+control modules: calls, instructions and microseconds a frame and the
+worst frame's, the instructions by where they ran, slot A's and slot B's
+modules, other overlay code, the credits, and the modules that took the
+most, by their identifier word; outermost runs only). A long swap is the
+GPU (the internal resolution, anti-aliasing, widescreen); a long game is
+the CPU, which the internal resolution does not change. A 3D battle on
+Windows x64 interprets one call a frame, some 10,000 instructions, about
+0.1 ms (Dark Magician's variant module).
 
 **Software OpenGL on Wayland.** The 32-bit build on an NVIDIA Wayland
 desktop gets Mesa's `llvmpipe` through EGL (there is no 32-bit NVIDIA EGL
@@ -1274,13 +1645,43 @@ profiler takes its samples from that timer, so `MEMORIES_PROFILE` without
 `MEMORIES_CLOCK` chooses it too, and the log says so. The console's interrupt
 work (the VBlank callback, the sequencer's root counter, disc delivery,
 MDEC, memory card) is run on the main thread where the game calls in to
-wait or to read the time: every `VSync`, `Platform_WaitVBlank` (which wakes
-every 0.5 ms and runs what is due) and `Platform_PollTime`. The game's
+wait or to read the time: every `VSync`, `Platform_WaitVBlank` (which sleeps
+between services and runs what is due; see "The wait's sleeps" below) and
+`Platform_PollTime`. The game's
 interrupt code therefore never runs in the middle of anything, which is what
 the SIGALRM holds and, on Windows, the suspend-and-redirect clock thread and
 its repairs exist for; in this mode that thread only watches for stalls.
 It is the model the deterministic runs (the smoke fixtures) have always used,
 with real time instead of synthetic steps.
+
+The watching thread (`Win32_StartWatch`) has no 1 ms timer: it waits on its
+stop event for 100 ms at a time, checks the heartbeat and goes back to
+sleep, at `THREAD_PRIORITY_HIGHEST`, which is above the main thread's and
+so still runs while the main thread spins. Until 2026-10-11 it kept the
+interrupt clock's 1 ms high-resolution timer at `TIME_CRITICAL` and only
+skipped the tick, waking about 700 times a second for nothing. Measured in a
+duel on Windows (60 s of real-time VBlanks through `tools/pc/yfm_control.py`,
+two to five runs of each; thread figures from `NtQuerySystemInformation`):
+
+| build | watch thread before | after | process context switches/s, before / after |
+|---|---|---|---|
+| 32-bit | 695-698 wakeups/s, 3.4-5.0 ms CPU/s, priority 15 | 10.0/s, under 0.3 ms CPU/s | 1254-1322 / 505-747 |
+| 64-bit | 694-698 wakeups/s, 2.5-6.4 ms CPU/s, priority 15 | 9.9-10.0/s, under 0.3 ms CPU/s | 1171-1292 / 539-810 |
+
+A stall is still reported about 5 s after the last VSync
+(`MEMORIES_CRASH_TEST=hang` and `spin`, both builds, `hang-<pid>.txt` and
+`.dmp`): 5.06-5.11 s against 4.99-5.01 s before, at most about two
+periods (0.2 s) later.
+Frame pacing does not depend on that timer: `Platform_WaitVBlank`'s 0.5 ms
+`nanosleep` returns at once with winpthreads (it sleeps whole milliseconds,
+rounded down), so the main thread polls the time; and an armed 1 ms
+high-resolution timer does not change what a `nanosleep` sleeps (checked in
+a test program: 2 ms sleeps took 15.7 ms with or without one). VBlanks
+stayed at 59.94 a second and the sequencer's mean lateness at 52-175 us
+either way (the worst single values are the busy machine's).
+`MEMORIES_CLOCK=interrupt` keeps the 1 ms timer at `TIME_CRITICAL` (its
+thread at about 2600 context switches a second, as before, suspending the
+main thread on each wakeup).
 
 Why it holds: every loop in which the game waits for something its interrupt
 code sets goes through one of those calls (`Main_AdvanceFrame`, the VBlank
@@ -1312,6 +1713,48 @@ the duel cases do not, with either clock, from one real-time run to the
 next: the deck is shuffled from time-dependent state, so the scripted
 presses meet a different hand (checked on the hand camera case: three
 clocks, three hands).
+
+**The wait's sleeps.** Between two services `Platform_WaitVBlank` sleeps.
+On Linux, macOS and Android that is `nanosleep` for 0.5 ms (a little more
+with the kernel's timer slack). On Windows `nanosleep` is winpthreads',
+which counts whole milliseconds: 0.5 ms came out as 0 ms and returned at
+once without even yielding, so until 2026-10-11 the main thread polled the
+clock flat out, a whole core (about 980 ms of CPU a second in a duel, 32-
+and 64-bit alike), and a 1-5 ms `nanosleep` sleeps to the 15.6 ms system
+tick, 10-15 ms late. The Windows wait now naps with a high-resolution
+waitable timer (`Win32_Sleep`; Windows 10 1803 and later, else
+`timeBeginPeriod(1)` and `Sleep`). It asks for at most 0.5 ms, as on Linux,
+since the disc's plain reads (2 sectors a service), its completions and
+the MDEC move a piece at each service; Windows' 0.5 ms timer tick makes
+that about 1 ms. A high-resolution timer wakes 0.3-0.6 ms after the time
+asked, about 1 ms at worst, so the wait does not sleep in the last
+`Win32_SleepMargin` (1 ms; 3 ms on the fallback, where `Sleep(1)` took
+1.0-2.7 ms) before the next VBlank or the sequencer's next tick (`Platform_SetTickDue`, from libetc's
+`run_tick`), and polls through it as before. The virtual clock's pacing in
+a window uses the same sleeps. The interrupt clock still polls.
+
+Measured in a real-time duel (`MEMORIES_TRACE=frames`, the control client
+stepping 3600 VBlanks; five interleaved 60 s runs of each, medians; the
+machine runs Process Lasso, which lowered the polling builds to below
+normal priority in every run):
+
+| build | main thread CPU | process CPU | VBlanks/s | sequencer lateness, mean / worst | VBlank lateness, mean / worst | frame interval deviation | menus to duel |
+|---|---|---|---|---|---|---|---|
+| 32-bit, polling | 978 ms/s | 102% of a core | 59.94 | 91 us / 8.4 ms | 4 us / 3.8 ms | 184 us | 17.3 s |
+| 32-bit, sleeping | 208 ms/s | 24% | 59.94 | 105 us / 4.3 ms | 25 us / 7.7 ms | 179 us | 17.2 s |
+| 64-bit, polling | 968 ms/s | 101% | 59.94 | 89 us / 23 ms | 47 us / 43 ms | 396 us | 17.2 s |
+| 64-bit, sleeping | 187 ms/s | 23% | 59.94 | 83 us / 3.7 ms | 11 us / 2.0 ms | 101 us | 17.2 s |
+
+The worst cases on both sides are the machine's stalls (a present or a
+game frame of 50-450 ms, in the log as `spike`); in the quietest runs a
+sleeping build's worst VBlank was under 1 ms. The sound is mixed on SDL's
+audio thread, apart from the wait; the HUD's underrun count came out the
+same in a 60 s duel run of each build (one about every 2 s, with polling
+and with sleeping, 32- and 64-bit), and so did the audio queue (2.8-3 ms).
+Loads did not slow: the control client's jumps to Library, Build Deck, the
+map, the title and a duel, and the duel's deal, took the same VBlanks with
+either wait (377, 184, 184, 2, 132 and 688, within a frame or ten), two
+real-time runs of each build.
 
 Not yet: Linux has only been compiled with it (its stall reports come from
 the crash monitor process, since no tick runs); the sampling profiler
@@ -1395,6 +1838,12 @@ measurements make them stand right:
   are read for the height they cover. Drawing it at the square root of that
   against a middling monster keeps the order, a dragon still towering over
   Sangan, while bringing a sevenfold range down to about two and a half.
+  That root, and every other sum the mod draws from, is taken in whole
+  numbers (`isqrt`). The Linux and Windows objects do their floating point
+  on the x87 (`build_mod.py` builds them `-mno-sse`), which keeps a product
+  to 64 bits where the macOS dylib rounds it to 53: with `double`, 150
+  times a battle-card share of 0.7 was 104 there and 105 here, and
+  `duel-3d-monsters-attack` came out a different frame on each.
 
 Which way a monster faces is fixed to the side that owns its zone: the
 player's monsters face up the mat, the opponent's face down it, as the
@@ -1484,24 +1933,294 @@ respect:
   through it for the rest of the presentation, so the pass puts the GTE
   registers and the world-screen matrices back as it found them (without
   that the numbers were never seen);
-- the dimming is the card's own colour word, which the presentation's last
+- the dimming is the card's own color word, which the presentation's last
   step turns down to fade the cards out: everything printed on the card goes
   darker with it (`battle_dim`, 50%), the fade starts from there, and the
-  colour goes back to retail's whenever the pass lets go of a card that is
+  color goes back to retail's whenever the pass lets go of a card that is
   still up.
 
 Each stands 8 pixels back from the middle of its card, away from the
 other. The monsters appear once the cards have faded in, the loser's goes
 as its card starts to burn (the card stays dimmed until the game releases
 it, or it lit up for the frames before the flames covered it), when the attack is over the monsters fade out over 16 frames while
-the surviving cards light up to their full colour again, and only then does
-the game's own fade take the cards away (the pass sets each card's colour to
+the surviving cards light up to their full color again, and only then does
+the game's own fade take the cards away (the pass sets each card's color to
 what the step will take 8 off the next frame, which holds the cards up that
 long), and none appear when the attack goes on to the 3D arena
 (the cards are up only a few frames before the fade there). Checked with the
 opponent's first attack and the player's quick and arena attacks after the
 `duel-3d-monsters` smoke input, frame by frame against the same frames with
 `MEMORIES_MOD_3D_MONSTERS_BATTLE=0`.
+
+**The attack.** The setting `attack` is a choice: off (the default), on the
+attack cards (the 1 the setting stored when it was a bool on or off), on the
+field, or both (one bit each). On the attack cards, with `battle` on, the
+two monsters fight on the big cards instead of standing there. The
+fight uses the rows of animation the 3D arena plays, which every model
+carries: the attack row is `field_DFE + 3` (row 3 from attack position), and
+the reactions are 5 (withstands the blow), 6 (hit) and 8 (guards). The arena's
+controller (`func_8004EB00`, mode 15) starts the defender's reaction from the
+attacker's control module. For a monster with no module, which is how the mod
+loads every one, `func_800559D4` starts it at the attack row's midpoint, and
+so does the mod. When the battle reaches step 7, before any damage number, the
+mod starts the attack and holds the battle there. A hook on
+`DuelScene_UpdateBattle` skips its update until the last blow lands (and at
+most 1,200 frames). Then the game shows its flash, numbers and flames as
+ever, over the reactions. The case comes from the exchange step 3 already
+resolved (`D_8009B1B0[side]`, -1 for a card destroyed and 1 for one hit
+that stays):
+
+- the defender is destroyed: it is hit (6);
+- its defence holds: it guards (8);
+- the attacker is the weaker: the defender withstands the blow (5), strikes
+  back with its own attack row as soon as that row ends (the arena waits for
+  the attacker's whole row), and the attacker is hit;
+- a tie: both are hit;
+- no defender: the attack alone.
+
+A trap that negates the attack skips step 7, and nothing is played. A monster
+that is hit holds the row's last frame until its card burns. Any other row
+ends back at rest (`Model_ControlSlotAnimation(0, 0, 0)`, then
+`func_800597C8(0, 1, 0)`).
+
+The arena's rows carry a monster across a wide floor, and a small monster
+stands on its card several times enlarged (Shadow Specter at 5.7 times), so
+the first version threw the defender off the screen with its recoil. Every
+frame the mod takes the mean world translation of the model's parts against
+the same mean at rest. It keeps 35% of the shift (`attack_drift`, not
+declared) and no more than half a card's width of it, and takes the rest off
+the placement. The attacker still lunges at the other card (Man-eating Plant's
+head reaches the skull), and the one hit recoils by its own.
+
+The two monsters are cache entries of their own while `attack` is on (tag
+`side + 1`), so the rows never reach the monsters on the field, and they are
+dropped when the presentation ends. `attack_speed` (default 200%) scales the
+slot's speed byte while a row plays. The arena plays rows at 8 units a VBlank,
+the same as here, so 100% is the arena's own pace: its blows land 1.3 to 4.5
+seconds in, and a counter-attack up to 10. The particles and sounds of the
+arena's attacks are not there: they come from each monster's MIPS control
+module and its sound bank, which the mod does not load.
+`MEMORIES_MOD_3D_MONSTERS_ATTACK_TEST=1..4` (not declared) forces the
+destroyed, guarded, counter or tie case for any exchange, which only changes
+what is shown. Checked frame by frame on the quick battle of the
+`animated_battle_inputs` timeline with its last Square turned into Cross
+(Man-eating Plant against Shadow Specter in defence, held 76 frames at 200%),
+on every case with `BATTLE_TEST` pairs, and against the previous build:
+`attack` off, and the arena attack, give the same frames. The smoke case
+`duel-3d-monsters-attack` is that battle at the bite (frame 20164).
+
+**The attack on the field.** With `attack` on the field (or both), the two
+fight on the field first, before the big cards come up, and need no `battle`.
+The quick battle lifts both field cards in its first call: their records
+lose `DUEL_CARD_FLAG_OCCUPIED`, and each card's display object becomes
+`D_800E9EF0[side]`, its `field_6A` the record. Through step 1 the cards fly
+up to the screen while the game's own camera comes back from overhead (pitch
+1022) to the view the duel is played from (600 away, pitch 256), with the
+panels gone. Step 1 ends by setting `D_8009B174` to 2 (frame 20045 of the
+timeline), and the next call makes the big cards. The same hook holds the
+battle at that call (`D_8009B174 == 2` exactly), so nothing of the game's
+camera or interface has to be touched, while:
+
+- the cards in the air are hidden (`DISPLAY_OBJECT_FLAG_RENDERABLE`, which
+  step 2 clears itself a little later), and both monsters grow on their own
+  zones (`D_800908A0`) over 12 frames, turned to face each other, a face-down
+  one shown;
+- the duel camera comes in over 24 frames, to 60% of its distance
+  (`fight_zoom`), aimed between the attacker, wherever it is, and the
+  defender, 48 units over the mat, and swung 60% of the way to seeing the two
+  side on (`fight_turn`; the camera looks along `(cos angle, sin angle)` on the
+  mat in `ViewState_ApplyOrbit`). The game re-applies the orbit only while one
+  of its own camera moves runs, and the last one ended with step 1. The mat is
+  drawn before the mod's pass, so each new camera is set for the next frame;
+- the attacker glides over 20 frames from its zone to where it strikes from.
+  The arena stands both models on one point facing each other, each body its
+  own way from it (the 1:1 body offset `raw_z`), and an attack row is made to
+  reach across that gap, so the attacker stops as far from the defender as the
+  two bodies would be in the arena at its own scale (`fight_reach` percent of
+  it; Man-eating Plant against Shadow Specter: 208 units, so it crosses 75
+  of the 283 between their zones). While a monster plays an attack row all of its body's shift shows,
+  up to that gap; any other row keeps 35% of it, at most 35 units;
+- the blows are the attack cards', from the outcome worked out ahead: it is
+  only stored at step 3, but it is `func_8001EFD4`'s (above 0 destroyed, 0
+  guarded, -1 a tie, below that a counter, or guarded when the defender is in
+  defence), which only reads;
+- once the last blow has landed and its row has ended, the attacker glides
+  home unless it was destroyed, and the camera goes back the same way; the
+  battle is let go when both monsters' rows are over (back at rest, or a
+  destroyed one stopped on its hit row).
+
+The hit row stops itself a step short of its end (`func_800556E8` calls
+`func_80059700(index, 0)` for row 6, which sets `field_E16` to 0x23), so a
+row that has stopped counts as over. The two are cache entries of their own
+(tag `side + 3`), dropped when the big cards' pass takes over or the battle
+ends; anything that lets go early (the 1,200-call limit, a setting changed,
+the mod turned off) puts the camera back, and a loaded state keeps its own.
+Both on the field and on the cards plays the fight twice. Checked frame by
+frame on the same timeline for every case with `attack_test`: the fight takes
+270 frames there (355 for the counter). The smoke case
+`duel-3d-monsters-attack-field` is the bite on the field (frame 20155).
+
+**On the field alone.** With `attack` on the field and not both, the big
+cards never come up: the fight ends the battle itself.
+
+- Each blow shows what the card it struck would have shown, as it lands.
+  Step 3's `D_8009B1B0` and `D_8009B1A4` are worked out ahead from the same
+  `func_8001EFD4` result. A side left untouched shows nothing; any other gets
+  step 8's damage effect (request id 2: `field_12` the number, `field_1A`
+  its size by thousands, at most 2) and its sound (0x10 plus the size, 0xD
+  plus it on the attacker's side). One struck for nothing gets the flash
+  alone, as the effect itself does with 0.
+- A direct attack's number is step 9's in its plain form: size 0-2, not the
+  burst of 3-5.
+- The effect adds its color to whatever is under it, so over a pale monster
+  the digits all but vanished. Each number goes above the head of the monster
+  it is for, against the dark behind the fight; a direct attack's goes over
+  the middle of the screen, above the attacker. The head is the top of the
+  outline its packets covered when it was last drawn (`packet_height`), and
+  the number is kept whole on the 320-pixel screen.
+- A destroyed monster goes over 16 frames once its hit row has stopped: the
+  summon run backwards, with the burning card's sound (0x1B). Until it has
+  gone, the camera stays in and the attacker stays where it struck. While the
+  camera goes back, both turn to the way their zones face.
+- The battle is let go once every number has run (its request no longer
+  `DUEL_EFFECT_REQUEST_FLAG_ACTIVE`) and every destroyed monster has gone.
+  At the next call, still at step 2, the hook ends it:
+  - Step 3 runs as the game's own, with `D_8009B174 = 3 | 0x80` so its
+    fade-out counts as begun and the field stays up. It takes the life points
+    (`Mods_DamageLife`) and counts the ranks. Like step 3, this waits out any
+    screen fade (`D_800E9ECE[0]` bit 7), or no life points would be taken.
+  - What step 11 does first follows: each card that was not destroyed goes
+    back on its zone (`func_80024D34`, the saved 0xA00 flags, 0x4000 on the
+    attacker, the saved modifiers, `Duel_ApplyCardObjectFlags`), and its
+    summon is marked done, so its monster stands at once where the fighter
+    stood.
+  - The two lifted cards are released, the panels slide back to 0xC and
+    0x118 (`func_8001ED20`) and count to the new life points, and the scene
+    goes to state 5.
+  - A destroyed card's record stays empty, as after its card burns.
+
+Checked on the timeline with each real outcome, forced by a test mod at step
+1 that changes the cards' modifiers and positions. Destroyed with 2300
+damage, counter (-1700 to the player), tie, guarded with 1400 to the player,
+guarded for nothing and a direct attack for 800 all end on the field with
+the life points step 3 takes. The smoke case
+`duel-3d-monsters-attack-field-end` is the turn after the battle (frame
+20400): the attacker back on its zone, face up.
+
+**The attacker's effects.** With `effects` on (the default), the field fight
+plays the attacker's own control module, the per-monster MIPS overlay the
+arena runs for its beams, flashes and particles. The defender's module
+(slot B) is not loaded: its code is linked for 0x8017A000, where the duel
+keeps its equip and fusion tables.
+
+- **Loading the module.** Each cached monster keeps its record's three
+  command words (sector 275, +0x110). These are the two stances' variant
+  commands and the primary's; the quiet load leaves the slot's own copies at
+  -1. Its stance's variant and its primary are already in its arena. When
+  its stance's command is not negative, the fight:
+  - copies the primary to 0x8013A000 and the variant to 0x8013B000, keeping
+    what was there and putting it back when the fight is over (a loaded state
+    keeps its own);
+  - clears the attacker's contexts in its arena;
+  - puts the arena's effect sheet into the attacker's soft-GPU bank: SU.MRG
+    stage 0 record (sector 0x88), palette sector 83 to (0x200,0xF4), 32
+    sectors of texels from (0x380,0). In VRAM the duel's card thumbnails sit
+    there.
+- **Running it.** The module runs through `func_800559D4(0)` inside
+  `sort_monster`'s scratch window, right after the attacker's model, so its
+  packets are chained and stamped with the attacker's bank. For the call it
+  is told the arena's world:
+  - **Time.** A module adds `Model_GetFrameStep` (`D_8009AFA3`, the VBlanks
+    the frame took) on each frame its animation index moves. That is 2 in
+    the 30 fps arena and 1 on the 60 fps field, where its clock ran at half
+    speed. Blue-Eyes, which charges from 80 to 316, fires at 324-360 and
+    fades at 500-520 (its command-0 table at module +0x38A4), never fired
+    within its 270-frame attack row. It is handed 2.
+  - **Space.** A module works at the arena's scale, around slot 0's arena
+    pose. It aims at the other slot's body center (`field_DD0`, through
+    `Model_CopySlotU16Values`) and draws camera-facing billboards with
+    view-space sizes (`GsGetLs`, then `ReadRotMatrix`, `RotMatrix`,
+    `ScaleMatrix`, `SetRotMatrix`). So for the call:
+    - the attacker stands at the arena pose (`func_8005A4C4(slot, 0, 0, 0,
+      0)`, scale 1);
+    - both body centers go through the inverse of its field root matrix T
+      (`field_D18`: rotation times its scale s, then its position);
+    - `GsWSMATRIX` (`D_800FE148`, which the port's `GsGetLs` reads too) is
+      WS T scaled by 1/s. That keeps the field's screen positions at the
+      arena's depth, so a billboard comes out s times its arena size, as the
+      monster does. With WS T alone the billboards came out at arena size,
+      seven times too big for a monster drawn at 552/4096.
+  - **Camera.** Its camera requests are refused (`D_8009B07B`/`D_8009B07C`).
+  - **Reactions.** The reactions it would start in slot 1 go with the copy
+    of the defender put there for the call. For a direct attack, the copy's
+    body center is the empty zone across.
+- **Timing.** The module's answer times the fight:
+  - its first 4, 3 or 1 lands the attacker's blow (or the end of the attack
+    row, if it never says);
+  - until it answers 2, or has run 900 frames, the attacker stays where it
+    struck, the camera stays in and the battle is held.
+  - Blue-Eyes lands 165 frames into the module and is over at 336. Man-eating
+    Plant lands at 74 and is over at 118.
+- **The counter.** A defender that strikes back does it as before.
+
+Checked on the timeline with 60 attackers (`battle_test` 1, 75, and every
+twelfth card from 3 to 699). Each of the 52 monsters has a module; each
+lands its blow 21 to 266 frames in and is over by frame 397, and every
+battle ends. The 8 cards that are not monsters fight no fight. The smoke
+case `duel-3d-monsters-attack-effects` is Blue-Eyes' White Lightning
+mid-beam (frame 20320). The two field fight cases set `effects` off, so
+their frames are as before.
+
+**The fighters' sounds.** With `sounds` on (the default; it does nothing
+unless `attack` is), both fights play the sounds the arena plays
+(`fight_sounds.c`).
+- **Where they are.** Each MODEL.MRG record carries its monster's own:
+  - sector 224, the sequence bank: up to 32 driver sound ids, each with a
+    note record (volume, timer, pitch, sample address);
+  - sectors 225-274, the ADPCM samples;
+  - sector 275, starting with the slot's 64 `sound_entries` (row, bank
+    index, time; 0x8000 for an XA clip off the disc), which the quiet load
+    copies too.
+- **How the arena plays them.** `func_8005106C` plays an entry when the
+  slot is in its row and the row's time passes the entry's:
+  `SD_SEPlay(0x4000 | index)`, which `field_044C` turns into the bank's
+  driver id. `func_800482B0` and `func_8004803C` give that id a voice at
+  the note's volume and pitch, and the voice is keyed off after the note's
+  timer. An id still sounding takes its own voice again (`mode` 0x10), so
+  an entry repeated every two frames restarts, it does not pile up. The
+  voices' envelope (attack, decay and sustain all at rate 0, sustain rising)
+  keeps them at full level.
+- **Why not there.** The bank goes to 0x801A8000, where the duel keeps the
+  opponent's AI script. Registering it (`SD_LoadSequenceBankPair`) first
+  drops every id the duel registered (`func_8004763C`). The samples go to
+  SPU RAM 0xD810 and up, over the duel's own sounds; in the duel all but 39
+  KB of SPU RAM is taken (0x3D000-0x40000 and 0x79400-0x80000 are free in
+  the quick battle), and a monster's samples take 80 to 100 KB.
+- **So the host plays them** (API 12, `sound_add`/`sound_play`). When a
+  fight begins, the mod reads each fighter's bank and samples again, and
+  decodes each note its entries name:
+  - the SPU's ADPCM from the note's address to the block that ends the
+    sample;
+  - at the note's pitch against the voices' sample note 0x3C00, through
+    libspu's own integer note-to-pitch (`0x2400` is 0x400, 11,025 Hz);
+  - cut at the note's timer (`timer << 2` VBlanks) with a 5 ms fade.
+
+  Then each frame it plays the entries of the row a fighter is in that the
+  row's time (`field_E06`) passed since the last frame, at twice the note's
+  volume (the voice's `(volume * 0xFF) >> 1` against 0x3FFF), and only in
+  rows the fight started: the attack and the reactions, not the rest the
+  monsters stand in. An XA entry, a voice clip off the disc, is the
+  game's own to play, as in the arena: `func_80045334` readies it on the
+  row's first frame and `SD_SEPlay(0x8000 | id)` starts it at its time
+  (Shadow Specter's counter-attack cries 0x800D). The sounds are let go
+  when the fight ends.
+
+For Man-eating Plant against Shadow Specter (the quick battle), the fight
+rows name five of the plant's sounds and four of the specter's; the bite
+plays three, at 992, 1120 and 1184, the last as the blow lands. Reading
+takes under 0.1 ms; decoding and converting, on macOS, 2 and 4 ms, as the
+fight begins. The smoke cases run without sound, so their frames are as
+before.
 
 ### Images from the disc
 
@@ -1556,7 +2275,7 @@ draws as a PNG named by its hash (`src/pc/render/texture_dump.c`), a
 discovery tool: what a screen is made of, at what size and depth, through
 which palette. A texture is the rectangle of texels one textured primitive
 covers, decoded through its palette, so a sprite comes out at its own size
-and colours and the same one drawn again is the same file; the hash covers
+and colors and the same one drawn again is the same file; the hash covers
 the texel indices and the palette entries, so a palette swap is another
 image. `textures.txt` in the directory lists each hash with its size, depth,
 page and palette coordinates. Dumping costs a hash per primitive, so it is
@@ -1586,7 +2305,7 @@ ones loaded after it.
 
 View > Console resolution / Internal 2x, 4x (the `internal_scale`
 setting, `MEMORIES_INTERNAL_SCALE=N`, 1, 2, 4 or 8) shows a picture of the
-whole of VRAM at N x N pixels per VRAM word in 24-bit colour instead of
+whole of VRAM at N x N pixels per VRAM word in 24-bit color instead of
 VRAM. VRAM itself stays exactly what the console's would be: the game reads
 it back and states hold it, and the 1x frame the smoke fixtures hash is
 byte-identical at any scale. No dithering in the picture; the mask bits
@@ -1598,7 +2317,7 @@ battle, `DuelCard_CaptureRoundedTexture` reads the card back from the screen
 console's resolution, so the burn showed the card without its pack image or
 HD text. The function now also calls `Memories_PictureCapture` (under
 `MEMORIES_PC`): the OpenGL picture copies that part of its scaled picture
-when the record reaches it, and 16-bit texels in the rect take their colour
+when the record reaches it, and 16-bit texels in the rect take their color
 from the copy while their word still decides transparency and
 semi-transparency. A load, copy or fill over the rect, a resync or a new
 scale drops the copy. The software picture and 1x keep VRAM's texels there. A line is the console's one-pixel line made N
@@ -1618,7 +2337,7 @@ the palette) as the software GPU samples it, a mod's texture banks are an
 array texture uploaded when a replay finds them changed, and a pack's
 images are textures of their own with the pack's word-to-entry maps beside
 them. Opaque pixels and blending modes 0, 1 and 3 share one draw (the
-colour comes out pre-multiplied, the destination's factor in alpha); mode
+color comes out pre-multiplied, the destination's factor in alpha); mode
 2 draws its opaque texels, then its semi-transparent ones subtracted.
 What a primitive draws is not sampled by a later one of the same frame
 (the game never renders to a texture); across frames VRAM is uploaded
@@ -1753,7 +2472,8 @@ texture as an SDL texture does not work: SDL's `GLES2_CreateTexture`
 specifies the storage of a texture it is handed, which wipes it.) A
 repaint of the menu over a still frame shows the same texture again.
 `use_gl` stays 0 on this path: the desktop presenter and Video > Color
-(`present_pass.c`, fixed function) are desktop only. A device without
+(`present_pass.c`, fixed function) are desktop only; their menu rows are
+dimmed there ("Present pass" above). A device without
 ES 3 (or a failed context) gets the renderer SDL picks and the software
 picture, as before, and Video > HD text says "needs OpenGL ES 3".
 
@@ -1768,15 +2488,31 @@ GLSL ES 3.20", then "OpenGL picture pass on").
 the background; SDL then makes a new one and sends
 `SDL_EVENT_RENDER_DEVICE_RESET`. SDL's GLES2 renderer cannot go on (its
 context is the lost one), so `reset_renderer` forgets the pass's GL names
-(`GlPicture_Lost`, nothing deleted), destroys and makes the renderer again,
+(`GlPicture_Lost`, nothing deleted: they went with the lost context), destroys and makes the renderer again,
 starts the pass in the new context and lets the next frame make the
 textures again; the pass's first replay draws the picture again from VRAM
 (as a resync does). Where the pass does not start again, or its frame
 cannot be copied into the renderer's texture, `GlPicture_Stop` takes its
 recorder out of the software GPU, which draws the scaled picture again
-from VRAM, as on a device without ES 3. `MEMORIES_TEST_GL_RESET=<frame>`
-sends that event at a frame, with nothing lost, to try the path anywhere;
-`<frame>fail` also keeps the pass from starting again.
+from VRAM, as on a device without ES 3, and deletes every GL name the
+pass holds (at 4x with anti-aliasing the picture and its copies are
+hundreds of MiB); a `GlPicture_Init` that fails half way deletes what it
+made. A pass given up stays off for the session: a reset starts the pass
+again only when it was on. The reset is handled inside a present (the
+pump in `begin_present`), which may be copying the software GPU's
+picture, and the recorder's return (`SoftGpu_SetRecorder`) frees that
+picture (before 2026-10-09 a failed copy followed by a reset read the
+freed picture there and crashed).
+`MEMORIES_TEST_GL_RESET=<frame>` sends that event at a frame, with nothing
+lost, to try the path anywhere; `<frame>fail` also keeps the pass from
+starting again. `MEMORIES_TEST_GL_COPY_FAIL=<frame>` makes that frame's
+copy fail, as when SDL cannot make its texture.
+
+On ES the pass needs a vertex array of its own (`glGenVertexArrays`, core
+in ES 3.0): SDL's renderer draws with the one there is, and the pass's
+attribute changes would turn off SDL's. Without it the pass does not
+start. `es_source` converts GLSL 1.30 alone and refuses a shader whose
+first line is not `#version 130`.
 
 **On a desktop: `MEMORIES_GLES=1`** takes the same path in a desktop
 window, to test it where frame dumps and the desktop renderer can be
@@ -1829,7 +2565,7 @@ in widescreen too. The software picture (`MEMORIES_GL_PICTURE=0`) and 1x
 are as before.
 
 The retail font is anti-aliased in its indices, which the text palettes run
-from black up to the text's colour. The dark outline is the lowest index
+from black up to the text's color. The dark outline is the lowest index
 (1, and 2-3 in the large font). Above it, an index is how bright the texel
 is, and the letters are shaded brightest at the top of the cell. An HD
 letter is made the same way at N pixels per texel:
@@ -1858,11 +2594,11 @@ letter is made the same way at N pixels per texel:
   pack that replaces the font leaves the i and l the port's then;
 - each pixel's coverage goes onto the run from the outline's index to the
   row's shading (half-way from its average stroke to its brightest, so the
-  colour is the cell's), and the outline's index goes in a band a texel
+  color is the cell's), and the outline's index goes in a band a texel
   wide round it.
 
 The shader samples the HD indices in place of the cell's, and the glyph's
-palette does the rest. So colours, fades, flashes, semi-transparency and
+palette does the rest. So colors, fades, flashes, semi-transparency and
 the order the game draws in are the game's, including turned and leaning
 letters and the letters translations add (texture bank 15).
 
@@ -1885,12 +2621,44 @@ the one that makes the plates of added cards: Times at 13 pixels, the
 baseline under row 11, squeezed past 90 columns) at N times the size, and
 its coverage goes onto the plate's inks, 1 the darkest to 7 the faintest.
 The card view subtracts those inks from the frame, so through the plate's
-palette the letters come out dark with smooth edges on every frame colour.
+palette the letters come out dark with smooth edges on every frame color.
 func_800289BC notes where each plate went (`HdText_TitleUploaded`); a 4-bit
 primitive sampling those words while they still hold the plate (the flat
 strip, or a piece of the turning card) samples the picture instead. Twenty
 titles are kept, the least recently drawn made over. So no pack needs to
 carry names, and a card a mod adds reads like the rest.
+
+### Fast HD pack drawing
+
+Video > Fast HD pack drawing (`hd_fast`, `MEMORIES_HD_FAST`: 0 Off, 1 On,
+2 Automatic, the default) draws a texture pack's images with a shorter
+program at internal 2x and up (`gl_picture.c`, `lean_program`).
+Automatic turns it on once the game falls behind on the GPU's account
+while a pack is drawn: two windows of 120 frames running in which the
+game's work and the present take more than 17.5 ms a frame together, the
+present the longer, a pack drawn in half the frames, and no frame held
+past 40 ms (a screen reading its pack's images). It stays on while the
+setting and the internal resolution stay. A machine that holds 60 never
+sees it: the Samsung A22 turns it on at 4x with the HD pack, not at 2x.
+
+With a pack, nearly all a screen draws can be pack images (the duel field: 2.6 of 2.7 Mpx a frame at
+4x), and the picture's program spends about ten cycles a pixel on each,
+finding the texel's entry and place in the pack's maps; on a Samsung A22
+(Mali-G52) a duel ran at 47 fps at 4x with the Forbidden Memories HD pack,
+60 without it.
+
+A primitive that samples one entry's image within the words the entry
+covers, without perspective, semi-transparency or HD text, has its image
+pixel on a straight line of its texel coordinate, so the shorter program
+reads the image once from the interpolated texel, with the same clamp and
+the same sums (about 1.9 cycles a pixel); the half-pixel moves the
+picture's program makes at each pixel are made once per triangle instead.
+Anything else draws as before, in the same order. With it on the A22
+holds 60 fps at 4x. It is nearly the same picture, not the same: the
+texel coordinate moved once rounds a little differently from one moved at
+each pixel, so now and then a pixel on a texel's edge takes its
+neighbour (15 of the 1,228,800 pixels of the duel field at 4x on the A22,
+2 of 1,262,080 on Windows). Off, the picture is exactly as before.
 
 ### HD numbers and labels
 
@@ -1907,14 +2675,14 @@ and the software picture never change.
   - Each sheet is measured from its own ten digits: the outline (the index
     next to nothing), the fill (the commonest inside), the ramp of indices
     between them, their feet, heads and stroke weight.
-  - A digit is then set in the text's font like an HD glyph and coloured
-    through the ramp, so the game's palettes still decide the colours (the
+  - A digit is then set in the text's font like an HD glyph and colored
+    through the ramp, so the game's palettes still decide the colors (the
     inactive side's dimming too).
-  - A colour off the way from outline to fill, like the purple the duel's
+  - A color off the way from outline to fill, like the purple the duel's
     digits have in a few corners, is left out.
 - **Labels.**
   - The life-point panel's LP, COM and YOU are set anew in the font, over
-    the panel's own texels made larger, in the box's colours. Only where
+    the panel's own texels made larger, in the box's colors. Only where
     the retail panel is (a hash of its words); a mod's own panel is left as
     it is.
   - The card kinds (Magic, Equip, Trap, Ritual), in the hand and on the
@@ -1963,7 +2731,7 @@ and up without the picture pass ("needs OpenGL 3 or 1x").
 - The box is COM's, made from the panel's own texels: its left end, then its
   rows' border and background, as long as the name needs, growing leftwards
   from where it meets the panel. The name is set in the text's font in COM's
-  colours, through the panel's palette, so the inactive side's dimming still
+  colors, through the panel's palette, so the inactive side's dimming still
   applies.
 - It is drawn over the panel whatever drew the panel: the retail panel, HD
   numbers and labels, or a texture pack's image.
@@ -1985,6 +2753,27 @@ and up without the picture pass ("needs OpenGL 3 or 1x").
   (`gDuel_bWinnerSide`): the player's name, or the opponent's when the
   computer won, ending where the game's YOU or COM would; a name that
   cannot stay You, or the game's own COM. 2P duels keep 1P and 2P.
+  A translation with result strings of its own (`40`-`45`: the pt-BR mod
+  has them, the shipped languages do not) gets the same, by the same
+  rules, in `unit_results_copy` and `unit_results_target`: its calls are
+  indices of the unit's targets (`listing.h`), so a call is for a side when
+  it lands on the translation's string `3E`, `3F` or `3D`, the label
+  `L050E`, `L051C` or `L0504` somewhere, or the game's own place. The
+  columns move by the width of its word, not by three (VOCÊ is four: the
+  letters of the string a 1P duel takes, following `{f8 17}` and `{f8 18}`),
+  in a copy of the span of its data from the first of `40`-`45` to the next
+  string (`TextUnit.results_from`/`results_to`, up to 16 KB; the unit's
+  `controls` and `target_calls` find the `{f8 02 NN}` before a call without
+  taking the second byte of an added letter, F1 F8, for a step). A name that
+  cannot be shown (a letter the small font has no plain one of, no room
+  before COM, a player with no name of their own, a step that cannot move)
+  leaves the translation's own word, not You or COM. The steps before a
+  side's calls move together or not at all. With the setting off these
+  functions are still called but answer as before (the same string, the same
+  jump), so the screen is the translation's, pixel for pixel. A span past
+  16 KB is said once in the log and the Mods window, and shows no names. No
+  shipped language redefines `40`-`45` (only the pt-BR mod does), so the
+  shipped languages are unchanged by construction.
 
 Not covered yet: the sword and shield icons (pictures, not lettering).
 
@@ -2008,8 +2797,8 @@ master's.
   WA sector `0x1690` (`Main_RunBootSequence`, `Main_LoadBootPackageStage`):
   not a TIM but raw VRAM words, one sector a 64 x 16 block placed down a
   column from 0x280, 0 (`File_StepActiveTransfer`), so the font's page is
-  its first 16 sectors; the text colour ramps are the first 0x100 bytes of
-  its sector 50, a 16 x 8 `LoadImage` at 0x280, 0xE8, one row a colour in
+  its first 16 sectors; the text color ramps are the first 0x100 bytes of
+  its sector 50, a 16 x 8 `LoadImage` at 0x280, 0xE8, one row a color in
   the order of `gText_abColorSlots`' values (0 white, 1 yellow, 2 blue, 3
   green, 4 grey, 5 orange, 6 red). The glyphs are 4-bit 8 x 12 cells where
   `func_80035E20` finds them (`retail_cell` in `glyphs.c`): '0' at 120, 0,
@@ -2051,7 +2840,7 @@ zero weight and the deck pool left out, deck and trunk counted once per
 card, a mod's added and removed cards (a mod card among them), an edit of
 `all`, and a disc without the file. `pc_font_art` (`tests/pc/font_art_test.c`)
 reads the real `game/DATA/WA_MRG.MRG` (skipped without it), checks the
-glyphs against the hand decode above in all seven colours and draws counts
+glyphs against the hand decode above in all seven colors and draws counts
 through `FontArt_Draw`; `MEMORIES_FONT_ART_SHEET=<file.ppm>` saves them.
 Not done: a frame on the portraits of opponents whose cards are all owned.
 
@@ -2063,7 +2852,7 @@ would end with: **Rank** (1) the letter and axis, S-POW to S-TEC, and
 **Rank and score** (2) also the score, 0-99 as the rank uses it (below 50
 is TEC). It is drawn with the result screen's own pictures, right of the
 FIELD box and as tall as it: the stone plate with the rank letter on it (D
-blue, C green, B yellow, A red, S magenta, the colours the result screen
+blue, C green, B yellow, A red, S magenta, the colors the result screen
 gives them) and the POW or TEC badge behind the letter's top left; the
 score follows in the cards' ATK/DEF digits. Off, nothing is drawn, nothing
 is computed and the disc is not read: `update()` returns before reading
@@ -2109,7 +2898,7 @@ anything.
     `DisplayObject_UpdateCommandStream` and drawn as
     `DisplayObject_RenderSpriteSheet` does (the objects set flag 0x20, so
     the sheet's own palette step is added). That gives, on page 0, 256 in
-    4-bit colour: the badge 24 x 24 at 184, 312 (POW, palette 112, 248) or
+    4-bit color: the badge 24 x 24 at 184, 312 (POW, palette 112, 248) or
     184, 288 (TEC, 96, 248), the plate 56 x 48 at 128, 288 (16, 248), and
     the letter 40 x 40 at 0/40/80, 128/168 with a palette for each (S 144
     ... D 208). `pc_rank_art` checks each against this hand decode.
@@ -2117,7 +2906,7 @@ anything.
     (`Duel_LoadPackageStage`, all seven are the same here): 64 sectors of
     image to 0x300, 0x100 and four of palette to 0x100, 0xF0 (256 x 16);
     `Duel_DrawCardFrame` draws them from page 0x1E, v 0x58, 8 x 8 in
-    8-bit colour, palette 0x100, 0xF1.
+    8-bit color, palette 0x100, 0xF1.
   If the disc cannot give them the rank is not drawn and the log says so
   once; there is no fallback to other lettering.
 - **Drawing** is the host overlay, like the fusion helper's (`hud.c`,
@@ -2524,9 +3313,24 @@ bit-identical. How (details in `src/pc/guest/state.h`):
     wrong one of its two buffers from then on. `build_game32.py` now puts
     them in `game_data` after everything else (`$n`), where no variable
     moves, and a variables chunk shorter than the section (a state from
-    before) restores the part it has. The other way round, an older build says the
+    before) restores the part it has. These variables are therefore not at
+    their retail addresses (nor on Linux: the game's `game_data`/`game_bss`
+    are not the guest RAM); the control channel finds them by name
+    (`peek @gGraphics_sViewportX`), see notes/agent-control.md. The other way round, an older build says the
     game's variables "do not match this build" and leaves them out: the
-    state loads, but play does not go on as saved.
+    state loads, but play does not go on as saved. Issue #229 was the same
+    gap in Build Deck: its two panes lie side by side and the screen slides
+    between them by `gGraphics_sViewportX` (`.sbss`), so a state saved in
+    the Chest and loaded after going over to the Deck brought back the
+    Chest's pane and cursor but left the view on the Deck: the picture
+    stood still while the Chest's cursor moved off the screen, until the
+    next slide between the panes. Reproduced on v0.2.0 (F5, Right, F7) and
+    on the commit before the fix; `tests/pc/state_load_build_deck_e2e.py`
+    checks it on the Build Deck screen of the main menu and the one before
+    a duel (frame hashes and pictures after the load, against a load made
+    at once; a local gate, as it needs the disc). Small-data variables are
+    not at their retail addresses in the Windows build, so `yfm_control`'s
+    `peek` by those names reads the wrong bytes there.
   Not reproduced bit for bit: the SPU mixer's state (`spu`, `libspu`) and the
   sound driver's work area, which the mixer thread updates in real time (as
   between any two runs).
@@ -2565,7 +3369,10 @@ bit-identical. How (details in `src/pc/guest/state.h`):
   grew). Every build files all of its functions and the game objects'
   variables in `tmp/pc/game32/symbols/<build id>.txt`, the id being the
   table's hash (also written to `tmp/pc/game32/buildid`, which the runtime
-  reads); the state header carries the id (format version 3; version 1
+  reads; beside it, `<build id>.vars.txt` names the variables the build
+  defines (game, module and native) and pins, and where, for the control
+  channel's `peek @NAME`, notes/agent-control.md; it is shipped with the
+  build); the state header carries the id (format version 3; version 1
   carried the game-source fingerprint, version 2 the build id of a game
   compiled without the indirect-branch thunks).
   A state from another build is
@@ -2653,6 +3460,36 @@ menu's own state is a save-state chunk (`save-menu`), so a state taken with
 the menu open resumes in it; each poll supplies the current build's
 integrity callback, including after loading a state in a fresh process.
 
+**Saves from an emulator or a PS1 memory card** (issue #299): a memory card
+file put in the `saves` folder is imported each time the slot menu opens
+(`SaveSlots_ImportFolder`, called from the menu's `start`). Taken by
+extension, in any case: raw card images `.mcr` `.mcd` `.mc` `.srm` `.mem`
+`.ddf` `.vm1` (ePSXe, PCSX, mednafen, DuckStation, RetroArch, PCSX2), and
+`.gme` (DexDrive), `.vgs`, `.vmp` (PSP), and the single saves `.mcs` `.psx`
+`.ps1` `.mcb` `.psv` (MemcardRex, Action Replay, PS3). The format is not
+parsed: each keeps the game's one 8 KiB block whole after a header of its
+own, so `SaveSlots_FindSave` looks for a block that opens with `SC` and
+holds a copy that passes `SaveData_ValidateIntegrity` and has a deck (an
+all-zero state passes the check, and other games' blocks may hold zeros
+there). Each save found goes into the first empty slot through
+`SaveSlots_WriteFile`, as the game's own save would, so loading it is the
+ordinary slot load with the game's check. A save already in a slot (the
+same state, byte for byte) is not copied again. When every save in a file
+is in a slot the file is renamed `<name>.imported` (`<name>.2.imported`
+...), so it is imported once; with no empty slot it stays and the menu says
+how many did not fit. The menu shows one message for the lot ("Imported the
+save in epsxe000.mcr into slot 2.", "No save of this game found in
+blank.mcd.", ...), Cross closes it. Emulator save states (`.sstate`,
+`.ss0`...) are not memory cards and are not read. Only the USA release's
+saves were checked; another region's loads if it passes the same check.
+`pc_save_slots` tests the finder on each container shape and the folder
+import; `pc_save_menu` the menu's message and load. Checked in game
+(Linux, and the Windows build under Wine): a 128 KiB `.mcr` with another
+game's save in block 1 and the game's in block 2, a `.gme`, a `.mcs` and a
+`.psv` each, put in a fresh user folder; LOAD on the title imported it to
+slot 1 and loaded it with the save's deck, 711 kinds of cards and 25
+starchips.
+
 Checked on Linux and under Wine: LOAD on the title imports the card's save
 and loads it, SAVE writes an empty slot at once and asks before overwriting
 slot 1, and an overwrite replaces the file on the Windows build.
@@ -2693,7 +3530,7 @@ Native pieces (all under `src/pc/`):
 | XA/STR/MDEC | `sdk/libds.c`, `sdk/libpress.c` | XA ADPCM sectors decode into the SPU's CD input; streaming reads run at the drive's real rate (75/150 sectors per second). `St*` assembles STR frames in host slots; `DecDCTvlc2` emits genuine MDEC run-level words (bitstream v2), and the software MDEC fills each `DecDCTout` strip and then runs the game's callback. Floating-point IDCT; 15- and 24-bit output; 24-bit display mode is presented |
 | LIBGTE | `sdk/libgte.c` | Register setters, and ports of the resident routines: `rsin`/`rcos` and the matrix builders read the library's own tables from the resident image (`0x80094938` quarter sine, `0x80095638` sin/cos pairs, `0x800951A8` square roots); `RotMatrix`, `RotMatrix_gte`, `RotMatrixZYX_gte`, `RotMatrixYXZ_gte` (each keeps the retail rounding: some negate before the shift, the GTE ones after), `MulMatrix`/`MulMatrix2`/`ApplyMatrixLV` issued as the same MVMVA commands, `TransposeMatrix`, `SquareRoot0`, `ratan2` (table at `0x80099638`), `RotAverage3/4`, `RotAverageNclip3/4` and `_nom`, `AverageZ3`, `NormalClip`, `RotTrans`, `RotTransSV`, `RotTransPersN`, `RotColorDpq`, `NormalColorCol`, and `DivideFT4` with its recursive subdivider and packet emitter (`RCpolyFT4A`, `func_80089910`) over the caller's `DIVPOLYGON4` work area: the card viewer draws the large card with it. The earlier `RotMatrix` was the Z-Y-X formula under the wrong name |
 | LIBGS units | `sdk/libgs_unit.c` | The HMD path the town map uses: `GsMapUnit`, `GsMapCoordUnit`, `GsScanUnit`, `GsSortUnit` (primitive drivers are function pointers the game installs), the library's null and image-upload drivers, `GsGetLwUnit`/`GsGetLsUnit`/`GsGetLwsUnit` with their per-frame coordinate cache, `GsMulCoord2/3`, `GsSetRefView2`, `GsSetLightMatrix`, `GsSetFlatLight`, `GsLinkAnim`, `GsScanAnim`; `GsSortLine`/`GsSortGLine` are in `libgs.c`. `tests`: a scratch harness checked that the reference point lands on the view axis at the right distance and `ApplyMatrixLV` against 64-bit math; not yet a CTest |
-| Model drivers | `overrides/model_polygon_drivers.c` | The 61 hand-written GTE routines at `0x800612C0`-`0x8006ADE8` are HMD primitive drivers, and one algorithm under switches: triangle/quad x flat/Gouraud, back-face culled (`0x0020xxxx`) or both-sided (`0x0030xxxx`), plain or tiled (`0x02xx`: each polygon wrapped in its texture-window word and a reset), a second bank that forces semi-transparency, a shared-vertex bank (`0x012x/0x013x`) fed by a pre-calculation pass at `0x80067220`, and twelve outline drivers. Record layouts, the lighting modes of `D_8009AFE4`, the colour cache and the translucent second pass are described at the top of the file. Read in full for each shape and by diff for each variant; the outline drivers and most variants have not been seen running yet |
+| Model drivers | `overrides/model_polygon_drivers.c` | The 61 hand-written GTE routines at `0x800612C0`-`0x8006ADE8` are HMD primitive drivers, and one algorithm under switches: triangle/quad x flat/Gouraud, back-face culled (`0x0020xxxx`) or both-sided (`0x0030xxxx`), plain or tiled (`0x02xx`: each polygon wrapped in its texture-window word and a reset), a second bank that forces semi-transparency, a shared-vertex bank (`0x012x/0x013x`) fed by a pre-calculation pass at `0x80067220`, and twelve outline drivers. Record layouts, the lighting modes of `D_8009AFE4`, the color cache and the translucent second pass are described at the top of the file. Read in full for each shape and by diff for each variant; the outline drivers and most variants have not been seen running yet |
 | Null page | `guest/image.c` | Retail code dereferences null pointers that land in kernel RAM on the console (`CardList_CreateSlotTextBox` clears a flag through `box->field_28` one call before that object is created; it made BUILD DECK fault). A faulting access below 64 KiB is redirected: the handler decodes the instruction's base register, points it at a mapping of guest RAM's first 64 KiB, single-steps (trap flag) and restores the register. Each site is reported once on stderr, which makes these bugs visible instead of fatal |
 | Guest calls | `guest/branch_thunks.c`, `guest/image.c` | Every unit's indirect calls and jumps go through `__x86_indirect_thunk_<reg>`; a MIPS address stored in the data image resolves to the native function via the generated `Memories_FunctionMap` (or to the MIPS interpreter). Guest RAM is also non-executable, so a call that escaped the thunks faults and the handler redirects it the same way where DEP is on |
 | Overrides | `overlays/boot_check.c`, `sdk/deferred.c` | The boot package's console-modification check has no source and is passed. `GsSetFlatLight` and the debug font log once and do nothing |
@@ -2704,10 +3541,10 @@ weakens the game's symbol). Sources that still use address-based names
 does. `src/overlays/main_menu` is linked in because its load address
 (`0x80180000`) is private.
 
-Software GTE fix found through the map camera: MVMVA and the light-colour
+Software GTE fix found through the map camera: MVMVA and the light-color
 stage take IR1-IR3 as input and write them row by row; the inputs are now
 latched first (`pc_gte` has the regression case). Before it, every
-`ApplyMatrixLV` translation and every lit colour was wrong in rows 2 and 3.
+`ApplyMatrixLV` translation and every lit color was wrong in rows 2 and 3.
 
 Pointer-sign tests: retail tells a callback from a small number by the sign,
 every console address being negative. `func_80041F90`
@@ -2763,10 +3600,29 @@ box naming the folder to put it in. Crash and hang reports, minidumps and
 menu frame dumps go to `reports/` in the user directory when the game is not
 run from a checkout (`Crash_ReportDir`; `tmp/pc` in one).
 
-The 64-bit Windows archive has the data mods only and no mod SDK ("64-bit
-Windows" below). Where its compiler is missing (x86_64-w64-mingw32-clang 21
+The 64-bit Windows archive carries each code mod's x86_64-windows object
+in place of the 32-bit one, and the same mod SDK ("Mod SDK M1" below). Where its compiler is missing (x86_64-w64-mingw32-clang 21
 or later), `package.py` with no arguments skips it with a message and packs
 the other two; `package.py windows-x64` stops instead.
+
+Every archive's SDK carries the export list of each mod target
+(`sdk/exports.i386.txt`, `exports.x86_64-windows.txt`, `exports.aarch64.txt`,
+and `exports.txt`, the i386 one under its old name, in the 32-bit ones), so
+its `build_mod.py` checks every object it builds. A game build writes only
+its own target's list, with `<build>/source` (the commit, and a digest of
+uncommitted changes); `package.py` builds every system it packs before it
+packs any, and takes each other target's list from that target's build in
+`tmp/pc` (`win32` or `game32`, `win64`, `android-arm64-v8a`) or from a
+folder `--exports-from` names, only when its `source` is this build's. It
+stops, naming what to build, when one is missing (before building
+anything) or from another tree (after the builds). So before packing, build
+the Android game once per commit (`build_game32.py --target
+android-arm64-v8a --release`); where the 64-bit Windows game is skipped,
+its list must come from a build of the same tree too. The release workflow builds the arm64
+game in its `android` job and the 64-bit Windows game in `sdk-exports-x64`,
+and hands their lists to the `package` jobs. `test_package.py` refuses an
+archive whose SDK lacks one, or whose lists differ from another archive's
+packed with it.
 
 ### Crash reports
 
@@ -2909,7 +3765,10 @@ What differs from Linux, and why:
   to the interrupted instruction. Code outside the executable (C runtime,
   SDL, drivers) is never interrupted; a tick missed there is taken by
   `Win32_ServiceInterrupt` from `Platform_WaitVBlank`. `pc/compat/signal.h`
-  maps `sigprocmask`/`pthread_sigmask` on SIGALRM to that hold flag.
+  maps `sigprocmask`/`pthread_sigmask` on SIGALRM to that hold flag. That
+  is the interrupt clock (`MEMORIES_CLOCK=interrupt`); with the default,
+  cooperative one the thread only watches for stalls, ten times a second
+  ("Cooperative clock").
 - **Faults.** A vectored exception handler in `image.c` does what the
   SIGSEGV/SIGTRAP handlers do (guest-call redirect, low-address fixup); the
   guest-call redirect is the second net behind the branch thunks, since it
@@ -3146,32 +4005,20 @@ drifted.
   `saves/slotNN.sav`, are the game's data; that the other width loads them
   is expected but not yet checked.) The width check comes before the mods check, so
   the mods refusal ("uses different mods...") is only ever between two
-  states of one width, whose code mods are the same (none on 64-bit).
-- **Mods.** The 64-bit build carries the data mods (`build_mods(code=False)`
-  copies them and leaves the code mods out), and the game is built with
-  `MEMORIES_NO_CODE_MODS`. The data mod loader is the 32-bit one, and what
+  states of one width, whose code mods are the same.
+- **Mods.** At X3 the 64-bit build carried the data mods only
+  (`build_mods(code=False)`, `MEMORIES_NO_CODE_MODS`; code mods came with
+  M1 below). The data mod loader is the 32-bit one, and what
   was run on 64-bit draws as there: cards and a texture pack (the gate
   replay below), a booster pack (state-load-rng's test mod), and the
   baseline release's data examples load without a note (`check_mod_abi`
   below). Fusions and the other tables, guardian stars, duelists, limits,
   audio, translations and disc patches load the same way but have no
   64-bit frame check yet; star and duelist names come from the low memory
-  region (X2), which no mod has exercised there. A mod with a `library` (3d-monsters,
-  hand-camera, ai-hard-mode, yamyi-mods, the gameplay-rules example) is a
-  32-bit object: none ships with the 64-bit game, and one the player
-  installs is not loaded: the Mods window shows "needs a 64-bit build of
-  this mod" beside it. It is not a broken mod, so
-  the other mods' Apply goes on, and it is not in a state's mod set. What
-  stays off with it: `object_loader.c` maps an object wherever the system
-  puts it and its relocations are i386 (`ObjectLoader_Load` refuses too),
-  `mod_libc.c` lends 32-bit helpers and the heap's `malloc` (which may be
-  above 4 GB), and `hooks.c` writes an i386 `jmp *[abs32]` (inert off
-  i386 already). No mod SDK goes beside the 64-bit game: it builds 32-bit
-  objects. `check_mod_abi.py --run --build <64-bit build>` plays a
-  baseline release's mods there and requires that note for each code mod.
+  region (X2), which no mod has exercised there.
   A replay recorded on 32-bit with two data mods on (the card-pack example
   with its two cards in the deck, and a texture pack of the screens'
-  sheets with every colour turned, made from the disc at play time) plays
+  sheets with every color turned, made from the disc at play time) plays
   on 64-bit with all 1145 frame hashes the same, also with
   `MEMORIES_X64_HIGH_HEAP=1`: `tests/pc/replays/x64-data-mods`, whose
   `mods.py` makes the two mods in the play's folder (`tools/pc/replay.py`
@@ -3183,26 +4030,124 @@ drifted.
   reports.
 - **Package.** `python tools/pc/package.py windows-x64` makes
   `dist/yfm-redecomp-<version>-windows-x64.zip` (its folder
-  `yfm-redecomp-<version>-x64`, with the data mods and a README that says
-  so) beside the 32-bit
-  `-windows.zip` (the default now packs all three); `smoke.py` skips the
-  cases that turn on a code mod for it, and `test_package.py` checks the
-  x86-64 executable and that there is no SDK. The release workflow
+  `yfm-redecomp-<version>-x64`) beside the 32-bit `-windows.zip` (the
+  default now packs all three); since M1 below it carries the code mods'
+  x86_64-windows objects and the SDK, and `test_package.py` checks the
+  x86-64 executable and that each archive's mods have their own target's
+  objects. The release workflow
   (pc-release.yml) does not build it yet: its Windows job's later steps
   (the FM Editor, VirusTotal) key on the runner being Windows, so a second
   Windows entry would need them keyed on the system, and the 64-bit
   libraries (`tmp/pc/win64-deps`) a cache of their own.
 
-Still off in the 64-bit build: code mods, whose 64-bit SDK is a later
-milestone, after arm64, covering both 64-bit targets (the loader for
-x86-64 and AArch64 objects, the mod C library, function hooks); the
-interrupt clock (the cooperative one is the default anyway); a state from
-the other width.
+**Mod SDK M1 (2026-10-05): code mods on 64-bit Windows.** A code mod is an
+object per target (`notes/modding.md`, "Code mods"): `build_mod.py` builds
+`<library>.o` (i386, unchanged), `<library>.x86_64-windows.o` and
+`<library>.aarch64.o`, and this game loads the second.
+
+- **Loader.** `object_loader.c` reads ELF64 x86-64 relocatables (RELA;
+  64, PC32, PLT32, 32, 32S, PC64 and GOTPCREL(X)), with a veneer
+  (`jmp *[rip]`) for a call to a host function out of reach, the C
+  runtime's DLL far above 4 GB, and a GOT entry per symbol. An object must
+  carry `.memories.abi` naming `x86_64-windows`: x86-64 objects of the
+  Windows and the Linux ABI look alike. The i386 path and its hash are as
+  they were.
+- **Where mods go.** Below 4 GB with bit 30 set, so that a mod's function
+  fits a 4-byte guest slot and takes the branch thunks' fast path, as the
+  game's own: `image.c` holds 128 MiB from the first 64 KiB after the
+  executable's image (`Memories_ModCodeRange`; 0x42390000 in the build
+  of 2026-10-05), and each image takes its piece through `compat/mman.h`'s `mmap`.
+- **Hooks** are the same 6 + 2 bytes: `jmp *[rip+disp32]` to the slot in
+  the image (every game unit already had the padding). `mod_libc.c` lends
+  `___chkstk_ms` and `__x86_indirect_thunk_r11` there; the mods' rand seed
+  is a `uint32_t` (the `mod-rng` chunk's 4 bytes).
+- **map_fixed** goes through `compat/mman.h`'s `mmap`: the plain
+  `VirtualAlloc` over the range `Memories_GuestMap` holds for the mod arenas
+  (0x90000000) failed, so 3D Monsters had no arenas there.
+- **The shipped mods** had declared `D_800E9D90`, `D_800E9D98` and
+  `D_800E9DB0` themselves without `G32` (3D Monsters, Hand Camera, Yamyi
+  Mods): built for x86-64 they would have read 8-byte entries out of
+  4-byte tables. They include the game's headers now, and
+  `src/pc/mods/prelude64.h`, force-included into every 64-bit unit, makes
+  such a declaration a compile error.
+- **Gate.** One replay per shipped mod, each alone, recorded on 32-bit
+  (`tests/pc/replays/mod-3d-monsters`, `-3d-monsters-card-art`,
+  `-hand-camera`, `-ai-hard-mode`, `-yamyi-mods`), plays frame for frame
+  on this build, also with `MEMORIES_X64_HIGH_HEAP=1`; no float
+  difference between the i386 mods' x87 code and the x86-64 build's SSE
+  showed. The Yamyi Mods drop panel is drawn by the host over the picture,
+  which the frame hashes do not cover.
+- **Crashes.** A fault in a mod's code is named in the report as on
+  32-bit (`crasher:crasher_fault_here+0x0`, a scratch mod faulting in its
+  frame hook, with the game's callers below it). Mod code has no unwind
+  tables, so above a mod function that keeps a frame of its own the
+  callers may be lost: M3.
+- **Not yet:** a host pointer a mod stores into a guest slot is cut to 32
+  bits without a warning (`malloc` may be above 4 GB; the shipped mods pass
+  the replays with `MEMORIES_X64_HIGH_HEAP=1`): M3.
+
+Still off in the 64-bit build: the interrupt clock (the cooperative one is
+the default anyway); a state from the other width.
+
+**Mod SDK M2 (2026-10-09): code mods on arm64 (Android).** The arm64 game
+loads each code mod's `<library>.aarch64.o`.
+
+- **Loader.** `object_loader.c` takes AArch64 RELA relocations (ABS64/32,
+  PREL64/32, ADR_PREL_LO21, ADR_PREL_PG_HI21(_NC), ADD_ABS_LO12_NC,
+  LDST8-128_ABS_LO12_NC, CALL26/JUMP26, CONDBR19, TSTBR14 and the GOT
+  pair), with a veneer (`ldr x16, 8; br x16`) for a branch to a host
+  function beyond 128 MB (bionic) and a cache flush once the code is in
+  place. clang's weak `__llvm_slsblr_thunk_xN` copies are bound to the
+  game's own; `mod_libc.c` lends them. Mod code goes in the 64 MiB after
+  the game's reservation (0xC4000000 with `libgame.so` at 0xC0000000:
+  below 4 GB, bit 30 set).
+- **Hooks.** Game units get `-fpatchable-function-entry=4,3`: the three
+  nops before an entry become `adrp x16, slot; ldr x16, [x16, :lo12:slot];
+  br x16`, the entry toggles between `nop` and `b .-12`, each write
+  followed by cache maintenance. Where the system refuses to make the text
+  writable (EACCES, an app's SELinux execmod), it is copied once into
+  anonymous memory moved over the same range (`mremap`) and patched there;
+  stderr (logcat) says which (`memories-pc: hooks: ...`). In that case the
+  range is no longer file-backed: a system tombstone names no `libgame.so`
+  for frames there.
+  `MEMORIES_TEST_ANON_TEXT=1`, read only by builds that are not releases
+  (`MEMORIES_TEST_HOOKS`), takes the first write in place as refused, so
+  the copy is tried where the write would be allowed;
+  `test_mods_lifecycle.py --target android-arm64` runs the hooks test on
+  the adb device both ways.
+- **Pages.** An AArch64 kernel may run 4, 16 or 64 KiB pages (Android 15
+  phones can run 16 KiB ones). The loader lays an aarch64 image out on the
+  system's page, 16 KiB at least, so the code's `mprotect` covers the code
+  alone and an image (and its hash in save states) is the same on 4 KiB
+  and 16 KiB phones; the hooks take the page for `mprotect` and the
+  anonymous copy from `sysconf(_SC_PAGESIZE)`. The x86 targets keep 4 KiB.
+  A game whose mod range could not be held loads no code mod (rather than
+  one somewhere it may not be reachable from a 4-byte slot), and a failed
+  anonymous copy is unmapped and not tried again.
+- **ptr32.** Every mod unit goes through `ptr32_stores.py`, as the game's
+  (NDK r29's clang still has the narrow-store bug; AI Hard Mode had one
+  such write).
+- **In the app.** Mods are turned on and off in the Mods panel (Game >
+  Mods drawn inside the window). Each
+  code mod that starts says so on stderr (`memories-pc: mods: ID loaded
+  its code`).
+- **Gate (emulator `api35x64`, arm64 code through libndk_translation).**
+  The five per-mod replays play frame for frame through `device_run.py`,
+  with the text patched in place and in the anonymous copy, as do the
+  mods-off replays; in the app (the four code mods set on in
+  `settings.txt`), 3D models, the hand camera, the CPU's turns
+  with AI Hard Mode and Yamyi Mods on, and no SELinux denial but liblog's
+  `/dev/pmsg0` getattr (there with mods off too). The emulator checks
+  neither a real core's instruction cache nor a phone vendor's policy: the
+  phone check is the release gate.
 
 ## Android
 
 **Status (2026-10-04):** the app is **arm64-v8a** ("Android arm64" below:
-the target, its memory layout and the phone tests). `android-x86`, the
+the target, its memory layout and the phone tests). Since 2026-10-16 its
+game is the translated build, with no fixed host address ("The app's game
+is the translated one" there); the loader and save-state text below is the
+fixed game's (`--android-memory fixed`, and `android-x86`). `android-x86`, the
 target M1-M4 were made on with the emulator images, still builds as a
 development check of the shared code, but no APK is made for it and it is
 neither run nor shipped. The 32-bit ARM target (`armeabi-v7a`, M2) was
@@ -3233,8 +4178,10 @@ phones too ("Android arm64").
 
 ### Build, install, run
 
-Needs the Android SDK with the NDK (r29 tested), a platform (android-35) and
-build-tools (35), a JDK (17 or later: `javac`, `keytool`), cmake and ninja.
+Needs the Android SDK with the NDK (r29 tested), a platform (android-35;
+`package_android.py` stops below android-34, as the manifest's
+`configChanges` names `grammaticalGender`) and build-tools (35), a JDK (17
+or later: `javac`, `keytool`), cmake and ninja.
 Nothing else: no Gradle, no Android Studio.
 
 ```sh
@@ -3248,7 +4195,10 @@ adb install -r tmp/pc/android-x86/memories-x86.apk
   builds SDL3 (shared), libpng and FreeType (static) with the NDK from the
   same pinned archives as the Linux and Windows builds, into
   `tmp/pc/android-deps/<abi>`, and keeps SDL's Java shell (`org.libsdl.app`)
-  from the same SDL release. zlib is the system's.
+  from the same SDL release. zlib is the system's. libpng has its NEON row
+  filters and palette expansion on arm64-v8a; `<abi>/.complete` names how
+  the folder was built, and one built otherwise (before 30 October 2026,
+  without NEON) is built again.
 - `build_game32.py --target android-<abi>` compiles every unit with NDK clang
   for the ABI at API 24, `-fPIC`, and links the game as the shared object
   `libgame.so` (`-Bsymbolic`, `--no-undefined`; pins `HIDDEN`, no fixed
@@ -3262,7 +4212,7 @@ adb install -r tmp/pc/android-x86/memories-x86.apk
   port's `main` returns, the process ends with it. If the range cannot be
   had, the game loads where the system puts it and keeps save states for
   that launch only. `tools/pc/package_android.py` then compiles SDL's Java
-  with `javac` against the SDK's `android.jar`, dexes it with `d8`, links
+  and the port's own (`src/pc/platform/android/*.java`) with `javac` against the SDK's `android.jar`, dexes it with `d8`, links
   the manifest with `aapt2`, adds `lib/<abi>/libmain.so`, `libgame.so` and
   `libSDL3.so` and the build's `buildid`, `commit` and symbol table as
   assets (`assets/build/`), and aligns and signs the APK (`zipalign`,
@@ -3281,34 +4231,131 @@ adb install -r tmp/pc/android-x86/memories-x86.apk
   uninstall the test app once first, which deletes its files (disc copy,
   saves). The
   package is `org.yfmredecomp.game`; the activity is SDL's own
-  `SDLActivity`, with no Java of ours.
+  `SDLActivity`. Our own Java is each `src/pc/platform/android/*.java`,
+  compiled with SDL's.
 - `--target android-armeabi-v7a` is refused: 32-bit ARM was removed.
 
 **The disc image.** On the first run the game finds no image and shows its
 welcome box; "Choose disc image..." opens the system's document picker
-(SDL's file dialog: the Storage Access Framework), so the image can be
-anywhere the phone reaches (Downloads, an SD card, a cloud drive), with no
-adb and no root. Any document is offered (the system knows no type for a
-`.bin`); the chosen one is checked where it is (`SLUS_014.11` on a raw
-image, as `game_files.c` checks) before anything is copied, and a file that
-is not the disc gets the desktop's "Unable to use this ROM" and the welcome
-box again. A good image is copied (about 25 s for 494 MB on the emulator)
-into the app's external files folder, `game/rpg-yfm.bin` under
+(the Storage Access Framework), so the image can be anywhere the phone
+reaches (Downloads, an SD card, a cloud drive), with no adb and no root.
+Any document is offered (the system knows no type for a `.bin`); the chosen
+one is checked where it is (`SLUS_014.11` on a raw image, as `game_files.c`
+checks) before anything is copied, and a file that is not the disc gets the
+desktop's "Unable to use this ROM" and the welcome box again. A good image
+is copied into the app's external files folder, `game/rpg-yfm.bin` under
 `/sdcard/Android/data/org.yfmredecomp.game/files/`, since the right to read
 a picked document does not outlast the app, and is remembered as on the
-desktop. Only raw `.bin` images: `game_files.c` reads nothing else (no
-`.cue`, `.iso` or `.chd`). The Android TV images have no document picker
-(the intent resolves to a stub that returns at once, and the welcome box
-comes back): there the image has to be put in place by other means.
+desktop. A box shows the check and then the copy, "Copying the disc image
+into the game's folder: N of 493 MB" over a bar (`DiscPicker.progress`,
+every 8 MB), where the screen used to stay black and silent for the whole
+copy. Only raw `.bin` images: `game_files.c` reads nothing else (no `.cue`,
+`.iso` or `.chd`). The Android TV images have no document picker (the
+intent resolves to a stub that returns at once, and the welcome box comes
+back): there the image has to be put in place by other means.
+
+The picker is our own activity, `DiscPicker.java`
+(`org.yfmredecomp.game.DiscPicker`), not SDL's file dialog. SDL's keeps what
+it waits for in statics of the game's process (`SDLActivity.mFileDialogState`
+and the native callback): when the system ended that process while the
+picker was in front, which a phone short of memory does (the game's process
+is then a background one, `oom_score_adj` 700 on the emulator), the
+player's choice came back to a new process that did not wait for it, and
+was dropped without a word: the welcome again, as if nothing had been
+chosen. `DiscPicker` runs in a task of its own (SDLActivity is
+`singleInstance`; its own `taskAffinity`, so that starting it afresh with
+`FLAG_ACTIVITY_CLEAR_TASK` clears only its task; kept out of the recent
+apps), asks for the document with `ACTION_OPEN_DOCUMENT`, takes a lasting
+read right (`takePersistableUriPermission`) and writes the answer to
+`disc-pick.txt` in the internal files folder before it ends: "chosen",
+"cancelled" or "failed" and the pick's id (the Intent's `id` extra), then
+the URI or the reason. The system keeps an activity's pending result across
+the end of its process and gives it to the activity it makes again, so the
+answer is written either way. `DiscPicker` ended without an answer (its
+task closed, a free-form window shut, a newer picker clearing it) answers
+"cancelled" from `onDestroy`: where the game's activity never left the
+screen (a free-form window, split screen), nothing else would tell the game
+the picker is gone, and it waited on a black screen.
+`Platform_SelectDisc` waits for the answer to its own pick (an answer under
+another id, from a picker a newer one cleared, is dropped) while the game's
+activity is away (SDL's event pump holds the thread while it is in the
+background), and reads an answer that is there when it starts: one the last
+process did not live to read, taken up at once, without the welcome, if it
+is at most 15 minutes old (an older one is a choice made long ago, not
+taken unasked). The game's activity back in front without an answer (the
+player came back from the recent apps or the launcher instead) is the
+picker given up, and the welcome comes again; SDL gives
+`SDL_EVENT_DID_ENTER_BACKGROUND`/`FOREGROUND` to an event watch only
+(`SDL_AddEventWatch`), never to the queue, so a loop that polls for them
+never sees them. Backing out of the picker is not an error; a picker that
+gave back no document says so in a box (a plain sentence; the exception
+goes to the log), and every answer is in the log (`disc picker: result
+...` from the activity, `no disc image chosen`, `the picker gave no
+document`, `an answer to an earlier pick`).
+The copy goes through `game/rpg-yfm.bin.tmp`, removed at the start and
+again before the copy if a copy cut short left one (it no longer counts
+against the free-space check), and is renamed only when it is whole: the
+document's length when its provider gives one, else at least the length the
+image's own volume descriptor gives (its sectors times 2352). The lasting
+read right is given back after the copy, whichever way it went; one a copy
+cut short left (the process ended during it) goes at the next start, where
+every lasting read right but that of the answer being taken up is given
+back (`DiscPicker.releaseAll`), and a start that finds the copy in place
+drops a leftover answer and gives back them all.
+
+The game's message boxes on Android (this welcome, the error boxes of
+`Platform_ShowError` and the start-up report's) are the system's own alert,
+`MessageBox.java` through `Android_ShowMessageBox` (android.c), not SDL's.
+SDL's box (`SDLActivity.messageboxCreateAndShow`) puts the buttons under the
+message with nothing to scroll, so a message taller than the screen pushes
+them out of the dialog: in landscape with the system's font size turned up,
+the welcome showed its text and no button to press. The alert scrolls the
+message and keeps its buttons on a bar under it. The button the return key
+presses (with none, the first other one) goes on the right, the escape key's
+beside it, a third at the far left;
+a box with more than three buttons, or a build without the class, gets SDL's.
+`android_loader.c`'s box (the game library would not load) stays SDL's: it
+comes before this game's code is there.
+
+The external files folder has to be there before the game starts:
+`Memories_AndroidMain` makes it, asking Java's `getExternalFilesDir` again
+(through JNI: `SDL_GetAndroidExternalStoragePath` keeps its first answer)
+for up to 10 s while it cannot (while the shared storage is not mounted
+Java gives no folder, `adb shell sm unmount "emulated;0"` shows it; just as
+it mounts, Java may give the folder while mkdir here says "File exists" and
+stat may not see it yet). Under scoped storage (Android 11 on) the app
+cannot make its `Android/data/<package>` folder itself: the system makes
+it, and puts its owner right, when Java asks (a folder a file manager made
+there first, even with no access for the app, is the app's after the first
+ask on Android 15); when it cannot, Java gives no folder, as while the
+storage is not mounted. Otherwise it says "The game could not use its storage
+folder", what a player can try (restart the phone, delete a leftover
+`Android/data/org.yfmredecomp.game`, clear the app's storage, reinstall;
+the message says that deleting the folder and reinstalling remove the saves),
+and what is there of the folder (each of `files`, the package folder and
+`Android/data`: there with its owner and mode, or stat's reason; the
+Android version and the app's user), and quits, unless the internal
+`environment.txt` names a `MEMORIES_USER_DIR` (testing).
+Android has no fallback folder (the desktop's `./saves`, which on Android is
+no folder the app can write): the disc image and the saves would be split
+between two places. A copy of the picked image that cannot make `game/`
+says so too, with mkdir's reason, and the welcome box comes back.
 
 Testing aids: `environment.txt`, `NAME=value` per line, in the external
 files folder (or, for a debuggable build, the internal one, which `run-as`
 reaches on an image without root) sets environment variables before the
 port starts (the app has no environment of its own): `MEMORIES_TRACE`,
-`MEMORIES_INPUT` (scripted pad), `MEMORIES_DUMP_FRAME`, and so on. The
+`MEMORIES_INPUT` (scripted pad), `MEMORIES_DUMP_FRAME`, and so on. In a
+build without `--release` (test hooks), `MEMORIES_TEST_HOLD_GUEST=1` holds
+guest RAM's first 2 MiB (0x80000000) before the game maps it, as a phone's
+Java runtime does, and `MEMORIES_TEST_OLD_KERNEL=1` makes the fixed game's
+own mappings behave as on a kernel before 4.17 ("Android arm64", "The app's
+game is the translated one" and "Kernels before 4.17"); both are off unless
+set. The
 game's load address and load bias are logged at start (`adb logcat -s
 memories`); with bias 0 a crash's addresses are the build's own, for
-`llvm-symbolizer --obj=libgame.so`. On an emulator image with root the disc
+`llvm-symbolizer --obj=libgame.so` (the translated arm64 game is linked at
+0: its offset from the logged load address). On an emulator image with root the disc
 can also be pushed straight into the game folder:
 
 ```sh
@@ -3325,6 +4372,146 @@ the program directory's `game/` (`files/program/game/` in the internal
 files folder), which `game_files.c` searches first.
 Screenshots of the device, never the host: `adb exec-out screencap -p`.
 
+### A mods folder on the phone's storage
+
+The Mods panel's **Mods folder...** (mods_window.c, [Mods window](mods-window.md))
+lets the player point the game at a folder such as `Download/MyMods`, one more
+folder it reads ([Mods](modding.md#your-own-mods-folder)). The game reads mods
+with plain file calls (`fopen`, `opendir`, the object loader's `fread` into
+anonymous memory), so on Android it needs a path and the right to read it:
+
+- **The path.** SDL has no folder dialog on Android (`SDL_ShowOpenFolderDialog`
+  is unsupported there), so `ModsFolderPicker.java` asks for
+  `ACTION_OPEN_DOCUMENT_TREE` (opening in Download) and turns the tree URI of
+  the external storage provider into a path: `primary:Download/MyMods` is
+  `/storage/emulated/0/Download/MyMods`, `home:` is Documents, and
+  `1234-ABCD:Mods` is `/storage/1234-ABCD/Mods` (an SD card; a USB drive's
+  16-digit id is `/storage/<id>` too; neither tried on a device). The path is
+  canonical and must stay inside its volume: `primary:../../data` is refused.
+  Any other provider (a cloud drive, another app's files) has no path: the
+  picker says so, in the panel. No lasting URI right is taken; only the
+  path is kept, in `mods-folder.txt` like on the desktop. Android 11 and later
+  will not hand back `Download` itself or the storage root: the player picks a
+  folder inside it.
+- **The right.** `MANAGE_EXTERNAL_STORAGE` ("All files access", Android 11 and
+  later; `READ_EXTERNAL_STORAGE` with `maxSdkVersion` 29 before, asked as a
+  runtime permission, not tried on a device), both in the manifest
+  (`package_android.py`). On Android 10 (API 29) that permission covers media
+  files only, and the folder's `.json` and `.mod` are not media: the manifest
+  keeps the old storage model there with `android:requestLegacyExternalStorage`
+  (honoured on API 29 only; Android 11 and later ignore it). The panel calls the
+  right "Storage" before Android 11 (`Platform_ModsFolderRight`). It is asked for only after a folder is chosen and
+  saved (`Mods_SetFolder` accepts a folder that cannot be read yet), and only
+  after the panel says why in a sentence and the player taps Allow;
+  `ModsFolderAccess.java` then opens `ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION`
+  for the app, else the list of apps, and answers "granted" or "refused" when
+  the player comes back. The app's details page is not tried: it opens on every
+  device and has no switch, so a phone without the two pages (an Android TV,
+  some Go and Fire OS builds) would only loop. Those two are looked for before
+  the question is even offered (`ModsFolderAccess.canAsk`, with a `<queries>`
+  entry for both actions, which Android 11 needs to let the app see them):
+  without them the panel says "This device cannot give the game All files access.
+  Use Import mod... instead." and asks nothing. Refused, the folder stays
+  chosen and the panel says how to allow it (`Mods_FolderProblem` is a fact
+  about the launch, so the panel composes this text itself; on the A22, Android
+  13, a folder of Download that the game may not read lists as empty rather
+  than failing, so the launch log has no reason to give). `Platform_ModsFolderAccess`
+  (`ModsFolderAccess.has`, through JNI) is what the panel asks to know whether
+  to say it, whenever it opens with a folder chosen; an allowance given in
+  Settings later is a restart too. What the start could read is noted when the
+  mods are scanned (`ModsWindow_SetFolderAccess` in `Platform_Open`, not at the
+  panel's first showing), and the right is looked for again whenever the app
+  comes back to the front (`SDL_EVENT_DID_ENTER_FOREGROUND`: some makers' Settings
+  answer the request at once, and the player gives the right behind it) and about
+  twice a second while the panel shows a folder it cannot read.
+- **The answers** reach C as DiscPicker's do: a record file in the internal
+  files folder, `mods-folder.txt` (`ModsFolderBase.java`), one request id per
+  question, read by `take_pick` and polled with the panel's ticks
+  (`Platform_PickedModsFolder`, `Platform_AskedModsFolderAccess`).
+  `MEMORIES_PICK_FOLDER=<path>` stands in for the picker (and counts access as
+  held) in scripted runs. When the system ends the game's process while the
+  picker is in front, the answer waits in the record: the next start takes a
+  fresh folder from it before the mods are scanned
+  (`Platform_TakePendingModsFolder`, as the disc setup takes its pick), and drops
+  anything else. A path that does not fit the panel's buffer is no answer.
+- **Code mods** in the chosen folder run their code on Android as on the desktop
+  and as imported mods do: a player puts every mod in one folder and they all
+  work, with no import step. The object loader reads the file with `fopen` into
+  memory and maps the code from anonymous memory (`mprotect`), so a noexec mount
+  of shared storage does not matter. The trade-off: shared storage is writable
+  by any other app that holds All files access, which is the same trust the
+  desktop game places in its mods folder. `pc_mods_folder_code` checks that the
+  loader is asked for the object.
+- **Google Play** restricts `MANAGE_EXTERNAL_STORAGE` to file managers and
+  similar apps, so a store build has to drop the permission and the Mods
+  folder... button; the sideloaded APK keeps both.
+- Reading `Download/...` goes through the system's file provider, not the app's
+  own `Android/data` folder; the first launches with a large pack there should
+  be timed before they are promised to be as fast.
+
+### Crash reports on Android
+
+A crash writes its report as on Linux (`crash.c`, in the process: there is
+no monitor), `crash-<pid>.txt` (or `hang-<pid>.txt` where a freeze
+watchdog runs, which it does not on Android by default) in
+`reports/` of the external files folder, which no file manager opens since
+Android 11. So the next launch offers it (`android_report.c`, from the end
+of `sdl.c`'s `Platform_Open`) in the game's own notice: **Share** (the
+system's share sheet, the report attached: Discord, a chat app, e-mail),
+**Save to Downloads** (MediaStore, Android 10 and later: before that,
+writing there needs a storage permission the app does not ask for, so the
+button is not offered and only Share is), **Don't ask again** and **Not
+now** (nothing: it is offered again next launch; Back presses it, the
+last button). Share, Save and Don't ask again retire every
+report in the folder at that moment (`report_folder.c`): `crash-<pid>.txt`
+becomes `crash-<pid>.txt.sent`, which is no longer offered; the newest ten
+retired ones are kept and older ones removed; a report with the running
+game's pid is left, unless it is the one offered (a pid used again). No
+time is compared: a report is offered until
+it is retired, even one written while the clock was behind (only the
+newest report is offered at a time; the others go with it). If a report
+cannot be renamed, the player is told it may be offered again (after Don't
+ask again: if the offer is turned back on). Share
+counts once the share sheet opens, whether or not an app is then picked.
+"Report saved" names the file as Downloads has it (MediaStore adds
+" (1)" when the name is taken). Don't ask again also sets
+**Help > Offer crash reports at start** (`offer_crash_reports`,
+`MEMORIES_OFFER_CRASH_REPORTS`: 1, the default, offers; 0 does not) to 0:
+that Help row, on Android only, is the way back, since `settings.txt` is
+in the folder the player cannot reach. Turned back on, it offers the
+newest report not retired: one written while it was off, or one still there
+when it was turned off in the menu (retired ones stay retired). The folder
+logic has a host test, `pc_report_folder`. Headless, scripted and
+agent-driven runs (`MEMORIES_HEADLESS`, `MEMORIES_INPUT`,
+`MEMORIES_SDL_SCRIPT`, `MEMORIES_CONTROL`) are never asked. The desktops
+have none of it.
+
+What goes out, `yfm-redecomp-crash-<date>-<time>.txt`: the app's version
+(or "development build"), the build id and commit, the device's maker and
+model, the Android version and API level, the memory free now, then the
+game's report with the player's own paths taken out: the user folder
+becomes `<app folder>` (the "user dir" fact, log lines naming a file in
+it), a `content://` URI (the disc image the player picked, whose URI names
+their folders and file) becomes `content://<removed>`, and "started" loses
+its time zone. The report's own facts stay (settings, mods, GPU, CPU, the
+start time without its zone). Nothing of the saves, the settings file or
+the disc. The authority `org.yfmredecomp.game.reports` is spelled in the
+manifest, `ReportProvider.java` and `android_report.c`;
+`package_android.py` stops if one differs.
+
+Share hands the file to the chosen app through a Java class of the port's
+own, `org.yfmredecomp.game.ReportProvider`
+(`src/pc/platform/android/ReportProvider.java`, compiled with SDL's by
+`package_android.py`): a read-only content provider, not exported, that
+serves the one copy in the cache folder's `shared/` to the app the share's
+Intent grants it to (`FLAG_GRANT_READ_URI_PERMISSION`), with its name and
+size. The Java calls (MediaStore, the Intent) are made through JNI on the
+thread's own stack (`Memories_OnHostStack`).
+
+To try it: `MEMORIES_CRASH_TEST=segv@600` in `environment.txt` (above),
+launch, let it crash, remove the line, launch again; `adb shell ls
+/sdcard/Download` after Save.
+
 ### How it differs (and what is shared)
 
 - `src/pc/platform/android.c` is the whole platform layer:
@@ -3334,12 +4521,16 @@ Screenshots of the device, never the host: `adb exec-out screencap -p`.
   internal files folder's `program/` and names it the program directory
   (`MEMORIES_PROGRAM_DIR`, `paths.h`: save states and crash reports read
   `buildid` and `symbols/` there; the symbol tables of earlier builds stay,
-  so a state from an earlier APK is carried over by name), turns off what
-  re-executes the program (the crash monitor, `Platform_RestartGame`) and
-  the update check, asks SDL for landscape, a fullscreen (immersive) window
+  so a state from an earlier APK is carried over by name), turns off the
+  crash monitor (it re-executes the program) and the update check, restarts
+  the game through a small activity of its own (`Platform_RestartGame`,
+  below), asks SDL for landscape, a fullscreen (immersive) window
   and Back for the game, and runs the port's `main`. It has the disc picker
   (`Platform_SelectDisc`) and says what a failed guest mapping means
-  (`Platform_GuestMemoryHelp`). `Platform_HasDesktopGL` answers 0: the
+  (`Platform_GuestMemoryHelp`: the step that failed, from
+  `Memories_GuestMapError` in `image.c`, such as the address range that
+  was taken; "This Android is 32-bit" only in a 32-bit game, android-x86,
+  on a 32-bit kernel). `Platform_HasDesktopGL` answers 0: the
   window takes the SDL renderer path (opengles2), in an OpenGL ES 3.0
   context with the OpenGL picture pass in it where the device has ES 3,
   else showing the software GPU's picture ("OpenGL ES 3 (Android)"). It
@@ -3356,9 +4547,9 @@ Screenshots of the device, never the host: `adb exec-out screencap -p`.
   a menu or answers a notice as Esc does, closes the deck slot screen, and
   otherwise asks "Quit the game?" with Quit, Menu (opens the first menu: the
   way to the menus with a controller in hand) and Keep playing
-  (`QuitPrompt_Back`); the rows for second
-  windows (Controls..., Mods), the window's size and mode, and the update
-  check are dimmed (`Menu_SetPlatformItems`), `Platform_HasWindowModes`
+  (`QuitPrompt_Back`); the window's size and mode and the update check
+  are dimmed (`Menu_SetPlatformItems`), Mods and Controls open as panels
+  inside the window (below), `Platform_HasWindowModes`
   answers 0 (F11, Alt+Enter and Esc keep the whole screen). Sizes come from
   the display's density (SDL's content scale, densityDpi / 160), not the
   window: Automatic menu size is the density rounded (13 px text at 1 dp,
@@ -3367,8 +4558,9 @@ Screenshots of the device, never the host: `adb exec-out screencap -p`.
   dp. The bar is hidden, as in a desktop's fullscreen, and drawn over the
   picture when it shows (where the window is always the whole screen,
   `bar_overlays`), so the picture and the touch controls never move: MENU on
-  the touch controls opens it, as does a tap at the top of the screen or
-  Back's Menu. The mouse SDL makes of a finger does not hover: before, its
+  the touch controls opens it (Simple's opens its Game menu, and STATES its
+  File menu), as do a tap at the top of the screen and Back's Menu. The
+  mouse SDL makes of a finger does not hover: before, its
   last place (0,0 at start, the top after a tap on the bar) kept the bar
   shown for good, and its move to a tap opened the menu that the press then
   closed. Everything else there is the desktop's.
@@ -3383,6 +4575,200 @@ Screenshots of the device, never the host: `adb exec-out screencap -p`.
   the clock stopping while an app is in the background (SDL's application
   events, which reach only event watchers); touch controls (View > Touch
   controls); `Platform_GuestMemoryHelp`; `Menu_SetPlatformItems`.
+
+### Mods and Controls as panels inside the window
+
+An app has one window, so Game > Mods and Game > Controls... draw the same
+modules as the desktop's second windows (`mods_window.c`,
+`controls_window.c`) into the game's window instead: one module, two hosts.
+`panel.c` (`panel.h`) is the second host, platform-independent and
+display-free; `sdl.c` uses it where `Platform_OpenMods`/`OpenControls` would
+open a window and `panel_overlay()` says so (always on Android;
+`MEMORIES_PANELS=overlay` tries it on a desktop). The desktop's windows are
+untouched: with a mouse every path is the old one, pixel for pixel.
+
+- **What shows.** The panel covers the window, opaque, drawn into the
+  overlay canvas the menu bar uses (`draw_overlay`), so neither the picture
+  nor the bar, the HUD or the touch controls show while it is up. Its
+  contents keep within the safe area across (a landscape phone's cutout;
+  `SDL_GetWindowSafeArea`), the whole height down (the system bars are
+  hidden over the game); the rest is filled with the panel's background.
+- **Sizes by density.** With a finger (`Menu_TouchTarget`, 48 dp) both
+  modules keep the menu's unit (the density rounded, 13 px text at 1 dp)
+  instead of shrinking to fit, and every row and button is at least 48 dp
+  tall. Mods drops its title and keyboard hints (the counts go to the
+  footer's message line) and, where the list and the details do not fit side
+  by side (every phone; the 2208x1768 tablet at 420 dpi), shows them as two
+  pages: the list, and a mod's page (Back, name, load order, Enabled, the
+  three tabs) that a tap on its row opens; the settings' count and Restore
+  defaults scroll with the settings there. Controls is one page between a
+  fixed header (Keyboard/Controller, Player 1/2) and a fixed footer (Clear,
+  Rebind, Cancel, Apply, OK over a message line): the device, the pad
+  picture, both lists at full length, the fixed keys and Restore defaults.
+- **A finger is not a mouse.** `panel.c` holds a press until it is a tap
+  (the module gets the press and the release where the finger went down,
+  then a leave, so no hover stays) or a drag (8 dp of movement: what it
+  went down on scrolls, `ModsWindow_Drag`/`ControlsWindow_Drag`: Mods' list
+  by rows, its details by the pixel, Controls' page or its device list). A
+  press on what follows the finger (an int setting's slider, a scrollbar:
+  `ModsWindow_Grabs`) goes to the module at once; a scrollbar takes a press
+  up to 8 units beside it with a finger (3 with a desktop's mouse), one test
+  (`bar_hit`) for both, so a press held for the bar never opens the row
+  under it. A mouse is passed on as in the window; on the Controls page,
+  whose lists are at full length, its wheel scrolls the page a row a notch,
+  as a drag does.
+- **Keys and typing.** Esc, and a phone's Back, are the window's Esc: a
+  capture, a dialog, the device list, a mod's page close first, then the
+  panel (asking about unsaved changes as the window does); a desktop's close
+  button under `MEMORIES_PANELS=overlay` does the same
+  (`Panel_RequestClose`), and the next press reaches the quit prompt, which
+  would otherwise ask unseen under the panel. A hardware
+  keyboard drives both as on the desktop. While Mods' search or profile
+  field has the focus (`Panel_TextFocus`) the system's on-screen keyboard
+  shows (`SDL_StartTextInput`; a second tap on the field shows it again) and
+  its Enter ends the typing. Rebinding takes a key or a controller's button
+  as the window does: select a binding, tap Rebind, press it (a second tap
+  on a binding also starts listening).
+- **The game pauses** while a panel shows (`Platform_SetClockRate(0)`, the
+  speed it had back when it closes, unless the app is in the background or
+  paused by then): the picture is covered and the panel has the input, so a
+  running game could only go on unseen. Neither the keyboard's nor a
+  controller's bindings reach the game while it shows
+  (`ControlsRuntime_Block`, for both panels): no hotkey such as Turbo,
+  Pause, Exit or a save state acts behind it. The desktop's windows leave
+  the game running beside them, as before.
+- **Coming back** (Home and back, or another activity in front, such as a
+  system file picker): the panel's still picture is repainted for a second,
+  since the window's surface returns a moment after
+  `SDL_EVENT_DID_ENTER_FOREGROUND` (before, the screen stayed black until
+  the next touch). Desktops never set that deadline.
+- **The footer's message** beside Close and Apply: one of two to four lines
+  (a refusal, a code mod's note) raises the footer's top, and the list and
+  the details end above it, instead of being cut.
+- **Import mod...** In the Mods panel's footer, left of Close: the
+  system's file picker (SDL's file dialog, as for the disc; any document),
+  and the chosen `.zip`'s mods go into `mods/` and into the list, off, with
+  no restart ([Mod manager](mods-window.md): the layouts it takes, Replace,
+  a code mod staying off, what it refuses). `Platform_PickModZip`
+  returns at once and the answer comes on the Java thread; the panel asks
+  for it once per pump (`Panel_Tick`, `ModsWindow_Tick`,
+  `Platform_PickedModZip`), and then the document is copied into the mods
+  folder (`mods/.incoming.zip`, `Platform_FetchModZip`) through
+  `SDL_IOFromFile` before it is read, so a provider's stream that cannot
+  seek works too. The copy, the reading and the unpacking run on the import's
+  thread (`src/pc/mods/import_job.c`), never the game's: SDL attaches that
+  thread to Java by itself (`Android_JNI_GetEnv`), the panel shows the share
+  and Import mod... is Stop meanwhile. `MEMORIES_IMPORT_ZIP=<file>` in `environment.txt` takes that file
+  instead of the picker. The picker puts the app in the background; coming
+  back is as above (the panel repainted for a second).
+- **Open with** A mod's `.zip` opened with, or shared to, the game from a
+  browser, Discord or a file manager goes to the same import as Import
+  mod...: `OpenWith.java` (an exported translucent activity in its own
+  process, `:open`, with the `VIEW` and `SEND` filters for the zip types in
+  `tools/pc/package_android.py`; `content://` URIs only) writes the URI to
+  `open-with.txt` and brings `SDLActivity` forward; `open_with` in `sdl.c`
+  opens the Mods panel on it when nothing else of the game's is up, and the
+  panel asks before importing ([Mod manager](mods-window.md)).
+- **Remove** In the Mods panel's footer, left of Import mod... (on a phone,
+  on the selected mod's page): deletes the selected mod's folder from
+  `mods/` after a question, for a mod that is off or does not load (the
+  app's files folder cannot be opened by the player to do it by hand). Not
+  a mod in use this launch, nor one that came with the game; the folder must
+  be a plain `<mods>/<name>`, never a link ([Mod
+  manager](mods-window.md)). Nothing in it is Android-specific code:
+  `ModsWindow_SetImport` is what turns the button on.
+- **HD pack...** In the Mods panel's top bar, left of Save: downloads the
+  latest release's HD pack (`yfm-redecomp-hd-mod-<tag>.zip`) from GitHub and
+  installs it through the importer, off, as an import ([Mod
+  manager](mods-window.md): the question first, the checks, the errors).
+  `Platform_HdNet` (android.c) is the network: `HdDownload.java`, called
+  through JNI only on the job's own threads (`hd_pack.c`), which SDL
+  attaches to the VM; `HdDownload` comes through the activity's class
+  loader, since `FindClass` on a thread native code attached sees only the
+  system's classes, and every JNI call is checked before the next (a
+  pending exception would end the app when the thread detaches). The
+  question to GitHub's API is one `HttpURLConnection` GET; the pack goes
+  through the system's `DownloadManager`, since on API 35 the app's own
+  sockets were destroyed three seconds after Home ("Destroyed live tcp
+  sockets for uids=...", and the app frozen) and an in-process download
+  ended with every switch away; the system's goes on, shows its
+  notification while it runs and waits for the network. The game thread
+  makes no JNI call for it. The manifest asks for
+  `android.permission.INTERNET`, which Android grants at install without a
+  prompt; nothing is contacted until the button is tapped.
+  `MEMORIES_HD_TEST_SHA256=<hex>` in `environment.txt` (a development build
+  only) makes a download need that SHA-256, to see the damaged-download
+  path.
+- **Apply & restart.** A change that needs a restart (a load order, a mod
+  or setting that says so) restarts the app for real: `Platform_RestartGame`
+  in `android.c` starts `Restart.java`'s activity (`org.yfmredecomp.game.Restart`,
+  `android:process=":restart"`, translucent, no history) through JNI on the
+  thread's own stack, while the game is in the foreground (so Android lets
+  it start); that activity ends the game's process (its id is the Intent's
+  `pid`), waits until it is gone (the game's activity is `singleInstance`: a
+  live one would only be brought back), launches the game as the launcher
+  does and ends its own process. Gone means no `/proc/<pid>` and no longer
+  in `ActivityManager.getRunningAppProcesses()` (the system's own record,
+  which can trail the process's end); where neither ever showed it, a fixed
+  half second; five seconds at most. The wait runs on a thread of its own
+  (the main thread would be an ANR), the launch back on the main thread
+  while the translucent activity still shows; it takes configuration
+  changes itself, so a rotation during the wait does not recreate it. Nothing is half applied: the Mods window has
+  saved the mods, their order and settings (`Mods_Apply`, `Settings_Save`)
+  before it asks for the restart, and the new process reads them as any
+  start does. If the activity cannot start, or this process is not ended
+  within 10 s, the restart reports failure and the window says "Restart
+  failed; relaunch the game to finish applying them", as on a desktop. The
+  same restart serves Game > Language's Restart now and the end of the
+  credits, which fell back to the title before.
+- **Testing.** `tests/pc/panels_preview.c` (`tools/pc/preview_panels.sh`)
+  draws both windows at UI scale 1 and 2 (the pictures to compare between
+  commits: they must not change) and, with `PREVIEW_TOUCH=1`, both panels on
+  six phones and tablets (2400x1080 at 440 dpi, 1280x720 at 320, 3200x1440
+  at 560, 2560x1600 at 320, 2048x1536 at 320, 2208x1768 at 420), tapping
+  and dragging through them by `Panel_Pointer`. In the app,
+  `MEMORIES_TRACE=window` logs where the panel's widgets are each time that
+  changes ("panel widgets: apply=2144,902 ..."), for `adb shell input tap`.
+  `tests/pc/android_panels/panel-test` is a data mod for the phone: enabled
+  it writes PANEL TEST on the title, and its setting (a restart) changes the
+  name entry's prompt.
+- **Checked** (2026-10-06, arm64 APK on the api35x64 emulator, SwiftShader,
+  `wm size`/`wm density` for each of the six screens above): Mods opened
+  from the Game menu, Drop missing cards switched on by its [x], the search
+  typed through the on-screen keyboard, the panel-test mod enabled, its
+  setting changed, its load order raised, the settings dragged, Apply &
+  restart: a new process each time (pids logged), `63 pool edits` (Drop
+  missing cards) and the panel-test text in the log, PANEL TEST on the title,
+  "Input your PANEL NAME!" at the name entry, the four choices in
+  `settings.txt`, the panel shown again with both mods Active, Back closing
+  it. Controls: Up rebound to J by a tap on its row, Rebind and a key, saved
+  in `controls.txt`. The emulator's own keyboard counts as a keyboard to
+  SDL, which then shows no on-screen keyboard (`SDL_HINT_ENABLE_SCREEN_KEYBOARD`
+  "auto"); `SDL_ENABLE_SCREEN_KEYBOARD=1` in `environment.txt` shows it
+  there. A phone without a keyboard shows it. The desktop's Mods and Controls
+  windows are unchanged: PrintWindow captures of both, 32- and 64-bit
+  Windows builds before and after, are the same pixels.
+- **Checked again** after the rebase on master's GLES3 renderer and release
+  versioning (2026-10-09, debug-signed arm64 APK, versionCode 20141, on an
+  API 35 x86_64 emulator with `hw.keyboard=no`, SwiftShader): Mods from the
+  Game menu with no Open mods folder in its footer; the search typed on the
+  system's keyboard, which the field opened by itself and Enter closed; the
+  panel-test mod switched on, Apply, then Apply & restart: the game's process
+  ended and a new one started through `:restart` (exit 0), PANEL TEST on the
+  title, the mod Active after it; Controls: Up rebound to J (Rebind, then a
+  key within the listening time), the page dragged, OK, `bind 0 8 key.j` in
+  `controls.txt` and J shown again after a relaunch, Back closing the panel; a code mod
+  (AI Hard Mode) said "has code, which the game cannot run on Android yet";
+  Game > Language > Français, Restart now: a new process, `language=2`;
+  after hiding the system keyboard, a drag in the list did not bring it
+  back and a tap on the search field did;
+  both panels within the safe area with the tall cutout emulated (safe area
+  132,66 2066x926) and at 1280x720 (320 dpi) and 800x480 (240 dpi). A
+  density or overlay change while the game runs ends the process with a
+  SIGABRT in `hwuiTask` as SDL tears the activity down; the same happens with
+  master's APK. The desktop windows are pixel-identical to master's (32- and
+  64-bit, PrintWindow), except the mod's folder path, which names the
+  checkout.
 
 ### What works on the emulator (API 30 x86)
 
@@ -3400,6 +4786,70 @@ Screenshots of the device, never the host: `adb exec-out screencap -p`.
   and the picture comes back. Rotation is landscape only. Back asks "Quit
   the game?" (a second Back keeps playing); Quit ends the process, and the
   next launch starts afresh.
+- **Configuration changes:** the activity takes every change the manifest
+  can name itself (`CONFIG_CHANGES` in `package_android.py`: density, font
+  scale and weight, colour mode, grammatical gender, touchscreen, SIM
+  country and network, besides the orientation, size, locale, keyboard and
+  UI mode ones), so the system does not destroy and re-create it. A
+  re-created activity ends the game (SDL's `onDestroy` sends a quit; the
+  game, at its fixed addresses, cannot start over in the same process), and
+  the way it ended aborted ("FORTIFY: pthread_mutex_lock called on a
+  destroyed mutex" in `hwuiTask0/1`): Display size in the system settings
+  (`adb shell wm density 300`) closed the running game that way. A density
+  change keeps the window's pixels, so SDL sends no resize and its content
+  scale stays the starting one: `Android_Density` (`android.c`, the
+  activity's `getDisplayMetrics().densityDpi` through JNI, read again at
+  most once a second from `sdl.c`'s pump, on the thread's own stack) gives
+  the sizes instead, and a change lays the menu, its touch targets and the
+  touch controls out again (the touch controls are 13% of the screen's
+  short side within 48 to 80 dp, so on a 1080-pixel-high screen they change
+  only where that range moves past 140 pixels: below 279 dpi or above
+  468). What the manifest cannot name (an overlay that changes the
+  app's resources, as `cmd overlay enable
+  com.android.internal.display.cutout.emulation.corner` does) still
+  re-creates the activity, and the game ends as on Quit.
+- **Ending the process:** the game ends with `exit()` on its own thread
+  (Quit, in `libetc.c`'s VSync; the quit SDL sends when the system destroys
+  the activity; a problem the game reports). There, `exit()` ran every
+  handler in the process, the system libraries' static destructors among
+  them, while the activity's HWUI threads still ran, and every Quit aborted
+  ("FORTIFY: pthread_mutex_lock called on a destroyed mutex" in
+  `hwuiTask0/1`, SIGABRT, recorded by the system as a crash). `libgame.so`
+  is linked with `--wrap=exit`: the game's `exit()` is `__wrap_exit`
+  (`android.c`), which runs only the library's own `atexit` handlers (the
+  debug tools' files), flushes stdio, lets the log pipe drain into logcat
+  and ends the process with `_exit` and the game's status;
+  `Memories_AndroidMain` ends with `exit(main(...))`, so a return from
+  `main` goes the same way. An `exit()` from outside the game (Java's
+  `System.exit`) reaches `end_process` as the first `atexit` handler
+  `Memories_AndroidMain` registers (after the handlers of libraries loaded
+  later, and with status 0: a handler is not told it); the loader's start-up
+  failures `_exit(1)`. The headless runner calls `main` and keeps the system's
+  `exit()`. Nothing of the player's is written at exit (memory cards, save
+  states, deck slots and settings are written and renamed into place when
+  they change). When the system re-creates the activity (a change the
+  manifest cannot take, such as `cmd overlay enable
+  com.android.internal.display.cutout.emulation.corner`), the game quits
+  the same clean way, the app closes, and the next launch starts afresh.
+- **Rotation:** Video > Screen rotation (`screen_rotation`,
+  `MEMORIES_SCREEN_ROTATION`). "Turn with the phone" (0, the default) turns
+  the picture over when the phone is turned over, whether the system's
+  auto-rotate is on or off, as most landscape games do; "Follow auto-rotate"
+  (1) turns it only while auto-rotate is on. SDL asks for the activity's
+  orientation when it makes the window: the `LandscapeLeft LandscapeRight`
+  hint gives `USER_LANDSCAPE` (11), which honours the rotation lock, and SDL
+  gives `SENSOR_LANDSCAPE` (6) only without a hint and for a window that
+  cannot be resized, which the port's can. So `Android_ApplyScreenRotation`
+  (android.c) asks the activity again over JNI
+  (`setRequestedOrientation`) after the window is made and when the setting
+  changes (sdl.c, `apply_display_settings`); SDL asks again only when a
+  window is made or made resizable. Turning over by half a circle is no
+  configuration change: the activity, the game and the surface's size stay
+  (emulator, auto-rotate locked: the accelerometer to either landscape
+  turns the display between rotations 1 and 3, the same process and a
+  2280x1080 surface throughout, and a tap in the turned picture lands where
+  it is drawn). Before this, a Xiaomi 11T Pro with auto-rotate off stayed
+  upside down when turned over.
 - **Save states:** `libgame.so` sits at `0x08000000` with load bias 0 on
   every launch; F5 on the Options screen, the app force-stopped and started
   again, F7 at the title brings the Options screen back, live.
@@ -3409,6 +4859,38 @@ Screenshots of the device, never the host: `adb exec-out screencap -p`.
 - Presents take 20-40 ms at 2280x1080 with the emulator's host GPU
   (`-gpu host`), 40-80 ms with SwiftShader; the game clock keeps time and
   presents drop frames.
+- **Portrait after the file picker (API 35 x86_64 emulator; system side,
+  not fixed):** the picker (DocumentsUI) follows the device, whether it
+  is the mod import's (`SDL_ShowOpenFileDialog`, in the game's task:
+  `dumpsys activity activities` shows both in the same task) or the first
+  run's disc (in `DiscPicker`'s own task, `A=...game.disc`, above the
+  game's). On a device held upright it is portrait, and closing it
+  rotates the display back to landscape in a shell transition
+  (likely played by SystemUI's WindowManagerShell). In one emulator boot
+  that had a SystemUI ANR, two returns left the display in portrait:
+  `dumpsys window` had `DisplayRotation mRotation=1` while the display's
+  configuration stayed `ROTATION_0`, with `USER_LANDSCAPE` as the app's
+  orientation (the game's request is right) and
+  `mTopFullscreenOpaqueWindowState` still naming the closed picker. The
+  game's landscape picture was shown cropped in the portrait display, so
+  the game itself saw no change (in the frozen runs below, SDL only reports
+  a 2280x1080 surface). Home and back to the game recovers it, likely
+  because the launcher's portrait is a real rotation change and the way
+  back to landscape is then delivered; a second landscape request
+  presumably does not, as `mRotation` already holds the landscape
+  rotation. Redrawing the panel steadily (tried on the mod import branch)
+  did not help. Not reproduced otherwise: 25 cancels and a pick of the
+  disc picker, and 47 picks or cancels of the mod import (10 of them after
+  a natural SystemUI ANR), all came back landscape. Freezing SystemUI
+  (`kill -STOP`) across a return only holds the picker on screen in
+  portrait while it is frozen (top window the picker, app orientation
+  unspecified), landscape again within 6 s of `kill -CONT`; the sighting's
+  state (the game in front, `mRotation=1` not applied) was not produced.
+  An app-side recovery would have to ask for portrait and then landscape
+  again when the display's real rotation (the `DisplayManager` display,
+  not the activity's, which follows the activity's own configuration)
+  stays 0 or 180 under a landscape request, focused, for a few seconds;
+  it was not added, as it could not be tested.
 
 ### M4, where it stopped
 
@@ -3436,22 +4918,23 @@ Paused on 2026-09-29 until the 64-bit (relocatable guest) work is done.
   `/sdcard/Android/data/<package>`, so tests there need root (the M3
   `chcon` recipe above) or a debuggable build's `run-as`.
 - **Not started / half-done:**
-  - Applying mods in the app: Game > Mods is still dimmed, so only mods
-    whose manifest says `"enabled": true` are applied; not yet checked in a
-    game on Android (code mods that hook game functions write to
-    `libgame.so`'s text: watch for SELinux denials on the first apply).
-  - A mod `.zip` through the system's file picker; Mods and Controls as
-    panels inside the game window (the game's font, as the other overlays);
-    the menu bar hiding in play: done on feat/android-arm64 (the mouse SDL
+  - Applying mods in the app: done (Mods and Controls as panels, above);
+    data mods checked on the arm64 build in the emulator: Drop missing
+    cards and the panel-test mod applied after a real restart. Code mods
+    run on arm64 (Mod SDK M2 above) and are turned on and off in the same
+    panel; a code mod with no AArch64 object stays off, and the panel says
+    why beside it.
+  - A mod `.zip` through the system's file picker: not started (the Mods
+    panel's footer has room left of Close for its button).
+  - The menu bar hiding in play: done on feat/android-arm64 (the mouse SDL
     makes of a touch kept it shown; see "How it differs").
 
 ### Not yet
 
-- **Mods:** see "M4, where it stopped". Game > Mods and Controls... are
-  dimmed (second windows; an in-window version of both is for later).
-- **Restart:** an app cannot re-execute itself; where the port restarts
-  (the end of the credits, Game > Language), it falls back as when a
-  restart fails (back to the title; "start the game again").
+- **Mods:** see "M4, where it stopped" (code mods). Game > Mods and
+  Controls... are panels inside the window (above).
+- **Restart:** done through `Restart.java` (above); the crash monitor,
+  which re-executes the program, stays off.
 - Video > Color (the present pass, desktop GL's fixed function) and no
   update check. Internal 2x and 4x, HD text and PGXP are drawn by the GPU
   on OpenGL ES 3 ("OpenGL ES 3 (Android)"); a phone without ES 3 keeps the
@@ -3464,7 +4947,7 @@ Paused on 2026-09-29 until the 64-bit (relocatable guest) work is done.
 | M | Goal |
 |---|---|
 | M2 | Done, then removed (2026-10-04): the app is arm64-v8a |
-| M3 | Done: disc import through the file picker, the input latch, touch controls with the game's art, lifecycle (background, Back, landscape), the fixed-base loader (save states, crash symbols), desktop-only menu rows dimmed, the 32-bit-kernel message. Left: Mods/Controls as in-window overlays, performance (internal scale above 1), a real restart, the disc on Android TV |
+| M3 | Done: disc import through the file picker, the input latch, touch controls with the game's art, lifecycle (background, Back, landscape), the fixed-base loader (save states, crash symbols), desktop-only menu rows dimmed, the 32-bit-kernel message; since, Mods/Controls as panels inside the window and a real restart. Left: performance (internal scale above 1), the disc on Android TV |
 | M4 | Paused (above), waits for M6's 64-bit work. Mods on Android: content-only mods first; then per-ABI objects for code mods (bundled mods built by `build_game32.py`, third-party ones by the SDK's `build_mod.py` per target), ARM relocations in the object loader, `__aeabi_*` helpers, hook trampolines for armv7 |
 | M5 | Release: signing, CI for both ABIs, emulator smoke; before it, a duel played on a real arm64 phone that runs 32-bit apps (the TV translator mishandles the fault paths) |
 | M6 | The relocatable guest / 64-bit everywhere: closes both gaps left, arm64-only phones (no 32-bit apps) and 32-bit kernels (3 GB, the top taken), since the guest then needs no fixed addresses; Windows and Linux move with it |
@@ -3634,7 +5117,171 @@ audio, or assembly-replacement equivalence claim is made by these checks.
 
 ## Android arm64 (A1/A2, 2026-10-03)
 
-`--target android-arm64-v8a` builds libgame.so with G32
+### The app's game is the translated one (2026-10-16)
+
+`build_game32.py --target android-arm64-v8a` (the release workflow's
+Android job too) builds the **translated** game, the macOS memory model:
+`tools/pc/build_arm64.py --target android-arm64-translated` compiles every
+unit with the NDK's clang to IR, runs the guest pass
+(`tools/pc/llvm/guest_ir.cpp`, `llvm_guest.py`) and links `libgame.so` at 0
+(`-Wl,--build-id=sha1`, no `--image-base`); `build_android_translated` in
+`build_game32.py` then links the loader, copies the data mods and the
+language packs, builds the code mods through the same pass
+(`build_mod.py --target aarch64-translated`) with the SDK beside them,
+writes the identity files, and packs the APK as for the fixed game. Guest addresses are
+translated, not mapped, so the app needs no fixed host address at all: a
+phone whose Java runtime holds 0x80000000 (the large object space below)
+or 0xC0000000 starts the game all the same.
+
+- **The loader** (`android_loader.c`, built with
+  `-DMEMORIES_ANDROID_TRANSLATED`) is a plain `dlopen` of `libgame.so`,
+  wherever the system puts it, with no reservation; a library that will
+  not load still ends in the system's box with the device line. The
+  start-up report of #350 (`Platform_GuestMemoryHelp`,
+  `Android_OfferStartupReport`) stays for any other start failure.
+- **Fixed requests** (`compat/mman.h`): in any `MEMORIES_TRANSLATED` build
+  (macOS, Android) `mmap` with `MAP_FIXED_NOREPLACE` is
+  `Memories_TranslatedMmap` (`translated_mman.c`): host memory anywhere,
+  registered with the runtime at the guest address asked for. The text
+  arena (0x9C000000), low memory (0x9E000000) and the interpreter stack
+  (0x9FF00000) go that way, as on macOS; before, on Android they were raw
+  fixed mappings that the runtime did not know, so a held range broke the
+  translations and the interpreter stack. Linux's own flag value is kept.
+- **Save states** name the game by its GNU build ID (`translated_state_backend.c`,
+  `dl_iterate_phdr`) and are relocated to where it is loaded, so they carry
+  from one launch to the next; `check_load_bias` (`android.c`, which kept a
+  fixed game's states for one launch when it loaded elsewhere) is not
+  built. The log says `libgame.so at <address> (translated)`: a crash
+  address is symbolized as its offset from that. **Across builds** (an app
+  update, 2026-10-17): `symbols/<id>.txt` is version 2
+  (`tools/pc/translated_symbols.py`): every function, data object and
+  section start of `libgame.so` (linked at 0) by offset, statics qualified
+  by their unit (`duel.c:put`), with a hash of each one's content and of
+  the gap after it (dynamically relocated words and the instruction fields
+  that depend on placement left out). Crash reports add the load address
+  (`debug/symbols.c`, an ordinary unit, so its table is never in a state).
+  Every state carries its build's table (`arm64-symbols`). A state of
+  another build is either carried right or refused
+  (`translated_state_symbols.c`): a function's start goes to the function
+  of that name; a return address inside a function only on the native
+  stack and only when the function's content is the same; the start or
+  inside of a data object, or the gap after it (string pools), only when
+  its content (and the gap's) is the same; a name that is not unique,
+  aliases that split, code padding and veneers, and anything past the old
+  image are refused. The pre-load check classifies exactly the words
+  apply() relocates (the stack, the saved registers and the saved
+  `jmp_buf`s by the stack's rule), with the old image's size, and the load is refused,
+  with how many addresses changed, before anything is applied; PS1 RAM
+  (`memory`) is copied as it is and not scanned, as the same build's loads
+  never relocated it. A state of the fixed-memory game (v0.3.0) is
+  refused: "this state uses another architecture or state format". The
+  desktop games' tables (`state.c`) still number repeated statics by link
+  order (`put#2`), so a callback stored to one unit's static could be
+  carried to another unit's after the link order changes; the fix there
+  would be the same qualification by unit (STT_FILE on ELF, the COFF
+  `.file` records on Windows) in `write_build_identity`.
+- **Code mods** (2026-10-16, [modding.md, "Android code
+  mods"](modding.md#android-code-mods-aarch64-translated)) are
+  `<library>.aarch64-translated.o`: each unit of the mod through the guest
+  pass as the game's are, `-O2 -fPIC`, and a registration pair
+  (`MemoriesModRegisterGlobals`/`MemoriesModUnregisterGlobals`) that
+  `object_loader.c` calls before `MemoriesModInit` and on free. The loader
+  maps the image anywhere above 4 GB (`TRANSLATED_OBJECTS`): the code
+  reaches the game through GOT entries and veneers. `build_arm64.py` writes
+  what a mod is translated with beside the export table:
+  `mod_translation.json` (the aliases, the C library's runtime wrappers,
+  the pinned guest addresses, the pointer-free math the C library lends)
+  and `mod_signatures.json`; the SDK carries both with
+  `exports.aarch64-translated.txt`, and so do the desktop SDKs
+  (`package.py`, the release workflow's `sdk-exports-aarch64-translated`
+  artifact). A `.aarch64.o` of the fixed game stays off with "was built
+  for the fixed-memory Android game: rebuild this mod", whether it has its
+  own name or the new one (the `.memories.abi` tag). The APK carries the
+  four code mods built so: 3D Monsters, Hand Camera, AI Hard Mode and
+  yamyi's.
+- **Toolchain.** The pass is built against LLVM 21.1.8, the version of
+  `macos_toolchain.json`. On Linux (CI) `llvm_guest.py` fetches the official
+  `LLVM-21.1.8-Linux-X64.tar.xz` (`linux_toolchain.json`, SHA-256 checked)
+  and unpacks only `llvm-config`, the headers, the static libraries and
+  `lld` (about 620 MB of 2 GB; the `parts` of `linux_toolchain.json`) into
+  `tmp/pc/llvm-linux`; the system's `g++` compiles the pass (zlib1g-dev,
+  libzstd-dev and libxml2-dev for `--system-libs`). The archive's static
+  libraries are ThinLTO bitcode, not objects, which GNU ld cannot read
+  ("file format not recognized"), so the link is the archive's own `lld`
+  (`-B<llvm>/bin -fuse-ld=lld`), which compiles them with LLVM 21. On
+  Windows there is no official archive with the libraries:
+  `MEMORIES_GUEST_LLVM` names a local LLVM 21.1.8 build or install folder
+  (one whose `llvm-config` finds its headers under `include/` and its
+  libraries under `lib/`) and `MEMORIES_GUEST_CXX` the C++ compiler
+  (llvm-mingw's `clang++`, linked `-static`). The NDK's clang emits the IR.
+- **The SDK's guest pass** (2026-10-17). A mod's clang writes the IR the pass
+  reads and compiles the IR it writes, and LLVM reads the IR of its own
+  version or older, so the pass an SDK ships is built against the LLVM of
+  the SDK's own clang (llvm-mingw 20260922: clang 23.1.2 -> LLVM 23), where the
+  game stays translated with LLVM 21 (`llvm_guest.py`, untouched): the game
+  and a mod meet through `mod_translation.json`/`mod_signatures.json`, not a
+  compiler version. Only a clang of the pass's own LLVM both has its IR read
+  by the pass and reads the pass's (an older one reads a newer IR by luck, a
+  newer one is refused by the pass), so that is what `build_mod.py` demands
+  (`MEMORIES_MOD_ALLOW_OTHER_CLANG=1` lets an older one through, warning).
+  `tools/pc/build_sdk_guest_ir.py` builds it, pinned by
+  `tools/pc/sdk_llvm.json` (version, URL and SHA-256 per system; `--pin` fills
+  the digests from the release's published ones): on Linux from the official
+  release archive (headers, `llvm-config` and the static libraries unpacked
+  as `llvm_guest.py` does; the build stops saying what is missing if the
+  archive lacks them) with the system's `c++`, `-static`; on Windows from the
+  official source release, whose three libraries it needs (`LLVMCore`,
+  `LLVMIRReader`, `LLVMSupport`) are built with the SDK's llvm-mingw (the
+  official Windows archive is built for the MSVC C++ ABI, which llvm-mingw
+  cannot link), `-static` too. It runs the result (`--llvm-major`, then the
+  three operations on a unit) and reads its imports (only the system's DLLs
+  on Windows, no NEEDED entry on Linux) before it counts. Like `memories-pc.exe`
+  (notes/pc-release.md, "VirusTotal") it ships without symbols, on Windows
+  with version information (`windres`, the game's fields) and the PE
+  checksum `package.py` fills in; `test_package.py` holds it to the same
+  checks, and the release's VirusTotal step scans it too. `memories-guest-ir
+  --llvm-major` is what `build_mod.py` holds the modder's clang against; a
+  pass that cannot be started at all (a quarantined file) is named as that,
+  not taken for an older one. `package.py --guest-ir` puts it in each SDK
+  (`sdk/tools/memories-guest-ir[.exe]`; `test_package.py` requires it), and
+  the release workflow's `sdk-guest-ir` job builds one per system. The
+  `package` job then builds `mods/hand-camera` for Android from the packed
+  SDK with llvm-mingw alone (`check_sdk_mod.py`), and uploads the IR clang
+  and the pass wrote (`sdk-mod-ir-<system>`); the `android` job uploads the
+  same mod's through the game's own LLVM 21 pass (`sdk-mod-ir-llvm21`), to
+  diff.
+- **The fixed game** is still built with `--android-memory fixed` (or
+  `MEMORIES_ANDROID_MEMORY=fixed`), for comparison and for the aarch64
+  code mods; everything below about 0xC0000000 and the guest ranges is
+  about it.
+- **Test build hooks.** `build_arm64.py` adds `MEMORIES_TEST_HOOKS` to an
+  Android build without `--release`, as `build_game32.py` does.
+  `MEMORIES_TEST_HOLD_GUEST=1` in `environment.txt` holds 2 MiB of host
+  memory at 0x80000000 named as ART's large object space in both games: the
+  fixed one stops with "The game cannot start" ("Android's Java runtime
+  already uses memory this game needs (0x80000000-0x801FFFFF)", failed
+  step "the addresses from 0x80000000 to 0x801FFFFF could not be had
+  (something else in this process already holds them)", with or without
+  `MEMORIES_TEST_OLD_KERNEL=1`; v0.3.0 said "(File exists)" on the phones of
+  #372), the translated one starts. In the translated
+  game the value can list several addresses, 2 MiB held at each:
+  `0x80000000,0x9C000000,0x9E000000,0x9FF00000` also holds the text arena,
+  low memory and the interpreter stack, which it then takes elsewhere
+  (the fixed requests above) without a word in the log. An entry
+  `START-END` holds that whole range (each free 2 MiB of it when part is
+  taken already, as on the emulator): `0x762fd000-0x962fd000` is the large
+  object space of #372 (Retroid Pocket Nova, Android 13, where v0.3.0
+  stopped with "cannot map guest memory at 0x80000000: File exists"), which
+  the translated game starts past, with its code mods (2026-10-16). The device
+  runner's `MEMORIES_RUNNER_HOLD_LOW` (`tools/pc/android/runner.c`) holds
+  0x7C000000-0x9C000000 the same way.
+- **Speed:** on the x86_64 emulator, which runs arm64 code through a
+  translator, no speed figure means anything: the first-duel recording
+  (5241 VBlanks) played in the app in 131 s and 214 s translated (two runs)
+  and 186 s fixed (2026-10-16). A phone's per-frame timing is still to be
+  measured.
+
+`--target android-arm64-v8a --android-memory fixed` builds libgame.so with G32
 pointers (`WIDE` in build_game32.py: the windows-x64 flags), clang's
 `-mharden-sls=blr` thunks in AArch64 form (`branch_thunks.c`; the build
 checks that no `br`/`blr` escapes them), `setjmp_aarch64.S` and
@@ -3671,11 +5318,94 @@ are where it would show (a fault at a truncated address).
 
 **The guest's own ranges have the same limit:** guest RAM at 0x80000000
 (and its mirror at 0xA0000000), the scratchpad view at 0x9F800000 and the
-game stack at 0xB0000000 must be free, and with Android 10-13's concurrent
-copying collector a `dalvik.vm.heapsize` of about 870m or more reaches
-0x80000000. The game then stops with "cannot map guest memory at ...", the
-reason, and the mappings that hold the range ("occupied by", in logcat);
-it does not run elsewhere.
+game stack at 0xB0000000 must be free. The game then stops; it does not run
+elsewhere.
+
+**Where ART's concurrent copying collector runs, its large object space
+holds guest RAM (v0.3.0, a Redmi Note 8 Pro with Android 10, 2026-10-11).**
+The heap is laid out once, in the zygote, and every app process inherits
+it. On arm64 ART places its low-4-GB mappings itself (`MemMap`'s low 4 GB
+allocator, a first-fit scan from a random start below 1 GB that goes on
+up to 4 GB) and its large object space is one free-list reservation of
+`dalvik.vm.heapsize` bytes, made after the heap proper (AOSP
+`runtime/gc/heap.cc`, `heap.h`'s `kDefaultLargeObjectSpaceType`, the same
+from Android 7 to 14). With the concurrent copying collector (the default
+from Android 8; Android 7's CMS has the same two-capacity layout) the
+region space is reserved at twice the heap size from 0x12C00000, so with
+the usual `heapsize` of 512m (`phone-xhdpi-*-dalvik-heap.mk`) it ends
+near 0x52C00000, the 484 MiB or less left before the boot image
+(0x70000000 with up to 16 MiB of random shift either way) cannot take
+512 MiB, and the large object space goes right after the boot image and
+the non-moving space, over 0x80000000 and 0x90000000, on every start of
+such a phone (a heap size of about 450m or less fits below, and where it
+then goes depends on the scan's random start). AOSP's own arm64 sample of
+an app's maps (`system/libprocinfo/testdata/maps`) shows that resulting
+layout, though from a smaller region space (0x12C00000-0x2AC00000): the
+512 MiB large object space at 0x77B8B000-0x97B8B000, after the
+non-moving space, and the JIT caches after it to 0x9BB8B000. The Xiaomi 11T Pro above has
+ART code from android-16 on (an updated ART module), which starts the heap
+at 0x02000000 instead of 0x12C00000: its layout is exactly the concurrent
+copying collector's at that base (a region space of twice 512m to
+0x42000000 in the zygote, clamped to twice the 256m growth limit in the
+app, which leaves 0x22000000-0x42000000 a hole), so the large object space
+fits below the boot image (0x42000000) and the game runs. Whether that
+phone uses the userfaultfd collector is not shown; it would fit too. So the
+phones in question are the ones whose ART is older than android-16's and
+runs the concurrent copying or CMS collector, with a heap size of about
+450m or more (the JIT caches, 128 MiB in an app from Android 11, can take
+the range from about 450m; the large object space always does from about
+503m; 512m is the usual value): Android 7 to 11 (the ART module never
+updates there), and 12 to 15 without ART module updates (no Play system
+updates, e.g. HarmonyOS) or where the module runs concurrent copying
+because the kernel lacks the userfaultfd features. The x86_64 emulator does not show it
+(x86_64 ART maps with `MAP_32BIT` and a map-per-object large object
+space), so the layout is known from ART's source and that sample, and is
+to be confirmed by a player's report (below). Nothing in the app comes
+before the zygote's heap, and the game's addresses are linked in: the
+ways out are a game process that is not the zygote's child (a native
+process for the game, with the picture and input carried to the app) or
+a guest that is not at fixed addresses. The app now ships the second (the
+translated game, at the top of this section).
+
+**Kernels before 4.17 do not know `MAP_FIXED_NOREPLACE`** (Android 7-10
+phones: 3.18, 4.4, 4.9, 4.14) and take the address as a hint: a free range
+is given as asked, a taken one goes wherever the kernel puts it (in a
+64-bit app top-down from below the stack, far above 4 GB, so never onto
+another fixed range). Every fixed mapping that must not replace anything
+(the guest's ranges and views, the stacks, the low memory region, the
+text arena, mod arenas and images, the loader's reservation; not the code
+mod loader's map over its own held range, nor the kernel probe) goes
+through `Memories_MapFixed` (`compat/mman.h`), which undoes such a mapping and
+answers EEXIST as a newer kernel does; it never checks the range and then
+maps with `MAP_FIXED`, since ART's own threads map below 4 GB in between.
+On such a kernel the message read "the system placed them elsewhere";
+the occupant was the same. `Memories_KernelRefusesTakenRange` (`image.c`)
+probes which kernel this is, for the report.
+
+**What the player sees.** When guest memory cannot be mapped, the app
+shows "The game cannot start" in the system's message box: who holds the
+range (Android's Java runtime when the holder is a `dalvik-` mapping),
+the range, the phone's model, Android and kernel versions, the heap size
+and the first holder, short enough to fit with its buttons in landscape
+(the box does not scroll). Share and Save to Downloads hand out a
+start-up report (`Android_OfferStartupReport`, `android_report.c`; the
+same ReportProvider and MediaStore paths as the crash report, the box
+coming back after each so the process that serves the file stays):
+the app's version, the device, the failed step, the kernel and whether
+it knows `MAP_FIXED_NOREPLACE`, `dalvik.vm.heapsize`, `heapgrowthlimit`
+and `ro.dalvik.vm.enable_uffd_gc`, the holders, and every mapping of the
+process below 4 GB. The loader's own refusal (0xC0000000 taken) puts the
+device and the first two holders in its message the same way. In a test
+build, `MEMORIES_TEST_HOLD_GUEST=1` (or an address) holds 2 MiB at
+0x80000000 named as ART's large object space, and
+`MEMORIES_TEST_OLD_KERNEL=1` drops the flag from the game's own fixed
+mappings as a kernel before 4.17 does (both through `environment.txt` in
+the app; the loader runs before that file is read and is built without
+test hooks, so its reservation keeps the flag). A scripted or headless
+run gets no box with buttons: the message goes to the error box (and the
+log) with "send a screenshot" instead. On Linux -m32 the replays
+first-duel, mod-3d-monsters and mod-hand-camera match with
+`--env MEMORIES_TEST_OLD_KERNEL=1`.
 
 **The retail scratchpad is never used in the app.** 0x1F800000 lies inside
 ART's heap there (the port says "0x1f800000 is taken here; the scratchpad
@@ -3684,8 +5414,10 @@ Java heap. Every native path translates a retail scratchpad address to the
 view at 0x9F800000 ("How it works" above), the words the interpreter hands
 to native code included, since the retail view is not mapped there
 (`Memories_ScratchpadRetailView` 0). `MEMORIES_TEST_HOLD_SCRATCHPAD` holds
-the page as ART does, in a test build (Linux or Android). Code mods, which
-could write a retail address of their own, are not loaded on arm64.
+the page as ART does, in a test build (Linux or Android). A code mod (loaded
+on arm64 since Mod SDK M2, above) is held to the same rule: one that wrote
+a retail scratchpad address of its own would reach that heap; the shipped
+ones write none.
 
 **SDL's calls into Java run on the thread's own stack.** SDL reaches Java
 (JNI) for events and joysticks (`Android_JNI_PollInputDevices`, every 3 s

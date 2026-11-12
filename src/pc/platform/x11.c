@@ -5,8 +5,10 @@
 #include "pc/audio/spu.h"
 #include "pc/debug/cheats.h"
 #include "pc/cards/cards.h"
+#include "pc/tower/tower.h"
 #include "pc/free_duel/duelists.h"
 #include "pc/cards/fusion_helper.h"
+#include "pc/mods/mods.h"
 #include "update_check.h"
 #include "pc/debug/log.h"
 #include "pc/debug/monitor.h"
@@ -308,17 +310,17 @@ static void scale_game(int top, int bottom)
         int first = menu + j * scale, k, i;
         uint32_t *line = canvas.pixels + (size_t)first * (size_t)canvas.stride, *at = line;
         for (i = 0; i < last.w; i++) {
-            uint32_t colour;
+            uint32_t color;
             if (last.rgb24) {
                 const uint8_t *bytes = (const uint8_t *)(row + last.x) + i * 3;
-                colour = ((uint32_t)bytes[0] << 16) | ((uint32_t)bytes[1] << 8) | bytes[2];
+                color = ((uint32_t)bytes[0] << 16) | ((uint32_t)bytes[1] << 8) | bytes[2];
             } else {
                 uint16_t c = row[(last.x + i) & 1023];
                 uint32_t r = c & 0x1f, g = (c >> 5) & 0x1f, b = (c >> 10) & 0x1f;
-                colour = ((r << 3 | r >> 2) << 16) | ((g << 3 | g >> 2) << 8) | (b << 3 | b >> 2);
+                color = ((r << 3 | r >> 2) << 16) | ((g << 3 | g >> 2) << 8) | (b << 3 | b >> 2);
             }
             for (k = 0; k < scale; k++) {
-                *at++ = colour;
+                *at++ = color;
             }
         }
         for (k = 1; k < scale && first + k < bottom; k++) {
@@ -351,7 +353,8 @@ static void present_frame(void)
     int hx, hy, hw, hh;
     scale_game(0, image_h);
     FusionHelper_Viewport(0, Menu_Height(), last.w * scale, last.h * scale);
-    if (Settings_Get(SET_SHOW_HUD) == 2 || Menu_IsOpen()) {
+    Mods_SetPicture(0, Menu_Height(), last.w * scale, last.h * scale, Platform_Widescreen() ? 426 : 320);
+    if (Settings_Get(SET_SHOW_HUD) == 2 || Menu_IsOpen() || Menu_NoticeShown()) { /* a question over all */
         Hud_Draw(&canvas);
         Menu_Draw(&canvas);
     } else {
@@ -382,7 +385,7 @@ static void repaint_menu(void)
     if (old_w && old_h) {
         scale_game(old_y, old_y + old_h);
     }
-    if (Settings_Get(SET_SHOW_HUD) == 2 || Menu_IsOpen()) {
+    if (Settings_Get(SET_SHOW_HUD) == 2 || Menu_IsOpen() || Menu_NoticeShown()) { /* a question over all */
         Hud_Draw(&canvas);
         Menu_Draw(&canvas);
     } else {
@@ -870,6 +873,7 @@ void Platform_Frame(unsigned frame)
     Cheats_Frame();
     Cards_Frame();
     Duelists_Frame();
+    Tower_Frame();
     Update_Frame(); /* a notice shows with the next frame's menu */
     Menu_TakeChanged();
     wheel_now = wheel_frames > 0 && wheel_frames-- ? wheel_bits : 0;

@@ -20,11 +20,15 @@
 #define _GNU_SOURCE
 #include "mips.h"
 #include "image.h"
+#ifdef MEMORIES_TRANSLATED
+#include "translated_runtime.h"
+#endif
 #include "pc/compat/gte.h"
 #include "pc/rng.h"
 #include "pc/debug/log.h"
 #include "pc/debug/crash.h"
 #include <setjmp.h>
+#include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -41,13 +45,24 @@ extern int rcos(int angle);
 extern int Psx_csin(int angle);
 extern int Psx_ccos(int angle);
 /* src/game/func_80058938.h, whose types this file cannot include (its s32 is
- * a store here): the colours are the words their registers hold. */
+ * a store here): the colors are the words their registers hold. */
 extern void Model_QueueTintRequestForPartList(int32_t slot, int32_t part, uint32_t start, uint32_t end,
                                               int32_t duration, const int32_t *parts);
 
 static uint32_t stack_top;   /* 0 until the stack is mapped */
+static uint8_t *stack_memory; /* its lowest byte, as the host reaches it */
 static uint32_t current_sp;  /* the innermost interpreted frame, or 0 */
 uint32_t Memories_MipsThunkTarget;
+#include "state.h"
+#include "state_io.h"
+#ifdef MEMORIES_TRANSLATED
+void Memories_MipsState(MemoriesState *state)
+{
+    MemoriesStateField fields[] = {{&stack_top, sizeof(stack_top)}, {&current_sp, sizeof(current_sp)},
+                                  {&Memories_MipsThunkTarget, sizeof(Memories_MipsThunkTarget)}};
+    Memories_StateChunk(state, "arm64-mips", fields, sizeof(fields) / sizeof(fields[0]));
+}
+#endif
 
 /* Retail code reaches the scratchpad at 0x1F800000, which the host may not
  * let the port map; the port's view of it is 0x9F800000 (image.h). Every
@@ -96,20 +111,69 @@ static int ensure_stack(void)
     if (stack_top) {
         return 0;
     }
-    if (mmap(wanted, STACK_SIZE, PROT_READ | PROT_WRITE, MAP_FIXED_NOREPLACE | MAP_PRIVATE | MAP_ANONYMOUS, -1, 0) !=
-        wanted) {
+    if (Memories_MapFixed(wanted, STACK_SIZE, PROT_READ | PROT_WRITE, MAP_FIXED_NOREPLACE | MAP_PRIVATE | MAP_ANONYMOUS,
+                          -1, 0) != wanted) {
         static uint32_t fallback[STACK_SIZE / 4] __attribute__((aligned(16)));
         fprintf(stderr, "memories-pc: cannot map the overlay stack at 0x%08x; using host memory\n", STACK_BASE);
+        stack_memory = (uint8_t *)fallback;
         stack_top = (uint32_t)(uintptr_t)(fallback + STACK_SIZE / 4) - 16;
         return 0;
     }
+    stack_memory = wanted;
     stack_top = STACK_BASE + STACK_SIZE - 16;
     return 0;
 }
 
+/* The interpreted code's stack, for save states (state_subsystems.c). Retail
+ * module code reads locals it never wrote (variant module 128: the fourth
+ * byte of the two colours it hands Model_QueueTintRequestForParts, the start
+ * one becoming the tint pass's draw mode, and the corners of a POLY_FT4 that
+ * only SetPolyFT4 touched): on the console those read what earlier code left
+ * on the stack, which a state holds as part of RAM. So does this one, or a
+ * battle started from a state would look different after other battles. */
+void *Memories_MipsStack(size_t *size)
+{
+    ensure_stack();
+    *size = 0;
+    /* Host memory above 4 GiB (the fallback on a 64-bit host): guest words
+     * cannot address it, so interpreted code could not run on it either. */
+    if (!stack_memory || (uint64_t)(uintptr_t)stack_memory + STACK_SIZE > (uint64_t)UINT32_MAX + 1) return NULL;
+    *size = STACK_SIZE;
+    return stack_memory;
+}
+
+#ifndef MEMORIES_TRANSLATED
+/* Its state chunk, "mips-stack" (the translated game keeps the stack with
+ * its other mappings). A state without it, or with one of another size,
+ * clears the stack, as at boot, so that loading such a state twice gives
+ * the same game too; without a stack to carry the chunk is left out. */
+void Memories_MipsStackState(MemoriesState *state)
+{
+    static const char tag[] = "mips-stack";
+    size_t size, saved = 0;
+    const uint8_t *found = NULL;
+    MemoriesStateField field;
+    field.data = Memories_MipsStack(&size);
+    field.size = size;
+    if (!field.data) return;
+    if (Memories_StateLoading(state) && (!(found = Memories_StateFindChunk(state, tag, &saved)) || saved != size)) {
+        fprintf(stderr, "memories-pc: state: %s '%s' (%lu bytes in the state, %lu in this build); the interpreter's "
+                        "stack is cleared\n", found ? "layout changed for" : "no chunk", tag, (unsigned long)saved,
+                (unsigned long)size);
+        memset(field.data, 0, size);
+        return;
+    }
+    Memories_StateChunk(state, tag, &field, 1);
+}
+#endif
+
+/* The last run's instructions, for the trace (Memories_MipsTry), failed runs too. */
+static unsigned try_steps;
+
 static void fail(State *s, uint32_t pc, const char *what, uint32_t detail)
 {
     char text[160];
+    try_steps = s->steps;
     fprintf(stderr, "memories-pc: MIPS overlay: %s (0x%08x at 0x%08x)\n", what, detail, pc);
     if (s->escape) {
         longjmp(*s->escape, 1);
@@ -138,10 +202,12 @@ static const MemoriesGuestFunction *find_native(uint32_t address)
 static uint32_t call_native(State *s, uint32_t address)
 {
     const MemoriesGuestFunction *e;
+#ifndef MEMORIES_TRANSLATED
     /* uintptr_t: a 64-bit callee reads whole registers, and a guest pointer
      * argument must arrive zero-extended (the same types on i386). */
     typedef uintptr_t (*Call)(uintptr_t, uintptr_t, uintptr_t, uintptr_t, uintptr_t, uintptr_t, uintptr_t, uintptr_t,
                               uintptr_t, uintptr_t, uintptr_t, uintptr_t);
+#endif
     uint32_t sp = s->r[29], keep, result;
 
     /* libc and libmath routines linked as SDK assembly in the original and
@@ -190,6 +256,14 @@ static uint32_t call_native(State *s, uint32_t address)
     }
     keep = current_sp;
     current_sp = sp;
+#ifdef MEMORIES_TRANSLATED
+    {
+        uint32_t arguments[12] = {s->r[4], s->r[5], s->r[6], s->r[7]};
+        unsigned i;
+        for (i = 4; i < 12; i++) arguments[i] = l32(sp + i * 4);
+        result = GuestRuntime_InvokeNative((unsigned)(e - Memories_FunctionMap), arguments);
+    }
+#else
     /* Where the retail view is not mapped, a retail scratchpad pointer among
      * the arguments arrives as the port's view, as native game code writes
      * it (SCRATCHPAD_ADDR). Which words are pointers is not known here, so
@@ -199,6 +273,7 @@ static uint32_t call_native(State *s, uint32_t address)
                                        HANDED(l32(sp + 16)), HANDED(l32(sp + 20)), HANDED(l32(sp + 24)),
                                        HANDED(l32(sp + 28)), HANDED(l32(sp + 32)), HANDED(l32(sp + 36)),
                                        HANDED(l32(sp + 40)), HANDED(l32(sp + 44)));
+#endif
     current_sp = keep;
     return result;
 }
@@ -296,7 +371,111 @@ static void delay(State *s, uint32_t pc)
     plain(s, pc);
 }
 
+/* MEMORIES_TRACE=frames: what the interpreter costs (Memories_MipsFrame).
+ * Only the outermost run counts: one a native routine it called starts is
+ * inside it. `regions`: the slots' control modules (A, B), the rest of the
+ * battle's overlay range, the credits. `modules`: the modules that took the
+ * most instructions, by the identifier Memories_MipsAttribute named. */
+#define TRACE_MODULES 6
+static struct {
+    unsigned calls, instructions, us;
+} frame_cost, window_cost;
+static unsigned worst_instructions, worst_us, region_instructions[4], depth, nested_steps;
+static struct {
+    uint32_t identifier;
+    unsigned instructions, calls;
+} modules[TRACE_MODULES];
+static uint32_t attributed;
+
+void Memories_MipsAttribute(uint32_t identifier) { attributed = identifier; }
+
+static int region_of(uint32_t address)
+{
+    if (address >= 0x8013A000u && address < 0x8013C000u) return 0;
+    if (address >= 0x8017A000u && address < 0x8017C000u) return 1;
+    if (address >= 0x80180000u && address < 0x80188000u) return 3;
+    return 2;
+}
+
+static void count_module(uint32_t identifier, unsigned instructions)
+{
+    int i, least = 0;
+    for (i = 0; i < TRACE_MODULES; i++) {
+        if (modules[i].calls && modules[i].identifier == identifier) break;
+        if (modules[i].instructions < modules[least].instructions) least = i;
+    }
+    if (i == TRACE_MODULES) {   /* replace the least: a rough top list over the window */
+        i = least;
+        modules[i].identifier = identifier;
+        modules[i].instructions = modules[i].calls = 0;
+    }
+    modules[i].instructions += instructions;
+    modules[i].calls++;
+}
+
+void Memories_MipsFrame(unsigned frames)
+{
+    window_cost.calls += frame_cost.calls;
+    window_cost.instructions += frame_cost.instructions;
+    window_cost.us += frame_cost.us;
+    if (frame_cost.instructions > worst_instructions) worst_instructions = frame_cost.instructions;
+    if (frame_cost.us > worst_us) worst_us = frame_cost.us;
+    memset(&frame_cost, 0, sizeof(frame_cost));
+    if (frames && window_cost.calls) {
+        char top[256] = "";
+        size_t used = 0;
+        int i;
+        for (i = 0; i < TRACE_MODULES && used < sizeof(top); i++)
+            if (modules[i].calls)
+                used += (size_t)snprintf(top + used, sizeof(top) - used, "%s%08x %u/%u", used ? ", " : "",
+                                         (unsigned)modules[i].identifier, modules[i].instructions, modules[i].calls);
+        LOG(LOG_FRAMES, "interpreter: %u calls in %u frames; %u instructions, %u us per frame (worst frame %u instructions, %u us); "
+                        "instructions in slot A's modules %u, slot B's %u, other overlay code %u, credits %u; modules "
+                        "(identifier instructions/calls): %s",
+            window_cost.calls, frames, window_cost.instructions / frames, window_cost.us / frames, worst_instructions,
+            worst_us, region_instructions[0], region_instructions[1], region_instructions[2], region_instructions[3],
+            top);
+    }
+    if (frames) {
+        memset(&window_cost, 0, sizeof(window_cost));
+        memset(region_instructions, 0, sizeof(region_instructions));
+        memset(modules, 0, sizeof(modules));
+        worst_instructions = worst_us = 0;
+    }
+}
+
+static int interpret(uint32_t address, const uint32_t *args, unsigned count, uint32_t *result);
+
 int Memories_MipsTry(uint32_t address, const uint32_t *args, unsigned count, uint32_t *result)
+{
+    struct timespec t0, t1;
+    uint32_t identifier = attributed;
+    unsigned steps;
+    int done;
+    attributed = 0;
+    if (depth) {   /* inside a traced run: its instructions are the outermost's, as its time is */
+        try_steps = 0;
+        done = interpret(address, args, count, result);
+        nested_steps += try_steps;
+        return done;
+    }
+    if (!Log_Enabled(LOG_FRAMES)) return interpret(address, args, count, result);
+    clock_gettime(CLOCK_MONOTONIC, &t0);
+    depth++;
+    try_steps = nested_steps = 0;
+    done = interpret(address, args, count, result);
+    depth--;
+    clock_gettime(CLOCK_MONOTONIC, &t1);
+    steps = try_steps + nested_steps;
+    frame_cost.calls++;
+    frame_cost.instructions += steps;
+    frame_cost.us += (unsigned)((t1.tv_sec - t0.tv_sec) * 1000000 + (t1.tv_nsec - t0.tv_nsec) / 1000);
+    region_instructions[region_of(address)] += steps;
+    if (identifier) count_module(identifier, steps);
+    return done;
+}
+
+static int interpret(uint32_t address, const uint32_t *args, unsigned count, uint32_t *result)
 {
     State s;
     jmp_buf escape;
@@ -382,6 +561,7 @@ int Memories_MipsTry(uint32_t address, const uint32_t *args, unsigned count, uin
         s.pc = take ? s.pc + 4 + ((uint32_t)im << 2) : next;
     }
     current_sp = saved_sp;
+    try_steps = s.steps;
     *result = (uint32_t)HANDED(s.r[2]); /* to native code: as the arguments above */
     return 0;
 }

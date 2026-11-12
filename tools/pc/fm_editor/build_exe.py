@@ -6,7 +6,8 @@
 
 Writes <dist>/fm-editor, a program that needs no Python on the player's
 machine. On Windows that is fm-editor.exe, fm-editor.pkg and
-fm-editor-files/, which stay together; elsewhere one file. The build files stay under <dist>; nothing it writes
+fm-editor-files/, which stay together; on macOS fm-editor.app; on Linux one file.
+The build files stay under <dist>; nothing it writes
 belongs in git.
 
 Windows gets no one-file build: that is a small loader with the whole
@@ -16,6 +17,8 @@ Trojan:Win32/Wacatac.B!ml). The folder build carries version information
 too, which scanners also like to see.
 """
 import argparse
+import json
+import os
 import re
 import subprocess
 import sys
@@ -53,25 +56,39 @@ def main() -> int:
     parser.add_argument("--dist", type=Path, default=ROOT / "tmp" / "pc" / "fm-editor")
     parser.add_argument("--console", action="store_true", help="keep a console window (for the command line)")
     parser.add_argument("--version", default="", help="the release, vX.Y.Z[-PRE], for the version information")
+    parser.add_argument("--commit", default=os.environ.get("GITHUB_SHA"), help="source commit (default: Git checkout)")
     arguments = parser.parse_args()
     dist = arguments.dist.resolve()
     work = dist / "build"
     work.mkdir(parents=True, exist_ok=True)
+    sys.path.insert(0, str(HERE.parent))
+    from fm_editor.build_info import source_info
+    identity = work / "build-info.json"
+    identity.write_text(json.dumps(source_info(arguments.version, arguments.commit)), encoding="utf-8")
     build = ["--noconfirm", "--clean", "--distpath", str(dist), "--workpath", str(work)]
     program = ["--name", "fm-editor", "--specpath", str(work), "--paths", str(HERE.parent),
-               "--hidden-import", "text_listing", "--collect-submodules", "fm_editor"]
+               "--hidden-import", "text_listing", "--collect-submodules", "fm_editor",
+               "--add-data", f"{identity}{os.pathsep}fm_editor"]
     if sys.platform == "win32":
         version_file = work / "version.txt"
         version_file.write_text(version_info(arguments.version), encoding="utf-8")
         program += ["--onedir", "--contents-directory", "fm-editor-files", "--version-file", str(version_file)]
+    elif sys.platform == "darwin":
+        program += ["--onedir", "--target-arch", "arm64",
+                    "--osx-bundle-identifier", "org.yfm-redecomp.fm-editor"]
     else:
         program.append("--onefile")
     if not arguments.console:
         program.append("--windowed")
     program.append(str(HERE / "__main__.py"))
+    # The spec's collect_submodules imports fm_editor before --paths is in
+    # effect; without this it finds nothing and the pages the UI tab loads
+    # by name (ui_title, ui_duel, ui_board) are left out of the program.
+    env = dict(os.environ)
+    env["PYTHONPATH"] = os.pathsep.join(filter(None, [str(HERE.parent), env.get("PYTHONPATH")]))
     makespec = [sys.executable, "-m", "PyInstaller.utils.cliutils.makespec", *program]
     print(" ".join(makespec))
-    if subprocess.run(makespec, cwd=str(ROOT)).returncode != 0:
+    if subprocess.run(makespec, cwd=str(ROOT), env=env).returncode != 0:
         return 1
     spec = work / "fm-editor.spec"
     text = spec.read_text()
@@ -90,9 +107,14 @@ def main() -> int:
     spec.write_text(text)
     command = [sys.executable, "-m", "PyInstaller", *build, str(spec)]
     print(" ".join(command))
-    result = subprocess.run(command, cwd=str(ROOT))
+    result = subprocess.run(command, cwd=str(ROOT), env=env)
     if result.returncode == 0:
-        built = dist / "fm-editor" / "fm-editor.exe" if sys.platform == "win32" else dist / "fm-editor"
+        if sys.platform == "win32":
+            built = dist / "fm-editor" / "fm-editor.exe"
+        elif sys.platform == "darwin" and not arguments.console:
+            built = dist / "fm-editor.app"
+        else:
+            built = dist / "fm-editor"
         print(f"built {built}")
     return result.returncode
 

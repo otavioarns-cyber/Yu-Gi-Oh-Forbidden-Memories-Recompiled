@@ -26,6 +26,7 @@
 #include "../../game/sound.h"
 #ifdef MEMORIES_PC
 #include "pc/platform/title_screen.h"
+#include "pc/platform/title_menu.h"
 #endif
 
 void MainMenu_DrawFrontendBackground(void)
@@ -104,16 +105,16 @@ void MainMenu_DrawFrontendBackground(void)
     }
 #ifdef MEMORIES_PC
     /* The mods' own pictures (pc/platform/title_screen.h), then the solid
-       colour, in the picture's slot after it, which puts it under the
+       color, in the picture's slot after it, which puts it under the
        picture: a slot draws what was added to it last first. */
     TitleScreen_DrawImages(D_800E9D90[2]);
     TitleScreen_DrawMenu();
     if (TitleScreen_BackgroundColour() >= 0) {
-        PSXLONG colour = TitleScreen_BackgroundColour();
+        PSXLONG color = TitleScreen_BackgroundColour();
         setPolyF4(&flat);
-        flat.r0 = colour >> 16 & 0xFF;
-        flat.g0 = colour >> 8 & 0xFF;
-        flat.b0 = colour & 0xFF;
+        flat.r0 = color >> 16 & 0xFF;
+        flat.g0 = color >> 8 & 0xFF;
+        flat.b0 = color & 0xFF;
         flat.x0 = 0;
         flat.y0 = 0;
         flat.x1 = GRAPHICS_DEFAULT_WIDTH;
@@ -185,6 +186,9 @@ void MainMenu_StartFrontendEntryTransition(s32 mode)
     }
     D_80184596 = mode;
     D_80184599 = 1;
+#ifdef MEMORIES_PC
+    TitleMenu_StartSlide();
+#endif
 }
 
 void MainMenu_DestroyFrontendMenu(void)

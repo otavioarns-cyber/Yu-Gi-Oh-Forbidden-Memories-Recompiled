@@ -25,8 +25,8 @@ with Game() as game:                    # its own settings, user folder and log;
 ```
 
 `step(n)`, `press("cross")`, `press_until(predicate, keys)`, `wait_until(predicate)`,
-`peek`/`poke`/`u8` (addresses or names from `config/pc/guest_addresses.txt`) are
-the primitives under it. Replays: `python3 tools/pc/replay.py run` before a PR.
+`peek`/`poke`/`u8` (addresses, or the names of game variables: the game itself
+says where a name is, see "Symbols" below) are the primitives under it. Replays: `python3 tools/pc/replay.py run` before a PR.
 
 Gotchas:
 - One client at a time; another is answered `err busy`. A client that leaves
@@ -95,9 +95,11 @@ build with the old combination; the eight smoke cases unchanged.
 | `pad P BITS` | hold pad P's active-high bits from now on, read at each VBlank |
 | `shot PATH` | write the presented picture as PNG, and keep running |
 | `hash` | the VRAM hash of the last presented frame |
-| `peek ADDR LEN` / `poke ADDR HEX` | guest memory |
+| `peek ADDR LEN` / `poke ADDR HEX` | guest memory; ADDR may be `@NAME[+OFF]`, a game variable by name (see below) |
 | `save PATH` / `load PATH` | a save state |
 | `info` | frame, VBlank, mode, build id |
+| `wheel N` | turn the mouse wheel N notches (decimal, signed, positive away from the player), once, for `host->wheel` |
+| `pointer X Y [BTN]` / `pointer off` | put the mouse at picture coordinates (decimal, 320x240; widescreen x -53 to 372) holding BTN (hex: 1 left, 2 right, 4 middle) for `host->pointer`, until `pointer off` or the client leaves; the real mouse is ignored meanwhile. It makes no pad bits, so a mod that reads it drives itself |
 | `quit` | exit |
 | `jump TARGET [OPPONENT [DECK]]` | another screen, as Debug > Jump to goes there (step 6; added with it) |
 
@@ -185,6 +187,26 @@ build with the old combination; the eight smoke cases unchanged.
     the scratchpad is `1F800000`-`1F8003FF`; anything else, or a range past
     an end, is refused. A poke into RAM tells the module registry
     (`Memories_GuestWritten`).
+  - `@NAME[+OFF]` in place of ADDR (OFF hex) is the game variable NAME
+    wherever this process keeps it, found in the build's own
+    `symbols/<build id>.vars.txt` (below). It is for the variables the game
+    units define, the small data (`.sdata`, `.sbss`: `gGraphics_sViewportX`)
+    among them: those are in the executable's `game_data`/`game_bss`, not at
+    the retail address of `config/pc/guest_addresses.txt`, which only a
+    *pinned* global (one the units leave undefined) has; so are the modules'
+    that have `ovl_*` sections of their own (which ones, and which keep
+    their variables in `game_data`, is whatever the target's link says; the
+    Win32 build has free_duel, overworld and password:
+    `gCampaignMap_Location`, `gPassword_ModuleState`) and those native code
+    defines (`gRand_dwSeed`). A constant in read-only data (`D_80180004`) can
+    be read, and a poke into it is `err ... is read-only`, since the write
+    would fault the game. A pinned name answers `err NAME is pinned at retail
+    address ADDR`: the client then peeks and pokes ADDR. The range is the
+    variable's own: a peek or poke past its end is `err` (never the next
+    variable), a name the build neither defines nor pins is `err no variable
+    NAME in this build`, a build without a variable table `err no variable
+    table`. A recording keeps the line with the name, so a replay finds the
+    variable in any build.
   - `save PATH`; `load PATH` resumes the state and answers at the next stop,
     one frame into it (`ok frame F vblank V`), or `err` with the reason
     (no notice on screen). The frame count is the run's own and is not in a
@@ -285,7 +307,8 @@ replay can begin at a state.
      `run_tick` in libetc.c) and at every `Platform_WaitVBlank` turn, keyed
      by a count of service calls since the start; a play feeds the same
      values to the same calls. About two thousand service calls a second
-     (the VBlank wait wakes every 0.5 ms), so a few tens of KB a second
+     (the VBlank wait wakes every 0.5 ms on Linux, about every millisecond
+     on Windows), so a few tens of KB a second
      before compression; the interrupt clock (`MEMORIES_CLOCK=interrupt`,
      the profiler) would be left out. Not built: the first way makes every
      session replayable with nothing recorded but the pads.
@@ -362,8 +385,12 @@ CI can hold retail inputs.
   `state-load-cpu` (scripted: a state saved while the CPU duelist thinks,
   loaded again in the same game, must replay its 600 frames; it failed at
   the first before "Port: a loaded state finishes the VSync(0) it resumes
-  in", and passes with it), and `x64-data-mods` (recorded with two data
-  mods, a card pack and a recoloured texture pack, made by its `mods.py`:
+  in", and passes with it), `state-load-mips-stack` (scripted: record 330's
+  3D battle from a state, record 320's, then 330's from the same state
+  again must draw the same frames; it failed from +679 before "Port: save
+  states carry the interpreter's stack", and passes with it), and
+  `x64-data-mods` (recorded with two data
+  mods, a card pack and a recolored texture pack, made by its `mods.py`:
   the 64-bit build's data mods gate), `dark-hole` and `spellbinding` (the
   bolt effect, 17 and 13, which crashed the 64-bit build until its vertex
   step stopped sign-extending a guest address; recorded on 32-bit, they
@@ -392,7 +419,12 @@ CI can hold retail inputs.
   default; Wine for a Windows build off Windows (`smoke.launcher`). A free
   port is picked and retried if the game cannot listen on it. The process
   ends with its `Game` (`with`, `quit()`, or when the object or the
-  interpreter goes), since a game whose client has gone runs on.
+  interpreter goes), since a game whose client has gone runs on. A command
+  whose reply takes over `command_timeout` seconds (300 by default, `None`
+  for no limit) takes the game for hung: it is ended and `GameHung` (not a
+  `RuntimeError` or `TimeoutError`, which scenario loops catch to go on)
+  names the command, the last frame and the log's last lines, again for any
+  later command, instead of the client waiting for good.
 - **Primitives:** `step`, `info`, `mode`, `resident(module)` (an overlay's
   identifier word at its load address), `pad`, `press(keys, hold=6,
   after=6)` and `presses` (names: `start`, `cross`, `up+cross`...),
@@ -400,12 +432,45 @@ CI can hold retail inputs.
   keys)` (a press every so many VBlanks until something holds: dialogue
   and menus without counting frames), `shot`, `hash`, `peek`/`poke`/`u8`/
   `u16`/`u32` by address or symbol, `save`/`load`, `quit`.
-- **Symbols:** deviation from the plan: the table shipped for state
-  relocation (`symbols/<build id>.txt`) holds only host addresses (every
-  function, and the variables of the game's own sections), none of the
-  guest globals a test reads. The client reads names from
-  `config/pc/guest_addresses.txt`, the table the build pins those globals
-  with, and falls back to constants, each with the header it comes from.
+- **Symbols:** three kinds of name. A *pinned* global (a game unit declares
+  it and nothing defines it: `D_8009B26C`, `gDuel_aDeckCardRecords`) is at
+  its retail guest address, which the build's own `vars.txt` gives. A name
+  the build neither defines nor pins (`gDuel_wPlayerLifePoint`: no code of
+  the game's refers to it) has one copy, guest RAM at its retail address,
+  read from `config/pc/guest_addresses.txt` with constants as fallbacks, each
+  with the header it comes from. A variable a
+  game unit *defines* (all of the small data, `.sdata` and `.sbss`, and some
+  `.data`: `gGraphics_sViewportX`, `D_800907D8`) is in the executable at an
+  address of the build's own, and its retail address reads the guest RAM
+  beside it (0, with the Deck on screen; a poke there did nothing). The
+  build writes those to `symbols/<build id>.vars.txt` on every target: one
+  `address size name` line for every variable it defines that a client may
+  name (every data and bss symbol between the `game_data`, `game_bss` and
+  `ovl_*` markers, and the ones the retail table names that the game's or
+  the port's own objects define outside them, not a library's: `open` is
+  not the game's; those in read-only data end in ` ro`) and one `address 0
+  name pinned` line for each global it pins to its retail guest address. A
+  function's static is listed under the compiler's name
+  (`Duel_RitualFlight.flight`; GCC on Linux may add a number to it,
+  `passwords.6979`, which changes from one build to the next, so those
+  names are not stable across builds). It is a separate file,
+  since the table state relocation reads would have to find the variables in
+  the same place in two builds. The client (`Game.locate`) asks the game with
+  `peek @NAME 1`: a defined name is then read in the process, a pinned one
+  at the retail address the game gives, and a name the table does not have
+  at its address in the retail table, or a `KeyError` when that has no
+  such name either; a game with no variable table is a `ControlError`
+  naming the variable, not a guess, and a name with a `+`, a blank or other
+  characters a name does not have a `ValueError` (the offset is `peek`'s
+  argument). An executable too old to be asked (it
+  answers `usage`) gets the retail table, with a warning on stderr that says
+  it is wrong for small data. The file is shipped with the build: in the
+  desktop package (`symbols/`), in the APK (`build/symbols/<id>.vars.txt`,
+  unpacked by `android.c`) and by `tools/pc/android/device_run.py`. The
+  translated ARM64 backend has no table (`Memories_SymbolTablePath` in
+  `state_translated.c` always fails), so by name it raises until that backend
+  writes and loads its own.
+  `tests/pc/control_small_data_runtime.py` is the gate.
 - **`state()`:** the mode (and its flags), the opponent
   (`gDuel_bOpponentID`), the starchips, the deck (`gDuel_awPlayerDeck`),
   the chest (`gLibrary_abCardChest`) and, in the story or a duel, both sides
@@ -439,6 +504,13 @@ CI can hold retail inputs.
   the opponent's monster came, a second played and an attack on the
   opponent's defending monster (6500 LP after it, the attacker kept), and
   a fusion of two hand cards.
+- **A 3D battle without a duel:** from the debug menu (`goto("debug")`),
+  poke the two model records into `D_800EF658` (card id, then who wins,
+  defense and the guardian star), the mode to come back to into
+  `D_8009B269` and 1 into `D_8009B26C`; the battle runs as the duel's
+  Square would start it and ends when the mode byte leaves 1.
+  `tools/pc/model_oracle.py` runs every MODEL.MRG record's battle this way
+  (notes/pc-build.md, "The model modules' oracle").
 - **Acceptance rewrites:** see Acceptance below.
 
 ### 6. Jump to

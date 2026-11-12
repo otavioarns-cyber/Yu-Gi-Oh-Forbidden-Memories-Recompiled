@@ -29,6 +29,7 @@
 #include "exports.h"
 #include "object_loader.h"
 #include "json.h"
+#include "manifest_code.h"
 #include "events.h"
 #include "hooks.h"
 #include "pc/platform/paths.h"
@@ -38,8 +39,10 @@
 #include "pc/debug/log.h"
 #include "pc/debug/symbols.h"
 #include "pc/sdk/disc.h"
+#include "pc/sdk/display.h"
 #include <ctype.h>
 #include <dirent.h>
+#include <errno.h>
 #include <fcntl.h>
 #include <stdarg.h>
 #include <stdio.h>
@@ -48,7 +51,14 @@
 #include <sys/stat.h>
 #include <time.h>
 #include <limits.h>
+#include <png.h>
+#include <pthread.h>
+#include <signal.h>
+#ifdef __SSE2__
+#include <emmintrin.h>
+#endif
 #include "pc/compat/mman.h"
+#include "pc/memory.h" /* the mods' packet area */
 #ifdef _WIN32
 #include <io.h>
 #else
@@ -62,6 +72,32 @@
 #define SECTOR 2048
 #define REGIONS_MAX 64
 #define PATCHES_MAX 1024
+/* One MODEL.MRG record (Model_LoadMonsterMerge, src/game/model.h). */
+#define MODEL_RECORD_SECTORS 0x114
+/* Where a native extra reads a mod's model's record (host_disc_read): model
+ * i from MODEL_SECTORS + i records on, past every position the drive can
+ * address, so no file of the disc moves for them. */
+#define MODEL_SECTORS 0x1000000
+#define MODELS_MAX 0x7FFF        /* model ids 0x8000 up, kept plus one in a u16 (pc/cards/cards.h) */
+#define MODEL_WINDOWS 2          /* the battle's two model slots */
+/* A bigger model's file: its model data (the record's first stage, 96
+ * sectors on the disc) is MODEL_GEOMETRY_MAX sectors at most, and the
+ * record's other stages, MODEL_TAIL_SECTORS, follow it. The battle parses
+ * that data in an arena of the slot's past guest RAM (MODEL_ARENA_BASE,
+ * held free by guest/image.c), the third arena for checking one first. */
+#define MODEL_STAGE0_SECTORS 96
+#define MODEL_TAIL_SECTORS (MODEL_RECORD_SECTORS - MODEL_STAGE0_SECTORS)
+#define MODEL_GEOMETRY_MAX 512
+/* A model's own texture pages ("texture_pages"), after the record's other
+ * stages: 64x256 halfwords of VRAM each, 16 sectors, the slot drawing from
+ * a texture bank of its own (src/pc/cards/battle_models.h). */
+#define MODEL_PAGE_SECTORS 16
+#define MODEL_PAGES_MAX 8
+#ifndef MODEL_ARENA_BASE        /* a test's own (tests/pc/disc_test.c) */
+#define MODEL_ARENA_BASE 0x90A00000u
+#endif
+#define MODEL_ARENA_SIZE 0x180000u
+#define MODEL_ARENAS (MODEL_WINDOWS + 1)
 
 #define OBJECT_MAX (64u << 20)   /* object_loader.c's own limit */
 
@@ -72,7 +108,7 @@ typedef struct {
     char library[NAME_MAX_];     /* empty when the mod is data only */
     char status[STATUS_MAX];
     char warnings[STATUS_MAX];   /* what the manifest got wrong: shown again whenever status is reset */
-    const char *origin;          /* "shipped" or "installed", for the window */
+    const char *origin;          /* "shipped", "folder" or "installed", for the window */
     int restart;                 /* the manifest asks for a fresh process */
     int default_enabled;
     int enabled;                 /* the player's choice, from the settings */
@@ -81,6 +117,7 @@ typedef struct {
     int initialized;
     int data_prepared;
     int broken;                  /* it failed to load; it cannot be applied */
+    int removed;                 /* its folder was deleted while the game runs (Mods_Forget) */
     int *runtime_options;
     unsigned sequence;
     unsigned code_hash;
@@ -90,8 +127,13 @@ typedef struct {
     JsonDocument *manifest;
     const JsonValue *data;       /* the "data" array, applied when enabled */
     const JsonValue *cards;      /* the "cards" array: cards the mod adds (src/pc/cards) */
+    const JsonValue *models;     /* the "models" array: battle models the mod adds */
     char textures[PATH_MAX_];    /* a texture pack directory inside the mod, or empty */
+    const JsonValue *assets;     /* named image replacements from mod.json, or NULL */
+    char asset_dir[PATH_MAX_];   /* "assets": a directory whose PNGs are named by their path */
     const JsonValue *audio;      /* the "audio" object: replacement sounds (src/pc/audio/replace.h) */
+    int sounds;                  /* its code added sounds of its own (host->sound_add) */
+    unsigned hud_hidden;         /* MEMORIES_HUD_* parts it hides (host->hide_hud) */
 } Mod;
 
 /* One stretch of the disc a mod replaces, and one run of patched bytes
@@ -122,11 +164,44 @@ static int disc_file_count, disc_layout_frozen, preparing_data;
 static Mod mods[MODS_MAX];
 static int mod_count;
 static unsigned activation_sequence;
+static unsigned change_count;   /* Mods_Changes */
 static int scanned;
 static int shut_down;   /* Mods_Shutdown has run: no mod code is called again */
 
 static Region regions[REGIONS_MAX];
 static int region_count;
+/* The models mods add ("models"): only their files' names, sizes and hashes
+ * are kept. A record is read when it is wanted, into the window of the
+ * battle slot that loads it (Mods_ModelWindow) or for a native extra
+ * (host_disc_read, at Mods_ModelSector). */
+typedef struct {
+    int mod;
+    const char *name;
+    const JsonValue *base;
+    char *path;
+    unsigned size, hash;
+    int stale;      /* its file was found gone or changed: not read again until the next launch */
+    int geometry;   /* sectors of model data of a model bigger than a record; 0 for a record */
+    int pages;      /* its own texture pages, after the record's other stages */
+} ModModel;
+static ModModel *models;
+static int model_count, model_capacity;
+static unsigned char *arenas[MODEL_ARENAS];
+/* The battle slots whose window holds a bigger model that has not been
+ * parsed yet (Mods_ModelPending). */
+static int pending[MODEL_WINDOWS];
+/* The texture pages of the model in each battle slot's window. */
+static unsigned char *window_pages[MODEL_WINDOWS];
+static int window_page_count[MODEL_WINDOWS];
+/* The battle slots' windows: MODEL_RECORD_SECTORS sectors each from
+ * window_lba, past the disc and the files it relocates, where the drive
+ * reads the record the slot's last load asked for. Mods_DiscSector reads
+ * them from interrupt context: the buffers are allocated once, with the
+ * first model, and only written while no transfer runs. */
+static unsigned char *window_data[MODEL_WINDOWS];
+static int window_model[MODEL_WINDOWS] = {-1, -1};
+static int window_lba = -1;
+static int read_model(int model, int first, int count, unsigned char *out);
 static Patch patches[PATCHES_MAX];
 static int patch_count;
 static int published_regions, published_patches;
@@ -314,7 +389,18 @@ static int host_disc_file_start(const MemoriesModHost *host, const char *iso_pat
 static int host_disc_read(const MemoriesModHost *host, int lba, int sectors, void *out)
 {
     (void)host;
-    return out && sectors > 0 ? Memories_DiscReadSectors(lba, sectors, out) : 0;
+    if (!out || sectors <= 0) return 0;
+    if (lba >= MODEL_SECTORS) return Mods_ModelRead(lba, sectors, out);
+    return Memories_DiscReadSectors(lba, sectors, out);
+}
+
+int Mods_ModelRead(int lba, int sectors, void *out)
+{
+    int first;
+    if (!out || sectors <= 0 || lba < MODEL_SECTORS) return 0;
+    first = (lba - MODEL_SECTORS) % MODEL_RECORD_SECTORS;
+    if (sectors > MODEL_RECORD_SECTORS - first) sectors = MODEL_RECORD_SECTORS - first;
+    return read_model((lba - MODEL_SECTORS) / MODEL_RECORD_SECTORS, first, sectors, out);
 }
 
 unsigned short (*Mods_PadSource)(int port);
@@ -337,18 +423,41 @@ static void *host_map_fixed(const MemoriesModHost *host, uintptr_t address, size
 {
     void *wanted = (void *)address, *got;
     if (!owner(host) || !address || address % 0x10000u || !size || address + size < address) return NULL;
-#ifdef _WIN32
-    /* VirtualAlloc refuses an address that is already reserved. */
-    got = VirtualAlloc(wanted, size, MEM_RESERVE | MEM_COMMIT, PAGE_READWRITE);
-    return got == wanted ? got : NULL;
+    /* On Windows compat/mman.h's VirtualAlloc, which refuses an address
+     * that is already taken; the 64-bit game holds the mod arenas' range
+     * from the start (image.c), and the mmap there gives it back first. */
+    got = Memories_MapFixed(wanted, size, PROT_READ | PROT_WRITE, MAP_FIXED_NOREPLACE | MAP_PRIVATE | MAP_ANONYMOUS,
+                            -1, 0);
+    return got == MAP_FAILED ? NULL : got;
+}
+
+/* The mods' packet area (API 22, src/pc/memory.h): mapped on the first ask,
+ * at the first 1 MiB of physical 8..16 MiB that is free, at its guest
+ * (direct, KSEG0) address so a packet's own pointer and its link agree. */
+static void *host_packet_area(const MemoriesModHost *host, size_t bytes)
+{
+#ifdef MEMORIES_TRANSLATED
+    (void)host;
+    (void)bytes;
+    return NULL; /* guest memory is not host memory there */
 #else
-    got = mmap(wanted, size, PROT_READ | PROT_WRITE, MAP_FIXED_NOREPLACE | MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
-    if (got == MAP_FAILED) return NULL;
-    if (got != wanted) {   /* a kernel older than MAP_FIXED_NOREPLACE takes it as a hint */
-        munmap(got, size);
-        return NULL;
+    static int tried;
+    if (!owner(host)) return NULL;
+    if (!tried) {
+        uint32_t physical;
+        tried = 1;
+        for (physical = MEMORIES_MOD_PACKETS_FIRST; !Memories_ModPacketBase && physical < MEMORIES_MOD_PACKETS_LAST;
+             physical += MEMORIES_MOD_PACKETS_SIZE) {
+            if (Memories_MapModPackets(physical)) {
+                LOG(LOG_MODS, "packet area for mods at physical 0x%x, %u KiB", (unsigned)physical,
+                    (unsigned)(MEMORIES_MOD_PACKETS_SIZE / 1024));
+            }
+        }
+        if (!Memories_ModPacketBase) {
+            fprintf(stderr, "memories-pc: mods: no room for the mods' packet area: they use the game's\n");
+        }
     }
-    return got;
+    return Memories_TakeModPackets(bytes);
 #endif
 }
 
@@ -387,6 +496,136 @@ static const char *(*menu_item_source)(int);
 void Mods_SetMenuItemSource(const char *(*source)(int)) { menu_item_source = source; }
 static const char *host_menu_item(const MemoriesModHost *host, int index)
 { (void)host; return menu_item_source ? menu_item_source(index) : NULL; }
+/* Mods_SetAudioClips: the audio replacement's clips. */
+static int (*clip_add)(int, const char *, const int16_t *, size_t, int, unsigned);
+static int (*clip_play)(int, int, int, int);
+static void (*clip_free)(int, int);
+static int host_sound_add(const MemoriesModHost *host, const int16_t *samples, size_t frames, int channels,
+                          unsigned rate)
+{
+    Mod *mod = owner(host);
+    /* Only while applied: turning the mod off frees them (Mods_Apply), and
+     * from MemoriesModInit, which runs once, they would not come back. */
+    int sound = mod && mod->active && clip_add ? clip_add((int)(mod - mods), mod->id, samples, frames, channels, rate)
+                                               : -1;
+    if (sound > 0) mod->sounds = 1;
+    return sound;
+}
+static int host_sound_play(const MemoriesModHost *host, int sound, int volume, int pan)
+{
+    Mod *mod = owner(host);
+    return mod && mod->active && clip_play ? clip_play((int)(mod - mods), sound, volume, pan) : 0;
+}
+static void host_sound_free(const MemoriesModHost *host, int sound)
+{
+    Mod *mod = owner(host);
+    if (mod && clip_free) clip_free((int)(mod - mods), sound);
+}
+/* The mouse (API 23): the window's own (Mods_SetMouse), and the mod that
+ * asked for it captured, or for Escape, which lets both go when it is
+ * turned off. Only that mod is given the Escape presses. */
+static void (*mouse_motion)(int *, int *, unsigned *, int);
+static void (*mouse_capture)(int);
+static int mouse_captor = -1;
+static void host_mouse(const MemoriesModHost *host, int *dx, int *dy, unsigned *buttons)
+{
+    Mod *mod = owner(host);
+    int x = 0, y = 0;
+    unsigned held = 0;
+    if (mod && mod->active && mouse_motion) mouse_motion(&x, &y, &held, (int)(mod - mods) == mouse_captor);
+    if (dx) *dx = x;
+    if (dy) *dy = y;
+    if (buttons) *buttons = held;
+}
+static void host_capture_mouse(const MemoriesModHost *host, int mode)
+{
+    Mod *mod = owner(host);
+    int index = mod ? (int)(mod - mods) : -1;
+    if (mode < 0 || mode > 2) mode = 1; /* any other truth value is 1, as it was */
+    if (!mod || (mode && !mod->active)) return;
+    if (mode) {
+        mouse_captor = index;
+    } else if (mouse_captor == index) {
+        mouse_captor = -1;
+    } else {
+        return; /* another mod has it */
+    }
+    if (mouse_capture) mouse_capture(mode);
+}
+static void release_mouse(int index)
+{
+    if (mouse_captor == index) {
+        mouse_captor = -1;
+        if (mouse_capture) mouse_capture(0);
+    }
+}
+void Mods_SetMouse(void (*motion)(int *dx, int *dy, unsigned *buttons, int escape), void (*capture)(int mode))
+{
+    mouse_motion = motion;
+    mouse_capture = capture;
+}
+/* The pointer and the wheel (API 24): the window's own (Mods_SetPointer), and
+ * the mod that took the wheel, which is given back when it is turned off. */
+static int (*pointer_read)(int *, int *, unsigned *);
+static int (*wheel_read)(void);
+static void (*wheel_take)(int);
+static int wheel_owner = -1;
+static int host_pointer(const MemoriesModHost *host, int *x, int *y, unsigned *buttons)
+{
+    Mod *mod = owner(host);
+    int px = 0, py = 0;
+    unsigned held = 0;
+    int inside = mod && mod->active && (int)(mod - mods) != mouse_captor && pointer_read && pointer_read(&px, &py, &held);
+    if (x) *x = inside ? px : 0;
+    if (y) *y = inside ? py : 0;
+    if (buttons) *buttons = inside ? held : 0;
+    return inside;
+}
+static int host_wheel(const MemoriesModHost *host)
+{
+    Mod *mod = owner(host);
+    return mod && mod->active && (int)(mod - mods) == wheel_owner && wheel_read ? wheel_read() : 0;
+}
+static void host_take_wheel(const MemoriesModHost *host, int on)
+{
+    Mod *mod = owner(host);
+    int index = mod ? (int)(mod - mods) : -1;
+    if (!mod || (on && !mod->active)) return;
+    if (on) {
+        wheel_owner = index;
+    } else if (wheel_owner == index) {
+        wheel_owner = -1;
+    } else {
+        return; /* another mod has it */
+    }
+    if (wheel_take) wheel_take(on != 0);
+}
+static void release_wheel(int index)
+{
+    if (wheel_owner == index) {
+        wheel_owner = -1;
+        if (wheel_take) wheel_take(0);
+    }
+}
+void Mods_SetPointer(int (*pointer)(int *x, int *y, unsigned *buttons), int (*wheel)(void), void (*take)(int on))
+{
+    pointer_read = pointer;
+    wheel_read = wheel;
+    wheel_take = take;
+}
+/* The parts of the port's HUD the applied mods hide (host->hide_hud). */
+static void host_hide_hud(const MemoriesModHost *host, unsigned mask)
+{
+    Mod *mod = owner(host);
+    if (mod && mod->active) mod->hud_hidden = mask;
+}
+unsigned Mods_HiddenHud(void)
+{
+    unsigned mask = 0;
+    for (int i = 0; i < mod_count; i++)
+        if (mods[i].active) mask |= mods[i].hud_hidden;
+    return mask;
+}
 static const char *(*notes_source)(int);
 static int (*tag_source)(int, const char *, char *, size_t);
 void Mods_SetCardNotes(const char *(*notes)(int), int (*tag)(int, const char *, char *, size_t))
@@ -422,6 +661,39 @@ static void *host_find(const MemoriesModHost *host, const char *qualified)
 
 /* --- drawing over the picture ------------------------------------------ */
 
+/* The overlay's drawing calls, listed as a pass makes them: what each drew
+ * and the rectangle of the canvas it could touch. The list of the pass that
+ * drew the canvas last, compared with a new pass's, says which rectangles
+ * of the canvas differ, so a pass where only a cursor moved is drawn and
+ * uploaded there alone (Mods_OverlayChanges, Mods_RedrawOverlayIn). */
+enum { CALL_FILL, CALL_TEXT, CALL_IMAGE };
+typedef struct {
+    unsigned char kind;
+    int x, y, w, h;          /* fill: its rectangle; text: x, middle, the scale in w; image: x, y, dw, dh */
+    uint32_t rgb;            /* fill, text */
+    unsigned alpha;
+    const uint32_t *pixels;  /* image: its pixels, their size, and their hash */
+    int pw, ph;
+    uint32_t hash;           /* text: of its characters */
+    size_t text;             /* text: where its characters are in the list's */
+    int clip[4];             /* the mod's clip at the call (x0, y0, x1, y1) */
+    int box[4];              /* what it may touch, x0, y0, x1, y1 inside the clip; x0 >= x1 for nothing */
+} OverlayCall;
+typedef struct {
+    OverlayCall *calls;
+    int count, room;
+    char *chars;
+    size_t used, chars_room;
+    int width, height;       /* the canvas the calls were made on */
+    int whole;               /* every call listed (no allocation failed) */
+} OverlayList;
+/* drawn: the calls that drew the window's canvas as it stands; listed: a
+ * pass compared with it (Mods_OverlayChanges); check: that pass made again
+ * to draw (Mods_RedrawOverlayIn). */
+static OverlayList drawn, listed, check;
+static int drawn_valid;
+static uint32_t pixels_hash(const uint32_t *pixels, size_t count);
+
 /* Only while Mods_DrawOverlay runs a mod's overlay callback. */
 static struct {
     MenuCanvas *canvas;
@@ -429,29 +701,186 @@ static struct {
     void (*text)(MenuCanvas *, int, int, const char *, uint32_t, int);
     int (*width)(const char *, int);
     int x0, y0, x1, y1;   /* what the mods drew, to report as the overlay's bounds */
+    /* The drawing calls draw into `canvas`, the view of `whole` at (ox, oy)
+     * the call is drawn through (region_enter), and move what they are
+     * given by -ox, -oy into it: the mod's clip (host->clip, API 23), and
+     * in a pass drawn again in rectangles (Mods_RedrawOverlayIn) each of
+     * those inside it in turn. */
+    MenuCanvas *whole;
+    MenuCanvas view;
+    int ox, oy;
+    int clip[4];          /* the mod's clip, x0, y0, x1, y1 of the whole canvas */
+    const int *regions;   /* the rectangles a pass draws in (x, y, w, h each), or NULL for all of it */
+    int region_count;
+    int raster;           /* 0: the calls are listed and nothing is drawn */
+    OverlayList *list;    /* where the calls are listed, or NULL */
+    /* The pass this one makes again (Mods_RedrawOverlayIn): a picture at the
+     * same place in it, the same pixels and size, keeps its hash. */
+    const OverlayList *hashes;
 } overlay;
 
-static void overlay_touch(int x, int y, int w, int h)
+static void stretch_age(void);
+
+/* The clip taken away: the whole canvas again. */
+static void overlay_unclip(void)
 {
-    int x1 = x + w, y1 = y + h;
-    if (x < 0) x = 0;
-    if (y < 0) y = 0;
-    if (x1 > overlay.canvas->width) x1 = overlay.canvas->width;
-    if (y1 > overlay.canvas->height) y1 = overlay.canvas->height;
-    if (x >= x1 || y >= y1) return;
-    if (overlay.x0 >= overlay.x1) { overlay.x0 = x; overlay.y0 = y; overlay.x1 = x1; overlay.y1 = y1; return; }
-    if (x < overlay.x0) overlay.x0 = x;
-    if (y < overlay.y0) overlay.y0 = y;
-    if (x1 > overlay.x1) overlay.x1 = x1;
-    if (y1 > overlay.y1) overlay.y1 = y1;
+    overlay.canvas = overlay.whole;
+    overlay.ox = overlay.oy = 0;
+    overlay.clip[0] = overlay.clip[1] = 0;
+    overlay.clip[2] = overlay.whole ? overlay.whole->width : 0;
+    overlay.clip[3] = overlay.whole ? overlay.whole->height : 0;
+}
+
+/* A call's box, x0, y0, x1, y1: (x, y, w, h) inside the mod's clip. */
+static void call_box(int box[4], int x, int y, int w, int h)
+{
+    box[0] = x > overlay.clip[0] ? x : overlay.clip[0];
+    box[1] = y > overlay.clip[1] ? y : overlay.clip[1];
+    box[2] = x + w < overlay.clip[2] ? x + w : overlay.clip[2];
+    box[3] = y + h < overlay.clip[3] ? y + h : overlay.clip[3];
+    if (box[0] >= box[2] || box[1] >= box[3]) box[0] = box[2] = box[1] = box[3] = 0;
+}
+
+/* What a call drew (its box), added to the overlay's bounds. */
+static void overlay_touch(const int box[4])
+{
+    if (box[0] >= box[2]) return;
+    if (overlay.x0 >= overlay.x1) {
+        overlay.x0 = box[0]; overlay.y0 = box[1]; overlay.x1 = box[2]; overlay.y1 = box[3];
+        return;
+    }
+    if (box[0] < overlay.x0) overlay.x0 = box[0];
+    if (box[1] < overlay.y0) overlay.y0 = box[1];
+    if (box[2] > overlay.x1) overlay.x1 = box[2];
+    if (box[3] > overlay.y1) overlay.y1 = box[3];
+}
+
+/* How many views a call is drawn through: one, the mod's clip, in a pass
+ * that draws everything; else one for each rectangle drawn again. */
+static int region_total(void)
+{
+    return overlay.raster ? (overlay.regions ? overlay.region_count : 1) : 0;
+}
+
+/* Region `r` as the view the drawing calls draw into, for a call that may
+ * touch `box`: 0 when they do not meet. */
+static int region_enter(int r, const int box[4])
+{
+    MenuCanvas *whole = overlay.whole;
+    int x0 = overlay.clip[0], y0 = overlay.clip[1], x1 = overlay.clip[2], y1 = overlay.clip[3];
+    if (overlay.regions) {
+        const int *at = overlay.regions + 4 * r;
+        if (at[0] > x0) x0 = at[0];
+        if (at[1] > y0) y0 = at[1];
+        if (at[0] + at[2] < x1) x1 = at[0] + at[2];
+        if (at[1] + at[3] < y1) y1 = at[1] + at[3];
+    }
+    if (x0 >= x1 || y0 >= y1 || box[0] >= box[2] || box[0] >= x1 || box[2] <= x0 || box[1] >= y1 || box[3] <= y0)
+        return 0;
+    overlay.view = *whole;
+    overlay.view.pixels = whole->pixels + (size_t)y0 * (size_t)whole->stride + (size_t)x0;
+    overlay.view.width = x1 - x0;
+    overlay.view.height = y1 - y0;
+    overlay.canvas = &overlay.view;
+    overlay.ox = x0;
+    overlay.oy = y0;
+    return 1;
+}
+
+/* A new call at the end of the list being made, or NULL (no list, or no
+ * memory: the list is then not whole, and is never compared). */
+static OverlayCall *list_call(int kind, const int box[4])
+{
+    OverlayList *list = overlay.list;
+    OverlayCall *call;
+    if (!list || !list->whole) return NULL;
+    if (list->count == list->room) {
+        int room = list->room ? list->room * 2 : 256;
+        OverlayCall *calls = room <= (1 << 20) ? realloc(list->calls, (size_t)room * sizeof(*calls)) : NULL;
+        if (!calls) {
+            list->whole = 0;
+            return NULL;
+        }
+        list->calls = calls;
+        list->room = room;
+    }
+    call = &list->calls[list->count++];
+    memset(call, 0, sizeof(*call));
+    call->kind = (unsigned char)kind;
+    memcpy(call->clip, overlay.clip, sizeof(call->clip));
+    memcpy(call->box, box, sizeof(call->box));
+    return call;
+}
+
+/* A text call's characters, kept in its list. */
+static void list_text(OverlayCall *call, const char *text)
+{
+    OverlayList *list = overlay.list;
+    size_t n = strlen(text) + 1;
+    uint32_t hash = 2166136261u;
+    if (list->used + n > list->chars_room) {
+        size_t room = list->chars_room ? list->chars_room * 2 : 4096;
+        char *chars;
+        while (room < list->used + n) room *= 2;
+        if (!(chars = realloc(list->chars, room))) {
+            list->whole = 0;
+            return;
+        }
+        list->chars = chars;
+        list->chars_room = room;
+    }
+    memcpy(list->chars + list->used, text, n);
+    call->text = list->used;
+    list->used += n;
+    for (const char *c = text; *c; c++) hash = (hash ^ (unsigned char)*c) * 16777619u;
+    call->hash = hash;
 }
 
 static void host_overlay_size(const MemoriesModHost *host, int *width, int *height, int *scale)
 {
-    int on = owner(host) && overlay.canvas;
-    if (width) *width = on ? overlay.canvas->width : 0;
-    if (height) *height = on ? overlay.canvas->height : 0;
+    int on = owner(host) && overlay.whole;
+    if (width) *width = on ? overlay.whole->width : 0;
+    if (height) *height = on ? overlay.whole->height : 0;
     if (scale) *scale = on ? overlay.scale : 1;
+}
+
+/* host->picture_only_frame (API 23): asked during the frame callbacks,
+ * read by the game's drawing until the next frame's (Mods_PictureOnlyFrame). */
+static int picture_only_asked;
+
+static void host_picture_only_frame(const MemoriesModHost *host)
+{
+    if (host_applied(host)) picture_only_asked = 1;
+}
+
+int Mods_PictureOnlyFrame(void) { return picture_only_asked; }
+
+/* host->clip (API 23): the overlay's drawing kept inside a rectangle of the
+ * canvas until the callback returns, or w or h of 0 or less for none. Each
+ * call then draws into a view of the canvas's own pixels (the same stride)
+ * no larger than it (region_enter), so it stops at its edges as at the
+ * canvas's own. */
+static void host_clip(const MemoriesModHost *host, int x, int y, int w, int h)
+{
+    MenuCanvas *whole = overlay.whole;
+    int x1 = x + w, y1 = y + h;
+    if (!owner(host) || !whole) return;
+    if (w <= 0 || h <= 0) {
+        overlay_unclip();
+        return;
+    }
+    if (x < 0) x = 0;
+    if (y < 0) y = 0;
+    if (x1 > whole->width) x1 = whole->width;
+    if (y1 > whole->height) y1 = whole->height;
+    if (x1 < x) x1 = x;
+    if (y1 < y) y1 = y;
+    if (x > whole->width) x = x1 = whole->width;
+    if (y > whole->height) y = y1 = whole->height;
+    overlay.clip[0] = x;
+    overlay.clip[1] = y;
+    overlay.clip[2] = x1;
+    overlay.clip[3] = y1;
 }
 
 static int host_text_width(const MemoriesModHost *host, const char *text, int scale)
@@ -459,51 +888,538 @@ static int host_text_width(const MemoriesModHost *host, const char *text, int sc
     return owner(host) && overlay.width && text ? overlay.width(text, scale < 1 ? 1 : scale) : 0;
 }
 
+/* Text at `alpha` (255 as draw_text draws it) into the view: drawn as ever,
+ * then, below 255, mixed with what was under it, pixel by pixel, over the
+ * box it can take. x and middle are the view's. */
+static void raster_text(int x, int middle, const char *text, uint32_t rgb, int scale, unsigned alpha)
+{
+    MenuCanvas *canvas = overlay.canvas;
+    int top, w, h, x0, y0, x1, y1, row;
+    uint32_t *under;
+    if (alpha >= 255) {
+        overlay.text(canvas, x, middle, text, rgb & 0xFFFFFFu, scale);
+        return;
+    }
+    top = middle - 10 * scale;
+    w = overlay.width(text, scale) + 2 * scale;
+    h = 20 * scale;
+    x0 = x < 0 ? 0 : x;
+    y0 = top < 0 ? 0 : top;
+    x1 = x + w > canvas->width ? canvas->width : x + w;
+    y1 = top + h > canvas->height ? canvas->height : top + h;
+    if (x1 <= x0 || y1 <= y0 || !alpha) return;
+    if (!(under = malloc((size_t)(x1 - x0) * (size_t)(y1 - y0) * sizeof(*under)))) return;
+    for (row = y0; row < y1; row++)
+        memcpy(under + (size_t)(row - y0) * (size_t)(x1 - x0), canvas->pixels + (size_t)row * (size_t)canvas->stride + x0,
+               (size_t)(x1 - x0) * sizeof(*under));
+    overlay.text(canvas, x, middle, text, rgb & 0xFFFFFFu, scale);
+    for (row = y0; row < y1; row++) {
+        uint32_t *line = canvas->pixels + (size_t)row * (size_t)canvas->stride + x0;
+        const uint32_t *was = under + (size_t)(row - y0) * (size_t)(x1 - x0);
+        for (int column = 0; column < x1 - x0; column++) {
+            uint32_t now = line[column], old = was[column];
+            unsigned r, g, b;
+            if (now == old) continue;
+            r = ((now >> 16 & 255) * alpha + (old >> 16 & 255) * (255 - alpha)) / 255;
+            g = ((now >> 8 & 255) * alpha + (old >> 8 & 255) * (255 - alpha)) / 255;
+            b = ((now & 255) * alpha + (old & 255) * (255 - alpha)) / 255;
+            line[column] = (now & 0xFF000000u) | r << 16 | g << 8 | b;
+        }
+    }
+    free(under);
+}
+
+/* draw_text and draw_text_alpha: listed, then drawn through each view. Its
+ * box is the box the alpha path mixes and a margin round it, for a glyph
+ * that reaches past its advance or the line (a call's box must hold
+ * everything it can change). */
+static void overlay_text(int x, int middle, const char *text, uint32_t rgb, int scale, unsigned alpha)
+{
+    int box[4], width = overlay.width(text, scale);
+    OverlayCall *call;
+    call_box(box, x - 4 * scale, middle - 14 * scale, width + 12 * scale, 28 * scale);
+    if ((call = list_call(CALL_TEXT, box))) {
+        call->x = x;
+        call->y = middle;
+        call->w = scale;
+        call->rgb = rgb & 0xFFFFFFu;
+        call->alpha = alpha;
+        list_text(call, text);
+    }
+    for (int r = 0; r < region_total(); r++) {
+        if (region_enter(r, box)) raster_text(x - overlay.ox, middle - overlay.oy, text, rgb, scale, alpha);
+    }
+    if (alpha) {
+        int touched[4];
+        call_box(touched, x, middle - 10 * scale, width + (alpha < 255 ? 2 * scale : 0), 20 * scale);
+        overlay_touch(touched);
+    }
+}
+
 static void host_draw_text(const MemoriesModHost *host, int x, int middle, const char *text, uint32_t rgb, int scale)
 {
-    if (!owner(host) || !overlay.canvas || !text) return;
-    if (scale < 1) scale = 1;
-    overlay.text(overlay.canvas, x, middle, text, rgb & 0xFFFFFFu, scale);
-    overlay_touch(x, middle - 10 * scale, overlay.width(text, scale), 20 * scale);
+    if (!owner(host) || !overlay.whole || !text) return;
+    overlay_text(x, middle, text, rgb, scale < 1 ? 1 : scale, 255);
+}
+
+static void host_draw_text_alpha(const MemoriesModHost *host, int x, int middle, const char *text, uint32_t rgb,
+                                 int scale, unsigned alpha)
+{
+    if (!owner(host) || !overlay.whole || !text) return;
+    overlay_text(x, middle, text, rgb, scale < 1 ? 1 : scale, alpha > 255 ? 255 : alpha);
+}
+
+/* x / 255 for x up to 255 * 255, without the division: the overlay is
+ * blended pixel by pixel on the CPU at the window's size, so this is its
+ * inner loop. */
+static inline unsigned by_255(unsigned x) { return (x + 1 + (x >> 8)) >> 8; }
+
+/* n pixels of `line` under `from`'s (or `color` everywhere, when `from` is
+ * NULL), opaque colors, at `alpha`: each byte (src * alpha + under * (255 -
+ * alpha)) / 255, the alpha byte so alpha + under's * (255 - alpha) / 255.
+ * Four pixels at a time where there is SSE2, the same sums. */
+static void blend_span(uint32_t *line, int n, const uint32_t *from, uint32_t color, unsigned alpha)
+{
+    const unsigned inverse = 255 - alpha;
+    int i = 0;
+#ifdef __SSE2__
+    const __m128i zero = _mm_setzero_si128(), one = _mm_set1_epi16(1), constant = _mm_set1_epi32((int)color);
+    const __m128i times = _mm_set1_epi16((short)alpha), under_times = _mm_set1_epi16((short)inverse);
+    for (; i + 4 <= n; i += 4) {
+        __m128i src = from ? _mm_loadu_si128((const __m128i *)(from + i)) : constant;
+        __m128i under = _mm_loadu_si128((const __m128i *)(line + i));
+        __m128i low = _mm_add_epi16(_mm_mullo_epi16(_mm_unpacklo_epi8(src, zero), times),
+                                    _mm_mullo_epi16(_mm_unpacklo_epi8(under, zero), under_times));
+        __m128i high = _mm_add_epi16(_mm_mullo_epi16(_mm_unpackhi_epi8(src, zero), times),
+                                     _mm_mullo_epi16(_mm_unpackhi_epi8(under, zero), under_times));
+        low = _mm_srli_epi16(_mm_add_epi16(_mm_add_epi16(low, one), _mm_srli_epi16(low, 8)), 8);
+        high = _mm_srli_epi16(_mm_add_epi16(_mm_add_epi16(high, one), _mm_srli_epi16(high, 8)), 8);
+        _mm_storeu_si128((__m128i *)(line + i), _mm_packus_epi16(low, high));
+    }
+#endif
+    for (; i < n; i++) {
+        uint32_t src = from ? from[i] : color, under = line[i];
+        line[i] = (alpha + by_255((under >> 24) * inverse)) << 24 |
+                  by_255((src >> 16 & 255) * alpha + (under >> 16 & 255) * inverse) << 16 |
+                  by_255((src >> 8 & 255) * alpha + (under >> 8 & 255) * inverse) << 8 |
+                  by_255((src & 255) * alpha + (under & 255) * inverse);
+    }
+}
+
+/* A fill into the view, x and y the view's. */
+static void raster_fill(int x, int y, int w, int h, uint32_t rgb, unsigned alpha)
+{
+    MenuCanvas *canvas = overlay.canvas;
+    int row0, row1, col0, col1;
+    row0 = y < 0 ? 0 : y;
+    row1 = y + h > canvas->height ? canvas->height : y + h;
+    col0 = x < 0 ? 0 : x;
+    col1 = x + w > canvas->width ? canvas->width : x + w;
+    if (alpha == 255) { /* covered: the color, opaque */
+        const uint32_t pixel = 0xFF000000u | (rgb & 0xFFFFFFu);
+        for (int row = row0; row < row1; row++) {
+            uint32_t *line = canvas->pixels + (size_t)row * (size_t)canvas->stride;
+            for (int column = col0; column < col1; column++) line[column] = pixel;
+        }
+    } else if (alpha && col1 > col0) { /* none leaves every pixel as it was */
+        for (int row = row0; row < row1; row++)
+            blend_span(canvas->pixels + (size_t)row * (size_t)canvas->stride + col0, col1 - col0, NULL,
+                       0xFF000000u | (rgb & 0xFFFFFFu), alpha);
+    }
 }
 
 static void host_fill(const MemoriesModHost *host, int x, int y, int w, int h, uint32_t rgb, unsigned alpha)
 {
-    MenuCanvas *canvas = overlay.canvas;
-    unsigned inverse;
-    if (!owner(host) || !canvas || w <= 0 || h <= 0) return;
+    int box[4];
+    OverlayCall *call;
+    if (!owner(host) || !overlay.whole || w <= 0 || h <= 0) return;
     if (alpha > 255) alpha = 255;
-    inverse = 255 - alpha;
-    for (int row = y < 0 ? 0 : y; row < y + h && row < canvas->height; row++) {
-        for (int column = x < 0 ? 0 : x; column < x + w && column < canvas->width; column++) {
-            uint32_t *pixel = canvas->pixels + (size_t)row * (size_t)canvas->stride + (size_t)column, under = *pixel;
-            unsigned r = ((rgb >> 16 & 255) * alpha + (under >> 16 & 255) * inverse) / 255;
-            unsigned g = ((rgb >> 8 & 255) * alpha + (under >> 8 & 255) * inverse) / 255;
-            unsigned b = ((rgb & 255) * alpha + (under & 255) * inverse) / 255;
-            unsigned a = alpha + (under >> 24) * inverse / 255;
-            *pixel = a << 24 | r << 16 | g << 8 | b;
+    call_box(box, x, y, w, h);
+    if ((call = list_call(CALL_FILL, box))) {
+        call->x = x;
+        call->y = y;
+        call->w = w;
+        call->h = h;
+        call->rgb = rgb & 0xFFFFFFu;
+        call->alpha = alpha;
+    }
+    for (int r = 0; r < region_total(); r++) {
+        if (region_enter(r, box)) raster_fill(x - overlay.ox, y - overlay.oy, w, h, rgb, alpha);
+    }
+    overlay_touch(box);
+}
+
+/* MEMORIES_TRACE=frames: the time the mods' frame and overlay callbacks
+ * take, over 120 frames (untimed while the channel is off). */
+enum { CALLBACK_FRAME, CALLBACK_OVERLAY, CALLBACK_LISTED, CALLBACKS };
+static struct { uint64_t total[CALLBACKS]; unsigned max[CALLBACKS], count[CALLBACKS]; } callback_time;
+
+static uint64_t callback_start(void)
+{
+    struct timespec now;
+    if (!Log_Enabled(LOG_FRAMES)) return 0;
+    clock_gettime(CLOCK_MONOTONIC, &now);
+    return (uint64_t)now.tv_sec * 1000000u + (uint64_t)now.tv_nsec / 1000u + 1u;
+}
+
+static void callback_end(int which, uint64_t started)
+{
+    static const char *const names[CALLBACKS] = {"frame", "overlay", "overlay (listed only)"};
+    struct timespec now;
+    unsigned us;
+    if (!started) return;
+    clock_gettime(CLOCK_MONOTONIC, &now);
+    us = (unsigned)((uint64_t)now.tv_sec * 1000000u + (uint64_t)now.tv_nsec / 1000u + 1u - started);
+    callback_time.total[which] += us;
+    if (us > callback_time.max[which]) callback_time.max[which] = us;
+    if (++callback_time.count[which] < 120) return;
+    LOG(LOG_FRAMES, "mods' %s callbacks: %u us per call (max %u)", names[which],
+        (unsigned)(callback_time.total[which] / callback_time.count[which]), callback_time.max[which]);
+    callback_time.total[which] = 0;
+    callback_time.max[which] = callback_time.count[which] = 0;
+}
+
+/* A pass over the canvas: every applied mod's overlay callback, in load
+ * order, drawing (raster) through the regions given (all of the canvas
+ * when NULL) or only listing its calls, into `list` when there is one. 0
+ * when there is nothing to draw on. */
+static int overlay_pass(MenuCanvas *canvas, int scale, void (*text)(MenuCanvas *, int, int, const char *, uint32_t, int),
+                        int (*width)(const char *, int), int raster, const int *regions, int count,
+                        OverlayList *list, const OverlayList *hashes)
+{
+    uint64_t started;
+    if (shut_down || !canvas || !canvas->pixels || !text || !width) return 0;
+    overlay.whole = canvas;
+    overlay.scale = scale < 1 ? 1 : scale;
+    overlay.text = text;
+    overlay.width = width;
+    overlay.x0 = overlay.y0 = overlay.x1 = overlay.y1 = 0;
+    overlay.raster = raster;
+    overlay.regions = regions;
+    overlay.region_count = count;
+    overlay.list = list;
+    overlay.hashes = hashes;
+    if (list) {
+        list->count = 0;
+        list->used = 0;
+        list->whole = 1;
+        list->width = canvas->width;
+        list->height = canvas->height;
+    }
+    /* Partial redraws also advance the cache generation. Otherwise all
+     * stretches used since the last whole pass remain pinned, eventually
+     * forcing a scrolling menu to resample every new size on every frame. */
+    if (raster) stretch_age();
+    started = callback_start();
+    for (int i = 0; i < mod_count; i++) {
+        if (mods[i].active && mods[i].initialized && mods[i].hooks.overlay) {
+            overlay_unclip(); /* a mod's clip is its own */
+            mods[i].hooks.overlay();
         }
     }
-    overlay_touch(x, y, w, h);
+    callback_end(raster ? CALLBACK_OVERLAY : CALLBACK_LISTED, started);
+    overlay.canvas = overlay.whole = NULL;
+    overlay.list = NULL;
+    overlay.hashes = NULL;
+    overlay.regions = NULL;
+    return 1;
+}
+
+static int listing_off; /* Mods_DrawPictureOverlay's canvas is not the window's */
+
+/* --- the overlay drawn elsewhere (Mods_SetOverlaySink) ------------------ */
+
+static const ModsOverlaySink *overlay_sink;
+
+void Mods_SetOverlaySink(const ModsOverlaySink *sink)
+{
+    overlay_sink = sink;
+    drawn_valid = 0;
+}
+
+/* Text is drawn once into pictures of its own, for a sink that takes only
+ * pictures: the menu's text is the CPU's, a whole string at a time. */
+#define STAMPS 512
+typedef struct {
+    char *text;
+    uint32_t rgb, hash, *pixels;
+    int scale, width, height;
+    unsigned used;
+} TextStamp;
+static TextStamp stamps[STAMPS];
+static unsigned stamp_pass;
+
+static void stamp_drop(TextStamp *stamp)
+{
+    if (overlay_sink && stamp->pixels) overlay_sink->forget(stamp->pixels);
+    free(stamp->text);
+    free(stamp->pixels);
+    memset(stamp, 0, sizeof(*stamp));
+}
+
+static const TextStamp *stamp_for(const char *text, uint32_t rgb, int scale,
+                                  void (*draw)(MenuCanvas *, int, int, const char *, uint32_t, int),
+                                  int (*width)(const char *, int))
+{
+    TextStamp *slot = NULL;
+    MenuCanvas canvas;
+    int i;
+    for (i = 0; i < STAMPS; i++) {
+        TextStamp *stamp = &stamps[i];
+        if (stamp->pixels && stamp->rgb == rgb && stamp->scale == scale && !strcmp(stamp->text, text)) {
+            stamp->used = stamp_pass;
+            return stamp;
+        }
+        if (!stamp->pixels) {
+            if (!slot || slot->pixels) slot = stamp;
+        } else if (!slot || (slot->pixels && stamp->used - slot->used > 0x80000000u)) {
+            slot = stamp;
+        }
+    }
+    if (slot->pixels) stamp_drop(slot);
+    /* the box overlay_text gives a call: all a glyph can reach */
+    slot->width = width(text, scale) + 12 * scale;
+    slot->height = 28 * scale;
+    slot->text = malloc(strlen(text) + 1);
+    slot->pixels = calloc((size_t)slot->width * (size_t)slot->height, sizeof(*slot->pixels));
+    if (!slot->text || !slot->pixels) {
+        free(slot->text);
+        free(slot->pixels);
+        memset(slot, 0, sizeof(*slot));
+        return NULL;
+    }
+    strcpy(slot->text, text);
+    slot->rgb = rgb;
+    slot->scale = scale;
+    slot->used = stamp_pass;
+    memset(&canvas, 0, sizeof(canvas));
+    canvas.pixels = slot->pixels;
+    canvas.stride = canvas.width = slot->width;
+    canvas.height = slot->height;
+    canvas.alpha = 1;
+    draw(&canvas, 4 * scale, 14 * scale, text, rgb, scale);
+    slot->hash = pixels_hash(slot->pixels, (size_t)slot->width * (size_t)slot->height);
+    return slot;
+}
+
+/* The pass just listed, to the sink. */
+static void overlay_to_sink(void (*draw)(MenuCanvas *, int, int, const char *, uint32_t, int),
+                            int (*width)(const char *, int))
+{
+    stamp_pass++;
+    overlay_sink->begin();
+    for (int i = 0; i < drawn.count; i++) {
+        const OverlayCall *call = &drawn.calls[i];
+        if (call->box[0] >= call->box[2]) continue;
+        if (call->kind == CALL_FILL) {
+            overlay_sink->fill(call->clip, call->x, call->y, call->w, call->h, call->rgb, call->alpha);
+        } else if (call->kind == CALL_IMAGE) {
+            overlay_sink->image(call->clip, call->pixels, call->pw, call->ph, call->hash, call->x, call->y, call->w,
+                                call->h, call->alpha);
+        } else if (call->alpha) {
+            const TextStamp *stamp = stamp_for(drawn.chars + call->text, call->rgb, call->w, draw, width);
+            if (stamp)
+                overlay_sink->image(call->clip, stamp->pixels, stamp->width, stamp->height, stamp->hash,
+                                    call->x - 4 * call->w, call->y - 14 * call->w, stamp->width, stamp->height,
+                                    call->alpha);
+        }
+    }
+    overlay_sink->end();
 }
 
 void Mods_DrawOverlay(MenuCanvas *canvas, int scale, void (*text)(MenuCanvas *, int, int, const char *, uint32_t, int),
                       int (*width)(const char *, int), int *x, int *y, int *w, int *h)
 {
     *x = *y = *w = *h = 0;
-    if (shut_down || !canvas || !canvas->pixels || !text || !width) return;
-    overlay.canvas = canvas;
-    overlay.scale = scale < 1 ? 1 : scale;
-    overlay.text = text;
-    overlay.width = width;
-    overlay.x0 = overlay.y0 = overlay.x1 = overlay.y1 = 0;
-    for (int i = 0; i < mod_count; i++) {
-        if (mods[i].active && mods[i].initialized && mods[i].hooks.overlay) mods[i].hooks.overlay();
+    if (!listing_off) drawn_valid = 0;
+    if (overlay_sink && !listing_off) {
+        if (overlay_pass(canvas, scale, text, width, 0, NULL, 0, &drawn, NULL) && drawn.whole)
+            overlay_to_sink(text, width);
+        return;
     }
-    overlay.canvas = NULL;
+    if (!overlay_pass(canvas, scale, text, width, 1, NULL, 0, listing_off ? NULL : &drawn, NULL)) return;
+    if (!listing_off) drawn_valid = drawn.whole;
     if (overlay.x0 < overlay.x1) {
         *x = overlay.x0; *y = overlay.y0; *w = overlay.x1 - overlay.x0; *h = overlay.y1 - overlay.y0;
     }
+}
+
+/* --- what differs between two passes ------------------------------------ */
+
+static int call_same(const OverlayList *la, const OverlayCall *a, const OverlayList *lb, const OverlayCall *b)
+{
+    if (a->kind != b->kind || a->x != b->x || a->y != b->y || a->w != b->w || a->h != b->h || a->rgb != b->rgb ||
+        a->alpha != b->alpha || a->pixels != b->pixels || a->pw != b->pw || a->ph != b->ph || a->hash != b->hash ||
+        memcmp(a->clip, b->clip, sizeof(a->clip)) != 0)
+        return 0;
+    return a->kind != CALL_TEXT || strcmp(la->chars + a->text, lb->chars + b->text) == 0;
+}
+
+static int lists_same(const OverlayList *a, const OverlayList *b)
+{
+    if (a->count != b->count) return 0;
+    for (int i = 0; i < a->count; i++)
+        if (!call_same(a, &a->calls[i], b, &b->calls[i])) return 0;
+    return 1;
+}
+
+/* The rectangles that differ, x0, y0, x1, y1: kept apart while they are
+ * further apart than DAMAGE_NEAR, else one, and never more than
+ * DAMAGE_MAX (the pair whose union grows least goes together). */
+#define DAMAGE_MAX 16
+#define DAMAGE_NEAR 24
+typedef struct { int count, rect[DAMAGE_MAX][4]; } Damage;
+
+static long long rect_area(const int r[4]) { return (long long)(r[2] - r[0]) * (r[3] - r[1]); }
+
+static void rect_union(int into[4], const int r[4])
+{
+    if (r[0] < into[0]) into[0] = r[0];
+    if (r[1] < into[1]) into[1] = r[1];
+    if (r[2] > into[2]) into[2] = r[2];
+    if (r[3] > into[3]) into[3] = r[3];
+}
+
+static void damage_add(Damage *damage, const int box[4])
+{
+    int add[4];
+    if (box[0] >= box[2] || box[1] >= box[3]) return;
+    memcpy(add, box, sizeof(add));
+    for (;;) {
+        int i, best = -1;
+        long long best_growth = 0;
+        for (i = 0; i < damage->count; i++) {
+            const int *r = damage->rect[i];
+            if (r[0] - DAMAGE_NEAR < add[2] && add[0] - DAMAGE_NEAR < r[2] && r[1] - DAMAGE_NEAR < add[3] &&
+                add[1] - DAMAGE_NEAR < r[3])
+                break;
+        }
+        if (i == damage->count && damage->count < DAMAGE_MAX) {
+            memcpy(damage->rect[damage->count++], add, sizeof(add));
+            return;
+        }
+        if (i == damage->count) {
+            /* full: into the one it grows least */
+            for (i = 0; i < damage->count; i++) {
+                int both[4];
+                long long growth;
+                memcpy(both, damage->rect[i], sizeof(both));
+                rect_union(both, add);
+                growth = rect_area(both) - rect_area(damage->rect[i]) - rect_area(add);
+                if (best < 0 || growth < best_growth) {
+                    best = i;
+                    best_growth = growth;
+                }
+            }
+            i = best;
+        }
+        /* taken out and added again with what it met, which may meet others */
+        rect_union(add, damage->rect[i]);
+        memcpy(damage->rect[i], damage->rect[--damage->count], sizeof(add));
+    }
+}
+
+/* The calls that differ between a (what drew the canvas) and b (a new
+ * pass), by the longest run of calls the two have in common, in order:
+ * every call not in it, the old where it was, the new where it is, is
+ * drawn again. Two calls in the same order cover a pixel the same way, so
+ * the canvas outside the boxes of the others is already b's. */
+#define DIFF_CELLS (1u << 20)
+static void overlay_diff(const OverlayList *a, const OverlayList *b, Damage *damage)
+{
+    int start = 0, end_a = a->count, end_b = b->count, na, nb, i, j;
+    uint16_t *lengths = NULL;
+    damage->count = 0;
+    while (start < end_a && start < end_b && call_same(a, &a->calls[start], b, &b->calls[start])) start++;
+    while (end_a > start && end_b > start && call_same(a, &a->calls[end_a - 1], b, &b->calls[end_b - 1])) {
+        end_a--;
+        end_b--;
+    }
+    na = end_a - start;
+    nb = end_b - start;
+    if (!na && !nb) return;
+    if ((unsigned long long)(na + 1) * (unsigned long long)(nb + 1) <= DIFF_CELLS) /* in 64 bits: 32 overflow */
+        lengths = malloc((size_t)(na + 1) * (size_t)(nb + 1) * sizeof(*lengths));
+    if (!lengths) {
+        /* too long to compare call by call: all between is drawn again */
+        for (i = start; i < end_a; i++) damage_add(damage, a->calls[i].box);
+        for (j = start; j < end_b; j++) damage_add(damage, b->calls[j].box);
+        return;
+    }
+#define L(i, j) lengths[(size_t)(i) * (size_t)(nb + 1) + (size_t)(j)]
+    for (i = na; i >= 0; i--) {
+        for (j = nb; j >= 0; j--) {
+            if (i == na || j == nb) L(i, j) = 0;
+            else if (call_same(a, &a->calls[start + i], b, &b->calls[start + j])) L(i, j) = (uint16_t)(L(i + 1, j + 1) + 1);
+            else L(i, j) = L(i + 1, j) > L(i, j + 1) ? L(i + 1, j) : L(i, j + 1);
+        }
+    }
+    i = j = 0;
+    while (i < na && j < nb) {
+        if (call_same(a, &a->calls[start + i], b, &b->calls[start + j])) {
+            i++;
+            j++;
+        } else if (L(i + 1, j) >= L(i, j + 1)) {
+            damage_add(damage, a->calls[start + i++].box);
+        } else {
+            damage_add(damage, b->calls[start + j++].box);
+        }
+    }
+#undef L
+    while (i < na) damage_add(damage, a->calls[start + i++].box);
+    while (j < nb) damage_add(damage, b->calls[start + j++].box);
+    free(lengths);
+}
+
+static int listed_valid; /* `listed` is the pass Mods_OverlayChanges compared */
+
+int Mods_OverlayChanges(MenuCanvas *canvas, int scale, void (*text)(MenuCanvas *, int, int, const char *, uint32_t, int),
+                        int (*width)(const char *, int), int *rects, int max)
+{
+    Damage damage;
+    int i;
+    listed_valid = 0;
+    if (!drawn_valid || !canvas || canvas->width != drawn.width || canvas->height != drawn.height || max < 1)
+        return -1;
+    /* The extra calls are API 23's (modapi.h): a mod built for an older one
+     * may move on in its overlay, so it is drawn once a frame, all of it. */
+    for (i = 0; i < mod_count; i++) {
+        if (mods[i].active && mods[i].initialized && mods[i].hooks.overlay && mods[i].hooks.api < 23) return -1;
+    }
+    if (!overlay_pass(canvas, scale, text, width, 0, NULL, 0, &listed, NULL) || !listed.whole) return -1;
+    overlay_diff(&drawn, &listed, &damage);
+    while (damage.count > max) { /* the last two together, which may meet others */
+        int last[4];
+        memcpy(last, damage.rect[--damage.count], sizeof(last));
+        rect_union(last, damage.rect[--damage.count]);
+        damage_add(&damage, last);
+    }
+    for (i = 0; i < damage.count; i++) {
+        rects[4 * i] = damage.rect[i][0];
+        rects[4 * i + 1] = damage.rect[i][1];
+        rects[4 * i + 2] = damage.rect[i][2] - damage.rect[i][0];
+        rects[4 * i + 3] = damage.rect[i][3] - damage.rect[i][1];
+    }
+    listed_valid = 1;
+    return damage.count;
+}
+
+int Mods_RedrawOverlayIn(MenuCanvas *canvas, int scale, void (*text)(MenuCanvas *, int, int, const char *, uint32_t, int),
+                         int (*width)(const char *, int), const int *rects, int count)
+{
+    OverlayList kept;
+    if (!listed_valid || !drawn_valid || !canvas || canvas->width != listed.width || canvas->height != listed.height)
+        return 0;
+    listed_valid = 0;
+    drawn_valid = 0; /* until the pass is known to be the one listed */
+    if (!overlay_pass(canvas, scale, text, width, 1, rects, count, &check, &listed)) return 0;
+    if (!check.whole || !lists_same(&check, &listed)) return 0;
+    /* the canvas is now what `check` draws: it is the list to compare with */
+    kept = drawn;
+    drawn = check;
+    check = kept;
+    drawn_valid = 1;
+    return 1;
 }
 
 unsigned Mods_OverlaySignature(unsigned frame)
@@ -517,6 +1433,843 @@ unsigned Mods_OverlaySignature(unsigned frame)
         signature = signature * 2654435761u + (hooks->overlay_signature ? hooks->overlay_signature() : frame);
     }
     return signature;
+}
+
+/* Where the window shows the game's picture (Mods_SetPicture). */
+static struct { int x, y, w, h, game_width; } picture = {0, 0, 0, 0, 320};
+
+void Mods_SetPicture(int x, int y, int w, int h, int game_width)
+{
+    picture.x = x;
+    picture.y = y;
+    picture.w = w;
+    picture.h = h;
+    picture.game_width = game_width > 0 ? game_width : 320;
+}
+
+/* The applied mods' overlays straight over `pixels` (0xFFRRGGBB, w x h), as
+ * a window showing the picture at that size would have them: the frame
+ * dumps' MEMORIES_DUMP_OVERLAY, for looking at a mod's screens headless. */
+void Mods_DrawPictureOverlay(uint32_t *pixels, int w, int h, int game_width,
+                             void (*text)(MenuCanvas *, int, int, const char *, uint32_t, int),
+                             int (*width)(const char *, int))
+{
+    MenuCanvas canvas;
+    int x, y, cw, ch;
+    int kept_x = picture.x, kept_y = picture.y, kept_w = picture.w, kept_h = picture.h, kept_game = picture.game_width;
+    canvas.pixels = pixels;
+    canvas.stride = w;
+    canvas.width = w;
+    canvas.height = h;
+    canvas.alpha = 0; /* the picture is there already: drawn straight over it */
+    Mods_SetPicture(0, 0, w, h, game_width);
+    listing_off = 1; /* the window's canvas keeps its list */
+    Mods_DrawOverlay(&canvas, h / 480 < 1 ? 1 : h / 480, text, width, &x, &y, &cw, &ch);
+    listing_off = 0;
+    Mods_SetPicture(kept_x, kept_y, kept_w, kept_h, kept_game);
+}
+
+static void host_overlay_picture(const MemoriesModHost *host, int *x, int *y, int *w, int *h, int *game_width)
+{
+    int px = picture.x, py = picture.y, pw = picture.w, ph = picture.h;
+    (void)host;
+    if ((pw <= 0 || ph <= 0) && overlay.whole) {
+        px = py = 0;
+        pw = overlay.whole->width;
+        ph = overlay.whole->height;
+    }
+    if (x) *x = px;
+    if (y) *y = py;
+    if (w) *w = pw;
+    if (h) *h = ph;
+    if (game_width) *game_width = picture.game_width;
+}
+
+/* The pictures the host made (load_image, alloc_image): their hash is
+ * taken once, at the first draw, and again after image_changed. Anything
+ * else draw_image is given may have been rewritten or freed and made again
+ * at the same address, so its pixels are hashed each time they are drawn:
+ * a menu's dozens of pictures, every pass, is a good part of a frame. */
+#define KEPT_BUCKETS 1024u
+typedef struct KeptImage {
+    struct KeptImage *next;
+    const uint32_t *pixels;
+    uint32_t hash;
+    int w, h; /* the size hashed; 0 for not yet */
+} KeptImage;
+static KeptImage *kept_images[KEPT_BUCKETS];
+
+static KeptImage **kept_bucket(const uint32_t *pixels)
+{
+    return &kept_images[((uint32_t)((uintptr_t)pixels >> 4) * 2654435761u) >> 22];
+}
+
+static KeptImage **kept_slot(const uint32_t *pixels)
+{
+    KeptImage **at = kept_bucket(pixels);
+    while (*at && (*at)->pixels != pixels) at = &(*at)->next;
+    return at;
+}
+
+static uint32_t *kept_add(uint32_t *pixels)
+{
+    KeptImage *kept = pixels ? calloc(1, sizeof(*kept)) : NULL;
+    if (kept) {
+        KeptImage **at = kept_bucket(pixels);
+        kept->pixels = pixels;
+        kept->next = *at;
+        *at = kept;
+    }
+    return pixels; /* without its entry, hashed as a mod's own */
+}
+
+/* A PNG as 0xAARRGGBB pixels, or NULL; the file closed. */
+static uint32_t *read_image(FILE *file, int *width, int *height)
+{
+    png_image image;
+    uint32_t *pixels = NULL;
+    memset(&image, 0, sizeof(image));
+    image.version = PNG_IMAGE_VERSION;
+    if (png_image_begin_read_from_stdio(&image, file)) {
+        image.format = PNG_FORMAT_BGRA; /* little-endian 0xAARRGGBB words */
+        pixels = malloc(PNG_IMAGE_SIZE(image));
+        if (pixels && png_image_finish_read(&image, NULL, pixels, 0, NULL)) {
+            *width = (int)image.width;
+            *height = (int)image.height;
+        } else {
+            free(pixels);
+            pixels = NULL;
+        }
+    }
+    png_image_free(&image);
+    fclose(file);
+    return pixels;
+}
+
+/* Pictures read ahead (prefetch_image), on a thread of their own: a large
+ * PNG takes milliseconds, which a frame of a menu moving from one to the
+ * next has not got. load_image takes the finished ones; only it hands them
+ * over, so the game runs the same whether a read is done yet or not. The
+ * finished ones no one took yet are kept up to AHEAD_BYTES, the oldest let
+ * go first (load_image reads such a one itself); a mod turned off loses its
+ * own (Mods_DropPrefetched). */
+enum { AHEAD_FREE, AHEAD_WAITING, AHEAD_READING, AHEAD_DONE };
+#define AHEAD_JOBS 160 /* a screen's whole list of small pictures, and more */
+/* Beside the texture packs' own read-ahead (48 MB in a 32-bit game). */
+#ifdef MEMORIES_TEST_OVERLAY_CACHE
+#define AHEAD_BYTES ((size_t)64 << 10) /* mods_overlay_test.c: four 64 x 64 */
+#else
+#define AHEAD_BYTES (sizeof(void *) > 4 ? (size_t)192 << 20 : (size_t)32 << 20)
+#endif
+typedef struct {
+    int state;
+    int dropped; /* READING for a mod turned off: the thread lets it go */
+    const Mod *mod;
+    char relative[128];
+    FILE *file;
+    uint32_t *pixels;
+    int w, h;
+    unsigned age;
+} AheadJob;
+static AheadJob ahead[AHEAD_JOBS];
+static pthread_mutex_t ahead_lock = PTHREAD_MUTEX_INITIALIZER;
+static pthread_cond_t ahead_work = PTHREAD_COND_INITIALIZER, ahead_read = PTHREAD_COND_INITIALIZER;
+static int ahead_started;
+static unsigned ahead_age;
+static size_t ahead_bytes; /* the DONE jobs' pixels */
+
+/* Under ahead_lock: a job's pixels let go and the job freed. */
+static void ahead_clear(AheadJob *job)
+{
+    if (job->state == AHEAD_WAITING) fclose(job->file);
+    if (job->state == AHEAD_DONE) {
+        ahead_bytes -= (size_t)job->w * (size_t)job->h * 4u;
+        free(job->pixels);
+    }
+    memset(job, 0, sizeof(*job));
+}
+
+/* Under ahead_lock: the oldest finished pictures but `keep` let go until
+ * those kept fit AHEAD_BYTES. */
+static void ahead_trim(const AheadJob *keep)
+{
+    while (ahead_bytes > AHEAD_BYTES) {
+        AheadJob *oldest = NULL;
+        for (int i = 0; i < AHEAD_JOBS; i++) {
+            AheadJob *at = &ahead[i];
+            if (at->state == AHEAD_DONE && at != keep && (!oldest || at->age - oldest->age > 0x80000000u))
+                oldest = at;
+        }
+        if (!oldest) return; /* `keep` alone: load_image is about to want it */
+        ahead_clear(oldest);
+    }
+}
+
+static void *ahead_thread(void *unused)
+{
+    (void)unused;
+#ifndef _WIN32
+    { /* the game's clock is not for this thread */
+        sigset_t all;
+        sigfillset(&all);
+        pthread_sigmask(SIG_BLOCK, &all, NULL);
+    }
+#endif
+    pthread_mutex_lock(&ahead_lock);
+    for (;;) {
+        AheadJob *job = NULL;
+        for (int i = 0; i < AHEAD_JOBS; i++) {
+            if (ahead[i].state == AHEAD_WAITING && (!job || ahead[i].age - job->age < 0x80000000u)) job = &ahead[i];
+        }
+        if (!job) {
+            pthread_cond_wait(&ahead_work, &ahead_lock);
+            continue;
+        }
+        { /* the latest asked first: where the cursor is now */
+            FILE *file = job->file;
+            uint32_t *pixels;
+            int w = 0, h = 0;
+            job->state = AHEAD_READING;
+            pthread_mutex_unlock(&ahead_lock);
+            pixels = read_image(file, &w, &h);
+            pthread_mutex_lock(&ahead_lock);
+            if (job->dropped) { /* its mod was turned off while it was read */
+                free(pixels);
+                memset(job, 0, sizeof(*job));
+            } else {
+                job->pixels = pixels;
+                job->w = pixels ? w : 0;
+                job->h = pixels ? h : 0;
+                job->state = AHEAD_DONE;
+                ahead_bytes += (size_t)job->w * (size_t)job->h * 4u;
+                ahead_trim(job);
+            }
+            pthread_cond_broadcast(&ahead_read);
+        }
+    }
+    return NULL;
+}
+
+static AheadJob *ahead_find(const Mod *mod, const char *relative)
+{
+    for (int i = 0; i < AHEAD_JOBS; i++) {
+        if (ahead[i].state != AHEAD_FREE && !ahead[i].dropped && ahead[i].mod == mod &&
+            !strcmp(ahead[i].relative, relative))
+            return &ahead[i];
+    }
+    return NULL;
+}
+
+static void host_prefetch_image(const MemoriesModHost *host, const char *relative)
+{
+    const Mod *mod = owner(host);
+    AheadJob *job = NULL;
+    FILE *file;
+    if (!mod || !relative || strlen(relative) >= sizeof(job->relative)) return;
+    pthread_mutex_lock(&ahead_lock);
+    if ((job = ahead_find(mod, relative))) {
+        job->age = ++ahead_age;
+        pthread_mutex_unlock(&ahead_lock);
+        return;
+    }
+    /* a free job, or the oldest of those no one took or began on */
+    for (int i = 0; i < AHEAD_JOBS; i++) {
+        AheadJob *at = &ahead[i];
+        if (at->state == AHEAD_FREE) {
+            job = at;
+            break;
+        }
+        if (at->state != AHEAD_READING && (!job || at->age - job->age > 0x80000000u)) job = at;
+    }
+    if (job) ahead_clear(job);
+    pthread_mutex_unlock(&ahead_lock);
+    if (!job || !(file = host_open_asset(host, relative))) return;
+    pthread_mutex_lock(&ahead_lock);
+    job->mod = mod;
+    snprintf(job->relative, sizeof(job->relative), "%s", relative);
+    job->file = file;
+    job->age = ++ahead_age;
+    job->state = AHEAD_WAITING;
+    if (!ahead_started) {
+        pthread_t thread;
+#ifndef _WIN32
+        /* Blocked from its first instruction: the game's clock signal may
+         * come to the whole process (platform_common.c's setitimer). */
+        sigset_t all, previous;
+        sigfillset(&all);
+        pthread_sigmask(SIG_BLOCK, &all, &previous);
+#endif
+        ahead_started = pthread_create(&thread, NULL, ahead_thread, NULL) == 0;
+#ifndef _WIN32
+        pthread_sigmask(SIG_SETMASK, &previous, NULL);
+#endif
+        if (ahead_started) pthread_detach(thread);
+        else ahead_started = -1;
+    }
+    if (ahead_started < 0) { /* read when asked for: load_image does */
+        job->state = AHEAD_FREE;
+        fclose(file);
+    }
+    pthread_cond_signal(&ahead_work);
+    pthread_mutex_unlock(&ahead_lock);
+}
+
+/* A picture read ahead, or waited for if it is being read: 1 when there
+ * was one, its pixels (NULL if it could not be read) in *pixels. */
+static int ahead_take(const Mod *mod, const char *relative, uint32_t **pixels, int *width, int *height)
+{
+    AheadJob *job;
+    int found = 0;
+    pthread_mutex_lock(&ahead_lock);
+    if ((job = ahead_find(mod, relative))) {
+        if (job->state == AHEAD_WAITING) { /* not begun: read as if never asked */
+            fclose(job->file);
+        } else {
+            while (job->state == AHEAD_READING) pthread_cond_wait(&ahead_read, &ahead_lock);
+            if (job->state == AHEAD_DONE) { /* not let go to the budget meanwhile */
+                *pixels = job->pixels;
+                *width = job->w;
+                *height = job->h;
+                found = 1;
+                ahead_bytes -= (size_t)job->w * (size_t)job->h * 4u;
+                job->state = AHEAD_FREE;
+            }
+        }
+        if (job->state != AHEAD_FREE || found) memset(job, 0, sizeof(*job));
+    }
+    pthread_mutex_unlock(&ahead_lock);
+    return found;
+}
+
+/* A mod turned off: the pictures read ahead for it let go, its files not
+ * yet read closed, and one being read let go when done. */
+static void ahead_drop(const Mod *mod)
+{
+    pthread_mutex_lock(&ahead_lock);
+    for (int i = 0; i < AHEAD_JOBS; i++) {
+        AheadJob *at = &ahead[i];
+        if (at->state == AHEAD_FREE || at->mod != mod) continue;
+        if (at->state == AHEAD_READING) at->dropped = 1;
+        else ahead_clear(at);
+    }
+    pthread_mutex_unlock(&ahead_lock);
+}
+
+size_t Mods_Prefetched(int *jobs, int *unread)
+{
+    size_t bytes;
+    int count = 0, waiting = 0;
+    pthread_mutex_lock(&ahead_lock);
+    for (int i = 0; i < AHEAD_JOBS; i++) {
+        count += ahead[i].state != AHEAD_FREE;
+        waiting += ahead[i].state == AHEAD_WAITING || ahead[i].state == AHEAD_READING;
+    }
+    bytes = ahead_bytes;
+    pthread_mutex_unlock(&ahead_lock);
+    if (jobs) *jobs = count;
+    if (unread) *unread = waiting;
+    return bytes;
+}
+
+/* A picture of the mod's own (a PNG under its directory) as 0xAARRGGBB
+ * pixels, for draw_image; NULL when it cannot be read. */
+static uint32_t *host_load_image(const MemoriesModHost *host, const char *relative, int *width, int *height)
+{
+    uint32_t *pixels = NULL;
+    int w = 0, h = 0;
+    if (!relative) return NULL;
+    if (!ahead_take(owner(host), relative, &pixels, &w, &h)) {
+        FILE *file = host_open_asset(host, relative);
+        if (file) pixels = read_image(file, &w, &h);
+    }
+    if (width) *width = pixels ? w : 0;
+    if (height) *height = pixels ? h : 0;
+    return kept_add(pixels);
+}
+
+/* --- pictures stretched once, drawn from then on ------------------------ */
+
+/* draw_image's bilinear stretch, at the window's size, is the overlay's
+ * dearest work, and a mod draws the same pictures at the same size frame
+ * after frame (its overlay is drawn again whenever its signature moves): so
+ * each stretch is kept, the color and coverage of every pixel as the
+ * stretch makes them, and blended from there. A picture is known by its
+ * pixels' address, size and a hash of its pixels (a mod may draw new
+ * pixels into the same buffer); free_image lets its stretches go. */
+typedef struct {
+    const uint32_t *pixels;
+    int w, h, dw, dh;
+    uint32_t hash;
+    unsigned used;          /* the overlay pass it was last drawn in */
+    uint32_t *color;        /* dw x dh: 0xFFRRGGBB, or 0 where nothing covers */
+    float *coverage;        /* dw x dh, NULL when every pixel is covered whole */
+    /* With coverage: each row's runs of pixels covered whole, which blend
+     * as a picture covered whole does, four at a time; row r's are the
+     * pairs (start, end) from runs[2 * row_runs[r]] to before
+     * runs[2 * row_runs[r + 1]]. */
+    int *row_runs, *runs;
+    size_t bytes;
+} Stretch;
+#define STRETCHES 128
+#define STRETCH_BYTES ((size_t)96 << 20)
+static Stretch stretches[STRETCHES];
+static size_t stretch_bytes;
+static unsigned stretch_pass;
+#ifdef MEMORIES_TEST_OVERLAY_CACHE
+static unsigned overlay_test_fallbacks;
+unsigned Mods_TestOverlayFallbacks(void) { return overlay_test_fallbacks; }
+#endif
+
+static void stretch_drop(Stretch *stretch)
+{
+    free(stretch->color);
+    free(stretch->coverage);
+    free(stretch->row_runs);
+    free(stretch->runs);
+    stretch_bytes -= stretch->bytes;
+    memset(stretch, 0, sizeof(*stretch));
+}
+
+static uint32_t pixels_hash(const uint32_t *pixels, size_t count)
+{
+    uint32_t a = 2166136261u, b = 0x9E3779B9u, c = 0x85EBCA6Bu, d = 0xC2B2AE35u;
+    size_t i = 0;
+    for (; i + 4 <= count; i += 4) {
+        a = (a ^ pixels[i]) * 16777619u;
+        b = (b ^ pixels[i + 1]) * 16777619u;
+        c = (c ^ pixels[i + 2]) * 16777619u;
+        d = (d ^ pixels[i + 3]) * 16777619u;
+    }
+    for (; i < count; i++) a = (a ^ pixels[i]) * 16777619u;
+    return a ^ (b * 3u) ^ (c * 5u) ^ (d * 7u);
+}
+
+/* Covered whole: blended by draw_image's alpha alone (a * alpha / 255
+ * rounds to alpha for every alpha). */
+static int covered_whole(float a) { return a >= 254.9f && a <= 255.1f; }
+
+/* The runs of pixels covered whole in each row of a stretch with coverage
+ * (Stretch.runs), at least RUN_SHORTEST long; 0 when there is no memory,
+ * and then every pixel is blended on its own. */
+#define RUN_SHORTEST 8
+static size_t stretch_runs(Stretch *stretch)
+{
+    int dw = stretch->dw, dh = stretch->dh, total = 0, room = 0, *runs = NULL;
+    int *row_runs = malloc((size_t)(dh + 1) * sizeof(int));
+    if (!row_runs) return 0;
+    for (int row = 0; row < dh; row++) {
+        const float *cover = stretch->coverage + (size_t)row * dw;
+        row_runs[row] = total;
+        for (int column = 0; column < dw;) {
+            int end = column;
+            while (end < dw && covered_whole(cover[end])) end++;
+            if (end - column >= RUN_SHORTEST) {
+                if (total == room) {
+                    int *more;
+                    room = room ? room * 2 : 64;
+                    if (!(more = realloc(runs, (size_t)room * 2 * sizeof(int)))) {
+                        free(runs);
+                        free(row_runs);
+                        return 0;
+                    }
+                    runs = more;
+                }
+                runs[2 * total] = column;
+                runs[2 * total + 1] = end;
+                total++;
+            }
+            column = end > column ? end : column + 1;
+        }
+    }
+    row_runs[dh] = total;
+    stretch->row_runs = row_runs;
+    stretch->runs = runs;
+    return (size_t)(dh + 1) * sizeof(int) + (size_t)room * 2 * sizeof(int);
+}
+
+/* `pixels` stretched over dw x dh, sampled between texels: each pixel's
+ * color, the texels' alpha-weighted average, and how much they cover. */
+static Stretch *stretch_make(const uint32_t *pixels, int w, int h, int dw, int dh, uint32_t hash)
+{
+    size_t count = (size_t)dw * (size_t)dh, bytes = count * sizeof(uint32_t);
+    Stretch *slot = NULL, made;
+    uint32_t *color;
+    float *coverage;
+    int *x0s, *x1s, whole = 1;
+    float *txs;
+    if (count > STRETCH_BYTES / (sizeof(uint32_t) + sizeof(float))) return NULL;
+    color = malloc(bytes);
+    coverage = malloc(count * sizeof(float));
+    x0s = malloc((size_t)dw * sizeof(int));
+    x1s = malloc((size_t)dw * sizeof(int));
+    txs = malloc((size_t)dw * sizeof(float));
+    if (!color || !coverage || !x0s || !x1s || !txs) {
+        free(color); free(coverage); free(x0s); free(x1s); free(txs);
+        return NULL;
+    }
+    for (int column = 0; column < dw; column++) {
+        float fx = (column + 0.5f) * w / dw - 0.5f;
+        x0s[column] = fx < 0 ? 0 : (int)fx;
+        x1s[column] = x0s[column] + 1 < w ? x0s[column] + 1 : w - 1;
+        txs[column] = fx < 0 ? 0 : fx - x0s[column];
+    }
+    for (int row = 0; row < dh; row++) {
+        float fy = (row + 0.5f) * h / dh - 0.5f;
+        int y0 = fy < 0 ? 0 : (int)fy, y1 = y0 + 1 < h ? y0 + 1 : h - 1;
+        float ty = fy < 0 ? 0 : fy - y0;
+        const uint32_t *top = pixels + (size_t)y0 * w, *bottom = pixels + (size_t)y1 * w;
+        uint32_t *out = color + (size_t)row * dw;
+        float *cover = coverage + (size_t)row * dw;
+        for (int column = 0; column < dw; column++) {
+            float tx = txs[column];
+            const uint32_t q[4] = {top[x0s[column]], top[x1s[column]], bottom[x0s[column]], bottom[x1s[column]]};
+            const float k[4] = {(1 - tx) * (1 - ty), tx * (1 - ty), (1 - tx) * ty, tx * ty};
+            float a = 0;
+#ifdef __SSE2__
+            __m128 channels = _mm_setzero_ps();
+#else
+            float c[3] = {0, 0, 0};
+#endif
+            for (int i = 0; i < 4; i++) {
+                float qa = (q[i] >> 24) * k[i];
+                a += qa;
+#ifdef __SSE2__
+                /* The same sums for B, G, R together, in the same order. */
+                __m128i bytes = _mm_cvtsi32_si128((int)q[i]), zero = _mm_setzero_si128();
+                __m128 values = _mm_cvtepi32_ps(_mm_unpacklo_epi16(_mm_unpacklo_epi8(bytes, zero), zero));
+                channels = _mm_add_ps(channels, _mm_mul_ps(values, _mm_set1_ps(qa)));
+#else
+                c[0] += (q[i] >> 16 & 255) * qa;
+                c[1] += (q[i] >> 8 & 255) * qa;
+                c[2] += (q[i] & 255) * qa;
+#endif
+            }
+            cover[column] = a;
+            if (a < 0.5f) {
+                out[column] = 0;
+                whole = 0;
+                continue;
+            }
+#ifdef __SSE2__
+            __m128i rgb = _mm_cvttps_epi32(_mm_div_ps(channels, _mm_set1_ps(a)));
+            out[column] = 0xFF000000u | (unsigned)_mm_cvtsi128_si32(rgb) |
+                          (unsigned)_mm_cvtsi128_si32(_mm_srli_si128(rgb, 4)) << 8 |
+                          (unsigned)_mm_cvtsi128_si32(_mm_srli_si128(rgb, 8)) << 16;
+#else
+            out[column] = 0xFF000000u | (unsigned)(c[0] / a) << 16 | (unsigned)(c[1] / a) << 8 | (unsigned)(c[2] / a);
+#endif
+            if (!covered_whole(a)) whole = 0;
+        }
+    }
+    free(x0s); free(x1s); free(txs);
+    memset(&made, 0, sizeof(made));
+    if (whole) {
+        free(coverage);
+        coverage = NULL;
+    } else {
+        bytes += count * sizeof(float);
+        made.coverage = coverage;
+        made.dw = dw;
+        made.dh = dh;
+        bytes += stretch_runs(&made);
+    }
+    /* room: the least lately drawn go, but never one of this pass's */
+    while (1) {
+        Stretch *oldest = NULL;
+        int i;
+        for (i = 0; i < STRETCHES; i++) {
+            if (!stretches[i].color) {
+                if (!slot) slot = &stretches[i];
+            } else if (stretches[i].used != stretch_pass && (!oldest || stretches[i].used - oldest->used > 0x80000000u)) {
+                oldest = &stretches[i];
+            }
+        }
+        if (slot && stretch_bytes + bytes <= STRETCH_BYTES) break;
+        if (!oldest) {
+            free(color); free(coverage); free(made.row_runs); free(made.runs);
+            return NULL;
+        }
+        stretch_drop(oldest);
+        slot = NULL;
+    }
+    slot->pixels = pixels;
+    slot->w = w; slot->h = h; slot->dw = dw; slot->dh = dh;
+    slot->hash = hash;
+    slot->color = color;
+    slot->coverage = coverage;
+    slot->row_runs = made.row_runs;
+    slot->runs = made.runs;
+    slot->bytes = bytes;
+    stretch_bytes += bytes;
+    return slot;
+}
+
+/* The kept stretch of `pixels` (their hash `hash`) over dw x dh, made now
+ * when there is none: NULL when it cannot be kept. */
+static Stretch *stretch_find(const uint32_t *pixels, int w, int h, int dw, int dh, uint32_t hash)
+{
+    Stretch *found;
+    for (int i = 0; i < STRETCHES; i++) {
+        Stretch *stretch = &stretches[i];
+        if (stretch->color && stretch->pixels == pixels && stretch->w == w && stretch->h == h && stretch->dw == dw &&
+            stretch->dh == dh) {
+            if (stretch->hash == hash) {
+                stretch->used = stretch_pass;
+                return stretch;
+            }
+            stretch_drop(stretch); /* new pixels in the same buffer */
+        }
+    }
+    found = stretch_make(pixels, w, h, dw, dh, hash);
+    if (found) found->used = stretch_pass;
+    return found;
+}
+
+/* A new overlay pass: stretches not drawn in the last 300 go. */
+static void stretch_age(void)
+{
+    stretch_pass++;
+    for (int i = 0; i < STRETCHES; i++) {
+        if (stretches[i].color && stretch_pass - stretches[i].used > 300) stretch_drop(&stretches[i]);
+    }
+}
+
+static uint32_t image_hash(const uint32_t *pixels, int w, int h)
+{
+    KeptImage *kept = *kept_slot(pixels);
+    if (!kept) return pixels_hash(pixels, (size_t)w * (size_t)h);
+    if (kept->w != w || kept->h != h) {
+        kept->hash = pixels_hash(pixels, (size_t)w * (size_t)h);
+        kept->w = w;
+        kept->h = h;
+    }
+    return kept->hash;
+}
+
+static uint32_t *host_alloc_image(const MemoriesModHost *host, int w, int h)
+{
+    if (!owner(host) || w <= 0 || h <= 0 || (size_t)w > ((size_t)-1 / sizeof(uint32_t)) / (size_t)h) return NULL;
+    return kept_add(calloc((size_t)w * (size_t)h, sizeof(uint32_t)));
+}
+
+static void host_image_changed(const MemoriesModHost *host, const uint32_t *pixels)
+{
+    KeptImage *kept = pixels ? *kept_slot(pixels) : NULL;
+    (void)host;
+    if (kept) kept->w = kept->h = 0;
+}
+
+static void host_free_image(const MemoriesModHost *host, uint32_t *pixels)
+{
+    (void)host;
+    for (int i = 0; pixels && i < STRETCHES; i++) {
+        if (stretches[i].pixels == pixels) stretch_drop(&stretches[i]);
+    }
+    if (pixels) {
+        KeptImage **at = kept_slot(pixels), *kept = *at;
+        if (kept) {
+            *at = kept->next;
+            free(kept);
+        }
+        if (overlay_sink) overlay_sink->forget(pixels);
+    }
+    free(pixels);
+}
+
+/* Pixels covered whole, blended by `alpha` alone: copied at 255. */
+static void whole_span(uint32_t *line, const uint32_t *from, int n, unsigned alpha)
+{
+    if (alpha == 255) memcpy(line, from, (size_t)n * sizeof(*line));
+    else blend_span(line, n, from, 0, alpha);
+}
+
+/* Pixels of a stretch with coverage, one at a time, each blended by its
+ * coverage times `alpha`. */
+static void cover_span(uint32_t *line, const uint32_t *from, const float *cover, int n, unsigned alpha)
+{
+    for (int column = 0; column < n; column++) {
+        float a = cover[column];
+        unsigned blend, inverse, under, color = from[column], out;
+        if (a < 0.5f) continue;
+        blend = (unsigned)(a * alpha / 255 + 0.5f);
+        inverse = 255 - blend;
+        under = line[column];
+        out = blend + (under >> 24) * inverse / 255;
+        line[column] = (out > 255 ? 255 : out) << 24 |
+                       ((color >> 16 & 255) * blend + (under >> 16 & 255) * inverse) / 255 << 16 |
+                       ((color >> 8 & 255) * blend + (under >> 8 & 255) * inverse) / 255 << 8 |
+                       ((color & 255) * blend + (under & 255) * inverse) / 255;
+    }
+}
+
+/* The stretch (draw_image's arguments, done when not kept) at (x, y), blended
+ * by its coverage times `alpha`: a row's runs covered whole as a picture
+ * covered whole blends (whole_span gives the same pixels cover_span would),
+ * the rest pixel by pixel. */
+static void draw_stretch(MenuCanvas *canvas, const Stretch *stretch, int x, int y, unsigned alpha)
+{
+    int dw = stretch->dw, dh = stretch->dh;
+    int row0 = y < 0 ? 0 : y, row1 = y + dh > canvas->height ? canvas->height : y + dh;
+    int col0 = x < 0 ? 0 : x, col1 = x + dw > canvas->width ? canvas->width : x + dw;
+    if (col1 <= col0) return;
+    for (int row = row0; row < row1; row++) {
+        uint32_t *line = canvas->pixels + (size_t)row * (size_t)canvas->stride + x;
+        const uint32_t *from = stretch->color + (size_t)(row - y) * dw;
+        const float *cover = stretch->coverage ? stretch->coverage + (size_t)(row - y) * dw : NULL;
+        int at = col0 - x, stop = col1 - x;
+        const int *run, *end;
+        if (!cover) { /* covered whole: blended by alpha alone */
+            whole_span(line + at, from + at, stop - at, alpha);
+            continue;
+        }
+        if (!stretch->runs) {
+            cover_span(line + at, from + at, cover + at, stop - at, alpha);
+            continue;
+        }
+        run = stretch->runs + 2 * stretch->row_runs[row - y];
+        end = stretch->runs + 2 * stretch->row_runs[row - y + 1];
+        while (at < stop) {
+            int next;
+            while (run < end && run[1] <= at) run += 2;
+            next = run < end && run[0] < stop ? run[0] : stop;
+            if (at < next) { /* up to the next run */
+                cover_span(line + at, from + at, cover + at, next - at, alpha);
+                at = next;
+            } else { /* inside a run */
+                next = run[1] < stop ? run[1] : stop;
+                whole_span(line + at, from + at, next - at, alpha);
+                at = next;
+            }
+        }
+    }
+}
+
+/* `pixels` (w x h, 0xAARRGGBB) stretched over dw x dh at (x, y) of the view,
+ * sampled between texels, blended by its own alpha times `alpha`, where no
+ * stretch of it can be kept. */
+static void raster_image(const uint32_t *pixels, int w, int h, int x, int y, int dw, int dh, unsigned alpha)
+{
+    MenuCanvas *canvas = overlay.canvas;
+    int row0 = y < 0 ? 0 : y, row1 = y + dh > canvas->height ? canvas->height : y + dh;
+    int col0 = x < 0 ? 0 : x, col1 = x + dw > canvas->width ? canvas->width : x + dw;
+    for (int row = row0; row < row1; row++) {
+        float fy = ((row - y) + 0.5f) * h / dh - 0.5f;
+        int y0 = fy < 0 ? 0 : (int)fy, y1 = y0 + 1 < h ? y0 + 1 : h - 1;
+        float ty = fy < 0 ? 0 : fy - y0;
+        uint32_t *line = canvas->pixels + (size_t)row * (size_t)canvas->stride;
+        for (int column = col0; column < col1; column++) {
+            float fx = ((column - x) + 0.5f) * w / dw - 0.5f;
+            int x0 = fx < 0 ? 0 : (int)fx, x1 = x0 + 1 < w ? x0 + 1 : w - 1;
+            float tx = fx < 0 ? 0 : fx - x0;
+            const uint32_t q[4] = {pixels[(size_t)y0 * w + x0], pixels[(size_t)y0 * w + x1],
+                                   pixels[(size_t)y1 * w + x0], pixels[(size_t)y1 * w + x1]};
+            const float k[4] = {(1 - tx) * (1 - ty), tx * (1 - ty), (1 - tx) * ty, tx * ty};
+            float a = 0, c[3] = {0, 0, 0};
+            for (int i = 0; i < 4; i++) {
+                float qa = (q[i] >> 24) * k[i];
+                a += qa;
+                c[0] += (q[i] >> 16 & 255) * qa;
+                c[1] += (q[i] >> 8 & 255) * qa;
+                c[2] += (q[i] & 255) * qa;
+            }
+            if (a < 0.5f) continue;
+            {
+                unsigned blend = (unsigned)(a * alpha / 255 + 0.5f), inverse = 255 - blend, under = line[column];
+                unsigned r = ((unsigned)(c[0] / a) * blend + (under >> 16 & 255) * inverse) / 255;
+                unsigned g = ((unsigned)(c[1] / a) * blend + (under >> 8 & 255) * inverse) / 255;
+                unsigned b = ((unsigned)(c[2] / a) * blend + (under & 255) * inverse) / 255;
+                unsigned out = blend + (under >> 24) * inverse / 255;
+                line[column] = (out > 255 ? 255 : out) << 24 | r << 16 | g << 8 | b;
+            }
+        }
+    }
+}
+
+/* Already at the requested size: no resampling or duplicate scaled buffer.
+ * Pixel-art tablets and text commonly take this path at whole UI scales. */
+static void draw_unscaled(MenuCanvas *canvas, const uint32_t *pixels, int w, int h, int x, int y, unsigned alpha)
+{
+    int row0 = y < 0 ? 0 : y, row1 = y + h > canvas->height ? canvas->height : y + h;
+    int col0 = x < 0 ? 0 : x, col1 = x + w > canvas->width ? canvas->width : x + w;
+    for (int row = row0; row < row1; row++) {
+        uint32_t *line = canvas->pixels + (size_t)row * canvas->stride;
+        const uint32_t *from = pixels + (size_t)(row - y) * w;
+        int column = col0;
+        while (column < col1) {
+            unsigned a = from[column - x] >> 24;
+            if (a == 255) {
+                int start = column++;
+                while (column < col1 && from[column - x] >> 24 == 255) column++;
+                whole_span(line + start, from + start - x, column - start, alpha);
+            } else {
+                if (a) {
+                    uint32_t color = from[column - x], under = line[column];
+                    unsigned blend = (a * alpha + 127) / 255, inverse = 255 - blend;
+                    line[column] = (blend + by_255((under >> 24) * inverse)) << 24 |
+                        by_255((color >> 16 & 255) * blend + (under >> 16 & 255) * inverse) << 16 |
+                        by_255((color >> 8 & 255) * blend + (under >> 8 & 255) * inverse) << 8 |
+                        by_255((color & 255) * blend + (under & 255) * inverse);
+                }
+                column++;
+            }
+        }
+    }
+}
+
+/* `pixels` (w x h, 0xAARRGGBB) stretched over dw x dh at (x, y), sampled
+ * between texels, blended by its own alpha times `alpha`: listed, with the
+ * hash of its pixels, then drawn through each view. */
+static void host_draw_image(const MemoriesModHost *host, const uint32_t *pixels, int w, int h, int x, int y, int dw,
+                            int dh, unsigned alpha)
+{
+    const Stretch *stretch = NULL;
+    OverlayCall *call;
+    uint32_t hash = 0;
+    int box[4], hashed = 0, prepared = 0;
+    if (!owner(host) || !overlay.whole || !pixels || w <= 0 || h <= 0 || dw <= 0 || dh <= 0 || !alpha) return;
+    if (alpha > 255) alpha = 255;
+    call_box(box, x, y, dw, dh);
+    if (box[0] >= box[2]) return;
+    if (overlay.hashes && overlay.list && overlay.list->count < overlay.hashes->count) {
+        /* the pass this one makes again had this picture here: its hash */
+        const OverlayCall *was = &overlay.hashes->calls[overlay.list->count];
+        if (was->kind == CALL_IMAGE && was->pixels == pixels && was->pw == w && was->ph == h) {
+            hash = was->hash;
+            hashed = 1;
+        }
+    }
+    if (!hashed) hash = image_hash(pixels, w, h);
+    if ((call = list_call(CALL_IMAGE, box))) {
+        call->x = x;
+        call->y = y;
+        call->w = dw;
+        call->h = dh;
+        call->alpha = alpha;
+        call->pixels = pixels;
+        call->pw = w;
+        call->ph = h;
+        call->hash = hash;
+    }
+    overlay_touch(box);
+    if (!region_total()) return;
+    /* A cached stretch is needed only if a damaged rectangle meets it.
+     * Unchanged off-region pictures must not consume or churn the cache. */
+    for (int r = 0; r < region_total(); r++) {
+        if (!region_enter(r, box)) continue;
+        if (w == dw && h == dh) {
+            draw_unscaled(overlay.canvas, pixels, w, h, x - overlay.ox, y - overlay.oy, alpha);
+            continue;
+        }
+        if (!prepared) {
+            stretch = stretch_find(pixels, w, h, dw, dh, hash);
+#ifdef MEMORIES_TEST_OVERLAY_CACHE
+            if (!stretch) overlay_test_fallbacks++;
+#endif
+            prepared = 1;
+        }
+        if (stretch) draw_stretch(overlay.canvas, stretch, x - overlay.ox, y - overlay.oy, alpha);
+        else raster_image(pixels, w, h, x - overlay.ox, y - overlay.oy, dw, dh, alpha);
+    }
 }
 
 static void fill_host(Mod *mod)
@@ -539,6 +2292,26 @@ static void fill_host(Mod *mod)
     mod->host.card_tag = host_card_tag;
     mod->host.limit = host_limit;
     mod->host.menu_item = host_menu_item;
+    mod->host.sound_add = host_sound_add;
+    mod->host.sound_play = host_sound_play;
+    mod->host.sound_free = host_sound_free;
+    mod->host.packet_area = host_packet_area;
+    mod->host.mouse = host_mouse;
+    mod->host.capture_mouse = host_capture_mouse;
+    mod->host.overlay_picture = host_overlay_picture;
+    mod->host.draw_text_alpha = host_draw_text_alpha;
+    mod->host.hide_hud = host_hide_hud;
+    mod->host.load_image = host_load_image;
+    mod->host.free_image = host_free_image;
+    mod->host.draw_image = host_draw_image;
+    mod->host.alloc_image = host_alloc_image;
+    mod->host.image_changed = host_image_changed;
+    mod->host.prefetch_image = host_prefetch_image;
+    mod->host.clip = host_clip;
+    mod->host.picture_only_frame = host_picture_only_frame;
+    mod->host.pointer = host_pointer;
+    mod->host.wheel = host_wheel;
+    mod->host.take_wheel = host_take_wheel;
     mod->host.api = MEMORIES_MOD_API;
     mod->host.id = mod->id;
     mod->host.directory = mod->directory;
@@ -608,7 +2381,210 @@ static int layout_disc_files(void)
         file->lba = next;
         next += file->reserved + 1;
     }
+    /* The battle slots' model windows follow the relocated files. */
+    window_lba = -1;
+    if (model_count) {
+        if (next < 0) next = Memories_DiscSectorCount();
+        if (next < 0 || next >= MEMORIES_DISC_MAX_LBA ||
+            MODEL_WINDOWS * MODEL_RECORD_SECTORS > MEMORIES_DISC_MAX_LBA - next - 1) return 0;
+        window_lba = next;
+    }
     return 1;
+}
+
+static int read_file(int model, unsigned char *out);
+
+/* Model `model`'s whole record, as read_file reads it, into `out` (a
+ * record's bytes); a file shorter than the record reads as zeros past its
+ * end. 0 for a model bigger than a record, which has no record of its own. */
+static int read_record(int model, unsigned char *out)
+{
+    if (model < 0 || model >= model_count || models[model].geometry || !read_file(model, out)) return 0;
+    memset(out + models[model].size, 0, (size_t)MODEL_RECORD_SECTORS * SECTOR - models[model].size);
+    return 1;
+}
+
+/* Model `model`'s file, whole (models[model].size bytes), into `out`: 0 when
+ * it cannot be read or is no longer what it was at startup, its size or its
+ * bytes (a mod updated in place is used from the next launch, as its other
+ * files are), so a parser is never handed a model that changed under it. */
+static int read_file(int model, unsigned char *out)
+{
+    size_t size, got = 0;
+    struct stat info;
+    int file;
+    if (model < 0 || model >= model_count || !models[model].path || models[model].stale) return 0;
+#ifdef _WIN32
+    file = open(models[model].path, O_RDONLY | O_BINARY);
+#else
+    file = open(models[model].path, O_RDONLY);
+#endif
+    /* Gone, another size or other bytes: stale. Not opened or not read
+     * whole (a scanner holding the file): tried again next time. */
+    if (file < 0) {
+        if (errno == ENOENT) models[model].stale = 1;
+        return 0;
+    }
+    if (fstat(file, &info) || (uint64_t)info.st_size != models[model].size) {
+        if (!fstat(file, &info) && (uint64_t)info.st_size != models[model].size) models[model].stale = 1;
+        close(file);
+        return 0;
+    }
+    size = models[model].size;
+    while (got < size) {
+#ifdef _WIN32
+        int chunk = _read(file, out + got, (unsigned)(size - got));
+#else
+        ssize_t chunk = read(file, out + got, size - got);
+#endif
+        if (chunk <= 0) break;
+        got += (size_t)chunk;
+    }
+    close(file);
+    if (got < size) return 0;
+    if (hash_bytes(2166136261u, out, size) != models[model].hash) {
+        models[model].stale = 1;
+        return 0;
+    }
+    return 1;
+}
+
+/* Sectors first to first + count of model `model`'s record, as read_record
+ * reads it; 0 when it cannot. */
+static int read_model(int model, int first, int count, unsigned char *out)
+{
+    unsigned char *record;
+    int ok;
+    if (first < 0 || count <= 0 || count > MODEL_RECORD_SECTORS - first) return 0;
+    if (first == 0 && count == MODEL_RECORD_SECTORS) return read_record(model, out) ? count : 0;
+    if (!(record = malloc((size_t)MODEL_RECORD_SECTORS * SECTOR))) return 0;
+    ok = read_record(model, record);
+    if (ok) memcpy(out, record + (size_t)first * SECTOR, (size_t)count * SECTOR);
+    free(record);
+    return ok ? count : 0;
+}
+
+int Mods_ModelCount(void) { return model_count; }
+int Mods_Model(int i, const char **name, const JsonValue **base, int *mod)
+{
+    if (i < 0 || i >= model_count || !models[i].path) return -1;
+    if (name) *name = models[i].name;
+    if (base) *base = models[i].base;
+    if (mod) *mod = models[i].mod;
+    return 0;
+}
+
+int Mods_ModelSector(int i)
+{
+    return i >= 0 && i < model_count && models[i].path && !models[i].stale && !models[i].geometry
+               ? MODEL_SECTORS + i * MODEL_RECORD_SECTORS : -1;
+}
+
+/* Fills battle slot `slot`'s window with model i's record, and for a bigger
+ * model its arena with the model data (`data`: not when a save state is
+ * loaded, which brings the arena as the game left it). */
+static int fill_window(int slot, int i, int data)
+{
+    unsigned char *file = NULL;
+    int ok;
+    window_model[slot] = -1;
+    pending[slot] = 0;
+    window_page_count[slot] = 0;
+    if (i >= 0 && i < model_count && models[i].geometry) {
+        size_t front = (size_t)models[i].geometry * SECTOR, stage0 = (size_t)MODEL_STAGE0_SECTORS * SECTOR;
+        ok = arenas[slot] && (file = malloc(models[i].size)) != NULL && read_file(i, file);
+        if (ok) {
+            /* The record's first stage is consumed without being copied
+             * (Mods_ModelPending): the window holds the rest. */
+            memset(window_data[slot], 0, stage0);
+            memcpy(window_data[slot] + stage0, file + front, (size_t)MODEL_TAIL_SECTORS * SECTOR);
+            if (models[i].pages) {
+                size_t bytes = (size_t)models[i].pages * MODEL_PAGE_SECTORS * SECTOR;
+                if (!window_pages[slot]) window_pages[slot] = malloc((size_t)MODEL_PAGES_MAX * MODEL_PAGE_SECTORS * SECTOR);
+                ok = window_pages[slot] != NULL;
+                if (ok) memcpy(window_pages[slot], file + front + (size_t)MODEL_TAIL_SECTORS * SECTOR, bytes);
+                if (ok) window_page_count[slot] = models[i].pages;
+            }
+            if (ok && data) {
+                memcpy(arenas[slot], file, front);
+                memset(arenas[slot] + front, 0, MODEL_ARENA_SIZE - front);
+                pending[slot] = 1;
+            }
+        }
+        free(file);
+    } else {
+        ok = read_record(i, window_data[slot]);
+    }
+    /* The record as it was at startup, or nothing: the caller then loads
+     * another, and a transfer a save state resumes reads zeros. */
+    if (!ok) {
+        memset(window_data[slot], 0, (size_t)MODEL_RECORD_SECTORS * SECTOR);
+        say("model %d: %s cannot be read as it was at startup", i,
+            i >= 0 && i < model_count && models[i].path ? models[i].path : "(none)");
+        return -1;
+    }
+    window_model[slot] = i;
+    return window_lba + slot * MODEL_RECORD_SECTORS;
+}
+
+int Mods_ModelWindow(int slot, int i)
+{
+    if (slot < 0 || slot >= MODEL_WINDOWS || window_lba < 0 || !window_data[slot]) return -1;
+    return fill_window(slot, i, 1);
+}
+
+void Mods_ModelForget(int slot)
+{
+    if (slot < 0 || slot >= MODEL_WINDOWS || !window_data[slot]) return;
+    window_model[slot] = -1;
+    pending[slot] = 0;
+    window_page_count[slot] = 0;
+    memset(window_data[slot], 0, (size_t)MODEL_RECORD_SECTORS * SECTOR);
+}
+
+int Mods_ModelPending(int slot) { return slot >= 0 && slot < MODEL_WINDOWS && pending[slot]; }
+const unsigned char *Mods_ModelPages(int slot, int *count)
+{
+    int pages = slot >= 0 && slot < MODEL_WINDOWS ? window_page_count[slot] : 0;
+    if (count) *count = pages;
+    return pages ? window_pages[slot] : NULL;
+}
+int *Mods_ModelPendings(unsigned *size)
+{
+    *size = sizeof(pending);
+    return pending;
+}
+void Mods_ModelParsed(int slot) { if (slot >= 0 && slot < MODEL_WINDOWS) pending[slot] = 0; }
+
+unsigned char *Mods_ModelArena(int arena, unsigned *size)
+{
+    if (size) *size = MODEL_ARENA_SIZE;
+    return arena >= 0 && arena < MODEL_ARENAS ? arenas[arena] : NULL;
+}
+
+int Mods_ModelGeometry(int i)
+{
+    return i >= 0 && i < model_count && models[i].path ? models[i].geometry * SECTOR : 0;
+}
+
+int *Mods_ModelWindows(unsigned *size)
+{
+    *size = sizeof(window_model);
+    return window_model;
+}
+
+void Mods_ModelRebind(void)
+{
+    for (int slot = 0; slot < MODEL_WINDOWS; slot++) {
+        pending[slot] = 0;
+        if (window_model[slot] >= 0) fill_window(slot, window_model[slot], 0);
+    }
+}
+
+static int model_window(int lba)
+{
+    if (window_lba < 0 || lba < window_lba || lba - window_lba >= MODEL_WINDOWS * MODEL_RECORD_SECTORS) return -1;
+    return (lba - window_lba) / MODEL_RECORD_SECTORS;
 }
 
 int Mods_DiscFileInfo(int retail_lba, int *lba, unsigned *size)
@@ -635,6 +2611,10 @@ static int virtual_file(int lba)
 int Mods_DiscSource(int lba, int *source)
 {
     int i = virtual_file(lba);
+    if (overrides_live && model_window(lba) >= 0) {
+        *source = -1;
+        return 1;
+    }
     if (i < 0) return 0;
     *source = lba - disc_files[i].lba < disc_files[i].retail_sectors
         ? disc_files[i].retail_lba + lba - disc_files[i].lba : -1;
@@ -657,7 +2637,16 @@ unsigned Mods_DiscSignature(void)
     unsigned hash = 2166136261u;
     int relocated = 0;
     for (int i = 0; i < disc_file_count; i++) relocated |= disc_files[i].reserved != 0;
-    if (!region_count && !patch_count && !relocated) return 0;
+    if (!region_count && !patch_count && !relocated && !model_count) return 0;
+    if (model_count) {   /* without models the signature is the one it always was */
+        for (int i = 0; i < model_count; i++) {
+            hash = hash_bytes(hash, &models[i].hash, sizeof(models[i].hash));
+            hash = hash_bytes(hash, &models[i].size, sizeof(models[i].size));
+            /* the pages move where the model data ends: a model with none hashes as before */
+            if (models[i].pages) hash = hash_bytes(hash, &models[i].pages, sizeof(models[i].pages));
+        }
+        hash = hash_bytes(hash, &window_lba, sizeof(window_lba));
+    }
     for (int i = 0; i < disc_file_count; i++) {
         const DiscFile *file = &disc_files[i];
         hash = hash_bytes(hash, &file->retail_lba, sizeof(file->retail_lba));
@@ -700,6 +2689,11 @@ static void publish_overrides(void)
         if (disc_files[i].lba < low) low = disc_files[i].lba;
         if (disc_files[i].lba + disc_files[i].sectors - 1 > high)
             high = disc_files[i].lba + disc_files[i].sectors - 1;
+    }
+    if (window_lba >= 0) {
+        if (window_lba < low) low = window_lba;
+        if (window_lba + MODEL_WINDOWS * MODEL_RECORD_SECTORS - 1 > high)
+            high = window_lba + MODEL_WINDOWS * MODEL_RECORD_SECTORS - 1;
     }
     published_regions = region_count;
     published_patches = patch_count;
@@ -749,6 +2743,7 @@ static void drop_overrides(int mod)
      * them would briefly hide every relocated file from the drive. */
     for (i = 0; i < region_count; i++) owned |= regions[i].mod == mod;
     for (i = 0; i < patch_count; i++) owned |= patches[i].mod == mod;
+    for (i = 0; i < model_count; i++) owned |= models[i].mod == mod;
     if (!owned) return;
     overrides_live = 0;   /* the drive model stops looking before anything goes */
     __asm__ volatile("" ::: "memory");
@@ -762,6 +2757,17 @@ static void drop_overrides(int mod)
         free(patches[i].bytes);
     }
     patch_count = kept;
+    /* Once the disc's layout is frozen the cards have taken the models'
+     * places (Cards_ModelId): a dropped mod's models stay in the list, with
+     * no file, so that no other mod's moves; they load as their bases. */
+    for (i = 0, kept = 0; i < model_count; i++) {
+        if (models[i].mod != mod) { models[kept++] = models[i]; continue; }
+        for (int slot = 0; slot < MODEL_WINDOWS; slot++) if (window_model[slot] == i) window_model[slot] = -1;
+        free(models[i].path);
+        models[i].path = NULL;
+        if (disc_layout_frozen) kept++;
+    }
+    model_count = kept;
     publish_overrides();
 }
 
@@ -918,6 +2924,131 @@ static int add_region(Mod *mod, int index, int named, int lba, int sectors, cons
     return 1;
 }
 
+/* One of a mod's "models": a MODEL.MRG record of its own, read from the
+ * mod's file whenever the game or a native extra wants it. */
+/* The arenas of the bigger models, mapped once, with the first one. */
+static int map_arenas(void)
+{
+    for (int i = 0; i < MODEL_ARENAS; i++) {
+        void *got;
+        if (arenas[i]) continue;
+        got = Memories_MapFixed((void *)(uintptr_t)(MODEL_ARENA_BASE + (unsigned)i * MODEL_ARENA_SIZE),
+                                MODEL_ARENA_SIZE, PROT_READ | PROT_WRITE,
+                                MAP_FIXED_NOREPLACE | MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
+        if (got == MAP_FAILED) return 0;
+        arenas[i] = got;
+    }
+    return 1;
+}
+
+static int add_model(Mod *mod, int index, const JsonValue *entry, int at)
+{
+    const char *name = Json_String(Json_Member(entry, "name"), NULL);
+    const char *file = Json_String(Json_Member(entry, "file"), NULL);
+    char path[PATH_MAX_];
+    struct stat info;
+    unsigned char *image;
+    const JsonValue *pages_value = Json_Member(entry, "texture_pages");
+    long pages = Json_Number(pages_value, 0);
+    int handle, geometry = 0;
+    if (!name || !*name || !file) {
+        note(mod, "models[%d] needs a \"name\" and a \"file\"", at);
+        return 0;
+    }
+    if (model_count >= MODELS_MAX) {
+        note(mod, "more than %d models", MODELS_MAX);
+        return 0;
+    }
+    if (pages_value && (pages < 0 || pages > MODEL_PAGES_MAX || Json_TypeOf(pages_value) != JSON_NUMBER)) {
+        note(mod, "models[%d]: \"texture_pages\" is a count from 0 to %d", at, MODEL_PAGES_MAX);
+        return 0;
+    }
+    if (!Paths_Contained(file)) {
+        note(mod, "models[%d]: %s is outside the mod", at, file);
+        return 0;
+    }
+    if (snprintf(path, sizeof(path), "%s/%s", mod->directory, file) >= (int)sizeof(path)) return 0;
+#ifdef _WIN32
+    handle = open(path, O_RDONLY | O_BINARY);
+#else
+    handle = open(path, O_RDONLY);
+#endif
+    if (handle < 0 || fstat(handle, &info) || info.st_size <= 0) {
+        if (handle >= 0) close(handle);
+        note(mod, "cannot read %s", file);
+        return 0;
+    }
+    if (pages && (uint64_t)info.st_size <= (uint64_t)MODEL_RECORD_SECTORS * SECTOR) {
+        close(handle);
+        note(mod, "%s: its %ld texture pages would follow the record's other stages, and it is no larger than a "
+                  "record; model rejected", file, pages);
+        return 0;
+    }
+    if ((uint64_t)info.st_size > (uint64_t)MODEL_RECORD_SECTORS * SECTOR) {
+        /* A bigger model: whole sectors, model data, the record's other
+         * stages, then its texture pages (notes/modding.md, "Bigger models"). */
+        uint64_t sectors = (uint64_t)info.st_size / SECTOR, after = MODEL_TAIL_SECTORS + (uint64_t)pages * MODEL_PAGE_SECTORS;
+        if (info.st_size % SECTOR || sectors <= after || sectors - after > MODEL_GEOMETRY_MAX ||
+            (pages && sectors - after < MODEL_STAGE0_SECTORS)) {
+            close(handle);
+            note(mod, "%s is larger than a model record (%d sectors) and is not a bigger model (whole sectors, "
+                      "%d of model data at most, %d at least with pages, then the record's other %d, then %ld "
+                      "texture pages of %d); "
+                      "model rejected",
+                 file, MODEL_RECORD_SECTORS, MODEL_GEOMETRY_MAX, MODEL_STAGE0_SECTORS, MODEL_TAIL_SECTORS, pages,
+                 MODEL_PAGE_SECTORS);
+            return 0;
+        }
+        if (!map_arenas()) {
+            close(handle);
+            note(mod, "%s: no room for a bigger model's data at 0x%X; model rejected", file, MODEL_ARENA_BASE);
+            return 0;
+        }
+        geometry = (int)(sectors - after);
+    }
+    /* Read once, for its hash (the mod set's signature, which save states check). */
+    image = map_file(handle, (size_t)info.st_size);
+    close(handle);
+    if (!image) {
+        note(mod, "cannot read %s", file);
+        return 0;
+    }
+    if (model_count == model_capacity) {
+        int capacity = model_capacity ? model_capacity * 2 : 16;
+        ModModel *grown = realloc(models, (size_t)capacity * sizeof(*models));
+        if (!grown) { unmap_file(image, (size_t)info.st_size); return 0; }
+        models = grown;
+        model_capacity = capacity;
+    }
+    for (int slot = 0; slot < MODEL_WINDOWS; slot++)
+        if (!window_data[slot] && !(window_data[slot] = calloc(MODEL_RECORD_SECTORS, SECTOR))) {
+            unmap_file(image, (size_t)info.st_size);
+            return 0;
+        }
+    for (int i = 0; i < model_count; i++)
+        if (!strcmp(models[i].name, name)) {
+            if (models[i].mod == index) warn(mod, 0, "two models are named %s; the later one wins", name);
+            else warn(mod, 0, "model %s is also %s's; the later one wins", name, mods[models[i].mod].id);
+            break;
+        }
+    models[model_count].mod = index;
+    models[model_count].name = name;
+    models[model_count].base = Json_Member(entry, "base");
+    models[model_count].size = (unsigned)info.st_size;
+    models[model_count].hash = hash_bytes(2166136261u, image, (size_t)info.st_size);
+    models[model_count].stale = 0;
+    models[model_count].geometry = geometry;
+    models[model_count].pages = (int)pages;
+    unmap_file(image, (size_t)info.st_size);
+    if (!(models[model_count].path = strdup(path))) return 0;
+    model_count++;
+    if (!layout_disc_files()) {
+        note(mod, "virtual disc address space exhausted by the model windows");
+        return 0;   /* apply_overrides rolls back every contribution of this mod */
+    }
+    return 1;
+}
+
 /* The "data" array of a manifest, once the mod is applied. */
 static int apply_overrides(Mod *mod, int index)
 {
@@ -1003,10 +3134,16 @@ static int apply_overrides(Mod *mod, int index)
             }
         }
     }
+    for (i = 0; i < Json_Count(mod->models); i++)
+        if (!add_model(mod, index, Json_At(mod->models, i), i)) goto failed;
     publish_overrides();
     if (region_count || patch_count) {
         say("%s: %d replaced regions, %d patched runs, sectors %d to %d",
             mod->id, region_count, patch_count, override_low, override_high);
+    }
+    if (Json_Count(mod->models)) {
+        say("%s: %d models (%d in all), the battle's windows at sector %d",
+            mod->id, Json_Count(mod->models), model_count, window_lba);
     }
     return 1;
 streamed:
@@ -1045,6 +3182,10 @@ int Mods_DiscSector(int lba, void *user_data)
     if (!overrides_live) return 0;
     __asm__ volatile("" ::: "memory");
     if (lba < override_low || lba > override_high) return 0;
+    if ((i = model_window(lba)) >= 0) {   /* a battle slot's model (Mods_ModelWindow) */
+        memcpy(out, window_data[i] + (size_t)((lba - window_lba) % MODEL_RECORD_SECTORS) * SECTOR, SECTOR);
+        return 1;
+    }
     named = virtual_file(lba);
     if (named >= 0) {
         relative = lba - disc_files[named].lba;
@@ -1139,6 +3280,15 @@ static void register_symbols(Mod *mod)
 /* The mod's object file, read whole and handed to the loader. */
 static void *load_object(Mod *mod, const char *path)
 {
+#if defined(__APPLE__) && defined(__aarch64__) && defined(MEMORIES_TRANSLATED)
+    char error[STATUS_MAX];
+    if (ObjectLoader_LoadPath(path, &mod->object, error, sizeof(error))) {
+        note(mod, "%s %s", mod->library, error);
+        return NULL;
+    }
+    mod->code_hash = mod->object.hash;
+    return ObjectLoader_Symbol(&mod->object, "MemoriesModInit");
+#else
     FILE *file = fopen(path, "rb");
     unsigned char *data = NULL;
     long size;
@@ -1171,7 +3321,43 @@ static void *load_object(Mod *mod, const char *path)
     }
     register_symbols(mod);
     return entry;
+#endif
 }
+
+#if !defined(MEMORIES_NO_CODE_MODS) && !(defined(__APPLE__) && defined(__aarch64__) && defined(MEMORIES_TRANSLATED))
+/* Whether the mod's object for this game is there to load. */
+static int library_present(const Mod *mod)
+{
+    char path[PATH_MAX_];
+    FILE *file;
+    if (snprintf(path, sizeof(path), "%s/%s", mod->directory, mod->library) >= (int)sizeof(path)) return 0;
+    file = fopen(path, "rb");
+    if (!file) return 0;
+    fclose(file);
+    return 1;
+}
+
+#if defined(__ANDROID__) && defined(MEMORIES_TRANSLATED)
+/* Whether the mod has the object the fixed-memory Android game loaded
+ * (<library>.aarch64.o where this game's is <library>.aarch64-translated.o). */
+static int old_android_object(const Mod *mod)
+{
+    static const char ours[] = "." OBJECT_LOADER_TARGET ".o";
+    char path[PATH_MAX_];
+    size_t length = strlen(mod->library);
+    FILE *file;
+    if (length <= sizeof(ours) - 1 || strcmp(mod->library + length - (sizeof(ours) - 1), ours)) return 0;
+    if (snprintf(path, sizeof(path), "%s/%.*s.aarch64.o", mod->directory, (int)(length - (sizeof(ours) - 1)),
+                 mod->library) >= (int)sizeof(path)) {
+        return 0;
+    }
+    file = fopen(path, "rb");
+    if (!file) return 0;
+    fclose(file);
+    return 1;
+}
+#endif
+#endif
 
 static int load_library(Mod *mod)
 {
@@ -1179,7 +3365,7 @@ static int load_library(Mod *mod)
     MemoriesModEntry entry;
     union { void *pointer; int (*function)(const MemoriesModHost *, MemoriesMod *); } symbol;
     if (!mod->library[0]) return 1;   /* data only: nothing to load */
-    if (mod->object.image) return 1;
+    if (mod->object.image || mod->object.native_handle) return 1;
     if (snprintf(path, sizeof(path), "%s/%s", mod->directory, mod->library) >= (int)sizeof(path)) return 0;
     symbol.pointer = load_object(mod, path);
     if (!symbol.pointer) return 0;
@@ -1205,6 +3391,9 @@ static int load_library(Mod *mod)
     }
     mod->initialized = 1;
     say("%s: loaded %s", mod->id, mod->library);
+    /* Always said (stderr, which an Android app sends to logcat): which code
+     * ran is the first thing to know about a report. */
+    fprintf(stderr, "memories-pc: mods: %s loaded its code (%s)\n", mod->id, mod->library);
     return 1;
 }
 
@@ -1212,12 +3401,12 @@ static int load_library(Mod *mod)
  * notes/modding.md and mod-api-3.md). Anything else is most likely a typo
  * that would leave the mod doing nothing, so it is a warning, not an error. */
 static const char *const manifest_keys[] = {
-    "id", "name", "version", "author", "description", "library", "enabled", "restart", "legacy_setting",
-    "data", "textures", "cards", "audio", "min_api", "game", "requires", "after", "conflicts", "priority",
+    "id", "name", "version", "author", "description", "library", "libraries", "enabled", "restart", "legacy_setting",
+    "data", "textures", "assets", "cards", "audio", "min_api", "game", "requires", "after", "conflicts", "priority",
     "settings", "fusions", "equips", "rituals", "drops", "decks", "duelists", "text", "font",
     "chest_overflow", "terrain_bonus", "trap_thresholds", "equip_bonus_default", "passwords", "starter",
-    "starter_pools", "title", "menu", "limits", "guardian_stars", "packs", "pack_shop",
-    "card_text_colors",
+    "starter_pools", "title", "menu", "limits", "guardian_stars", "attributes", "packs", "pack_shop",
+    "card_text_colors", "card_layout", "palette_ramps", "ui", "tower", "card_types", "fields", "models",
 };
 
 /* How many letters to add, remove or change to turn one word into the
@@ -1301,15 +3490,46 @@ static int read_manifest(Mod *mod, const char *directory, const char *origin)
         note(mod, "id must be 1-63 letters, digits, hyphens or underscores");
     } else copy_text(mod->id, sizeof(mod->id), text);
     copy_text(mod->name, sizeof(mod->name), Json_String(Json_Member(root, "name"), mod->id));
-    text = Json_String(Json_Member(root, "library"), NULL);
-    if (text && *text) {
-        if (!Paths_Contained(text)) {
-            mod->broken = 1;
-            note(mod, "\"library\": %s is outside the mod", text);
-        } else if (strchr(text, '.')) {
-            copy_text(mod->library, sizeof(mod->library), text);
-        } else {
-            snprintf(mod->library, sizeof(mod->library), "%s.o", text);   /* one object for every system */
+    /* The object for this game's target (object_loader.h): "libraries"
+     * names it outright, else it comes from "library", as it is written (or
+     * with ".o") for the 32-bit games, whose one object serves Linux and
+     * Windows, and as <library>.<target>.o for the others (its ".o" taken
+     * off first). A mod with "libraries" and no "library" is a code mod
+     * too: without this target's entry it looks for <id>.<target>.o. */
+    {
+        const JsonValue *libraries = Json_Member(root, "libraries");
+        const char *named = Json_String(Json_Member(libraries, OBJECT_LOADER_TARGET), NULL);
+        text = Json_String(Json_Member(root, "library"), NULL);
+        if (named && *named) text = named;
+        else if ((!text || !*text) && Manifest_HasCode(root)) text = mod->id;
+        if (text && *text) {
+            if (!Paths_Contained(text)) {
+                mod->broken = 1;
+                note(mod, "\"library\": %s is outside the mod", text);
+            } else if (named && *named) {
+                copy_text(mod->library, sizeof(mod->library), text);
+#if defined(__APPLE__) && defined(__aarch64__) && defined(MEMORIES_TRANSLATED)
+            } else if (strchr(text, '.')) {
+                /* The macOS game links a dylib (build_mod.py --target macos):
+                 * "x.o" means x.dylib; a name with another extension is kept. */
+                size_t length = strlen(text);
+                if (length >= 2 && !strcmp(text + length - 2, ".o"))
+                    snprintf(mod->library, sizeof(mod->library), "%.*s.dylib", (int)(length - 2), text);
+                else
+                    copy_text(mod->library, sizeof(mod->library), text);
+            } else {
+                snprintf(mod->library, sizeof(mod->library), "%s.dylib", text);
+#else
+            } else if (strcmp(OBJECT_LOADER_TARGET, "i386")) {
+                size_t stem = strlen(text);
+                if (stem > 2 && !strcmp(text + stem - 2, ".o")) stem -= 2;
+                snprintf(mod->library, sizeof(mod->library), "%.*s.%s.o", (int)stem, text, OBJECT_LOADER_TARGET);
+            } else if (strchr(text, '.')) {
+                copy_text(mod->library, sizeof(mod->library), text);
+            } else {
+                snprintf(mod->library, sizeof(mod->library), "%s.o", text);   /* one object for both 32-bit systems */
+#endif
+            }
         }
     }
     mod->restart = Json_Bool(Json_Member(root, "restart"), 0);
@@ -1323,6 +3543,27 @@ static int read_manifest(Mod *mod, const char *directory, const char *origin)
             mod->broken = 1;
             note(mod, "\"textures\": %s is too long", text);
         }
+    }
+    mod->assets = Json_Member(root, "assets");
+    if (mod->assets && Json_TypeOf(mod->assets) == JSON_STRING) {
+        /* "assets": "<directory>" ships the pictures instead of listing
+         * them; each PNG's path under it is the name it replaces. */
+        text = Json_String(mod->assets, "");
+        mod->assets = NULL;
+        if (!*text) {
+            mod->broken = 1;
+            note(mod, "\"assets\" names no directory");
+        } else if (!Paths_Contained(text)) {
+            mod->broken = 1;
+            note(mod, "\"assets\": %s is outside the mod", text);
+        } else if (snprintf(mod->asset_dir, sizeof(mod->asset_dir), "%s/%s", directory, text) >=
+                   (int)sizeof(mod->asset_dir)) {
+            mod->broken = 1;
+            note(mod, "\"assets\": %s is too long", text);
+        }
+    } else if (mod->assets && Json_TypeOf(mod->assets) != JSON_OBJECT) {
+        mod->broken = 1;
+        note(mod, "\"assets\" is not an object or the name of a directory");
     }
     mod->data = Json_Member(root, "data");
     if (mod->data && Json_TypeOf(mod->data) != JSON_ARRAY) {
@@ -1339,6 +3580,11 @@ static int read_manifest(Mod *mod, const char *directory, const char *origin)
         mod->broken = 1;
         note(mod, "\"cards\" is not an array");
     }
+    mod->models = Json_Member(root, "models");
+    if (mod->models && Json_TypeOf(mod->models) != JSON_ARRAY) {
+        mod->broken = 1;
+        note(mod, "\"models\" is not an array");
+    }
     /* Data overrides change what the game loaded on its way up, so they are
      * only whole while the game starts with them in place; the cards a mod
      * adds are counted once, when the game starts. */
@@ -1347,14 +3593,15 @@ static int read_manifest(Mod *mod, const char *directory, const char *origin)
         const JsonValue *entry = Json_At(mod->data, i);
         if (Json_Member(entry, "file") && Json_Member(entry, "replace")) mod->restart = 1;
     }
-    if (Json_Count(mod->cards)) mod->restart = 1;
+    if (Json_Count(mod->cards) || Json_Count(mod->models)) mod->restart = 1;
     {   /* So are the rule tables (src/pc/cards/tables.c), the starter decks
          * (src/pc/cards/starter.c) and a translation (src/pc/text): all are
          * read once, at startup. */
         static const char *const tables[] = {"fusions", "equips", "rituals", "drops", "decks", "duelists",
                                              "text", "font", "terrain_bonus", "trap_thresholds",
                                              "chest_overflow", "passwords", "starter", "starter_pools",
-                                             "limits", "guardian_stars", "packs", "pack_shop"};
+                                             "limits", "guardian_stars", "attributes", "packs", "pack_shop",
+                                             "palette_ramps", "tower", "fields"};
         for (size_t t = 0; t < sizeof(tables) / sizeof(tables[0]); t++) {
             const JsonValue *value = Json_Member(root, tables[t]);
             /* "text": "text.txt" is one file named as a string. */
@@ -1396,7 +3643,7 @@ static int by_id(const char *id)
     return -1;
 }
 
-static void scan(const char *root, const char *origin)
+static int scan(const char *root, const char *origin)
 {
     char path[PATH_MAX_];
     char **names = NULL;
@@ -1404,7 +3651,7 @@ static void scan(const char *root, const char *origin)
     unsigned char here[MODS_MAX] = {0};   /* the mods this directory has given so far */
     DIR *directory = opendir(root);
     struct dirent *entry;
-    if (!directory) return;
+    if (!directory) return -1;   /* errno is opendir's */
     /* Read the names first and sort them: readdir's order is the file
      * system's, and the window should not shuffle between launches. */
     while ((entry = readdir(directory))) {
@@ -1437,7 +3684,8 @@ static void scan(const char *root, const char *origin)
             warn(&mods[existing], 1, "%s was left out: same id as %s", path, mods[existing].directory);
             Json_Free(candidate.manifest);
         } else if (existing >= 0) {
-            /* The player's copy wins over the one the release ships. */
+            /* A later root wins: the player's mods folder over the release's
+             * own mods, the user directory's over both. */
             say("%s in %s replaces the one in %s", candidate.id, path, mods[existing].directory);
             Json_Free(mods[existing].manifest);
             candidate.enabled = mods[existing].enabled;
@@ -1453,11 +3701,343 @@ static void scan(const char *root, const char *origin)
     }
     for (i = 0; i < count; i++) free(names[i]);
     free(names);
+    return 0;
+}
+
+/* --- The player's own mods folder ---------------------------------------
+ * One more folder the game reads, between the release's mods/ and the user
+ * directory's: named in mods-folder.txt (user directory), or by
+ * MEMORIES_MODS_FOLDER, which wins over the file. The game only reads it:
+ * imports, the HD pack, Remove and a mod's data stay in the user directory. */
+
+#define FOLDER_FILE "mods-folder.txt"
+static char folder_problem[PATH_MAX_ + 200];
+
+#if defined(_WIN32) || defined(__APPLE__)   /* the file system does not tell case */
+#define SAME_CHAR(a, b) (tolower((unsigned char)(a)) == tolower((unsigned char)(b)))
+#else
+#define SAME_CHAR(a, b) ((a) == (b))
+#endif
+
+/* A folder as the file or the environment writes it: no byte order mark, no
+ * spaces or line end around it, no double quotes around it (Explorer's "Copy
+ * as path" adds them), '/' for '\' on Windows, no trailing separator (but a
+ * root's). */
+static void tidy_folder(char *text)
+{
+    size_t length, start = 0;
+    if (!strncmp(text, "\xEF\xBB\xBF", 3)) start = 3;
+    while (text[start] == ' ' || text[start] == '\t') start++;
+    length = strlen(text + start);
+    memmove(text, text + start, length + 1);
+    while (length && strchr(" \t\r\n", text[length - 1])) text[--length] = '\0';
+    if (length >= 2 && text[0] == '"' && text[length - 1] == '"') {
+        memmove(text, text + 1, length - 2);
+        text[length -= 2] = '\0';
+        while (length && strchr(" \t\r\n", text[length - 1])) text[--length] = '\0';
+    }
+#ifdef _WIN32
+    for (start = 0; start < length; start++) if (text[start] == '\\') text[start] = '/';
+#endif
+    while (length > 1 && text[length - 1] == '/' && !(length == 3 && text[1] == ':')) text[--length] = '\0';
+}
+
+/* Whether `path` is `root` or lies under it (both canon_folder's). */
+static int folder_inside(const char *path, const char *root)
+{
+    size_t length = strlen(root), i;
+    if (!length) return 0;
+    for (i = 0; i < length; i++) if (!SAME_CHAR(path[i], root[i])) return 0;
+    return !path[length] || path[length] == '/' || root[length - 1] == '/';
+}
+
+/* "." and ".." parts and doubled separators taken out of a tidy, absolute path. */
+static void flatten_folder(char *path)
+{
+    char out[PATH_MAX_];
+    size_t used = 0, root = 0;
+    const char *at;
+#ifdef _WIN32
+    if (isalpha((unsigned char)path[0]) && path[1] == ':') root = 2;
+#endif
+    memcpy(out, path, root);
+    used = root;
+    at = path + root;
+    if (*at == '/') out[used++] = '/';
+    root = used;
+    for (;;) {
+        size_t length;
+        while (*at == '/') at++;
+        length = strcspn(at, "/");
+        if (!length) break;
+        if (length == 1 && at[0] == '.') {
+            /* this folder */
+        } else if (length == 2 && at[0] == '.' && at[1] == '.') {
+            while (used > root && out[used - 1] == '/') used--;
+            while (used > root && out[used - 1] != '/') used--;
+        } else {
+            if (used > root && out[used - 1] != '/') out[used++] = '/';
+            memcpy(out + used, at, length);
+            used += length;
+        }
+        at += length;
+    }
+    while (used > root + 1 && out[used - 1] == '/') used--;
+    out[used] = '\0';
+    memcpy(path, out, used + 1);
+}
+
+#ifdef _WIN32
+__declspec(dllimport) unsigned long __stdcall GetFullPathNameW(const wchar_t *, unsigned long, wchar_t *, wchar_t **);
+__declspec(dllimport) unsigned long __stdcall GetLongPathNameW(const wchar_t *, wchar_t *, unsigned long);
+#endif
+
+/* The folder `path` names, spelled one way: absolute, without "." and ".."
+ * (from the current directory if it is not absolute), and, where it exists,
+ * with its links followed (realpath). On Windows: without the prefix of a
+ * "\\?\" or "\\.\" path, with "\\?\UNC\" as "\\", and with the long names
+ * of its longest part that exists (GetLongPathNameW, for an 8.3 short one); a
+ * junction or a link is not followed there, nor is a difference in the case
+ * of a non-ASCII letter. For comparing two folders. -1 if it does not fit or is not a name. */
+static int canon_folder(const char *path, char *out, size_t size)
+{
+    char work[PATH_MAX_];
+#ifdef _WIN32
+    wchar_t *wide, full[PATH_MAX_], head[PATH_MAX_], longer[PATH_MAX_];
+    char plain[PATH_MAX_], *narrow;
+    unsigned long length;
+    size_t cut;
+    if (snprintf(plain, sizeof(plain), "%s", path) >= (int)sizeof(plain)) return -1;
+    tidy_folder(plain);   /* '/' for '\' */
+    if (!strncmp(plain, "//?/UNC/", 8)) memmove(plain + 2, plain + 8, strlen(plain + 8) + 1);
+    else if (!strncmp(plain, "//?/", 4) || !strncmp(plain, "//./", 4)) memmove(plain, plain + 4, strlen(plain + 4) + 1);
+    if (!(wide = Memories_Utf8ToWide(plain))) return -1;
+    length = GetFullPathNameW(wide, PATH_MAX_, full, NULL);
+    free(wide);
+    if (!length || length >= PATH_MAX_) return -1;
+    /* A folder not made yet under a short name still compares by the long one. */
+    for (cut = wcslen(full); cut > 3;) {
+        memcpy(head, full, cut * sizeof(wchar_t));
+        head[cut] = 0;
+        length = GetLongPathNameW(head, longer, PATH_MAX_);
+        if (length && length < PATH_MAX_ && length + wcslen(full + cut) < PATH_MAX_) {
+            memcpy(longer + length, full + cut, (wcslen(full + cut) + 1) * sizeof(wchar_t));
+            memcpy(full, longer, (wcslen(longer) + 1) * sizeof(wchar_t));
+            break;
+        }
+        while (cut > 3 && full[cut - 1] != L'\\') cut--;
+        if (cut > 3) cut--;
+    }
+    if (!(narrow = Memories_WideToUtf8(full))) return -1;
+    length = (unsigned long)snprintf(work, sizeof(work), "%s", narrow);
+    free(narrow);
+    if (length >= sizeof(work)) return -1;
+#else
+    char whole[PATH_MAX_];
+    size_t cut;
+    if (path[0] == '/') {
+        if (snprintf(whole, sizeof(whole), "%s", path) >= (int)sizeof(whole)) return -1;
+    } else {
+        char here[PATH_MAX_];
+        if (!getcwd(here, sizeof(here)) || snprintf(whole, sizeof(whole), "%s/%s", here, path) >= (int)sizeof(whole)) return -1;
+    }
+    /* The longest part that exists, with its links followed, and the rest as it is. */
+    for (cut = strlen(whole);; ) {
+        char head[PATH_MAX_], *real;
+        memcpy(head, whole, cut);
+        head[cut] = '\0';
+        real = realpath(cut ? head : "/", NULL);
+        if (real) {
+            int fits = snprintf(work, sizeof(work), "%s/%s", real, whole + cut) < (int)sizeof(work);
+            free(real);
+            if (!fits) return -1;
+            break;
+        }
+        while (cut > 0 && whole[cut - 1] != '/') cut--;
+        while (cut > 0 && whole[cut - 1] == '/') cut--;
+    }
+#endif
+    tidy_folder(work);
+    flatten_folder(work);
+    return (size_t)snprintf(out, size, "%s", work) >= size ? -1 : 0;
+}
+
+/* 1 when the game reads or writes `path` already, as one of its own folders (0
+ * when not, -1 when it cannot be told: the name does not fit or is not text):
+ * the release's mods/, MEMORIES_MODS_DIR, the user directory (its mods/, the
+ * downloads and everything else the game keeps there) or a folder in one.
+ * `path` is as the game would open it (absolute_folder's). Links are followed
+ * where the folder exists. */
+static int folder_is_own(const char *path)
+{
+    char own[PATH_MAX_], root[PATH_MAX_], canon[PATH_MAX_];
+    const char *named = getenv("MEMORIES_MODS_DIR");
+    if (canon_folder(path, canon, sizeof(canon))) return -1;
+    if (!Paths_Program(own, sizeof(own), "mods") && !canon_folder(own, root, sizeof(root)) && folder_inside(canon, root))
+        return 1;
+    if (named && *named && snprintf(own, sizeof(own), "%s", named) < (int)sizeof(own)) {
+        tidy_folder(own);
+        if (!canon_folder(own, root, sizeof(root)) && folder_inside(canon, root)) return 1;
+    }
+    if (!canon_folder(Paths_UserDir(), root, sizeof(root)) && folder_inside(canon, root)) return 1;
+    return 0;
+}
+
+/* A tidy folder as an absolute one: a path that is not absolute is from the
+ * program directory (a portable pack says "mods-extra"). -1 if it does not fit. */
+static int absolute_folder(const char *line, char *path, size_t size)
+{
+    int absolute = line[0] == '/';
+#ifdef _WIN32
+    if (isalpha((unsigned char)line[0]) && line[1] == ':') absolute = 1;
+#endif
+    if (snprintf(path, size, absolute ? "%s%s" : "%s/%s", absolute ? "" : Paths_ProgramDir(), line) >= (int)size)
+        return -1;
+    tidy_folder(path);
+    return 0;
+}
+
+int Mods_Folder(char *out, size_t size)
+{
+    char line[PATH_MAX_], path[PATH_MAX_];
+    const char *named = getenv("MEMORIES_MODS_FOLDER");
+    line[0] = '\0';
+    if (named) {   /* set, even to nothing: the file is not read */
+        if (snprintf(line, sizeof(line), "%s", named) >= (int)sizeof(line)) return -1;
+        tidy_folder(line);
+    } else {
+        FILE *file;
+        if (Paths_User(path, sizeof(path), FOLDER_FILE) || !(file = fopen(path, "rb"))) return -1;
+        /* The first line that says anything; one too long for `line` is no folder. */
+        while (!line[0] && fgets(line, sizeof(line), file)) {
+            if (!strchr(line, '\n') && strlen(line) == sizeof(line) - 1) { line[0] = '\0'; break; }
+            tidy_folder(line);
+        }
+        fclose(file);
+    }
+    if (!line[0] || absolute_folder(line, path, sizeof(path))) return -1;
+    if ((size_t)snprintf(out, size, "%s", path) >= size) return -1;
+    return 0;
+}
+
+/* A choice saved (or cleared) is not what this run does while MEMORIES_MODS_FOLDER
+ * or MEMORIES_MODS_DIR is set: `why` says so, and the call still succeeds (0). */
+static int overridden(char *why, size_t why_size, int cleared)
+{
+    const char *dir = getenv("MEMORIES_MODS_DIR");
+    const char *did = cleared ? "Cleared" : "Saved";
+    if (dir && *dir)
+        snprintf(why, why_size, "%s, but MEMORIES_MODS_DIR is set, so no other mods folder is read until it is unset.", did);
+    else if (getenv("MEMORIES_MODS_FOLDER"))
+        snprintf(why, why_size, "%s, but MEMORIES_MODS_FOLDER is set, so it is used %s until it is unset.", did,
+                 cleared ? "all the same" : "instead");
+    return 0;
+}
+
+int Mods_SetFolder(const char *path, char *why, size_t why_size)
+{
+    char saved[PATH_MAX_], temporary[PATH_MAX_], text[PATH_MAX_], resolved[PATH_MAX_], reason[1200];
+    FILE *file;
+    size_t length;
+    int written, own;
+    if (why_size) why[0] = '\0';
+    if (snprintf(text, sizeof(text), "%s", path ? path : "") >= (int)sizeof(text)) {
+        snprintf(why, why_size, "That folder's name is too long.");
+        return -1;
+    }
+    tidy_folder(text);
+    if (strpbrk(text, "\r\n")) {
+        snprintf(why, why_size, "A folder's name cannot hold a line break.");
+        return -1;
+    }
+    if (isalpha((unsigned char)text[0]) && text[1] == ':' && text[2] != '/' && text[2] != '\\') {
+        snprintf(why, why_size, "Give the folder's full path, such as C:\\Mods.");   /* "C:" and "C:foo" are the drive's current folder */
+        return -1;
+    }
+    if (text[0] && absolute_folder(text, resolved, sizeof(resolved))) {
+        snprintf(why, why_size, "That folder's name is too long.");
+        return -1;
+    }
+    if (text[0] && (own = folder_is_own(resolved))) {
+        if (own < 0)
+            snprintf(why, why_size, "That folder's name cannot be used as a path (it is too long, or not valid text).");
+        else
+            snprintf(why, why_size, "That is one of the game's own folders (the release's mods, or your user folder "
+                     "with the mods, saves and downloads in it), which the game reads or writes already. Choose another.");
+        return -1;
+    }
+    Paths_WriteBegin();
+    if (Paths_User(saved, sizeof(saved), FOLDER_FILE) || Paths_User(temporary, sizeof(temporary), FOLDER_FILE ".tmp")) {
+        snprintf(saved, sizeof(saved), "%s/" FOLDER_FILE, Paths_UserDir());
+        snprintf(why, why_size, "Could not save your mods folder to %s", Paths_WriteError(reason, sizeof(reason), saved));
+        return -1;
+    }
+    if (!text[0]) {   /* no folder of the player's: the file goes */
+        if (remove(saved) && errno != ENOENT) {
+            snprintf(why, why_size, "Could not stop using the mods folder: %s",
+                     Paths_WriteError(reason, sizeof(reason), saved));
+            return -1;
+        }
+        return overridden(why, why_size, 1);
+    }
+    length = strlen(text);
+    if (!(file = fopen(temporary, "wb"))) {
+        snprintf(why, why_size, "Could not save your mods folder to %s", Paths_WriteError(reason, sizeof(reason), saved));
+        return -1;
+    }
+    written = fwrite(text, 1, length, file) == length && fputc('\n', file) != EOF;
+    if (fclose(file)) written = 0;
+    if (!written || rename(temporary, saved)) {
+        Paths_WriteError(reason, sizeof(reason), saved); /* before remove() changes the reason */
+        remove(temporary);
+        snprintf(why, why_size, "Could not save your mods folder to %s", reason);
+        return -1;
+    }
+    return overridden(why, why_size, 0);
+}
+
+const char *Mods_FolderProblem(void) { return folder_problem; }
+
+/* The scan of the player's folder, between the release's mods and the user
+ * directory's. One that cannot be read is left out, and only
+ * Mods_FolderProblem and the log say so. */
+static void scan_folder(int ignored)
+{
+    char path[PATH_MAX_];
+    folder_problem[0] = '\0';
+    if (Mods_Folder(path, sizeof(path))) return;
+    if (ignored) {
+        snprintf(folder_problem, sizeof(folder_problem), "MEMORIES_MODS_DIR is set, so the mods folder %s is not read.",
+                 path);
+    } else if (folder_is_own(path)) {
+        snprintf(folder_problem, sizeof(folder_problem),
+                 folder_is_own(path) < 0 ? "%s cannot be used as a path (it is too long, or not valid text)."
+                                         : "%s is one of the game's own folders, which it reads or writes already.",
+                 path);
+    } else if (scan(path, "folder")) {
+        int error = errno;
+        if (error == ENOENT) snprintf(folder_problem, sizeof(folder_problem), "%s does not exist.", path);
+        else if (error == ENOTDIR) snprintf(folder_problem, sizeof(folder_problem), "%s is not a folder.", path);
+        else snprintf(folder_problem, sizeof(folder_problem), "%s could not be read: %s.", path, strerror(error));
+    }
+    if (folder_problem[0] && !ignored) fprintf(stderr, "memories-pc: mods folder: %s\n", folder_problem);
 }
 
 /* Turn a mod on or off for real: its library, its overrides, its hook. */
 static int (*texture_pack_load)(const char *directory, unsigned rank, int (*part)(const char *, void *),
                                 void *context, char *problems, size_t size);
+static int (*assets_load)(const char *, const JsonValue *, unsigned,
+                          int (*)(const char *, void *), void *, char *, size_t);
+static int (*asset_folder_load)(const char *, unsigned, int (*)(const char *, void *), void *, char *, size_t);
+
+void Mods_SetAssets(int (*load)(const char *, const JsonValue *, unsigned,
+                                int (*)(const char *, void *), void *, char *, size_t),
+                    int (*folder)(const char *, unsigned, int (*)(const char *, void *), void *, char *, size_t))
+{
+    assets_load = load;
+    asset_folder_load = folder;
+}
+
 static void (*texture_pack_unload)(void);
 static unsigned texture_rank;   /* the highest rank a loaded pack has */
 static int (*audio_load)(int, const char *, const char *, const JsonValue *, char *, size_t);
@@ -1469,6 +4049,15 @@ void Mods_SetAudio(int (*load)(int mod, const char *id, const char *directory, c
 {
     audio_load = load;
     audio_unload = unload;
+}
+
+void Mods_SetAudioClips(int (*add)(int mod, const char *id, const int16_t *samples, size_t frames, int channels,
+                                   unsigned rate),
+                        int (*play)(int mod, int handle, int volume, int pan), void (*release)(int mod, int handle))
+{
+    clip_add = add;
+    clip_play = play;
+    clip_free = release;
 }
 
 void Mods_SetTexturePack(int (*load)(const char *directory, unsigned rank,
@@ -1556,22 +4145,52 @@ int Mods_File(int index, const char *key, int entry_index, char *path, size_t si
  * comes last, as each does while the game starts, goes on top of those
  * loaded; otherwise they are all loaded again. Returns what loading `with`
  * returned (-1 it could not load), its problems in `problems`. */
+static int has_images(const Mod *mod) { return mod->textures[0] || mod->assets || mod->asset_dir[0]; }
+
+static int load_mod_images(Mod *mod, char *problems, size_t size)
+{
+    int loaded = 0, got;
+    char error[STATUS_MAX] = "";
+    if (problems && size) problems[0] = '\0';
+    if (mod->textures[0]) {
+        if (!texture_pack_load) return -1;
+        loaded = texture_pack_load(mod->textures, ++texture_rank, texture_part, mod, problems, size);
+        if (loaded < 0) return loaded;
+    }
+    if (mod->assets || mod->asset_dir[0]) {
+        if (!assets_load || !asset_folder_load) {
+            if (problems && size) snprintf(problems, size, "this build has no named asset replacements");
+            return -1;
+        }
+        /* Direct images override the same mod's pack; the next mod still wins. */
+        got = mod->asset_dir[0]
+            ? asset_folder_load(mod->asset_dir, ++texture_rank, texture_part, mod, error, sizeof(error))
+            : assets_load(mod->directory, mod->assets, ++texture_rank, texture_part, mod, error, sizeof(error));
+        if (problems && size && error[0]) {
+            size_t used = strlen(problems);
+            if (used < size) snprintf(problems + used, size - used, "%s%s", used ? "; " : "", error);
+        }
+        if (got < 0) return got;
+        loaded += got;
+    }
+    return loaded;
+}
+
 static int load_texture_packs(int with, int without, char *problems, size_t size)
 {
     int wanted[MODS_MAX], order[MODS_MAX], i, n, loaded = with < 0 ? 0 : -1;
     char ignored[STATUS_MAX];
     for (i = 0; i < mod_count; i++)
-        wanted[i] = i != without && mods[i].textures[0] && (mods[i].active || i == with);
+        wanted[i] = i != without && has_images(&mods[i]) && (mods[i].active || i == with);
     n = Mods_Order(wanted, order, ignored, sizeof(ignored));
     if (n < 0) for (n = 0; order[n] >= 0; n++) continue;   /* a cycle: the packs that could be placed */
     if (with >= 0 && n > 0 && order[n - 1] == with) {
-        return texture_pack_load(mods[with].textures, ++texture_rank, texture_part, &mods[with], problems, size);
+        return load_mod_images(&mods[with], problems, size);
     }
     texture_pack_unload();
     texture_rank = 0;
     for (i = 0; i < n; i++) {
-        int got = texture_pack_load(mods[order[i]].textures, ++texture_rank, texture_part, &mods[order[i]],
-                                    order[i] == with ? problems : NULL, size);
+        int got = load_mod_images(&mods[order[i]], order[i] == with ? problems : NULL, size);
         if (order[i] == with) loaded = got;
     }
     return loaded;
@@ -1590,6 +4209,7 @@ static void activate_once(int index, int on)
 {
     Mod *mod = &mods[index];
     if (on == mod->active) return;
+    change_count++;   /* before it can fail: a rollback is a change too */
     if (on) {
         int option_count = Mods_OptionCount(index);
         if (option_count && !mod->runtime_options) {
@@ -1599,16 +4219,46 @@ static void activate_once(int index, int on)
             }
         }
 #ifdef MEMORIES_NO_CODE_MODS
-        /* The 64-bit game (build_game32.py --target windows-x64): a mod's
-         * code is a 32-bit x86 object, which this game cannot link or call.
-         * The mod stays off with the reason beside it, and its choice and
-         * the other mods' Apply are left alone: it is not a broken mod. */
+        /* A game built without code mods (none is now: the arm64 game links
+         * them since Mod SDK M2). The mod stays off with the reason beside it,
+         * and its choice and the other mods' Apply are left alone: it is not
+         * a broken mod. */
         if (!mod->broken && mod->library[0]) {
-            note(mod, "needs a 64-bit build of this mod: its code was built for the 32-bit game, which is the one "
-                      "to play it with");
+            note(mod, "is a code mod, which this game does not load yet");
             drop_overrides(index);
             return;
         }
+#else
+        /* A 64-bit game loads the mod's object for its own target
+         * (<library>.x86_64-windows.o). A mod made before there was one has
+         * only the 32-bit object: it stays off with the reason beside it, as
+         * above, and is not a broken mod. The macOS game, which has no 32-bit
+         * one to send the player to, reports a missing dylib as broken. On a
+         * phone there is no other game to point to either: the note says
+         * which object is missing. Both say how one is made (notes/modding.md,
+         * "Building one"). */
+#if !(defined(__APPLE__) && defined(__aarch64__) && defined(MEMORIES_TRANSLATED))
+        if (strcmp(OBJECT_LOADER_TARGET, "i386") && !mod->broken && mod->library[0] && !mod->object.image &&
+            !mod->object.native_handle && !library_present(mod)) {
+#if defined(__ANDROID__) && defined(MEMORIES_TRANSLATED)
+            /* A mod made for the fixed-memory game has <library>.aarch64.o:
+             * the same code mod, which needs building again for this one. */
+            note(mod, old_android_object(mod) ? "was built for the fixed-memory Android game: ask the mod's author to "
+                                                "rebuild it (build_mod.py --target aarch64-translated); it has no %s"
+                                              : "needs an Android build of this mod: it has no %s (ask the mod's "
+                                                "author to rebuild it with build_mod.py --target aarch64-translated)",
+                 mod->library);
+#elif defined(__ANDROID__)
+            note(mod, "needs an Android build of this mod: it has no %s (rebuild it with build_mod.py using clang)",
+                 mod->library);
+#else
+            note(mod, "needs a 64-bit build of this mod (%s): the one it has is for the 32-bit game, which is the one "
+                      "to play it with, or rebuild it with build_mod.py using clang", mod->library);
+#endif
+            drop_overrides(index);
+            return;
+        }
+#endif
 #endif
         /* A mod that cannot load keeps the player's choice and its reason:
          * the window shows both, and removing it still works. */
@@ -1620,13 +4270,13 @@ static void activate_once(int index, int on)
         if (!mod->data_prepared) copy_text(mod->status, sizeof(mod->status), mod->warnings);
         if (!mod->data_prepared && !apply_overrides(mod, index)) { mod->failed = 1; return; }
         mod->data_prepared = 1;
-        if (mod->textures[0]) {
+        if (has_images(mod)) {
             char problems[STATUS_MAX] = "";
-            if (!texture_pack_load || !texture_pack_unload || load_texture_packs(index, -1, problems, sizeof(problems)) < 0) {
+            if (!texture_pack_unload || load_texture_packs(index, -1, problems, sizeof(problems)) < 0) {
                 mod->failed = 1;
                 note(mod, "texture pack could not load%s%s", problems[0] ? ": " : "", problems);
                 drop_overrides(index);
-                if (texture_pack_load && texture_pack_unload) load_texture_packs(-1, index, NULL, 0);
+                if (texture_pack_unload) load_texture_packs(-1, index, NULL, 0);
                 return;
             }
             if (problems[0]) warn(mod, 0, "texture pack: %s", problems);
@@ -1647,12 +4297,18 @@ static void activate_once(int index, int on)
         if (mod->hooks.applied) mod->hooks.applied(1);
     } else {
         drop_overrides(index);
-        if (mod->audio && audio_unload) audio_unload(index);
-        if (mod->textures[0] && texture_pack_load && texture_pack_unload) {
+        /* The manifest's sounds, and those its code added (host->sound_add). */
+        if ((mod->audio || mod->sounds) && audio_unload) audio_unload(index);
+        mod->sounds = 0;
+        if (has_images(mod) && texture_pack_unload) {
             /* The packs add up: the others' come back without this one's. */
             load_texture_packs(-1, index, NULL, 0);
         }
         mod->active = 0;
+        mod->hud_hidden = 0;
+        release_mouse(index);
+        release_wheel(index);
+        ahead_drop(mod);
         if (mod->hooks.applied) mod->hooks.applied(0);
     }
 }
@@ -1668,6 +4324,76 @@ int Mods_InstallDirectory(char *out, size_t size)
     return Paths_MakeDirs(out);
 }
 
+/* A mod folder that came while the game runs (Import mod..., import.h).
+ * Never put in place before: borrowed strings live until exit, so an old
+ * manifest it replaces stays allocated. */
+static Mod *at(int index);
+static int untouched(const Mod *mod)
+{
+    return !mod->active && !mod->initialized && !mod->data_prepared && !mod->runtime_options && !mod->sequence &&
+           !mod->object.image && !mod->object.native_handle;
+}
+int Mods_InUse(int index) { return at(index) && !untouched(&mods[index]); }
+int Mods_Discover(const char *directory, int *later)
+{
+    Mod candidate;
+    char error[160], key[256];
+    int index;
+    *later = 0;
+    if (!read_manifest(&candidate, directory, "installed")) return -1;
+    index = by_id(candidate.id);
+    if (index < 0) {
+        if (mod_count >= MODS_MAX) {
+            Json_Free(candidate.manifest);
+            fprintf(stderr, "memories-pc: more than %d mods; %s was skipped\n", MODS_MAX, candidate.id);
+            return -1;
+        }
+        /* New: off until the player turns it on, at this launch and the next. */
+        candidate.enabled = 0;
+        if (setting_key(key, sizeof(key), candidate.id, NULL)) Settings_SetNamed(key, 0);
+        index = mod_count++;
+        mods[index] = candidate;
+    } else if (untouched(&mods[index])) {
+        /* The player's choice is the setting, which read_manifest read. */
+        mods[index] = candidate;
+    } else {
+        /* In place (or once was): its object, data and pictures are the old
+         * files' until the game starts again, so a change to it waits for
+         * that launch too. */
+        Json_Free(candidate.manifest);
+        mods[index].restart = 1;
+        note(&mods[index], "its files were replaced: the new ones are used from the next launch");
+        *later = 1;
+        Mods_OverlapsForget();
+        return index;
+    }
+    if (!Mods_CheckManifest(index, error, sizeof(error))) { mods[index].broken = 1; note(&mods[index], "%s", error); }
+    Mods_OverlapsForget();
+    say("%s: found in %s", mods[index].id, directory);
+    return index;
+}
+
+int Mods_Forget(int index)
+{
+    char key[256];
+    if (!at(index) || !untouched(&mods[index])) return -1;
+    /* Off, in the settings too: a mod with this id imported later starts
+     * off, as any new one does. Its order and option values stay, so an
+     * updated version comes back with the player's choices. The slot stays
+     * (events and state are keyed by index); the list leaves it out. */
+    if (setting_key(key, sizeof(key), mods[index].id, NULL)) Settings_SetNamed(key, 0);
+    mods[index].enabled = 0;
+    mods[index].failed = 0;
+    mods[index].broken = 1;
+    mods[index].removed = 1;
+    mods[index].status[0] = '\0';
+    mods[index].warnings[0] = '\0';
+    Mods_OverlapsForget();
+    say("%s: removed", mods[index].id);
+    return 0;
+}
+int Mods_Removed(int index) { return at(index) && mods[index].removed; }
+
 void Mods_Load(void)
 {
     const char *all = getenv("MEMORIES_MODS");
@@ -1679,8 +4405,10 @@ void Mods_Load(void)
         scanned = 1;
         if (named && *named) {
             scan(named, "installed");
+            scan_folder(1);
         } else {
             if (!Paths_Program(path, sizeof(path), "mods")) scan(path, "shipped");
+            scan_folder(0);
             if (!Paths_User(path, sizeof(path), "mods")) scan(path, "installed");
         }
         for (i = 0; i < mod_count; i++) {
@@ -1869,6 +4597,16 @@ void Mods_VisitCards(void (*visit)(const char *id, const char *directory, const 
     }
 }
 
+void Mods_VisitManifests(void (*visit)(const char *id, const char *directory,
+                                       const struct JsonValue *manifest, void *context), void *context)
+{
+    int i;
+    for (i = 0; i < loaded_count; i++) {
+        const Mod *mod = &mods[loaded[i]];
+        if (mod->active) visit(mod->id, mod->directory, Json_Root(mod->manifest), context);
+    }
+}
+
 int Mods_Setting(const char *id, const char *key, int fallback)
 {
     char name[256];
@@ -1902,10 +4640,14 @@ void Mods_Note(const char *id, const char *format, ...)
 void Mods_DrawFrame(void)
 {
     int i;
+    uint64_t started;
+    picture_only_asked = 0;
     if (shut_down) return;
+    started = callback_start();
     for (i = 0; i < mod_count; i++) {
         if (mods[i].active && mods[i].initialized && mods[i].hooks.frame) mods[i].hooks.frame();
     }
+    callback_end(CALLBACK_FRAME, started);
 }
 
 void Mods_Reset(void)
@@ -1923,15 +4665,18 @@ const char *Mods_Directory(int index) { return at(index) ? mods[index].directory
 const char *Mods_Origin(int index) { return at(index) ? mods[index].origin : ""; }
 int Mods_Active(int index) { return at(index) && mods[index].active; }
 int Mods_Failed(int index) { return at(index) && (mods[index].broken || mods[index].failed); }
+int Mods_HasCode(int index) { return at(index) && Manifest_HasCode(Mods_Manifest(index)); }
 
 unsigned Mods_CodeHash(int index) { return at(index) ? mods[index].code_hash : 0; }
 
 unsigned Mods_Sequence(int index) { return at(index) ? mods[index].sequence : 0; }
 
+unsigned Mods_Changes(void) { return change_count; }
+
 void Mods_OptionChanged(int index, int option)
 {
     const JsonValue *spec = Mods_Option(index, option);
-    if (!at(index) || !mods[index].active || !mods[index].textures[0] || !texture_pack_load || !texture_pack_unload) return;
+    if (!at(index) || !mods[index].active || !has_images(&mods[index]) || !texture_pack_unload) return;
     /* A setting that waits for a restart keeps the value it was applied with (Mods_RuntimeOption). */
     if (mods[index].restart || Json_Bool(Json_Member(spec, "restart"), 0)) return;
     load_texture_packs(-1, -1, NULL, 0);

@@ -104,7 +104,14 @@ void Duelists_SetAvailable(int duelist, int shown);
  *     "card":   a card the trunk or deck must hold -- an id, a name, or an
  *               identity
  *     "copies": how many of "card" (1 by default)
+ *     "tower":  true for the mod's tower won to its top, or a floor (1 up)
+ *               won on this save (pc/tower/tower.h)
  *   }
+ *
+ * "tower_only": true on an added duelist keeps it off the grid until the
+ * tower lets it out -- a won floor names it as its opponent or in its
+ * reward's "unlock_duelist" -- whatever else its "unlock" says, which must
+ * hold too. The tower fights it all the same.
  *
  * Nothing is stored: a condition is read from the save's own records, trunk
  * and flags every time the screen opens, so it follows the save that is
@@ -144,12 +151,18 @@ void Duelists_Frame(void);
  * A mod gives one by putting a PNG at "portraits/<id>.png" beside its
  * manifest, named for the entry's own "id"; "portrait" names a path instead
  * for anything that does not suit. The one file serves both pictures: it is
- * reduced to the 48x48 of 64 colours the console's slot holds, and kept whole
+ * reduced to the 48x48 of 64 colors the console's slot holds, and kept whole
  * for the scaled picture, which draws it at its own size through the texture
  * pack (TexturePack_AddMade), which knows the upload by the record's bytes.
  * So a portrait is as sharp as the file is, and nothing more is asked of the
  * mod. */
 const unsigned char *Duelists_Portrait(int duelist);
+/* A duelist's own large character, its "bust" (busts.h): the bust's number,
+ * -1 for none (the campaign's character of its base, if any, then).
+ * "replace_bust": true on a "replace" entry makes it the campaign's too:
+ * Duelists_ReplacesBust, 1 for a disc duelist whose entry says so. */
+int Duelists_Bust(int duelist);
+int Duelists_ReplacesBust(int duelist);
 /* The nine AI parameters a duelist plays by: its own when a mod gave it any,
  * its base's otherwise. Never NULL for a valid id, so a caller can index it
  * straight. Byte 0 is how deep into its deck the AI may look for a card to

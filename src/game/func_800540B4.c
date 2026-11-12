@@ -1,6 +1,6 @@
 /*
  * Per-slot model draw pass: selects the slot's ordering table, programs the
- * three flat lights and the ambient colour, steps the slot's colour fade into
+ * three flat lights and the ambient color, steps the slot's color fade into
  * the shared primitive templates at D_8009AFAC..D_8009AFE8, sorts every unit
  * of the slot, then updates the slot's bounding volume, draws the ground
  * shadow fan and runs the palette flash. Matching pure C under
@@ -34,7 +34,7 @@
  *   stay inside the loop while the twice-used D1C load is still hoisted;
  * - the shadow clamps assign a conditional expression back to each vertex
  *   field, the fan table is indexed as x/z pairs so loop.c makes the pointer,
- *   and the shadow colour reads the template bytes directly.
+ *   and the shadow color reads the template bytes directly.
  */
 #include "../types.h"
 #include "../psyq/libgte.h"
@@ -74,24 +74,24 @@
 u32 D_8009AFE0;
 u8 D_8009AFE4;
 
-/* Stamps a colour into the ten primitive templates and derives the blend
- * words from the fade mode byte. Both colour blocks share it; a plain braced
+/* Stamps a color into the ten primitive templates and derives the blend
+ * words from the fade mode byte. Both color blocks share it; a plain braced
  * block rather than do/while (0), because a loop note is a cse boundary. */
-#define MODEL_STAMP_TEMPLATES(colour, red, green, blue, fl, mode) \
+#define MODEL_STAMP_TEMPLATES(color, red, green, blue, fl, mode) \
     { \
     if ((fl) != 0) { \
-        (colour) |= 0x02000000; \
+        (color) |= 0x02000000; \
     } \
-    D_8009AFAC = (colour) | 0x24000000; \
-    D_8009AFB0 = (colour) | 0x2C000000; \
-    D_8009AFB4 = (colour) | 0x34000000; \
-    D_8009AFB8 = (colour) | 0x3C000000; \
-    D_8009AFCC = (colour) | 0x4A000000; \
-    D_8009AFD0 = (colour) | 0x4E000000; \
-    D_8009AFBC = (colour) | 0x26000000; \
-    D_8009AFC0 = (colour) | 0x2E000000; \
-    D_8009AFC4 = (colour) | 0x36000000; \
-    D_8009AFC8 = (colour) | 0x3E000000; \
+    D_8009AFAC = (color) | 0x24000000; \
+    D_8009AFB0 = (color) | 0x2C000000; \
+    D_8009AFB4 = (color) | 0x34000000; \
+    D_8009AFB8 = (color) | 0x3C000000; \
+    D_8009AFCC = (color) | 0x4A000000; \
+    D_8009AFD0 = (color) | 0x4E000000; \
+    D_8009AFBC = (color) | 0x26000000; \
+    D_8009AFC0 = (color) | 0x2E000000; \
+    D_8009AFC4 = (color) | 0x36000000; \
+    D_8009AFC8 = (color) | 0x3E000000; \
     B(&D_8009AFE6, 0) = (red); \
     B(&D_8009AFE6, 1) = (green); \
     D_8009AFE8 = (blue); \
@@ -139,6 +139,11 @@ static inline s32 Model_MirrorOffset(s32 index, s32 value, s32 offset)
     return value + offset;
 }
 
+#ifdef MEMORIES_PC
+/* The console's pass, run by the wrapper at the end of the file. */
+#define func_800540B4 sort_slot
+static
+#endif
 void func_800540B4(s32 index)
 {
     MATRIX zero;
@@ -192,7 +197,7 @@ void func_800540B4(s32 index)
         ot->length = 0xE;
         if ((slot->field_DC0[7] % 6) && slot->field_DC0[3] == 0 && D_8009AFE4 == 0) {
             s32 step;
-            s32 colour;
+            s32 color;
             s32 r;
             s32 fl;
             s32 mode;
@@ -204,9 +209,9 @@ void func_800540B4(s32 index)
             h = slot->field_DC0[6];
             w = slot->field_DC0[5];
             r = slot->field_DC0[4];
-            colour = (h << 16) | (w << 8) | r;
+            color = (h << 16) | (w << 8) | r;
             fl = slot->field_DC0[7];
-            MODEL_STAMP_TEMPLATES(colour, r, w, h, fl, mode);
+            MODEL_STAMP_TEMPLATES(color, r, w, h, fl, mode);
             D_8009AFE4 = 3;
             lim = slot->field_DC0[0];
             if (slot->field_DC0[4] + step < lim) {
@@ -228,7 +233,7 @@ void func_800540B4(s32 index)
                 slot->field_DC0[7] = 0;
             }
         } else if (D_8009AFE4 != 1) {
-            s32 colour;
+            s32 color;
             s32 fl;
             s32 mode;
 
@@ -236,10 +241,10 @@ void func_800540B4(s32 index)
             w = slot->field_DC0[1];
             y = slot->field_DC0[0];
             fl = slot->field_DC0[3];
-            colour = h << 16;
-            colour |= w << 8;
-            colour |= y;
-            MODEL_STAMP_TEMPLATES(colour, y, w, h, fl, mode);
+            color = h << 16;
+            color |= w << 8;
+            color |= y;
+            MODEL_STAMP_TEMPLATES(color, y, w, h, fl, mode);
             if (W(slot->field_DC0, 0) != 0x808080) {
                 D_8009AFE4 = 3;
             }
@@ -724,3 +729,20 @@ void func_800540B4(s32 index)
         ot->length = 0xC;
     }
 }
+
+#ifdef MEMORIES_PC
+#undef func_800540B4
+#include "pc/cards/battle_models.h"
+/* A battle slot holding a mod's bigger model draws into its own RAM
+   (src/pc/cards/battle_models.h); any other draws as the console does. */
+void func_800540B4(s32 index)
+{
+    s32 saved;
+    s32 begun = BattleModels_BeginSort(index, &saved);
+    if (begun < 0) {
+        return;
+    }
+    sort_slot(index);
+    BattleModels_EndSort(begun, saved);
+}
+#endif

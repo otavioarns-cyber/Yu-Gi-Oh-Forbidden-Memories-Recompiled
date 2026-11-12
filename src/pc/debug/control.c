@@ -6,6 +6,7 @@
 #include "recorder.h"
 #include "pc/guest/image.h"
 #include "pc/guest/state.h"
+#include "symbols.h"
 #include "pc/platform/platform.h"
 #include "pc/platform/title_jump.h"
 #include "pc/platform/menu.h"
@@ -30,6 +31,8 @@ static int owed;          /* the "ok" of a `step` or a `load`, sent at the next 
 static int send_failed;
 static volatile uint16_t pads[2];
 static volatile int pad2_set;
+static volatile int pointer_set, pointer_x, pointer_y;   /* `pointer`: picture coordinates */
+static volatile unsigned pointer_buttons;
 static ControlLines lines;
 static char line[CONTROL_LINE_MAX + 1];
 static uint8_t data[CONTROL_DATA_MAX];
@@ -44,6 +47,21 @@ static int send_idle(void)
 
 uint16_t Control_Pad(int port) { return pads[port & 1]; }
 int Control_PadConnected(int port) { return port == 1 && pad2_set; }
+static volatile int wheel_pending;
+int Control_PointerWheel(void)
+{
+    int notches = wheel_pending;
+    wheel_pending = 0;
+    return notches;
+}
+int Control_Pointer(int *x, int *y, unsigned *buttons)
+{
+    if (!pointer_set) return 0;
+    *x = pointer_x;
+    *y = pointer_y;
+    *buttons = pointer_buttons;
+    return 1;
+}
 
 /* One reply line, in one piece (`text` is `reply` or a short literal). */
 static void send_line(const char *text)
@@ -85,6 +103,7 @@ static void detach(const char *why)
     send_failed = pad2_set = 0;
     lines.used = lines.dropping = 0;
     pads[0] = pads[1] = 0; /* nothing held by a client that has gone */
+    pointer_set = 0;       /* nor a pointer: the real mouse is the mouse again */
     Platform_ControlAttach(0);
     fprintf(stderr, "memories-pc: control: %s at frame %u\n", why, Memories_PresentedFrames());
 }
@@ -183,6 +202,41 @@ static uint8_t *guest(uint32_t address, uint32_t length, int *ram)
     return (uint8_t *)(uintptr_t)((scratchpad ? SCRATCHPAD : MEMORIES_GUEST_RAM) + offset);
 }
 
+/* The bytes of `command`'s game variable, @NAME[+OFF] (control_protocol.h):
+ * NAME is looked up in the build's own table, so the address is where this
+ * process keeps the variable (the game's small data is not at its retail
+ * address). NULL with the reason in `error`; the extent is checked, so a read
+ * never goes on into the next variable. */
+static uint8_t *variable(const ControlCommand *command, int write, char *error, size_t size)
+{
+    uintptr_t address, extent;
+    int read_only = 0;
+    int found = Symbols_FindVariable(command->symbol, &address, &extent, &read_only);
+    if (found == 1) {   /* the client reads the address from here: yfm_control.Game.locate */
+        snprintf(error, size, "%.60s is pinned at retail address %08x: peek and poke it there",
+                 command->symbol, (unsigned)address);
+        return NULL;
+    }
+    if (found) {
+        snprintf(error, size, found == -2 ? "no variable table in this build (symbols/<id>.vars.txt), so %.60s "
+                                            "cannot be found" : "no variable %.60s in this build",
+                 command->symbol);
+        return NULL;
+    }
+    if (write && read_only) {   /* a write would fault: the page is read-only */
+        snprintf(error, size, "%.60s is read-only (a constant of the build): it can be read, not written",
+                 command->symbol);
+        return NULL;
+    }
+    if (!extent || (uint64_t)command->offset + command->length > extent) {
+        snprintf(error, size, "%.60s+%x and %u bytes is %s", command->symbol, (unsigned)command->offset,
+                 (unsigned)command->length, extent ? "past its end" : "of unknown extent");
+        if (extent) snprintf(error + strlen(error), size - strlen(error), " (%u bytes)", (unsigned)extent);
+        return NULL;
+    }
+    return (uint8_t *)address + command->offset;
+}
+
 /* The presented picture: Memories_DumpFrame's PPM, as PNG unless the path
  * asks for PPM (its own .ppm.partial first, beside the PNG). */
 static int shot(const char *path)
@@ -224,12 +278,21 @@ static int shot(const char *path)
     return ok ? 0 : -1;
 }
 
-/* The poke's bytes into guest memory; -1 outside it. */
-static int poke(const ControlCommand *command)
+/* The poke's bytes into guest memory or a game variable; -1 outside them,
+ * with the reason in `error`. */
+static int poke(const ControlCommand *command, char *error, size_t error_size)
 {
     uint8_t *at;
-    int ram;
-    if (!(at = guest(command->address, command->length, &ram))) return -1;
+    int ram = 0;
+    if (command->symbol) {
+        if (!(at = variable(command, 1, error, error_size))) return -1;
+        memcpy(at, data, command->length);
+        return 0;
+    }
+    if (!(at = guest(command->address, command->length, &ram))) {
+        snprintf(error, error_size, "outside guest RAM and the scratchpad");
+        return -1;
+    }
     memcpy(at, data, command->length);
     if (ram && command->length) Memories_GuestWritten(at, command->length); /* a module's identifier, perhaps */
     return 0;
@@ -252,7 +315,7 @@ int Control_Apply(char *text)
     ControlCommand command;
     char error[160];
     if (ControlProtocol_Parse(text, &command, data, error, sizeof(error))) return -1;
-    if (command.kind == CONTROL_POKE) return poke(&command);
+    if (command.kind == CONTROL_POKE) return poke(&command, error, sizeof(error));
     if (command.kind == CONTROL_JUMP) return jump(&command, error, sizeof(error));
     return -1;
 }
@@ -287,6 +350,17 @@ static int handle(char *text)
         if (command.pad == 1) pad2_set = 1;
         send_line("ok");
         return 0;
+    case CONTROL_POINTER:
+        pointer_x = command.pointer_x;
+        pointer_y = command.pointer_y;
+        pointer_buttons = command.pointer_buttons;
+        pointer_set = !command.pointer_off;
+        send_line("ok");
+        return 0;
+    case CONTROL_WHEEL:
+        wheel_pending += command.pointer_x;
+        send_line("ok");
+        return 0;
     case CONTROL_SHOT:
         if (shot(command.path)) {
             snprintf(error, sizeof(error), "could not write %.120s", command.path);
@@ -300,8 +374,12 @@ static int handle(char *text)
         send_line(reply);
         return 0;
     case CONTROL_PEEK:
-        if (!(at = guest(command.address, command.length, &ram))) {
-            send_error("outside guest RAM and the scratchpad");
+        if (command.symbol) at = variable(&command, 0, error, sizeof(error));
+        else if (!(at = guest(command.address, command.length, &ram))) {
+            snprintf(error, sizeof(error), "outside guest RAM and the scratchpad");
+        }
+        if (!at) {
+            send_error(error);
             return 0;
         }
         memcpy(reply, "ok ", 3);
@@ -309,8 +387,8 @@ static int handle(char *text)
         send_line(reply);
         return 0;
     case CONTROL_POKE:
-        if (poke(&command)) {
-            send_error("outside guest RAM and the scratchpad");
+        if (poke(&command, error, sizeof(error))) {
+            send_error(error);
             return 0;
         }
         Recorder_Command(kept);

@@ -12,30 +12,178 @@ from .gamedata import TYPE_NAMES
 from .model import card_matches  # noqa: F401 (model.py's; tabs.py and art_tab.py import it from here)
 
 
+def desktop_scale(widget) -> float:
+    """How much bigger than at 96 dpi the desktop draws the default font: a
+    desktop set to 144 dpi (Xft.dpi) enlarges the text but not Tk's pixel
+    sizes, so widths, wrap lengths and row heights given in pixels grow by
+    this. On Windows the program is dpi aware (theme.dpi_awareness): Tk's
+    scaling (pixels a point) is the dpi's, 4/3 at 100%, and the fonts in
+    points follow it, so the pixel sizes do too. Measured once a window,
+    before View > Interface size (zoom.py) grows the fonts."""
+    root = widget._root()
+    scale = getattr(root, "fm_desktop_scale", None)
+    if scale is None:
+        if sys.platform == "win32":
+            scale = max(1.0, float(widget.tk.call("tk", "scaling")) * 72 / 96)
+        else:
+            scale = max(1.0, tkfont.nametofont("TkDefaultFont", root=root).metrics("linespace") / 19)
+        root.fm_desktop_scale = scale
+    return scale
+
+
 def ui_scale(widget) -> float:
-    """How much bigger than at 96 dpi the default font is drawn: a desktop
-    set to 144 dpi (Xft.dpi) enlarges the text but not Tk's pixel sizes, so
-    widths, wrap lengths and row heights given in pixels grow by this.
-    On Windows the program is dpi aware (theme.dpi_awareness): Tk's scaling
-    (pixels a point) is the dpi's, 4/3 at 100%, and the fonts in points
-    follow it, so the pixel sizes do too."""
-    if sys.platform == "win32":
-        return max(1.0, float(widget.tk.call("tk", "scaling")) * 72 / 96)
-    return max(1.0, tkfont.nametofont("TkDefaultFont", root=widget).metrics("linespace") / 19)
+    """The desktop's scale times View > Interface size's (zoom.py)."""
+    return desktop_scale(widget) * getattr(widget._root(), "fm_zoom", 1.0)
 
 
 def px(widget, pixels: int) -> int:
-    """`pixels` at 96 dpi, at the desktop's size (ui_scale)."""
+    """`pixels` at 96 dpi, at the desktop's size and the interface size
+    (ui_scale)."""
     return round(pixels * ui_scale(widget))
+
+
+def _named_font(key: str, **options) -> str:
+    """A named font made once a window, so View > Interface size (zoom.py)
+    resizes it with the others: its name."""
+    root = tk._get_default_root("use a font")
+    fonts = root.__dict__.setdefault("fm_fonts", {})
+    if key not in fonts:
+        base = options["size"]
+        options["size"] = int(base * getattr(root, "fm_zoom", 1.0) + 0.5)
+        fonts[key] = tkfont.Font(root=root, name=key, **options)
+        base_sizes = getattr(root, "fm_font_base", None)
+        if base_sizes is not None:
+            base_sizes[key] = base
+    return key
 
 
 def ui_font(size: int, weight: str = "bold"):
     """The default font's face at another size (a heading): ("TkDefaultFont",
     size, weight) names no face, which X11 matches to its default sans but
-    Windows to Arial, so there the face is TkDefaultFont's own."""
-    if sys.platform == "win32":
-        return (tkfont.nametofont("TkDefaultFont").actual("family"), size, weight)
-    return ("TkDefaultFont", size, weight)
+    Windows to Arial, so the face is TkDefaultFont's own."""
+    family = tkfont.nametofont("TkDefaultFont").actual("family")
+    return _named_font(f"FMUi{size}{weight}", family=family, size=size, weight=weight)
+
+
+def fixed_font(size: int = 10):
+    """The text boxes' fixed-width font (Consolas, as they always asked)."""
+    return _named_font(f"FMFixed{size}", family="Consolas", size=size)
+
+
+class WrapLabel(ttk.Label):
+    """For a hint across a whole tab (not one beside other panes: it takes
+    the room to the page's right edge). A label whose text wraps to the room the window shows it, so a long
+    hint never asks the window to be wider: it wraps at the right edge of
+    the scrolled page (or form) it is in, or of the window, however wide
+    the page's content is (that content is as wide as it asks, which a
+    label wrapped to its own width would feed back into), at `width`
+    pixels (at 96 dpi) at least."""
+
+    def __init__(self, master, width: int = 360, **options):
+        options.setdefault("justify", "left")
+        self.least = width
+        super().__init__(master, wraplength=px(master, width), **options)
+        self._job = None
+        self.bind("<Configure>", lambda e: self._later(), add="+")
+        self.bind("<Map>", lambda e: self._later(), add="+")
+
+    def _later(self):
+        if self._job is None:
+            self._job = self.after_idle(self._wrap)
+
+    def _viewport(self):
+        widget = self.master
+        while widget is not None:
+            canvas = getattr(widget, "canvas", None)
+            if isinstance(canvas, tk.Canvas):
+                return canvas
+            widget = widget.master
+        return self.winfo_toplevel()
+
+    def _wrap(self):
+        self._job = None
+        if not self.winfo_exists() or not self.winfo_ismapped():
+            return
+        view = self._viewport()
+        right = view.winfo_rootx() + view.winfo_width()
+        # A panel placed with a size of its own (an empty tab's) is a fixed
+        # edge too: its width is not the label's doing.
+        widget = self.master
+        while widget is not None and widget is not view:
+            if widget.winfo_manager() == "place":
+                right = min(right, widget.winfo_rootx() + widget.winfo_width() - px(self, 12))
+                break
+            widget = widget.master
+        # The margin: the label's own padding and the frames' around it
+        # (a tab's 6 a side), which would otherwise push the page past its edge.
+        wrap = max(px(self, self.least), right - self.winfo_rootx() - px(self, 28))
+        if abs(int(float(str(self.cget("wraplength")) or 0)) - wrap) > 2:
+            self.configure(wraplength=wrap)
+            # The viewport may be resized without the label moving.
+        if isinstance(widget, tk.Misc) and widget is not view and not getattr(widget, "_wraps", False):
+            widget._wraps = True        # the placed panel resized: wrap again
+            widget.bind("<Configure>", lambda e: self._later(), add="+")
+        if not getattr(view, "_wrap_labels", None):
+            view._wrap_labels = []
+            # Its own Configure only: a toplevel's binding sees every child's.
+            view.bind("<Configure>", lambda e, v=view: [label._later() for label in v._wrap_labels
+                                                       if label.winfo_exists()] if e.widget is v else None,
+                      add="+")
+        if self not in view._wrap_labels:
+            view._wrap_labels.append(self)
+
+
+def legend(parent, *rows) -> ttk.Frame:
+    """What a list's colors say, in those colors: rows are (tag, words),
+    a tag of theme.TAGS ("changed", "added", "removed", "glitch"...)."""
+    frame = ttk.Frame(parent)
+    ttk.Label(frame, text="Colors:", style="Hint.TLabel").pack(side="left")
+    for tag, words in rows:
+        ttk.Label(frame, text=f"\u25a0 {words}", style=f"{tag}.Tag.TLabel").pack(side="left", padx=(8, 0))
+    return frame
+
+
+class Tooltip:
+    """A line of text beside a widget while the pointer rests on it: what a
+    field does, where its row has no room to say. Shown after a moment,
+    gone on leaving or a click."""
+    DELAY = 450
+
+    def __init__(self, widget, text: str, wrap: int = 380):
+        self.widget, self.text, self.wrap = widget, text, wrap
+        self.window = self.pending = None
+        widget.bind("<Enter>", self._schedule, add="+")
+        widget.bind("<Leave>", self.hide, add="+")
+        widget.bind("<ButtonPress>", self.hide, add="+")
+
+    def _schedule(self, _event=None):
+        self._cancel()
+        self.pending = self.widget.after(self.DELAY, self.show)
+
+    def _cancel(self):
+        if self.pending:
+            self.widget.after_cancel(self.pending)
+            self.pending = None
+
+    def show(self):
+        """Open the tip under the widget (also what the tests call)."""
+        self.pending = None
+        if self.window or not self.widget.winfo_exists():
+            return
+        x = self.widget.winfo_rootx() + px(self.widget, 8)
+        y = self.widget.winfo_rooty() + self.widget.winfo_height() + px(self.widget, 2)
+        self.window = tk.Toplevel(self.widget)
+        self.window.wm_overrideredirect(True)
+        self.window.wm_geometry(f"+{x}+{y}")
+        tk.Label(self.window, text=self.text, justify="left", wraplength=px(self.widget, self.wrap),
+                 background=theme.RAISED, foreground=theme.FG, relief="solid", borderwidth=1,
+                 padx=px(self.widget, 6), pady=px(self.widget, 3)).pack()
+
+    def hide(self, _event=None):
+        self._cancel()
+        if self.window:
+            self.window.destroy()
+            self.window = None
 
 
 class ScrolledForm(ttk.Frame):
@@ -394,7 +542,8 @@ class CardPicker(tk.Toplevel):
             if not card_matches(self.project, cid, text):
                 continue
             card = self.project.cards[cid]
-            kind = TYPE_NAMES[card.type] if 0 <= card.type < len(TYPE_NAMES) else str(card.type)
+            names = getattr(self.project, "type_names", TYPE_NAMES)
+            kind = names[card.type] if 0 <= card.type < len(names) and names[card.type] else str(card.type)
             self.tree.insert("", "end", iid=str(cid), values=(cid, card.name, kind))
             shown += 1
             if shown >= 800:
@@ -511,7 +660,7 @@ class FormDialog(tk.Toplevel):
 def show_text(master, title, text, width=100, height=36):
     window = tk.Toplevel(master)
     window.title(title)
-    box = tk.Text(window, width=width, height=height, wrap="none", font=("Consolas", 10))
+    box = tk.Text(window, width=width, height=height, wrap="none", font=fixed_font())
     bar = ttk.Scrollbar(window, orient="vertical", command=box.yview)
     box.configure(yscrollcommand=bar.set)
     box.insert("1.0", text)

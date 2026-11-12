@@ -80,6 +80,7 @@
 
 #include "game/input.h"
 #include "game/main_menu_selection.h"
+#include "game/ordering_tables.h"
 #include "overlays/main_menu/frontend.h"
 
 s32 MainMenu_UpdateFrontendMenu(void);
@@ -92,18 +93,14 @@ void SD_SEPlay(s32 id, s32 volume, s32 pan);
 int SaveMenu_Active(void);
 int Menu_IsOpen(void);
 
-/* The sprite ordering table the game's own screen-space primitives go to:
- * func_80015EF4.c takes `tab = D_800E9D90` and sorts into `tab[2]`. */
-extern void *D_800E9D90[];
-void GsSortPoly(void *primitive, void *ot, unsigned short priority);
+/* The sprite ordering table the game's own screen-space primitives go to,
+ * D_800E9D90 (game/ordering_tables.h, which brings GsSortPoly, LoadImage and
+ * DrawSync with it): func_80015EF4.c takes `tab = D_800E9D90` and sorts into
+ * `tab[2]`. */
 
-typedef struct { s16 x, y, w, h; } ModRect;   /* psyq/libgpu.h RECT */
-int LoadImage(ModRect *rect, u32 *pixels);
-int DrawSync(int mode);
-
-/* psyq/libgpu.h layouts, spelled here so the mod carries no SDK headers it
- * would otherwise only need for two structs. The port's GsSortPoly reads the
- * code out of word 1 and walks the vertices from it, so these must match. */
+/* psyq/libgpu.h layouts, spelled here as the mod first had them. The port's
+ * GsSortPoly reads the code out of word 1 and walks the vertices from it, so
+ * these must match. */
 typedef struct {
     u32 tag;
     u8 r0, g0, b0, code;
@@ -256,6 +253,16 @@ enum { SEL_YES = 0, SEL_NO = 1 };
 
 static const MemoriesModHost *host;
 static void *orig_update;
+static void *orig_pads;
+/* While the prompt is up, the new presses (and repeats) of the frame are the
+ * prompt's alone: Input_UpdatePads' are taken here, before anything reads
+ * them. Masking them only round the wheel's update was not enough: with a
+ * mod's "menu" the port's title menu (src/pc/platform/title_menu.c) reads
+ * the pad before that update, so the Cross that answered NO also chose the
+ * highlighted entry. The held word stays: the next frame's presses come from
+ * the game's own record of what was held (gInput_dwPreviousHeld). */
+static u16 s_pad_pressed, s_pad_repeat;
+static int s_pad_taken;
 static void *orig_transition;
 
 static int s_open;
@@ -298,7 +305,7 @@ static int s_ui_recent;
  * over them. Settled on screen; a constant rather than a knob. */
 #define OT_INDEX 1
 
-static void *table(void)
+static GsOT *table(void)
 {
     return D_800E9D90[OT_INDEX];
 }
@@ -453,7 +460,7 @@ static void load_art(void)
  * which is why the text kept drawing after the box had vanished. */
 static void upload_art(void)
 {
-    ModRect rect;
+    RECT rect;
 
     if (s_art <= 0 || s_sheet == NULL) {
         return;
@@ -664,11 +671,24 @@ static void transition(s32 mode)
  * the screen underneath is handed a frame with no buttons in it. The words go
  * back immediately after: they are the repeat engine's outputs and other
  * readers run later in the frame. */
+static void update_pads(void)
+{
+    ((void (*)(void))orig_pads)();
+    s_pad_taken = s_open;
+    if (s_pad_taken) {
+        s_pad_pressed = gInput_wPad1Pressed;
+        s_pad_repeat = gInput_wPad1Repeat;
+        gInput_wPad1Pressed = 0;
+        gInput_wPad1Repeat = 0;
+    }
+}
+
 static s32 update_frontend(void)
 {
-    const u16 pressed = gInput_wPad1Pressed;
+    /* the words as the rest of the frame sees them, put back after */
+    const u16 seen_pressed = gInput_wPad1Pressed, seen_repeat = gInput_wPad1Repeat;
+    const u16 pressed = s_pad_taken ? s_pad_pressed : seen_pressed;
     const u16 held = gInput_wPad1Held;
-    const u16 repeat = gInput_wPad1Repeat;
     int leave = 0;
     s32 result;
 
@@ -731,9 +751,10 @@ static s32 update_frontend(void)
 
     result = ((s32 (*)(void))orig_update)();
 
-    gInput_wPad1Pressed = pressed;
+    gInput_wPad1Pressed = seen_pressed;
     gInput_wPad1Held = held;
-    gInput_wPad1Repeat = repeat;
+    gInput_wPad1Repeat = seen_repeat;
+    s_pad_taken = 0;
 
     /* Queued here, inside the frame the screen just built, rather than from
      * the frame callback -- by then the ordering table has been handed off. */
@@ -789,6 +810,9 @@ int YamyiConfirm_Init(const MemoriesModHost *from, MemoriesMod *mod)
     }
     if (host->hook(host, (void *)MainMenu_UpdateFrontendMenu,
                    (void *)update_frontend, &orig_update) == 0) {
+        return 0;
+    }
+    if (host->hook(host, (void *)Input_UpdatePads, (void *)update_pads, &orig_pads) == 0) {
         return 0;
     }
     return 1;

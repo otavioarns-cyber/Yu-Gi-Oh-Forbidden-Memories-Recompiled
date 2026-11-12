@@ -1,5 +1,6 @@
 #ifndef MEMORIES_PC_SDK_DISPLAY_H
 #define MEMORIES_PC_SDK_DISPLAY_H
+#include <stdint.h>
 /* Show the area selected by the last PutDispEnv. Main thread only. */
 void Memories_PresentDisplay(void);
 /* The display area shown as it stands, menu and notices over it, no frame
@@ -14,6 +15,7 @@ typedef struct FrameStats {
     unsigned game_us, present_us, game_max_us, present_max_us;
     unsigned missed_vblanks;
     unsigned draw_words, draw_us;
+    unsigned windows;          /* how many times these were counted (every 120 frames) */
 } FrameStats;
 const FrameStats *Memories_FrameStats(void);
 void Memories_SetDrawStats(unsigned words, unsigned us);

@@ -27,10 +27,10 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 KINDS = ["Disc data", "Sounds", "Texture images", "Cards", "Fusions", "Equips", "Rituals", "Drops and decks",
-         "Starter decks", "Passwords", "Card packs", "Guardian Stars", "Limits", "Terrain bonuses", "Attack traps",
-         "Duelists", "Text", "Fonts", "Title screen and menus", "Code hooks", "Game events"]
+         "Starter decks", "Passwords", "Card packs", "Guardian Stars", "Values", "Terrain bonuses", "Attack traps",
+         "Duelists", "Text", "Fonts", "Title screen and menus", "Duel pictures", "Code hooks", "Game events"]
 (DATA, AUDIO, TEXTURES, CARDS, FUSIONS, EQUIPS, RITUALS, POOLS, STARTER, PASSWORDS, PACKS, STARS, LIMITS, TERRAIN,
- TRAPS, DUELISTS, TEXT, FONT, TITLE, HOOKS, EVENTS) = range(len(KINDS))
+ TRAPS, DUELISTS, TEXT, FONT, TITLE, UI, HOOKS, EVENTS) = range(len(KINDS))
 INFO, WARNING = 0, 1
 
 SET, ADD, FIXED, BASE, CHAIN, EVENT, FIRST = range(7)
@@ -42,6 +42,7 @@ STARTER_WEIGHT_LIMIT = 32767      # a deck's weight (starter.c)
 STARTER_POOL_WEIGHT_LIMIT = 65535
 ALL = ("all",)
 DEFAULT_EQUIP_BONUS = ("default",)
+ALL_RECIPES = ("every disc recipe",)   # {"remove": "all"} (overlap.c ALL_RECIPES)
 EQUIP_CARDS = 1 << 20   # overlap.c EQUIP_CARDS
 STAR_RETAIL = ["", "Mars", "Jupiter", "Saturn", "Uranus", "Pluto", "Neptune", "Mercury", "Sun", "Moon", "Venus"]
 TERRAINS = ["", "Forest", "Wasteland", "Mountain", "Sogen", "Umi", "Yami"]
@@ -655,13 +656,20 @@ class _Check:
             if key is not None and (isinstance(key, tuple) or key <= CARD_COUNT):
                 self.claim(CARDS, mod, key, SET, canonical(entry), entry)
 
+    def removes_all(self, value) -> bool:
+        """{"remove": "all"} (tables.c): every disc recipe, unless a card is named "all"."""
+        if value != "all":
+            return False
+        cid = self.source.card("all", 0) if self.source.card else None
+        return not cid or cid <= 0
+
     def read_fusions(self, mod):
         for rule in _list(self.member(mod, "fusions")):
             if not self.switched_on(mod, rule):
                 continue
             rule = _obj(rule)
             if "remove" in rule:
-                key = self.card_key(rule["remove"])
+                key = ALL_RECIPES if self.removes_all(rule["remove"]) else self.card_key(rule["remove"])
                 if key is not None:
                     self.claim(FUSIONS, mod, ("remove", key), ADD, 0, rule)
                 continue
@@ -699,8 +707,12 @@ class _Check:
             e = _obj(entry)
             key = self.card_key(e.get("card"))
             if key is not None and self.switched_on(mod, entry):
+                # Where the tributes come from is part of the recipe; "field"
+                # written out is the default left out (overlap.c).
+                origin = e.get("tributes_from", "field")
                 value = (canonical(e["tributes"]) if "tributes" in e else "~",
-                         canonical(e["result"]) if "result" in e else "~")
+                         canonical(e["result"]) if "result" in e else "~",
+                         "" if origin == "field" else canonical(origin))
                 self.claim(RITUALS, mod, key, SET, value, e)
 
     # duelists, then the pools that may name them
@@ -955,7 +967,7 @@ class _Check:
                 self.star_pair(mod, d, a, -points, m)
 
     def limit_claim(self, mod, path, key, value, src) -> Claim:
-        return self.claim(LIMITS, mod, key if key is not None else path, SET, value, src, f"Limit {path}")
+        return self.claim(LIMITS, mod, key if key is not None else path, SET, value, src, f"Value {path}")
 
     def limit_both(self, mod, path, key, one, two, via, value):
         c = self.limit_claim(mod, path, key, canonical(value), value)
@@ -1088,13 +1100,21 @@ class _Check:
             if i >= 0:
                 self.title_tree(mod, f"{path}.{_cut(name, 60)}", f"entries.{i}", value, SET)
 
+    def read_ui(self, mod):
+        """"ui": each element's keys the latest mod's (ui_config.c)."""
+        for name, element in _obj(_obj(self.member(mod, "ui")).get("duel")).items():
+            for key, value in _obj(element).items():
+                path = f"ui.duel.{_cut(name, 60)}.{_cut(key, 60)}"
+                self.claim(UI, mod, path, SET, canonical(value), value, path)
+
     def read_title(self, mod):
         own = self.mods[mod].id
         for name, value in _obj(self.member(mod, "title")).items():
             path = f"title.{_cut(name, 60)}"
-            if name == "text":
+            if name in ("text", "images"):
                 if isinstance(value, list):
-                    self.claim(TITLE, mod, path, ADD, 0, value, "title.text (lines)")
+                    self.claim(TITLE, mod, path, ADD, 0, value,
+                               "title.text (lines)" if name == "text" else "title.images (pictures)")
             elif name == "entries":
                 self.title_entries(mod, path, value)
             else:
@@ -1226,6 +1246,8 @@ class _Check:
                 self.claim(FONT, mod, 0, ADD, 0)
             if self.having("title") + self.having("menu") >= 2:
                 self.read_title(mod)
+            if self.having("ui") >= 2:
+                self.read_ui(mod)
         self.sector_runs()
         self.widen()
         groups = {}
@@ -1506,6 +1528,8 @@ class _Check:
         if kind == CARDS:
             return f"Card {self.card_words(src.get('replace'))}"
         if kind == FUSIONS:
+            if c.key == ("remove", ALL_RECIPES):
+                return "Every disc recipe removed"
             if "remove" in src:
                 return f"Disc recipes for {self.card_words(src['remove'])} removed"
             with_ = src["with"]

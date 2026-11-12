@@ -2,7 +2,7 @@
  * module's (src/overlays/main_menu): three sprites from its resource bank --
  * the logo, the "(c) 1996 KAZUKI TAKAHASHI" line and PUSH START BUTTON -- over a tiled picture and a shade
  * drawn by MainMenu_DrawFrontendBackground, and the eleven entries of its
- * two menus, sprites too. Nothing on it is text, and every place and colour
+ * two menus, sprites too. Nothing on it is text, and every place and color
  * is a number in the code, so what a mod changes is applied here to the
  * objects the game made, after it made them and after each update; what
  * they show is a texture pack's (notes/modding.md). */
@@ -18,6 +18,7 @@
 #include "pc/saves/save_menu.h"
 #include "pc/saves/deck_menu.h"
 #include "pc/guest/state.h"
+#include "pc/tower/tower.h"
 #include "types.h"
 #include "game/display_object.h"
 #include "game/display_object_layout.h"
@@ -30,20 +31,25 @@
 #include <stdlib.h>
 #include <string.h>
 
-enum { ENTRY_X = 0xA0 };   /* frontend.c: the entries' middle */
-
 /* The middle of each of the game's three pictures, measured on the retail
  * title (2026-09-29): a picture of a mod's own stands there, moved by the
  * layer's x and y. */
 static const struct { int x, y; } middles[TITLE_LAYERS] = {{162, 90}, {163, 207}, {160, 185}};
 enum { OFF_SCREEN = -400 };
+/* The added pictures' place in the background's ordering table. */
+enum { PICTURE_DEPTH = 1024 };
 
 static int open;                /* between TitleScreen_Opened and _Closed */
 /* View > Aspect 16:9: the picture has TITLE_WIDE_MARGIN more either side. */
 static int wide(void) { return Platform_Widescreen(); }
 static void show_layers(void);
+static void step_fade(void);
 static int prompt_level = 0x80; /* PRESS START's own pulse, under its tint */
 static int idle;
+/* A "fade" (title_config.h): the background drawn, the title's (0) or the
+ * menus' (1), lags the menu by a fade to black, then out of it; -1 takes
+ * the menu's at once (the title just opened). `fade` is the black, 0-255. */
+static int shown = -1, fade;
 
 int TitleScreen_Song(void)
 {
@@ -64,10 +70,10 @@ static int scale(uint32_t tint, int shift, int level)
 
 static void paint(DisplayObject *object, uint32_t tint, int level)
 {
-    u8 *colour = (u8 *)&object->field_0C;
-    colour[0] = (u8)scale(tint, 16, level);
-    colour[1] = (u8)scale(tint, 8, level);
-    colour[2] = (u8)scale(tint, 0, level);
+    u8 *color = (u8 *)&object->field_0C;
+    color[0] = (u8)scale(tint, 16, level);
+    color[1] = (u8)scale(tint, 8, level);
+    color[2] = (u8)scale(tint, 0, level);
 }
 
 static DisplayObject *layer(int i)
@@ -78,23 +84,6 @@ static DisplayObject *layer(int i)
 static DisplayObject *entry(int i)
 {
     return (DisplayObject *)gMain_apMenuEntries[i];
-}
-
-/* A slide MainMenu_StartFrontendEntryTransition has just begun (16 ticks
- * to go) runs to or from the entry's own x instead of the middle. */
-static void shift_slides(void)
-{
-    int i;
-    for (i = 0; i < TITLE_ENTRIES; i++) {
-        DisplayObject *object = entry(i);
-        int dx = TitleWide_X(&TitleConfig_Get()->items[i].wide, TitleConfig_Get()->items[i].x, wide());
-        if (!object || object->field_60 != 0x10 || !dx) continue;
-        if ((s16)object->field_38.h.field_38 == ENTRY_X) object->field_38.h.field_38 += dx;
-        if ((s16)object->field_34.h.field_36 == ENTRY_X) {
-            object->field_34.h.field_36 += dx;
-            object->field_30.h.field_30 = object->field_34.h.field_36;
-        }
-    }
 }
 
 static void tint_entries(void)
@@ -133,7 +122,6 @@ void TitleScreen_Opened(void)
     }
     Mods_SetMenuItemSource(TitleMenu_ItemName);
     TitleMenu_Opened();
-    shift_slides();
     TitleMenu_Place();
     tint_entries();
     show_layers();
@@ -142,6 +130,8 @@ void TitleScreen_Opened(void)
 void TitleScreen_Closed(void)
 {
     open = 0;
+    shown = -1;
+    fade = 0;
     TitleMenu_Closed();
 }
 
@@ -157,6 +147,8 @@ void TitleScreen_State(MemoriesState *state)
     open = 0;
     idle = 0;
     prompt_level = 0x80;
+    shown = -1;
+    fade = 0;
     if (Memories_StateChunk(state, "title-screen", fields, 3) && open) TitleImages_Prepare(TitleConfig_Load());
 }
 
@@ -169,14 +161,14 @@ int TitleScreen_Update(void)
 {
     DisplayObject *prompt = D_80184560;
     int tinted = TitleConfig_Get()->layers[2].tint != 0xFFFFFF, prompting = prompt_showing(), result;
-    u8 *colour;
+    u8 *color;
     unsigned short repeat = gInput_wPad1Repeat, pressed = gInput_wPad1Pressed;
     unsigned hidden;
 
     /* The pulse runs on the game's grey; the tint goes on after. */
     if (prompting && tinted) {
-        colour = (u8 *)&prompt->field_0C;
-        colour[0] = colour[1] = colour[2] = (u8)prompt_level;
+        color = (u8 *)&prompt->field_0C;
+        color[0] = color[1] = color[2] = (u8)prompt_level;
     }
     if (prompting && TitleConfig_Get()->idle_frames >= 0) prompt->field_34.h.field_36 = 0;
 
@@ -199,10 +191,11 @@ int TitleScreen_Update(void)
     if (!open) return result;
     result = TitleMenu_After(result);
     if (result != -1) return result;
+    step_fade();
 
     if (prompt_showing() && tinted) {
-        colour = (u8 *)&prompt->field_0C;
-        prompt_level = colour[2];
+        color = (u8 *)&prompt->field_0C;
+        prompt_level = color[2];
         paint(prompt, TitleConfig_Get()->layers[2].tint, prompt_level);
     }
     if (prompting && prompt_showing() && TitleConfig_Get()->idle_frames > 0 && ++idle >= TitleConfig_Get()->idle_frames) {
@@ -210,17 +203,39 @@ int TitleScreen_Update(void)
         return -2;
     }
     if (!prompt_showing()) idle = 0;
-    shift_slides();
     TitleMenu_Place();
     tint_entries();
     show_layers();
     return result;
 }
 
-/* The background shown: the menus' while one is up, else the title's. */
+/* The background shown: the menus' while one is up, else the title's;
+ * with a "fade", the one the screen last went black to. */
 static int shown_background(void)
 {
-    return TitleMenu_Showing() >= 0;
+    return shown >= 0 ? shown : TitleMenu_Showing() >= 0;
+}
+
+/* A frame of the "fade": down to black while the background shown is not
+ * the one wanted, the switch at black, then back up. */
+static void step_fade(void)
+{
+    int target = TitleMenu_Showing() >= 0, frames = TitleConfig_Get()->fade, step;
+    if (frames <= 0 || shown < 0) {
+        shown = target;
+        fade = 0;
+        return;
+    }
+    step = (255 + frames - 1) / frames;
+    if (shown != target) {
+        fade += step;
+        if (fade >= 255) {
+            fade = 255;
+            shown = target;
+        }
+    } else if (fade > 0) {
+        fade = fade > step ? fade - step : 0;
+    }
 }
 
 static const TitleBackground *background(void)
@@ -235,10 +250,20 @@ void TitleScreen_BackgroundTint(unsigned char *r, unsigned char *g, unsigned cha
     *b = (unsigned char)scale(background()->tint, 0, 128);
 }
 
+/* The tower's screen (pc/tower/tower.h) draws the title's background with
+ * the game's own MainMenu_DrawFrontendBackground: the wall, with none of
+ * the mods' pictures, which are put in VRAM only while the title is up. */
+static int in_tower(void)
+{
+    extern u8 D_8009B26C;
+    return (D_8009B26C & 0x1F) == TOWER_MODE;
+}
+
 /* The mod's picture for the background shown: the menus' own, or the
  * title's (which the menus' is when a mod gave them none). */
 static int background_image(void)
 {
+    if (in_tower()) return -1;
     /* In widescreen, filling it, the picture made for it if there is one. */
     if (TitleScreen_BackgroundMargin() && background()->wide_image.file[0]) {
         if (shown_background() && TitleImages_Ready(TITLE_IMAGE_WIDE_MENU_BACKGROUND, NULL, NULL))
@@ -284,23 +309,38 @@ void TitleScreen_DrawImages(void *ot)
     const TitleConfig *config = TitleConfig_Get();
     unsigned char r, g, b;
     int i, w, h, picture = background_image();
+    if (in_tower()) return;
     if (background()->picture && picture >= 0) {
         int left = picture == TITLE_IMAGE_WIDE_BACKGROUND || picture == TITLE_IMAGE_WIDE_MENU_BACKGROUND
                        ? -TITLE_WIDE_MARGIN : 0;
         TitleScreen_BackgroundTint(&r, &g, &b);
         TitleImages_Draw(picture, ot, 4095, left, 0, r, g, b, 0);
     }
+    /* The added pictures over the logo and the copyright line (the game's,
+     * at 2048 and 2047, and a mod's own) and under the menu's dimming (0),
+     * PUSH START BUTTON and the menus (another table, drawn after this
+     * one); the first given lowest (a slot draws what was added to it last
+     * first). */
+    for (i = config->pictures - 1; i >= 0; i--) {
+        const TitlePicture *added = &config->picture[i];
+        if (!TitleImages_Ready(TITLE_IMAGE_PICTURE(i), &w, &h)) continue;
+        if (added->show == TITLE_SHOW_PROMPT && shown_background()) continue;
+        if (added->show == TITLE_SHOW_MENU && !shown_background()) continue;
+        TitleImages_Draw(TITLE_IMAGE_PICTURE(i), ot, PICTURE_DEPTH, TitleWide_X(&added->wide, added->x, wide()) - w / 2,
+                         TitleWide_Y(&added->wide, added->y, wide()) - h / 2, scale(added->tint, 16, 128),
+                         scale(added->tint, 8, 128), scale(added->tint, 0, 128), 0);
+    }
     for (i = 0; i < TITLE_LAYERS; i++) {
         DisplayObject *object = layer(i);
-        const u8 *colour;
+        const u8 *color;
         if (!object || !TitleImages_Ready(TITLE_IMAGE_LOGO + i, &w, &h) || config->layers[i].hidden) continue;
         if (!(object->flags & DISPLAY_OBJECT_FLAG_RENDERABLE)) continue;
-        /* The game's colour for it: the tint, and PUSH START BUTTON's pulse. */
-        colour = (const u8 *)&object->field_0C;
+        /* The game's color for it: the tint, and PUSH START BUTTON's pulse. */
+        color = (const u8 *)&object->field_0C;
         TitleImages_Draw(TITLE_IMAGE_LOGO + i, ot, 4093,
                          middles[i].x + TitleWide_X(&config->layers[i].wide, config->layers[i].x, wide()) - w / 2,
                          middles[i].y + TitleWide_Y(&config->layers[i].wide, config->layers[i].y, wide()) - h / 2,
-                         colour[0], colour[1], colour[2], 0);
+                         color[0], color[1], color[2], 0);
     }
 }
 
@@ -308,9 +348,17 @@ void TitleScreen_DrawMenu(void)
 {
     if (open) TitleMenu_Draw();
 }
-int TitleScreen_ShowShade(void) { return background()->shade; }
-long TitleScreen_BackgroundColour(void) { return background()->colour; }
-int TitleScreen_Dim(int level) { return level * TitleConfig_Get()->dim / 0x80; }
+/* The tower's screen keeps the wall down to its foot, where its boxes are:
+ * no dark-to-light shade over it there. */
+int TitleScreen_ShowShade(void) { return !in_tower() && background()->shade; }
+long TitleScreen_BackgroundColour(void) { return background()->color; }
+/* The menu's dimming, and the "fade"'s black with it: both a subtraction
+ * over the background, under the menus. */
+int TitleScreen_Dim(int level)
+{
+    int dim = level * TitleConfig_Get()->dim / 0x80;
+    return open && fade > dim ? fade : dim;
+}
 
 /* --- the text lines ------------------------------------------------------ */
 
@@ -359,7 +407,7 @@ void TitleScreen_Draw(MenuCanvas *canvas, int *x, int *y, int *w, int *h)
         else if (line->align == TITLE_ALIGN_RIGHT) left -= width;
         middle = vy + TitleWide_Y(&line->wide, line->y, wide()) * vh / 240;
         Menu_DrawTextScaled(canvas, left + size, middle + size, line->text, 0x000000, size);
-        Menu_DrawTextScaled(canvas, left, middle, line->text, line->colour, size);
+        Menu_DrawTextScaled(canvas, left, middle, line->text, line->color, size);
         if (x0 >= x1) { x0 = left; y0 = middle - 10 * size; x1 = left + width + size; y1 = middle + 11 * size; }
         if (left < x0) x0 = left;
         if (middle - 10 * size < y0) y0 = middle - 10 * size;

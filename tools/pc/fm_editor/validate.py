@@ -12,19 +12,23 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from .gamedata import (CARD_COUNT, DECK_COPY_LIMIT, DECK_POOL_MIN_CARDS, DECK_SIZE, DUELIST_NAMES, POOLS,
-                       POOL_LABELS, POOL_TOTAL, TYPE_MAGIC, TYPE_EQUIP, TYPE_NAMES, TYPE_RITUAL, exodia_piece)
-from . import art, campaign_map, card_text, fixed_decks, guardian_stars, limits, packs as packmath
-from . import monster_effects, starter_pools
+                       POOL_LABELS, POOL_TOTAL, RITUAL_ORIGINS, RITUAL_TRIBUTE_MAX, TAG_LENGTH_MAX, TAGS_MAX, TYPE_MAGIC, TYPE_EQUIP, TYPE_LIMIT, TYPE_NAMES,
+                       TYPE_RITUAL, exodia_piece)
+from . import art, board_art, campaign_map, card_text, fixed_decks, guardian_stars, packs as packmath, values
+from . import manifest, monster_effects, roster, starter_pools, tower, ui_rules
+from .compat import HOST_API, external_packs
 from .model import KEY_RE, Project, duelist_named
 
 MOD_ID_RE = re.compile(r"^[A-Za-z0-9_-]{1,63}$")
 SETTING_TYPES = ("int", "bool", "choice", "key")
 MANIFEST_KEYS = ("id", "name", "version", "author", "description", "library", "enabled", "restart",
-                 "legacy_setting", "data", "textures", "cards", "audio", "min_api", "game", "requires", "after",
-                 "conflicts", "priority", "settings", "fusions", "equips", "rituals", "drops", "decks", "text", "font",
+                 "legacy_setting", "data", "textures", "assets", "cards", "audio", "min_api", "game", "requires", "after",
+                 "conflicts", "priority", "settings", "fusions", "equips", "rituals", "drops", "decks", "duelists", "text",
+                 "font",
                  "chest_overflow", "terrain_bonus", "trap_thresholds", "equip_bonus_default", "passwords",
-                 "starter", "starter_pools", "limits", "guardian_stars", "packs", "pack_shop", "card_text_colors")
-HOST_API = 8
+                 "starter", "starter_pools", "limits", "guardian_stars", "packs", "pack_shop", "card_text_colors", "card_layout",
+                 "palette_ramps", "title", "menu", "ui", "tower", "card_types", "attributes", "fields",
+                 "models")
 
 
 @dataclass
@@ -42,7 +46,7 @@ class Issue:
 def text_lines(text: str) -> int:
     """How many lines the port's card-text wrapping makes (cards.c
     encode_description): 20 letters a line, broken at spaces and at \\n;
-    an icon code is two letters, a colour code none."""
+    an icon code is two letters, a color code none."""
     return 1 + card_text.encode(text).count("\n")
 
 
@@ -123,10 +127,10 @@ def _check_card(project: Project, cid: int, out: list):
             add("error", f"{label} is stored in tens: {value} would become {value // 10 * 10}")
     if not 0 <= card.level <= 12:
         add("error", "level is 0 to 12")
-    if not 0 <= card.type <= 23:
-        add("error", "type is one of the 24 types")
-    if not 0 <= card.attribute <= 15:
-        add("error", "attribute is 0 to 15")
+    if not 0 <= card.type < TYPE_LIMIT:
+        add("error", "type is one of the 256 type-bank entries")
+    if manifest._attribute_choice(card.attribute, project.other.get("attributes")) < 0:
+        add("error", "attribute is a retail attribute or a declared id from 8 to 255")
     count = guardian_stars.count(project.other.get("guardian_stars"))
     if not (0 <= card.star1 <= guardian_stars.MAX_STARS and 0 <= card.star2 <= guardian_stars.MAX_STARS):
         add("error", f"guardian stars are 1 to {guardian_stars.MAX_STARS}, or none (a card holds them in 4 bits)")
@@ -170,6 +174,8 @@ def _check_card(project: Project, cid: int, out: list):
             add("warning", "a monster made a non-monster does nothing when played unless \"effect\" names a card")
         if not retail.is_monster() and card.is_monster() and "model" not in extra:
             add("warning", "a card made a monster fights without a 3D model unless \"model\" names one")
+
+
     extra = project.added[cid].extra if cid in project.added else project.card_extra.get(cid, {})
     threshold = extra.get("trap_threshold")
     if threshold is not None:
@@ -178,14 +184,124 @@ def _check_card(project: Project, cid: int, out: list):
         elif card.type != 21 or project.trap_threshold_default(project.effect_of(cid)) is None:
             add("warning", "the saved attack threshold only applies to an attack-destruction trap effect")
     if "monster_effects" in extra:
-        for problem in monster_effects.problems(extra["monster_effects"], project.resolve):
+        attribute_resolve = lambda value: manifest._attribute_choice(value, project.other.get("attributes"))
+        for problem in monster_effects.problems(extra["monster_effects"], project.resolve, attribute_resolve,
+                                                project.type_names):
             add("error", problem)
         if extra["monster_effects"] and not card.is_monster():
             add("warning", "monster effects only work for a monster on the field; this card is not one")
+    if "tags" in extra:
+        tags = extra["tags"]
+        if not isinstance(tags, list):
+            add("warning", '"tags" is a list of words, such as ["god"]; the game reads none from this')
+        else:
+            for tag in tags:
+                if not isinstance(tag, str) or not tag:
+                    add("warning", "an empty tag (or not text): the game notes it and leaves it out")
+                elif len(tag.encode()) > TAG_LENGTH_MAX:
+                    add("warning", f'the tag "{tag}" is over {TAG_LENGTH_MAX} letters: the game notes it and '
+                                   "leaves it out")
     effect = project.retail.cards.get(project.effect_of(cid)) if "effect" in extra else None
     if effect and not card.is_monster() and effect.type != card.type:
-        add("warning", f"its effect is {effect.name}'s, a {TYPE_NAMES[effect.type]} card's: the CPU does not play it, "
-                       f"and as a {TYPE_NAMES[card.type]} card it may do nothing")
+        name = lambda t: project.type_names[t] if 0 <= t < len(project.type_names) and project.type_names[t] else str(t)
+        add("warning", f"its effect is {effect.name}'s, a {name(effect.type)} card's: the CPU does not play it, "
+                       f"and as a {name(card.type)} card it may do nothing")
+
+
+def _check_card_types(project: Project, out: list):
+    """Check the runtime registry: IDs, normalized names and display text."""
+    key, section = "card_types", project.other.get("card_types")
+    if section is None:
+        return
+    if not isinstance(section, dict) or not isinstance(section.get("types"), list):
+        out.append(Issue("error", "Mod info", key, "must be an object with a \"types\" list"))
+        return
+    seen = set()
+    names = {"".join(c.lower() for c in name if c.isascii() and c.isalnum()): i
+             for i, name in enumerate(TYPE_NAMES)}
+    for index, entry in enumerate(section["types"]):
+        where = f"{key}.types[{index}]"
+        if not isinstance(entry, dict) or isinstance(entry.get("id"), bool) or not isinstance(entry.get("id"), int) \
+                or not isinstance(entry.get("name"), str):
+            out.append(Issue("error", "Mod info", where, "must have numeric \"id\" and string \"name\""))
+            continue
+        type_, name = entry["id"], entry["name"]
+        if not 0 <= type_ < TYPE_LIMIT:
+            out.append(Issue("error", "Mod info", where,
+                             "id is an existing type (0-23) or a new monster type (24-255)"))
+        elif type_ in seen:
+            out.append(Issue("warning", "Mod info", where, f"redefines type {type_}; the later name wins"))
+        seen.add(type_)
+        if not name.strip():
+            out.append(Issue("error", "Mod info", where, "\"name\" must not be empty"))
+            continue
+        normalized = "".join(c.lower() for c in name if c.isascii() and c.isalnum())
+        if not normalized:
+            out.append(Issue("error", "Mod info", where, "\"name\" has no glyph the game can display"))
+        elif normalized in names and names[normalized] != type_:
+            out.append(Issue("error", "Mod info", where,
+                             f"\"name\" is already type {names[normalized]}'s name or retail alias"))
+        else:
+            names[normalized] = type_
+
+
+def _check_fields(project: Project, out: list):
+    """Match fields.c's registry checks before a manifest is saved."""
+    section = project.other.get("fields")
+    if section is None:
+        return
+    if not isinstance(section, dict) or not isinstance(section.get("fields"), list):
+        out.append(Issue("error", "Mod info", "fields", "must be an object with a \"fields\" list"))
+        return
+    retail = {"normal", "forest", "wasteland", "mountain", "sogen", "meadow", "umi", "sea", "yami", "dark"}
+    names = dict.fromkeys(retail)
+    for index, entry in enumerate(section["fields"]):
+        where = f"fields.fields[{index}]"
+        if not isinstance(entry, dict):
+            out.append(Issue("error", "Mod info", where, "must be an object with numeric id and name"))
+            continue
+        field_id, name, replace = entry.get("id"), entry.get("name"), entry.get("replace")
+        if field_id is not None and (not isinstance(field_id, int) or isinstance(field_id, bool) or not 1 <= field_id <= 255):
+            out.append(Issue("error", "Mod info", where, "id is 1 to 255"))
+        if replace is not None and (not isinstance(replace, str) or replace.lower() not in retail):
+            out.append(Issue("error", "Mod info", where, "replace names a retail field"))
+        if (not isinstance(name, str) or not name or not any(c.isalnum() for c in name)) and replace is None:
+            out.append(Issue("error", "Mod info", where, "name is a non-empty string with a letter or number"))
+            continue
+        if isinstance(name, str):
+            normalized = "".join(c.lower() for c in name if c.isalnum())
+            key = field_id if field_id is not None else replace if replace is not None else index + 7
+            if normalized in names and names[normalized] != key:
+                out.append(Issue("error", "Mod info", where, "name is already another field's name or retail alias"))
+            else:
+                names[normalized] = key
+        picture = entry.get("image", entry.get("picture"))
+        if picture is not None and (not isinstance(picture, str) or not picture or not picture.lower().endswith(".png")):
+            out.append(Issue("error", "Mod info", where, "image names a PNG in the mod"))
+        if "mirror" in entry and not isinstance(entry["mirror"], bool):
+            out.append(Issue("error", "Mod info", where, "mirror is true or false"))
+
+
+def _check_tags(project: Project, out: list):
+    """More than the 32 different tags the game has room for (cards.c
+    tag_bit): those met after them, in the order the mod's cards are
+    written, are left out. Another mod's own count too."""
+    seen, over = [], {}
+    owners = [(cid, project.card_extra[cid]) for cid in sorted(project.card_extra)]
+    owners += [(cid, project.added[cid].extra) for cid in sorted(project.added)]
+    for cid, extra in owners:
+        tags = extra.get("tags")
+        for tag in tags if isinstance(tags, list) else ():
+            if not isinstance(tag, str) or not tag or len(tag.encode()) > TAG_LENGTH_MAX or tag in seen:
+                continue
+            if len(seen) < TAGS_MAX:
+                seen.append(tag)
+            elif tag not in over:
+                over[tag] = cid
+    if over:
+        out.append(Issue("warning", "Cards", project.card_label(next(iter(over.values()))),
+                         f"{len(seen) + len(over)} different tags, past the {TAGS_MAX} the game has room for "
+                         f"(with every mod's): {', '.join(over)} left out", next(iter(over.values()))))
 
 
 def _check_password(project: Project, cid: int, add):
@@ -234,29 +350,40 @@ def _check_tables(project: Project, out: list):
             elif not project.cards[m].is_monster():
                 out.append(Issue("warning", "Equips", where, f"{project.card_label(m)} is not a monster", equip))
     for ritual, recipe in project.rituals.items():
+        if recipe is None:      # an added copy with no recipe (Project.remove_ritual)
+            continue
         conditional = project.ritual_requirements.get(ritual)
-        if project.retail.rituals.get(ritual) == recipe and not conditional:
+        origin = project.ritual_from.get(ritual, "field")
+        if project.retail.rituals.get(ritual) == recipe and not conditional and origin == "field":
             continue
         where = project.card_label(ritual)
         if not valid(ritual) or not project.is_ritual(ritual):
             out.append(Issue("error", "Rituals", where, "\"card\" must be a ritual card whose effect is a ritual's "
                              "(a copy of one, or \"effect\" naming one)", ritual))
-        if len(recipe) != 4 or not valid(recipe[3]):
-            out.append(Issue("error", "Rituals", where, "a valid result card is required", ritual))
+        if not 2 <= len(recipe) <= RITUAL_TRIBUTE_MAX + 1 or not valid(recipe[-1]):
+            out.append(Issue("error", "Rituals", where, "one to five tributes and a valid result card are required",
+                             ritual))
             continue
+        if origin not in RITUAL_ORIGINS:
+            out.append(Issue("error", "Rituals", where, "tributes come from the field, the hand or both", ritual))
+        tributes = len(recipe) - 1
+        if origin == "hand" and tributes == RITUAL_TRIBUTE_MAX:
+            # The ritual card is in the hand too when played from it.
+            out.append(Issue("warning", "Rituals", where, "five tributes from the hand: only when the ritual card was "
+                             "set face down first (played from the hand, four other cards are there)", ritual))
         if conditional:
-            if len(conditional) != 3 or any(not req for req in conditional):
-                out.append(Issue("error", "Rituals", where, "three nonempty tribute requirements are required", ritual))
+            if len(conditional) != tributes or any(not req for req in conditional):
+                out.append(Issue("error", "Rituals", where, "every tribute needs a requirement", ritual))
             for req in conditional:
                 cid = req.get("card")
                 if cid and not valid(cid):
                     out.append(Issue("error", "Rituals", where, f"no card {cid}", ritual))
                 elif cid and not project.cards[cid].is_monster():
                     out.append(Issue("warning", "Rituals", where, f"{project.card_label(cid)} is not a monster", ritual))
-            if not project.cards[recipe[3]].is_monster():
+            if not project.cards[recipe[-1]].is_monster():
                 out.append(Issue("warning", "Rituals", where, "the result should be a monster", ritual))
         elif not all(valid(c) for c in recipe):
-            out.append(Issue("error", "Rituals", where, "three tributes and a result, all cards", ritual))
+            out.append(Issue("error", "Rituals", where, "every tribute and the result must be a card", ritual))
         elif not all(project.cards[c].is_monster() for c in recipe):
             out.append(Issue("warning", "Rituals", where, "tributes and result should be monsters", ritual))
     for d, pools in enumerate(project.pools):
@@ -329,6 +456,9 @@ def _check_packs(project: Project, out: list):
     for level, message in packmath.check_rules(project.pack_shop):
         out.append(Issue(level, "Packs", "pack_shop", message, None))
     if project.packs_file is not None:
+        _, problem = external_packs(project.packs_file, project)
+        if problem:
+            out.append(Issue("error", "Packs", "packs", problem + "; compatibility cannot be determined"))
         return
     resolve = pack_resolver(project)
     ids, passwords = set(), {}
@@ -396,30 +526,45 @@ def _check_packs(project: Project, out: list):
 def validate(project: Project) -> list:
     out = []
     _check_info(project, out)
+    _check_card_types(project, out)
+    _check_fields(project, out)
     for cid in sorted(project.cards):
         if project.card_changed(cid):
             _check_card(project, cid, out)
+    _check_tags(project, out)
     _check_tables(project, out)
     _check_starter(project, out)
-    for level, where, message in limits.check(project.other.get("limits")):
-        out.append(Issue(level, "Limits", where, message))
+    for level, where, message in values.check(project.other.get("limits"), lambda name: roster.named(project, name)):
+        out.append(Issue(level, "Values", where, message))
     stars = {}
     for card in project.cards.values():
         if card.is_monster():
             for star in (card.star1, card.star2):
                 stars[star] = stars.get(star, 0) + 1
-    # The ATK/DEF cap a bonus is measured against: the Limits tab's, else 9999.
-    flat = limits.flatten(project.other.get("limits"))
+    # The ATK/DEF cap a bonus is measured against: the Values tab's, else 9999.
+    flat = values.flatten(project.other.get("limits"))
     caps = [flat[key] for key in ("stats", "attack", "defense") if isinstance(flat.get(key), int)]
     cap = max(caps) if caps else guardian_stars.STAT_CAP
     for level, where, message in guardian_stars.check(project.other.get("guardian_stars"), stat_cap=cap,
                                                       card_stars=stars):
         out.append(Issue(level, "Guardian Stars", where, message))
     _check_packs(project, out)
+    for level, where, message in tower.check(project.other.get("tower"), lambda name: roster.named(project, name),
+                                             lambda name: project.resolve(name),
+                                             lambda name: roster.bust_of(project, roster.named(project, name)),
+                                             lambda name: roster.shows_bust(project, roster.named(project, name))):
+        out.append(Issue(level, "Tower", where, message))
     fixed_decks.check(project, out)
+    roster.check(project, out)
     art.check(project, out)
     campaign_map.check(project, out)
+    board_art.check(project, out)
     starter_pools.check(project, out)
+
+    def has_file(name):
+        return name in project.files or bool(project.source_dir and (Path(project.source_dir) / name).is_file())
+    for level, where, message in ui_rules.check(project, has_file):
+        out.append(Issue(level, "UI", where, message))
     return out
 
 
@@ -505,12 +650,10 @@ def shipped_folder():
     editor's own program, beside the game files the port was last pointed at
     (disc-path.txt, in the game's folder or its game/ folder), or the source
     tree's mods/. None when none of them is there."""
-    import sys
     from pathlib import Path
     from . import disc
     places = []
-    program = Path(sys.executable if getattr(sys, "frozen", False) else (sys.argv[0] or ".")).resolve().parent
-    places.append(program / "mods")
+    places.append(disc.program_dir() / "mods")
     try:
         text = (disc.user_dir() / "disc-path.txt").read_text(encoding="utf-8", errors="replace").strip()
         if text:
@@ -531,12 +674,112 @@ def shipped_folder():
     return None
 
 
+def _tidy_folder(text: str) -> str:
+    """A folder as the file or the environment writes it (mods.c tidy_folder):
+    no byte order mark, no spaces or line end around it, no double quotes
+    around it (Explorer's "Copy as path" adds them), "/" for "\\" on Windows,
+    no trailing separator (but a root's)."""
+    import sys
+    if text.startswith("\ufeff"):
+        text = text[1:]
+    text = text.lstrip(" \t").rstrip(" \t\r\n")
+    if len(text) >= 2 and text[0] == '"' and text[-1] == '"':
+        text = text[1:-1].rstrip(" \t\r\n")
+    if sys.platform == "win32":
+        text = text.replace("\\", "/")
+    while len(text) > 1 and text.endswith("/") and not (len(text) == 3 and text[1] == ":"):
+        text = text[:-1]
+    return text
+
+
+def chosen_folder():
+    """The mods folder the player chose, which the game reads between the
+    release's mods and the user directory's (mods.c Mods_Folder): the
+    MEMORIES_MODS_FOLDER variable (set, even to nothing, the file is not
+    read), else the first line of mods-folder.txt in the user directory that
+    says anything; a path that is not absolute is from the program directory.
+    None when there is none. It is only the name: whether the folder exists
+    or is one of the game's own is for mod_folders."""
+    import os
+    import sys
+    from pathlib import Path
+    from . import disc
+    limit = 1024   # mods.c PATH_MAX_: a longer name is no folder
+    named = os.environ.get("MEMORIES_MODS_FOLDER")
+    line = ""
+    if named is not None:
+        if len(named.encode("utf-8", "surrogateescape")) >= limit:
+            return None
+        line = _tidy_folder(named)
+    else:
+        try:
+            raw = (disc.user_dir() / "mods-folder.txt").read_bytes()
+        except OSError:
+            return None
+        for part in raw.split(b"\n"):
+            if len(part) >= limit - 1:   # fgets' buffer is full before the line ends
+                return None
+            # fgets and strlen: a NUL (a UTF-16 file) ends the line
+            line = _tidy_folder(part.split(b"\0")[0].decode("utf-8", errors="surrogateescape"))
+            if line:
+                break
+    if not line:
+        return None
+    absolute = line[0] == "/" or (sys.platform == "win32" and line[0].isascii() and line[0].isalpha()
+                                  and line[1:2] == ":")
+    path = _tidy_folder(line if absolute else f"{disc.program_dir()}/{line}")
+    if len(path.encode("utf-8", "surrogateescape")) >= limit:
+        return None
+    return Path(path)
+
+
+def _inside(path, roots) -> bool:
+    """Whether `path` is one of `roots` or lies under one: links followed
+    except on Windows, where the game's GetFullPathNameW does not follow them
+    either, and the case of a Windows name ignored."""
+    import os
+    import sys
+    from pathlib import Path
+
+    def canon(place):
+        try:
+            if sys.platform != "win32":
+                place = Path(place).resolve()
+        except (OSError, RuntimeError, ValueError):
+            pass
+        return Path(os.path.normcase(os.path.abspath(str(place))))
+
+    here = canon(path)
+    return any(canon(root) == here or canon(root) in here.parents for root in roots)
+
+
+def chosen_in_use():
+    """The chosen folder (chosen_folder) when the game reads it: not while
+    MEMORIES_MODS_DIR is set, and not when it is one the game reads already
+    (the mods beside the game, the user directory or a folder in either), as
+    the game leaves it out. None otherwise."""
+    import os
+    from . import disc
+    if os.environ.get("MEMORIES_MODS_DIR"):
+        return None
+    chosen = chosen_folder()
+    try:
+        str(chosen).encode("utf-8")
+    except UnicodeEncodeError:   # not text: the game leaves it out
+        return None
+    shipped = shipped_folder()
+    own = [disc.program_dir() / "mods", disc.user_dir()] + ([shipped] if shipped else [])
+    return None if chosen is None or _inside(chosen, own) else chosen
+
+
 def mod_folders(project: Project = None) -> list:
     """Where the game finds mods, in its order: MEMORIES_MODS_DIR when set
     (the only folder it then reads); else the mods beside the game
-    (shipped_folder) and the user directory's mods folder, whose copy of a
-    mod replaces the shipped one. And the folder the mod being edited was
-    opened from, when it is another."""
+    (shipped_folder), the player's chosen folder (chosen_folder) and the user
+    directory's mods folder, each one's copy of a mod replacing the one
+    before it. The chosen folder is left out when chosen_in_use says the game
+    does not read it. And the folder the mod being edited was opened from,
+    when it is another."""
     import os
     from pathlib import Path
     from . import disc
@@ -545,7 +788,12 @@ def mod_folders(project: Project = None) -> list:
         folders = [Path(named)]
     else:
         shipped = shipped_folder()
-        folders = ([shipped] if shipped else []) + [disc.user_dir() / "mods"]
+        user = disc.user_dir()
+        folders = [shipped] if shipped else []
+        chosen = chosen_in_use()
+        if chosen is not None:
+            folders.append(chosen)
+        folders.append(user / "mods")
     source = getattr(project, "source_dir", None)
     if source is not None and Path(source).parent.resolve() not in [f.resolve() for f in folders]:
         folders.append(Path(source).parent)
@@ -628,7 +876,11 @@ def cross_mod(project: Project, folders=None, settings_path=None) -> tuple:
     for overlap in overlaps.check(order, _ProjectSource(project, settings, order), involving=place):
         where = overlap.label + (" (with a mod off now)" if any(m in off for m in overlap.mods) else "")
         message = overlap.text[len(overlap.label) + 1:]
-        issues.append(Issue("warning" if overlap.severity else "note", "Other mods", where, message, overlap.label))
+        # The target: what the overlap is about (overlaps.KINDS) and its key,
+        # for Conflicts to go to the tab that edits it.
+        key = overlap.claims[0].key if overlap.claims else None
+        issues.append(Issue("warning" if overlap.severity else "note", "Other mods", where, message,
+                            (overlap.kind, key)))
     summary = f"Checked against {len(order) - 1} installed mods in " + ", ".join(str(f) for f in folders) + \
         f", in the order the game loads them; this mod loads {place + 1} of {len(order)}."
     if off:

@@ -1,3 +1,6 @@
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+#include "pc/guest/translated_runtime.h"
+#endif
 #include "soft_gpu.h"
 #include "texture_dump.h"
 #include <stdio.h>
@@ -24,6 +27,7 @@ static int shadow_on;
 /* Where texels and palettes are read: VRAM, or one of the banks below. Set by
  * every texture-page word, so it is never stale and never part of a state. */
 static uint16_t *texture_source;
+static int texture_bank;
 
 static uint16_t *banks[SOFT_GPU_BANKS];
 
@@ -105,9 +109,9 @@ static void picture_from_words(int x, int y, int w, int h)
     if (!picture) return;
     for (j = 0; j < h; j++) {
         for (i = 0; i < w; i++) {
-            uint32_t colour = expand(vram[((y + j) & 511) * SOFT_GPU_WIDTH + ((x + i) & 1023)]);
+            uint32_t color = expand(vram[((y + j) & 511) * SOFT_GPU_WIDTH + ((x + i) & 1023)]);
             for (sy = 0; sy < scale; sy++) {
-                for (sx = 0; sx < scale; sx++) *picture_pixel((x + i) * scale + sx, (y + j) * scale + sy) = colour;
+                for (sx = 0; sx < scale; sx++) *picture_pixel((x + i) * scale + sx, (y + j) * scale + sy) = color;
             }
         }
     }
@@ -123,9 +127,12 @@ const uint16_t *SoftGpu_Vram(void)
 
 void SoftGpu_StateWords(uint32_t words[6])
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    words = GuestRuntime_ResolveData(words, 6 * sizeof(*words));
+#endif
     uint32_t bank = 0, b;
-    for (b = 1; b < SOFT_GPU_BANKS; b++) {
-        if (banks[b] && texture_source == banks[b]) bank = b; /* bits 11-14, as set_page reads them */
+    for (b = 1; b < 16; b++) { /* an E1 word names banks 0-15 only (set_page): 16-31 come back as VRAM */
+        if (banks[b] && texture_source == banks[b]) bank = b;
     }
     words[0] = 0xe1000000u | (uint32_t)(gpu.page_x / 64) | ((uint32_t)(gpu.page_y / 256) << 4) |
                ((uint32_t)gpu.blend << 5) | ((uint32_t)gpu.depth << 7) | ((uint32_t)gpu.dither << 9) | (bank << 11);
@@ -149,6 +156,7 @@ void SoftGpu_Reset(void)
 {
     memset(&gpu, 0, sizeof(gpu));
     texture_source = vram;
+    texture_bank = 0;
     TextureDump_Init();
     gpu.clip_x2 = SOFT_GPU_WIDTH - 1;
     gpu.clip_y2 = SOFT_GPU_HEIGHT - 1;
@@ -211,6 +219,9 @@ void SoftGpu_PictureFromVram(void)
 
 void SoftGpu_SetRecorder(const SoftGpuRecorder *wanted)
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    if (wanted) wanted = GuestRuntime_ResolveData((void *)wanted, sizeof(*wanted));
+#endif
     if (wanted == recorder) return;
     recorder = wanted;
     if (recorder) {
@@ -229,12 +240,6 @@ void SoftGpu_SetRecorder(const SoftGpuRecorder *wanted)
     }
 }
 
-/* The same word in whichever bank the current texture page names. */
-static inline __attribute__((always_inline)) uint16_t sample(int x, int y)
-{
-    return texture_source[(y & (SOFT_GPU_HEIGHT - 1)) * SOFT_GPU_WIDTH + (x & (SOFT_GPU_WIDTH - 1))];
-}
-
 /* Seed transferred words in a scaled companion. Primitive rendering then
  * replaces these blocks with samples at the requested internal resolution. */
 static void wide_picture_words(WideTarget *wt, int x, int y, int w, int h)
@@ -242,10 +247,10 @@ static void wide_picture_words(WideTarget *wt, int x, int y, int w, int h)
     if (!wt->picture) return;
     for (int row = y; row < y + h; row++) {
         for (int col = x; col < x + w; col++) {
-            uint32_t colour = expand(wt->pixels[row * SOFT_GPU_WIDTH + col]);
+            uint32_t color = expand(wt->pixels[row * SOFT_GPU_WIDTH + col]);
             for (int sy = 0; sy < scale; sy++) {
                 uint32_t *out = wt->picture + (size_t)(row * scale + sy) * PICTURE_WIDTH + col * scale;
-                for (int sx = 0; sx < scale; sx++) out[sx] = colour;
+                for (int sx = 0; sx < scale; sx++) out[sx] = color;
             }
         }
     }
@@ -262,7 +267,7 @@ static void wide_picture_prepare(WideTarget *wt)
 /* Copies what VRAM now holds in x,y,w,h into the centre of every
  * widescreen target it overlaps. A fill spanning a target's whole width
  * also fills its sides, as a cleared screen is cleared edge to edge. */
-static void wide_mirror(int x, int y, int w, int h, int fill, uint16_t colour)
+static void wide_mirror(int x, int y, int w, int h, int fill, uint16_t color)
 {
     int t;
     for (t = 0; t < WIDE_TARGETS; t++) {
@@ -278,8 +283,8 @@ static void wide_mirror(int x, int y, int w, int h, int fill, uint16_t colour)
             memcpy(out + x1 + wt->margin, vram + row * SOFT_GPU_WIDTH + x1, (size_t)(x2 - x1 + 1) * 2);
             if (fill && x <= wt->x1 && x + w - 1 >= wt->x2) {
                 for (column = 0; column < wt->margin; column++) {
-                    out[wt->x1 + column] = colour;
-                    out[wt->x2 + wt->margin + 1 + column] = colour;
+                    out[wt->x1 + column] = color;
+                    out[wt->x2 + wt->margin + 1 + column] = color;
                 }
             }
         }
@@ -375,6 +380,9 @@ const uint32_t *SoftGpu_WidePicture(int x, int y, int w, int h)
 
 int SoftGpu_WideFrameView(int x, int y, int w, int h, const uint16_t **pixels, int *out_x, int *out_w)
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    pixels = GuestRuntime_ResolveData(pixels, sizeof(*pixels)); out_x = GuestRuntime_ResolveData(out_x, sizeof(*out_x)); out_w = GuestRuntime_ResolveData(out_w, sizeof(*out_w));
+#endif
     int t;
     for (t = 0; t < WIDE_TARGETS; t++) {
         const WideTarget *wt = &wide[t];
@@ -390,6 +398,9 @@ int SoftGpu_WideFrameView(int x, int y, int w, int h, const uint16_t **pixels, i
 
 int SoftGpu_WideFrame(int x, int y, int w, int h, const uint16_t **pixels, int *out_x, int *out_w)
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    pixels = GuestRuntime_ResolveData(pixels, sizeof(*pixels)); out_x = GuestRuntime_ResolveData(out_x, sizeof(*out_x)); out_w = GuestRuntime_ResolveData(out_w, sizeof(*out_w));
+#endif
     int t;
     for (t = 0; t < WIDE_TARGETS; t++) {
         WideTarget *wt = &wide[t];
@@ -434,6 +445,9 @@ static void load_words(int x, int y, int w, int h, const uint16_t *pixels)
 
 void SoftGpu_Store(int x, int y, int w, int h, uint16_t *pixels)
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    if (w > 0 && h > 0) pixels = GuestRuntime_ResolveData(pixels, (size_t)w * (size_t)h * sizeof(*pixels));
+#endif
     int i, j;
     for (j = 0; j < h; j++) {
         for (i = 0; i < w; i++) {
@@ -490,14 +504,14 @@ static uint16_t pack(uint32_t rgb24)
 static void fill_words(int x, int y, int w, int h, uint32_t rgb24)
 {
     int i, j;
-    uint16_t colour = pack(rgb24);
+    uint16_t color = pack(rgb24);
     if (TextureDump_Tags) TextureDump_Cleared(x, y, w, h);
     for (j = 0; j < h; j++) {
         for (i = 0; i < w; i++) {
-            *vram_pixel(x + i, y + j) = colour;
+            *vram_pixel(x + i, y + j) = color;
         }
     }
-    wide_mirror(x, y, w, h, 1, colour);
+    wide_mirror(x, y, w, h, 1, color);
     picture_from_words(x, y, w, h);
 }
 
@@ -506,6 +520,9 @@ static void fill_words(int x, int y, int w, int h, uint32_t rgb24)
  * transfers are in its record already. */
 void SoftGpu_Load(int x, int y, int w, int h, const uint16_t *pixels)
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    if (w > 0 && h > 0) pixels = GuestRuntime_ResolveData((void *)pixels, (size_t)w * (size_t)h * sizeof(*pixels));
+#endif
     if (recorder && scale > 1) recorder->load(x, y, w, h, pixels);
     load_words(x, y, w, h, pixels);
 }
@@ -527,38 +544,87 @@ void SoftGpu_Fill(int x, int y, int w, int h, uint32_t rgb24)
     fill_words(x, y, w, h, rgb24);
 }
 
-static inline __attribute__((always_inline)) uint16_t texel(int u, int v)
+/* What a primitive's texels are read with, and what plot draws it with:
+ * the state as the primitive starts, taken once. Nothing a primitive's
+ * pixels do changes it, and in locals it stays in registers; read from the
+ * globals at each pixel it was loaded again after every store, since any
+ * store may alias them here (-fno-strict-aliasing). */
+typedef struct Sampler {
+    int keep_u, set_u, keep_v, set_v; /* the texture window, as masks */
+    int page_x, page_y, depth, clut_x, clut_y, shadow_on;
+    const uint16_t *source;
+} Sampler;
+
+typedef struct Plotter {
+    Sampler texels;
+    int clip_x1, clip_y1, clip_x2, clip_y2;
+    int mask_check, mask_set, dither, dither_shift, blend, fade;
+    uint16_t *target;
+    uint32_t *tags; /* NULL into a widescreen target or with provenance tags off */
+    uint16_t *shadow;
+} Plotter;
+
+static inline __attribute__((always_inline)) Sampler sampler(void)
+{
+    Sampler s;
+    s.keep_u = ~(gpu.window_mask_x * 8);
+    s.set_u = (gpu.window_x & gpu.window_mask_x) * 8;
+    s.keep_v = ~(gpu.window_mask_y * 8);
+    s.set_v = (gpu.window_y & gpu.window_mask_y) * 8;
+    s.page_x = gpu.page_x;
+    s.page_y = gpu.page_y;
+    s.depth = gpu.depth;
+    s.clut_x = gpu.clut_x;
+    s.clut_y = gpu.clut_y;
+    s.shadow_on = shadow_on;
+    s.source = texture_source;
+    return s;
+}
+
+/* The same word in whichever bank the primitive's texture page names. */
+static inline __attribute__((always_inline)) uint16_t sample(const Sampler *s, int x, int y)
+{
+    return s->source[(y & (SOFT_GPU_HEIGHT - 1)) * SOFT_GPU_WIDTH + (x & (SOFT_GPU_WIDTH - 1))];
+}
+
+static inline __attribute__((always_inline)) uint16_t texel_from(const Sampler *s, int u, int v)
 {
     int x, y;
     uint16_t word;
-    u = (u & ~(gpu.window_mask_x * 8)) | ((gpu.window_x & gpu.window_mask_x) * 8);
-    v = (v & ~(gpu.window_mask_y * 8)) | ((gpu.window_y & gpu.window_mask_y) * 8);
+    u = (u & s->keep_u) | s->set_u;
+    v = (v & s->keep_v) | s->set_v;
     u &= 0xff;
     v &= 0xff;
-    y = gpu.page_y + v;
-    if (gpu.depth == 0) {
-        x = gpu.page_x + u / 4;
-        word = sample(gpu.clut_x + ((sample(x, y) >> ((u & 3) * 4)) & 0xf), gpu.clut_y);
-    } else if (gpu.depth == 1) {
-        x = gpu.page_x + u / 2;
-        word = sample(gpu.clut_x + ((sample(x, y) >> ((u & 1) * 8)) & 0xff), gpu.clut_y);
+    y = s->page_y + v;
+    if (s->depth == 0) {
+        x = s->page_x + u / 4;
+        word = sample(s, s->clut_x + ((sample(s, x, y) >> ((u & 3) * 4)) & 0xf), s->clut_y);
+    } else if (s->depth == 1) {
+        x = s->page_x + u / 2;
+        word = sample(s, s->clut_x + ((sample(s, x, y) >> ((u & 1) * 8)) & 0xff), s->clut_y);
     } else {
-        word = sample(gpu.page_x + u, y);
+        word = sample(s, s->page_x + u, y);
     }
-    if (shadow_on == 1) {
-        /* A replaced texel: the pack's colour, 0 for one painted transparent.
+    if (s->shadow_on == 1) {
+        /* A replaced texel: the pack's color, 0 for one painted transparent.
          * The texel's own semi-transparency bit stays: a pack replaces the
-         * colour, not how the game draws it. Black is 0x8000 with that bit
-         * and the darkest non-zero colour without it (texture_dump.h).
+         * color, not how the game draws it. Black is 0x8000 with that bit
+         * and the darkest non-zero color without it (texture_dump.h).
          * (2: the primitive reads the words with another palette than the
          * shadow's image; the scaled picture has that image, VRAM stays.) */
-        uint16_t cell = gpu.depth == 0 ? *TextureDump_Cell(gpu.page_x + u / 4, y, u & 3)
-                        : gpu.depth == 1 ? *TextureDump_Cell(gpu.page_x + u / 2, y, (u & 1) * 2)
-                                         : *TextureDump_Cell(gpu.page_x + u, y, 0);
+        uint16_t cell = s->depth == 0 ? *TextureDump_Cell(s->page_x + u / 4, y, u & 3)
+                        : s->depth == 1 ? *TextureDump_Cell(s->page_x + u / 2, y, (u & 1) * 2)
+                                        : *TextureDump_Cell(s->page_x + u, y, 0);
         if (cell == TEXTURE_SHADOW_BLACK) return (word & 0x8000) ? 0x8000 : 0x0001;
         if (cell) return (cell & 0x7fff) ? (uint16_t)((cell & 0x7fff) | (word & 0x8000)) : 0;
     }
     return word;
+}
+
+static inline __attribute__((always_inline)) uint16_t texel(int u, int v)
+{
+    const Sampler s = sampler();
+    return texel_from(&s, u, v);
 }
 
 static inline __attribute__((always_inline)) int clamp8(int value)
@@ -566,33 +632,47 @@ static inline __attribute__((always_inline)) int clamp8(int value)
     return value < 0 ? 0 : value > 255 ? 255 : value;
 }
 
-/* The provenance tag of the word plot is about to draw, or NULL when it draws
- * into a widescreen target (whose words have no tags) or tracing is off.
- * Outside plot, whose local target hides the global one. */
-static inline __attribute__((always_inline)) uint32_t *drawn_tag(const uint16_t *word)
+/* The state plot draws a primitive with, as it starts. */
+static inline __attribute__((always_inline)) Plotter plotter(void)
 {
-    return TextureDump_Tags && target == vram ? &TextureDump_Tags[word - vram] : NULL;
+    Plotter p;
+    p.texels = sampler();
+    p.clip_x1 = gpu.clip_x1;
+    p.clip_y1 = gpu.clip_y1;
+    p.clip_x2 = gpu.clip_x2;
+    p.clip_y2 = gpu.clip_y2;
+    p.mask_check = gpu.mask_check;
+    p.mask_set = gpu.mask_set ? 0x8000 : 0;
+    p.dither = gpu.dither;
+    p.dither_shift = dither_shift;
+    p.blend = gpu.blend;
+    p.fade = fade;
+    p.target = target;
+    p.tags = TextureDump_Tags && target == vram ? TextureDump_Tags : NULL;
+    p.shadow = TextureDump_Shadow;
+    return p;
 }
 
 /* flags: 1 raw texture, 2 semi-transparent, 4 textured, 8 dither-eligible */
-static inline __attribute__((always_inline)) void plot(int x, int y, int r, int g, int b, int u, int v, int flags)
+static inline __attribute__((always_inline)) void plot(const Plotter *p, int x, int y, int r, int g, int b, int u,
+                                                       int v, int flags)
 {
     uint16_t *target, source;
-    uint32_t *tag;
     int semi = flags & 2;
-    if (x < gpu.clip_x1 || x > gpu.clip_x2 || y < gpu.clip_y1 || y > gpu.clip_y2) {
+    if (x < p->clip_x1 || x > p->clip_x2 || y < p->clip_y1 || y > p->clip_y2) {
         return;
     }
-    target = pixel(x, y);
-    if (gpu.mask_check && (*target & 0x8000)) {
+    target = &p->target[(y & (SOFT_GPU_HEIGHT - 1)) * SOFT_GPU_WIDTH + (x & (SOFT_GPU_WIDTH - 1))];
+    if (p->mask_check && (*target & 0x8000)) {
         return;
     }
-    if ((tag = drawn_tag(target)) != NULL) { /* drawn, not from the disc */
-        *tag = 0;
-        if (TextureDump_Shadow) memset(TextureDump_Shadow + (tag - TextureDump_Tags) * 4, 0, 4 * sizeof(uint16_t));
+    if (p->tags) { /* drawn, not from the disc */
+        size_t at = (size_t)(target - vram);
+        p->tags[at] = 0;
+        if (p->shadow) memset(p->shadow + at * 4, 0, 4 * sizeof(uint16_t));
     }
     if (flags & 4) {
-        source = flags & 16 ? (uint16_t)u : texel(u, v); /* 16: the texel's word given in u */
+        source = flags & 16 ? (uint16_t)u : texel_from(&p->texels, u, v); /* 16: the texel's word given in u */
         if (!source) {
             return;
         }
@@ -609,8 +689,8 @@ static inline __attribute__((always_inline)) void plot(int x, int y, int r, int 
     } else {
         source = 0;
     }
-    if ((flags & 8) && gpu.dither) {
-        int offset = dither_matrix[y & 3][(x - dither_shift) & 3];
+    if ((flags & 8) && p->dither) {
+        int offset = dither_matrix[y & 3][(x - p->dither_shift) & 3];
         r += offset;
         g += offset;
         b += offset;
@@ -620,7 +700,7 @@ static inline __attribute__((always_inline)) void plot(int x, int y, int r, int 
     b = clamp8(b) >> 3;
     if (semi) {
         int br = *target & 0x1f, bg = (*target >> 5) & 0x1f, bb = (*target >> 10) & 0x1f;
-        switch (gpu.blend) {
+        switch (p->blend) {
         case 0: r = (br + r) >> 1; g = (bg + g) >> 1; b = (bb + b) >> 1; break;
         case 1: r += br; g += bg; b += bb; break;
         case 2: r = br - r; g = bg - g; b = bb - b; break;
@@ -630,14 +710,13 @@ static inline __attribute__((always_inline)) void plot(int x, int y, int r, int 
         g = g < 0 ? 0 : g > 31 ? 31 : g;
         b = b < 0 ? 0 : b > 31 ? 31 : b;
     }
-    if (fade) {
+    if (p->fade) {
         int br = *target & 0x1f, bg = (*target >> 5) & 0x1f, bb = (*target >> 10) & 0x1f;
-        r = (r * (255 - fade) + br * fade) / 255;
-        g = (g * (255 - fade) + bg * fade) / 255;
-        b = (b * (255 - fade) + bb * fade) / 255;
+        r = (r * (255 - p->fade) + br * p->fade) / 255;
+        g = (g * (255 - p->fade) + bg * p->fade) / 255;
+        b = (b * (255 - p->fade) + bb * p->fade) / 255;
     }
-    *target = (uint16_t)(r | (g << 5) | (b << 10) | (source & 0x8000) |
-                         (gpu.mask_set ? 0x8000 : 0));
+    *target = (uint16_t)(r | (g << 5) | (b << 10) | (source & 0x8000) | p->mask_set);
 }
 
 /* --- the scaled picture's own pass ------------------------------------
@@ -651,10 +730,21 @@ static inline __attribute__((always_inline)) void plot(int x, int y, int r, int 
 static inline __attribute__((always_inline)) int picture_texel(int u, int v, uint32_t *rgb)
 {
     uint16_t word;
+    if (texture_bank && scale > 1 && TextureDump_BankSample) { /* 1x: the bank's own texels */
+        int got = TextureDump_BankSample(texture_bank, gpu.page_x, gpu.page_y, gpu.depth, gpu.clut_x, gpu.clut_y,
+                                         u, v, scale, rgb);
+        if (got == 1) {
+            /* The PNG supplies color and coverage, but the bank texel still
+             * controls PS1 semi-transparency. */
+            *rgb = (*rgb & 0x7fffffffu) | ((uint32_t)(texel(u >> 16, v >> 16) & 0x8000) << 16);
+            return 1;
+        }
+        if (got == 2) return 0;
+    }
     if (shadow_on && TextureDump_Sample) {
         int got = TextureDump_Sample(gpu.page_x, gpu.page_y, gpu.depth, u, v, rgb);
         if (got == 1) {
-            /* The pack's colour and how much it covers; the texel's own
+            /* The pack's color and how much it covers; the texel's own
              * semi-transparency bit. */
             *rgb = (*rgb & 0x7fffffffu) | ((uint32_t)(texel(u >> 16, v >> 16) & 0x8000) << 16);
             return 1;
@@ -833,6 +923,23 @@ static int owns(const Vertex *a, const Vertex *b)
     return dy < 0 || (dy == 0 && dx > 0);
 }
 
+/* Narrow first..last, pixel offsets along a row, to those at which an edge
+ * function that is w at offset 0 and grows by d a pixel is >= 0. */
+static inline __attribute__((always_inline)) void row_span(int32_t w, int32_t d, int *first, int *last)
+{
+    if (d > 0) {
+        if (w < 0) {
+            int64_t from = (-(int64_t)w + d - 1) / d;
+            if (from > *first) *first = from > *last ? *last + 1 : (int)from;
+        }
+    } else if (w < 0) {
+        *first = *last + 1; /* never inside: it only falls (or stays) */
+    } else if (d < 0) {
+        int64_t to = (int64_t)w / -(int64_t)d;
+        if (to < *last) *last = (int)to;
+    }
+}
+
 static inline __attribute__((always_inline)) void triangle_with(Vertex a, Vertex b, Vertex c, const int flags)
 {
     int min_x, max_x, min_y, max_y, x, y, bias0, bias1, bias2;
@@ -877,6 +984,7 @@ static inline __attribute__((always_inline)) void triangle_with(Vertex a, Vertex
         const int values[5][3] = {{a.r, b.r, c.r}, {a.g, b.g, c.g}, {a.b, b.b, c.b}, {a.u, b.u, c.u}, {a.v, b.v, c.v}};
         int32_t step_x[5], step_y[5], row[5];
         int k;
+        const Plotter p = plotter();
         for (k = 0; k < 5; k++) {
             int64_t nx = (int64_t)dx0 * values[k][0] + (int64_t)dx1 * values[k][1] + (int64_t)dx2 * values[k][2];
             int64_t ny = (int64_t)dy0 * values[k][0] + (int64_t)dy1 * values[k][1] + (int64_t)dy2 * values[k][2];
@@ -886,20 +994,28 @@ static inline __attribute__((always_inline)) void triangle_with(Vertex a, Vertex
                                (int64_t)step_y[k] * (min_y - a.y));
         }
         for (y = min_y; y <= max_y; y++) {
-            int32_t w0 = row0, w1 = row1, w2 = row2;
-            int32_t r = row[0], g = row[1], blue = row[2], u = row[3], v = row[4];
-            for (x = min_x; x <= max_x; x++) {
-                if ((w0 | w1 | w2) >= 0) {
-                    plot(x, y, r >> FRACTION, g >> FRACTION, blue >> FRACTION, u >> FRACTION, v >> FRACTION, flags);
+            /* The row's pixels inside are one run, from the first to the
+             * last at which all three edge functions are >= 0: worked out
+             * from them rather than tested across the whole box, which
+             * half of a triangle's box is outside of. */
+            int first = 0, last = max_x - min_x;
+            row_span(row0, dx0, &first, &last);
+            row_span(row1, dx1, &first, &last);
+            row_span(row2, dx2, &first, &last);
+            if (first <= last) {
+                int32_t r = (int32_t)(row[0] + (int64_t)step_x[0] * first);
+                int32_t g = (int32_t)(row[1] + (int64_t)step_x[1] * first);
+                int32_t blue = (int32_t)(row[2] + (int64_t)step_x[2] * first);
+                int32_t u = (int32_t)(row[3] + (int64_t)step_x[3] * first);
+                int32_t v = (int32_t)(row[4] + (int64_t)step_x[4] * first);
+                for (x = min_x + first; x <= min_x + last; x++) {
+                    plot(&p, x, y, r >> FRACTION, g >> FRACTION, blue >> FRACTION, u >> FRACTION, v >> FRACTION, flags);
+                    r += step_x[0];
+                    g += step_x[1];
+                    blue += step_x[2];
+                    u += step_x[3];
+                    v += step_x[4];
                 }
-                w0 += dx0;
-                w1 += dx1;
-                w2 += dx2;
-                r += step_x[0];
-                g += step_x[1];
-                blue += step_x[2];
-                u += step_x[3];
-                v += step_x[4];
             }
             row0 += dy0;
             row1 += dy1;
@@ -963,14 +1079,15 @@ static void line(Vertex a, Vertex b, int flags)
         picture_triangle(quad[0], quad[1], quad[2], flags);
         picture_triangle(quad[1], quad[2], quad[3], flags);
     }
+    const Plotter p = plotter();
     for (i = 0; i <= steps; i++) {
         int n = steps ? steps : 1;
-        plot(a.x + dx * i / n, a.y + dy * i / n, a.r + (b.r - a.r) * i / n,
+        plot(&p, a.x + dx * i / n, a.y + dy * i / n, a.r + (b.r - a.r) * i / n,
              a.g + (b.g - a.g) * i / n, a.b + (b.b - a.b) * i / n, 0, 0, flags);
     }
 }
 
-static void set_colour(Vertex *vertex, uint32_t word)
+static void set_color(Vertex *vertex, uint32_t word)
 {
     vertex->r = word & 0xff;
     vertex->g = (word >> 8) & 0xff;
@@ -983,10 +1100,12 @@ static void set_position(Vertex *vertex, uint32_t word)
     vertex->y = (((int32_t)(word << 5)) >> 21) + gpu.offset_y;
 }
 
-static void set_page(uint32_t value)
+/* `polygon`: a polygon's page word, whose bit 10 names banks 16-31 (soft_gpu.h). */
+static void set_page(uint32_t value, int polygon)
 {
-    int bank = (int)((value >> 11) & (SOFT_GPU_BANKS - 1));
+    int bank = (int)((value >> 11) & 15) | (polygon ? (int)((value >> 10) & 1) << 4 : 0);
     texture_source = bank && banks[bank] ? banks[bank] : vram;
+    texture_bank = texture_source == vram ? 0 : bank;
     gpu.page_x = (value & 0xf) * 64;
     gpu.page_y = ((value >> 4) & 1) * 256;
     gpu.blend = (value >> 5) & 3;
@@ -994,6 +1113,47 @@ static void set_page(uint32_t value)
     if (gpu.depth == 3) {
         gpu.depth = 2;
     }
+}
+
+static int panel_piece(int u0, int v0, int w, int h);
+static void name_over_panel(int x, int y, int width, int height, int u0, int v0, int w, int h, const Vertex *color,
+                            int flags);
+
+/* SoftGpu_PictureOnlyClut */
+enum { PICTURE_ONLY_CLUTS = 8 };
+static struct { int x, y; } picture_only[PICTURE_ONLY_CLUTS];
+static int picture_only_count;
+
+void SoftGpu_PictureOnlyClut(int clut_x, int clut_y)
+{
+    int i;
+    for (i = 0; i < picture_only_count; i++) {
+        if (picture_only[i].x == clut_x && picture_only[i].y == clut_y) return;
+    }
+    if (i == PICTURE_ONLY_CLUTS) return;
+    picture_only[i].x = clut_x;
+    picture_only[i].y = clut_y;
+    picture_only_count++;
+}
+
+static int picture_only_clut(int clut_x, int clut_y)
+{
+    if (!recorder || scale <= 1) return 0;
+    for (int i = 0; i < picture_only_count; i++) {
+        if (picture_only[i].x == clut_x && picture_only[i].y == clut_y) return 1;
+    }
+    return 0;
+}
+
+/* SoftGpu_PictureOnlyFrame */
+static int picture_only_frame;
+
+void SoftGpu_PictureOnlyFrame(int on) { picture_only_frame = on; }
+
+static int picture_only_screen(void)
+{
+    return picture_only_frame && recorder && scale > 1 && gpu.clip_x2 - gpu.clip_x1 + 1 >= 256 &&
+           gpu.clip_y2 - gpu.clip_y1 + 1 >= 192;
 }
 
 static size_t polygon(const uint32_t *words, size_t count)
@@ -1014,7 +1174,7 @@ static size_t polygon(const uint32_t *words, size_t count)
     memset(v, 0, sizeof(v));
     for (i = 0; i < vertices; i++) {
         if (i == 0 || shaded) {
-            set_colour(&v[i], words[at++]);
+            set_color(&v[i], words[at++]);
         } else {
             v[i].r = v[0].r; v[i].g = v[0].g; v[i].b = v[0].b;
         }
@@ -1027,7 +1187,7 @@ static size_t polygon(const uint32_t *words, size_t count)
                 gpu.clut_x = ((word >> 16) & 0x3f) * 16;
                 gpu.clut_y = (word >> 22) & 0x1ff;
             } else if (i == 1) {
-                set_page(word >> 16);
+                set_page(word >> 16, 1);
             } else if (i == 2) {
                 fade = (int)(word >> 16);
             }
@@ -1056,30 +1216,76 @@ static size_t polygon(const uint32_t *words, size_t count)
         picture_triangle(v[0], v[1], v[2], flags);
         if (quad) picture_triangle(v[1], v[2], v[3], flags);
     }
+    if ((textured && picture_only_clut(gpu.clut_x, gpu.clut_y)) || picture_only_screen()) {
+        fade = 0;
+        return need;
+    }
     triangle(v[0], v[1], v[2], flags);
     if (quad) {
         triangle(v[1], v[2], v[3], flags);
     }
     fade = 0;
+    /* A piece of the life-point panel a mod's "ui" draws at another size. */
+    if (quad && textured && SoftGpu_PanelCut) {
+        int x0 = v[0].x, y0 = v[0].y, x1 = v[0].x, y1 = v[0].y, u0 = v[0].u, v0 = v[0].v, u1 = v[0].u, v1 = v[0].v;
+        for (i = 1; i < 4; i++) {
+            if (v[i].x < x0) x0 = v[i].x;
+            if (v[i].y < y0) y0 = v[i].y;
+            if (v[i].x > x1) x1 = v[i].x;
+            if (v[i].y > y1) y1 = v[i].y;
+            if (v[i].u < u0) u0 = v[i].u;
+            if (v[i].v < v0) v0 = v[i].v;
+            if (v[i].u > u1) u1 = v[i].u;
+            if (v[i].v > v1) v1 = v[i].v;
+        }
+        if (panel_piece(u0, v0, u1 - u0, v1 - v0))
+            name_over_panel(x0, y0, x1 - x0, y1 - y0, u0, v0, u1 - u0, v1 - v0, &v[0], (int)(command & 3) | 4);
+    }
     return need;
 }
 
 const uint8_t *(*SoftGpu_PanelName)(int which, int *x, int *y, int *width, int *height, int *stride);
+int SoftGpu_PanelCut;
 
 /* The opponent's name over the life-point panel just drawn, and the
  * player's for YOU, at the console's resolution (the OpenGL picture draws
  * them above it): the boxes' palette indices through the panel's CLUT, as
- * the panel's own texels would be, so the inactive side's dimming applies. */
-static void name_over_panel(const Vertex *base, int flags)
+ * the panel's own texels would be, so the inactive side's dimming applies.
+ * The panel whole, or a piece of it drawn at any size (a mod's "ui"): its
+ * texels u0, v0 on (w x h) over x, y to x + width, y + height; a box goes
+ * with the piece that has its rows and the column it meets the panel at. */
+static int panel_piece(int u0, int v0, int w, int h)
 {
-    int which, x, y, width, height, stride, i, j;
+    return SoftGpu_PanelName && scale == 1 && texture_source == vram && gpu.depth == 0 && gpu.page_x == 704 &&
+           gpu.page_y == 0 && (gpu.clut_x == 736 || gpu.clut_x == 752) && gpu.clut_y == 252 && w > 0 && h > 0 &&
+           u0 >= 128 && v0 >= 128 && u0 + w <= 192 && v0 + h <= 168;
+}
+
+static void name_over_panel(int x, int y, int width, int height, int u0, int v0, int w, int h, const Vertex *color,
+                            int flags)
+{
+    int which, bx, by, bw, bh, stride, i, j;
     for (which = 0; which < 2; which++) {
-        const uint8_t *box = SoftGpu_PanelName(which, &x, &y, &width, &height, &stride);
-        if (!box) return;
-        for (j = 0; j < height; j++) {
-            for (i = 0; i < width; i++) {
-                uint16_t word = vram[gpu.clut_y * SOFT_GPU_WIDTH + gpu.clut_x + box[(size_t)j * stride + i]];
-                plot(base->x + x + i, base->y + y + j, base->r, base->g, base->b, word, 0, (flags & 3) | 4 | 16);
+        const uint8_t *box = SoftGpu_PanelName(which, &bx, &by, &bw, &bh, &stride);
+        int left, top, right, bottom;
+        /* As ever, no player's box without the opponent's; but a mod's
+         * label may be for YOU alone. */
+        if (!box) {
+            if (!SoftGpu_PanelCut) return;
+            continue;
+        }
+        if (by < v0 - 128 || by + bh > v0 - 128 + h || bx + bw <= u0 - 128 || bx + bw > u0 - 128 + w) continue;
+        left = x + (bx - (u0 - 128)) * width / w;
+        top = y + (by - (v0 - 128)) * height / h;
+        right = x + (bx + bw - (u0 - 128)) * width / w;
+        bottom = y + (by + bh - (v0 - 128)) * height / h;
+        const Plotter p = plotter();
+        for (j = top; j < bottom; j++) {
+            for (i = left; i < right; i++) {
+                /* Each pixel the box texel under it, as a quad samples. */
+                int tx = (i - left) * bw / (right - left), ty = (j - top) * bh / (bottom - top);
+                uint16_t word = vram[gpu.clut_y * SOFT_GPU_WIDTH + gpu.clut_x + box[(size_t)ty * stride + tx]];
+                plot(&p, i, j, color->r, color->g, color->b, word, 0, (flags & 3) | 4 | 16);
             }
         }
     }
@@ -1097,7 +1303,7 @@ static size_t rectangle(const uint32_t *words, size_t count)
         return 0;
     }
     memset(&base, 0, sizeof(base));
-    set_colour(&base, words[0]);
+    set_color(&base, words[0]);
     set_position(&base, words[1]);
     if (textured) {
         base.u = words[at] & 0xff;
@@ -1127,22 +1333,23 @@ static size_t rectangle(const uint32_t *words, size_t count)
             }
         }
     }
-    switch (flags) {
+    const Plotter p = plotter();
+    switch (picture_only_screen() ? -1 : flags) {
 #define CASE(n) case n: \
         for (j = 0; j < h; j++) { \
             for (i = 0; i < w; i++) { \
-                plot(base.x + i, base.y + j, base.r, base.g, base.b, base.u + i, base.v + j, n); \
+                plot(&p, base.x + i, base.y + j, base.r, base.g, base.b, base.u + i, base.v + j, n); \
             } \
         } \
         break;
     CASE(0) CASE(1) CASE(2) CASE(3) CASE(4) CASE(5) CASE(6) CASE(7)
 #undef CASE
     }
-    /* The life-point panel (gl_picture.c's name_over_panel finds it so). */
-    if (SoftGpu_PanelName && scale == 1 && textured && texture_source == vram && gpu.depth == 0 &&
-        gpu.page_x == 704 && gpu.page_y == 0 && (gpu.clut_x == 736 || gpu.clut_x == 752) && gpu.clut_y == 252 &&
-        base.u == 128 && base.v == 128 && w == 64 && h == 40) {
-        name_over_panel(&base, flags);
+    /* The life-point panel (gl_picture.c's name_over_panel finds it so):
+     * whole, or a piece of it a mod's "ui" draws apart. */
+    if (textured && panel_piece(base.u, base.v, w, h) &&
+        ((base.u == 128 && base.v == 128 && w == 64 && h == 40) || SoftGpu_PanelCut)) {
+        name_over_panel(base.x, base.y, w, h, base.u, base.v, w, h, &base, flags);
     }
     return need;
 }
@@ -1157,7 +1364,7 @@ static size_t lines(const uint32_t *words, size_t count)
     if (count < (shaded ? 4u : 3u)) {
         return 0;
     }
-    set_colour(&previous, words[at++]);
+    set_color(&previous, words[at++]);
     set_position(&previous, words[at++]);
     for (;;) {
         if (poly && at < count && (words[at] & 0xf000f000u) == 0x50005000u) {
@@ -1166,7 +1373,7 @@ static size_t lines(const uint32_t *words, size_t count)
         next = previous;
         if (shaded) {
             if (at >= count) { return 0; }
-            set_colour(&next, words[at++]);
+            set_color(&next, words[at++]);
         }
         if (at >= count) { return 0; }
         set_position(&next, words[at++]);
@@ -1184,12 +1391,18 @@ static size_t precise_count;
 
 void SoftGpu_SetPrecise(const PgxpVertex *vertices, size_t count)
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    if (count) vertices = GuestRuntime_ResolveData((void *)vertices, count * sizeof(*vertices));
+#endif
     precise = vertices;
     precise_count = count;
 }
 
 size_t SoftGpu_Gp0(const uint32_t *words, size_t count)
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    if (count) words = GuestRuntime_ResolveData((void *)words, count * sizeof(*words));
+#endif
     size_t at = 0;
     if (recorder && scale > 1) {
         if (precise_count && recorder->precise) recorder->precise(precise, precise_count);
@@ -1210,9 +1423,12 @@ size_t SoftGpu_Gp0(const uint32_t *words, size_t count)
                  * keep the 4:3 clip: they are the 2D screens, and those park
                  * what they do not show just past the edge (the deck
                  * builder's column of card numbers), where the console's clip
-                 * hides it. The primitive's state words are idempotent. */
+                 * hides it. Full-width flat fills (fades and wipe bands)
+                 * extend over the sides. State words are idempotent. */
                 int clip_x1 = gpu.clip_x1, clip_x2 = gpu.clip_x2, offset_x = gpu.offset_x;
-                if (command < 0x60) {
+                uint32_t fill[3];
+                int full_width = SoftGpu_WidenFill(words + at, count - at, clip_x1, clip_x2, offset_x, wt->margin, fill);
+                if (command < 0x60 || full_width) {
                     gpu.clip_x2 += 2 * wt->margin;
                 } else {
                     gpu.clip_x1 += wt->margin;
@@ -1222,7 +1438,7 @@ size_t SoftGpu_Gp0(const uint32_t *words, size_t count)
                 target = wt->pixels;
                 wide_picture = wt->picture;
                 dither_shift = wt->margin;
-                draw(words + at, count - at);
+                draw(full_width ? fill : words + at, full_width ? 3 : count - at);
                 wide_picture = NULL;
                 target = vram;
                 dither_shift = 0;
@@ -1262,7 +1478,7 @@ size_t SoftGpu_Gp0(const uint32_t *words, size_t count)
         } else if (command >= 0xc0 && command < 0xe0) {
             used = count - at >= 3 ? 3 : 0;
         } else if (command == 0xe1) {
-            set_page(word);
+            set_page(word, 0);
             gpu.dither = (word >> 9) & 1;
         } else if (command == 0xe2) {
             gpu.window_mask_x = word & 0x1f;
@@ -1293,6 +1509,9 @@ size_t SoftGpu_Gp0(const uint32_t *words, size_t count)
 /* Save states: VRAM (index 0) and the drawing state (index 1). */
 void *SoftGpu_StateData(int index, size_t *size)
 {
+#if defined(MEMORIES_TRANSLATED) && !defined(MEMORIES_INSTRUMENT_SOFTGPU)
+    size = GuestRuntime_ResolveData(size, sizeof(*size));
+#endif
     *size = index ? sizeof(gpu) : sizeof(vram);
     return index ? (void *)&gpu : (void *)vram;
 }

@@ -20,28 +20,41 @@
  * title slides the entries out as the game's own do, with the game
  * returning its carrier and this the choice instead. Entries and buttons
  * drawn here are the entries' size and place and slide the game's way,
- * with afterimages of their own. */
+ * with afterimages of their own; with the mods' "slide": "smooth" every
+ * entry (the game's too) takes a 24-tick eased slide instead, without
+ * afterimages, from and to beyond the active aspect's edges.
+ *
+ * An item's "scale" sizes it about its middle: a picture or a label is
+ * drawn at that size (title_images.c), and an entry of the game's own is
+ * drawn here too, its sprites -- as the game sorts them, the cursor's
+ * look or not -- each a quad that size. */
 #include "title_menu.h"
 #include "title_config.h"
 #include "title_images.h"
+#include "menu_letters.h"
 #include "menu.h"
 #include "platform.h"
 #include "pc/guest/state.h"
 #include "pc/mods/mods.h"
+#include "pc/tower/tower.h"
 #include "types.h"
 #include "game/display_object.h"
 #include "game/display_object_helpers.h"
 #include "game/display_object_config.h"
+#include "game/display_object_render_sprite_sheet.h"
+#include "pc/cards/duel_ui.h"
 #include "game/input.h"
 #include "game/sound.h"
 #include "game/ordering_tables.h"
 #include "psyq/libgte.h"
+#include "psyq/libgpu.h"
+#include "psyq/libgs.h"
 #include "overlays/main_menu/frontend.h"
 #include <stdio.h>
 #include <string.h>
 
-enum { MIDDLE = 0xA0, LEFT_OFF = -0xA0, RIGHT_OFF = 0x1E0, TICKS = 0x10, GHOSTS = 8,
-       UNSELECTED_LEVEL = 0x60, FULL = 0x80 };
+enum { MIDDLE = 0xA0, LEFT_OFF = -0xA0, RIGHT_OFF = 0x1E0, GAME_TICKS = 0x10, GHOSTS = 8,
+       UNSELECTED_LEVEL = 0x60, FULL = 0x80, LOCKED_LEVEL = 0x38 };
 /* The game's sounds (frontend_update.c): the cursor, a choice, back, and
  * the buzz of a choice that is not there. */
 enum { SE_MOVE = 6, SE_CHOOSE = 7, SE_BACK = 8, SE_BUZZ = 9 };
@@ -65,6 +78,9 @@ static struct {
 } run = {0, {0, 0}, -1, -1, -1, 0, 1, {0}, {0}, {0}, {{{0, 0}}}};
 
 static const TitleConfig *config(void) { return TitleConfig_Get(); }
+int TitleMenu_Smooth(void) { return config()->smooth_slide; }
+/* A slide's ticks: the game's 16, or the smooth slide's. */
+static int ticks(void) { return TitleMenu_Smooth() ? TITLE_MENU_SLIDE_TICKS : GAME_TICKS; }
 /* An item's place, its widescreen one while View > Aspect is 16:9. */
 static int item_x(const TitleItem *it) { return TitleWide_X(&it->wide, it->x, Platform_Widescreen()); }
 static int item_y(const TitleItem *it)
@@ -75,10 +91,18 @@ static DisplayObject *entry(int i) { return (DisplayObject *)gMain_apMenuEntries
 static int menu_of(int id) { return id >= TITLE_FIRST_MENU; }
 static int base_of(int menu) { return menu ? TITLE_FIRST_MENU : 0; }
 
-/* Drawn here: an item with a picture made for it this time. */
+/* One of the game's entries at a size of a mod's: drawn here from its
+ * sprites (draw_sized). */
+static int sized_entry(int i)
+{
+    return i < TITLE_ENTRIES && config()->items[i].scale != 100 && entry(i) &&
+           !TitleImages_Ready(TITLE_IMAGE_ITEM(i, 0), NULL, NULL);
+}
+
+/* Drawn here: an item with a picture made for it this time, or a sized entry. */
 static int drawn_here(int i)
 {
-    return TitleImages_Ready(TITLE_IMAGE_ITEM(i, 0), NULL, NULL);
+    return TitleImages_Ready(TITLE_IMAGE_ITEM(i, 0), NULL, NULL) || sized_entry(i);
 }
 
 static int prompt_up(void)
@@ -149,22 +173,62 @@ static void cursor_to_entry(int id)
 static void begin_slide(int menu)
 {
     int row;
+    if (!TitleMenu_Smooth()) {
+        for (row = 0; row < config()->shown[menu]; row++) {
+            /* Alternate sides down the menu, as the game's own entries go
+             * by their number (the second menu's first from the right). */
+            int item = config()->order[menu][row], side = ((row + base_of(menu)) & 1) ? RIGHT_OFF : LEFT_OFF;
+            int place = MIDDLE + item_x(&config()->items[item]);
+            DisplayObject *object = item < TITLE_ENTRIES && !drawn_here(item) ? entry(item) : NULL;
+            run.from[item] = D_80184596 ? place : side;
+            run.to[item] = D_80184596 ? side : place;
+            if (!object) continue;
+            /* The game slides its entries to and from the middle: an entry
+             * a mod moves (its "x") to and from its own place instead. */
+            if (D_80184596) {
+                object->field_38.h.field_38 = (s16)side;
+                if ((s16)object->field_34.h.field_36 == MIDDLE) {
+                    object->field_34.h.field_36 = (s16)place;
+                    object->field_30.h.field_30 = (s16)place;
+                }
+            } else {
+                object->field_34.h.field_36 = (s16)side;
+                object->field_30.h.field_30 = (s16)side;
+                if ((s16)object->field_38.h.field_38 == MIDDLE) object->field_38.h.field_38 = (s16)place;
+            }
+        }
+        return;
+    }
     for (row = 0; row < config()->shown[menu]; row++) {
         /* Alternate sides down the menu, as the game's own entries go
          * by their number (the second menu's first from the right). */
-        int item = config()->order[menu][row], side = ((row + base_of(menu)) & 1) ? RIGHT_OFF : LEFT_OFF;
+        int item = config()->order[menu][row], width = 320 * config()->items[item].scale / 100, selected_width = 0;
+        int margin = Platform_Widescreen() ? TITLE_WIDE_MARGIN : 0;
+        int side;
+        TitleImages_Ready(TITLE_IMAGE_ITEM(item, 0), &width, NULL);
+        TitleImages_Ready(TITLE_IMAGE_ITEM(item, 1), &selected_width, NULL);
+        if (selected_width > width) width = selected_width;
+        side = ((row + base_of(menu)) & 1) ? 320 + margin + width / 2 + 16 : -margin - width / 2 - 16;
         int place = MIDDLE + item_x(&config()->items[item]);
         DisplayObject *object = item < TITLE_ENTRIES && !drawn_here(item) ? entry(item) : NULL;
         run.from[item] = D_80184596 ? place : side;
         run.to[item] = D_80184596 ? side : place;
+        run.x[item] = run.from[item];
         if (!object) continue;
-        if (D_80184596) {
-            object->field_38.h.field_38 = (s16)side;
-        } else {
-            object->field_34.h.field_36 = (s16)side;
-            object->field_30.h.field_30 = (s16)side;
-        }
+        object->field_34.h.field_36 = (s16)run.from[item];
+        object->field_38.h.field_38 = (s16)run.to[item];
+        object->field_30.h.field_30 = (s16)run.from[item];
     }
+}
+
+void TitleMenu_StartSlide(void)
+{
+    int i;
+    if (!TitleMenu_Smooth()) return; /* the game's slide, as the game began it */
+    for (i = 0; i < TITLE_ENTRIES; i++) {
+        if (entry(i)) entry(i)->field_60 = TITLE_MENU_SLIDE_TICKS;
+    }
+    if (run.open) begin_slide(menu_of(gMain_bMenuID));
 }
 
 void TitleMenu_Opened(void)
@@ -234,6 +298,11 @@ static int choose(int menu, int item)
         event.phase = MEMORIES_AFTER;
         Mods_Dispatch(&event);
         return 0;
+    } else if (action == TITLE_ACTION_TOWER) {
+        /* The tower (pc/tower/tower.h), while its "unlock" holds for the
+           save loaded; else a buzz, the item dimmed (TitleMenu_Draw). */
+        if (Tower_Config() && Tower_Unlocked()) leave(menu, TOWER_MENU_SELECTION);
+        else SD_SEPlay(SE_BUZZ, 0xFF, 0);
     } else if (action >= 0 && action < TITLE_ENTRIES) {
         leave(menu, action);
     } else if (action == TITLE_ACTION_BACK) {
@@ -296,15 +365,27 @@ unsigned TitleMenu_Before(void)
     return 0;
 }
 
-/* The slide's x for a port-drawn item, the game's way (frontend_update.c):
- * from + sin(90 degrees * t / 16) * (to - from), t the ticks gone. */
-static int slide_x(int i, int timer)
+/* The game's slide (frontend_update.c): from + sin(90 degrees * t / 16) *
+ * (to - from), t the ticks gone. The smooth one: smoothstep, at rest at
+ * both ends, the same rounded place for the game's sprites and the port's
+ * pictures. */
+int TitleMenu_SlidePosition(int from, int to, int timer)
 {
-    int frame = TICKS - timer, product;
-    if (frame == TICKS) return run.to[i];
-    product = rsin(frame << 6) * (run.to[i] - run.from[i]);
-    if (product < 0) product += 0xFFF;
-    return run.from[i] + (product >> 12);
+    enum { TICKS = TITLE_MENU_SLIDE_TICKS };
+    int frame = TICKS - timer, weight, product;
+    if (!TitleMenu_Smooth()) {
+        frame = GAME_TICKS - timer;
+        if (frame == GAME_TICKS) return to;
+        product = rsin(frame << 6) * (to - from);
+        if (product < 0) product += 0xFFF;
+        return from + (product >> 12);
+    }
+    if (frame <= 0) return from;
+    if (frame >= TICKS) return to;
+    weight = frame * frame * (3 * TICKS - 2 * frame);
+    product = (to - from) * weight;
+    return from + (product >= 0 ? (product + TICKS * TICKS * TICKS / 2) / (TICKS * TICKS * TICKS)
+                               : -((-product + TICKS * TICKS * TICKS / 2) / (TICKS * TICKS * TICKS)));
 }
 
 int TitleMenu_After(int result)
@@ -333,7 +414,7 @@ int TitleMenu_After(int result)
     if (!reference) return result;
     timer = reference->field_60;
     /* A slide begun this update: where each item drawn here goes. */
-    if (timer == TICKS && D_80184599) begin_slide(menu);
+    if (timer == ticks() && D_80184599) begin_slide(menu);
     for (i = 0; i < TITLE_ITEMS; i++) {
         int g;
         for (g = 0; g < GHOSTS; g++) {
@@ -344,9 +425,9 @@ int TitleMenu_After(int result)
         int item = config()->order[menu][row];
         /* At rest after sliding in, its place now: widescreen may have
          * been turned on or off since. */
-        run.x[item] = D_80184599 ? slide_x(item, timer)
+        run.x[item] = D_80184599 ? TitleMenu_SlidePosition(run.from[item], run.to[item], timer)
                       : D_80184596 ? run.to[item] : MIDDLE + item_x(&config()->items[item]);
-        if (D_80184599 && ((TICKS - timer) & 1) && timer < TICKS) {
+        if (!TitleMenu_Smooth() && D_80184599 && ((GAME_TICKS - timer) & 1) && timer < GAME_TICKS) {
             int g, oldest = 0;
             for (g = 1; g < GHOSTS; g++) {
                 if (run.ghosts[item][g].level < run.ghosts[item][oldest].level) oldest = g;
@@ -358,6 +439,82 @@ int TitleMenu_After(int result)
     return result;
 }
 
+/* d * scale / 100, rounded half away from 0: a point's place from an
+ * item's middle at its size. */
+static int scaled(int d, int scale)
+{
+    int t = d * scale;
+    return t >= 0 ? (t + 50) / 100 : -((-t + 50) / 100);
+}
+
+/* One sprite the game sorts for an entry as a quad from x0, y0 to x1, y1,
+ * its far edges the texel after its last (at a page's edge, 255, the
+ * last), as duel_ui.c draws a sized one. */
+static void sized_quad(const GsSPRITE *sprite, u32 attribute, int x0, int y0, int x1, int y1, int r, int g, int b,
+                       void *ot, int depth)
+{
+    POLY_FT4 quad;
+    int u0 = sprite->u, v0 = sprite->v, u1 = u0 + sprite->w > 255 ? u0 + sprite->w - 1 : u0 + sprite->w,
+        v1 = v0 + sprite->h > 255 ? v0 + sprite->h - 1 : v0 + sprite->h;
+    if (x1 <= x0 || y1 <= y0) return;
+    memset(&quad, 0, sizeof(quad));
+    setPolyFT4(&quad);
+    if (attribute & 0x40000000) setSemiTrans(&quad, 1);
+    /* Its colors as they are: unmodulated, so not dithered, as the sprite
+     * it stands for is not. */
+    if ((attribute & 0x40) || (r == 0x80 && g == 0x80 && b == 0x80)) setShadeTex(&quad, 1);
+    quad.r0 = (u8)r;
+    quad.g0 = (u8)g;
+    quad.b0 = (u8)b;
+    quad.tpage = (u16)((sprite->tpage & 0x1F) | ((attribute >> 17) & 0x180) | ((attribute >> 23) & 0x60));
+    quad.clut = getClut(sprite->cx, sprite->cy);
+    quad.x0 = quad.x2 = (short)x0;
+    quad.x1 = quad.x3 = (short)x1;
+    quad.y0 = quad.y1 = (short)y0;
+    quad.y2 = quad.y3 = (short)y1;
+    quad.u0 = quad.u2 = (u8)u0;
+    quad.u1 = quad.u3 = (u8)u1;
+    quad.v0 = quad.v1 = (u8)v0;
+    quad.v2 = quad.v3 = (u8)v1;
+    GsSortPoly(&quad, (GsOT *)ot, (unsigned short)depth);
+}
+
+/* Entry `i` at its size, its middle at x, y: the sprites the game would
+ * sort for it, taken with it where the screen keeps them all (the middle
+ * of it), each scaled about its place. `fade` 0 for the entry itself, else
+ * how much darker an afterimage of it is: added, as the game's own
+ * (MainMenu_SpawnFrontendEntryAfterimage), each color down by that. */
+static void draw_sized(int i, void *ot, int depth, int x, int y, int fade)
+{
+    DisplayObject *object = entry(i);
+    DisplayObjectCapture caught;
+    int scale = config()->items[i].scale, saved_x = object->field_30.h.field_30, saved_y = object->field_30.h.field_32,
+        n;
+    if (!object->field_4C) return;
+    object->field_30.h.field_30 = MIDDLE;
+    object->field_30.h.field_32 = 120;
+    caught.count = 0;
+    DisplayObject_Capture = &caught;
+    DisplayObject_RenderSpriteSheet(object, (s32)ot, depth);
+    DisplayObject_Capture = NULL;
+    object->field_30.h.field_30 = (u16)saved_x;
+    object->field_30.h.field_32 = (u16)saved_y;
+    for (n = 0; n < caught.count; n++) {
+        const GsSPRITE *sprite = (const GsSPRITE *)&caught.sprite[n];
+        int left = sprite->x - MIDDLE, top = sprite->y - 120, r = sprite->r, g = sprite->g, b = sprite->b;
+        u32 attribute = sprite->attribute;
+        if (fade) {
+            attribute = (attribute & ~0x30000000u) | 0x50000000u;
+            r = r > fade ? r - fade : 0;
+            g = g > fade ? g - fade : 0;
+            b = b > fade ? b - fade : 0;
+            if (!r && !g && !b) continue;
+        }
+        sized_quad(sprite, attribute, x + scaled(left, scale), y + scaled(top, scale), x + scaled(left + sprite->w, scale),
+                   y + scaled(top + sprite->h, scale), r, g, b, ot, depth);
+    }
+}
+
 void TitleMenu_Draw(void)
 {
     int menu = TitleMenu_Showing(), row, depth;
@@ -365,15 +522,30 @@ void TitleMenu_Draw(void)
     if (menu < 0) return;
     reference = entry(base_of(menu));
     if (!(reference->flags & DISPLAY_OBJECT_FLAG_RENDERABLE)) return;
+    /* A label in the game's letters waits for the entries to have drawn
+     * once (menu_letters.h): the pictures made again, now with it. */
+    if (MenuLetters_Waiting() && reference->field_4C) TitleImages_Prepare(config());
     depth = D_8009AF74[1];
     for (row = 0; row < config()->shown[menu]; row++) {
         int item = config()->order[menu][row], selected = cursor_item(menu) == item, w, h, which, level, g;
         const TitleItem *it = &config()->items[item];
         if (!drawn_here(item)) continue;
+        if (sized_entry(item)) {
+            draw_sized(item, D_800E9D90[1], depth, run.x[item], item_y(it), 0);
+            for (g = 0; g < GHOSTS; g++) {
+                if (run.ghosts[item][g].level > 0)
+                    draw_sized(item, D_800E9D90[1], depth + 1, run.ghosts[item][g].x, item_y(it),
+                               FULL - run.ghosts[item][g].level);
+            }
+            continue;
+        }
         which = TITLE_IMAGE_ITEM(item, 1);
         /* Without a picture for the cursor, the one picture, darker off it. */
         if (!selected || !TitleImages_Ready(which, NULL, NULL)) which = TITLE_IMAGE_ITEM(item, 0);
         level = selected || TitleImages_Ready(TITLE_IMAGE_ITEM(item, 1), NULL, NULL) ? FULL : UNSELECTED_LEVEL;
+        /* A tower still locked for this save: dimmed, the cursor's look
+           kept (choose buzzes). */
+        if (it->action == TITLE_ACTION_TOWER && !(Tower_Config() && Tower_Unlocked())) level = LOCKED_LEVEL;
         TitleImages_Ready(which, &w, &h);
         TitleImages_Draw(which, D_800E9D90[1], depth, run.x[item] - w / 2, item_y(it) - h / 2,
                          level * (int)(it->tint >> 16 & 0xFF) / 0xFF, level * (int)(it->tint >> 8 & 0xFF) / 0xFF,

@@ -9,19 +9,18 @@ from __future__ import annotations
 
 import base64
 import math
-import sys
 import tkinter as tk
 from pathlib import Path
 from tkinter import ttk
 
-from . import card_view, pngio, settings
+from . import card_view, disc, pngio, settings
 
 SIZES = ("Fit", "1x", "2x", "3x")
 
 
 class CardViewPreview(ttk.Frame):
     def __init__(self, master, app, values, fit_height):
-        """values() gives (type, star 1, star 2, text, colours, the mod's star
+        """values() gives (type, star 1, star 2, text, colors, the mod's star
         names) of the form, or None when there is no card; fit_height() the
         height in pixels "Fit" makes it."""
         super().__init__(master)
@@ -50,7 +49,7 @@ class CardViewPreview(ttk.Frame):
         """Where the translations may be: the repository's, beside the editor
         program, and beside (or above) the game files it reads."""
         folders = list(card_view.language_folders())
-        folders.append(Path(sys.executable).resolve().parent / "languages")
+        folders.append(disc.program_dir() / "languages")
         files = getattr(self.app, "files", None)
         source = Path(files.source) if files is not None and getattr(files, "source", None) else None
         if source is not None:
@@ -105,7 +104,7 @@ class CardViewPreview(ttk.Frame):
             self.picture.configure(image="")
             self._photo = None
             return
-        card_type, star1, star2, text, colours, star_names = values
+        card_type, star1, star2, text, colors, star_names = values
         size = self.size.get() if self.size.get() in SIZES else "Fit"
         tall = card_view.TEXT_BOTTOM - card_view.TEXT_TOP
         if size == "Fit":
@@ -114,12 +113,12 @@ class CardViewPreview(ttk.Frame):
             # The box's height less the row of lists over the picture.
             height = max(tall, int(self.fit_height() or tall) - self.top.winfo_height() - 2)
             scale = max(1, math.ceil(height / tall))
-            image = view.render(card_type, star1, star2, text, language=self.language.get(), colours=colours,
+            image = view.render(card_type, star1, star2, text, language=self.language.get(), colors=colors,
                                 scale=scale, star_names=star_names, text_only=True)
             if image.height != height:
                 image = pngio.resample(image, round(image.width * height / image.height), height)
         else:
-            image = view.render(card_type, star1, star2, text, language=self.language.get(), colours=colours,
+            image = view.render(card_type, star1, star2, text, language=self.language.get(), colors=colors,
                                 scale=SIZES.index(size), star_names=star_names, text_only=True)
         self._photo = tk.PhotoImage(master=self, data=base64.b64encode(pngio.encode(image)), format="png")
         self.picture.configure(image=self._photo)

@@ -4,7 +4,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-/* Software PS1 GPU: 1024x512 words of 15-bit colour plus the mask bit.
+/* Software PS1 GPU: 1024x512 words of 15-bit color plus the mask bit.
  * Single-threaded. Timing, interlace and 24-bit display are not modelled. */
 #define SOFT_GPU_WIDTH 1024
 #define SOFT_GPU_HEIGHT 512
@@ -22,12 +22,25 @@ const uint16_t *SoftGpu_Vram(void);
 
 /* Texture banks: alternate VRAM that a primitive can sample instead, chosen
  * by bits 11-14 of its texture-page word, which the hardware leaves unused
- * and retail always writes as zero (bank 0 is VRAM itself). They let several
+ * and retail always writes as zero (bank 0 is VRAM itself), and for banks
+ * 16-31 bit 10 too: a polygon's page word only (SOFT_GPU_BANK_TPAGE), as the
+ * hardware ignores that bit there but an E1 command's is the drawing to the
+ * shown area, so an E1 names banks 0-15 alone. They let several
  * monsters keep their 256x256 texture block at once, which the console's one
  * megabyte could never do; src/pc/mods uses them. A bank is VRAM-shaped, so
  * a primitive's page, window and palette coordinates mean the same in it.
- * Returns NULL if the bank cannot be allocated. */
-#define SOFT_GPU_BANKS 16
+ * Returns NULL if the bank cannot be allocated.
+ *
+ * Who writes which, so two never share a place: 1-12 the 3D Monsters mod
+ * (a cached card's art and its model's textures, field_art.c and
+ * field_models.c; bank 1 also its Card art glow, at x 0x100); 13 the card
+ * frames (card_layout_art.c); 14 the star, attribute and type icons and the
+ * duel UI's pictures (duel_ui.c), at places of their own; 15 the added
+ * glyphs (glyphs.h); 17 and 18 a bigger battle model's own texture pages,
+ * slot 0's and slot 1's (battle_models.c). */
+#define SOFT_GPU_BANKS 32
+/* A polygon's page word's bank bits for `bank` (0-31). */
+#define SOFT_GPU_BANK_TPAGE(bank) ((((unsigned)(bank) & 15u) << 11) | (((unsigned)(bank) >> 4 & 1u) << 10))
 uint16_t *SoftGpu_Bank(int bank);
 /* The bank's pixels if it has been made, NULL otherwise (a primitive naming
  * a bank that was never made samples VRAM). */
@@ -50,6 +63,22 @@ int SoftGpu_Widescreen(void);
  * a full screen, or no room in VRAM's width). The OpenGL picture draws its
  * own targets by it (gl_picture.c). */
 int SoftGpu_WideMargin(int x1, int y1, int x2, int y2);
+/* Full-width flat rectangles include the game's global fades, their wipe
+ * bands and tinted flashes. Extend only those in the widened replay;
+ * ordinary sprites and small UI rectangles retain the console's clip. */
+static inline int SoftGpu_WidenFill(const uint32_t *words, size_t count, int clip_x1, int clip_x2,
+                                  int offset_x, int margin, uint32_t out[3])
+{
+    int x, width;
+    if (count < 3 || (words[0] >> 24 != 0x60 && words[0] >> 24 != 0x62)) return 0;
+    x = (int32_t)(words[1] << 21) >> 21;
+    width = words[2] & 0x3ff;
+    if (x + offset_x > clip_x1 || x + offset_x + width <= clip_x2 || width + 2 * margin > 1023) return 0;
+    out[0] = words[0];
+    out[1] = (words[1] & 0xffff0000u) | (uint16_t)(x - margin);
+    out[2] = (words[2] & 0xffff0000u) | (uint32_t)(width + 2 * margin);
+    return 1;
+}
 /* The widened picture of the display area x,y,w,h, if it has a target:
  * VRAM-shaped pixels, and the x and width to show. Returns 0 otherwise. */
 int SoftGpu_WideFrame(int x, int y, int w, int h, const uint16_t **pixels, int *out_x, int *out_w);
@@ -64,6 +93,9 @@ int SoftGpu_WideRastered(void);
  * resolution (hd_text.h, HdText_NamePixels): set while View > Opponent's
  * name for COM is on (libgpu.c), NULL otherwise, when nothing changes. */
 extern const uint8_t *(*SoftGpu_PanelName)(int which, int *x, int *y, int *width, int *height, int *stride);
+/* With it, whether the panel is drawn in pieces at any size (a mod's "ui",
+ * pc/cards/duel_ui.h): the names then go over its quads too. */
+extern int SoftGpu_PanelCut;
 /* Scaled widened picture, SOFT_GPU_WIDTH * scale pixels per row. NULL at
  * console resolution, while a recorder draws the picture (it draws the
  * widened ones too), or if allocation failed. Call after WideFrame to also
@@ -71,12 +103,23 @@ extern const uint8_t *(*SoftGpu_PanelName)(int which, int *x, int *y, int *width
 const uint32_t *SoftGpu_WidePicture(int x, int y, int w, int h);
 /* Internal resolution: with a scale above 1 every primitive is also drawn,
  * at scale x scale pixels per VRAM word, into a second picture of the whole
- * of VRAM in 24-bit colour, which is what is presented; VRAM itself stays
+ * of VRAM in 24-bit color, which is what is presented; VRAM itself stays
  * exactly what the console's would be, since the game reads it back and
  * states hold it. Uploads, fills and moves keep the picture in step; a
  * texture pack's images are sampled at their own resolution there
  * (texture_dump.h, `sample`). Returns 0 if the picture cannot be made. */
 int SoftGpu_SetScale(int scale);
+/* What is drawn through this palette shows only in the scaled picture: while
+ * the recorder draws that, it is not rastered into VRAM as well. For a
+ * full-screen picture nothing reads back, which would be most of a menu's
+ * frame on the CPU. */
+void SoftGpu_PictureOnlyClut(int clut_x, int clut_y);
+/* While on, nothing drawn into a full-screen drawing area is rastered into
+ * VRAM as well, while the recorder draws the scaled picture: for frames
+ * nothing reads back from the frame buffer (a mod's whole scene, which
+ * would otherwise cost the CPU its own pass at 1x). Set before each flush
+ * (libgpu.c, from Mods_PictureOnlyFrame). */
+void SoftGpu_PictureOnlyFrame(int on);
 int SoftGpu_Scale(void);
 /* The picture: SOFT_GPU_WIDTH * scale words per row, 0x00RRGGBB. */
 const uint32_t *SoftGpu_Picture(void);
@@ -107,7 +150,7 @@ typedef struct SoftGpuRecorder {
 /* The game read w x h of the picture at sx,sy (StoreImage) and loaded it,
  * as good as unchanged, at dx,dy to draw with (LoadImage): the recorder
  * keeps that part of its scaled picture for primitives textured from
- * dx,dy, which VRAM only has at the console's resolution. Colour only: a
+ * dx,dy, which VRAM only has at the console's resolution. Color only: a
  * texel's transparency and semi-transparency bit stay VRAM's. */
 void SoftGpu_Capture(int sx, int sy, int dx, int dy, int w, int h);
 void SoftGpu_SetRecorder(const SoftGpuRecorder *recorder);

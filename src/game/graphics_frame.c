@@ -1,3 +1,4 @@
+#include "../port_ptr.h"
 #define D_8009B318_IN_DATA
 #include "../types.h"
 #include "../psyq/libgte.h"
@@ -32,8 +33,8 @@ u16 D_8009B098;
 u8 D_8009B0A0[4];
 u8 gGraphics_bActiveBuffer;
 GraphicsFrameBuffer *G32 gGraphics_pActiveFrameBuffer;
-s16 gGraphics_sViewportX __attribute__((section(".sbss"))) = 0;
-s16 gGraphics_sViewportY __attribute__((section(".sbss"))) = 0;
+s16 gGraphics_sViewportX PSX_SECTION(".sbss") = 0;
+s16 gGraphics_sViewportY PSX_SECTION(".sbss") = 0;
 
 /* Waits for the current GPU/VBlank boundary and publishes the bounded number
    of frame advances consumed by the next game update. */
@@ -119,6 +120,14 @@ void Graphics_BeginFrame(void)
     gGraphics_pActiveFrameBuffer =
         &gGraphics_aFrameBuffers[gGraphics_bActiveBuffer];
     GsSetWorkBase((PACKET *)arg);
+#ifdef MEMORIES_PC
+    {
+        /* A slot drawing a bigger model starts its own half here too
+           (src/pc/cards/battle_models.h). */
+        extern void BattleModels_BeginFrame(void);
+        BattleModels_BeginFrame();
+    }
+#endif
     base = D_800E9D90;
     slot = base + 3;
     do {

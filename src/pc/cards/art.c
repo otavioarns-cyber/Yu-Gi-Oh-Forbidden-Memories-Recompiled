@@ -12,7 +12,7 @@
  * and the thumbnail block (+0x2AE0, 0x580 bytes) is also the card's own sector
  * the duel reads for the hand and field. This file makes those bytes from a
  * PNG: cropped to the shape, averaged down to the size, and reduced to the
- * colours by median cut. The plate is the card's name set in Times (the
+ * colors by median cut. The plate is the card's name set in Times (the
  * system's; the retail plates' own face is not available as a font), or a
  * PNG the mod gives.
  *
@@ -41,7 +41,11 @@
 #ifdef _WIN32
 #include "pc/platform/win32.h"
 #else
+#ifdef __APPLE__
+#include "pc/platform/macos_fonts.h"
+#else
 #include <fontconfig/fontconfig.h>
+#endif
 #endif
 
 typedef struct { unsigned char r, g, b; } Rgb;
@@ -127,86 +131,307 @@ static void resample(const Rgb *source, int sw, int sh, Rgb *out, int w, int h)
     }
 }
 
-/* --- colours --------------------------------------------------------- */
+/* --- colors --------------------------------------------------------- */
 
-typedef struct { int first, count; } Box;
+/* A color and how many pixels have it. */
+typedef struct {
+    unsigned char r, g, b;
+    int count;
+} Weighted;
+
+/* A box of median cut: its colors, how many pixels in all, and its range on
+ * each channel. */
+typedef struct {
+    Weighted *colors;
+    int n, count;
+    int low[3], high[3];
+} Box;
 
 static unsigned short to555(int r, int g, int b)
 {
     unsigned short c = (unsigned short)((r >> 3) | ((g >> 3) << 5) | ((b >> 3) << 10));
-    return c ? c : 0x8000;   /* 0 is the transparent colour; this is black */
+    return c ? c : 0x8000;   /* 0 is the transparent color; this is black */
 }
 
 static int channel(const Rgb *c, int axis) { return axis == 0 ? c->r : axis == 1 ? c->g : c->b; }
-static int sort_axis;
-/* By one channel, then the other two: a whole order, so every C library's
- * qsort sorts alike and a picture is made the same on Linux and Windows. */
-static int by_axis(const void *a, const void *b)
+static int weighted_channel(const Weighted *c, int axis) { return axis == 0 ? c->r : axis == 1 ? c->g : c->b; }
+
+static void measure(Box *box)
 {
-    int k, d = channel(a, sort_axis) - channel(b, sort_axis);
-    for (k = 0; !d && k < 3; k++) d = channel(a, k) - channel(b, k);
-    return d;
+    int a, k;
+    for (a = 0; a < 3; a++) {
+        box->low[a] = 255;
+        box->high[a] = 0;
+    }
+    for (k = 0; k < box->n; k++) {
+        for (a = 0; a < 3; a++) {
+            int v = weighted_channel(&box->colors[k], a);
+            if (v < box->low[a]) box->low[a] = v;
+            if (v > box->high[a]) box->high[a] = v;
+        }
+    }
 }
 
-/* Median cut of the pixels to `colours` entries, written to `clut` from
- * entry 1 on, and each pixel's entry to `indices`. */
-static void quantize(const Rgb *pixels, int count, int colours, unsigned short *clut, unsigned char *indices)
+/* The pixels in order by red, green, blue: three stable counting passes,
+ * the least of the keys first, through `spare`; the result in `spare`. */
+static void sort_pixels(Rgb *pixels, int count, Rgb *spare)
 {
-    Rgb *sorted = malloc((size_t)count * sizeof(*sorted)), palette[256];
-    Box boxes[256];
-    int box_count = 1, i, k;
-    if (!sorted) return;
-    memcpy(sorted, pixels, (size_t)count * sizeof(*sorted));
-    boxes[0].first = 0;
-    boxes[0].count = count;
-    while (box_count < colours) {
-        int best = -1, best_range = 0, axis = 0;
-        for (i = 0; i < box_count; i++) {
-            int a, low[3] = {255, 255, 255}, high[3] = {0, 0, 0};
-            if (boxes[i].count < 2) continue;
-            for (k = boxes[i].first; k < boxes[i].first + boxes[i].count; k++) {
-                for (a = 0; a < 3; a++) {
-                    int v = channel(&sorted[k], a);
-                    if (v < low[a]) low[a] = v;
-                    if (v > high[a]) high[a] = v;
-                }
+    int pass, k;
+    Rgb *from = pixels, *to = spare, *swap;
+    for (pass = 0; pass < 3; pass++) {
+        int at[256] = {0}, key = 2 - pass, sum = 0, v;
+        for (k = 0; k < count; k++) at[channel(&from[k], key)]++;
+        for (v = 0; v < 256; v++) {
+            int n = at[v];
+            at[v] = sum;
+            sum += n;
+        }
+        for (k = 0; k < count; k++) to[at[channel(&from[k], key)]++] = from[k];
+        swap = from;
+        from = to;
+        to = swap;
+    }
+    /* Three passes: the sorted pixels are in `spare`. */
+}
+
+/* A box's colors in order by channel `axis`, then red, green and blue (no
+ * color is there twice, so it is a whole order), through `spare`. */
+static void sort_colors(Weighted *colors, int n, int axis, Weighted *spare)
+{
+    static const int keys[3] = {2, 1, 0};     /* blue, green, red, then the axis */
+    int pass, k;
+    Weighted *from = colors, *to = spare, *swap;
+    for (pass = 0; pass < 4; pass++) {
+        int at[256] = {0}, key = pass < 3 ? keys[pass] : axis, sum = 0, v;
+        for (k = 0; k < n; k++) at[weighted_channel(&from[k], key)]++;
+        for (v = 0; v < 256; v++) {
+            int c = at[v];
+            at[v] = sum;
+            sum += c;
+        }
+        for (k = 0; k < n; k++) to[at[weighted_channel(&from[k], key)]++] = from[k];
+        swap = from;
+        from = to;
+        to = swap;
+    }
+    /* Four passes: back in `colors`. */
+}
+
+/* The palette entry nearest a color (the weights the eye gives red, green
+ * and blue), the lowest of those as near. `by_green` is the entries in
+ * order of green and `hint` an entry likely near (the last color's): the
+ * search starts from that one's distance and goes out from the entries of
+ * about the color's green no further than green alone puts an entry past
+ * the nearest found -- each entry as near as the hint or nearer is looked
+ * at, so the answer is the plain search's. */
+static int nearest(const Weighted *c, const Rgb *palette, const int *by_green, int entries, int hint)
+{
+    int lo = 0, hi = entries, best = hint, k, step;
+    long dr = palette[hint].r - c->r, dg = palette[hint].g - c->g, db = palette[hint].b - c->b;
+    long best_distance = dr * dr * 3 + dg * dg * 4 + db * db * 2;
+    while (lo < hi) {
+        int mid = (lo + hi) / 2;
+        if (palette[by_green[mid]].g < c->g) lo = mid + 1;
+        else hi = mid;
+    }
+    for (step = 0; step < 2; step++) {
+        for (k = step ? lo - 1 : lo; step ? k >= 0 : k < entries; k += step ? -1 : 1) {
+            const Rgb *p = &palette[by_green[k]];
+            long distance;
+            dr = p->r - c->r;
+            dg = p->g - c->g;
+            db = p->b - c->b;
+            if (dg * dg * 4 > best_distance) break;
+            distance = dr * dr * 3 + dg * dg * 4 + db * db * 2;
+            if (distance < best_distance || (distance == best_distance && by_green[k] < best)) {
+                best_distance = distance;
+                best = by_green[k];
             }
+        }
+    }
+    return best;
+}
+
+/* The memory one quantize works in. The cuts used to take a block of their
+ * own each (a malloc per box, a realloc per split), a few hundred allocations
+ * for every picture; where the game's allocator registers each one (the
+ * translated build, whose registry is searched in a line) that was nearly all
+ * of the time a card's picture took. Here the memory comes from a few chunks,
+ * handed out in order and all freed at once. A chunk is the first one's size,
+ * or a request's when that is bigger, so the memory stays near what the cuts
+ * use (a bust's hundred pictures are millions of pixels): a picture of
+ * all-different colors takes four or five chunks of the sixteen. */
+#define ARENA_CHUNKS 16
+
+typedef struct {
+    unsigned char *chunks[ARENA_CHUNKS];
+    int count;
+    size_t used, size;      /* of the last chunk; before the first, the size it is to have */
+} Arena;
+
+static void *arena_get(Arena *arena, size_t bytes)
+{
+    bytes = (bytes + 15u) & ~(size_t)15u;
+    if (!arena->count || bytes > arena->size - arena->used) {
+        size_t size = arena->size;
+        if (size < bytes) size = bytes;
+        if (arena->count == ARENA_CHUNKS) return NULL;
+        arena->chunks[arena->count] = malloc(size);
+        if (!arena->chunks[arena->count]) return NULL;
+        arena->count++;
+        arena->used = 0;
+        arena->size = size;
+    }
+    arena->used += bytes;
+    return arena->chunks[arena->count - 1] + arena->used - bytes;
+}
+
+static void arena_free(Arena *arena)
+{
+    while (arena->count) free(arena->chunks[--arena->count]);
+}
+
+/* Median cut of the pixels to `colors` entries, written to `clut` from
+ * entry 1 on, and each pixel's entry to `indices`: the widest box (on one
+ * channel) split in two at its median pixel in order of that channel, then
+ * red, green and blue, until there are `colors` or none is worth it; an
+ * entry the average of its box, a pixel the entry nearest it.
+ *
+ * Worked on the colors and how many pixels have each, not pixel by pixel:
+ * a box holds the same pixels either way (a split may part one color's
+ * pixels between the two), so the palette and the entries are the plain
+ * way's, in a moment where that took seconds for a bust's hundred pictures
+ * (busts.c). */
+static void quantize(const Rgb *pixels, int count, int colors, unsigned short *clut, unsigned char *indices)
+{
+    Arena arena = {{NULL}, 0, 0, 0};
+    Rgb *sorted, *spare, palette[256];
+    Weighted *unique = NULL, *scratch = NULL;
+    unsigned char *entry = NULL, *table = NULL;
+    Box boxes[256];
+    int box_count = 1, i, k, n = 0, by_green[256];
+    boxes[0].colors = NULL;
+    if (count < 1) return;
+    /* A chunk holds the two copies of the pixels and some of what follows. */
+    arena.size = (size_t)count * 16;
+    sorted = arena_get(&arena, (size_t)count * sizeof(*sorted));
+    spare = arena_get(&arena, (size_t)count * sizeof(*spare));
+    if (!sorted || !spare) goto done;
+    /* The colors, in order, and how many of each. */
+    memcpy(sorted, pixels, (size_t)count * sizeof(*sorted));
+    sort_pixels(sorted, count, spare);
+    for (k = 0; k < count; k++) {
+        if (!k || spare[k].r != spare[k - 1].r || spare[k].g != spare[k - 1].g || spare[k].b != spare[k - 1].b) n++;
+    }
+    unique = arena_get(&arena, (size_t)n * sizeof(*unique));
+    scratch = arena_get(&arena, (size_t)n * sizeof(*scratch));
+    if (!unique || !scratch) goto done;
+    for (k = 0, n = 0; k < count; k++) {
+        const Rgb *c = &spare[k];
+        if (n && unique[n - 1].r == c->r && unique[n - 1].g == c->g && unique[n - 1].b == c->b) {
+            unique[n - 1].count++;
+            continue;
+        }
+        unique[n].r = c->r;
+        unique[n].g = c->g;
+        unique[n].b = c->b;
+        unique[n].count = 1;
+        n++;
+    }
+    boxes[0].colors = arena_get(&arena, (size_t)n * sizeof(Weighted));
+    if (!boxes[0].colors) goto done;
+    memcpy(boxes[0].colors, unique, (size_t)n * sizeof(Weighted));
+    boxes[0].n = n;
+    boxes[0].count = count;
+    measure(&boxes[0]);
+    while (box_count < colors) {
+        int best = -1, best_range = 0, axis = 0, a, half, before, j, part;
+        Box *box, *next;
+        for (i = 0; i < box_count; i++) {
+            if (boxes[i].count < 2) continue;
             for (a = 0; a < 3; a++) {
-                if (high[a] - low[a] > best_range) { best_range = high[a] - low[a]; best = i; axis = a; }
+                if (boxes[i].high[a] - boxes[i].low[a] > best_range) {
+                    best_range = boxes[i].high[a] - boxes[i].low[a];
+                    best = i;
+                    axis = a;
+                }
             }
         }
         if (best < 0 || best_range < 4) break;   /* no box worth splitting */
-        sort_axis = axis;
-        qsort(sorted + boxes[best].first, (size_t)boxes[best].count, sizeof(*sorted), by_axis);
-        boxes[box_count].first = boxes[best].first + boxes[best].count / 2;
-        boxes[box_count].count = boxes[best].count - boxes[best].count / 2;
-        boxes[best].count /= 2;
+        box = &boxes[best];
+        next = &boxes[box_count];
+        sort_colors(box->colors, box->n, axis, scratch);
+        /* Its first count / 2 pixels in that order stay; the rest are the
+         * new box, a color across the line parted between the two. */
+        half = box->count / 2;
+        for (j = 0, before = 0; j < box->n && before + box->colors[j].count <= half; j++) before += box->colors[j].count;
+        part = half - before;                 /* color j's pixels in the first */
+        next->n = box->n - j;
+        next->count = box->count - half;
+        next->colors = arena_get(&arena, (size_t)next->n * sizeof(Weighted));
+        if (!next->colors) break;
+        memcpy(next->colors, box->colors + j, (size_t)next->n * sizeof(Weighted));
+        if (part) {
+            next->colors[0].count -= part;
+            box->colors[j].count = part;
+            box->n = j + 1;
+        } else {
+            box->n = j;
+        }
+        box->count = half;
+        measure(box);
+        measure(next);
         box_count++;
     }
     for (i = 0; i < box_count; i++) {
-        unsigned long r = 0, g = 0, b = 0, n = (unsigned long)boxes[i].count;
-        for (k = boxes[i].first; k < boxes[i].first + boxes[i].count; k++) {
-            r += sorted[k].r; g += sorted[k].g; b += sorted[k].b;
+        unsigned long r = 0, g = 0, b = 0, w = (unsigned long)boxes[i].count;
+        for (k = 0; k < boxes[i].n; k++) {
+            const Weighted *c = &boxes[i].colors[k];
+            r += (unsigned long)c->r * (unsigned long)c->count;
+            g += (unsigned long)c->g * (unsigned long)c->count;
+            b += (unsigned long)c->b * (unsigned long)c->count;
         }
-        if (!n) n = 1;
-        palette[i].r = (unsigned char)(r / n);
-        palette[i].g = (unsigned char)(g / n);
-        palette[i].b = (unsigned char)(b / n);
+        if (!w) w = 1;
+        palette[i].r = (unsigned char)(r / w);
+        palette[i].g = (unsigned char)(g / w);
+        palette[i].b = (unsigned char)(b / w);
         clut[i + 1] = to555(palette[i].r, palette[i].g, palette[i].b);
     }
-    for (; i < colours; i++) clut[i + 1] = 0x8000;
+    for (; i < colors; i++) clut[i + 1] = 0x8000;
     clut[0] = 0x8000;
-    for (k = 0; k < count; k++) {
-        int best = 0;
-        long best_distance = -1;
-        for (i = 0; i < box_count; i++) {
-            long dr = pixels[k].r - palette[i].r, dg = pixels[k].g - palette[i].g, db = pixels[k].b - palette[i].b;
-            long distance = dr * dr * 3 + dg * dg * 4 + db * db * 2;
-            if (best_distance < 0 || distance < best_distance) { best_distance = distance; best = i; }
-        }
-        indices[k] = (unsigned char)(best + 1);
+    /* Each color's entry once (in order, the last one's a good start for
+     * the next), then each pixel's by its color: through a table of every
+     * color when there are many, else found among them in order. */
+    for (i = 0; i < box_count; i++) {
+        int v = i;
+        for (k = i; k > 0 && palette[by_green[k - 1]].g > palette[v].g; k--) by_green[k] = by_green[k - 1];
+        by_green[k] = v;
     }
-    free(sorted);
+    entry = arena_get(&arena, (size_t)n);
+    if (!entry) goto done;
+    for (k = 0; k < n; k++)
+        entry[k] = (unsigned char)(nearest(&unique[k], palette, by_green, box_count, k ? entry[k - 1] - 1 : 0) + 1);
+    if (n > 0x4000) table = malloc((size_t)1 << 24);
+    if (table) {
+        for (k = 0; k < n; k++) table[(size_t)unique[k].r << 16 | (size_t)unique[k].g << 8 | unique[k].b] = entry[k];
+        for (k = 0; k < count; k++)
+            indices[k] = table[(size_t)pixels[k].r << 16 | (size_t)pixels[k].g << 8 | pixels[k].b];
+    } else {
+        for (k = 0; k < count; k++) {
+            unsigned key = (unsigned)pixels[k].r << 16 | (unsigned)pixels[k].g << 8 | pixels[k].b;
+            int lo = 0, hi = n - 1;
+            while (lo < hi) {
+                int mid = (lo + hi) / 2;
+                unsigned at = (unsigned)unique[mid].r << 16 | (unsigned)unique[mid].g << 8 | unique[mid].b;
+                if (at < key) lo = mid + 1;
+                else hi = mid;
+            }
+            indices[k] = entry[lo];
+        }
+    }
+done:
+    arena_free(&arena);
+    free(table);
 }
 
 static void put_clut(unsigned char *out, const unsigned short *clut, int entries)
@@ -360,7 +585,7 @@ int CardArt_FieldArtFromImage(const char *path, unsigned char *record, char *why
     quantize(art, CARD_ART_WIDTH * CARD_ART_HEIGHT, 255, clut, record + CARD_ART_PIXELS);
     /* A texel this transparent is written as index 0 (never quantize's own
      * output: every real pixel is 1-255), and its CLUT entry set to the
-     * PS1's own transparent colour, 0x0000 (to555's own comment) -- unlike
+     * PS1's own transparent color, 0x0000 (to555's own comment) -- unlike
      * quantize's own default for it, 0x8000, opaque black, since index 0
      * never reaches a real pixel anywhere else a card's art is drawn. */
     clut[0] = 0;
@@ -400,9 +625,9 @@ int CardArt_PortraitFromImage(const char *path, unsigned char *record, char *why
 }
 
 /* A guardian star's icon (stars.h): 16x16 at 4 bits a pixel, index 0 where
- * the PNG is less than half covered. With `palette` (16 colours, 0 the
+ * the PNG is less than half covered. With `palette` (16 colors, 0 the
  * transparent one) each pixel takes the nearest of its entries 1-15, as the
- * disc's stars are drawn; without, the PNG's own 15 colours go to `clut`.
+ * disc's stars are drawn; without, the PNG's own 15 colors go to `clut`.
  * The image is taken whole, squeezed to a square if it is not one. */
 int CardArt_IconFromImage(const char *path, const unsigned short *palette, unsigned char *pixels,
                           unsigned short *clut, char *why, size_t why_size)
@@ -526,26 +751,19 @@ int CardArt_Crop(const char *path, int w, int h, int *x, int *y, int *cw, int *c
     return 1;
 }
 
-/* A PNG with see-through parts as 8-bit texels (title_images.c): stretched
- * to `w` x `h`, each texel the average of the pixels under it, a texel under
- * half covered clear (entry 0, the PS1's transparent 0x0000) and the rest
- * reduced to 255 colours by median cut from entry 1. */
-int CardArt_IndexedImage(const char *path, int w, int h, unsigned char *indices, unsigned short *clut, char *why,
-                         size_t why_size)
+/* A PNG's pixels, RGBA; NULL (and `why`) when it cannot be read. */
+static unsigned char *read_rgba(const char *path, int *sw, int *sh, char *why, size_t why_size)
 {
     png_image image;
     FILE *file;
     unsigned char *rgba;
-    Rgb *opaque;
-    unsigned char *opaque_indices;
-    int x, y, sw, sh, count = 0, k;
     memset(&image, 0, sizeof(image));
     image.version = PNG_IMAGE_VERSION;
     file = fopen(path, "rb");
     if (!file || !png_image_begin_read_from_stdio(&image, file)) {
         if (file) fclose(file);
         snprintf(why, why_size, "%s is not a PNG it could read", path);
-        return 0;
+        return NULL;
     }
     image.format = PNG_FORMAT_RGBA;
     rgba = malloc(PNG_IMAGE_SIZE(image));
@@ -554,29 +772,31 @@ int CardArt_IndexedImage(const char *path, int w, int h, unsigned char *indices,
         fclose(file);
         png_image_free(&image);
         snprintf(why, why_size, "%s is not a PNG it could read", path);
-        return 0;
+        return NULL;
     }
     fclose(file);
-    sw = (int)image.width;
-    sh = (int)image.height;
+    *sw = (int)image.width;
+    *sh = (int)image.height;
     png_image_free(&image);
-    opaque = malloc((size_t)w * h * sizeof(*opaque));
-    opaque_indices = malloc((size_t)w * h);
-    if (!opaque || !opaque_indices) {
-        free(rgba);
-        free(opaque);
-        free(opaque_indices);
-        snprintf(why, why_size, "out of memory for %s", path);
-        return 0;
-    }
+    return rgba;
+}
+
+/* The rows `ry` to `ry + rh` of a picture `sw` across stretched to `w` x
+ * `h`, each texel the average of the pixels under it: a texel under half
+ * covered is clear (0 in `indices`), the others 1, their colors appended to
+ * `opaque` from `*count` on. */
+static void sample_rows(const unsigned char *rgba, int sw, int ry, int rh, int w, int h, unsigned char *indices,
+                        Rgb *opaque, int *count)
+{
+    int x, y;
     for (y = 0; y < h; y++) {
-        int top = (int)((long)sh * y / h), bottom = (int)((long)sh * (y + 1) / h);
+        int top = ry + (int)((long)rh * y / h), bottom = ry + (int)((long)rh * (y + 1) / h);
         if (bottom <= top) bottom = top + 1;
         for (x = 0; x < w; x++) {
             int left = (int)((long)sw * x / w), right = (int)((long)sw * (x + 1) / w), sx, sy;
             unsigned long r = 0, g = 0, b = 0, a = 0, n = 0;
             if (right <= left) right = left + 1;
-            for (sy = top; sy < bottom && sy < sh; sy++) {
+            for (sy = top; sy < bottom && sy < ry + rh; sy++) {
                 for (sx = left; sx < right && sx < sw; sx++) {
                     const unsigned char *p = rgba + ((size_t)sy * sw + sx) * 4;
                     r += p[0] * p[3]; g += p[1] * p[3]; b += p[2] * p[3]; a += p[3]; n++;
@@ -586,20 +806,131 @@ int CardArt_IndexedImage(const char *path, int w, int h, unsigned char *indices,
                 indices[y * w + x] = 0;
                 continue;
             }
-            opaque[count].r = (unsigned char)(r / a);
-            opaque[count].g = (unsigned char)(g / a);
-            opaque[count].b = (unsigned char)(b / a);
+            opaque[*count].r = (unsigned char)(r / a);
+            opaque[*count].g = (unsigned char)(g / a);
+            opaque[*count].b = (unsigned char)(b / a);
             indices[y * w + x] = 1;   /* an opaque texel, numbered below */
-            count++;
+            (*count)++;
         }
     }
+}
+
+/* A PNG stretched to `w` x `h`, as sample_rows. */
+static int sample_indexed(const char *path, int w, int h, unsigned char *indices, Rgb *opaque, int *count,
+                          char *why, size_t why_size)
+{
+    int sw, sh;
+    unsigned char *rgba = read_rgba(path, &sw, &sh, why, why_size);
+    if (!rgba) return 0;
+    sample_rows(rgba, sw, 0, sh, w, h, indices, opaque, count);
     free(rgba);
-    memset(clut, 0, 256 * sizeof(*clut));
-    if (count) quantize(opaque, count, 255, clut, opaque_indices);
-    clut[0] = 0x0000;
-    for (k = 0, x = 0; x < w * h; x++) {
-        if (indices[x]) indices[x] = opaque_indices[k++];
+    return 1;
+}
+
+/* `count` colors as a palette of their own when there are no more than
+ * `colors` different ones: each its own entry from 1 on, exactly, where
+ * the median cut would part and average them by how many pixels have each.
+ * 0 when there are more. */
+static int exact_palette(const Rgb *pixels, int count, int colors, unsigned short *clut, unsigned char *indices)
+{
+    unsigned char *entry = calloc((size_t)1 << 24, 1);
+    int k, used = 0;
+    if (!entry) return 0;
+    for (k = 0; k < count; k++) {
+        size_t key = (size_t)pixels[k].r << 16 | (size_t)pixels[k].g << 8 | pixels[k].b;
+        if (!entry[key]) {
+            if (used == colors) {
+                free(entry);
+                return 0;
+            }
+            entry[key] = (unsigned char)++used;
+            clut[used] = to555(pixels[k].r, pixels[k].g, pixels[k].b);
+        }
+        indices[k] = entry[key];
     }
+    for (k = used + 1; k <= colors; k++) clut[k] = 0x8000;
+    free(entry);
+    return 1;
+}
+
+/* The opaque texels of `count` pictures numbered by one palette: `opaque`
+ * their colors in order, each picture's texels 1 where opaque. `exact`:
+ * their own colors when they are few enough (exact_palette). */
+static void number_texels(const Rgb *opaque, int opaque_count, int count, int w, int h, unsigned char *const *indices,
+                          unsigned char *opaque_indices, unsigned short *clut, int exact)
+{
+    int i, x, k;
+    memset(clut, 0, 256 * sizeof(*clut));
+    if (opaque_count && !(exact && exact_palette(opaque, opaque_count, 255, clut, opaque_indices)))
+        quantize(opaque, opaque_count, 255, clut, opaque_indices);
+    clut[0] = 0x0000;
+    for (k = 0, i = 0; i < count; i++) {
+        for (x = 0; x < w * h; x++) {
+            if (indices[i][x]) indices[i][x] = opaque_indices[k++];
+        }
+    }
+}
+
+/* A PNG with see-through parts as 8-bit texels (title_images.c): stretched
+ * to `w` x `h`, each texel the average of the pixels under it, a texel under
+ * half covered clear (entry 0, the PS1's transparent 0x0000) and the rest
+ * reduced to 255 colors by median cut from entry 1. */
+int CardArt_IndexedImage(const char *path, int w, int h, unsigned char *indices, unsigned short *clut, char *why,
+                         size_t why_size)
+{
+    return CardArt_IndexedImages(&path, 1, w, h, &indices, clut, why, why_size);
+}
+
+int CardArt_IndexedImages(const char *const *paths, int count, int w, int h, unsigned char *const *indices,
+                          unsigned short *clut, char *why, size_t why_size)
+{
+    Rgb *opaque;
+    unsigned char *opaque_indices;
+    int i, opaque_count = 0;
+    opaque = malloc((size_t)w * h * (size_t)count * sizeof(*opaque));
+    opaque_indices = malloc((size_t)w * h * (size_t)count);
+    if (!opaque || !opaque_indices) {
+        free(opaque);
+        free(opaque_indices);
+        snprintf(why, why_size, "out of memory for %s", count ? paths[0] : "a picture");
+        return 0;
+    }
+    for (i = 0; i < count; i++) {
+        if (!sample_indexed(paths[i], w, h, indices[i], opaque, &opaque_count, why, why_size)) {
+            free(opaque);
+            free(opaque_indices);
+            return 0;
+        }
+    }
+    number_texels(opaque, opaque_count, count, w, h, indices, opaque_indices, clut, 0);
+    free(opaque);
+    free(opaque_indices);
+    return 1;
+}
+
+int CardArt_IndexedSheet(const char *path, int count, int w, int h, unsigned char *const *indices,
+                         unsigned short *clut, char *why, size_t why_size)
+{
+    Rgb *opaque;
+    unsigned char *opaque_indices, *rgba;
+    int i, sw, sh, opaque_count = 0;
+    rgba = read_rgba(path, &sw, &sh, why, why_size);
+    if (!rgba) return 0;
+    opaque = malloc((size_t)w * h * (size_t)count * sizeof(*opaque));
+    opaque_indices = malloc((size_t)w * h * (size_t)count);
+    if (!opaque || !opaque_indices || count < 1 || sh < count) {
+        free(rgba);
+        free(opaque);
+        free(opaque_indices);
+        snprintf(why, why_size, "out of memory for %s", path);
+        return 0;
+    }
+    for (i = 0; i < count; i++) {
+        int top = (int)((long)sh * i / count), bottom = (int)((long)sh * (i + 1) / count);
+        sample_rows(rgba, sw, top, bottom - top, w, h, indices[i], opaque, &opaque_count);
+    }
+    free(rgba);
+    number_texels(opaque, opaque_count, count, w, h, indices, opaque_indices, clut, 1);
     free(opaque);
     free(opaque_indices);
     return 1;
@@ -667,6 +998,8 @@ static const char *serif_file(void)
 {
 #ifdef _WIN32
     return Win32_SerifFontPath();
+#elif defined(__APPLE__)
+    return MacOS_FontPath(MEMORIES_FONT_SERIF);
 #else
     static char path[1024];
     FcPattern *pattern, *match;

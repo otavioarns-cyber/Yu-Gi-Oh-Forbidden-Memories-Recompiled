@@ -2,7 +2,8 @@
 
 The release is an unpack-and-run folder. Windows uses a GUI executable
 (no console window); Linux uses the SDL executable, built against the
-existing Debian 11 i386 sysroot. Both remain 32-bit builds.
+existing Debian 11 i386 sysroot. Both remain 32-bit builds. macOS ships a
+native Apple Silicon application bundle inside a ZIP.
 
 ```text
 yfm-redecomp-<version>/
@@ -19,10 +20,27 @@ yfm-redecomp-<version>/
   symbols/                    # this build's crash/save-state symbol tables
 ```
 
-GitHub shows each release asset's SHA-256 itself, so there are no
-`.sha256` files beside the archives. No ROM, extracted game data, user
-settings, saves, reports or personal HD packs belong in the archive. Release
-builds omit the optional executable icon extracted from a local disc.
+The macOS ZIP contains the app bundle at its root, alongside its short
+launch/readme and license files:
+
+```text
+YFM Re-Decomp.app/             # ad-hoc signed, native Apple Silicon
+  Contents/MacOS/memories-arm64
+  Contents/Resources/          # languages, build metadata, dependency licenses
+README.txt
+LICENSE.txt
+```
+
+GitHub shows each release asset's SHA-256. The macOS ZIP also ships a
+`.zip.sha256` sidecar for independent verification. No ROM, extracted game
+data, user settings, saves, reports or personal HD packs belong in the
+archive. Release builds omit the optional executable icon extracted from a
+local disc.
+
+The macOS app is signed ad hoc for bundle integrity, without an Apple
+Developer ID signature or notarization. Gatekeeper may block a downloaded
+copy; the bundled README explains how to open it through Privacy & Security
+without disabling Gatekeeper globally.
 
 The Windows executable is what virus scanners' heuristics judge, so the
 release keeps it plain: `package.py` strips the symbol table and debug
@@ -59,17 +77,85 @@ a failed picker explains the `game/` folder fallback. See the
 ## GitHub build flow
 
 `.github/workflows/pc-release.yml` builds on pull requests, pushes to `master`,
-`v*` tags and manual dispatch. Native Ubuntu and Windows runners use the
-existing dependency/toolchain fetchers and cache only dependencies. Linux
-selects GCC 14 because the game source build uses C `-fpermissive`.
+`v*` tags and manual dispatch. Native Ubuntu, Windows and Apple Silicon
+runners use the existing dependency/toolchain fetchers and cache only
+dependencies. Linux selects GCC 14 because the game source build uses C
+`-fpermissive`. The macOS job builds the ARM64 game without a disc, wraps it
+in an ad-hoc signed `.app`, and checks the ZIP contents; it needs no signing
+secret and also runs on fork pull requests or manual dispatch.
 
-Every build uploads a Windows ZIP or Linux tar.gz as an Actions
-artifact, retained for 14 days. The `android` job builds the arm64 APK and,
-with the release key (pushes, tags and manual runs; "Android signing" below),
-uploads it signed as `yfm-redecomp-<version>-android-arm64.apk`. On a version
-tag, all jobs must succeed before
-the final job creates a **draft** GitHub release and attaches the packages.
+Standard runs upload the Windows ZIP and Linux tar.gz as Actions artifacts.
+The macOS ARM64 job uploads its ZIP and SHA-256 sidecar as an artifact on every
+run. Artifacts are retained for 14 days; downloading one requires a GitHub
+sign-in and read access to the repository. A manual run offers `all` (the
+default) or `macos-arm64`; selecting the latter skips Windows, Linux and
+Android packaging, so a fork can make the Mac artifact without Android release
+secrets. Manual runs only make Actions artifacts. The workflow must already exist on
+the default branch with `workflow_dispatch`; select the support branch in the
+Branch dropdown. See [GitHub manual workflow instructions](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow). The `android` job builds the
+arm64 APK (the translated game: it fetches the official LLVM 21.1.8 Linux
+archive once, cached as `tmp/pc/llvm-linux`, for the guest pass; notes/pc-build.md,
+"The app's game is the translated one") and, with the release key (pushes, tags and manual runs; "Android
+signing" below), uploads it signed as
+`yfm-redecomp-<version>-android-arm64.apk`. On a version tag, all jobs must
+succeed before the final job creates a **draft** GitHub release and attaches
+the packages. Each SDK carries the guest pass of its system
+(`sdk/tools/memories-guest-ir[.exe]`, built against the LLVM of the SDK's
+llvm-mingw clang by the `sdk-guest-ir` job: `tools/pc/sdk_llvm.json` pins it,
+notes/pc-build.md "The SDK's guest pass"), and the `package` job builds a
+bundled code mod for Android from the packed SDK to prove it
+(`sdk-mod-ir-*` artifacts). Each SDK also carries the one-click mod build
+(`sdk/build-mod.bat`, `sdk/build-mod.sh`, `sdk/toolchain-pins.json`, from
+`tools/pc/sdk`; [modding.md](modding.md#one-click-build-a-mod-with-nothing-installed)),
+and the `sdk-one-click` job proves it on a clean machine: it unpacks the packed
+SDK on `windows-2022` and `ubuntu-24.04`, cuts PATH to the operating system (on
+Windows no Python and no clang; on Linux the system `python3` the script
+requires), runs the launcher on `examples/mods/gameplay-rules` twice (the
+second run must download nothing), and `tools/pc/check_one_click.py` checks
+the objects (i386, x86_64-windows, and the Android one when the SDK has the guest
+pass). The download is the proof and about 300 MB, so a pull request runs it
+only when it touches `tools/pc/sdk/`, `package.py`, `build_mod.py`,
+`check_one_click.py` or the workflow (the job is green with its steps skipped,
+which `draft-release` needs); pushes, tags and manual runs always do. A new Python or llvm-mingw pin goes in `tools/pc/sdk/toolchain-pins.json`
+and in the two scripts (`test_sdk_launchers.py` says which differs).
+
+*The guest pass's LLVM in CI.* Its libraries are the costly part (a Windows
+build is up to an hour, the Linux archive 2 GB), so `sdk-guest-ir` caches
+them under a key of the pin, `fetch_tools.py` and the script, saving the
+cache in a step of its own as soon as they are built (a failure while
+linking the pass keeps the work). Caches saved by master are readable by
+pull requests (not those of another pull request's runs), which therefore
+link the pass in a minute: **a cache hit always builds the pass**. On a miss,
+a pull request builds the LLVM itself only when it touches what the pass is
+made of (`tools/pc/llvm/`, `build_sdk_guest_ir.py`, `sdk_llvm.json`,
+`fetch_tools.py`, `src/pc/memory_map.h`) or the one-click build that proves it
+(`tools/pc/sdk/`, `package.py`, `build_mod.py`, `check_one_click.py`, the
+workflow), so that a one-click pull request proves the Android object whatever
+the cache holds (a cold Windows build of the LLVM can take an hour). A pull
+request that touches none of them on a cache miss (right after the pin
+changed, or a branch of its own) builds no pass: its SDKs are packed with
+`package.py --no-guest-ir` and tested with `test_package.py --no-guest-ir`,
+and `sdk-one-click` then builds only the i386 and x86_64-windows objects and
+says so in a `::warning::` ("Android object not proven"); it cannot be
+unnoticed, because `check_one_click.py` fails without `--allow-no-guest-pass`,
+which only pull requests pass. Pushes, tags and manual runs always have the
+pass, or fail.
+
+*Changing the LLVM pin.* When llvm-mingw's clang changes major (the toolchain
+pinned in `tools/pc/fetch_tools.py` and `build_win32_deps.py`), the SDK's pass
+has to follow: edit `llvm_major`, `version` and both URLs in
+`tools/pc/sdk_llvm.json` (the version llvm-mingw's release notes name), clear
+the two `sha256` values, run `python tools/pc/build_sdk_guest_ir.py --pin`
+(it reads the digests GitHub publishes for the release; nothing is
+downloaded) and commit; change `LLVM_MINGW_CLANG` in `build_mod.py` and the
+numbers `notes/modding.md` names to match (`test_build_mod_toolchain.py`
+fails when the two disagree). The cache key follows the file.
 Reruns can update a draft but refuse to replace an already published release.
+Draft assets are not public until the draft is published; published release
+assets are the persistent download, subject to the repository's visibility.
+A fork without the Android release key can still make the manual Mac artifact,
+but cannot complete the tag-triggered draft release, which requires every job
+to succeed.
 
 Two kinds of tag:
 
@@ -111,11 +197,33 @@ A mod made for one release has to keep working in the later ones.
   found a difference not accepted in `mod_compat.txt`: worktrees share `tmp/`, and two checks at once used to
   take each other's frames.
 
+Both run what a release package holds (its SDK's headers and tools, its
+mods' objects), so the package is pinned: `mod_compat.txt` has a
+`sha256 TAG SYSTEM DIGEST` line for each listed release's Windows `.zip`
+and Linux `.tar.gz`, the digest GitHub's release API gives the asset. A
+package is downloaded once into `tmp/pc/mod-compat/<tag>/<system>/` and
+unpacked only if its sha256 is the pinned one, and only if every name in
+it is under its `yfm-redecomp-<tag>/` folder (`yfm-redecomp-<tag>-x64/` in
+the 64-bit Windows one). It is unpacked into
+`verified/` there, where a check from before the pinning (which unpacks
+beside the package, unchecked) never writes. The package stays beside it
+and is hashed again whenever the folder is used. A folder without its
+package (one copied in) is fetched again rather than trusted; a package
+that differs is refused, with the folder to delete. `--baseline <folder>`
+runs an unpacked folder as it is, unchecked.
+
 A difference that fails the check is fixed, not waved through. Keep the old
 number, argument list or layout, and add beside it. Only a difference
 that provably breaks no mod goes in `mod_compat.txt` as `accept`, with the
 reason. After publishing a release, add `baseline <tag>` for it to
-`mod_compat.txt`.
+`mod_compat.txt`, with its two `sha256` lines from
+`gh api repos/Unchiga/Yu-Gi-Oh-Forbidden-Memories-Recompiled/releases/tags/<tag> --jq '.assets[] | .name + " " + (.digest | ltrimstr("sha256:"))'`
+(`test_mod_compat_fetch.py`, a CTest, fails while a baseline lacks one).
+The first release whose 64-bit Windows package carries x86_64-windows mods
+also gets `baseline <tag> x86_64-windows`, with a `sha256 <tag> windows-x64`
+line for its `-windows-x64.zip`: the 64-bit game's SDK is compared with
+those (none is listed yet; until then that game is only held to refusing
+the 32-bit releases' code mods by name).
 
 ## Android signing
 
@@ -308,6 +416,12 @@ lower than a published one can never update it.
 Android build with a message naming the rule. `draft-release` needs the
 `android` job, so no draft is made for that tag, with no desktop archives
 either. This is on purpose: a release is never published without its APK.
+The `package` jobs need it too (and `sdk-exports-x64`): their SDKs carry
+the arm64 game's export list, which that job builds (notes/pc-build.md,
+"Sharing a build"). So when the Android build fails, on a tag or a pull
+request, the desktop archives and the checks after them (`test_package.py`,
+`check_mod_abi.py`, the FM Editor's) do not run either, and they start only
+once it is done.
 Delete the tag and tag again within the scheme
 (`git push --delete origin <tag>`, then a new tag).
 
@@ -352,10 +466,17 @@ cmake --build tmp/pc/cmake-test --parallel
 
 # Build, smoke-test with your own disc, then package all three archives
 # (32-bit Windows, 64-bit Windows, Linux; the 64-bit one is skipped with a
-# message where x86_64-w64-mingw32-clang 21 or later is missing):
+# message where x86_64-w64-mingw32-clang 21 or later is missing, and then its
+# export list must come from a build of the same tree, --exports-from). Every
+# SDK carries the arm64 game's export list too: build it at this commit first.
+python tools/pc/build_game32.py --target android-arm64-v8a --backend sdl --release --build tmp/pc/android-arm64-v8a
 python tools/pc/package.py --version v0.1.0
 
-# Compile/package without a disc (the CI path):
+# Compile/package without a disc (the CI path). Each SDK takes the other
+# targets' export lists from their builds of the same tree (notes/pc-build.md,
+# "Sharing a build"), so build those first, or name them with --exports-from:
+python tools/pc/build_game32.py --target android-arm64-v8a --backend sdl --release --build tmp/pc/android-arm64-v8a
+python tools/pc/build_game32.py --target windows-x64 --backend sdl --release --build tmp/pc/win64
 python tools/pc/package.py linux --skip-smoke --version dev-preview
 python tools/pc/package.py windows --skip-smoke --version dev-preview
 
@@ -429,7 +550,10 @@ was clean when it shipped), so compare variants scanned the same day.
 check itself failed (no key, network, quota, `--timeout`).
 
 **In CI.** The release workflow's *VirusTotal* step (Windows job) runs the
-script on the shipped `memories-pc.exe` and `fm-editor.exe`, taken from
+script on the shipped `memories-pc.exe`, the SDK's `memories-guest-ir.exe`
+(`sdk/tools/`, a program of its own that is built, stripped and given
+version information as the game is), the SDK's `build-mod.bat` (a script that
+downloads a compiler, the kind of file scanners look at hardest) and `fm-editor.exe`, taken from
 the archives, and writes the table, the matrix and the links into the job
 summary. It warns above `VT_MAX_DETECTIONS` (2) and never fails the build;
 when VirusTotal is down or slow it warns too, after at most 10 minutes an

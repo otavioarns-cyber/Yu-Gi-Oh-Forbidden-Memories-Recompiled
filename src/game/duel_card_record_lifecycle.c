@@ -25,7 +25,9 @@
 #include "../unmatched.h"
 #ifdef MEMORIES_PC
 #include "pc/cards/cards.h"
+#include "pc/cards/fields.h"
 #include "pc/cards/tables.h"
+#include "pc/cards/monster_effects_duel.h"
 #endif
 
 /* The combined-deck producer and one duel card record's lifecycle, in address
@@ -96,6 +98,9 @@ void DuelCard_DeactivateRecord(DuelCardRecord *object)
 
 void DuelCard_RemoveFromField(DuelCardRecord *object)
 {
+#ifdef MEMORIES_PC
+    MonsterEffects_Removed((int)(object - D_801A7AD8));
+#endif
     DuelCard_DeactivateRecord(object);
     object->flags = 0;
 }
@@ -109,8 +114,16 @@ s32 Duel_GetTerrainBoost(s32 cardType)
     /* A mod's bonus for this terrain and type (tables.h). */
     s32 bonus;
 
-    if (Tables_TerrainBonus(gDuel_bTerrain[0], cardType, &bonus)) {
+    if (cardType < 0) {
+        return 0; /* Cards_Type's answer for no card */
+    }
+    if (Tables_TerrainBonus(Fields_Active() >= 0 ? Fields_Active() : gDuel_bTerrain[0], cardType, &bonus)) {
         return bonus;
+    }
+    /* An added field only borrows its carrier's board: its bonuses are the
+       mod's terrain_bonus alone, never the carrier's disc row. */
+    if (Fields_Active() > FIELDS_RETAIL) {
+        return 0;
     }
 #endif
 
@@ -174,11 +187,15 @@ u8 *Duel_SetupCardRecord(s32 a, s32 b) {
 #ifdef MEMORIES_PC
     p->defense_modifier = 0;
 #endif
+#ifdef MEMORIES_PC
+    p->terrain_modifier = Duel_GetTerrainBoost(Cards_Type((s16)p->card_id));
+#else
     p->terrain_modifier =
         Duel_GetTerrainBoost(
             (gDuel_adwCardStats[(s16)p->card_id - 1] >>
              CARD_STAT_TYPE_SHIFT) &
             CARD_STAT_TYPE_MASK);
+#endif
 
     base = D_80177EA4;
     q = &base[idx * 2];
@@ -252,7 +269,7 @@ DuelCardDisplayObject *func_80024C1C(s32 cardId, s32 x, s32 y) {
 
 end:
 #ifdef MEMORIES_PC
-    /* A mod's frame colour (Cards_FrameColor): the palette row
+    /* A mod's frame color (Cards_FrameColor): the palette row
      * func_80015EF4 draws the field card through. */
     if (Cards_FrameColor(cardId) >= 0) {
         obj->icon_variant = Cards_FrameColor(cardId);

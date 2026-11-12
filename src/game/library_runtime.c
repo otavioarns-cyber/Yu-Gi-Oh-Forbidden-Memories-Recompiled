@@ -164,7 +164,7 @@ void func_8002ACA4(u8 *state)
             /* A card past the disc's stands as its base's model, and a card
                a mod made a monster may have none to load. */
             id = Cards_HasModel(id + 1) ? Cards_ModelId(id + 1) - 1 : -1;
-            if (id >= 0 && ((gDuel_adwCardStats[id] >> 0x1A) & 0x1F) < 0x14) {
+            if (id >= 0 && ((gDuel_adwCardStats[Cards_ModelStatsIndex(id)] >> 0x1A) & 0x1F) < 0x14) {
 #else
             if (((gDuel_adwCardStats[id] >> 0x1A) & 0x1F) < 0x14) {
 #endif
@@ -819,7 +819,7 @@ void func_8002BFCC(void) {
             break;
         }
 #ifdef MEMORIES_PC
-        /* A mod's frame colour (Cards_FrameColor): the grid's palettes
+        /* A mod's frame color (Cards_FrameColor): the grid's palettes
          * follow the frames' order, purple and orange after ritual. */
         if (Cards_FrameColor(n) >= 0) {
             *(s16 *G32)(rb + n * 4 + 0x54) = LIBRARY_CARD_SELECTOR_DEFAULT + Cards_FrameColor(n) * 0x10;

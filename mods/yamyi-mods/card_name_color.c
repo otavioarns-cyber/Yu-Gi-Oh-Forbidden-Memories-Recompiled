@@ -45,6 +45,8 @@
  * at load is overwritten -- and zero at 4bpp is transparent, not black.
  */
 #include "types.h"
+#include "psyq/libgte.h"
+#include "psyq/libgpu.h"
 #include "game/duel_effect.h"
 #include "game/duel_effect_command.h"
 #include "game/duel_effect_init_entry.h"
@@ -82,9 +84,6 @@
 #define NAME_MAX 28
 #define INI_NAME "card_name_color.ini"
 
-typedef struct { s16 x, y, w, h; } ModRect;   /* psyq/libgpu.h RECT */
-int LoadImage(ModRect *rect, u32 *pixels);
-int DrawSync(int mode);
 
 extern const char *const Tables_DuelistNames[];
 extern int gCard_nCount;
@@ -160,11 +159,26 @@ typedef struct {
 } SavedNameColor;
 static SavedNameColor saved_colors[TRACKED_BOXES];
 
-/* Colour declarations moved to the core manifest framework.  Keep this
- * module's drop-odds machinery, but never revive its old private INI hook
- * for a profile that still contains the former setting. */
-static int legacy_colors_enabled(void) { return 0; }
-
+/*
+ * The core card_text_colors system now runs inside func_80037DA4().
+ *
+ * Our hook deliberately wraps that implementation:
+ *
+ *   1. restore our previous name override
+ *   2. call the game's original func_80037DA4()
+ *      - CardTextColors_Restore() runs there
+ *      - CardTextColors_Apply() applies manifest colours
+ *   3. for a card-name command, save whatever colour the core selected
+ *   4. apply the rarity/name colour on top
+ *
+ * Therefore card_name_color only overrides the NAME while it is being
+ * rendered. Description and guardian-star colours from card_text_colors
+ * remain untouched.
+ */
+static int legacy_colors_enabled(void)
+{
+    return host && host->setting(host, "rarity_name_colors", 0);
+}
 /* ---- small helpers ------------------------------------------------------- */
 
 /* Compare letters and digits only, ignoring case, spaces and punctuation, so
@@ -747,7 +761,7 @@ static void upload_ramps(void)
 {
     u16 base[RAMP_ENTRIES];
     u16 ramp[RAMP_ENTRIES];
-    ModRect rect;
+    RECT rect;
     int slot, i, wanted = 0;
 
     ramps_done = 1;
@@ -1413,7 +1427,7 @@ static void restore_boxes(void)
 }
 static void colors_removed(void)
 {
-    ModRect rect = {RAMP_VX, RAMP_VY, RAMP_ENTRIES, COLOR_COUNT};
+    RECT rect = {RAMP_VX, RAMP_VY, RAMP_ENTRIES, COLOR_COUNT};
     restore_boxes();
     if (have_original_ramps) {
         int slot;

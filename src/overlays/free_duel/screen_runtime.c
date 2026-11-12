@@ -246,7 +246,7 @@ static void FreeDuel_ShowPage(int page)
         /* The red arrow either side, which is the game's own: the card viewer
          * puts the same one at the foot of its page, and the hand's card
          * cycling puts the pair around a card. The last operand before the
-         * colour is which way it faces. */
+         * color is which way it faces. */
         for (cell = 0; cell < 2; cell++) {
             DisplayObject *arrow =
                 DisplayObject_AcquireSlot(DisplayObject_FindFreeGeneralSlot(), 2);
@@ -314,7 +314,7 @@ void FreeDuel_Init(u8 *src)
     s32 col;
     s32 count;
     u16 *rec;
-    DisplayObject **slot;
+    DisplayObject *TRANSLATED_G32 *slot;
     u8 *cell;
     DisplayObject *obj;
     RECT *clut;
@@ -549,7 +549,7 @@ done:
     SD_BGMPlay(29376);
 }
 
-DisplayObject **FreeDuel_GetSparkleSlot(void)
+DisplayObject *TRANSLATED_G32 *FreeDuel_GetSparkleSlot(void)
 {
     s32 i;
 
@@ -598,7 +598,7 @@ void FreeDuel_UpdateSparkle(void)
 void FreeDuel_UpdateCursorTween(void)
 {
     DisplayObject *widget = gFreeDuel_pCursorWidget;
-    DisplayObject **slot;
+    DisplayObject *TRANSLATED_G32 *slot;
     DisplayObject *sparkle;
     s32 tx;
     s32 ty;

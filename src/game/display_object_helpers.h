@@ -1,3 +1,4 @@
+#include "../port_ptr.h"
 #ifndef DISPLAY_OBJECT_HELPERS_H
 #define DISPLAY_OBJECT_HELPERS_H
 
@@ -21,7 +22,7 @@ typedef struct {
  *
  * Neither view is wrong and neither generalises: the memory belongs to
  * whichever motion path owns the object, exactly as 0x44 and 0x4C in
- * display_object.h are a colour to one renderer and a scale or a callback to
+ * display_object.h are a color to one renderer and a scale or a callback to
  * another. name_entry_runtime.c settles this reading for the objects
  * it drives -- it accelerates 0x38 toward 0x800 by 0x40 a frame through
  * DisplayObject_StepToward, decays 0x36 toward zero by 8 through
@@ -55,9 +56,9 @@ typedef struct {
    outside small data; dialog_transition.c, func_800339D0.c, func_8003DA40.c
    and src/game/func_800283F4.c define the arm below for that. */
 #ifdef D_8009AF74_IN_DATA
-extern volatile u16 D_8009AF74[4] __attribute__((section(".data")));
+extern volatile u16 D_8009AF74[4] PSX_SECTION(".data");
 #else
-extern volatile u16 D_8009AF74[4] __attribute__((section(".sdata")));
+extern volatile u16 D_8009AF74[4] PSX_SECTION(".sdata");
 #endif
 
 /* Returns the first allocated display object carrying the requested tag. */

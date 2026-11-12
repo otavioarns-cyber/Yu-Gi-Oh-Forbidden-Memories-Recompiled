@@ -1,6 +1,10 @@
 #include "pgxp.h"
 #include "gte.h"
 #include <string.h>
+#ifdef MEMORIES_NATIVE_GTE
+#include "pc/guest/translated_runtime.h"
+#define GTE_ADDRESS(pointer, size) GuestRuntime_ResolveData((void *)(pointer), (size))
+#endif
 
 typedef struct Gte {
     int16_t v[3][3];
@@ -13,8 +17,8 @@ typedef struct Gte {
     uint32_t res1;
     int32_t mac[4];
     uint32_t lzcs, lzcr;
-    int16_t matrix[3][3][3]; /* rotation, light, light colour */
-    int32_t vector[3][3];    /* translation, background, far colour */
+    int16_t matrix[3][3][3]; /* rotation, light, light color */
+    int32_t vector[3][3];    /* translation, background, far color */
     int32_t ofx, ofy;
     uint16_t h;
     int16_t dqa;
@@ -46,6 +50,11 @@ void Memories_GteReset(void)
 int Memories_GtePrecise(unsigned slot, float *x, float *y, float *w)
 {
     if (slot > 2 || !precise[slot].known) return 0;
+#ifdef MEMORIES_NATIVE_GTE
+    x = GTE_ADDRESS(x, sizeof(*x));
+    y = GTE_ADDRESS(y, sizeof(*y));
+    w = GTE_ADDRESS(w, sizeof(*w));
+#endif
     *x = precise[slot].x;
     *y = precise[slot].y;
     *w = precise[slot].w;
@@ -281,15 +290,26 @@ static int64_t row_sums[3];
 static void multiply(const int16_t *m, const int32_t *translation,
                      const int16_t *input, unsigned shift, int lm, int64_t *row3)
 {
-    /* Latched: callers pass IR1..IR3 as the input of the colour stage and of
+    /* Latched: callers pass IR1..IR3 as the input of the color stage and of
      * MVMVA, and the rows below write those registers as they go. */
     const int16_t vector[3] = {input[0], input[1], input[2]};
     unsigned i;
     for (i = 0; i < 3; i++) {
-        int64_t sum = translation ? (int64_t)translation[i] * 0x1000 : 0;
-        sum = mac_check(i + 1, sum + (int64_t)m[i * 3 + 0] * vector[0]);
-        sum = mac_check(i + 1, sum + (int64_t)m[i * 3 + 1] * vector[1]);
-        sum = mac_check(i + 1, sum + (int64_t)m[i * 3 + 2] * vector[2]);
+        int32_t t = translation ? translation[i] : 0;
+        int64_t sum;
+        if (t > -0x7ff00000 && t < 0x7ff00000) {
+            /* No step can leave the 44 bits: |T| * 0x1000 < 2^43 - 2^32 and
+             * three products of 16 bits add under 2^32, so the checks below
+             * would neither flag nor wrap (and cost a 32-bit build dearly). */
+            sum = (int64_t)t * 0x1000 + ((int64_t)((int32_t)m[i * 3 + 0] * vector[0]) +
+                                         (int32_t)m[i * 3 + 1] * vector[1]) +
+                  (int32_t)m[i * 3 + 2] * vector[2];
+        } else {
+            sum = (int64_t)t * 0x1000;
+            sum = mac_check(i + 1, sum + (int64_t)m[i * 3 + 0] * vector[0]);
+            sum = mac_check(i + 1, sum + (int64_t)m[i * 3 + 1] * vector[1]);
+            sum = mac_check(i + 1, sum + (int64_t)m[i * 3 + 2] * vector[2]);
+        }
         row_sums[i] = sum;
         set_mac(i + 1, sum, shift);
         if (row3 && i == 2) {
@@ -374,7 +394,7 @@ static void rtp(unsigned index, unsigned shift, int lm, int last)
     }
 }
 
-/* MAC = MAC + (FC - MAC) * IR0, the depth-cue tail shared by colour commands */
+/* MAC = MAC + (FC - MAC) * IR0, the depth-cue tail shared by color commands */
 static void interpolate(int64_t m1, int64_t m2, int64_t m3, unsigned shift, int lm)
 {
     int64_t in[3];
@@ -388,11 +408,11 @@ static void interpolate(int64_t m1, int64_t m2, int64_t m3, unsigned shift, int 
     }
 }
 
-static void light(unsigned index, unsigned shift, int lm, int colour, int depth)
+static void light(unsigned index, unsigned shift, int lm, int color, int depth)
 {
     multiply(gte.matrix[1][0], NULL, gte.v[index], shift, lm, NULL);
     multiply(gte.matrix[2][0], gte.vector[1], &gte.ir[1], shift, lm, NULL);
-    if (colour) {
+    if (color) {
         int64_t r = ((int64_t)gte.rgbc[0] * gte.ir[1]) << 4;
         int64_t g = ((int64_t)gte.rgbc[1] * gte.ir[2]) << 4;
         int64_t b = ((int64_t)gte.rgbc[2] * gte.ir[3]) << 4;
@@ -423,7 +443,7 @@ static void mvmva(uint32_t command, unsigned shift, int lm)
         m = garbage;
     }
     if (tx == 2) {
-        /* Far-colour translation bug: the first product only sets flags. */
+        /* Far-color translation bug: the first product only sets flags. */
         for (i = 0; i < 3; i++) {
             int64_t first = mac_check(i + 1, (int64_t)gte.vector[2][i] * 0x1000 +
                                                  (int64_t)m[i * 3] * v[0]);
@@ -439,7 +459,7 @@ static void mvmva(uint32_t command, unsigned shift, int lm)
     multiply(m, tx == 3 ? NULL : gte.vector[tx], v, shift, lm, NULL);
 }
 
-static void push_colour_ir(unsigned shift, int lm, int64_t r, int64_t g, int64_t b)
+static void push_color_ir(unsigned shift, int lm, int64_t r, int64_t g, int64_t b)
 {
     set_mac_ir(1, r, shift, lm);
     set_mac_ir(2, g, shift, lm);
@@ -502,7 +522,7 @@ int Memories_GteCommand(uint32_t command)
         break;
     case 0x1c:
         multiply(gte.matrix[2][0], gte.vector[1], &gte.ir[1], shift, lm, NULL);
-        push_colour_ir(shift, lm, ((int64_t)gte.rgbc[0] * gte.ir[1]) << 4,
+        push_color_ir(shift, lm, ((int64_t)gte.rgbc[0] * gte.ir[1]) << 4,
                        ((int64_t)gte.rgbc[1] * gte.ir[2]) << 4, ((int64_t)gte.rgbc[2] * gte.ir[3]) << 4);
         break;
     case 0x29:
@@ -524,11 +544,11 @@ int Memories_GteCommand(uint32_t command)
         break;
     }
     case 0x3d:
-        push_colour_ir(shift, lm, (int64_t)gte.ir[1] * gte.ir[0], (int64_t)gte.ir[2] * gte.ir[0],
+        push_color_ir(shift, lm, (int64_t)gte.ir[1] * gte.ir[0], (int64_t)gte.ir[2] * gte.ir[0],
                        (int64_t)gte.ir[3] * gte.ir[0]);
         break;
     case 0x3e:
-        push_colour_ir(shift, lm,
+        push_color_ir(shift, lm,
                        (int64_t)gte.ir[1] * gte.ir[0] + (int64_t)((uint64_t)(int64_t)gte.mac[1] << shift),
                        (int64_t)gte.ir[2] * gte.ir[0] + (int64_t)((uint64_t)(int64_t)gte.mac[2] << shift),
                        (int64_t)gte.ir[3] * gte.ir[0] + (int64_t)((uint64_t)(int64_t)gte.mac[3] << shift));
@@ -543,14 +563,22 @@ int Memories_GteCommand(uint32_t command)
 
 void Memories_GteLoad(unsigned index, const void *address)
 {
+#ifdef MEMORIES_NATIVE_GTE
+    const uint8_t *bytes = GTE_ADDRESS(address, 4);
+#else
     const uint8_t *bytes = address;
+#endif
     Memories_GteWriteData(index, (uint32_t)bytes[0] | ((uint32_t)bytes[1] << 8) |
                                      ((uint32_t)bytes[2] << 16) | ((uint32_t)bytes[3] << 24));
 }
 
 void Memories_GteStoreWord(uint32_t value, void *address)
 {
+#ifdef MEMORIES_NATIVE_GTE
+    uint8_t *bytes = GTE_ADDRESS(address, 4);
+#else
     uint8_t *bytes = address;
+#endif
     bytes[0] = (uint8_t)value;
     bytes[1] = (uint8_t)(value >> 8);
     bytes[2] = (uint8_t)(value >> 16);
@@ -573,6 +601,9 @@ void Memories_GteStore(unsigned index, void *address)
 /* Save states: the register file, without tying the GTE to the state code. */
 void *Gte_StateData(unsigned *size)
 {
+#ifdef MEMORIES_NATIVE_GTE
+    size = GTE_ADDRESS(size, sizeof(*size));
+#endif
     *size = sizeof(gte);
     return &gte;
 }

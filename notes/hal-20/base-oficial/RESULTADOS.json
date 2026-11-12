@@ -1,0 +1,1739 @@
+{
+  "recorded_at_client_timezone": "2026-11-11T22:42:03.748791-03:00",
+  "scope": "Official base only; no user mod integration",
+  "official_commit": "aceac3782902746f35ddb0148809450933327cb3",
+  "master_preserved_at": "0d78202729967a5bbdbc886aa128e48e82bef7ac",
+  "source_tree_equals_official": true,
+  "history_operation": "fast-forward; official commit remains ancestor of documentation commit",
+  "api": 24,
+  "toolchain": {
+    "linux": "GCC 14.2.0, Debian 11 sysroot/glibc 2.31",
+    "windows": "llvm-mingw 20260922 / clang 23.1.2",
+    "qemu": "Debian qemu-user-static 1:5.2+dfsg-11+deb11u3, user-owned extraction",
+    "qemu_deb_sha256": "0b75df79ae2ddfbc4daab0223a0fc2e79c9be7b1e35c6d030879d4bd21684bca"
+  },
+  "sdk_exports": {
+    "linux_i386": 4175,
+    "windows_i386": 4217,
+    "runtime_linux_game_only": 4089
+  },
+  "ctest_original": {
+    "registered": 179,
+    "passed": 164,
+    "failed": 13,
+    "skipped": 2
+  },
+  "supplementary": {
+    "passed_under_qemu": 12,
+    "passed_under_qemu_with_pthread": 1,
+    "combined_distinct_records_passed": 177,
+    "skipped": 2,
+    "not_an_unmodified_full_green_ctest_run": true
+  },
+  "internal_skips": {
+    "total_occurrences": 79,
+    "groups": [
+      {
+        "name": "pc_sdk_launchers",
+        "occurrences": 45
+      },
+      {
+        "name": "pc_fm_editor_board_art",
+        "occurrences": 3
+      },
+      {
+        "name": "pc_fm_editor_bulk_fusions",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_bust",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_card_text",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_card_view",
+        "occurrences": 2
+      },
+      {
+        "name": "pc_fm_editor_every_button",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_file_dialogs",
+        "occurrences": 2
+      },
+      {
+        "name": "pc_fm_editor_fixed_decks",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_guardian_stars",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_gui",
+        "occurrences": 8
+      },
+      {
+        "name": "pc_fm_editor_map_gui",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_recovery_timing",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_render_speed",
+        "occurrences": 4
+      },
+      {
+        "name": "pc_fm_editor_ritual_requirements",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_roster",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_screen",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_starter",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_tower",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_ui_tab",
+        "occurrences": 1
+      },
+      {
+        "name": "pc_fm_editor_values",
+        "occurrences": 1
+      }
+    ]
+  },
+  "asan_ubsan": {
+    "passed": 19,
+    "leak_detection": false,
+    "cases": [
+      "pc_game_files_select",
+      "pc_game_files_cancel",
+      "pc_game_files_retry",
+      "pc_game_files_remembered",
+      "pc_game_files_moved",
+      "pc_game_files_headless",
+      "pc_game_files_override",
+      "pc_game_files_picker-failure",
+      "pc_game_files_malformed",
+      "pc_game_files_write-failure",
+      "pc_state_remap",
+      "pc_state_io",
+      "pc_fusion",
+      "pc_fusion_rules",
+      "pc_ai_hard_mode",
+      "pc_core",
+      "pc_mods_manager",
+      "pc_tables",
+      "pc_scratch_sweep"
+    ]
+  },
+  "validations": [
+    {
+      "check": "build_linux",
+      "exit_code": 0,
+      "description": "Complete Linux i386 game: 628 units, SDK and bundled mods",
+      "log": "build-linux.log",
+      "original_log_bytes": 329,
+      "original_log_sha256": "c9c5000dcef8796c1cf5abdf4025bf48bfb0145b9ab9900df575f5955652a12c"
+    },
+    {
+      "check": "build_windows",
+      "exit_code": 0,
+      "description": "Complete Windows i386 cross-build: 628 units, SDK and bundled mods",
+      "log": "build-windows.log",
+      "original_log_bytes": 19125,
+      "original_log_sha256": "a7e012667ff51133bed5967e0e7d756fc048ff4e2bdaa967fbac07c07aa1c6f9"
+    },
+    {
+      "check": "cmake_configure_linux",
+      "exit_code": 0,
+      "description": "Native CMake suite configured with sysroot compiler wrapper",
+      "log": "cmake-configure.log",
+      "original_log_bytes": 969,
+      "original_log_sha256": "283f1c058d40305b7abd514f12539c469e6e5bbf6bff9b0240ac49b7a2a35c5a"
+    },
+    {
+      "check": "cmake_build_linux",
+      "exit_code": 0,
+      "description": "All CMake test targets compiled",
+      "log": "cmake-build.log",
+      "original_log_bytes": 262100,
+      "original_log_sha256": "040d008c8cd09349820e9ff651c94f76a10f765b064ef5222f4c6d78bcf82583"
+    },
+    {
+      "check": "cmake_configure_windows",
+      "exit_code": 0,
+      "description": "Windows CMake cross-build configuration",
+      "log": "windows-tests-configure.log",
+      "original_log_bytes": 1077,
+      "original_log_sha256": "a71a7c8ed276237ce20ab77565e3041539e4ee30b952a53f5b187903c48439b6"
+    },
+    {
+      "check": "cmake_build_windows",
+      "exit_code": 0,
+      "description": "Windows CMake suite cross-compiled; not executed",
+      "log": "windows-tests-build.log",
+      "original_log_bytes": 349131,
+      "original_log_sha256": "630f78703bac72498fd481af5a681cb3808147ba7fb15d39a89d94bcc474d0af"
+    },
+    {
+      "check": "ctest_original",
+      "exit_code": 8,
+      "description": "164 passed, 13 failed, 2 skipped; details per case",
+      "log": "ctest.log",
+      "original_log_bytes": 25487,
+      "original_log_sha256": "f3e0553e8686660b7014d5e0e1b237afd1fec40977c5f9da4b96370c4857749a"
+    },
+    {
+      "check": "ctest_emulated",
+      "exit_code": 1,
+      "description": "12 supplemental cases passed; lifecycle still lacked -pthread",
+      "log": "retestar32.log",
+      "original_log_bytes": 238,
+      "original_log_sha256": "7fda4aff58a70571bfbe8c15f2247a2492bd19070669e809a5f4348d5230895d"
+    },
+    {
+      "check": "lifecycle_with_pthread",
+      "exit_code": 0,
+      "description": "Unmodified official harness: supplementary QEMU run, wrapper adds -pthread",
+      "log": "lifecycle-pthread-emulado.log",
+      "original_log_bytes": 740,
+      "original_log_sha256": "21a060c2241140450548c6787e28b7ec46229e41a01934d5c5b93187846be024"
+    },
+    {
+      "check": "asan_ubsan_selected",
+      "exit_code": 0,
+      "description": "19 selected CTest records passed; detect_leaks=0",
+      "log": "ctest-sanitizers-final.log",
+      "original_log_bytes": 2199,
+      "original_log_sha256": "3ba613049c9802a3bf23e0e6860ca387dbe4ae9aff90192c42f448f35e4f396d"
+    },
+    {
+      "check": "layouts_i386",
+      "exit_code": 0,
+      "description": "698 headers compared, 72 not standalone, 0 record differences",
+      "log": "check-layouts-i386.log",
+      "original_log_bytes": 88,
+      "original_log_sha256": "210630b02db31db406444f92c57c3da954633a83fa9fc0e66918c94b2f578e42"
+    },
+    {
+      "check": "layouts_x64",
+      "exit_code": 0,
+      "description": "759 headers compared, 11 not standalone, 0 record differences",
+      "log": "check-layouts-x64.log",
+      "original_log_bytes": 98,
+      "original_log_sha256": "6e86fcd1e06283c4ba50d39877bab184a22fb383420e28f03d128f25733a264d"
+    },
+    {
+      "check": "exports_linux",
+      "exit_code": 0,
+      "description": "Official verifier under QEMU, 4089 game exports checked against link",
+      "log": "check-exports-linux-emulado.log",
+      "original_log_bytes": 107,
+      "original_log_sha256": "8758dbbc9e39c5635acc76f85cd13fd24dea0bcf3ac9f1a0b8860cf543d1b14f"
+    },
+    {
+      "check": "sdk_linux_example",
+      "exit_code": 0,
+      "description": "Official gameplay-rules example compiled using generated Linux SDK",
+      "log": "sdk-example.log",
+      "original_log_bytes": 137,
+      "original_log_sha256": "337dcc8d2823b18c11d98d9c9eab8b623598d22e7e99b281ee5a9fa25ab55c3e"
+    },
+    {
+      "check": "sdk_windows_example",
+      "exit_code": 0,
+      "description": "Official gameplay-rules example compiled using generated Windows SDK",
+      "log": "sdk-example-windows.log",
+      "original_log_bytes": 138,
+      "original_log_sha256": "905647efa6da029939396c5ab828de47c2d906f28ceadbba784c304feba9dff1"
+    },
+    {
+      "check": "pc_audit",
+      "exit_code": 0,
+      "description": "Port audit inventory generated, not proof all blockers are solved",
+      "log": "pc-audit.log",
+      "original_log_bytes": 383,
+      "original_log_sha256": "76bd979bc86fbb2dded9c8cda457438611d1f50b29e20677d1ae446d9b8274c7"
+    },
+    {
+      "check": "vt_check",
+      "exit_code": 0,
+      "description": "19 tests passed",
+      "log": "vt-check.log",
+      "original_log_bytes": 118,
+      "original_log_sha256": "afe33b7203828aec153280b76aca72fa1d8bb68cac5c418ff36a47b94d254641"
+    },
+    {
+      "check": "model_gate",
+      "exit_code": 0,
+      "description": "22 tests passed",
+      "log": "model-gate.log",
+      "original_log_bytes": 121,
+      "original_log_sha256": "2c4de58bf28a9ad38bc8433c12b4b801b971a3890166360a850d5f004d373cba"
+    },
+    {
+      "check": "libgs_priority",
+      "exit_code": 0,
+      "description": "Official LIBGS harness passed with sysroot and QEMU",
+      "log": "libgs-priority-emulado.log",
+      "original_log_bytes": 76,
+      "original_log_sha256": "2ae9a098b8d6d5946b9133d176785a64c208a53b760b6c58f8891b6d0de3e315"
+    }
+  ],
+  "ctest_cases": [
+    {
+      "name": "pc_game_files_select",
+      "original_status": "passed",
+      "original_seconds": 0.0160429,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"select\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_cancel",
+      "original_status": "passed",
+      "original_seconds": 0.012769,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"cancel\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_retry",
+      "original_status": "passed",
+      "original_seconds": 0.00737922,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"retry\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_remembered",
+      "original_status": "passed",
+      "original_seconds": 0.00960404,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"remembered\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_moved",
+      "original_status": "passed",
+      "original_seconds": 0.00530383,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"moved\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_headless",
+      "original_status": "passed",
+      "original_seconds": 0.00798629,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"headless\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_override",
+      "original_status": "passed",
+      "original_seconds": 0.00763379,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"override\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_picker-failure",
+      "original_status": "passed",
+      "original_seconds": 0.00626185,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"picker-failure\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_malformed",
+      "original_status": "passed",
+      "original_seconds": 0.0120252,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"malformed\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_game_files_write-failure",
+      "original_status": "passed",
+      "original_seconds": 0.00787578,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_game_files_test\", \"write-failure\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_yamyi_mods",
+      "original_status": "failed",
+      "original_seconds": 0.0083565,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_yamyi_mods_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_trap_effects",
+      "original_status": "failed",
+      "original_seconds": 0.00816818,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_trap_effects_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_card_effects_start",
+      "original_status": "failed",
+      "original_seconds": 0.0049805,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_effects_start_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_deck_draft",
+      "original_status": "failed",
+      "original_seconds": 0.0080026,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_deck_draft_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_rank",
+      "original_status": "failed",
+      "original_seconds": 0.00902666,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_rank_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_rank_art",
+      "original_status": "skipped",
+      "original_seconds": 0.00840413,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_rank_art_test\"]",
+      "internal_unittest_skips": 0,
+      "reason": "game/DATA/WA_MRG.MRG absent"
+    },
+    {
+      "name": "pc_deck_shop",
+      "original_status": "passed",
+      "original_seconds": 0.00568372,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_deck_shop_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_entry_layout",
+      "original_status": "passed",
+      "original_seconds": 0.00186375,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_entry_layout_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_state_remap",
+      "original_status": "passed",
+      "original_seconds": 0.00437864,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_state_remap_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_state_io",
+      "original_status": "passed",
+      "original_seconds": 0.00473317,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_state_io_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_translated_state_symbols",
+      "original_status": "passed",
+      "original_seconds": 0.00961126,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_translated_state_symbols_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_control_protocol",
+      "original_status": "passed",
+      "original_seconds": 0.00197903,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_control_protocol_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_control_net",
+      "original_status": "passed",
+      "original_seconds": 1.20692,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_control_net_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_symbols",
+      "original_status": "passed",
+      "original_seconds": 0.00586093,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_symbols_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fusion",
+      "original_status": "passed",
+      "original_seconds": 0.0506602,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_fusion_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fusion_rules",
+      "original_status": "passed",
+      "original_seconds": 0.145129,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_fusion_rules_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_duelists",
+      "original_status": "passed",
+      "original_seconds": 0.0515753,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_duelists_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_ai_hard_mode",
+      "original_status": "passed",
+      "original_seconds": 0.0383638,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_ai_hard_mode_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_ai_hard_mode_adapter",
+      "original_status": "failed",
+      "original_seconds": 0.00947034,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_ai_hard_mode_adapter_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_fs",
+      "original_status": "passed",
+      "original_seconds": 0.0126958,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_fs_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_report_folder",
+      "original_status": "passed",
+      "original_seconds": 0.00478248,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_report_folder_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_core",
+      "original_status": "passed",
+      "original_seconds": 0.00237928,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_pc_core_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_packets",
+      "original_status": "passed",
+      "original_seconds": 0.0109161,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_packet_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_libgs_ot",
+      "original_status": "passed",
+      "original_seconds": 0.00578944,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_libgs_ot_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_texture_dump_clear",
+      "original_status": "passed",
+      "original_seconds": 0.346804,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_texture_dump_clear_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_texture_dump_guest_pointer",
+      "original_status": "passed",
+      "original_seconds": 0.0793122,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_texture_dump_guest_pointer_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_pgxp",
+      "original_status": "passed",
+      "original_seconds": 0.00943763,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_pgxp_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_gte",
+      "original_status": "passed",
+      "original_seconds": 0.00460808,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_gte_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_libgpu",
+      "original_status": "passed",
+      "original_seconds": 0.00390016,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_libgpu_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_soft_gpu",
+      "original_status": "passed",
+      "original_seconds": 1.38459,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_soft_gpu_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_settings",
+      "original_status": "passed",
+      "original_seconds": 0.0226199,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_settings_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_save_slots",
+      "original_status": "passed",
+      "original_seconds": 0.0623365,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_save_slots_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_user_dir",
+      "original_status": "passed",
+      "original_seconds": 0.0153382,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_user_dir_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_save_menu",
+      "original_status": "passed",
+      "original_seconds": 0.0632538,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_save_menu_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_title_jump",
+      "original_status": "passed",
+      "original_seconds": 0.00459977,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_title_jump_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_quit_prompt",
+      "original_status": "passed",
+      "original_seconds": 0.00588039,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_quit_prompt_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_host_actions",
+      "original_status": "passed",
+      "original_seconds": 0.00157646,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_host_actions_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_button_layout",
+      "original_status": "passed",
+      "original_seconds": 0.00454704,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_button_layout_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_model_gate_command",
+      "original_status": "passed",
+      "original_seconds": 0.00317752,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_model_gate_command_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_touch_pad",
+      "original_status": "passed",
+      "original_seconds": 0.00564342,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_touch_pad_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_json",
+      "original_status": "passed",
+      "original_seconds": 0.00227418,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_json_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_deck_slots",
+      "original_status": "passed",
+      "original_seconds": 0.00207247,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_deck_slots_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mips_varargs",
+      "original_status": "failed",
+      "original_seconds": 0.00562182,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mips_varargs_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_mips_stack",
+      "original_status": "failed",
+      "original_seconds": 0.00297151,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mips_stack_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_mods",
+      "original_status": "passed",
+      "original_seconds": 0.0107899,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_manager",
+      "original_status": "passed",
+      "original_seconds": 0.00941226,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_manager_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_file",
+      "original_status": "passed",
+      "original_seconds": 0.0594746,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"file\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_precedence",
+      "original_status": "passed",
+      "original_seconds": 0.00573133,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"precedence\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_missing",
+      "original_status": "passed",
+      "original_seconds": 0.0040577,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"missing\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_notfolder",
+      "original_status": "passed",
+      "original_seconds": 0.00193209,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"notfolder\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_owned",
+      "original_status": "passed",
+      "original_seconds": 0.001719,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"owned\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_owned-up",
+      "original_status": "passed",
+      "original_seconds": 0.00147657,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"owned-up\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_owned-user",
+      "original_status": "passed",
+      "original_seconds": 0.00143414,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"owned-user\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_env",
+      "original_status": "passed",
+      "original_seconds": 0.00129958,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"env\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_envempty",
+      "original_status": "passed",
+      "original_seconds": 0.00126019,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"envempty\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_exclusive",
+      "original_status": "passed",
+      "original_seconds": 0.00307554,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"exclusive\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_folder_code",
+      "original_status": "passed",
+      "original_seconds": 0.00198113,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_folder_test\", \"code\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_overlap",
+      "original_status": "passed",
+      "original_seconds": 0.722353,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_overlap_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_starchip_award",
+      "original_status": "passed",
+      "original_seconds": 0.0013688,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_starchip_award_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_disc",
+      "original_status": "passed",
+      "original_seconds": 0.00577189,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_disc_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_disc_capacity",
+      "original_status": "passed",
+      "original_seconds": 0.00583235,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_disc_test\", \"capacity\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_disc_failed_code",
+      "original_status": "passed",
+      "original_seconds": 0.00393413,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_disc_test\", \"failed-code\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_disc_models",
+      "original_status": "passed",
+      "original_seconds": 0.0937328,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_disc_test\", \"models\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_disc_bigger_models",
+      "original_status": "passed",
+      "original_seconds": 0.117771,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_disc_test\", \"bigger-models\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_cards_identity",
+      "original_status": "passed",
+      "original_seconds": 0.00792172,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_cards_identity_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_notes",
+      "original_status": "passed",
+      "original_seconds": 0.0488264,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_notes_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_password_data",
+      "original_status": "passed",
+      "original_seconds": 0.00114138,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_password_data_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_tables",
+      "original_status": "passed",
+      "original_seconds": 0.138927,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_tables_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fields",
+      "original_status": "passed",
+      "original_seconds": 0.00161881,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_fields_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_stars",
+      "original_status": "passed",
+      "original_seconds": 0.00151807,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_stars_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_attributes",
+      "original_status": "passed",
+      "original_seconds": 0.00276337,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_attributes_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_cards_stars",
+      "original_status": "passed",
+      "original_seconds": 0.0447885,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_cards_stars_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_cards_order_found",
+      "original_status": "passed",
+      "original_seconds": 0.00663346,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_cards_order_test\", \"found\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_cards_order_moved",
+      "original_status": "passed",
+      "original_seconds": 0.00699175,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_cards_order_test\", \"b-first\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_types_rename",
+      "original_status": "passed",
+      "original_seconds": 0.00792406,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_types_test\", \"rename\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_types_range",
+      "original_status": "passed",
+      "original_seconds": 0.00460112,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_types_test\", \"range\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_types_magic_to_monster",
+      "original_status": "passed",
+      "original_seconds": 0.00641222,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_types_test\", \"magic-to-monster\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_types_monster_to_trap",
+      "original_status": "passed",
+      "original_seconds": 0.00510571,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_types_test\", \"monster-to-trap\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_types_collision",
+      "original_status": "passed",
+      "original_seconds": 0.00388622,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_types_test\", \"collision\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_types_multi_mod",
+      "original_status": "passed",
+      "original_seconds": 0.00261205,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_types_test\", \"multi-mod\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_types_bad_glyphs",
+      "original_status": "passed",
+      "original_seconds": 0.00248973,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_types_test\", \"bad-glyphs\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_type_icons",
+      "original_status": "passed",
+      "original_seconds": 0.00352545,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_type_icons_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_free_duel_progress",
+      "original_status": "passed",
+      "original_seconds": 0.00462783,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_free_duel_progress_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_font_art",
+      "original_status": "skipped",
+      "original_seconds": 0.00267931,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_font_art_test\"]",
+      "internal_unittest_skips": 0,
+      "reason": "game/DATA/WA_MRG.MRG absent"
+    },
+    {
+      "name": "pc_card_drops",
+      "original_status": "failed",
+      "original_seconds": 0.0393515,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_drops_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_starchip_prize",
+      "original_status": "failed",
+      "original_seconds": 0.00110938,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_starchip_prize_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_starter_deck",
+      "original_status": "passed",
+      "original_seconds": 0.00658501,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_starter_deck_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_title_config",
+      "original_status": "passed",
+      "original_seconds": 0.00509212,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_title_config_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_busts",
+      "original_status": "passed",
+      "original_seconds": 0.193098,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_busts_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_tower",
+      "original_status": "passed",
+      "original_seconds": 0.0052256,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_tower_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_tower_game",
+      "original_status": "passed",
+      "original_seconds": 0.00608017,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_tower_game_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_ui_config",
+      "original_status": "passed",
+      "original_seconds": 0.00163873,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_ui_config_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_layout",
+      "original_status": "passed",
+      "original_seconds": 0.00248184,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_layout_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_palette_ramps",
+      "original_status": "passed",
+      "original_seconds": 0.0395269,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_palette_ramps_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_packs",
+      "original_status": "passed",
+      "original_seconds": 0.0827616,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_packs_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_text_listing",
+      "original_status": "passed",
+      "original_seconds": 0.00343575,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_text_listing_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_results_names",
+      "original_status": "failed",
+      "original_seconds": 0.0023888,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_results_names_test\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_menu_cut",
+      "original_status": "passed",
+      "original_seconds": 0.00110849,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_menu_cut_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_number_width",
+      "original_status": "passed",
+      "original_seconds": 0.0125707,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_number_width_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_pal_text",
+      "original_status": "passed",
+      "original_seconds": 0.00820791,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_pal_text_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_serif",
+      "original_status": "passed",
+      "original_seconds": 0.00439564,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_serif_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_window",
+      "original_status": "passed",
+      "original_seconds": 8.03453,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_window_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_window_folder",
+      "original_status": "passed",
+      "original_seconds": 1.22731,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_window_test\", \"folder\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_window_no_code",
+      "original_status": "passed",
+      "original_seconds": 8.18089,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mods_window_no_code_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_audio_replace",
+      "original_status": "passed",
+      "original_seconds": 0.0484286,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_audio_replace_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_controls",
+      "original_status": "passed",
+      "original_seconds": 0.0416113,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_controls_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_controls_config",
+      "original_status": "passed",
+      "original_seconds": 0.0615584,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_controls_config_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_controls_runtime",
+      "original_status": "passed",
+      "original_seconds": 0.553374,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_controls_runtime_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_controls_window",
+      "original_status": "passed",
+      "original_seconds": 0.539292,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_controls_window_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_controls_evdev",
+      "original_status": "passed",
+      "original_seconds": 0.00372195,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_controls_evdev_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_texture_pack",
+      "original_status": "passed",
+      "original_seconds": 0.35457,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_texture_pack_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_layout_art",
+      "original_status": "passed",
+      "original_seconds": 0.0454798,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_layout_art_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mod_import",
+      "original_status": "passed",
+      "original_seconds": 0.711101,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_mod_import_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_plate",
+      "original_status": "passed",
+      "original_seconds": 1.64848,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_plate_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_card_art",
+      "original_status": "passed",
+      "original_seconds": 1.4345,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_card_art_test\", \"$CHECKOUT/tmp/pc/tests/card-art-test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_busts_make",
+      "original_status": "passed",
+      "original_seconds": 5.65313,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_busts_make_test\", \"$CHECKOUT/tmp/pc/tests/busts-make-test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_update",
+      "original_status": "passed",
+      "original_seconds": 0.00121966,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_release_check_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_log",
+      "original_status": "passed",
+      "original_seconds": 0.00447363,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_log_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_scratch_sweep",
+      "original_status": "passed",
+      "original_seconds": 0.00144067,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_scratch_sweep_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_scratch_rules",
+      "original_status": "passed",
+      "original_seconds": 0.00556902,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_scratch_rules_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_state_requests",
+      "original_status": "passed",
+      "original_seconds": 0.00174877,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_state_requests_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_image_loader",
+      "original_status": "passed",
+      "original_seconds": 0.0382101,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_image_loader_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_function_map",
+      "original_status": "passed",
+      "original_seconds": 0.0085112,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_function_map_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_ot_chain",
+      "original_status": "passed",
+      "original_seconds": 0.00523705,
+      "command": "[\"$CHECKOUT/tmp/pc/tests/memories_ot_chain_test\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mods_lifecycle",
+      "original_status": "failed",
+      "original_seconds": 4.93439,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/test_mods_lifecycle.py\", \"--target\", \"linux\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "pthread link with glibc 2.31",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot + explicit -pthread"
+    },
+    {
+      "name": "pc_object_loader",
+      "original_status": "failed",
+      "original_seconds": 3.69536,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/test_object_loader.py\", \"--target\", \"linux\"]",
+      "internal_unittest_skips": 0,
+      "original_problem": "native ELF32 execution unavailable",
+      "supplementary_status": "passed",
+      "supplementary_environment": "QEMU i386 + sysroot"
+    },
+    {
+      "name": "pc_mod_cache",
+      "original_status": "passed",
+      "original_seconds": 1.02392,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/test_mod_cache.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_build_mod_toolchain",
+      "original_status": "passed",
+      "original_seconds": 0.763361,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/test_build_mod_toolchain.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mod_libc_lent",
+      "original_status": "passed",
+      "original_seconds": 0.436236,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/test_mod_libc_lent.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_sdk_launchers",
+      "original_status": "passed",
+      "original_seconds": 4.8685,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/test_sdk_launchers.py\"]",
+      "internal_unittest_skips": 45
+    },
+    {
+      "name": "pc_build_sdk_guest_ir",
+      "original_status": "passed",
+      "original_seconds": 0.705285,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/test_build_sdk_guest_ir.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_mod_compat_fetch",
+      "original_status": "passed",
+      "original_seconds": 0.691943,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/test_mod_compat_fetch.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_art",
+      "original_status": "passed",
+      "original_seconds": 5.5738,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_art.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_board_art",
+      "original_status": "passed",
+      "original_seconds": 1.39649,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_board_art.py\"]",
+      "internal_unittest_skips": 3
+    },
+    {
+      "name": "pc_fm_editor_bulk_fusions",
+      "original_status": "passed",
+      "original_seconds": 0.997057,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_bulk_fusions.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_bust",
+      "original_status": "passed",
+      "original_seconds": 1.89362,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_bust.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_campaign_map",
+      "original_status": "passed",
+      "original_seconds": 0.626567,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_campaign_map.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_card_attributes",
+      "original_status": "passed",
+      "original_seconds": 0.361629,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_card_attributes.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_card_text",
+      "original_status": "passed",
+      "original_seconds": 0.232146,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_card_text.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_card_view",
+      "original_status": "passed",
+      "original_seconds": 0.157713,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_card_view.py\"]",
+      "internal_unittest_skips": 2
+    },
+    {
+      "name": "pc_fm_editor_compat",
+      "original_status": "passed",
+      "original_seconds": 1.48357,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_compat.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_data",
+      "original_status": "passed",
+      "original_seconds": 5.49082,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_data.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_every_button",
+      "original_status": "passed",
+      "original_seconds": 0.1556,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_every_button.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_family",
+      "original_status": "passed",
+      "original_seconds": 4.53301,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_family.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_file_dialogs",
+      "original_status": "passed",
+      "original_seconds": 0.187762,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_file_dialogs.py\"]",
+      "internal_unittest_skips": 2
+    },
+    {
+      "name": "pc_fm_editor_fixed_decks",
+      "original_status": "passed",
+      "original_seconds": 0.914481,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_fixed_decks.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_guardian_stars",
+      "original_status": "passed",
+      "original_seconds": 0.431786,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_guardian_stars.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_gui",
+      "original_status": "passed",
+      "original_seconds": 0.182709,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_gui.py\"]",
+      "internal_unittest_skips": 8
+    },
+    {
+      "name": "pc_fm_editor_history",
+      "original_status": "passed",
+      "original_seconds": 2.7699,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_history.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_importer",
+      "original_status": "passed",
+      "original_seconds": 2.20515,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_importer.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_map_art",
+      "original_status": "passed",
+      "original_seconds": 1.05967,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_map_art.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_map_gui",
+      "original_status": "passed",
+      "original_seconds": 0.130969,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_map_gui.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_overlaps",
+      "original_status": "passed",
+      "original_seconds": 0.440012,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_overlaps.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_packs",
+      "original_status": "passed",
+      "original_seconds": 0.462751,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_packs.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_program_paths",
+      "original_status": "passed",
+      "original_seconds": 0.158495,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_program_paths.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_recovery_timing",
+      "original_status": "passed",
+      "original_seconds": 1.59393,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_recovery_timing.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_render_speed",
+      "original_status": "passed",
+      "original_seconds": 3.90727,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_render_speed.py\"]",
+      "internal_unittest_skips": 4
+    },
+    {
+      "name": "pc_fm_editor_ritual_requirements",
+      "original_status": "passed",
+      "original_seconds": 0.871543,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_ritual_requirements.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_roster",
+      "original_status": "passed",
+      "original_seconds": 1.29167,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_roster.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_screen",
+      "original_status": "passed",
+      "original_seconds": 0.119692,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_screen.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_starter",
+      "original_status": "passed",
+      "original_seconds": 0.747569,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_starter.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_starter_pools",
+      "original_status": "passed",
+      "original_seconds": 0.436622,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_starter_pools.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_fm_editor_tower",
+      "original_status": "passed",
+      "original_seconds": 0.380197,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_tower.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_ui_tab",
+      "original_status": "passed",
+      "original_seconds": 0.690752,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_ui_tab.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_values",
+      "original_status": "passed",
+      "original_seconds": 0.244351,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_values.py\"]",
+      "internal_unittest_skips": 1
+    },
+    {
+      "name": "pc_fm_editor_ygomods",
+      "original_status": "passed",
+      "original_seconds": 0.733017,
+      "command": "[\"$VENV/bin/python3.12\", \"-m\", \"unittest\", \"discover\", \"-s\", \"tools/pc/fm_editor/tests\", \"-t\", \"tools/pc\", \"-p\", \"test_ygomods.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_replay_check",
+      "original_status": "passed",
+      "original_seconds": 3.81419,
+      "command": "[\"$VENV/bin/python3.12\", \"tests/pc/replay_check_test.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_model_oracle_check",
+      "original_status": "passed",
+      "original_seconds": 0.189489,
+      "command": "[\"$VENV/bin/python3.12\", \"tests/pc/model_oracle_test.py\"]",
+      "internal_unittest_skips": 0
+    },
+    {
+      "name": "pc_utf8_paths",
+      "original_status": "passed",
+      "original_seconds": 2.07745,
+      "command": "[\"$VENV/bin/python3.12\", \"tools/pc/check_utf8_paths.py\"]",
+      "internal_unittest_skips": 0
+    }
+  ],
+  "build_artifacts_not_published": [
+    {
+      "path": "tmp/pc/game32/memories-pc",
+      "bytes": 16322780,
+      "sha256": "4076a425743e9267cd65c51fbe01da4de0255713741ee75e8ed1436fd9f9738c",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/game32/sdk/exports.i386.txt",
+      "bytes": 73842,
+      "sha256": "4ced636164387bf0b0d2714bc15bbb560c8df54d02aed4a0764775e0cfab4184",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/game32/mods/3d-monsters/3d-monsters.o",
+      "bytes": 180608,
+      "sha256": "ee86b9806754d935c5636e8129b47bf50377e9404e584c455f4cdbdaee32f64d",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/game32/mods/ai-hard-mode/ai-hard-mode.o",
+      "bytes": 119672,
+      "sha256": "9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/game32/mods/hand-camera/hand-camera.o",
+      "bytes": 8716,
+      "sha256": "43ad7f08b0a8157cccd718d4779e83f830baa90b489176f980221cb15c0c4136",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/game32/mods/yamyi-mods/yamyi-mods.o",
+      "bytes": 126324,
+      "sha256": "5c16992e5a3acaa622d8c486663ceac23af7d1ddf55d28a5fc4793615a8de79e",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/win32/memories-pc.exe",
+      "bytes": 5204480,
+      "sha256": "ac9c850bf467845f5ded25381bc59bba22f38e7e581d587d2a0b2f14342d3e12",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/win32/sdk/exports.i386.txt",
+      "bytes": 74598,
+      "sha256": "7aae333e2548e5b884bfcc8ea65ccc8ff753fbad72ed98bd2c7acbff334e5da0",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/win32/mods/3d-monsters/3d-monsters.o",
+      "bytes": 180608,
+      "sha256": "ee86b9806754d935c5636e8129b47bf50377e9404e584c455f4cdbdaee32f64d",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/win32/mods/ai-hard-mode/ai-hard-mode.o",
+      "bytes": 119672,
+      "sha256": "9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/win32/mods/hand-camera/hand-camera.o",
+      "bytes": 8716,
+      "sha256": "43ad7f08b0a8157cccd718d4779e83f830baa90b489176f980221cb15c0c4136",
+      "published": false
+    },
+    {
+      "path": "tmp/pc/win32/mods/yamyi-mods/yamyi-mods.o",
+      "bytes": 126324,
+      "sha256": "5c16992e5a3acaa622d8c486663ceac23af7d1ddf55d28a5fc4793615a8de79e",
+      "published": false
+    }
+  ],
+  "remote_verification_before_documentation": {
+    "checked": true,
+    "all_previous_branches_preserved": true,
+    "branches": [
+      {
+        "name": "backup/master-pre-v0.2.0",
+        "sha": "4f58718bb89751fe8070b6093a659cb55908aa9d"
+      },
+      {
+        "name": "backup/master-pre-v0.2.1-preview.1",
+        "sha": "7a8da6d964ddadb9af38241139f4232bc8290332"
+      },
+      {
+        "name": "backup/mod-field-effects-pre-v0.2.0",
+        "sha": "985609424e7e81d75b2bdcc75a8d082e92356cd0"
+      },
+      {
+        "name": "docs/hal-5-auditoria-mods",
+        "sha": "09c3530517a01dc5c39ab90677d9c324510359eb"
+      },
+      {
+        "name": "docs/hal-20-inventario-plano",
+        "sha": "2fb97b7f9b1c5b9e1ed360570ecc9f3026fcbcaa"
+      },
+      {
+        "name": "downloads/efeitos-rituais-v0.78.40",
+        "sha": "561d3d97818c3d964a39454e97cedcdf6e9163a3"
+      },
+      {
+        "name": "integration/hal-20-v0.3.1-preview.2",
+        "sha": "aceac3782902746f35ddb0148809450933327cb3"
+      },
+      {
+        "name": "master",
+        "sha": "0d78202729967a5bbdbc886aa128e48e82bef7ac"
+      },
+      {
+        "name": "mod-field-effects",
+        "sha": "296c5919479711b550d00aea8cd042b1c34ba306"
+      },
+      {
+        "name": "mod-ritual-effects",
+        "sha": "632cd012deefe5a71482e0e8633ea19c8346b5af"
+      },
+      {
+        "name": "ritual-requirements",
+        "sha": "c2e8783aa2bafb3473e44cc0ae35a6b2d3c9e992"
+      },
+      {
+        "name": "ritual-requirements-v014",
+        "sha": "8ba422b58b49b4b97f238df96f186921e9b9ed2c"
+      },
+      {
+        "name": "upstream-v0.2.0",
+        "sha": "0185f58df7928cc6338ceb221d169e2b42feca6d"
+      }
+    ],
+    "ci_runs": []
+  },
+  "limitations": [
+    "No gameplay or proprietary disc files",
+    "No actual Windows execution/Wine",
+    "GUI/Tk cases skipped inside groups",
+    "No custom mods or AI/Dual Play integration matrix",
+    "No full Android/macOS/x64 runtime build",
+    "No MIPS matching build",
+    "Actions runs query returned none for branch at snapshot; not evidence workflows are disabled"
+  ]
+}

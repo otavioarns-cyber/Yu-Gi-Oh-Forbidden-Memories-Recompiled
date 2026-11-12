@@ -237,6 +237,27 @@ class Plan:
                 parts.append(f"{count} {label}")
         return head + ": " + ", ".join(parts) + "."
 
+    def headline(self) -> str:
+        """What applying does, in a few words (the window's big line)."""
+        if self.mode == "add":
+            return f"{self.added} to add  ·  {self.replaced} to replace"
+        return f"{self.removed} to take away"
+
+    def details(self) -> str:
+        """The rest of summary(): the pairs looked at and those left alone."""
+        parts = [f"{self.pairs} pairs of {self.a_count} × {self.b_count} cards"]
+        if self.mode == "add" and self.kept:
+            parts.append(f"{self.kept} already fuse (kept)")
+        if self.mode == "remove" and self.not_fusing:
+            parts.append(f"{self.not_fusing} do not " + ("make that card" if self.only_result else "fuse"))
+        for count, label in ((self.same, "already make that card"), (self.weaker, "result not stronger"),
+                             (self.no_result, "no card of the list beats both"),
+                             (self.self_pairs, "card with itself"),
+                             (self.duplicates, "B+A duplicates counted once")):
+            if count:
+                parts.append(f"{count} {label}")
+        return "  ·  ".join(parts)
+
     def budget_line(self) -> str:
         size = self.rules_after * BYTES_PER_RULE
         size = f"{size / 1e6:.1f} MB" if size >= 1e6 else f"{round(size / 1e3)} KB"
@@ -247,13 +268,13 @@ class Plan:
 def rule_count(project) -> int:
     """The fusion rules manifest.build_fusions writes."""
     active = project.active_removes()
-    removes = set(active)
+    removes = project.removed_results()
     fusions = project.fusions
     count = sum(1 for pair, now in fusions.items() if project.fusion_rule(pair, now, removes))
     count += sum(1 for pair in project.retail.fusions if pair not in fusions
                  and project.fusion_rule(pair, None, removes))
     count += sum(1 for pair in project.fusion_explicit if pair not in fusions and pair not in project.retail.fusions)
-    return count + len(active) + len(project.kept["fusions"])
+    return count + len(active) + project.fusion_remove_all + len(project.kept["fusions"])
 
 
 def _differs(project, pair, value, removes=frozenset(), explicit=None) -> bool:
@@ -304,7 +325,7 @@ def plan(project, spec: BulkSpec) -> Plan:
     set_a, set_b = set(side_a), set(side_b)
     simple = not project.added
     fusions = project.fusions
-    removes = set(project.active_removes())
+    removes = project.removed_results()
     final = {}          # a recipe of a removed card -> what the plan leaves in it
     delta = 0
     for a in side_a:
@@ -359,7 +380,7 @@ def plan(project, spec: BulkSpec) -> Plan:
                 final[pair] = stored
     # A remove whose every recipe the plan puts back goes (Project.settle_removes),
     # and with it the rules its recipes needed: those not kept for themselves.
-    for result in removes if final else ():
+    for result in set(project.active_removes()) if final else ():
         recipes = project.retail_recipes(result)
         if any(pair in final for pair in recipes) and \
                 all(final.get(pair, fusions.get(pair)) == result for pair in recipes):

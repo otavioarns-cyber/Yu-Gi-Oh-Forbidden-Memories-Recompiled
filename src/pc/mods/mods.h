@@ -3,8 +3,12 @@
 /* The mod system: what the port itself calls. Mods are directories, not
  * built-in code -- see modapi.h for what one contains and notes/modding.md
  * for how one is written. They are found beside the executable (`mods/`,
- * where the release's own mods live) and in the player's mods directory
- * (paths.h), which is where a player installs someone else's. Whether a mod
+ * where the release's own mods live), in a mods folder the player chose
+ * (Mods_Folder, below) and in the player's mods directory (paths.h), which
+ * is where a player installs someone else's. They are read in that order,
+ * and on one id the later wins: the chosen folder over the release's mods,
+ * the user directory's over both. MEMORIES_MODS_DIR, when set, is the only
+ * folder read. The game never writes to the chosen folder. Whether a mod
  * is applied is a setting, `mod.<id>`, saved with the rest of them. */
 
 #define MODS_MAX 256
@@ -23,6 +27,13 @@ void Mods_SetTexturePack(int (*load)(const char *directory, unsigned rank,
                                      int (*part)(const char *setting, void *context), void *context,
                                      char *problems, size_t size),
                          void (*unload)(void));
+/* Named "assets" use the texture pack unload/rebuild lifecycle: `load` for
+ * an object listing the pictures, `folder` for a directory of them. */
+void Mods_SetAssets(int (*load)(const char *directory, const struct JsonValue *assets, unsigned rank,
+                                int (*part)(const char *, void *), void *context, char *problems, size_t size),
+                    int (*folder)(const char *directory, unsigned rank,
+                                  int (*part)(const char *, void *), void *context,
+                                  char *problems, size_t size));
 /* The audio replacement an "audio" mod goes through (src/pc/audio/replace.h):
  * `load` decodes a mod's files and returns how many it added, or -1 when the
  * object is malformed, with the first failure in `error`; `unload` drops
@@ -30,6 +41,39 @@ void Mods_SetTexturePack(int (*load)(const char *directory, unsigned rank,
 void Mods_SetAudio(int (*load)(int mod, const char *id, const char *directory, const struct JsonValue *audio,
                                char *error, size_t size),
                    void (*unload)(int mod));
+/* A code mod's own sounds (host->sound_add/sound_play/sound_free): the
+ * audio replacement's clips (src/pc/audio/replace.h). Without these the
+ * host answers -1 and plays nothing. */
+void Mods_SetAudioClips(int (*add)(int mod, const char *id, const int16_t *samples, size_t frames, int channels,
+                                   unsigned rate),
+                        int (*play)(int mod, int handle, int volume, int pan), void (*release)(int mod, int handle));
+/* The mouse for host->mouse and host->capture_mouse (API 23): the window's
+ * motion since the last call and the buttons held, with
+ * MEMORIES_MOUSE_ESCAPE taken in when `escape` (the mod is the one that
+ * claimed it); and the capture's mode, 0 none, 1 the pointer and Escape, 2
+ * Escape only. Without these the host answers no motion and captures
+ * nothing. */
+void Mods_SetMouse(void (*motion)(int *dx, int *dy, unsigned *buttons, int escape), void (*capture)(int mode));
+/* The pointer and the wheel for host->pointer, host->wheel and
+ * host->take_wheel (API 24): the pointer's place in the game's picture and
+ * the buttons held, 1 when it is a mouse's over the picture and nothing of
+ * the port's has it; the wheel's notches since the last call; and whether a
+ * notch is also a D-pad press (0 when a mod has taken the wheel). Without
+ * these the host answers no pointer and no notches. */
+void Mods_SetPointer(int (*pointer)(int *x, int *y, unsigned *buttons), int (*wheel)(void), void (*take)(int on));
+/* The MEMORIES_HUD_* parts the applied mods hide (host->hide_hud), or 0. */
+unsigned Mods_HiddenHud(void);
+/* Where the window shows the game's picture, for host->overlay_picture:
+ * its rectangle on the overlay's canvas and the game pixels across it (320,
+ * or 426 widened). The window sets it whenever it lays the picture out. */
+void Mods_SetPicture(int x, int y, int w, int h, int game_width);
+/* The applied mods' overlays drawn straight over a picture of w x h
+ * 0xFFRRGGBB pixels, as a window of its size shows them, with the port's
+ * menu text (MEMORIES_DUMP_OVERLAY's frame dumps). */
+struct MenuCanvas;
+void Mods_DrawPictureOverlay(uint32_t *pixels, int w, int h, int game_width,
+                             void (*text)(struct MenuCanvas *, int, int, const char *, uint32_t, int),
+                             int (*width)(const char *, int));
 void Mods_Shutdown(void);
 /* What a mod's host->pad reads; NULL: Platform_Pad. The game sets it
  * (libetc.c) so mods see the control client's bits and, while a recording
@@ -60,6 +104,10 @@ void Mods_SetEnabled(int mod, int enabled);
 struct JsonValue;
 void Mods_VisitCards(void (*visit)(const char *id, const char *directory, const struct JsonValue *cards, void *context),
                      void *context);
+/* Every applied manifest, in load order.  Tables which have their own
+ * top-level section use this rather than borrowing the cards visitor. */
+void Mods_VisitManifests(void (*visit)(const char *id, const char *directory,
+                                       const struct JsonValue *manifest, void *context), void *context);
 /* The mods applied at startup, in the order they were loaded: where two
  * of them set the same thing, the later one wins. */
 int Mods_LoadedCount(void);
@@ -89,6 +137,9 @@ void Mods_Note(const char *id, const char *format, ...);
 /* Called once the game's frame is on its way to the GPU (libgpu's GsDrawOt),
  * which is where an extra pass can draw over the finished picture. */
 void Mods_DrawFrame(void);
+/* Whether a mod's frame callback, in the last Mods_DrawFrame, asked that
+ * its frame be drawn only in the scaled picture (host->picture_only_frame). */
+int Mods_PictureOnlyFrame(void);
 /* The applied mods' overlays (MemoriesMod.overlay), drawn with the port's
  * menu text; the rectangle they covered, or zeros. Their signature changes
  * whenever one of them would draw something else (`frame` for a mod that
@@ -98,6 +149,42 @@ void Mods_DrawOverlay(struct MenuCanvas *canvas, int scale,
                       void (*text)(struct MenuCanvas *, int, int, const char *, uint32_t, int),
                       int (*width)(const char *, int), int *x, int *y, int *w, int *h);
 unsigned Mods_OverlaySignature(unsigned frame);
+/* Where the overlays go instead of the canvas: with a sink set a pass of
+ * Mods_DrawOverlay rasters nothing, reports no rectangle, and hands the
+ * sink its calls in order. The sink keeps what it needs: between `begin`
+ * and `end` the pixels are the mod's and alive, after `end` they may not be.
+ * `clip` is x0, y0, x1, y1 of the canvas; `forget` says pixels are gone. */
+typedef struct ModsOverlaySink {
+    void (*begin)(void);
+    void (*fill)(const int clip[4], int x, int y, int w, int h, uint32_t rgb, unsigned alpha);
+    void (*image)(const int clip[4], const uint32_t *pixels, int w, int h, uint32_t hash, int x, int y, int dw, int dh,
+                  unsigned alpha);
+    void (*end)(void);
+    void (*forget)(const uint32_t *pixels);
+} ModsOverlaySink;
+void Mods_SetOverlaySink(const ModsOverlaySink *sink);
+/* The pictures read ahead for the mods (host->prefetch_image): the bytes of
+ * those read and not yet taken, how many jobs there are in all, and how
+ * many of them are still to read or being read. */
+size_t Mods_Prefetched(int *jobs, int *unread);
+/* The overlays once more, only listed, the canvas untouched, and compared
+ * with the calls that last drew it (Mods_DrawOverlay, or a
+ * Mods_RedrawOverlayIn after this): the rectangles of the canvas that
+ * differ, x, y, w, h each into `rects`, at most `max` of them. 0 when
+ * nothing differs; -1 when there is nothing to compare with (no pass on a
+ * canvas of this size yet, or one that could not be listed whole), and
+ * then everything is to be drawn again. */
+int Mods_OverlayChanges(struct MenuCanvas *canvas, int scale,
+                        void (*text)(struct MenuCanvas *, int, int, const char *, uint32_t, int),
+                        int (*width)(const char *, int), int *rects, int max);
+/* Then the overlays drawn in those rectangles alone, which the caller has
+ * cleared; outside them the canvas is left as it is, which is what this
+ * pass draws there. 0 when the pass was not the one listed (a mod that
+ * draws something else each time it is asked): nothing on the canvas can
+ * then be trusted, and it is to be drawn again whole. */
+int Mods_RedrawOverlayIn(struct MenuCanvas *canvas, int scale,
+                         void (*text)(struct MenuCanvas *, int, int, const char *, uint32_t, int),
+                         int (*width)(const char *, int), const int *rects, int count);
 /* Drop everything cached from the running game: a resumed save state is
  * another game. */
 void Mods_Reset(void);
@@ -113,6 +200,45 @@ int Mods_DiscFileInfo(int retail_lba, int *lba, unsigned *size);
 int Mods_DiscSource(int lba, int *physical_lba);
 int Mods_DiscOrigin(int lba);
 unsigned Mods_DiscSignature(void);
+/* The battle models mods add ("models"), in load order. Mods_Model gives
+ * model i's name, its "base" (a monster of the disc it stands in for where
+ * the game looks a model up as a card, or NULL) and its mod: 0, or -1 past
+ * the last. src/pc/cards/cards.c names them.
+ * Mods_ModelSector: the first sector of its record as a native extra reads
+ * it (host->disc_read), or -1. Once its file is found gone or changed it
+ * is -1 until the next launch. Mods_ModelRead serves host->disc_read:
+ * `sectors` from `lba` on, within one record, or 0 when its file cannot be
+ * read as it was at startup.
+ * Mods_ModelWindow: reads it into battle slot
+ * `slot`'s window (0 or 1), where the drive finds it, and gives the window's
+ * first sector, or -1; only while no transfer runs (Model_LoadMonsterMerge
+ * waits for them first). Mods_ModelWindows: the windows' models, which save
+ * states carry, and Mods_ModelRebind reads them in again after a load.
+ * Mods_ModelForget: the slot loads something else.
+ * A model bigger than a record (Mods_ModelGeometry: its bytes of model
+ * data, 0 for a record) has no sector; its window holds the record's other
+ * stages, and Mods_ModelWindow puts its model data in the slot's arena
+ * (Mods_ModelArena: `arena` 0 or 1 for the slots, 2 to check one in; NULL
+ * before a bigger model is added), where the slot parses it:
+ * Mods_ModelPending until Mods_ModelParsed. A save state brings the arenas
+ * and Mods_ModelPendings itself (src/pc/cards/battle_models.c), after the
+ * windows. Mods_ModelPages: the texture pages ("texture_pages") of the
+ * model in slot `slot`'s window, 64x256 halfwords each, and how many; NULL
+ * and 0 for none. */
+int Mods_ModelCount(void);
+int Mods_Model(int i, const char **name, const struct JsonValue **base, int *mod);
+int Mods_ModelSector(int i);
+int Mods_ModelRead(int lba, int sectors, void *out);
+int Mods_ModelWindow(int slot, int i);
+int *Mods_ModelWindows(unsigned *size);
+void Mods_ModelRebind(void);
+void Mods_ModelForget(int slot);
+int Mods_ModelGeometry(int i);
+unsigned char *Mods_ModelArena(int arena, unsigned *size);
+int Mods_ModelPending(int slot);
+const unsigned char *Mods_ModelPages(int slot, int *count);
+int *Mods_ModelPendings(unsigned *size);
+void Mods_ModelParsed(int slot);
 
 /* Manager metadata and configuration. Borrowed strings live until exit. */
 const struct JsonValue *Mods_Manifest(int mod);
@@ -121,9 +247,66 @@ const char *Mods_Directory(int mod);
 /* Where players put new mods (MEMORIES_MODS_DIR, else the user mods
  * folder), created if missing; 0 on success. */
 int Mods_InstallDirectory(char *out, size_t size);
+/* The mods folder the player chose, one more folder the game reads (origin
+ * "folder"), between the release's mods and the user directory's: the first
+ * line of mods-folder.txt in the user directory, else
+ * MEMORIES_MODS_FOLDER, which wins when it is set (set to nothing, it says
+ * there is none). A path that is not absolute is taken from the program
+ * directory, a '\' is a '/' on Windows. 0 and the path in `out`, or -1 when
+ * there is none. Whether it can be read is not looked at here. Mods are
+ * scanned once, at the first Mods_Load: a change applies at the next launch.
+ * MEMORIES_MODS_DIR set means no other folder is read, this one neither. */
+int Mods_Folder(char *out, size_t size);
+/* Choose the mods folder (writes mods-folder.txt, atomically); NULL or ""
+ * chooses none (the file goes). Double quotes around the path (Explorer's
+ * "Copy as path") are dropped. The folder need not exist or be readable yet,
+ * as when the permission for it is asked for after. 0: saved (or cleared);
+ * `why` may then still say that MEMORIES_MODS_FOLDER or MEMORIES_MODS_DIR is
+ * set and overrides it, now and until it is unset, for the window to show.
+ * -1, with the reason in `why`: the file could not be written, the name holds
+ * a line break, is too long, is a drive's current folder ("C:", "C:foo": the
+ * full path is needed), or is a folder the game reads or writes already: the
+ * release's mods/, MEMORIES_MODS_DIR, the user directory (where the game
+ * keeps its mods, saves and downloads) or a folder in one. Folders are
+ * compared after taking out "." and ".." and following links where the folder
+ * exists (a junction on Windows is not followed). Does not change this
+ * launch's list. */
+int Mods_SetFolder(const char *path, char *why, size_t why_size);
+/* Why this launch did not read the folder of Mods_Folder (it is gone, is not a
+ * folder, cannot be read, is a folder the game reads or writes already, or MEMORIES_MODS_DIR
+ * is set); "" when it was read or there is none, and before Mods_Load. Said in
+ * the log only, never as a notice: for the Mods window to show. Borrowed. */
+const char *Mods_FolderProblem(void);
+/* A mod folder put in the player's mods folder while the game runs (the
+ * Android Mods panel's Import mod..., import.h), read as the startup scan
+ * reads one. A new id joins the list, off (its setting is recorded as off:
+ * the caller saves the settings), at the end, so no other mod's index
+ * moves. A mod with that id that was never put in place takes the new
+ * manifest; one that was (or is) in place keeps what it has until the next
+ * launch, now needs a restart for any change, and sets *later. The mod's
+ * index, or -1 when there is no mod.json or no room. */
+int Mods_Discover(const char *directory, int *later);
+/* Whether a mod is (or was, this launch) in place: its code, data, or
+ * pictures are the files read then, so they must not change under it. */
+int Mods_InUse(int mod);
+/* A mod whose folder the Android Mods panel's Remove deleted (import.h,
+ * Mods_ImportRemoveInstalled), while the game runs. Only a mod nothing was
+ * loaded from this launch (not Mods_InUse) can go: -1 for any other. Its
+ * slot stays in the list, so no other mod's index moves (events and saved
+ * state are keyed by it), but it is off for good, cannot be applied, and
+ * Mods_Removed says so: the panel leaves it out. A mod imported later with
+ * its id takes the slot again (Mods_Discover). */
+int Mods_Forget(int mod);
+int Mods_Removed(int mod);
+/* The mods' list or a manifest changed: the next Mods_Overlaps works its
+ * lines out again. */
+void Mods_OverlapsForget(void);
 const char *Mods_Origin(int mod);
 int Mods_Active(int mod);
 int Mods_Failed(int mod);
+/* The mod has code to load (a "library" or "libraries"), whether or not
+ * this game can load it. */
+int Mods_HasCode(int mod);
 /* What the mods in `enabled` change in common, loading in the order `ranks`
  * gives (each mod's Load order, as the Mods window stages it), or the saved
  * order when `ranks` is NULL, with the settings `values` gives (values[mod]
@@ -187,6 +370,9 @@ void Mods_SetCardNotes(const char *(*notes)(int id), int (*tag)(int id, const ch
 void Mods_Dispatch(MemoriesModEvent *event);
 int Mods_Notify(unsigned type, int a, int b, int c);
 unsigned Mods_Sequence(int mod);
+/* Counts each mod put in place or taken out (never an unchanged one), so a cache
+ * of what mods supplied can tell it is out of date. */
+unsigned Mods_Changes(void);
 int Mods_RuntimeOption(int mod, int option);
 /* One of an applied mod's settings changed (Mods_OptionSet): its texture
  * pack, whose parts may follow the setting, is loaded again. */

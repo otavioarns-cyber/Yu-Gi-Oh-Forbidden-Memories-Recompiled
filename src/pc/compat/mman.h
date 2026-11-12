@@ -38,6 +38,7 @@ __declspec(dllimport) unsigned long __stdcall GetLastError(void);
 #define MAP_PRIVATE 0x02
 #define MAP_ANONYMOUS 0x20
 #define MAP_FIXED_NOREPLACE 0x100000
+#define MAP_FIXED 0x10   /* taken as NOREPLACE: VirtualAlloc never replaces */
 #define MAP_FAILED ((void *)-1)
 
 #ifdef _WIN64
@@ -83,7 +84,62 @@ static inline int mprotect(void *address, size_t length, int prot)
                                                : ((prot & PROT_WRITE) ? PAGE_READWRITE : PAGE_READONLY);
     return VirtualProtect(address, (unsigned long)length, protect, &old) ? 0 : -1;
 }
+#elif defined(MEMORIES_TRANSLATED)
+#include <sys/mman.h>
+/* The translated game (macOS, Android arm64): a fixed request (the text
+ * arena at 0x9C000000, low memory at 0x9E000000, the interpreter stack at
+ * 0x9FF00000, mod arenas) takes host memory wherever the system gives it
+ * and registers it with the translation runtime at the guest address asked
+ * for (translated_mman.c), so no fixed host address is needed: a range the
+ * system holds there (ART's spaces on a phone) changes nothing. They never
+ * replace an existing virtual-memory mapping. Darwin has no
+ * MAP_FIXED_NOREPLACE; Linux's (0x100000) is kept, so a unit that maps
+ * through <sys/mman.h> itself means the kernel's flag by it. */
+#ifndef MAP_FIXED_NOREPLACE
+#define MAP_FIXED_NOREPLACE 0x40000000
+#endif
+void *Memories_TranslatedMmap(void *, size_t, int, int, int, off_t);
+int Memories_TranslatedMunmap(void *, size_t);
+int Memories_TranslatedMprotect(void *, size_t, int);
+#ifndef MEMORIES_TRANSLATED_MMAN_IMPLEMENTATION
+#define mmap Memories_TranslatedMmap
+#define munmap Memories_TranslatedMunmap
+#define mprotect Memories_TranslatedMprotect
+#endif
 #else
 #include <sys/mman.h>
+#endif
+
+/* Memories_MapFixed: mmap for a MAP_FIXED_NOREPLACE request, which maps at
+ * `address` exactly or not at all (MAP_FAILED, errno EEXIST when something
+ * holds part of the range), on every kernel. Linux before 4.17 does not
+ * know the flag and takes the address as a hint: a range that is free is
+ * given as asked, one that is not goes wherever the kernel puts it (in an
+ * arm64 app process top-down from below the stack, far above 4 GB), which
+ * is undone here and told as the newer kernels tell it. The range is never
+ * checked and then mapped with MAP_FIXED: another thread (an app's Java
+ * runtime maps below 4 GB itself) could take it in between, and MAP_FIXED
+ * would map over that. MEMORIES_TEST_OLD_KERNEL=1, in a test build, drops
+ * the flag as such a kernel does (notes/pc-build.md, "Android arm64"). */
+#if defined(_WIN32) || defined(MEMORIES_TRANSLATED)
+#define Memories_MapFixed mmap /* both refuse a taken address themselves */
+#else
+#include <errno.h>
+#include <stdlib.h>
+static inline void *Memories_MapFixed(void *address, size_t length, int prot, int flags, int fd, off_t offset)
+{
+    void *got;
+#ifdef MEMORIES_TEST_HOOKS
+    const char *old = getenv("MEMORIES_TEST_OLD_KERNEL");
+    if (old && old[0] && old[0] != '0') flags &= ~MAP_FIXED_NOREPLACE;
+#endif
+    got = mmap(address, length, prot, flags, fd, offset);
+    if (got != MAP_FAILED && got != address) {
+        munmap(got, length);
+        errno = EEXIST;
+        return MAP_FAILED;
+    }
+    return got;
+}
 #endif
 #endif

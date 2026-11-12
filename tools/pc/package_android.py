@@ -6,7 +6,10 @@ Called by build_game32.py --target android-<abi> after the link; it can also
 be run on its own: package_android.py <build dir> <abi>. Uses only the JDK
 (javac) and the Android SDK's own tools, no Gradle: SDL's Java shell
 (org.libsdl.app, from the same SDL release as libSDL3.so; build_android_deps.py)
-is compiled against the SDK's android.jar and dexed with d8, aapt2 links the
+and the game's own Java (src/pc/platform/android/*.java: the restart activity,
+in a process of its own, the first run's document picker and "Open with" for
+a mod's .zip, among others)
+are compiled against the SDK's android.jar and dexed with d8, aapt2 links the
 manifest, the native libraries go in lib/<abi>/, and the APK is aligned
 (zipalign) and signed (apksigner). The key is the release key named by the
 environment (signing_key(): MEMORIES_ANDROID_KEYSTORE and its passwords,
@@ -14,7 +17,9 @@ which are never printed or put on a command line), else a debug key kept
 under tmp/, never in the repository; either way the signer's certificate
 (DN, SHA-256) is printed and checked with apksigner verify. The activity is SDL's own SDLActivity: it loads libSDL3.so
 and libmain.so and calls SDL_main (src/pc/platform/android_loader.c), which
-loads libgame.so at its link address. The build's id, commit and symbol
+loads libgame.so: the arm64 app's translated game wherever the system puts
+it, a fixed game (--android-memory fixed, android-x86) at its link address.
+The build's id, commit and symbol
 table go in assets/build/, and the shipped mods and language packs under
 assets/build/files/ with their list in build/files.txt
 (src/pc/platform/android.c unpacks them).
@@ -29,6 +34,11 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 PACKAGE = "org.yfmredecomp.game"
 LABEL = "YFM Re-Decomp"
 KEYSTORE = os.path.join(ROOT, "tmp", "pc", "android-deps", "debug.keystore")
+# The port's own Java, beside SDL's, one class per file in this folder (all
+# in PACKAGE): Restart (Platform_RestartGame), HdDownload (the HD pack) and
+# ReportProvider, which hands the crash report to the app the player shares
+# it with (android_report.c).
+JAVA = os.path.join(ROOT, "src", "pc", "platform", "android")
 DEBUG_DN = "CN=Android Debug, O=Android, C=US"
 # The alias of the release key when MEMORIES_ANDROID_KEY_ALIAS is unset.
 RELEASE_ALIAS = "yfm"
@@ -61,17 +71,59 @@ MAX_CODE = 2100000000
 # addresses from the matching build's ELFs before the link).
 BUILD_WRITES = ("config/pc/guest_addresses.txt",)
 
+# Every configuration change the activity takes itself instead of being
+# destroyed and created again: a destroyed activity ends the game
+# (SDLActivity.onDestroy sends a quit), which, at its fixed addresses,
+# cannot start over in the same process.
+# Display size and font size in the system settings (density, fontScale,
+# fontWeightAdjustment), a SIM swap (mcc, mnc), a wide-gamut or HDR display
+# mode (colorMode), Android 14's grammatical gender, and a touchscreen coming
+# or going (touchscreen) are the ones that were missing; the picture and the
+# touch controls follow a density change (sdl.c, "density"). Unknown names on
+# an older Android are ignored (the manifest holds a bit mask); aapt2 checks
+# each against android.jar, which needs API 34 or later for grammaticalGender
+# (MIN_PLATFORM, which platform_dir checks; the build's android-35 has it).
+CONFIG_CHANGES = "|".join((
+    "mcc", "mnc", "locale", "touchscreen", "keyboard", "keyboardHidden", "navigation", "orientation",
+    "screenLayout", "uiMode", "screenSize", "smallestScreenSize", "layoutDirection", "fontScale", "colorMode",
+    "density", "fontWeightAdjustment", "grammaticalGender"))
+MIN_PLATFORM = 34
 MANIFEST = f"""<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="{PACKAGE}" android:versionCode="@VERSION_CODE@" android:versionName="@VERSION_NAME@">
+    <!-- The Mods panel's HD pack... (hd_pack.h): granted at install, no
+         prompt; nothing is contacted until the player taps it. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- The Mods panel's Mods folder... (ModsFolderAccess.java): the player
+         names a folder of the phone's shared storage and the game reads it
+         with plain file calls, which Android 11 and later allow an app that
+         holds All files access (a switch in the app's settings page, asked
+         for only when the player agrees to it in the panel; the game works
+         without it), and before that the read permission. Google Play
+         restricts this permission, so a build for the store has to drop it
+         and the Mods folder... button (the sideloaded APK keeps both). -->
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="29" />
+    <!-- Android 11 and later hide the system's settings pages from an app
+         unless it asks to see them: ModsFolderAccess.java looks for the two
+         All files access pages before it offers the question. -->
+    <queries>
+        <intent><action android:name="android.settings.MANAGE_APP_ALL_FILES_ACCESS_PERMISSION" /></intent>
+        <intent><action android:name="android.settings.MANAGE_ALL_FILES_ACCESS_PERMISSION" /></intent>
+    </queries>
     <uses-feature android:glEsVersion="0x00020000" />
     <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
     <uses-feature android:name="android.hardware.gamepad" android:required="false" />
+    <!-- requestLegacyExternalStorage: on Android 10 (API 29) the read permission
+         covers media files only unless the app keeps the old storage model, and
+         the chosen mods folder's .json and .mod files are not media. Android 11
+         and later ignore it (All files access does the work). -->
     <application android:label="{LABEL}" android:hasCode="true" android:allowBackup="false"
+        android:requestLegacyExternalStorage="true"
         android:extractNativeLibs="true" android:hardwareAccelerated="true"
         android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         <activity android:name="org.libsdl.app.SDLActivity" android:exported="true"
-            android:configChanges="layoutDirection|locale|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:configChanges="@CONFIG_CHANGES@"
             android:screenOrientation="sensorLandscape" android:launchMode="singleInstance"
             android:preferMinimalPostProcessing="true">
             <intent-filter>
@@ -79,6 +131,63 @@ MANIFEST = f"""<?xml version="1.0" encoding="utf-8"?>
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="org.yfmredecomp.game.Restart" android:exported="false"
+            android:process=":restart" android:excludeFromRecents="true" android:noHistory="true"
+            android:configChanges="layoutDirection|locale|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- The first run's document picker (DiscPicker.java): a task of its
+             own (SDLActivity is singleInstance), its own affinity so that
+             starting it afresh clears only its own task, kept out of the
+             recent apps (the game's entry is the one to come back to). -->
+        <activity android:name="org.yfmredecomp.game.DiscPicker" android:exported="false"
+            android:taskAffinity="{PACKAGE}.disc" android:excludeFromRecents="true"
+            android:configChanges="layoutDirection|locale|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- Open with: a mod's .zip chosen for the game in a browser, Discord
+             or a file manager (VIEW), or shared to it (SEND). OpenWith.java
+             takes the document's URI and brings the game forward, which opens
+             the Mods panel on the same import as Import mod...; in a process
+             of its own (as Restart), so that an intent from any app cannot
+             take the running game down with it, shown to nobody. Not
+             application/octet-stream, which would offer the game for every
+             file of no known type; not BROWSABLE, so that a web page cannot
+             bring the game forward. -->
+        <activity android:name="org.yfmredecomp.game.OpenWith" android:exported="true"
+            android:process=":open" android:taskAffinity="{PACKAGE}.open"
+            android:excludeFromRecents="true" android:noHistory="true"
+            android:configChanges="layoutDirection|locale|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="application/x-zip" />
+                <data android:mimeType="application/x-zip-compressed" />
+                <data android:mimeType="multipart/x-zip" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="application/x-zip" />
+                <data android:mimeType="application/x-zip-compressed" />
+                <data android:mimeType="multipart/x-zip" />
+            </intent-filter>
+        </activity>
+        <!-- Mods folder... (ModsFolderPicker.java, ModsFolderAccess.java): the
+             system's folder picker and its All files access page, each in a
+             task of its own like DiscPicker's. -->
+        <activity android:name="org.yfmredecomp.game.ModsFolderPicker" android:exported="false"
+            android:taskAffinity="{PACKAGE}.modsfolder" android:excludeFromRecents="true"
+            android:configChanges="layoutDirection|locale|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name="org.yfmredecomp.game.ModsFolderAccess" android:exported="false"
+            android:taskAffinity="{PACKAGE}.modsfolder" android:excludeFromRecents="true"
+            android:configChanges="layoutDirection|locale|orientation|uiMode|screenLayout|screenSize|smallestScreenSize|keyboard|keyboardHidden|navigation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <provider android:name="org.yfmredecomp.game.ReportProvider"
+            android:authorities="{PACKAGE}.reports"
+            android:exported="false" android:grantUriPermissions="true" />
     </application>
 </manifest>
 """
@@ -120,9 +229,14 @@ def build_tools_dir():
 
 def platform_dir():
     """The SDK platform compiled against: android-TARGET_SDK when installed,
-    else the newest installed."""
+    else the newest installed; android-MIN_PLATFORM at the least."""
     path = os.path.join(sdk(), "platforms", f"android-{TARGET_SDK}")
-    return path if os.path.isdir(path) else newest(os.path.join(sdk(), "platforms"), "android-")
+    if not os.path.isdir(path):
+        path = newest(os.path.join(sdk(), "platforms"), "android-")
+    if int(os.path.basename(path)[len("android-"):].split(".")[0]) < MIN_PLATFORM:
+        sys.exit(f"{path}: android-{MIN_PLATFORM} or later is needed (the manifest's configChanges names "
+                 f"grammaticalGender); install it: sdkmanager \"platforms;android-{TARGET_SDK}\"")
+    return path
 
 
 def tool(build_tools, name):
@@ -335,6 +449,19 @@ def program_files(build, folders):
     return assets
 
 
+def check_report_authority():
+    """The crash report's content:// authority is spelled in three places:
+    the manifest here, ReportProvider.java and android_report.c (the URI
+    Share hands out). A rename that missed one would only show as a share
+    with nothing attached, so the build stops instead."""
+    authority = f"{PACKAGE}.reports"
+    for path in (os.path.join(JAVA, "ReportProvider.java"),
+                 os.path.join(ROOT, "src", "pc", "platform", "android_report.c")):
+        with open(path, encoding="utf-8") as source:
+            if f'"{authority}"' not in source.read():
+                sys.exit(f"{path} does not name the provider's authority {authority!r} (the manifest's)")
+
+
 def package(build, abi, library, game, assets):
     apk_path = os.path.join(build, f"memories-{abi}.apk")
     if os.path.exists(apk_path):
@@ -352,8 +479,14 @@ def package(build, abi, library, game, assets):
     shutil.rmtree(work, ignore_errors=True)
     os.makedirs(os.path.join(work, "classes"))
     os.makedirs(os.path.join(work, "dex"))
-    # SDL's Java shell, from the SDL release libSDL3.so was built from.
+    # SDL's Java shell, from the SDL release libSDL3.so was built from, and
+    # the game's own (JAVA): the activity that restarts it (Restart.java), the
+    # first run's document picker (DiscPicker.java), "Open with" for a mod's
+    # .zip (OpenWith.java), the HD pack's download (HdDownload.java), the
+    # message boxes and the crash report's ReportProvider.
     sources = sorted(glob.glob(os.path.join(build_android_deps.OUT, "java", "**", "*.java"), recursive=True))
+    sources += sorted(glob.glob(os.path.join(JAVA, "*.java")))
+    check_report_authority()
     javac = shutil.which("javac") or sys.exit("javac is not on PATH (a JDK, 17 or later)")
     run([javac, "--release", "11", "-nowarn", "-encoding", "UTF-8", "-classpath", android_jar,
          "-d", os.path.join(work, "classes"), *sources])
@@ -361,7 +494,8 @@ def package(build, abi, library, game, assets):
     run([tool(build_tools, "d8"), "--release", "--min-api", str(build_android_deps.API), "--lib", android_jar,
          "--output", os.path.join(work, "dex"), *classes])
     with open(os.path.join(work, "AndroidManifest.xml"), "w", encoding="utf-8") as handle:
-        handle.write(MANIFEST.replace("@VERSION_CODE@", str(code)).replace("@VERSION_NAME@", version_name))
+        handle.write(MANIFEST.replace("@VERSION_CODE@", str(code)).replace("@VERSION_NAME@", version_name)
+                     .replace("@CONFIG_CHANGES@", CONFIG_CHANGES))
     unaligned = os.path.join(work, "unaligned.apk")
     run([tool(build_tools, "aapt2"), "link", "-o", unaligned, "-I", android_jar, "--manifest",
          os.path.join(work, "AndroidManifest.xml"), "--min-sdk-version", str(build_android_deps.API),
@@ -397,5 +531,8 @@ if __name__ == "__main__":
         build_id = handle.read().strip()
     assets = {"build/buildid": os.path.join(build, "buildid"), "build/commit": os.path.join(build, "commit"),
               f"build/symbols/{build_id}.txt": os.path.join(build, "symbols", f"{build_id}.txt")}
+    variables = os.path.join(build, "symbols", f"{build_id}.vars.txt")
+    if os.path.exists(variables):   # the control channel's names; the translated game has none
+        assets[f"build/symbols/{build_id}.vars.txt"] = variables
     assets.update(program_files(build, ("mods", "languages")))
     package(build, sys.argv[2], os.path.join(build, "libmain.so"), os.path.join(build, "libgame.so"), assets)

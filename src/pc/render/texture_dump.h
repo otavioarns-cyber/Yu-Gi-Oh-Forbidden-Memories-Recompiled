@@ -7,7 +7,7 @@
 /* Every texture the software GPU draws, as a PNG named by its hash, for
  * texture packs: MEMORIES_DUMP_TEXTURES=<directory> turns it on. A texture
  * is the rectangle of texels one textured primitive covers, decoded through
- * its palette; the hash covers the texel indices (or 16-bit colours) and the
+ * its palette; the hash covers the texel indices (or 16-bit colors) and the
  * palette entries, so the same sprite drawn with another palette is another
  * image, and the same one drawn again is the same file. The directory also
  * gets textures.txt, one line per image: hash, size, depth, page and palette
@@ -38,7 +38,7 @@ int TextureDump_EnableTags(void);
 
 /* The shadow a texture pack draws from: one cell per 4-bit texel of VRAM
  * (four per word; an 8-bit texel is two cells, a 16-bit one four), holding
- * the replacement colour as a 15-bit word with bit 15 set, 0 where nothing
+ * the replacement color as a 15-bit word with bit 15 set, 0 where nothing
  * replaces the texel. 0x8000 alone is a texel painted transparent, so
  * opaque black, which a PS1 word can only be with its semi-transparency
  * bit, is TEXTURE_SHADOW_BLACK: the renderer draws it as 0x8000 where the
@@ -50,7 +50,7 @@ int TextureDump_EnableTags(void);
  * and says whether this primitive may take from the shadow (1: its palette
  * is the one the shadow's image was painted for) or only from the scaled
  * picture's sampler (2: the words have an image for its palette too, but
- * the shadow holds another reading's colours). Both NULL when no pack is
+ * the shadow holds another reading's colors). Both NULL when no pack is
  * loaded. */
 #define TEXTURE_SHADOW_WIDTH (SOFT_GPU_WIDTH * 4)
 #define TEXTURE_SHADOW_BLACK 0x8001
@@ -61,11 +61,16 @@ int TextureDump_EnableShadow(void);
 /* The pack's image at its own resolution, for the scaled picture: u and v
  * are texel coordinates within the page in 16.16, page_x/page_y/depth the
  * primitive's page. Returns 0 when the texel is not replaced, 1 with the
- * colour as 0x00RRGGBB, 2 when it is painted transparent. NULL: no pack. */
+ * color as 0x00RRGGBB, 2 when it is painted transparent. NULL: no pack. */
 /* Below this alpha a pack pixel is clear in the scaled picture; above it,
  * it is mixed over what lies beneath as much as it covers (texture_pack.c). */
 #define PACK_ALPHA_CLEAR 8
 extern int (*TextureDump_Sample)(int page_x, int page_y, int depth, int u, int v, uint32_t *rgb);
+/* The same replacement hook for a software-GPU texture bank.  Kept here,
+ * rather than in soft_gpu.c, so the core renderer does not link to the
+ * optional texture-pack implementation. */
+extern int (*TextureDump_BankSample)(int bank, int page_x, int page_y, int depth, int clut_x, int clut_y, int u,
+                                     int v, int scale, uint32_t *rgb);
 /* The pack's own record of what it painted where, kept in step with the
  * words: cleared (a fill, a state load, an upload not from the disc) and
  * moved. NULL: no pack. */
@@ -93,6 +98,38 @@ void TextureDump_TagsLoaded(const uint32_t *runs, size_t count);
 static inline uint16_t *TextureDump_Cell(int x, int y, int sub)
 {
     return &TextureDump_Shadow[(y & (SOFT_GPU_HEIGHT - 1)) * TEXTURE_SHADOW_WIDTH + (x & (SOFT_GPU_WIDTH - 1)) * 4 + sub];
+}
+/* Blocks of 64 words of a VRAM row known to hold no tag, no shadow texel and
+ * no pack entry (texture_pack.c): 1 clean, 0 maybe not, as every block
+ * starts. A clear that covers a whole block marks it clean, and anything
+ * that writes a tag, a texel or an entry other than 0 marks what it writes
+ * with TextureDump_Touched (after writing, where the game clock's tick may
+ * clear in between). Clears pass over the whole clean blocks:
+ * the game clears its picture every frame, and nothing is tagged there. */
+#define TEXTURE_CLEAN_WORDS 64
+#define TEXTURE_CLEAN_COLUMNS (SOFT_GPU_WIDTH / TEXTURE_CLEAN_WORDS)
+extern uint8_t TextureDump_Clean[SOFT_GPU_HEIGHT * TEXTURE_CLEAN_COLUMNS];
+void TextureDump_Touched(int x, int y, int w, int h);
+static inline int TextureDump_WholeClean(int y, int column, int end)
+{
+    return !(column & (TEXTURE_CLEAN_WORDS - 1)) && end - column >= TEXTURE_CLEAN_WORDS &&
+           TextureDump_Clean[(y & (SOFT_GPU_HEIGHT - 1)) * TEXTURE_CLEAN_COLUMNS + column / TEXTURE_CLEAN_WORDS];
+}
+/* Within a clear's span of row y, column to end (not wrapping): past the
+ * whole clean blocks from column, and then past the words to clear up to
+ * the next whole clean block. */
+static inline int TextureDump_PastClean(int y, int column, int end)
+{
+    while (column < end && TextureDump_WholeClean(y, column, end)) column += TEXTURE_CLEAN_WORDS;
+    return column;
+}
+static inline int TextureDump_PastUnclean(int y, int column, int end)
+{
+    do {
+        column = (column | (TEXTURE_CLEAN_WORDS - 1)) + 1;
+        if (column > end) column = end;
+    } while (column < end && !TextureDump_WholeClean(y, column, end));
+    return column;
 }
 /* The disc layer, which names the archives (Memories_DiscFileInfo). */
 void TextureDump_SetDiscFiles(int (*file_info)(const char *path, int *lba, unsigned *size));

@@ -5,7 +5,7 @@ Library's in WA_MRG.MRG), and the sword and shield the duel's info bar puts
 before ATK and DEF (its 8x8 letters ♂ and ♀, func_80035E20).
 
 Each sheet is 4 bits a texel, 128 bytes a row; a palette entry is 15-bit
-colour, 0 transparent."""
+color, 0 transparent."""
 from __future__ import annotations
 
 import base64
@@ -14,7 +14,7 @@ import tkinter as tk
 from . import pngio
 
 CARD_SHEET, CARD_PALETTES = 0xEFE800, 0xF06800     # the Library's sheet (VRAM 960, 256) and palettes (256, 240)
-BALL_PALETTE, STAR_PALETTE = 0x1E00, 0x1180
+BALL_PALETTE, STAR_PALETTE, LABEL_PALETTE = 0x1E00, 0x1180, 0x11E0
 SMALL_FONT, SMALL_PALETTE = 0xB50000, 0xB60520     # the boot package's 8x8 letters and their white
 
 
@@ -40,6 +40,17 @@ def attribute(wa: bytes, n: int):
 
 def level_star(wa: bytes):
     return _picture(wa, CARD_SHEET, 0, 144, 9, 9, CARD_PALETTES + STAR_PALETTE)
+
+
+def kind_label(wa: bytes, kind: str):
+    """The retail caption from the card-view sheet, 56 x 16.
+
+    Ritual cards share the normal-magic caption in the retail sheet.  The
+    editor still offers a separate ritual replacement image because the
+    card-layout API intentionally lets a style distinguish it.
+    """
+    row = {"magic": 158, "trap": 174, "ritual": 158, "equip": 190}.get(kind)
+    return _picture(wa, CARD_SHEET, 0, row, 56, 16, CARD_PALETTES + LABEL_PALETTE) if row is not None else None
 
 
 def sword(wa: bytes):

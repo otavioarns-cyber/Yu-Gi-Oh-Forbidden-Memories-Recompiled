@@ -21,6 +21,21 @@ void Log_Printf(LogChannel channel, const char *format, ...)
 /* Card text: letters stand for themselves here, so the codes show. */
 uint32_t Glyphs_NextCharacter(const char **text) { return (unsigned char)*(*text)++; }
 int Glyphs_Code(uint32_t character) { return character >= 'A' && character <= 'z' ? (int)character : -1; }
+/* No mod adds a battle model here (mods.c's "models"). */
+int Mods_ModelCount(void) { return 0; }
+int Mods_Model(int i, const char **name, const struct JsonValue **base, int *mod)
+{
+    (void)i; (void)name; (void)base; (void)mod;
+    return -1;
+}
+int Mods_ModelSector(int i) { (void)i; return -1; }
+int Mods_ModelWindow(int slot, int i) { (void)slot; (void)i; return -1; }
+int Mods_ModelPending(int slot) { (void)slot; return 0; }
+void Mods_ModelForget(int slot) { (void)slot; }
+void Mods_ModelParsed(int slot) { (void)slot; }
+unsigned char *Mods_ModelArena(int arena, unsigned *size) { (void)arena; (void)size; return 0; }
+int BattleModels_Check(int slot) { (void)slot; return 0; }
+
 void Mods_Note(const char *id, const char *format, ...)
 {
     (void)id;
@@ -29,15 +44,15 @@ void Mods_Note(const char *id, const char *format, ...)
 static void card_text_codes(void)
 {
     /* As the FM Editor shows a ROM hack's text: an icon is two letters of
-     * the line (the card view draws it 16 pixels across), a colour none,
+     * the line (the card view draws it 16 pixels across), a color none,
      * and both are the game's own bytes. */
     static const unsigned char icon[] = {'a', 0, 0xF8, 0x0B, 0x04, 0, 'm', 0xFF};
-    static const unsigned char colour[] = {0xF8, 0x0A, 0x02, 'R', 'e', 'd', 0xFE, 'G', 0xF1, 0x23, 0xFF};
+    static const unsigned char color[] = {0xF8, 0x0A, 0x02, 'R', 'e', 'd', 0xFE, 'G', 0xF1, 0x23, 0xFF};
     unsigned char *text = encode_description("t", "a {f8 0B 04} m", 1);
     assert(!memcmp(text, icon, sizeof(icon)));
     Memories_LowFree(text);
     text = encode_description("t", "{f8 0A 02}Red\nG{g 123}", 1);
-    assert(!memcmp(text, colour, sizeof(colour)));
+    assert(!memcmp(text, color, sizeof(color)));
     Memories_LowFree(text);
     /* Twenty letters with the icon's two, so "c" still fits; one more
      * letter before it and "c" goes to the next line. An unknown code is its

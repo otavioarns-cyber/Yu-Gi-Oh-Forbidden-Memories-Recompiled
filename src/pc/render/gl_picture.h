@@ -13,13 +13,15 @@
 /* Once the window's context exists. Returns 1 when the pass is available,
  * and from then on the software GPU records for it instead of drawing its
  * own picture. 0 (GL too old, MEMORIES_GL_PICTURE=0) leaves the software
- * picture in place. */
+ * picture in place, and nothing made in the context. */
 int GlPicture_Init(void);
 /* Replays what was recorded since the last call; the framebuffer's texture
  * is then the picture. Returns 0 when the pass is off or the scale is 1. */
 int GlPicture_Replay(void);
 /* The picture's texture (RGBA, picture_w x picture_h texels; texel row 0
- * is the top of VRAM), after Replay. */
+ * is the top of VRAM), after Replay. With anti-aliasing this resolves the
+ * whole picture: to show part of it, GlPicture_ShownTexture resolves that
+ * part alone. */
 unsigned GlPicture_Texture(int *picture_w, int *picture_h);
 /* Pixels x,y,w,h of that texture copied into one of their own (w x h, row
  * 0 their top), after Replay, for the presenter: in the whole picture the
@@ -37,6 +39,13 @@ int GlPicture_Behind(void);
 /* Pixels x,y,w,h of the picture as 0x00RRGGBB, after a Replay. Returns 0
  * when the pass is off. */
 int GlPicture_Read(int x, int y, int w, int h, uint32_t *out);
+/* Pixels x,y,w,h of what the presenter showed, as 0x00RRGGBB, row 0 the top
+ * (the screenshot's read-back; nothing is read per frame): of the picture
+ * (GlPicture_Texture's) with `wide_texture` 0, else of that widescreen
+ * target's (GlPicture_WideTexture). Past the edges the edge pixels, as the
+ * presenter's clamp shows them. 0 when the pass is off or has no such
+ * texture (the picture was replaced since). */
+int GlPicture_ReadShown(unsigned wide_texture, int x, int y, int w, int h, uint32_t *out);
 /* Widescreen: the widened picture of the display area x,y,w,h (words), when
  * the pass drew a target for it (soft_gpu.h, SoftGpu_WideFrame), after a
  * Replay: its texture, picture_w x picture_h texels, row 0 the area's top,
@@ -62,7 +71,11 @@ int GlPicture_CopyInto(unsigned from, int x, int y, int w, int h, unsigned to);
  * again from VRAM. */
 void GlPicture_Lost(void);
 /* The pass given up for good (OpenGL ES: a failed start after a lost
- * context, or the presenter's texture cannot be drawn into): off, and the
- * software GPU draws the picture again, from VRAM, as without the pass. */
+ * context, or the presenter's texture cannot be made or drawn into): every
+ * name it holds deleted, so the context must be current, the pass off, and
+ * the software GPU draws the picture again, from VRAM, as without the pass.
+ * sdl.c does not start it again at a later device reset: the recorder's
+ * return (SoftGpu_SetRecorder) would free the software picture that the
+ * present handling the reset is reading. */
 void GlPicture_Stop(void);
 #endif
