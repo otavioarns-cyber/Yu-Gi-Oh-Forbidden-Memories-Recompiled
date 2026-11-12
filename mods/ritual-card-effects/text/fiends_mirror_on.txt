@@ -1,0 +1,11 @@
+@bank descriptions
+
+[D26D]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+In Defense, attacks
+hit your LP for
+full attacker ATK.
+The same damage
+is reflected back.
+Cannot be destroyed
+by battle in DEF.

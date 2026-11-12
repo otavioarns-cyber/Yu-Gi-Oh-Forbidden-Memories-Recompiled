@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B7]
+Mysterious
+Puppeteer + 1
+{f8 0B 0E} + 1 {f8 0B 07}
