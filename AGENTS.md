@@ -12,6 +12,9 @@ Em 11/11/2026, o usuário pediu que as informações das entregas e mudanças se
 
 ## Ponto de partida atual
 
+- Etapa mais recente nesta branch: [Fusion Effects beta.44-effect-ai / API 24](notes/HAL20_FUSION_EFFECTS_PREVIEW2.md). Build i386 e proveniência novos, fontes/manifest/assets preservados. Suíte: 15 grupos PASS e uma falha preexistente OFF de Encore/leases, reproduzida nos objetos antigo e novo; correção funcional pendente de autorização separada.
+- Entrega anterior: [Ritual Effects / PR #11](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/11); [Melhoria / PR #9](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/9) e [Dual / PR #10](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/10) preservados. Esta branch não incorpora esses MODs nem suas correções.
+
 - Entrega mais recente: [HAL-20 — base oficial atualizada e resultados](notes/HAL20_BASE_OFICIAL_V031_PREVIEW2.md), [PR #8](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/8).
 - Inventário anterior: [HAL-20 — inventário e plano](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/docs/hal-20-inventario-plano/notes/HAL20_INVENTARIO_E_PLANO.md), [PR #7](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/7).
 - Evidência integral: [495 arquivos do ZIP, tamanhos e SHA-256](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/docs/hal-20-inventario-plano/notes/hal-20/INVENTARIO_ARQUIVOS.csv).
