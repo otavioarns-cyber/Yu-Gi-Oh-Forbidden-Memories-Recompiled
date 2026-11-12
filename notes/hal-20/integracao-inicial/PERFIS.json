@@ -1,0 +1,401 @@
+[
+  {
+    "name": "s1-h0-d0-o0",
+    "stage": 1,
+    "hm": 0,
+    "dual": 0,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais"
+    ],
+    "file": "tests/hal20-integration/profiles/s1-h0-d0-o0.txt",
+    "sha256": "30b9c42f0281bcaa0190a7cc2dea64dcd5dd1edd621d37c54a8ef8092c3d29b7"
+  },
+  {
+    "name": "s1-h0-d1-o0",
+    "stage": 1,
+    "hm": 0,
+    "dual": 1,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "dual-play"
+    ],
+    "file": "tests/hal20-integration/profiles/s1-h0-d1-o0.txt",
+    "sha256": "77085d878f499663022a80eac0fc378a43954de74b76d6a3c921a479f5327a1a"
+  },
+  {
+    "name": "s1-h1-d0-o0",
+    "stage": 1,
+    "hm": 1,
+    "dual": 0,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode"
+    ],
+    "file": "tests/hal20-integration/profiles/s1-h1-d0-o0.txt",
+    "sha256": "c8489c2f5a1c74b640000232a3021dffca62c794b38dd87cd4a19f136c3da370"
+  },
+  {
+    "name": "s1-h1-d1-o0",
+    "stage": 1,
+    "hm": 1,
+    "dual": 1,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "dual-play"
+    ],
+    "file": "tests/hal20-integration/profiles/s1-h1-d1-o0.txt",
+    "sha256": "ba4ba5083c4051da83021049bc12802f009617a6399b64df65f0523dc5a24a9d"
+  },
+  {
+    "name": "s2-h0-d0-o0",
+    "stage": 2,
+    "hm": 0,
+    "dual": 0,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s2-h0-d0-o0.txt",
+    "sha256": "179e045de033b7abaa4788026b94641d18ccaf663bbf8c470f76078479861ad3"
+  },
+  {
+    "name": "s2-h0-d1-o0",
+    "stage": 2,
+    "hm": 0,
+    "dual": 1,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "dual-play",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s2-h0-d1-o0.txt",
+    "sha256": "5529cdba5af3ba504026dba90b4fccb0e69c97f0dd6f7b1cead05fee2dbf379c"
+  },
+  {
+    "name": "s2-h1-d0-o0",
+    "stage": 2,
+    "hm": 1,
+    "dual": 0,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s2-h1-d0-o0.txt",
+    "sha256": "0fba5c1ad26f4dbb87db93c156900ebddc7f6d33f6cf1bfe13bea74362bd90e3"
+  },
+  {
+    "name": "s2-h1-d1-o0",
+    "stage": 2,
+    "hm": 1,
+    "dual": 1,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "dual-play",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s2-h1-d1-o0.txt",
+    "sha256": "47ca7cf10bebaea6262fc77efb1423c27b61e4caf96770d5cd7cd1febf6c7995"
+  },
+  {
+    "name": "s3-h0-d0-o0",
+    "stage": 3,
+    "hm": 0,
+    "dual": 0,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s3-h0-d0-o0.txt",
+    "sha256": "be1a81cd3699ed2a9d6d7bb0b26f8113323eb792f5da65a8b3d41d9747a52795"
+  },
+  {
+    "name": "s3-h0-d1-o0",
+    "stage": 3,
+    "hm": 0,
+    "dual": 1,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "dual-play",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s3-h0-d1-o0.txt",
+    "sha256": "48bf283e1414cb30ae2d99aad14341c7ba0646ef11a47701364e62bbc171c416"
+  },
+  {
+    "name": "s3-h1-d0-o0",
+    "stage": 3,
+    "hm": 1,
+    "dual": 0,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s3-h1-d0-o0.txt",
+    "sha256": "554e300c57500db6397a4cce375807022f5b541eb0ae93f2b1e7b07b6035d3d3"
+  },
+  {
+    "name": "s3-h1-d1-o0",
+    "stage": 3,
+    "hm": 1,
+    "dual": 1,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "dual-play",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s3-h1-d1-o0.txt",
+    "sha256": "036c3894e349294c6009409566ede678547bc4ef9ad56528e4fa141fed112667"
+  },
+  {
+    "name": "s4-h0-d0-o0",
+    "stage": 4,
+    "hm": 0,
+    "dual": 0,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h0-d0-o0.txt",
+    "sha256": "e9ab06332b069eadfeb2660b0bc22b3cdf31412c9ffdea351d46990e9b0f691e"
+  },
+  {
+    "name": "s4-h0-d1-o0",
+    "stage": 4,
+    "hm": 0,
+    "dual": 1,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "dual-play",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h0-d1-o0.txt",
+    "sha256": "f15063a86d23d12934b722151b8bc0de174b453c6bb498847bf67f130472de59"
+  },
+  {
+    "name": "s4-h1-d0-o0",
+    "stage": 4,
+    "hm": 1,
+    "dual": 0,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h1-d0-o0.txt",
+    "sha256": "10efbfef6033293f559776d1ba245cdf6eb658c77f9914b954daa1f83754be5e"
+  },
+  {
+    "name": "s4-h1-d1-o0",
+    "stage": 4,
+    "hm": 1,
+    "dual": 1,
+    "order": 0,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "dual-play",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h1-d1-o0.txt",
+    "sha256": "86716237b856b37e79a575f4910d3a8b7cf97dfa6ce602bce6fe96fb81bd8480"
+  },
+  {
+    "name": "s4-h0-d0-o1",
+    "stage": 4,
+    "hm": 0,
+    "dual": 0,
+    "order": 1,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h0-d0-o1.txt",
+    "sha256": "e9ab06332b069eadfeb2660b0bc22b3cdf31412c9ffdea351d46990e9b0f691e"
+  },
+  {
+    "name": "s4-h0-d1-o1",
+    "stage": 4,
+    "hm": 0,
+    "dual": 1,
+    "order": 1,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test",
+      "ritual-duelists",
+      "dual-play"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h0-d1-o1.txt",
+    "sha256": "c912ea97e3cf633570d1639bef6c71f45414ac7dbe16fdb5b939fd0f76e04175"
+  },
+  {
+    "name": "s4-h1-d0-o1",
+    "stage": 4,
+    "hm": 1,
+    "dual": 0,
+    "order": 1,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h1-d0-o1.txt",
+    "sha256": "10efbfef6033293f559776d1ba245cdf6eb658c77f9914b954daa1f83754be5e"
+  },
+  {
+    "name": "s4-h1-d1-o1",
+    "stage": 4,
+    "hm": 1,
+    "dual": 1,
+    "order": 1,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "ai-hard-mode",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test",
+      "ritual-duelists",
+      "dual-play"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h1-d1-o1.txt",
+    "sha256": "57087ff97a3c3bbf0a86c2ed7d0276ac0e908e9b537c7c5aae428ad1f893841a"
+  },
+  {
+    "name": "s4-h0-d0-o2",
+    "stage": 4,
+    "hm": 0,
+    "dual": 0,
+    "order": 2,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "fusion-auxiliary-balance",
+      "ritual-duelists",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h0-d0-o2.txt",
+    "sha256": "285fc6792c37d99214ff20bd21edc743b756f9fddf4d1af0c930c56732e96c3b"
+  },
+  {
+    "name": "s4-h0-d1-o2",
+    "stage": 4,
+    "hm": 0,
+    "dual": 1,
+    "order": 2,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "dual-play",
+      "fusion-auxiliary-balance",
+      "ritual-duelists",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h0-d1-o2.txt",
+    "sha256": "bf374c195d1c8979f587c2b7b6b9714a974a1f06eab594d9efe24083102d889a"
+  },
+  {
+    "name": "s4-h1-d0-o2",
+    "stage": 4,
+    "hm": 1,
+    "dual": 0,
+    "order": 2,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "fusion-auxiliary-balance",
+      "ritual-duelists",
+      "ai-hard-mode",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h1-d0-o2.txt",
+    "sha256": "76ba4cc8a9f1688be20b860f5cebe00e44cf7136d41518985544e5c87f96fafb"
+  },
+  {
+    "name": "s4-h1-d1-o2",
+    "stage": 4,
+    "hm": 1,
+    "dual": 1,
+    "order": 2,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "dual-play",
+      "fusion-auxiliary-balance",
+      "ritual-duelists",
+      "ai-hard-mode",
+      "ritual-card-effects-test"
+    ],
+    "file": "tests/hal20-integration/profiles/s4-h1-d1-o2.txt",
+    "sha256": "50a8ac31bc97006dff5dd58479daeef3aa0b728d81c76c8d1d669503c0f1b4dd"
+  },
+  {
+    "name": "s1-h1-d1-o2",
+    "stage": 1,
+    "hm": 1,
+    "dual": 1,
+    "order": 2,
+    "effective_order": [
+      "drop-missing-cards",
+      "melhoria-dos-rituais",
+      "dual-play",
+      "ai-hard-mode"
+    ],
+    "file": "tests/hal20-integration/profiles/s1-h1-d1-o2.txt",
+    "sha256": "afb8bf9204f77db4ce1c9d9dc9de4a3c84e18ef4f06b0e5c22aae0ec81f37297"
+  }
+]

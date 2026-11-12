@@ -1,0 +1,32 @@
+{
+  "branch": "test/hal-20-integracao-inicial",
+  "base": "integration/hal-20-v0.3.1-preview.2",
+  "base_commit": "d649647c159c91d615c07d6960928a37e270b461",
+  "first_published_commit": "72ea73234324c8118fcd9dff6d79d661302d8b6f",
+  "pull_request": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14",
+  "draft": true,
+  "force_push": false,
+  "merged": false,
+  "old_heads_preserved": true,
+  "preserved_heads": {
+    "backup/master-pre-v0.2.0": "4f58718bb89751fe8070b6093a659cb55908aa9d",
+    "backup/master-pre-v0.2.1-preview.1": "7a8da6d964ddadb9af38241139f4232bc8290332",
+    "backup/mod-field-effects-pre-v0.2.0": "985609424e7e81d75b2bdcc75a8d082e92356cd0",
+    "docs/hal-5-auditoria-mods": "09c3530517a01dc5c39ab90677d9c324510359eb",
+    "docs/hal-20-dual-play-preview2": "078b62142b00c7ad39b1dc6175fbc9b247f93141",
+    "docs/hal-20-inventario-plano": "2fb97b7f9b1c5b9e1ed360570ecc9f3026fcbcaa",
+    "downloads/efeitos-rituais-v0.78.40": "561d3d97818c3d964a39454e97cedcdf6e9163a3",
+    "integration/hal-20-v0.3.1-preview.2": "d649647c159c91d615c07d6960928a37e270b461",
+    "master": "0d78202729967a5bbdbc886aa128e48e82bef7ac",
+    "mod-field-effects": "296c5919479711b550d00aea8cd042b1c34ba306",
+    "mod-ritual-effects": "632cd012deefe5a71482e0e8633ea19c8346b5af",
+    "mods/hal-20-fusion-effects-preview2": "907ed98cfb763a96f5aa1ad6369f809cceca5f1c",
+    "mods/hal-20-melhoria-dos-rituais-preview2": "0d28d844c3b88b38ab0db71635959ddd223d8c14",
+    "mods/hal-20-ritual-duelists-preview2": "9a363f28f6dbfe779b1b901ddecab74ab1be57e9",
+    "mods/hal-20-ritual-effects-preview2": "2cf0de31e88e9f1c058b3747b2b2add3db0e347c",
+    "ritual-requirements": "c2e8783aa2bafb3473e44cc0ae35a6b2d3c9e992",
+    "ritual-requirements-v014": "8ba422b58b49b4b97f238df96f186921e9b9ed2c",
+    "upstream-v0.2.0": "0185f58df7928cc6338ceb221d169e2b42feca6d"
+  },
+  "dual_redistributed": false
+}

@@ -1,0 +1,5 @@
+@bank descriptions
+
+[D3A4]
+Dancing Elf + 1
+{f8 0B 03} + 1 Female.

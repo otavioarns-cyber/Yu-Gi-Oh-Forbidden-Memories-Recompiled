@@ -1,0 +1,882 @@
+PROFILE stage=2 hm=1 dual=1 order=0 drop-missing-cards=ON-in-profile (table execution separate)
+REGISTER hook owner=melhoria-dos-rituais target=Duel_CheckRitual token=1
+REGISTER hook owner=melhoria-dos-rituais target=Duel_RitualFieldObjects token=2
+REGISTER hook owner=melhoria-dos-rituais target=DuelCard_DeactivateRecord token=3
+REGISTER hook owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions token=4
+REGISTER hook owner=melhoria-dos-rituais target=Duel_PopulateCombinedDeckData token=5
+PROVIDER owner=melhoria-dos-rituais name=rules_v1
+REGISTER hook owner=melhoria-dos-rituais target=Duel_CheckQuitInput token=6
+REGISTER hook owner=melhoria-dos-rituais target=DuelScene_UpdateWithSideInput token=7
+LOADED owner=melhoria-dos-rituais api=4 hash=1fe34a1e enabled=1
+REGISTER hook owner=ai-hard-mode target=AiScript_Init token=8
+REGISTER hook owner=ai-hard-mode target=AiScript_Run token=9
+REGISTER hook owner=ai-hard-mode target=Ai_GetHandSize token=10
+REGISTER hook owner=ai-hard-mode target=func_8001BAF0 token=11
+REGISTER hook owner=ai-hard-mode target=AiScript_FindStrongest token=12
+REGISTER hook owner=ai-hard-mode target=AiScript_FindWeakest token=13
+REGISTER hook owner=ai-hard-mode target=AiScript_FindCard token=14
+REGISTER hook owner=ai-hard-mode target=AiScript_MatchType token=15
+REGISTER hook owner=ai-hard-mode target=AiScript_FindDefenseStopper token=16
+LOADED owner=ai-hard-mode api=4 hash=3e0648cb enabled=1
+REGISTER hook owner=dual-play target=DuelScene_UpdateHandActions token=17
+REGISTER hook owner=dual-play target=DuelScene_UpdateDrawPhase token=18
+REGISTER hook owner=dual-play target=DuelScene_UpdateFieldActions token=19
+REGISTER hook owner=dual-play target=func_80028220 token=20
+REGISTER hook owner=dual-play target=func_8001BAF0 token=21
+REGISTER hook owner=dual-play target=Duel_InitScene token=22
+STATE owner=dual-play bytes=50 version=10
+LOADED owner=dual-play api=24 hash=3028c68a enabled=1
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER hook owner=ritual-card-effects-test target=Input_UpdatePads token=23
+REGISTER hook owner=ritual-card-effects-test target=Main_RunDuel token=24
+REGISTER hook owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=25
+REGISTER hook owner=ritual-card-effects-test target=func_800559D4 token=26
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=27
+REGISTER hook owner=ritual-card-effects-test target=func_80017F04 token=28
+REGISTER hook owner=ritual-card-effects-test target=AiScript_Run token=29
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindWeakest token=30
+REGISTER hook owner=ritual-card-effects-test target=Ai_IsCardInSets token=31
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindBestAttack token=32
+REGISTER hook owner=ritual-card-effects-test target=func_80037DA4 token=33
+REGISTER hook owner=ritual-card-effects-test target=func_80035E20 token=34
+REGISTER hook owner=ritual-card-effects-test target=func_80027508 token=35
+REGISTER hook owner=ritual-card-effects-test target=func_80024D34 token=36
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_Update token=37
+REGISTER hook owner=ritual-card-effects-test target=func_80023144 token=38
+REGISTER hook owner=ritual-card-effects-test target=Duel_DrawFieldCards token=39
+REGISTER hook owner=ritual-card-effects-test target=func_80016784 token=40
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=41
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcCardStats token=42
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=43
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=44
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=45
+REGISTER hook owner=ritual-card-effects-test target=func_8001EFD4 token=46
+REGISTER hook owner=ritual-card-effects-test target=func_8001B170 token=47
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=48
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=49
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=50
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=51
+REGISTER hook owner=ritual-card-effects-test target=Duel_ResetCardRecords token=52
+REGISTER hook owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=53
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=54
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=55
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=56
+REGISTER hook owner=ritual-card-effects-test target=func_8001BAF0 token=57
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=58
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=59
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=60
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=61
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=62
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=63
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=64
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=65
+REGISTER hook owner=ritual-card-effects-test target=Duel_CheckFusion token=66
+REGISTER hook owner=ritual-card-effects-test target=Duel_CheckRitual token=67
+REGISTER hook owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=68
+REGISTER hook owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=69
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindKiller token=70
+REGISTER hook owner=ritual-card-effects-test target=AiScript_CalcCardPower token=71
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindBestAttack token=72
+PROVIDER owner=ritual-card-effects-test name=effect_forecast_v2
+PROVIDER owner=ritual-card-effects-test name=recipe_v1
+PROVIDER owner=ritual-card-effects-test name=effect_intelligence_v1
+PROVIDER owner=ritual-card-effects-test name=position-rules-v1
+LOADED owner=ritual-card-effects-test api=4 hash=52ce4829 enabled=1
+CASE load-and-lifecycle
+RESULT load-and-lifecycle PASS actual loader/hooks/events initialized
+CASE relay-OFF-ON
+CHAIN phase=initial target=AiScript_Run ritual-card-effects-test -> ai-hard-mode -> engine
+CHAIN phase=initial target=Ai_GetHandSize ai-hard-mode -> engine
+CHAIN phase=initial target=func_8001BAF0 ritual-card-effects-test -> dual-play -> ai-hard-mode -> engine
+CHAIN phase=initial target=Duel_CheckRitual ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CHAIN phase=initial target=Duel_CheckFusion ritual-card-effects-test -> engine
+CHAIN phase=initial target=DuelEffect_ApplyRitual ritual-card-effects-test -> engine
+CHAIN phase=initial target=Duel_CalcCardStats ritual-card-effects-test -> engine
+TRACE case=relay-OFF-ON owner=ai-hard-mode kind=hook name=Ai_GetHandSize
+TRACE case=relay-OFF-ON owner=engine name=Ai_GetHandSize
+TOGGLE owner=melhoria-dos-rituais on=0
+TOGGLE owner=ai-hard-mode on=0
+TOGGLE owner=dual-play on=0
+TOGGLE owner=ritual-card-effects-test on=0
+TRACE case=relay-OFF-ON owner=engine name=Ai_GetHandSize
+CHAIN phase=all-OFF target=AiScript_Run engine
+CHAIN phase=all-OFF target=Ai_GetHandSize engine
+CHAIN phase=all-OFF target=func_8001BAF0 engine
+CHAIN phase=all-OFF target=Duel_CheckRitual engine
+CHAIN phase=all-OFF target=Duel_CheckFusion engine
+CHAIN phase=all-OFF target=DuelEffect_ApplyRitual engine
+CHAIN phase=all-OFF target=Duel_CalcCardStats engine
+TOGGLE owner=melhoria-dos-rituais on=1
+TOGGLE owner=ai-hard-mode on=1
+TOGGLE owner=dual-play on=1
+TOGGLE owner=ritual-card-effects-test on=1
+TRACE case=relay-OFF-ON owner=ai-hard-mode kind=hook name=Ai_GetHandSize
+TRACE case=relay-OFF-ON owner=engine name=Ai_GetHandSize
+CHAIN phase=restored target=AiScript_Run ritual-card-effects-test -> ai-hard-mode -> engine
+CHAIN phase=restored target=Ai_GetHandSize ai-hard-mode -> engine
+CHAIN phase=restored target=func_8001BAF0 ritual-card-effects-test -> dual-play -> ai-hard-mode -> engine
+CHAIN phase=restored target=Duel_CheckRitual ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CHAIN phase=restored target=Duel_CheckFusion ritual-card-effects-test -> engine
+CHAIN phase=restored target=DuelEffect_ApplyRitual ritual-card-effects-test -> engine
+CHAIN phase=restored target=Duel_CalcCardStats ritual-card-effects-test -> engine
+TRACE case=relay-OFF-ON owner=ritual-card-effects-test kind=event name=event-1-priority--10000
+TRACE case=relay-OFF-ON owner=ritual-card-effects-test kind=event name=event-1-priority--10000
+RESULT relay-OFF-ON PASS official Hooks_Relink excludes OFF callbacks and restores active chain
+CASE optional-contracts
+TOGGLE owner=melhoria-dos-rituais on=0
+TOGGLE owner=melhoria-dos-rituais on=1
+TOGGLE owner=ritual-card-effects-test on=0
+TOGGLE owner=ritual-card-effects-test on=1
+RESULT optional-contracts PASS actual providers/consumers, absent stages, OFF lookup retained with guarded response
+CASE quota-Monster
+TRACE case=quota-Monster owner=ritual-card-effects-test kind=hook name=func_8001BAF0
+TRACE case=quota-Monster owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=quota-Monster owner=ai-hard-mode kind=hook name=Ai_GetHandSize
+TRACE case=quota-Monster owner=engine name=Ai_GetHandSize
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED quota card=101 used=1 dual_callbacks=1 rejected=1 selection=0
+RESULT quota-Monster PASS actual Dual gate; synthetic bonus state; no full action/turn award
+CASE quota-Support
+TRACE case=quota-Support owner=ritual-card-effects-test kind=hook name=func_8001BAF0
+TRACE case=quota-Support owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=quota-Support owner=ai-hard-mode kind=hook name=Ai_GetHandSize
+TRACE case=quota-Support owner=engine name=Ai_GetHandSize
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED quota card=337 used=2 dual_callbacks=1 rejected=1 selection=0
+RESULT quota-Support PASS actual Dual gate; synthetic bonus state; no full action/turn award
+CASE quota-Ritual-in-bonus
+TRACE case=quota-Ritual-in-bonus owner=ritual-card-effects-test kind=hook name=func_8001BAF0
+TRACE case=quota-Ritual-in-bonus owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=quota-Ritual-in-bonus owner=ai-hard-mode kind=hook name=Ai_GetHandSize
+TRACE case=quota-Ritual-in-bonus owner=engine name=Ai_GetHandSize
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED quota card=679 used=0 dual_callbacks=1 rejected=1 selection=0
+RESULT quota-Ritual-in-bonus PASS actual Dual gate; synthetic bonus state; no full action/turn award
+CASE AI-decision-and-physical-selection
+TRACE case=AI-decision-and-physical-selection owner=dual-play kind=hook name=func_80028220
+TRACE case=AI-decision-and-physical-selection owner=engine name=func_80028220
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=AiScript_Run
+TRACE case=AI-decision-and-physical-selection owner=ai-hard-mode kind=hook name=AiScript_Run
+TRACE case=AI-decision-and-physical-selection owner=engine name=Ai_GetHandSize
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=AI-decision-and-physical-selection owner=engine name=Duel_CheckFusion
+OBSERVED AI result=1 selected_count=1 first=11 physical_or_existing_logical=1
+RESULT AI-decision-and-physical-selection PASS synthetic small board only; strategic optimality/gameplay not certified
+TOGGLE owner=ritual-card-effects-test on=0
+CASE Vanilla-three-field-ritual
+TRACE case=Vanilla-three-field-ritual owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-three-field-ritual owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-three-field-ritual owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-three-field-ritual owner=engine name=DuelCard_DeactivateRecord
+RESULT Vanilla-three-field-ritual PASS actual Melhoria hook/consumer; bounded synthetic native oracle
+TOGGLE owner=ritual-card-effects-test on=0
+CASE Vanilla-mixed-ritual-consumption
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_SetupCardRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=func_80024C1C
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=func_80017E3C
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=Duel_SetupCardRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=func_80024C1C
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=func_80017E3C
+OBSERVED ritual mode=0 probe=357 out=357 probe_preserves_hand=1
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_RitualFieldObjects
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DisplayObject_ReleaseIfPresent
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=Vanilla-mixed-ritual-consumption owner=engine name=DisplayObject_ReleaseIfPresent
+OBSERVED consumed hands=-1,-1 unselected_same_ID=3 bystander_flags=8000
+RESULT Vanilla-mixed-ritual-consumption PASS actual public hooks, exact selected instances, spare identical copy retained
+TOGGLE owner=ritual-card-effects-test on=1
+CASE modified-mixed-ritual-consumption
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=engine name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=modified-mixed-ritual-consumption owner=engine name=Duel_SetupCardRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=func_80024C1C
+TRACE case=modified-mixed-ritual-consumption owner=engine name=func_80017E3C
+TRACE case=modified-mixed-ritual-consumption owner=engine name=Duel_SetupCardRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=func_80024C1C
+TRACE case=modified-mixed-ritual-consumption owner=engine name=func_80017E3C
+OBSERVED ritual mode=1 probe=357 out=357 probe_preserves_hand=1
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=Duel_RitualFieldObjects
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DisplayObject_ReleaseIfPresent
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=ritual-card-effects-test kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=melhoria-dos-rituais kind=hook name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DuelCard_DeactivateRecord
+TRACE case=modified-mixed-ritual-consumption owner=engine name=DisplayObject_ReleaseIfPresent
+OBSERVED consumed hands=-1,-1 unselected_same_ID=3 bystander_flags=8000
+RESULT modified-mixed-ritual-consumption PASS actual public hooks, exact selected instances, spare identical copy retained
+TOGGLE owner=ritual-card-effects-test on=0
+CASE repeated-material-physical-copies
+TRACE case=repeated-material-physical-copies owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=engine name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=engine name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=repeated-material-physical-copies owner=engine name=Duel_CheckRitual
+OBSERVED Ultimate Dragon ritual two_copies=0 three_copies=380
+RESULT repeated-material-physical-copies PASS three actual Blue-Eyes copies required, no alias reuse
+TOGGLE owner=ritual-card-effects-test on=1
+CASE effects-per-instance-and-equipment
+TRACE case=effects-per-instance-and-equipment owner=ritual-card-effects-test kind=hook name=Duel_CalcCardStats
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_CalcCardStats
+TRACE case=effects-per-instance-and-equipment owner=ritual-card-effects-test kind=hook name=Duel_CalcCardStats
+TRACE case=effects-per-instance-and-equipment owner=engine name=Duel_CalcCardStats
+OBSERVED whale marked=3000 ordinary_copy=1000
+RESULT effects-per-instance PASS actual Ritual/Fusion stats hook chain; other Whale and one synthetic Fish ally
+CASE reset-new-duel-save-load
+SAVE owner=dual-play size=50 version=10
+TRACE case=reset-new-duel-save-load owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=reset-new-duel-save-load owner=engine name=Duel_InitScene
+RESULT reset-new-duel-save-load PASS official VisitState/events; active registered blocks only; effects reset rather than persist
+SUMMARY assertions=3463 cases=13 failures=0 (synthetic engine; no gameplay)
