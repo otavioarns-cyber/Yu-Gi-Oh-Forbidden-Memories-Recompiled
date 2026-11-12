@@ -1,0 +1,11 @@
+@bank descriptions
+
+[D3D2]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Cannot be destroy
+in battle.
+At turn start,
+toss a coin.
+Heads: Black Hole.
+Cannot enter DEF.
+He knows no retreat.

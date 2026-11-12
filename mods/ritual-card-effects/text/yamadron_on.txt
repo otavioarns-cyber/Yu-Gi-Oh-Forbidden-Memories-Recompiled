@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D265]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Creates up to {f8 0A 03}3{f8 0A 00}
+random Burn Magics
+each turn.
