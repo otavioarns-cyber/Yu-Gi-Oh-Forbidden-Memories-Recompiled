@@ -1,5 +1,7 @@
 # HAL-20 — Ritual Duelists v0.4.0-alpha.8 / SDK API 24
 
+[PR #13 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/13) · [Branch publicada](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/mods/hal-20-ritual-duelists-preview2) · [Verificação de publicação e refs preservadas](hal-20/ritual-duelists/PUBLICACAO.json)
+
 ## Resultado e escopo
 
 **Recompilação i386 concluída, 35 grupos de testes isolados PASS, zero FAIL e três grupos SKIP. Nenhuma adaptação dos fontes de produção foi necessária.** Entrega candidata para revisão e testes integrados posteriores; não certifica gameplay Windows nem convivência completa com os demais MODs.
