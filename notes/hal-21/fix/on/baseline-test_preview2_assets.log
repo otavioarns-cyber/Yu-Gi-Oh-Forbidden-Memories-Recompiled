@@ -1,0 +1,2 @@
+PASS production PNG decoder: 28 coin frames, ASan/UBSan
+PASS assets: 34 PNGs, 28 runtime coin frames, six custom icons, 59 card entries

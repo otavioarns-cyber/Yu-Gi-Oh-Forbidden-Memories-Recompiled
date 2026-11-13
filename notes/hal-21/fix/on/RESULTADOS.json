@@ -1,0 +1,663 @@
+{
+  "scope": "Unchanged ON logic/assertions; standalone owner always-ON mock; real OFF tested separately",
+  "results": [
+    {
+      "policy": "baseline",
+      "name": "test_attribute_icons",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_attribute_icons.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_manifest.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_preview2_assets",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_preview2_assets.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_round2_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_round2_manifest.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_visual_dispatch",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_visual_dispatch.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_battle_stat_tween-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_battle_stat_tween-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_battle_stat_tween",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_battle_stat_tween.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_effect_title_instance-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_effect_title_instance-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_effect_title_instance",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_effect_title_instance.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_effect_title_visual-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_effect_title_visual-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_effect_title_visual",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_effect_title_visual.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_forecast_parity-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_forecast_parity-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_forecast_parity",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_forecast_parity.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_fusionist_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_fusionist_runtime-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_fusionist_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_fusionist_runtime.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_round2_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_round2_runtime-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_round2_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_round2_runtime.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_round3_recipes-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_round3_recipes-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_round3_recipes",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_round3_recipes.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_round3_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_round3_runtime-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_round3_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_round3_runtime.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_rules-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_rules-build.log"
+    },
+    {
+      "policy": "baseline",
+      "name": "test_rules",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "baseline-test_rules.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_attribute_icons",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_attribute_icons.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_manifest.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_preview2_assets",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_preview2_assets.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_round2_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_round2_manifest.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_visual_dispatch",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_visual_dispatch.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_battle_stat_tween-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_battle_stat_tween-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_battle_stat_tween",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_battle_stat_tween.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_effect_title_instance-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_effect_title_instance-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_effect_title_instance",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_effect_title_instance.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_effect_title_visual-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_effect_title_visual-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_effect_title_visual",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_effect_title_visual.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_forecast_parity-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_forecast_parity-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_forecast_parity",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_forecast_parity.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_fusionist_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_fusionist_runtime-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_fusionist_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_fusionist_runtime.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_round2_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_round2_runtime-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_round2_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_round2_runtime.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_round3_recipes-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_round3_recipes-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_round3_recipes",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_round3_recipes.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_round3_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_round3_runtime-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_round3_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_round3_runtime.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_rules-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_rules-build.log"
+    },
+    {
+      "policy": "hide",
+      "name": "test_rules",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "hide-test_rules.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_attribute_icons",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_attribute_icons.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_manifest.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_preview2_assets",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_preview2_assets.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_round2_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_round2_manifest.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_visual_dispatch",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_visual_dispatch.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_battle_stat_tween-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_battle_stat_tween-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_battle_stat_tween",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_battle_stat_tween.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_effect_title_instance-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_effect_title_instance-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_effect_title_instance",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_effect_title_instance.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_effect_title_visual-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_effect_title_visual-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_effect_title_visual",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_effect_title_visual.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_forecast_parity-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_forecast_parity-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_forecast_parity",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_forecast_parity.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_fusionist_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_fusionist_runtime-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_fusionist_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_fusionist_runtime.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_round2_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_round2_runtime-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_round2_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_round2_runtime.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_round3_recipes-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_round3_recipes-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_round3_recipes",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_round3_recipes.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_round3_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_round3_runtime-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_round3_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_round3_runtime.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_rules-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_rules-build.log"
+    },
+    {
+      "policy": "revoke",
+      "name": "test_rules",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "revoke-test_rules.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_attribute_icons",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_attribute_icons.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_manifest.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_preview2_assets",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_preview2_assets.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_round2_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_round2_manifest.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_visual_dispatch",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_visual_dispatch.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_battle_stat_tween-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_battle_stat_tween-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_battle_stat_tween",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_battle_stat_tween.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_effect_title_instance-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_effect_title_instance-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_effect_title_instance",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_effect_title_instance.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_effect_title_visual-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_effect_title_visual-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_effect_title_visual",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_effect_title_visual.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_forecast_parity-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_forecast_parity-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_forecast_parity",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_forecast_parity.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_fusionist_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_fusionist_runtime-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_fusionist_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_fusionist_runtime.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_round2_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_round2_runtime-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_round2_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_round2_runtime.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_round3_recipes-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_round3_recipes-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_round3_recipes",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_round3_recipes.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_round3_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_round3_runtime-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_round3_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_round3_runtime.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_rules-build",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_rules-build.log"
+    },
+    {
+      "policy": "candidate",
+      "name": "test_rules",
+      "status": "PASS",
+      "returncode": 0,
+      "log": "candidate-test_rules.log"
+    }
+  ],
+  "summary": {
+    "baseline": {
+      "PASS": 14
+    },
+    "hide": {
+      "PASS": 14
+    },
+    "revoke": {
+      "PASS": 14
+    },
+    "candidate": {
+      "PASS": 14
+    }
+  }
+}
