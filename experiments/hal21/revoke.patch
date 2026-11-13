@@ -1,0 +1,49 @@
+--- a/mod.c
++++ b/mod.c
+@@ -237,6 +237,7 @@
+ static int wall_attack_negated;
+ static void aux_wall_return_to_defense(void);
+ static const MemoriesModHost *aux_host;
++static int aux_owner_applied(void);
+ /* Self-contained normal Battle Warrior coin, including the original artwork. */
+ #include "battle_coin.h"
+ static void aux_coin_frame(void) { if(bwcoin.active) bwcoin_frame(); }
+@@ -364,7 +365,7 @@
+ static int aux_encore_eligible(int side)
+ {
+     int i;
+-    if(side<0||side>1)return 0;
++    if(!aux_owner_applied() || side<0||side>1)return 0;
+     for(i=side*AUX_SIDE_STRIDE+AUX_MONSTER_START;
+         i<side*AUX_SIDE_STRIDE+AUX_MONSTER_END;i++)
+         if(aux_live(i,AUX_MUSICIAN_KING))return 1;
+--- a/fusionist_runtime.h
++++ b/fusionist_runtime.h
+@@ -14,7 +14,7 @@
+ {
+     DuelCardRecord *r;
+     int i;
+-    if(!aux_monster_slot(slot) || !aux_enabled("elegant_egotist"))return 0;
++    if(!aux_owner_applied() || !aux_monster_slot(slot) || !aux_enabled("elegant_egotist"))return 0;
+     r=&D_801A7AD8[slot];
+     if(!r->data)return 0;
+     /* Deck-data identity follows a control change to another field slot. */
+--- a/owner_f.h
++++ b/owner_f.h
+@@ -1,8 +1,14 @@
+ #include "model.h"
+ #include "pc/cards/rules.h"
+ static int ea_applied=1;
+-static void ea_apply(int on){ea_applied=on;}
+-static int ea_enabled(void){return ea_applied&&aux_host&&aux_host->setting(aux_host,"effect_ai",1);}
++static int aux_owner_applied(void)
++{ return ea_applied && aux_host; }
++static void ea_apply(int on)
++{
++    ea_applied=on;
++    if(!on)memset(aux_unlocks,0,sizeof(aux_unlocks));
++}
++static int ea_enabled(void){return aux_owner_applied()&&aux_host&&aux_host->setting(aux_host,"effect_ai",1);}
+ static void ea_inspect(EaCard*c,int s,int viewer){
+  if(!ea_enabled())return;int id=c->id,live=aux_monster_slot(s)&&D_801A7AD8[s].card_id==id&&(D_801A7AD8[s].flags&DUEL_CARD_FLAG_OCCUPIED);
+  if(aux_dragon_like(id))c->traits|=EA_DRAGON;if(RitualCategory_IsSkullMonster(id))c->traits|=EA_SKULL;

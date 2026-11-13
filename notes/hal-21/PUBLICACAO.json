@@ -1,0 +1,582 @@
+{
+  "scope": "HAL21 independent experimental candidates; no definitive policy",
+  "self_excluded": "notes/hal-21/PUBLICACAO.json to avoid self hash cycle",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5631,
+      "sha256": "56e482e9ee9a188b6eb6877a004af03d62fa1b3e67eaf7f74db31a10515b108b"
+    },
+    {
+      "path": "artifacts/hal21/hide/fusion-auxiliary-balance.o",
+      "bytes": 381024,
+      "sha256": "1236eb5408b22c5fefecea748a5b9af6f925ef4fab1409ef869b36faff7571dd"
+    },
+    {
+      "path": "artifacts/hal21/revoke/fusion-auxiliary-balance.o",
+      "bytes": 380268,
+      "sha256": "3d85b23482682deb012b2d32458f077da0b4cfd4a3b3ee92d79f9bdae00bdcd9"
+    },
+    {
+      "path": "experiments/hal21/NOTICES-HAL20.md",
+      "bytes": 1256,
+      "sha256": "8b33a33cf363357d7e255c5b816d93a98384444b7c563e401a42760b6fb56d97"
+    },
+    {
+      "path": "experiments/hal21/README.md",
+      "bytes": 1908,
+      "sha256": "34a72e88ff147166942217eb6a453448037046d06dfbdd6a091d0d0c27f1dcca"
+    },
+    {
+      "path": "experiments/hal21/hide.patch",
+      "bytes": 2186,
+      "sha256": "0ee37fa44d19af3421452f66feda56bfd4f8806e0a794ceb4c3613a907c8f78d"
+    },
+    {
+      "path": "experiments/hal21/revoke.patch",
+      "bytes": 1984,
+      "sha256": "fdc26d3e8f85b109bf5be990289af78b49b6c7641b12898a694fda834f27fec4"
+    },
+    {
+      "path": "notes/HAL21_FUSION_OFF_PROVIDERS_POC.md",
+      "bytes": 19190,
+      "sha256": "7ba4a14f917cad24d61e37f7a3069d60b04d3de853302f37d91afa5473e45434"
+    },
+    {
+      "path": "notes/hal-21/ABI.json",
+      "bytes": 12627,
+      "sha256": "6971cf9d20404f90012c0b526f9c28461337345728900ca5f1073b6cdd021dcf"
+    },
+    {
+      "path": "notes/hal-21/INPUTS.json",
+      "bytes": 16589,
+      "sha256": "4a79381f6e103c55d92ca81bd8059b8f9bcbf7d5f894417f74a322e7d4b9c27f"
+    },
+    {
+      "path": "notes/hal-21/MATRIZ.csv",
+      "bytes": 62100,
+      "sha256": "32e414b58d0c4cd336e7854c4e3d58bec63f01f673f859a07c102fdf055ddaaa"
+    },
+    {
+      "path": "notes/hal-21/PROVENIENCIA.json",
+      "bytes": 115556,
+      "sha256": "39a285d5550dfd63915d697ab09e7ad36c0e4032f9b18d433c7f4b08ff531ec3"
+    },
+    {
+      "path": "notes/hal-21/REFS_PRESERVADAS.json",
+      "bytes": 3409,
+      "sha256": "d1f33573a7d01193345ce1d19b3f72812ac708220d1bcb9b48f6f35f7c08c790"
+    },
+    {
+      "path": "notes/hal-21/contracts/RESULTADOS.json",
+      "bytes": 135343,
+      "sha256": "f38240d770ce9d67f289e288f487a622accaf1c20e2c6517b5b22a170ea7a31c"
+    },
+    {
+      "path": "notes/hal-21/contracts/apply-patch-hide.log",
+      "bytes": 78,
+      "sha256": "2352ed5010d60297f6f1c624524f63934ef1b198b08bd3611718fd7457c5bfca"
+    },
+    {
+      "path": "notes/hal-21/contracts/apply-patch-revoke.log",
+      "bytes": 78,
+      "sha256": "2352ed5010d60297f6f1c624524f63934ef1b198b08bd3611718fd7457c5bfca"
+    },
+    {
+      "path": "notes/hal-21/contracts/baseline-ON-characterization.log",
+      "bytes": 138,
+      "sha256": "62370d34af9f75da4e5b37e84b159cbecf80e9367ed0d25128993bc3f08c675a"
+    },
+    {
+      "path": "notes/hal-21/contracts/build-original-loader.log",
+      "bytes": 3818,
+      "sha256": "9ecfccbc0c4e9d71742f48fe07b404976f5f8c388e5fd25f5bd0fdcfa8ab25aa"
+    },
+    {
+      "path": "notes/hal-21/contracts/build-real-manager.log",
+      "bytes": 12665,
+      "sha256": "4a14bf7480637550dde29091968b18ec390420dd5ec794701cbb7e5b673ff6c8"
+    },
+    {
+      "path": "notes/hal-21/contracts/hide-F1.log",
+      "bytes": 237,
+      "sha256": "c427c789f4f5c64b8026c87b2162cceac367e4005fd9fd6b9f7f947de8a9780e"
+    },
+    {
+      "path": "notes/hal-21/contracts/hide-ON-characterization.log",
+      "bytes": 138,
+      "sha256": "8e7ac385afc975e6cf8409bac7e4bc07d7a277dbbe65775d420e8fee3b2b3ab8"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-absent-R.log",
+      "bytes": 4468,
+      "sha256": "ff0920e6af143d2d9dc38cf8950d8a797230794a261e5acc036719317d6afddd"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-baseline-F.log",
+      "bytes": 10845,
+      "sha256": "afa59e2483acd21c949693974b7cec6654c1f4042484f21d52ce3fc9a7dbd2bb"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-baseline-FR.log",
+      "bytes": 16303,
+      "sha256": "6aa2ff1b37a05c772b2caa934d20f3ab5f2d24fee3db5e09d9ae70b3d44f552b"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-baseline-RF.log",
+      "bytes": 16303,
+      "sha256": "63fafd9c7d8afc943c63ad5d7d965c5e486caa4d84faf217f02ef4cd08ff0592"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-hide-F.log",
+      "bytes": 10840,
+      "sha256": "9d34ee6a4e7f3b90eac9757e30f581bec8f422815f6a7bd6ee90b3a68130fb98"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-hide-FR.log",
+      "bytes": 16298,
+      "sha256": "2918f07d026cfc7023ee9856efa5e42f41f06137c95576e0581779931c5b78b9"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-hide-RF.log",
+      "bytes": 16298,
+      "sha256": "0226decf609307b3d5d2669953a297242bc5176e014331a74400a4fb01dcbfdb"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-restart-startup-OFF.log",
+      "bytes": 4525,
+      "sha256": "3f045dce4488fdc88745a746b931975303db75309a08234e6465b7e739debb10"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-revoke-F.log",
+      "bytes": 10829,
+      "sha256": "bba575d9010b4374749a01c7132f542aad36ffe5d7d2668f15192bb61ba0222a"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-revoke-FR.log",
+      "bytes": 16287,
+      "sha256": "e2e06b70bb8ae091990f65789705da871e2ed4ff24bf7ac3551bae9692b3f4c3"
+    },
+    {
+      "path": "notes/hal-21/contracts/manager-revoke-RF.log",
+      "bytes": 16287,
+      "sha256": "6e5f12330c234298e0c96beb6be07b8f697fc0baf1b5201f96fb76560a0d571c"
+    },
+    {
+      "path": "notes/hal-21/contracts/original-api18-F1.log",
+      "bytes": 239,
+      "sha256": "ad433536e939e7d35c12e183a5d790a59a8138ab7cdbbaae33ec5f5bf42e0a9a"
+    },
+    {
+      "path": "notes/hal-21/contracts/original-api24-F1.log",
+      "bytes": 239,
+      "sha256": "c2fed96e47d77a304d1c689d1639d90f181f9daf77f8035748bc2333a16c0c37"
+    },
+    {
+      "path": "notes/hal-21/contracts/revoke-F1.log",
+      "bytes": 237,
+      "sha256": "58a82b226ba80dd2ef836a060530b18285b246ad09ede886e8f957a7973e8786"
+    },
+    {
+      "path": "notes/hal-21/contracts/revoke-ON-characterization.log",
+      "bytes": 138,
+      "sha256": "f1082871842f473766131d843c9a641b170718c99b5435ebd00fd6f7ff777df5"
+    },
+    {
+      "path": "notes/hal-21/contracts/sdk-build-hide.log",
+      "bytes": 126,
+      "sha256": "305db25233f7b2bea25d79e9fe2ea692f976aa4343bba3c4e0d327cecd9b8120"
+    },
+    {
+      "path": "notes/hal-21/contracts/sdk-build-revoke.log",
+      "bytes": 130,
+      "sha256": "1c37138d9ae431706647eb5cb77da5bd019f2e161e12fdac08c513b8d8dc36b3"
+    },
+    {
+      "path": "notes/hal-21/on/RESULTADOS.json",
+      "bytes": 12359,
+      "sha256": "4095020d9d32edb7847c335de105ef5ddb209d90b839abb110286e4975a853a9"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_attribute_icons.log",
+      "bytes": 110,
+      "sha256": "091882a1be1db783fb022d3bb11eba45c49d4cab11a2dc08530a2557ef2d54e5"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_battle_stat_tween-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_battle_stat_tween.log",
+      "bytes": 89,
+      "sha256": "ebd80124ff155247f447e270867471795e5b470779223a4699b5a48e9d9ae9aa"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_effect_title_instance-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_effect_title_instance.log",
+      "bytes": 63,
+      "sha256": "23df8467fe3ad3f024ac5dec872fda81b1256a5e2917f5ad20ec1cf553a2f7f8"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_effect_title_visual-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_effect_title_visual.log",
+      "bytes": 74,
+      "sha256": "6068381cb481c66fcb879784945bb56983d4c78a6f506909766f2b4638c64dab"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_forecast_parity-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_forecast_parity.log",
+      "bytes": 82,
+      "sha256": "ad722c2f7e86621f0d7f7e154f859157eb7aa085affaffa75fba4ecead4403c3"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_fusionist_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_fusionist_runtime.log",
+      "bytes": 126,
+      "sha256": "d73bff2932c1dcf0d31f7f18435b594a41f7f5a8e5c03a5e3b34aef71bbdc984"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_manifest.log",
+      "bytes": 471,
+      "sha256": "931bbde9e04bb8d4a5362bd0b2313221f3dc29db5a1c30e9cccd7ff68a67bb69"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_preview2_assets.log",
+      "bytes": 136,
+      "sha256": "1e7425c04e4f8526acc0215eb15954442ef7b1f0a07121188e4f2f5c63c05050"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_round2_manifest.log",
+      "bytes": 83,
+      "sha256": "4f6aa3d6305b797d4cd70633fdc81d5c62dd9031117690cc6e8a5cbd82356ec8"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_round2_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_round2_runtime.log",
+      "bytes": 98,
+      "sha256": "61f83434703f9a4139a25111739d9323550f64949937ae258646bc9661e4582f"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_round3_recipes-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_round3_recipes.log",
+      "bytes": 84,
+      "sha256": "0619f2373cfa3d6d9954de81dfd310b12b23ebbc2ce5df00f7d0d6d653bcbdfb"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_round3_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_round3_runtime.log",
+      "bytes": 83,
+      "sha256": "975b6d377499f586606f3cb6996ffc655970948260cb9db5d4471a694dd623c7"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_rules-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_rules.log",
+      "bytes": 95,
+      "sha256": "29164152184b5b17fc71f37c53cec2b9365a7f3998ae9a9518cf152202880bee"
+    },
+    {
+      "path": "notes/hal-21/on/baseline-test_visual_dispatch.log",
+      "bytes": 108,
+      "sha256": "c9cdbda7b9cce64c52e8310c16f73e339ba3eb7cc67e4b68d421126a5976b2ea"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_attribute_icons.log",
+      "bytes": 110,
+      "sha256": "091882a1be1db783fb022d3bb11eba45c49d4cab11a2dc08530a2557ef2d54e5"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_battle_stat_tween-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_battle_stat_tween.log",
+      "bytes": 89,
+      "sha256": "ebd80124ff155247f447e270867471795e5b470779223a4699b5a48e9d9ae9aa"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_effect_title_instance-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_effect_title_instance.log",
+      "bytes": 63,
+      "sha256": "23df8467fe3ad3f024ac5dec872fda81b1256a5e2917f5ad20ec1cf553a2f7f8"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_effect_title_visual-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_effect_title_visual.log",
+      "bytes": 74,
+      "sha256": "6068381cb481c66fcb879784945bb56983d4c78a6f506909766f2b4638c64dab"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_forecast_parity-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_forecast_parity.log",
+      "bytes": 82,
+      "sha256": "ad722c2f7e86621f0d7f7e154f859157eb7aa085affaffa75fba4ecead4403c3"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_fusionist_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_fusionist_runtime.log",
+      "bytes": 126,
+      "sha256": "d73bff2932c1dcf0d31f7f18435b594a41f7f5a8e5c03a5e3b34aef71bbdc984"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_manifest.log",
+      "bytes": 471,
+      "sha256": "931bbde9e04bb8d4a5362bd0b2313221f3dc29db5a1c30e9cccd7ff68a67bb69"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_preview2_assets.log",
+      "bytes": 136,
+      "sha256": "1e7425c04e4f8526acc0215eb15954442ef7b1f0a07121188e4f2f5c63c05050"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_round2_manifest.log",
+      "bytes": 83,
+      "sha256": "4f6aa3d6305b797d4cd70633fdc81d5c62dd9031117690cc6e8a5cbd82356ec8"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_round2_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_round2_runtime.log",
+      "bytes": 98,
+      "sha256": "61f83434703f9a4139a25111739d9323550f64949937ae258646bc9661e4582f"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_round3_recipes-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_round3_recipes.log",
+      "bytes": 84,
+      "sha256": "0619f2373cfa3d6d9954de81dfd310b12b23ebbc2ce5df00f7d0d6d653bcbdfb"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_round3_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_round3_runtime.log",
+      "bytes": 83,
+      "sha256": "975b6d377499f586606f3cb6996ffc655970948260cb9db5d4471a694dd623c7"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_rules-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_rules.log",
+      "bytes": 95,
+      "sha256": "29164152184b5b17fc71f37c53cec2b9365a7f3998ae9a9518cf152202880bee"
+    },
+    {
+      "path": "notes/hal-21/on/hide-test_visual_dispatch.log",
+      "bytes": 108,
+      "sha256": "c9cdbda7b9cce64c52e8310c16f73e339ba3eb7cc67e4b68d421126a5976b2ea"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_attribute_icons.log",
+      "bytes": 110,
+      "sha256": "091882a1be1db783fb022d3bb11eba45c49d4cab11a2dc08530a2557ef2d54e5"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_battle_stat_tween-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_battle_stat_tween.log",
+      "bytes": 89,
+      "sha256": "ebd80124ff155247f447e270867471795e5b470779223a4699b5a48e9d9ae9aa"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_effect_title_instance-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_effect_title_instance.log",
+      "bytes": 63,
+      "sha256": "23df8467fe3ad3f024ac5dec872fda81b1256a5e2917f5ad20ec1cf553a2f7f8"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_effect_title_visual-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_effect_title_visual.log",
+      "bytes": 74,
+      "sha256": "6068381cb481c66fcb879784945bb56983d4c78a6f506909766f2b4638c64dab"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_forecast_parity-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_forecast_parity.log",
+      "bytes": 82,
+      "sha256": "ad722c2f7e86621f0d7f7e154f859157eb7aa085affaffa75fba4ecead4403c3"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_fusionist_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_fusionist_runtime.log",
+      "bytes": 126,
+      "sha256": "d73bff2932c1dcf0d31f7f18435b594a41f7f5a8e5c03a5e3b34aef71bbdc984"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_manifest.log",
+      "bytes": 471,
+      "sha256": "931bbde9e04bb8d4a5362bd0b2313221f3dc29db5a1c30e9cccd7ff68a67bb69"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_preview2_assets.log",
+      "bytes": 136,
+      "sha256": "1e7425c04e4f8526acc0215eb15954442ef7b1f0a07121188e4f2f5c63c05050"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_round2_manifest.log",
+      "bytes": 83,
+      "sha256": "4f6aa3d6305b797d4cd70633fdc81d5c62dd9031117690cc6e8a5cbd82356ec8"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_round2_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_round2_runtime.log",
+      "bytes": 98,
+      "sha256": "61f83434703f9a4139a25111739d9323550f64949937ae258646bc9661e4582f"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_round3_recipes-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_round3_recipes.log",
+      "bytes": 84,
+      "sha256": "0619f2373cfa3d6d9954de81dfd310b12b23ebbc2ce5df00f7d0d6d653bcbdfb"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_round3_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_round3_runtime.log",
+      "bytes": 83,
+      "sha256": "975b6d377499f586606f3cb6996ffc655970948260cb9db5d4471a694dd623c7"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_rules-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_rules.log",
+      "bytes": 95,
+      "sha256": "29164152184b5b17fc71f37c53cec2b9365a7f3998ae9a9518cf152202880bee"
+    },
+    {
+      "path": "notes/hal-21/on/revoke-test_visual_dispatch.log",
+      "bytes": 108,
+      "sha256": "c9cdbda7b9cce64c52e8310c16f73e339ba3eb7cc67e4b68d421126a5976b2ea"
+    },
+    {
+      "path": "tests/hal21/README.md",
+      "bytes": 5511,
+      "sha256": "31d9f4ddc9fb5b291640f8c708a948dabe024c85df475a2c29529bee5e1d1ed7"
+    },
+    {
+      "path": "tests/hal21/abi.py",
+      "bytes": 1868,
+      "sha256": "a12d020ccff57d87e787c64ba3c970b18787d10069951909f78486a8a506b9eb"
+    },
+    {
+      "path": "tests/hal21/manager_bridge.c",
+      "bytes": 421,
+      "sha256": "2c8a0eb9a061ea57971a72e7f48cc2b49dc2fd6c3708bcc943a8172eac93ee3f"
+    },
+    {
+      "path": "tests/hal21/manager_fixture.c",
+      "bytes": 26768,
+      "sha256": "5b9f4ee89895442a0c2c3f9ce9faf05255d8a1990c578d569a1576e5cbed896e"
+    },
+    {
+      "path": "tests/hal21/on_suite.py",
+      "bytes": 2734,
+      "sha256": "b1886434f6390a6f94f45a0a98da2dfec5127289d2969c2be69a41bca8575578"
+    },
+    {
+      "path": "tests/hal21/run.py",
+      "bytes": 11451,
+      "sha256": "2e5e156c4556e1c286ff2075598d5fc3bfc782c5668c8f46b87bcb15bea39d6e"
+    },
+    {
+      "path": "tests/hal21/tw_adapter.c",
+      "bytes": 1657,
+      "sha256": "139c3c367e760b3f988918ff795637e87a84e03bb3bb38881544a7a116afb3f9"
+    }
+  ],
+  "binary_permissions": "Only two own Fusion candidates, same authorized PR12 source package/coin-lib credits. No private Dual/TimeWizard binaries or new assets."
+}

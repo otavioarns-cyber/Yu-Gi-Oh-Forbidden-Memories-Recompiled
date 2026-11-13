@@ -1,0 +1,2994 @@
+{
+  "scope": "HAL21 F1 policies; real objects/registry/manager, synthetic engine; no gameplay Windows",
+  "preflight": [
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/AUDITORIA-RECEITAS-RODADA2.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/BASE-BETA31-SHA256.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/BETA36-VALIDACAO.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/EFEITOS-FUTUROS.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/IA-DE-EFEITOS.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/NOTICES-HAL20.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/PROMPT-RODADA03-ORIGINAL.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/README-PREVIEW2.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/README.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/RODADA03-STATUS.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/SDK-PROVENANCE.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/SDK-PROVENANCE.preview1.recebido.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/TESTES-IA.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/dark.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/earth.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/fire.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/light.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/water.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/wind.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/00.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/01.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/02.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/03.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/04.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/05.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/06.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/07.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/08.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/09.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/10.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/11.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/12.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/13.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/14.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/15.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/16.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/17.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/18.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/19.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/20.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/21.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/22.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/23.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/24.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/25.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/26.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/27.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/coin.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/battle_coin.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/battle_stat_tween.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/effect_title_instance.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/effect_title_visual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/egotist_targets.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion-auxiliary-balance.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion_round2_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion_round2_runtime.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion_round3_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion_round3_runtime.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusionist_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusionist_runtime.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/generated_card_restore.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/logic.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/mod.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/model.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/native.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/native_actions.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/origin_effects_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/owner_f.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/png.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/png.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/ritual_effect_intelligence_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/secondary_dragon_types.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/skull_monster.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/snapshot.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/base31_manifest.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/recipe_audit.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/run_fusionist.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/run_preview2.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_attribute_icons.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_battle_stat_tween.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_effect_title_instance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_effect_title_visual.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_forecast_parity.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_fusionist_runtime.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_preview2_assets.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_round2_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_round2_runtime.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_round3_recipes.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_round3_runtime.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_rules.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_visual_dispatch.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/ritual-card-effects/performance_chaos.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/ritual-card-effects/mod.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/ritual-card-effects/egotist_bridge.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20/zip/TIME WIZARD/source/time_wizard_encore.c",
+      "status": "PASS"
+    }
+  ],
+  "builds": [
+    {
+      "log": "build-original-loader.log",
+      "returncode": 0,
+      "seconds": 0.467
+    },
+    {
+      "log": "apply-patch-hide.log",
+      "returncode": 0,
+      "seconds": 0.005
+    },
+    {
+      "log": "sdk-build-hide.log",
+      "returncode": 0,
+      "seconds": 1.576
+    },
+    {
+      "log": "apply-patch-revoke.log",
+      "returncode": 0,
+      "seconds": 0.003
+    },
+    {
+      "log": "sdk-build-revoke.log",
+      "returncode": 0,
+      "seconds": 1.369
+    },
+    {
+      "log": "build-real-manager.log",
+      "returncode": 0,
+      "seconds": 2.779
+    }
+  ],
+  "originals": [
+    {
+      "object": "api18",
+      "execution": {
+        "log": "original-api18-F1.log",
+        "returncode": 2,
+        "seconds": 0.119
+      },
+      "observed": [
+        "object_hash=7a3178de declared_api=18 hooks=33 subscriptions=4 providers=4",
+        "OFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=1 lease=77 extended=77 forecast=0",
+        "PASS 214 characterization assertions (synthetic host, no duel)"
+      ]
+    },
+    {
+      "object": "api24",
+      "execution": {
+        "log": "original-api24-F1.log",
+        "returncode": 2,
+        "seconds": 0.12
+      },
+      "observed": [
+        "object_hash=e6f40fd4 declared_api=24 hooks=33 subscriptions=4 providers=4",
+        "OFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=1 lease=77 extended=77 forecast=0",
+        "PASS 214 characterization assertions (synthetic host, no duel)"
+      ]
+    }
+  ],
+  "candidate_tests": [
+    {
+      "name": "baseline-ON",
+      "execution": {
+        "log": "baseline-ON-characterization.log",
+        "returncode": 0,
+        "seconds": 1.146
+      },
+      "observed": [
+        "object_hash=e6f40fd4 declared_api=24 hooks=33 subscriptions=4 providers=4",
+        "PASS 2652 characterization assertions (synthetic host, no duel)"
+      ]
+    },
+    {
+      "name": "hide-ON",
+      "execution": {
+        "log": "hide-ON-characterization.log",
+        "returncode": 0,
+        "seconds": 1.008
+      },
+      "observed": [
+        "object_hash=8f442fbc declared_api=24 hooks=33 subscriptions=4 providers=4",
+        "PASS 2652 characterization assertions (synthetic host, no duel)"
+      ]
+    },
+    {
+      "name": "hide-F1",
+      "execution": {
+        "log": "hide-F1.log",
+        "returncode": 0,
+        "seconds": 0.107
+      },
+      "observed": [
+        "object_hash=8f442fbc declared_api=24 hooks=33 subscriptions=4 providers=4",
+        "OFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=0 lease=0 extended=0 forecast=0",
+        "PASS 214 characterization assertions (synthetic host, no duel)"
+      ]
+    },
+    {
+      "name": "revoke-ON",
+      "execution": {
+        "log": "revoke-ON-characterization.log",
+        "returncode": 0,
+        "seconds": 1.084
+      },
+      "observed": [
+        "object_hash=afb75202 declared_api=24 hooks=33 subscriptions=4 providers=4",
+        "PASS 2652 characterization assertions (synthetic host, no duel)"
+      ]
+    },
+    {
+      "name": "revoke-F1",
+      "execution": {
+        "log": "revoke-F1.log",
+        "returncode": 0,
+        "seconds": 0.111
+      },
+      "observed": [
+        "object_hash=afb75202 declared_api=24 hooks=33 subscriptions=4 providers=4",
+        "OFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=0 lease=0 extended=0 forecast=0",
+        "PASS 214 characterization assertions (synthetic host, no duel)"
+      ]
+    }
+  ],
+  "manager_profiles": [
+    {
+      "policy": "baseline",
+      "order": "FR",
+      "execution": {
+        "log": "manager-baseline-FR.log",
+        "returncode": 1,
+        "seconds": 0.372
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "FAIL",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "FAIL",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "FAIL",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "FAIL",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "FAIL",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "FAIL",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        },
+        {
+          "name": "Ritual-reconcile-ON-preserved",
+          "status": "PASS",
+          "details": "Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation."
+        },
+        {
+          "name": "Ritual-reconcile-OFF-retires",
+          "status": "FAIL",
+          "details": "Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back."
+        },
+        {
+          "name": "real-Ritual-enabled-contract",
+          "status": "PASS",
+          "details": "Unmodified PR11 object supplies effect catalogue, not fixture provider."
+        },
+        {
+          "name": "ON-revalidates-unavailable-producer",
+          "status": "FAIL",
+          "details": "Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "LOADED ritual-card-effects-test active=1 status=this build has no audio replacement",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=1 encore1=0 lease=77 extended=77 forecast=0 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=77 extended=77 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=1",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "SUMMARY checks=6050 failures=8; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "baseline",
+      "order": "RF",
+      "execution": {
+        "log": "manager-baseline-RF.log",
+        "returncode": 1,
+        "seconds": 0.363
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "FAIL",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "FAIL",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "FAIL",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "FAIL",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "FAIL",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "FAIL",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        },
+        {
+          "name": "Ritual-reconcile-ON-preserved",
+          "status": "PASS",
+          "details": "Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation."
+        },
+        {
+          "name": "Ritual-reconcile-OFF-retires",
+          "status": "FAIL",
+          "details": "Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back."
+        },
+        {
+          "name": "real-Ritual-enabled-contract",
+          "status": "PASS",
+          "details": "Unmodified PR11 object supplies effect catalogue, not fixture provider."
+        },
+        {
+          "name": "ON-revalidates-unavailable-producer",
+          "status": "FAIL",
+          "details": "Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "LOADED ritual-card-effects-test active=1 status=this build has no audio replacement",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=1 encore1=0 lease=77 extended=77 forecast=0 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=77 extended=77 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=1",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "SUMMARY checks=6050 failures=8; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "baseline",
+      "order": "F",
+      "execution": {
+        "log": "manager-baseline-F.log",
+        "returncode": 1,
+        "seconds": 0.144
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "FAIL",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "FAIL",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "FAIL",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "FAIL",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "FAIL",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "FAIL",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=1 encore1=0 lease=77 extended=77 forecast=0 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=77 extended=77 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=1",
+        "SUMMARY checks=5890 failures=6; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "hide",
+      "order": "FR",
+      "execution": {
+        "log": "manager-hide-FR.log",
+        "returncode": 1,
+        "seconds": 0.376
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "PASS",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "PASS",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "FAIL",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "PASS",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "FAIL",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "PASS",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        },
+        {
+          "name": "Ritual-reconcile-ON-preserved",
+          "status": "PASS",
+          "details": "Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation."
+        },
+        {
+          "name": "Ritual-reconcile-OFF-retires",
+          "status": "PASS",
+          "details": "Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back."
+        },
+        {
+          "name": "real-Ritual-enabled-contract",
+          "status": "PASS",
+          "details": "Unmodified PR11 object supplies effect catalogue, not fixture provider."
+        },
+        {
+          "name": "ON-revalidates-unavailable-producer",
+          "status": "PASS",
+          "details": "Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "LOADED ritual-card-effects-test active=1 status=this build has no audio replacement",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=0 encore1=0 lease=0 extended=0 forecast=0 ritualEncore=0 wizardEncore=0 borrowed=0",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=77 extended=77 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "SUMMARY checks=6083 failures=2; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "hide",
+      "order": "RF",
+      "execution": {
+        "log": "manager-hide-RF.log",
+        "returncode": 1,
+        "seconds": 0.354
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "PASS",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "PASS",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "FAIL",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "PASS",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "FAIL",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "PASS",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        },
+        {
+          "name": "Ritual-reconcile-ON-preserved",
+          "status": "PASS",
+          "details": "Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation."
+        },
+        {
+          "name": "Ritual-reconcile-OFF-retires",
+          "status": "PASS",
+          "details": "Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back."
+        },
+        {
+          "name": "real-Ritual-enabled-contract",
+          "status": "PASS",
+          "details": "Unmodified PR11 object supplies effect catalogue, not fixture provider."
+        },
+        {
+          "name": "ON-revalidates-unavailable-producer",
+          "status": "PASS",
+          "details": "Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "LOADED ritual-card-effects-test active=1 status=this build has no audio replacement",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=0 encore1=0 lease=0 extended=0 forecast=0 ritualEncore=0 wizardEncore=0 borrowed=0",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=77 extended=77 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "SUMMARY checks=6083 failures=2; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "hide",
+      "order": "F",
+      "execution": {
+        "log": "manager-hide-F.log",
+        "returncode": 1,
+        "seconds": 0.162
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "PASS",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "PASS",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "FAIL",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "PASS",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "FAIL",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "PASS",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=0 encore1=0 lease=0 extended=0 forecast=0 ritualEncore=0 wizardEncore=0 borrowed=0",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=77 extended=77 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=77 expected-policy=77",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=0",
+        "SUMMARY checks=5917 failures=2; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "revoke",
+      "order": "FR",
+      "execution": {
+        "log": "manager-revoke-FR.log",
+        "returncode": 0,
+        "seconds": 0.411
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "PASS",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "PASS",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "PASS",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "PASS",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "PASS",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "PASS",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        },
+        {
+          "name": "Ritual-reconcile-ON-preserved",
+          "status": "PASS",
+          "details": "Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation."
+        },
+        {
+          "name": "Ritual-reconcile-OFF-retires",
+          "status": "PASS",
+          "details": "Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back."
+        },
+        {
+          "name": "real-Ritual-enabled-contract",
+          "status": "PASS",
+          "details": "Unmodified PR11 object supplies effect catalogue, not fixture provider."
+        },
+        {
+          "name": "ON-revalidates-unavailable-producer",
+          "status": "PASS",
+          "details": "Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "LOADED ritual-card-effects-test active=1 status=this build has no audio replacement",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=0 encore1=0 lease=0 extended=0 forecast=0 ritualEncore=0 wizardEncore=0 borrowed=0",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=0 extended=0 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "SUMMARY checks=6050 failures=0; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "revoke",
+      "order": "RF",
+      "execution": {
+        "log": "manager-revoke-RF.log",
+        "returncode": 0,
+        "seconds": 0.425
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "PASS",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "PASS",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "PASS",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "PASS",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "PASS",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "PASS",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        },
+        {
+          "name": "Ritual-reconcile-ON-preserved",
+          "status": "PASS",
+          "details": "Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation."
+        },
+        {
+          "name": "Ritual-reconcile-OFF-retires",
+          "status": "PASS",
+          "details": "Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back."
+        },
+        {
+          "name": "real-Ritual-enabled-contract",
+          "status": "PASS",
+          "details": "Unmodified PR11 object supplies effect catalogue, not fixture provider."
+        },
+        {
+          "name": "ON-revalidates-unavailable-producer",
+          "status": "PASS",
+          "details": "Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "LOADED ritual-card-effects-test active=1 status=this build has no audio replacement",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=0 encore1=0 lease=0 extended=0 forecast=0 ritualEncore=0 wizardEncore=0 borrowed=0",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=0 extended=0 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "SUMMARY checks=6050 failures=0; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "revoke",
+      "order": "F",
+      "execution": {
+        "log": "manager-revoke-F.log",
+        "returncode": 0,
+        "seconds": 0.147
+      },
+      "checks": [
+        {
+          "name": "ABI-versions-layout",
+          "status": "PASS",
+          "details": "Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records."
+        },
+        {
+          "name": "ON-public-answers",
+          "status": "PASS",
+          "details": "Original valid owner/face-up Musician and identity lease answers."
+        },
+        {
+          "name": "ON-real-consumers",
+          "status": "PASS",
+          "details": "Verbatim external source consumer functions call real providers through official Mods_Find."
+        },
+        {
+          "name": "restart-defers-supported-OFF",
+          "status": "PASS",
+          "details": "Original restart:true saves OFF but retains actual ON; not a provider failure."
+        },
+        {
+          "name": "restart-Apply-reload-keeps-actual-ON",
+          "status": "PASS",
+          "details": "Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied."
+        },
+        {
+          "name": "Mods-Find-keeps-disabled-providers",
+          "status": "PASS",
+          "details": "Official registry leaves cached/public pointers callable while owner OFF."
+        },
+        {
+          "name": "OFF-benefit-queries-neutral",
+          "status": "PASS",
+          "details": "F1 invariant: preserve baseline FAIL; candidate answers all neutral."
+        },
+        {
+          "name": "OFF-consumers-neutral",
+          "status": "PASS",
+          "details": "Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+        },
+        {
+          "name": "OFF-provider-management-still-works",
+          "status": "PASS",
+          "details": "Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+        },
+        {
+          "name": "policy-valid-identity-after-ON",
+          "status": "PASS",
+          "details": "Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "control-change-follows-identity",
+          "status": "PASS",
+          "details": "Presence side changes independently of lease storage slot."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "face-down-encore-neutral",
+          "status": "PASS",
+          "details": "Face-down origin lease is distinct from live Encore eligibility."
+        },
+        {
+          "name": "policy-identity-result",
+          "status": "PASS",
+          "details": "Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID."
+        },
+        {
+          "name": "no-old-lease-after-unobserved-zone-roundtrip",
+          "status": "PASS",
+          "details": "Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it."
+        },
+        {
+          "name": "new-lease-monotonic",
+          "status": "PASS",
+          "details": "Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78."
+        },
+        {
+          "name": "external-producer-revalidation",
+          "status": "PASS",
+          "details": "Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate."
+        },
+        {
+          "name": "setting-disabled-on-reactivation",
+          "status": "PASS",
+          "details": "Egotist option OFF suppresses lease without altering recipes/settings in either candidate."
+        },
+        {
+          "name": "revoke-cleanup-allowed-OFF",
+          "status": "PASS",
+          "details": "Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity."
+        },
+        {
+          "name": "inactive-reset-does-not-revive-old-lease",
+          "status": "PASS",
+          "details": "Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it."
+        },
+        {
+          "name": "load-reset-clears-leases",
+          "status": "PASS",
+          "details": "Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim."
+        },
+        {
+          "name": "active-new-duel-clears-leases",
+          "status": "PASS",
+          "details": "Real Fusion scene hook first phase tick, native scene body modeled."
+        },
+        {
+          "name": "TimeWizard-bridge-ON-unchanged",
+          "status": "PASS",
+          "details": "Actual supplied bridge source; original compiled core and wheel are modeled boundaries."
+        },
+        {
+          "name": "TimeWizard-new-attempt-OFF-neutral",
+          "status": "PASS",
+          "details": "Fresh attempt queries fixed provider; baseline F1 stays visible."
+        },
+        {
+          "name": "TimeWizard-cached-attempt-characterized",
+          "status": "PASS",
+          "details": "Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented."
+        }
+      ],
+      "observed": [
+        "LOADED fusion-auxiliary-balance active=1 status=",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "CONTRACT OFF encore0=0 encore1=0 lease=0 extended=0 forecast=0 ritualEncore=0 wizardEncore=0 borrowed=0",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "CONTRACT ON-again encore0=1 encore1=0 lease=0 extended=0 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=slot-move destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=controller-transfer destination=20 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=removed destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=face-down destination=5 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "IDENTITY case=same-pointer-leave-reenter destination=6 lease=0 expected-policy=0",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment",
+        "FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment",
+        "TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=0",
+        "SUMMARY checks=5890 failures=0; real manager, partial engine"
+      ],
+      "complete": true
+    },
+    {
+      "policy": "absent",
+      "order": "R",
+      "execution": {
+        "log": "manager-absent-R.log",
+        "returncode": 0,
+        "seconds": 0.244
+      },
+      "checks": [
+        {
+          "name": "absent-provider-fallback",
+          "status": "PASS",
+          "details": "Real manager registry with Fusion absent."
+        }
+      ],
+      "complete": true
+    },
+    {
+      "policy": "startup-off",
+      "order": "FR",
+      "execution": {
+        "log": "manager-restart-startup-OFF.log",
+        "returncode": 0,
+        "seconds": 0.231
+      },
+      "checks": [
+        {
+          "name": "restart-startup-OFF-no-providers",
+          "status": "PASS",
+          "details": "Real manager registry with Fusion absent."
+        }
+      ],
+      "complete": true
+    }
+  ],
+  "postflight": [
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/AUDITORIA-RECEITAS-RODADA2.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/BASE-BETA31-SHA256.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/BETA36-VALIDACAO.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/EFEITOS-FUTUROS.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/IA-DE-EFEITOS.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/NOTICES-HAL20.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/PROMPT-RODADA03-ORIGINAL.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/README-PREVIEW2.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/README.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/RODADA03-STATUS.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/SDK-PROVENANCE.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/SDK-PROVENANCE.preview1.recebido.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/TESTES-IA.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/dark.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/earth.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/fire.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/light.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/water.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/attribute-icons/wind.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/00.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/01.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/02.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/03.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/04.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/05.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/06.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/07.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/08.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/09.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/10.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/11.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/12.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/13.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/14.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/15.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/16.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/17.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/18.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/19.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/20.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/21.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/22.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/23.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/24.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/25.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/26.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/27.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/assets/coin-normal/coin.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/battle_coin.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/battle_stat_tween.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/effect_title_instance.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/effect_title_visual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/egotist_targets.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion-auxiliary-balance.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion_round2_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion_round2_runtime.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion_round3_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusion_round3_runtime.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusionist_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/fusionist_runtime.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/generated_card_restore.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/logic.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/mod.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/model.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/native.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/native_actions.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/origin_effects_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/owner_f.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/png.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/png.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/ritual_effect_intelligence_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/secondary_dragon_types.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/skull_monster.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/snapshot.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/base31_manifest.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/recipe_audit.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/run_fusionist.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/run_preview2.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_attribute_icons.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_battle_stat_tween.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_effect_title_instance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_effect_title_visual.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_forecast_parity.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_fusionist_runtime.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_preview2_assets.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_round2_manifest.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_round2_runtime.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_round3_recipes.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_round3_runtime.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_rules.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/tests/test_visual_dispatch.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/ritual-card-effects/performance_chaos.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/ritual-card-effects/mod.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/ritual-card-effects/egotist_bridge.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20/zip/TIME WIZARD/source/time_wizard_encore.c",
+      "status": "PASS"
+    }
+  ],
+  "artifacts": {
+    "hide": {
+      "sha256": "1236eb5408b22c5fefecea748a5b9af6f925ef4fab1409ef869b36faff7571dd",
+      "bytes": 381024,
+      "path": "artifacts/hal21/hide/fusion-auxiliary-balance.o",
+      "source_diff": [
+        "fusionist_runtime.h",
+        "mod.c",
+        "owner_f.h"
+      ]
+    },
+    "revoke": {
+      "sha256": "3d85b23482682deb012b2d32458f077da0b4cfd4a3b3ee92d79f9bdae00bdcd9",
+      "bytes": 380268,
+      "path": "artifacts/hal21/revoke/fusion-auxiliary-balance.o",
+      "source_diff": [
+        "fusionist_runtime.h",
+        "mod.c",
+        "owner_f.h"
+      ]
+    }
+  },
+  "summary": {
+    "original_F1_returncodes": [
+      2,
+      2
+    ],
+    "candidate_loader": {
+      "baseline-ON": 0,
+      "hide-ON": 0,
+      "hide-F1": 0,
+      "revoke-ON": 0,
+      "revoke-F1": 0
+    },
+    "manager": {
+      "baseline": {
+        "PASS": 76,
+        "FAIL": 22
+      },
+      "hide": {
+        "PASS": 92,
+        "FAIL": 6
+      },
+      "revoke": {
+        "PASS": 98
+      }
+    }
+  }
+}
