@@ -3,13 +3,13 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5932,
-      "sha256": "aa1499d578aec70d966eda4a02ebd4793dbf45ae735602d0076666f39665cdf3"
+      "bytes": 6038,
+      "sha256": "8a6f0e793ff6e6d5111a202ea1e08a7a2b165284d10870bfab714d2b45253316"
     },
     {
       "path": "notes/HAL24_RITUAL_DUELISTS_DUAL_GATE.md",
-      "bytes": 16129,
-      "sha256": "2da50d385b3ba27dc214c57f926691b58cd8db064f9e4ecb82c24d5c223c6a92"
+      "bytes": 16264,
+      "sha256": "97be6fe103ff4f6ff18e68982b2f36a8f62c3b9149f851b67a5f7b5376f43d93"
     },
     {
       "path": "tests/hal24/README.md",
@@ -48,8 +48,8 @@
     },
     {
       "path": "notes/hal-24/REFS_PRESERVADAS.json",
-      "bytes": 5079,
-      "sha256": "e47ff555cc6ac03480683be8e960871d18cda37a04a1a586c44218aa3a260e75"
+      "bytes": 5351,
+      "sha256": "e49257fda07e56865317aaa23709ccdffcf25be4813ecab5982b63e0d80ad50d"
     },
     {
       "path": "notes/hal-24/controles-pr14/MATRIZ.csv",

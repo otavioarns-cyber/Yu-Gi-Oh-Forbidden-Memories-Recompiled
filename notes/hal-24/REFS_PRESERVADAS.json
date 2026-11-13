@@ -1,6 +1,6 @@
 {
   "base": "d649647c159c91d615c07d6960928a37e270b461",
-  "verification": "23 original heads unchanged before publication; only the new HAL24 branch may be added. No merge or force push.",
+  "verification": "23 original remote heads unchanged after initial push and draft PR19 creation; only new HAL24 branch added. No merge or force push.",
   "heads": [
     {
       "ref": "refs/heads/backup/master-pre-v0.2.0",
@@ -140,5 +140,13 @@
       "after": "0185f58df7928cc6338ceb221d169e2b42feca6d",
       "unchanged": true
     }
-  ]
+  ],
+  "pr": {
+    "number": 19,
+    "draft": true,
+    "merged": false,
+    "base": "integration/hal-20-v0.3.1-preview.2",
+    "head": "test/hal-24-ritual-duelists-dual-gate",
+    "initial_published_commit": "7b0f15ce11ebefd156571a1053a15896d373f63f"
+  }
 }
