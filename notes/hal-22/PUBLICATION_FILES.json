@@ -1,0 +1,111 @@
+{
+  "scope": "HAL-22 diagnostic only; own sources/logs/metadata; no third-party payloads",
+  "excluded": "Index excludes itself to avoid recursive hashing.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5570,
+      "sha256": "25ed4cf3ee2385ce971b25acd2ad44da61ed717f74193f3ef1bead6d0b9c54a1"
+    },
+    {
+      "path": "notes/HAL22_AI_HARD_MODE_DUAL_PLAY.md",
+      "bytes": 17978,
+      "sha256": "8af2cd253e26431f5949d6bd963ed843434843bc2dfb1ce6775745a7ba4c4ac7"
+    },
+    {
+      "path": "tests/hal22/README.md",
+      "bytes": 4440,
+      "sha256": "93341c0a0470b27a58ff145781bf12d1682b59fc0d688c86eb982a34ab7d734e"
+    },
+    {
+      "path": "tests/hal22/harness.c",
+      "bytes": 32317,
+      "sha256": "b63d1f13930114a1860c4ff9220d258b9234edb961a24cd765a073406b50b3ef"
+    },
+    {
+      "path": "tests/hal22/order.c",
+      "bytes": 1499,
+      "sha256": "ad983e159b8b029de32bcdb472212468dc90977f197bbb11014de8e92dd056a1"
+    },
+    {
+      "path": "tests/hal22/run.py",
+      "bytes": 8091,
+      "sha256": "ea9254b26bcd3efeacd647bb5bff1c2dde5969b97a9fa2df06cd2c1772436f8a"
+    },
+    {
+      "path": "notes/hal-22/INPUTS.json",
+      "bytes": 8760,
+      "sha256": "50b845ea2bab88225184849ec4af33c2acaf29ce64e66af63acf0de389ddabb2"
+    },
+    {
+      "path": "notes/hal-22/MATRIZ.md",
+      "bytes": 912,
+      "sha256": "f03f1eaebde187deceabb5df683f96aef22bad3f9648f699ed8285dd8abb805a"
+    },
+    {
+      "path": "notes/hal-22/REFS_PRESERVADAS.json",
+      "bytes": 1900,
+      "sha256": "362ba43f9800058d6233e15bd7742d7d8cae36ad409667d2da5daa47ce92aece"
+    },
+    {
+      "path": "notes/hal-22/resultados/MATRIZ.csv",
+      "bytes": 28193,
+      "sha256": "756a2eaa06c06d31d49b9735d66b623ea081317bb3dc32700c7def6d8fd0bc6b"
+    },
+    {
+      "path": "notes/hal-22/resultados/O0-late-AI-order.log",
+      "bytes": 144,
+      "sha256": "b2be9c01e876d78a2981e47a599b8a1d8c70188e6efc954474848279b0e3a969"
+    },
+    {
+      "path": "notes/hal-22/resultados/O0-late-AI.log",
+      "bytes": 208390,
+      "sha256": "29ff303b9dd3cfc3185bb2ccabbb4d6e5573161479b9742f1a103b8ddfeffe02"
+    },
+    {
+      "path": "notes/hal-22/resultados/O0-order.log",
+      "bytes": 144,
+      "sha256": "b2be9c01e876d78a2981e47a599b8a1d8c70188e6efc954474848279b0e3a969"
+    },
+    {
+      "path": "notes/hal-22/resultados/O0.log",
+      "bytes": 213370,
+      "sha256": "d50a98d5df06927bf1933ccc8c0f96895b07f482a7cced73963695b6c0e379df"
+    },
+    {
+      "path": "notes/hal-22/resultados/O1-order.log",
+      "bytes": 144,
+      "sha256": "b2be9c01e876d78a2981e47a599b8a1d8c70188e6efc954474848279b0e3a969"
+    },
+    {
+      "path": "notes/hal-22/resultados/O1.log",
+      "bytes": 213370,
+      "sha256": "d50a98d5df06927bf1933ccc8c0f96895b07f482a7cced73963695b6c0e379df"
+    },
+    {
+      "path": "notes/hal-22/resultados/O2-order.log",
+      "bytes": 144,
+      "sha256": "d1c56f600120945d30286d291823f95699a2f63de0f24917d0fa8626379cb7dc"
+    },
+    {
+      "path": "notes/hal-22/resultados/O2.log",
+      "bytes": 208321,
+      "sha256": "d72d99e09b184fbaa593548cdf5e651eb9fe750646eaf6f1021d5e7ddbfb0e61"
+    },
+    {
+      "path": "notes/hal-22/resultados/RESULTADOS.json",
+      "bytes": 67906,
+      "sha256": "f2a5fd266b91fde9d74a4cb6db1f813c9aa3a2c6f89b0419650a191b7ef1efca"
+    },
+    {
+      "path": "notes/hal-22/resultados/build-harness.log",
+      "bytes": 11389,
+      "sha256": "840189651b9ca2aadaa74f3cfae868032718e6c519a43133899a2f5b9370d203"
+    },
+    {
+      "path": "notes/hal-22/resultados/build-order.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  ]
+}

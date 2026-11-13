@@ -1,0 +1,187 @@
+profile,scenario,check,status,details,evidence
+O0,memory-layout,native-data-aliases,PASS,Synthetic RAM preserves native byte identities and staging/deck aliases.,O0.log
+O0,controller-support-first-cursor-monster,controller-completes-one-action,PASS,Native controller consumes exactly one physical hand instance.,O0.log
+O0,controller-support-first-cursor-monster,planner-unforced-choice,PASS,"Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",O0.log
+O0,controller-support-first-cursor-monster,gate-called-on-first-plan,PASS,Dual authoritative CPU category snapshot must run even for physical-only plans.,O0.log
+O0,controller-support-first-cursor-monster,one-worker-first-action,PASS,One AI materializer entry; physical selection requires no deck-record exchange.,O0.log
+O0,controller-support-first-cursor-monster,ledger-matches-first-action,PASS,"Quota category must match actual controller-consumed card, not initial cursor.",O0.log
+O0,controller-support-first-cursor-monster,bonus-from-controller-state,PASS,Actual Dual frame rebuild; no bonus/quota state injected.,O0.log
+O0,controller-support-first-cursor-monster,setup-masks-recorded-used-and-ritual,PASS,Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.,O0.log
+O0,controller-support-first-cursor-monster,one-worker-bonus-action,PASS,Exactly one materializer entry for bonus plan.,O0.log
+O0,controller-support-first-cursor-monster,gate-called-on-bonus-plan,PASS,Dual gate must run before responsible materializer.,O0.log
+O0,controller-support-first-cursor-monster,no-repeated-category,PASS,Two actual controller-consumed categories must be distinct.,O0.log
+O0,controller-support-first-cursor-monster,final-ledger-matches-actions,PASS,A complete Monster+Support pair exhausts both quotas exactly once.,O0.log
+O0,controller-monster-first-cursor-support,controller-completes-one-action,PASS,Native controller consumes exactly one physical hand instance.,O0.log
+O0,controller-monster-first-cursor-support,planner-unforced-choice,PASS,"Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",O0.log
+O0,controller-monster-first-cursor-support,gate-called-on-first-plan,PASS,Dual authoritative CPU category snapshot must run even for physical-only plans.,O0.log
+O0,controller-monster-first-cursor-support,one-worker-first-action,PASS,One AI materializer entry; physical selection requires no deck-record exchange.,O0.log
+O0,controller-monster-first-cursor-support,ledger-matches-first-action,PASS,"Quota category must match actual controller-consumed card, not initial cursor.",O0.log
+O0,controller-monster-first-cursor-support,bonus-from-controller-state,PASS,Actual Dual frame rebuild; no bonus/quota state injected.,O0.log
+O0,controller-monster-first-cursor-support,setup-masks-recorded-used-and-ritual,PASS,Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.,O0.log
+O0,controller-monster-first-cursor-support,one-worker-bonus-action,PASS,Exactly one materializer entry for bonus plan.,O0.log
+O0,controller-monster-first-cursor-support,gate-called-on-bonus-plan,PASS,Dual gate must run before responsible materializer.,O0.log
+O0,controller-monster-first-cursor-support,no-repeated-category,PASS,Two actual controller-consumed categories must be distinct.,O0.log
+O0,controller-monster-first-cursor-support,final-ledger-matches-actions,PASS,A complete Monster+Support pair exhausts both quotas exactly once.,O0.log
+O0,controller-offscreen-first-action,offscreen-exactly-one-exchange,PASS,Actual default native eight-card window selects upcoming Dark Magician; AI owns one exchange.,O0.log
+O0,controller-offscreen-first-action,offscreen-instance-conservation,PASS,All 80 unique data-block identities conserved and deck positions stable.,O0.log
+O0,controller-offscreen-first-action,offscreen-gate-executed,PASS,Preserve-hand worker must remain behind Dual validation/snapshot.,O0.log
+O0,two-logical-instances,two-instances-one-worker,PASS,"Injected two-card plan: one worker, one exchange per distinct selected instance; all identities conserved.",O0.log
+O0,adversarial-monster-already-used,invalid-plan-rejected-before-worker,PASS,"Adversarial post-filter injection, not natural gameplay reachability.",O0.log
+O0,adversarial-monster-already-used,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O0.log
+O0,adversarial-monster-already-used,rejected-bonus-cancels-cleanly,PASS,"Actual rejection cleanup/frame callback, UI completion modeled.",O0.log
+O0,adversarial-support-already-used,invalid-plan-rejected-before-worker,PASS,"Adversarial post-filter injection, not natural gameplay reachability.",O0.log
+O0,adversarial-support-already-used,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O0.log
+O0,adversarial-support-already-used,rejected-bonus-cancels-cleanly,PASS,"Actual rejection cleanup/frame callback, UI completion modeled.",O0.log
+O0,adversarial-ritual-during-bonus,invalid-plan-rejected-before-worker,PASS,"Adversarial post-filter injection, not natural gameplay reachability.",O0.log
+O0,adversarial-ritual-during-bonus,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O0.log
+O0,adversarial-ritual-during-bonus,rejected-bonus-cancels-cleanly,PASS,"Actual rejection cleanup/frame callback, UI completion modeled.",O0.log
+O0,adversarial-empty-plan-cancel,invalid-plan-rejected-before-worker,PASS,"Adversarial post-filter injection, not natural gameplay reachability.",O0.log
+O0,adversarial-empty-plan-cancel,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O0.log
+O0,adversarial-empty-plan-cancel,rejected-bonus-cancels-cleanly,PASS,"Actual rejection cleanup/frame callback, UI completion modeled.",O0.log
+O0,off-on-stable-chain,loaded-off-on-preserves-chain,PASS,Official Hooks_Relink retains registration order; neither fixes nor reverses I2.,O0.log
+O0,off-on-stable-chain,ai-off-stock-worker-once,PASS,Inactive AI delegates through official chain; original materializer executes once.,O0.log
+O0,off-on-stable-chain,dual-off-ai-worker-once,PASS,OFF removes gate without duplicating active AI worker.,O0.log
+O0,off-on-stable-chain,new-duel-clears-quota-state,PASS,Real Dual scene-init hook clears its registered state.,O0.log
+O0,global,official-manager-order,PASS,"EFFECTIVE_ORDER ai-hard-mode dual-play
+RESULT official-manager-order PASS Both ranks valid with unchanged manifests; O0/O1 project to H then D.",O0.log
+O1,memory-layout,native-data-aliases,PASS,Synthetic RAM preserves native byte identities and staging/deck aliases.,O1.log
+O1,controller-support-first-cursor-monster,controller-completes-one-action,PASS,Native controller consumes exactly one physical hand instance.,O1.log
+O1,controller-support-first-cursor-monster,planner-unforced-choice,PASS,"Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",O1.log
+O1,controller-support-first-cursor-monster,gate-called-on-first-plan,PASS,Dual authoritative CPU category snapshot must run even for physical-only plans.,O1.log
+O1,controller-support-first-cursor-monster,one-worker-first-action,PASS,One AI materializer entry; physical selection requires no deck-record exchange.,O1.log
+O1,controller-support-first-cursor-monster,ledger-matches-first-action,PASS,"Quota category must match actual controller-consumed card, not initial cursor.",O1.log
+O1,controller-support-first-cursor-monster,bonus-from-controller-state,PASS,Actual Dual frame rebuild; no bonus/quota state injected.,O1.log
+O1,controller-support-first-cursor-monster,setup-masks-recorded-used-and-ritual,PASS,Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.,O1.log
+O1,controller-support-first-cursor-monster,one-worker-bonus-action,PASS,Exactly one materializer entry for bonus plan.,O1.log
+O1,controller-support-first-cursor-monster,gate-called-on-bonus-plan,PASS,Dual gate must run before responsible materializer.,O1.log
+O1,controller-support-first-cursor-monster,no-repeated-category,PASS,Two actual controller-consumed categories must be distinct.,O1.log
+O1,controller-support-first-cursor-monster,final-ledger-matches-actions,PASS,A complete Monster+Support pair exhausts both quotas exactly once.,O1.log
+O1,controller-monster-first-cursor-support,controller-completes-one-action,PASS,Native controller consumes exactly one physical hand instance.,O1.log
+O1,controller-monster-first-cursor-support,planner-unforced-choice,PASS,"Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",O1.log
+O1,controller-monster-first-cursor-support,gate-called-on-first-plan,PASS,Dual authoritative CPU category snapshot must run even for physical-only plans.,O1.log
+O1,controller-monster-first-cursor-support,one-worker-first-action,PASS,One AI materializer entry; physical selection requires no deck-record exchange.,O1.log
+O1,controller-monster-first-cursor-support,ledger-matches-first-action,PASS,"Quota category must match actual controller-consumed card, not initial cursor.",O1.log
+O1,controller-monster-first-cursor-support,bonus-from-controller-state,PASS,Actual Dual frame rebuild; no bonus/quota state injected.,O1.log
+O1,controller-monster-first-cursor-support,setup-masks-recorded-used-and-ritual,PASS,Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.,O1.log
+O1,controller-monster-first-cursor-support,one-worker-bonus-action,PASS,Exactly one materializer entry for bonus plan.,O1.log
+O1,controller-monster-first-cursor-support,gate-called-on-bonus-plan,PASS,Dual gate must run before responsible materializer.,O1.log
+O1,controller-monster-first-cursor-support,no-repeated-category,PASS,Two actual controller-consumed categories must be distinct.,O1.log
+O1,controller-monster-first-cursor-support,final-ledger-matches-actions,PASS,A complete Monster+Support pair exhausts both quotas exactly once.,O1.log
+O1,controller-offscreen-first-action,offscreen-exactly-one-exchange,PASS,Actual default native eight-card window selects upcoming Dark Magician; AI owns one exchange.,O1.log
+O1,controller-offscreen-first-action,offscreen-instance-conservation,PASS,All 80 unique data-block identities conserved and deck positions stable.,O1.log
+O1,controller-offscreen-first-action,offscreen-gate-executed,PASS,Preserve-hand worker must remain behind Dual validation/snapshot.,O1.log
+O1,two-logical-instances,two-instances-one-worker,PASS,"Injected two-card plan: one worker, one exchange per distinct selected instance; all identities conserved.",O1.log
+O1,adversarial-monster-already-used,invalid-plan-rejected-before-worker,PASS,"Adversarial post-filter injection, not natural gameplay reachability.",O1.log
+O1,adversarial-monster-already-used,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O1.log
+O1,adversarial-monster-already-used,rejected-bonus-cancels-cleanly,PASS,"Actual rejection cleanup/frame callback, UI completion modeled.",O1.log
+O1,adversarial-support-already-used,invalid-plan-rejected-before-worker,PASS,"Adversarial post-filter injection, not natural gameplay reachability.",O1.log
+O1,adversarial-support-already-used,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O1.log
+O1,adversarial-support-already-used,rejected-bonus-cancels-cleanly,PASS,"Actual rejection cleanup/frame callback, UI completion modeled.",O1.log
+O1,adversarial-ritual-during-bonus,invalid-plan-rejected-before-worker,PASS,"Adversarial post-filter injection, not natural gameplay reachability.",O1.log
+O1,adversarial-ritual-during-bonus,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O1.log
+O1,adversarial-ritual-during-bonus,rejected-bonus-cancels-cleanly,PASS,"Actual rejection cleanup/frame callback, UI completion modeled.",O1.log
+O1,adversarial-empty-plan-cancel,invalid-plan-rejected-before-worker,PASS,"Adversarial post-filter injection, not natural gameplay reachability.",O1.log
+O1,adversarial-empty-plan-cancel,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O1.log
+O1,adversarial-empty-plan-cancel,rejected-bonus-cancels-cleanly,PASS,"Actual rejection cleanup/frame callback, UI completion modeled.",O1.log
+O1,off-on-stable-chain,loaded-off-on-preserves-chain,PASS,Official Hooks_Relink retains registration order; neither fixes nor reverses I2.,O1.log
+O1,off-on-stable-chain,ai-off-stock-worker-once,PASS,Inactive AI delegates through official chain; original materializer executes once.,O1.log
+O1,off-on-stable-chain,dual-off-ai-worker-once,PASS,OFF removes gate without duplicating active AI worker.,O1.log
+O1,off-on-stable-chain,new-duel-clears-quota-state,PASS,Real Dual scene-init hook clears its registered state.,O1.log
+O1,global,official-manager-order,PASS,"EFFECTIVE_ORDER ai-hard-mode dual-play
+RESULT official-manager-order PASS Both ranks valid with unchanged manifests; O0/O1 project to H then D.",O1.log
+O2,memory-layout,native-data-aliases,PASS,Synthetic RAM preserves native byte identities and staging/deck aliases.,O2.log
+O2,controller-support-first-cursor-monster,controller-completes-one-action,PASS,Native controller consumes exactly one physical hand instance.,O2.log
+O2,controller-support-first-cursor-monster,planner-unforced-choice,PASS,"Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",O2.log
+O2,controller-support-first-cursor-monster,gate-called-on-first-plan,FAIL,Dual authoritative CPU category snapshot must run even for physical-only plans.,O2.log
+O2,controller-support-first-cursor-monster,one-worker-first-action,PASS,One AI materializer entry; physical selection requires no deck-record exchange.,O2.log
+O2,controller-support-first-cursor-monster,ledger-matches-first-action,FAIL,"Quota category must match actual controller-consumed card, not initial cursor.",O2.log
+O2,controller-support-first-cursor-monster,bonus-from-controller-state,PASS,Actual Dual frame rebuild; no bonus/quota state injected.,O2.log
+O2,controller-support-first-cursor-monster,setup-masks-recorded-used-and-ritual,PASS,Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.,O2.log
+O2,controller-support-first-cursor-monster,one-worker-bonus-action,PASS,Exactly one materializer entry for bonus plan.,O2.log
+O2,controller-support-first-cursor-monster,gate-called-on-bonus-plan,FAIL,Dual gate must run before responsible materializer.,O2.log
+O2,controller-support-first-cursor-monster,no-repeated-category,FAIL,Two actual controller-consumed categories must be distinct.,O2.log
+O2,controller-support-first-cursor-monster,final-ledger-matches-actions,FAIL,A complete Monster+Support pair exhausts both quotas exactly once.,O2.log
+O2,controller-monster-first-cursor-support,controller-completes-one-action,PASS,Native controller consumes exactly one physical hand instance.,O2.log
+O2,controller-monster-first-cursor-support,planner-unforced-choice,PASS,"Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",O2.log
+O2,controller-monster-first-cursor-support,gate-called-on-first-plan,FAIL,Dual authoritative CPU category snapshot must run even for physical-only plans.,O2.log
+O2,controller-monster-first-cursor-support,one-worker-first-action,PASS,One AI materializer entry; physical selection requires no deck-record exchange.,O2.log
+O2,controller-monster-first-cursor-support,ledger-matches-first-action,FAIL,"Quota category must match actual controller-consumed card, not initial cursor.",O2.log
+O2,controller-monster-first-cursor-support,bonus-from-controller-state,PASS,Actual Dual frame rebuild; no bonus/quota state injected.,O2.log
+O2,controller-monster-first-cursor-support,setup-masks-recorded-used-and-ritual,PASS,Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.,O2.log
+O2,controller-monster-first-cursor-support,one-worker-bonus-action,PASS,Exactly one materializer entry for bonus plan.,O2.log
+O2,controller-monster-first-cursor-support,gate-called-on-bonus-plan,FAIL,Dual gate must run before responsible materializer.,O2.log
+O2,controller-monster-first-cursor-support,no-repeated-category,FAIL,Two actual controller-consumed categories must be distinct.,O2.log
+O2,controller-monster-first-cursor-support,final-ledger-matches-actions,FAIL,A complete Monster+Support pair exhausts both quotas exactly once.,O2.log
+O2,controller-offscreen-first-action,offscreen-exactly-one-exchange,PASS,Actual default native eight-card window selects upcoming Dark Magician; AI owns one exchange.,O2.log
+O2,controller-offscreen-first-action,offscreen-instance-conservation,PASS,All 80 unique data-block identities conserved and deck positions stable.,O2.log
+O2,controller-offscreen-first-action,offscreen-gate-executed,FAIL,Preserve-hand worker must remain behind Dual validation/snapshot.,O2.log
+O2,two-logical-instances,two-instances-one-worker,PASS,"Injected two-card plan: one worker, one exchange per distinct selected instance; all identities conserved.",O2.log
+O2,adversarial-monster-already-used,invalid-plan-rejected-before-worker,FAIL,"Adversarial post-filter injection, not natural gameplay reachability.",O2.log
+O2,adversarial-monster-already-used,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O2.log
+O2,adversarial-monster-already-used,rejected-bonus-cancels-cleanly,BLOCKED,NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed,O2.log
+O2,adversarial-support-already-used,invalid-plan-rejected-before-worker,FAIL,"Adversarial post-filter injection, not natural gameplay reachability.",O2.log
+O2,adversarial-support-already-used,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O2.log
+O2,adversarial-support-already-used,rejected-bonus-cancels-cleanly,BLOCKED,NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed,O2.log
+O2,adversarial-ritual-during-bonus,invalid-plan-rejected-before-worker,FAIL,"Adversarial post-filter injection, not natural gameplay reachability.",O2.log
+O2,adversarial-ritual-during-bonus,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O2.log
+O2,adversarial-ritual-during-bonus,rejected-bonus-cancels-cleanly,BLOCKED,NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed,O2.log
+O2,adversarial-empty-plan-cancel,invalid-plan-rejected-before-worker,FAIL,"Adversarial post-filter injection, not natural gameplay reachability.",O2.log
+O2,adversarial-empty-plan-cancel,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O2.log
+O2,adversarial-empty-plan-cancel,rejected-bonus-cancels-cleanly,BLOCKED,NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed,O2.log
+O2,off-on-stable-chain,loaded-off-on-preserves-chain,PASS,Official Hooks_Relink retains registration order; neither fixes nor reverses I2.,O2.log
+O2,off-on-stable-chain,ai-off-stock-worker-once,PASS,Inactive AI delegates through official chain; original materializer executes once.,O2.log
+O2,off-on-stable-chain,dual-off-ai-worker-once,PASS,OFF removes gate without duplicating active AI worker.,O2.log
+O2,off-on-stable-chain,new-duel-clears-quota-state,PASS,Real Dual scene-init hook clears its registered state.,O2.log
+O2,global,official-manager-order,PASS,"EFFECTIVE_ORDER dual-play ai-hard-mode
+RESULT official-manager-order PASS Both ranks valid with unchanged manifests; O0/O1 project to H then D.",O2.log
+O0-late-AI,memory-layout,native-data-aliases,PASS,Synthetic RAM preserves native byte identities and staging/deck aliases.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,controller-completes-one-action,PASS,Native controller consumes exactly one physical hand instance.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,planner-unforced-choice,PASS,"Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,gate-called-on-first-plan,FAIL,Dual authoritative CPU category snapshot must run even for physical-only plans.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,one-worker-first-action,PASS,One AI materializer entry; physical selection requires no deck-record exchange.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,ledger-matches-first-action,FAIL,"Quota category must match actual controller-consumed card, not initial cursor.",O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,bonus-from-controller-state,PASS,Actual Dual frame rebuild; no bonus/quota state injected.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,setup-masks-recorded-used-and-ritual,PASS,Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,one-worker-bonus-action,PASS,Exactly one materializer entry for bonus plan.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,gate-called-on-bonus-plan,FAIL,Dual gate must run before responsible materializer.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,no-repeated-category,FAIL,Two actual controller-consumed categories must be distinct.,O0-late-AI.log
+O0-late-AI,controller-support-first-cursor-monster,final-ledger-matches-actions,FAIL,A complete Monster+Support pair exhausts both quotas exactly once.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,controller-completes-one-action,PASS,Native controller consumes exactly one physical hand instance.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,planner-unforced-choice,PASS,"Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,gate-called-on-first-plan,FAIL,Dual authoritative CPU category snapshot must run even for physical-only plans.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,one-worker-first-action,PASS,One AI materializer entry; physical selection requires no deck-record exchange.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,ledger-matches-first-action,FAIL,"Quota category must match actual controller-consumed card, not initial cursor.",O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,bonus-from-controller-state,PASS,Actual Dual frame rebuild; no bonus/quota state injected.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,setup-masks-recorded-used-and-ritual,PASS,Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,one-worker-bonus-action,PASS,Exactly one materializer entry for bonus plan.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,gate-called-on-bonus-plan,FAIL,Dual gate must run before responsible materializer.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,no-repeated-category,FAIL,Two actual controller-consumed categories must be distinct.,O0-late-AI.log
+O0-late-AI,controller-monster-first-cursor-support,final-ledger-matches-actions,FAIL,A complete Monster+Support pair exhausts both quotas exactly once.,O0-late-AI.log
+O0-late-AI,controller-offscreen-first-action,offscreen-exactly-one-exchange,PASS,Actual default native eight-card window selects upcoming Dark Magician; AI owns one exchange.,O0-late-AI.log
+O0-late-AI,controller-offscreen-first-action,offscreen-instance-conservation,PASS,All 80 unique data-block identities conserved and deck positions stable.,O0-late-AI.log
+O0-late-AI,controller-offscreen-first-action,offscreen-gate-executed,FAIL,Preserve-hand worker must remain behind Dual validation/snapshot.,O0-late-AI.log
+O0-late-AI,two-logical-instances,two-instances-one-worker,PASS,"Injected two-card plan: one worker, one exchange per distinct selected instance; all identities conserved.",O0-late-AI.log
+O0-late-AI,adversarial-monster-already-used,invalid-plan-rejected-before-worker,FAIL,"Adversarial post-filter injection, not natural gameplay reachability.",O0-late-AI.log
+O0-late-AI,adversarial-monster-already-used,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O0-late-AI.log
+O0-late-AI,adversarial-monster-already-used,rejected-bonus-cancels-cleanly,BLOCKED,NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed,O0-late-AI.log
+O0-late-AI,adversarial-support-already-used,invalid-plan-rejected-before-worker,FAIL,"Adversarial post-filter injection, not natural gameplay reachability.",O0-late-AI.log
+O0-late-AI,adversarial-support-already-used,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O0-late-AI.log
+O0-late-AI,adversarial-support-already-used,rejected-bonus-cancels-cleanly,BLOCKED,NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed,O0-late-AI.log
+O0-late-AI,adversarial-ritual-during-bonus,invalid-plan-rejected-before-worker,FAIL,"Adversarial post-filter injection, not natural gameplay reachability.",O0-late-AI.log
+O0-late-AI,adversarial-ritual-during-bonus,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O0-late-AI.log
+O0-late-AI,adversarial-ritual-during-bonus,rejected-bonus-cancels-cleanly,BLOCKED,NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed,O0-late-AI.log
+O0-late-AI,adversarial-empty-plan-cancel,invalid-plan-rejected-before-worker,FAIL,"Adversarial post-filter injection, not natural gameplay reachability.",O0-late-AI.log
+O0-late-AI,adversarial-empty-plan-cancel,rejected-plan-does-not-consume,PASS,Validation attempt alone cannot consume hand/deck instances or quotas.,O0-late-AI.log
+O0-late-AI,adversarial-empty-plan-cancel,rejected-bonus-cancels-cleanly,BLOCKED,NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed,O0-late-AI.log
+O0-late-AI,off-on-stable-chain,loaded-off-on-preserves-chain,PASS,Official Hooks_Relink retains registration order; neither fixes nor reverses I2.,O0-late-AI.log
+O0-late-AI,off-on-stable-chain,ai-off-stock-worker-once,PASS,Inactive AI delegates through official chain; original materializer executes once.,O0-late-AI.log
+O0-late-AI,off-on-stable-chain,dual-off-ai-worker-once,PASS,OFF removes gate without duplicating active AI worker.,O0-late-AI.log
+O0-late-AI,off-on-stable-chain,new-duel-clears-quota-state,PASS,Real Dual scene-init hook clears its registered state.,O0-late-AI.log
+O0-late-AI,global,official-manager-order,PASS,"EFFECTIVE_ORDER ai-hard-mode dual-play
+RESULT official-manager-order PASS Both ranks valid with unchanged manifests; O0/O1 project to H then D.",O0-late-AI.log
+global,,Gameplay Windows / complete duel / real opponent decks,BLOCKED,No game image/catalog/decks/runtime; synthetic catalog and constructed board cannot prove live-game reachability.,RESULTADOS.json
+global,,Full effect/placement/field resolution,MODEL,Actual hand controller consumes cards; simple burn/placement-to-field and UI completion are modeled between actions.,RESULTADOS.json
+global,,Native stock AI interpreter when AI OFF / no-plan fallback,SKIP,AiScript_Init is actual code; AiScript_Run base fallback returns zero without executing disc bytecode. AI OFF test covers materializer chain only.,RESULTADOS.json
+global,,Full Mods_Apply/live UI lifecycle,STATIC+MODEL,"Actual manager ordering and hooks executed; late first load emulates activation sequence confirmed by mods.c, not full UI.",RESULTADOS.json
+global,,Global automatic order-only fix,UNPROVEN,Safe startup H<D tested; late first-load can register H after already-loaded D despite configured H<D.,RESULTADOS.json
+global,,Production fix,NOT_IMPLEMENTED,"Diagnostic task only; no source, manifest, SDK or MOD objects changed.",RESULTADOS.json
