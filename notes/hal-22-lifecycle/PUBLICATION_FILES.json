@@ -1,0 +1,271 @@
+{
+  "scope": "Own lifecycle fixtures/docs/results only; no production source, modified installable manifest or third-party payload",
+  "excluded": "Index excludes itself to avoid recursive hashing",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5886,
+      "sha256": "098b4f91853df0f7251964650cbe5643fec91c22be21386f976506ecf7e6b112"
+    },
+    {
+      "path": "notes/HAL22_LIFECYCLE_RESTART.md",
+      "bytes": 15811,
+      "sha256": "cf14e19001d22fe2e970af195698133386d3ea868244edb7c09d1af1a8ad3c68"
+    },
+    {
+      "path": "tests/hal22-lifecycle/README.md",
+      "bytes": 4760,
+      "sha256": "4008d2a72a6cda7ff97fdd55b3df42347a73fa4cd19eb5fb15cec58603f8ce0b"
+    },
+    {
+      "path": "tests/hal22-lifecycle/harness.c",
+      "bytes": 33633,
+      "sha256": "081917715436300590bc79cb57d90d5e0c9329c63aacc8b1d53712ae86ea047e"
+    },
+    {
+      "path": "tests/hal22-lifecycle/run.py",
+      "bytes": 12070,
+      "sha256": "cdcd6854025743bb04da7e8f573cb0069f5ea78b3346ae1de9cb2b2df38747c3"
+    },
+    {
+      "path": "tests/hal22-lifecycle/window_bridge.c",
+      "bytes": 988,
+      "sha256": "9d38fc5c8f72ece90ca11afe157c65b2bf9df2d21d64942ecca7c11b93309b47"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/INPUTS.json",
+      "bytes": 10444,
+      "sha256": "c1af6ed8f495f435d9a8f4db4b42c20d8ad6999aa8701ccf0a1e006eb98a28eb"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/MATRIZ.md",
+      "bytes": 5394,
+      "sha256": "41be3bb731eb5be9f3fde437364ebd88370362754f75b8069c3b25258d3d8206"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/REFS_PRESERVADAS.json",
+      "bytes": 1986,
+      "sha256": "80a7d0e528059ffd361b1d53a512e4cab56735a34075f2f43200a10f87665395"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/MATRIZ.csv",
+      "bytes": 340720,
+      "sha256": "7aec7221ea4271f814de848c1f5f8ca8dfa517b109e1770556a7f70f7c2ed118"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/RESULTADOS.json",
+      "bytes": 618013,
+      "sha256": "b79ccd0e93c0080320a2ed33623a005f372d05a5cae75ea26490318dc9d92bd1"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/build-harness.log",
+      "bytes": 11469,
+      "sha256": "fa16693058b14aea7510d9555e3c27889a69e6b3695879f3344e5c0f26e5a6a8"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/equal-rank-ai-first-p0.log",
+      "bytes": 212422,
+      "sha256": "0f94e854b3b5d729c58be60c815718d5d6bff9a9522b41787271076e56eb43b4"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/equal-rank-dual-first-p0.log",
+      "bytes": 207672,
+      "sha256": "14b29caf3d722fd3937df488e6a25a22e4d9d55ed1902445428c2891e018d57e"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-apply-original-p0.log",
+      "bytes": 207914,
+      "sha256": "47a970d8e8852e1c521233b79981b039cc3ee2b58a18be5cf98ea04606fd1671"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-apply-original-p1.log",
+      "bytes": 212422,
+      "sha256": "f19f859c8a20208dbca481e8ce6dbeaf6c006dbc41447178e5166e0bde5378a7"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-apply-restart-p0.log",
+      "bytes": 6343,
+      "sha256": "9b74402691ea00cde93147ac3f96292274cee90668b7b464ddd63a63617b6deb"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-apply-restart-p1.log",
+      "bytes": 212422,
+      "sha256": "b0b589fc8f805f403521bf07f5c1824eb21c91a7bce86df0ff912344ce2b7d38"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-direct-original-p0.log",
+      "bytes": 207847,
+      "sha256": "cded6467a3976ed9793dabaf1dfa63ac00969bac8a812c4ae663ed9fbe296bd5"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-direct-original-p1.log",
+      "bytes": 212422,
+      "sha256": "2dad33a1520efb1e7644d529a4d190465e6a5eba24671adc6817e473a7600878"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-direct-restart-p0.log",
+      "bytes": 6276,
+      "sha256": "55a41b93649aaeca09109a5b92677c41d123191d802a262d3cd6780a48a72ad6"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-direct-restart-p1.log",
+      "bytes": 212422,
+      "sha256": "664c205f8e1cead7bf5d21852f5e600116036df533ef621a172eeeb215f423dd"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-reload-original-p0.log",
+      "bytes": 207870,
+      "sha256": "962d073e0de30e99ef45e5d49822cb2ab77a7e671db6ff9ce95c775b2ca4da55"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-reload-original-p1.log",
+      "bytes": 212422,
+      "sha256": "ada0dd8ddbb62f49b75bdbf7d304f196357f62f768a44031a6d14da053622f78"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-reload-restart-p0.log",
+      "bytes": 6299,
+      "sha256": "33dc7096b324a85d3ad54895710e5643f837c48449e90ce41c8e3d69a1f418b3"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-ai-reload-restart-p1.log",
+      "bytes": 212422,
+      "sha256": "9b3cd5e62afff8efbb1f03fa60c61f7510126e8418ea2b30190786ca90399606"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-dual-original-p0.log",
+      "bytes": 212412,
+      "sha256": "9c094de55c81d20a73cb01cf78c8acddf4232828c5884e45b69d10591eaa5ba2"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-dual-original-p1.log",
+      "bytes": 212422,
+      "sha256": "35fb1db80a76bd979e19e2a9ad1a6245a5917054efbedef0de3dc1aa8d920a50"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-dual-restart-p0.log",
+      "bytes": 212412,
+      "sha256": "018c2cf86ad3573609fff02b0aae8a914a9de93763d9d2445660b09a3720b6ec"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/late-dual-restart-p1.log",
+      "bytes": 212422,
+      "sha256": "aed48f0aceb48aeeaf8c5eb1cf21ec85dcd7ced1bcb80e48bf72d40119f6e614"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/off-on-original-p0.log",
+      "bytes": 219840,
+      "sha256": "aa772ff47b6faec5bd6f95ca15feb1fcecd6aa7488af0ea7fa0165fb69fe18ec"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/off-on-original-p1.log",
+      "bytes": 212422,
+      "sha256": "ee7f9fbc71050995c18b66f339067204eb037cc00890024dc31209c81ba9272d"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/off-on-restart-p0.log",
+      "bytes": 220034,
+      "sha256": "32befcfacff0d763176766b73e0ba82c2964d12726362b177522c7a1a65373dc"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/off-on-restart-p1.log",
+      "bytes": 212422,
+      "sha256": "2d28c11234f0423fd9d6d06f89e03952b50a2c9e4949fdf75279f61c1c74e480"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/persist-off-restart-p0.log",
+      "bytes": 212630,
+      "sha256": "4aceaa98a7cf2a6b93ac02e60a6817988aa542df3dd844701ec77b04bdf2137a"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/persist-off-restart-p1.log",
+      "bytes": 6343,
+      "sha256": "c065f7fbf60af4fa5934551e5b3572d0e82405fcc7c1fa146ce390d9f84589ca"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/persist-off-restart-p2.log",
+      "bytes": 212422,
+      "sha256": "de666659ce4be4141d9e1aa79592040a0296f8659551e93408dff88a25275497"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/rank-invert-original-p0.log",
+      "bytes": 212884,
+      "sha256": "115745db336430258617ee1b0fa8d5efed4593e0e7db5c2cda689cef7c2ed4ba"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/rank-invert-original-p1.log",
+      "bytes": 207672,
+      "sha256": "ea91742b2f37bb0113837305e973e7d97146f5db864d34ab2c7d231e94a3ec93"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/rank-invert-restart-p0.log",
+      "bytes": 212884,
+      "sha256": "65023ba37b3510645f84f613a3296eab5017edb961577a059ba7b10c18590244"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/rank-invert-restart-p1.log",
+      "bytes": 207672,
+      "sha256": "a58116867c87bf9a3a3fcb3c0c7108a701ffece825e4df22488589eb013af199"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/rank-repair-restart-p0.log",
+      "bytes": 208134,
+      "sha256": "8b776f51e62cabd3323484a3446841b4152f0ad9e5553cb79c85877c31747447"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/rank-repair-restart-p1.log",
+      "bytes": 212422,
+      "sha256": "2c2f19b9c3d6ed7bef1694beeb2d6c53b5ff0723865a7ce91e3a92d49ef5b162"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/restart-fails-repair-p0.log",
+      "bytes": 208320,
+      "sha256": "2f64bda5d8f172d47853f6286d59411444edc9d8f4cb79adc3a1371c6ad3f2bc"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/restart-fails-repair-p1.log",
+      "bytes": 212422,
+      "sha256": "09adb862b8c19f7aae260313ffdaf6a57ad16db3adf9ac3b65379ed8240bcd2e"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/safe-original-p0.log",
+      "bytes": 212422,
+      "sha256": "a5051353d3768b4626c689c2742577fa1bd14fb3e62f159ccd7f9ea33a4f31c0"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/safe-restart-p0.log",
+      "bytes": 212422,
+      "sha256": "78ee68c34e410ea096bac6c2555b62392aabd305f7db73638976bd33aed13430"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/window-cancel-restart-p0.log",
+      "bytes": 6449,
+      "sha256": "24b0cf499f11a9a40089a125400cfeba34b4e05eb311687b7f724ce0f75e347d"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/window-cancel-restart-p1.log",
+      "bytes": 6060,
+      "sha256": "3faf8ed29b69fafa88fa9f255be6bbe042a96d9317933c0698e64ae40938d2e3"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/window-first-ai-original-p0.log",
+      "bytes": 207985,
+      "sha256": "fb9ab150d5995875620ff73eaf924153117c51416defce47236070d15fb40875"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/window-first-ai-original-p1.log",
+      "bytes": 212422,
+      "sha256": "7d618df8412971f64d2e381464dd76cc9b2871992772621d2f6a5e2cbdadc500"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/window-first-ai-restart-p0.log",
+      "bytes": 6537,
+      "sha256": "e52548cdcdf8202c4283ebbb6a74615e963d0118fb8918b7c86885f4c729a5c2"
+    },
+    {
+      "path": "notes/hal-22-lifecycle/resultados/window-first-ai-restart-p1.log",
+      "bytes": 212422,
+      "sha256": "fa34eb8fa51fd8687bce9521946079acd034ab13531df8f447ab14e0a612e234"
+    }
+  ]
+}

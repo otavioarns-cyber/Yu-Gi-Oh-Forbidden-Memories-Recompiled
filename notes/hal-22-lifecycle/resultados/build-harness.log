@@ -1,0 +1,231 @@
+In file included from tests/hal22-lifecycle/harness.c:28:
+src/game/ai.h:173:1: warning: variably modified ‘AiScriptState_card_set_offset_must_be_0x3E’ at file scope
+  173 | ];
+      | ^
+src/game/ai.h:181:1: warning: variably modified ‘AiScriptState_type_set_offset_must_be_0x7E’ at file scope
+  181 | ];
+      | ^
+src/game/ai.h:185:1: warning: variably modified ‘AiScriptState_combo_offset_must_be_0x38’ at file scope
+  185 | ];
+      | ^
+src/game/ai.h:188:1: warning: variably modified ‘AiScriptState_field_97_offset_must_be_0x97’ at file scope
+  188 | ];
+      | ^
+src/game/ai.h:191:1: warning: variably modified ‘AiScriptState_attack_best_stat_offset_must_be_0x98’ at file scope
+  191 | ];
+      | ^
+src/game/ai.h:194:1: warning: variably modified ‘AiScriptState_attack_best_slot_offset_must_be_0x9A’ at file scope
+  194 | ];
+      | ^
+src/game/ai.h:197:1: warning: variably modified ‘AiScriptState_attack_best_target_offset_must_be_0x9B’ at file scope
+  197 | ];
+      | ^
+src/game/ai.h:201:1: warning: variably modified ‘AiScriptState_fusion_count_offset_must_be_0x9C’ at file scope
+  201 | ];
+      | ^
+src/game/ai.h:205:1: warning: variably modified ‘AiScriptState_fusion_limit_offset_must_be_0x9D’ at file scope
+  205 | ];
+      | ^
+src/game/ai.h:209:1: warning: variably modified ‘AiScriptState_fusion_set_offset_must_be_0x9E’ at file scope
+  209 | ];
+      | ^
+src/game/ai.h:213:1: warning: variably modified ‘AiScriptState_fusion_best_stat_offset_must_be_0xA0’ at file scope
+  213 | ];
+      | ^
+src/game/ai.h:217:1: warning: variably modified ‘AiScriptState_fusion_depth_offset_must_be_0xA2’ at file scope
+  217 | ];
+      | ^
+src/game/ai.h:221:1: warning: variably modified ‘AiScriptState_fusion_best_depth_offset_must_be_0xA3’ at file scope
+  221 | ];
+      | ^
+src/game/ai.h:225:1: warning: variably modified ‘AiScriptState_fusion_path_offset_must_be_0xA4’ at file scope
+  225 | ];
+      | ^
+src/game/ai.h:229:1: warning: variably modified ‘AiScriptState_fusion_used_offset_must_be_0xAA’ at file scope
+  229 | ];
+      | ^
+src/game/ai.h:235:1: warning: variably modified ‘AiSelection_value_offset_must_be_0x06’ at file scope
+  235 | ];
+      | ^
+src/game/ai.h:238:1: warning: variably modified ‘AiSelection_zero_offset_must_be_0x07’ at file scope
+  238 | ];
+      | ^
+src/game/ai.h:241:1: warning: variably modified ‘AiSelection_random_offset_must_be_0x08’ at file scope
+  241 | ];
+      | ^
+src/game/ai.h:244:1: warning: variably modified ‘AiSelection_field_09_offset_must_be_0x09’ at file scope
+  244 | ];
+      | ^
+In file included from tests/hal22-lifecycle/harness.c:29:
+src/game/duel_card.h:50:1: warning: variably modified ‘DuelCardRecord_object_offset_must_be_0x00’ at file scope
+   50 | ];
+      | ^
+src/game/duel_card.h:53:1: warning: variably modified ‘DuelCardRecord_data_offset_must_be_0x04’ at file scope
+   53 | ];
+      | ^
+src/game/duel_card.h:56:1: warning: variably modified ‘DuelCardRecord_card_id_offset_must_be_0x0C’ at file scope
+   56 | ];
+      | ^
+src/game/duel_card.h:59:1: warning: variably modified ‘DuelCardRecord_attack_offset_must_be_0x0E’ at file scope
+   59 | ];
+      | ^
+src/game/duel_card.h:62:1: warning: variably modified ‘DuelCardRecord_defense_offset_must_be_0x10’ at file scope
+   62 | ];
+      | ^
+src/game/duel_card.h:65:1: warning: variably modified ‘DuelCardRecord_stat_modifier_offset_must_be_0x12’ at file scope
+   65 | ];
+      | ^
+src/game/duel_card.h:69:1: warning: variably modified ‘DuelCardRecord_defense_modifier_offset_must_be_0x1A’ at file scope
+   69 | ];
+      | ^
+src/game/duel_card.h:73:1: warning: variably modified ‘DuelCardRecord_terrain_modifier_offset_must_be_0x14’ at file scope
+   73 | ];
+      | ^
+src/game/duel_card.h:76:1: warning: variably modified ‘DuelCardRecord_flags_offset_must_be_0x16’ at file scope
+   76 | ];
+      | ^
+src/game/duel_card.h:79:1: warning: variably modified ‘DuelCardRecord_table_index_offset_must_be_0x18’ at file scope
+   79 | ];
+      | ^
+In file included from tests/hal22-lifecycle/harness.c:30:
+src/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope
+   22 | ];
+      | ^
+src/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope
+   25 | ];
+      | ^
+src/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope
+   28 | ];
+      | ^
+src/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope
+   31 | ];
+      | ^
+src/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope
+   34 | ];
+      | ^
+In file included from src/game/duel_side_state.h:8,
+                 from tests/hal22-lifecycle/harness.c:31:
+src/game/duel_card_effects.h:36:1: warning: variably modified ‘DuelFieldEffectObject_callback_offset_must_be_0x24’ at file scope
+   36 | ];
+      | ^
+src/game/duel_card_effects.h:39:1: warning: variably modified ‘DuelFieldEffectObject_mark_offset_must_be_0x67’ at file scope
+   39 | ];
+      | ^
+src/game/duel_card_effects.h:42:1: warning: variably modified ‘DuelFieldEffectObject_active_offset_must_be_0x6C’ at file scope
+   42 | ];
+      | ^
+src/game/duel_side_state.h:79:1: warning: variably modified ‘DuelSideState_hand_must_be_at_0x1A’ at file scope
+   79 | ];
+      | ^
+src/game/duel_side_state.h:85:1: warning: variably modified ‘DuelSideState_deck_draw_cursor_must_be_at_0x18’ at file scope
+   85 | ];
+      | ^
+src/game/duel_side_state.h:88:1: warning: variably modified ‘DuelSideState_swords_turns_remaining_must_be_at_0x19’ at file scope
+   88 | ];
+      | ^
+src/game/duel_side_state.h:91:1: warning: variably modified ‘DuelSideState_card_view_mode_must_be_at_0x1F’ at file scope
+   91 | ];
+      | ^
+In file included from tests/hal22-lifecycle/harness.c:32:
+src/game/duel_hand.h:33:1: warning: variably modified ‘DuelHandSlot_child_offset_must_be_0x04’ at file scope
+   33 | ];
+      | ^
+src/game/duel_hand.h:36:1: warning: variably modified ‘DuelHandSlot_active_09_offset_must_be_0x09’ at file scope
+   36 | ];
+      | ^
+src/game/duel_hand.h:77:1: warning: variably modified ‘DuelHandStackState_position_object_offset_must_be_0x4’ at file scope
+   77 | ];
+      | ^
+src/game/duel_hand.h:80:1: warning: variably modified ‘DuelHandStackState_slot_index_offset_must_be_0xE’ at file scope
+   80 | ];
+      | ^
+src/game/duel_hand.h:83:1: warning: variably modified ‘DuelHandStackState_count_offset_must_be_0x15’ at file scope
+   83 | ];
+      | ^
+In file included from tests/hal22-lifecycle/harness.c:34:
+src/game/duel_check_ritual.h:19:1: warning: variably modified ‘DuelRitualResult_clear_word_offset_must_be_0x0C’ at file scope
+   19 | ];
+      | ^
+In file included from src/game/duel_check_ritual.h:88:
+src/game/../psyq/libgte.h:443:12: warning: conflicting types for built-in function ‘ccos’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+  443 | extern int ccos(int a);
+      |            ^~~~
+src/game/../psyq/libgte.h:9:1: note: ‘ccos’ is declared in header ‘<complex.h>’
+    8 | #include "../types.h"
+  +++ |+#include <complex.h>
+    9 | 
+src/game/../psyq/libgte.h:444:12: warning: conflicting types for built-in function ‘csin’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+  444 | extern int csin(int a);
+      |            ^~~~
+src/game/../psyq/libgte.h:444:12: note: ‘csin’ is declared in header ‘<complex.h>’
+src/game/../psyq/libgte.h:446:12: warning: conflicting types for built-in function ‘csqrt’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+  446 | extern int csqrt(int a);
+      |            ^~~~~
+src/game/../psyq/libgte.h:446:12: note: ‘csqrt’ is declared in header ‘<complex.h>’
+src/game/../psyq/libgte.h:447:12: warning: conflicting types for built-in function ‘catan’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+  447 | extern int catan(int a);
+      |            ^~~~~
+src/game/../psyq/libgte.h:447:12: note: ‘catan’ is declared in header ‘<complex.h>’
+In file included from src/game/duel_selection_layout.h:5,
+                 from tests/hal22-lifecycle/harness.c:35:
+src/game/duel_card_pick_cursor.h:27:1: warning: variably modified ‘DuelCardPickCursor_col_offset_must_be_0xF’ at file scope
+   27 | ];
+      | ^
+src/game/duel_card_pick_cursor.h:30:1: warning: variably modified ‘DuelCardPickCursor_row_offset_must_be_0x10’ at file scope
+   30 | ];
+      | ^
+src/game/duel_card_pick_cursor.h:33:1: warning: variably modified ‘DuelCardPickCursor_status_offset_must_be_0x19’ at file scope
+   33 | ];
+      | ^
+src/game/duel_selection_layout.h:23:1: warning: variably modified ‘DuelSelectionSideView_hand_offset_must_be_8’ at file scope
+   23 | ];
+      | ^
+src/game/duel_selection_layout.h:72:1: warning: variably modified ‘DuelSelectionRecord_hand_offset_must_be_8’ at file scope
+   72 | ];
+      | ^
+src/game/duel_selection_layout.h:75:1: warning: variably modified ‘DuelSelectionRecord_field_0E_offset_must_be_0xE’ at file scope
+   75 | ];
+      | ^
+src/game/duel_selection_layout.h:78:1: warning: variably modified ‘DuelSelectionRecord_field_15_offset_must_be_0x15’ at file scope
+   78 | ];
+      | ^
+src/game/duel_selection_layout.h:81:1: warning: variably modified ‘DuelSelectionRecord_field_13_offset_must_be_0x13’ at file scope
+   81 | ];
+      | ^
+src/game/duel_selection_layout.h:84:1: warning: variably modified ‘DuelSelectionRecord_field_18_offset_must_be_0x18’ at file scope
+   84 | ];
+      | ^
+In file included from tests/hal22-lifecycle/harness.c:37:
+src/game/display_object.h:438:1: warning: variably modified ‘DisplayObject_field_22_must_be_at_0x22’ at file scope
+  438 | ];
+      | ^
+src/game/display_object.h:441:1: warning: variably modified ‘DisplayObject_update_must_be_at_0x24’ at file scope
+  441 | ];
+      | ^
+src/game/display_object.h:444:1: warning: variably modified ‘DisplayObject_position_must_be_at_0x28’ at file scope
+  444 | ];
+      | ^
+src/game/display_object.h:447:1: warning: variably modified ‘DisplayObject_field_3E_must_be_at_0x3E’ at file scope
+  447 | ];
+      | ^
+src/game/display_object.h:450:1: warning: variably modified ‘DisplayObject_field_42_must_be_at_0x42’ at file scope
+  450 | ];
+      | ^
+src/game/display_object.h:453:1: warning: variably modified ‘DisplayObject_field_4A_must_be_at_0x4A’ at file scope
+  453 | ];
+      | ^
+src/game/display_object.h:456:1: warning: variably modified ‘DisplayObject_field_3A_must_be_at_0x3A’ at file scope
+  456 | ];
+      | ^
+src/game/display_object.h:459:1: warning: variably modified ‘DisplayObject_field_52_must_be_at_0x52’ at file scope
+  459 | ];
+      | ^
+src/game/display_object.h:462:1: warning: variably modified ‘DisplayObject_field_58_must_be_at_0x58’ at file scope
+  462 | ];
+      | ^
+src/game/display_object.h:465:1: warning: variably modified ‘DisplayObject_field_64_must_be_at_0x64’ at file scope
+  465 | ];
+      | ^
+src/game/display_object.h:468:1: warning: variably modified ‘DisplayObject_field_65_must_be_at_0x65’ at file scope
+  468 | ];
+      | ^
