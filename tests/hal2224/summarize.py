@@ -1,0 +1,24 @@
+"""Generate a matrix from immutable result JSON; never change test outcomes."""
+from pathlib import Path
+import collections,json
+root=Path(__file__).resolve().parents[2];notes=root/'notes/hal-22-24'
+a=json.loads((notes/'resultados/RESULTADOS.json').read_text());b=json.loads((notes/'par-resultados/RESULTADOS.json').read_text())
+protected=lambda q:q['guard'] or q['lifecycle'].startswith('arm-')
+count=lambda qs:dict(collections.Counter(c['status'] for q in qs for c in q['checks']))
+main_on=[q for q in a['profiles'] if protected(q)];main_off=[q for q in a['profiles'] if not protected(q)]
+pair_on=[q for q in b['profiles'] if q['guard']];pair_off=[q for q in b['profiles'] if not q['guard']]
+summary={'main_protected':{'processes':len(main_on),'checks':count(main_on),'admitted':sum(any(s.startswith('ADMISSION') and 'ready=1 ' in s for s in q['observations']) for q in main_on)},'main_controls':{'processes':len(main_off),'checks':count(main_off)},'pair_protected':{'processes':len(pair_on),'checks':count(pair_on)},'pair_controls':{'processes':len(pair_off),'checks':count(pair_off)},'cross_profile':b['summary']['cross_profile']}
+summary['main_protected']['refused']=len(main_on)-summary['main_protected']['admitted']
+(notes/'SUMMARY.json').write_text(json.dumps(summary,indent=2)+'\n')
+lines=['# HAL-22 + HAL-24 — matriz da PoC conjunta','','As coortes protegidas não têm FAIL. Recusa antes do controller é um resultado esperado, distinto de gameplay executado. Os controles OFF preservam falhas conhecidas. A matriz principal não injeta planos, pending ou quotas; a suíte do par mantém controles adversariais separados.','','| Coorte | Processos | PASS | FAIL | BLOCKED | SKIP |','|---|---:|---:|---:|---:|---:|']
+for name,s in summary.items():
+ if 'processes' not in s:continue
+ c=s['checks'];lines.append(f'| {name} | {s["processes"]} | {c.get("PASS",0)} | {c.get("FAIL",0)} | {c.get("BLOCKED",0)} | {c.get("SKIP",0)} |')
+lines+=['',f'Principal protegida:{summary["main_protected"]["admitted"]} processos admitidos,{summary["main_protected"]["refused"]} recusados. Admissão não significa execução de bytecode retail/duelo completo. Alguns singles sem planner disponível não produzem ação. Par protegido:24 SKIP de composição individual/recusada; controles OFF:36 BLOCKED de limpeza cujo gate não rejeitou. Não há execução incompleta.','','| Composição aplicada | Ordem inicial exigida | Resultado/limite |','|---|---|---|','| H+RD+D | H→RD→D | D externo antes de qualquer worker; versões qualificadas e sem wrappers desconhecidos nos alvos protegidos. |','| H+D | H→D | Matriz HAL22 e regressões de quotas/materialização passaram. |','| RD+D | RD→D | Cenários RD/controller do PR19 passaram. |','| H+RD sem D | Sem restrição de quota Dual | Não é correção da HAL23; lifecycle entre planner/swap não foi alterado. |','| Apenas um | Sem restrição de ordem conjunta | Inicialização/admissão independentes; retail VM permanece não executada. |','| Wrapper desconhecido em swap/controller da mão | Composição não qualificada | Recusada, inclusive wrapper transparente; nenhum hook é reordenado. |','| Wrapper em alvo não relacionado | Ordem original | Callback observado normalmente, sem bloqueio adicional. |','| Empates | Somente ordem resolvida correta | Um empate seguro admitido, quatro resoluções inseguras recusadas. |','','3072 ordenações reais de manifests × guard OFF/ON, mais 3072 validações de ranks staged; 2304 aceitas/768 recusadas. Ordem geral idêntica; 1920 configurações sem par de quotas não receberam restrição. Três regressões entre perfis passaram, incluindo suíte oficial de hooks e igualdade das primeiras escolhas do AI.','','## Principal — todos os processos','','| Perfil | Fase | Guard | Admissão | PASS | FAIL | Log |','|---|---|---|---|---:|---:|---|']
+for q in a['profiles']:
+ c=collections.Counter(x['status'] for x in q['checks']);ad='admitido' if any(s.startswith('ADMISSION') and 'ready=1 ' in s for s in q['observations']) else 'recusado';g='ON após legacy' if q['lifecycle'].startswith('arm-') else str(q['guard']);log=q['execution']['log'];lines.append(f'| `{q["case"]}` | {q["phase"]} | {g} | {ad} | {c["PASS"]} | {c["FAIL"]} | [log](resultados/{log}) |')
+lines+=['','## Par HAL22 — todos os processos','','| Perfil | Fase | Guard | PASS | FAIL | BLOCKED | SKIP | Log |','|---|---|---|---:|---:|---:|---:|---|']
+for q in b['profiles']:
+ c=collections.Counter(x['status'] for x in q['checks']);log=q['execution']['log'];lines.append(f'| `{q["case"]}` | {q["phase"]} | {q["guard"]} | {c["PASS"]} | {c["FAIL"]} | {c["BLOCKED"]} | {c["SKIP"]} | [log](par-resultados/{log}) |')
+lines+=['','[JSON principal](resultados/RESULTADOS.json) · [CSV principal](resultados/MATRIZ.csv) · [JSON par](par-resultados/RESULTADOS.json) · [CSV par](par-resultados/MATRIZ.csv) · [Resumo](SUMMARY.json) · [Relatório A–G](../HAL22_24_THREE_WAY_GUARD_POC.md).','']
+(notes/'MATRIZ.md').write_text('\n'.join(lines));print(summary)

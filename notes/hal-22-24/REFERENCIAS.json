@@ -1,0 +1,38 @@
+[
+  {
+    "pr": 14,
+    "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+    "path": "notes/HAL20_INTEGRACAO_INICIAL.md",
+    "sha256": "a0312eac5a59093ed22f22a4d31513ce771dfe17b451c904579de115e7ac5658"
+  },
+  {
+    "pr": 15,
+    "commit": "9d21f19a8edf9c12ce5e2de419a7ef8037c6cf50",
+    "path": "notes/HAL22_AI_HARD_MODE_DUAL_PLAY.md",
+    "sha256": "26bfa2a6824fa0cbf308df5f1d75516fc1b81eb5252003ad9daa8830adccacd9"
+  },
+  {
+    "pr": 16,
+    "commit": "927760384813cde811c865b28cedf6e443a3d541",
+    "path": "notes/HAL22_LIFECYCLE_RESTART.md",
+    "sha256": "cf14e19001d22fe2e970af195698133386d3ea868244edb7c09d1af1a8ad3c68"
+  },
+  {
+    "pr": 17,
+    "commit": "28721162904f70db27a74175118bb45c41d5176c",
+    "path": "notes/HAL22_ORDER_GUARD_POC.md",
+    "sha256": "0c3bce77b0c4393e1602e295375bc67cbe2474fd2d6fb8c37ffec2f8f6144476"
+  },
+  {
+    "pr": 18,
+    "commit": "39e6ac97a0724bc310bd91595bac71543aa738e5",
+    "path": "notes/HAL23_PENDING_LIFECYCLE.md",
+    "sha256": "484454612da71863ed048b28fb6a50a0b3ff3faf5d76f20108c184d32db983ac"
+  },
+  {
+    "pr": 19,
+    "commit": "597158fb75892247e872b4db85672311540e9801",
+    "path": "notes/HAL24_RITUAL_DUELISTS_DUAL_GATE.md",
+    "sha256": "97be6fe103ff4f6ff18e68982b2f36a8f62c3b9149f851b67a5f7b5376f43d93"
+  }
+]

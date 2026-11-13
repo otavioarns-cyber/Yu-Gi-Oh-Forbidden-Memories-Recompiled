@@ -1,0 +1,36 @@
+{
+  "main_protected": {
+    "processes": 204,
+    "checks": {
+      "PASS": 1224
+    },
+    "admitted": 106,
+    "refused": 98
+  },
+  "main_controls": {
+    "processes": 12,
+    "checks": {
+      "PASS": 105,
+      "FAIL": 13
+    }
+  },
+  "pair_protected": {
+    "processes": 51,
+    "checks": {
+      "PASS": 1834,
+      "SKIP": 24
+    }
+  },
+  "pair_controls": {
+    "processes": 45,
+    "checks": {
+      "PASS": 1908,
+      "FAIL": 158,
+      "BLOCKED": 36,
+      "SKIP": 9
+    }
+  },
+  "cross_profile": {
+    "PASS": 3
+  }
+}

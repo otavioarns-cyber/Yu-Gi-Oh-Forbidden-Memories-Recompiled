@@ -1,0 +1,41 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gBuildDeck_aWorkspace
+NATIVE_BIND Main_RunDuel unit=guard_main
+NATIVE_DATA D_8009B26C size=1
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+REAL_HOST_EXPORTS count=198
+memories-pc: mod ai-hard-mode: HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.
+memories-pc: mod dual-play: HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.
+memories-pc: mod ritual-duelists: HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.
+memories-pc: experimental mod profile rejected: HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.
+MANAGER id=ai-hard-mode enabled=1 active=0 status=HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.
+MANAGER id=drop-missing-cards enabled=1 active=0 status=
+MANAGER id=dual-play enabled=1 active=0 status=HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.
+MANAGER id=hal2224-observer enabled=1 active=0 status=
+MANAGER id=ritual-duelists enabled=0 active=0 status=HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.
+LIFECYCLE method=none H-want=1 H-active=0 D-want=1 D-active=0 H-restart=0 RD-want=0 RD-active=0
+RULES provider=0 abi=0 count=0 sources=0 min_field=0 min_hand=0 require=0
+TRACE case=init owner=engine name=Main_RunDuel
+TRACE case=init owner=engine name=Mods_Hal2224GuardReady
+TRACE case=init owner=engine name=Platform_ShowError
+VISIBLE_ERROR HAL-22/24 experimental mod profile: HAL-22/24: startup transaction was refused. Repair the profile and relaunch; preferences were kept.
+ADMISSION before-controller enabled=1 ready=0 entered=0 notices=1 reason=HAL-22/24: startup transaction was refused. Repair the profile and relaunch; preferences were kept.
+RESULT native-duel-entry-fence PASS Actual experimental Main_RunDuel returns before initialization/controller for unverified composition.
+RESULT explicit-profile-refusal PASS Visible platform error observed by stub, no silent disabling or action execution.
+NOT_RUN controller-suite profile refused before setup
+SUMMARY assertions=5857 failures=0 no pending/plan/quota injection

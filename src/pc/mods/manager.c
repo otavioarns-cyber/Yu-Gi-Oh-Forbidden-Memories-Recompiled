@@ -6,6 +6,7 @@
 #include "overlap.h"
 #include "hooks.h"
 #include "events.h"
+#include "exports.h"
 #include "pc/debug/log.h"
 #include "pc/platform/paths.h"
 #include "pc/platform/settings.h"
@@ -148,6 +149,117 @@ static int order_ranked(const int *enabled, const int *ranks, int *order, char *
     }
     return total;
 }
+/* Experimental joint profile, default OFF. The existing orderer and hook
+ * linker are queried, never rewritten. Only qualified object versions and
+ * known swap/controller owners are admitted for a Dual/materializer pair. */
+static char hal2224_startup_error[256];
+int Mods_Hal2224GuardEnabled(void)
+{
+    return Settings_GetNamed("experimental.hal2224_order_guard", 0) == 1;
+}
+static int hal2224_error(char *out, size_t size, const char *why)
+{
+    if (out && size) snprintf(out, size, "%s", why);
+    return 0;
+}
+static void hal2224_ids(int ids[3])
+{
+    ids[0] = find("ai-hard-mode");
+    ids[1] = find("ritual-duelists");
+    ids[2] = find("dual-play");
+}
+static int hal2224_joint(const int ids[3], const int *active)
+{
+    return ids[2] >= 0 && active[ids[2]] &&
+        ((ids[0] >= 0 && active[ids[0]]) || (ids[1] >= 0 && active[ids[1]]));
+}
+static int hal2224_chain(const int ids[3], const int *active,
+                         const int *order, int count, int projected,
+                         char *error, size_t size)
+{
+    const void *swap = Mods_Lookup("func_8001BAF0");
+    const void *hand = Mods_Lookup("DuelScene_UpdateHandActions");
+    int position[3] = {-1,-1,-1}, hits[3] = {0,0,0}, owner, tail = 0;
+    const void *target;
+    if (!swap || !hand)
+        return hal2224_error(error, size, "HAL-22/24: hook targets unavailable. Duel blocked; review this experimental profile.");
+    for (int i = 0; Hooks_At(i, &owner, &target); i++) {
+        tail = i + 1;
+        if (owner < 0 || owner >= Mods_Count() || !active[owner]) continue;
+        int known = -1;
+        for (int j = 0; j < 3; j++) if (owner == ids[j]) known = j;
+        if ((target == swap && known < 0) || (target == hand && owner != ids[2]))
+            return hal2224_error(error, size, "HAL-22/24: an unqualified wrapper intercepts materialization or the hand controller. Duel blocked; no hooks were reordered.");
+        if (target == swap && known >= 0) { position[known] = i; ++hits[known]; }
+    }
+    if (projected) {
+        /* Libraries never initialized would append their hooks. Use the
+         * existing resolved activation order for simultaneous first loads. */
+        for (int i = 0; i < count; i++) for (int j = 0; j < 3; j++)
+            if (order[i] == ids[j] && active[order[i]] && !hits[j]) {
+                position[j] = tail++; hits[j] = 1;
+            }
+    }
+    for (int j = 0; j < 3; j++) if (ids[j] >= 0 && active[ids[j]] && hits[j] != 1)
+        return hal2224_error(error, size, "HAL-22/24: materializer registrations could not be verified. Duel blocked; restart with a qualified profile.");
+    if ((ids[0] >= 0 && active[ids[0]] && position[0] >= position[2]) ||
+        (ids[1] >= 0 && active[ids[1]] && position[1] >= position[2]) ||
+        (ids[0] >= 0 && ids[1] >= 0 && active[ids[0]] && active[ids[1]] && position[0] >= position[1]))
+        return hal2224_error(error, size, "HAL-22/24: active hook order is unsafe. Load AI, then Ritual Duelists, then Dual Play; restart. Duel blocked.");
+    return 1;
+}
+int Mods_Hal2224GuardValidate(const int *enabled, const int *ranks, char *error, size_t size)
+{
+    int ids[3], order[MODS_MAX], count, position[3] = {-1,-1,-1};
+    int future[MODS_MAX], same = 1;
+    if (!Mods_Hal2224GuardEnabled()) return 1;
+    hal2224_ids(ids);
+    count = order_ranked(enabled, ranks, order, error, size);
+    if (count < 0) return 0;
+    if (hal2224_joint(ids, enabled)) {
+        for (int i = 0; i < count; i++) for (int j = 0; j < 3; j++)
+            if (order[i] == ids[j]) position[j] = i;
+        if ((ids[0] >= 0 && enabled[ids[0]] && position[0] >= position[2]) ||
+            (ids[1] >= 0 && enabled[ids[1]] && position[1] >= position[2]) ||
+            (ids[0] >= 0 && ids[1] >= 0 && enabled[ids[0]] && enabled[ids[1]] && position[0] >= position[1]))
+            return hal2224_error(error, size, "HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.");
+    }
+    for (int i = 0; i < Mods_Count(); i++) {
+        future[i] = Mods_RequiresRestart(i) ? Mods_Active(i) : enabled[i];
+        if (future[i] != Mods_Active(i)) same = 0;
+    }
+    int current[MODS_MAX];
+    for (int i = 0; i < Mods_Count(); i++) current[i] = Mods_Active(i);
+    if (hal2224_joint(ids, current)) for (int i = 0; i < Mods_Count(); i++) {
+        if (i == ids[0] || i == ids[1] || i == ids[2] || !future[i] || current[i] || Mods_CodeHash(i)) continue;
+        if (Json_Member(Mods_Manifest(i), "library") || Json_Member(Mods_Manifest(i), "libraries"))
+            return hal2224_error(error, size, "HAL-22/24: first live load of unqualified code requires a relaunch. Activation refused before initialization; preferences were kept.");
+    }
+    /* A legacy unsafe chain may save a repair; Ready still blocks it until
+     * relaunch. Validate every newly activated composition, including actual
+     * restart-deferred members whose saved preference is already OFF. */
+    if (!same && hal2224_joint(ids, future))
+        return hal2224_chain(ids, future, order, count, 1, error, size);
+    return 1;
+}
+void Mods_Hal2224GuardStartupRejected(const char *reason)
+{
+    snprintf(hal2224_startup_error, sizeof(hal2224_startup_error), "%s", reason);
+}
+int Mods_Hal2224GuardReady(char *error, size_t size)
+{
+    int ids[3], active[MODS_MAX];
+    static const unsigned qualified[3] = {0x3e0648cbU,0x57b53592U,0x3028c68aU};
+    if (*hal2224_startup_error)
+        return hal2224_error(error, size, "HAL-22/24: startup transaction was refused. Repair the profile and relaunch; preferences were kept.");
+    if (!Mods_Hal2224GuardEnabled()) return 1;
+    hal2224_ids(ids);
+    for (int i = 0; i < Mods_Count(); i++) active[i] = Mods_Active(i);
+    if (!hal2224_joint(ids, active)) return 1;
+    for (int j = 0; j < 3; j++) if (ids[j] >= 0 && active[ids[j]] && Mods_CodeHash(ids[j]) != qualified[j])
+        return hal2224_error(error, size, "HAL-22/24: this object version is not qualified for the experimental joint profile. Duel blocked.");
+    return hal2224_chain(ids, active, NULL, 0, 0, error, size);
+}
 int Mods_Validate(const int *enabled, char *error, size_t size)
 {
     int i, order[MODS_MAX];
@@ -177,7 +289,8 @@ static int newest_first(int *out)
 int Mods_Apply(const int *enabled, char *error, size_t size)
 {
     int old[MODS_MAX], stored[MODS_MAX], order[MODS_MAX], newest[MODS_MAX], i, n;
-    if (!Mods_Validate(enabled, error, size))
+    if (!Mods_Validate(enabled, error, size) ||
+        !Mods_Hal2224GuardValidate(enabled, NULL, error, size))
         return 0;
     /* Only what the player changed is written: a mod MEMORIES_MODS=0 or
      * MEMORIES_MOD_<ID> turned on or off for this run keeps its choice. */
