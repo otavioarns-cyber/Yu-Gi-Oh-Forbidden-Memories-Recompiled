@@ -4,13 +4,13 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5570,
-      "sha256": "25ed4cf3ee2385ce971b25acd2ad44da61ed717f74193f3ef1bead6d0b9c54a1"
+      "bytes": 5689,
+      "sha256": "24b7b426cd301b7b7dbe634c99d0c7c710e0dd18a21eceb1d2d1c92454f46809"
     },
     {
       "path": "notes/HAL22_AI_HARD_MODE_DUAL_PLAY.md",
-      "bytes": 17978,
-      "sha256": "8af2cd253e26431f5949d6bd963ed843434843bc2dfb1ce6775745a7ba4c4ac7"
+      "bytes": 18124,
+      "sha256": "26bfa2a6824fa0cbf308df5f1d75516fc1b81eb5252003ad9daa8830adccacd9"
     },
     {
       "path": "tests/hal22/README.md",

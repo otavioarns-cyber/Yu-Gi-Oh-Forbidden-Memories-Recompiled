@@ -2,7 +2,7 @@
 
 **I2 foi reproduzido com somente os dois MODs, incluindo uma divergência de contabilização produzida pelo controller e pelo planner oficiais em um host de testes. Não há correção de produção nesta entrega nem comprovação em duelo completo Windows.**
 
-Branch independente: `test/hal-22-ai-hard-mode-dual-play`, derivada de `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`. Núcleo oficial `aceac3782902746f35ddb0148809450933327cb3`, SDK API 24. [Tarefa HAL-22](https://linear.app/half-programer/issue/HAL-22).
+Branch independente: `test/hal-22-ai-hard-mode-dual-play`, derivada de `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`. Núcleo oficial `aceac3782902746f35ddb0148809450933327cb3`, SDK API 24. [PR #15 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/15), direcionado à integração, sem merge. [Tarefa HAL-22](https://linear.app/half-programer/issue/HAL-22).
 
 Leitura de continuidade: `AGENTS.md`, [relatório e matriz do PR #14](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14), congelados em `ae43436e0e23437642ab45eb4da2b4a9374c2e39`. [INPUTS.json](hal-22/INPUTS.json) registra os hashes dessas evidências e dos insumos atuais. Os achados I1, I3 e F1 não foram incorporados aos testes ou corrigidos.
 
