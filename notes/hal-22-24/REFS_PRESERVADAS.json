@@ -1,0 +1,150 @@
+{
+  "base": "d649647c159c91d615c07d6960928a37e270b461",
+  "verification": "All existing remote heads checked unchanged before publication; only new HAL22-24 experimental branch may be added. No merge or force push.",
+  "heads": [
+    {
+      "ref": "refs/heads/backup/master-pre-v0.2.0",
+      "before": "4f58718bb89751fe8070b6093a659cb55908aa9d",
+      "after": "4f58718bb89751fe8070b6093a659cb55908aa9d",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/backup/master-pre-v0.2.1-preview.1",
+      "before": "7a8da6d964ddadb9af38241139f4232bc8290332",
+      "after": "7a8da6d964ddadb9af38241139f4232bc8290332",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/backup/mod-field-effects-pre-v0.2.0",
+      "before": "985609424e7e81d75b2bdcc75a8d082e92356cd0",
+      "after": "985609424e7e81d75b2bdcc75a8d082e92356cd0",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/docs/hal-20-dual-play-preview2",
+      "before": "078b62142b00c7ad39b1dc6175fbc9b247f93141",
+      "after": "078b62142b00c7ad39b1dc6175fbc9b247f93141",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/docs/hal-20-inventario-plano",
+      "before": "2fb97b7f9b1c5b9e1ed360570ecc9f3026fcbcaa",
+      "after": "2fb97b7f9b1c5b9e1ed360570ecc9f3026fcbcaa",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/docs/hal-5-auditoria-mods",
+      "before": "09c3530517a01dc5c39ab90677d9c324510359eb",
+      "after": "09c3530517a01dc5c39ab90677d9c324510359eb",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/downloads/efeitos-rituais-v0.78.40",
+      "before": "561d3d97818c3d964a39454e97cedcdf6e9163a3",
+      "after": "561d3d97818c3d964a39454e97cedcdf6e9163a3",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/integration/hal-20-v0.3.1-preview.2",
+      "before": "d649647c159c91d615c07d6960928a37e270b461",
+      "after": "d649647c159c91d615c07d6960928a37e270b461",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/master",
+      "before": "0d78202729967a5bbdbc886aa128e48e82bef7ac",
+      "after": "0d78202729967a5bbdbc886aa128e48e82bef7ac",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/mod-field-effects",
+      "before": "296c5919479711b550d00aea8cd042b1c34ba306",
+      "after": "296c5919479711b550d00aea8cd042b1c34ba306",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/mod-ritual-effects",
+      "before": "632cd012deefe5a71482e0e8633ea19c8346b5af",
+      "after": "632cd012deefe5a71482e0e8633ea19c8346b5af",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/mods/hal-20-fusion-effects-preview2",
+      "before": "907ed98cfb763a96f5aa1ad6369f809cceca5f1c",
+      "after": "907ed98cfb763a96f5aa1ad6369f809cceca5f1c",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/mods/hal-20-melhoria-dos-rituais-preview2",
+      "before": "0d28d844c3b88b38ab0db71635959ddd223d8c14",
+      "after": "0d28d844c3b88b38ab0db71635959ddd223d8c14",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/mods/hal-20-ritual-duelists-preview2",
+      "before": "9a363f28f6dbfe779b1b901ddecab74ab1be57e9",
+      "after": "9a363f28f6dbfe779b1b901ddecab74ab1be57e9",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/mods/hal-20-ritual-effects-preview2",
+      "before": "2cf0de31e88e9f1c058b3747b2b2add3db0e347c",
+      "after": "2cf0de31e88e9f1c058b3747b2b2add3db0e347c",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/ritual-requirements",
+      "before": "c2e8783aa2bafb3473e44cc0ae35a6b2d3c9e992",
+      "after": "c2e8783aa2bafb3473e44cc0ae35a6b2d3c9e992",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/ritual-requirements-v014",
+      "before": "8ba422b58b49b4b97f238df96f186921e9b9ed2c",
+      "after": "8ba422b58b49b4b97f238df96f186921e9b9ed2c",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/test/hal-20-integracao-inicial",
+      "before": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "after": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/test/hal-22-ai-hard-mode-dual-play",
+      "before": "9d21f19a8edf9c12ce5e2de419a7ef8037c6cf50",
+      "after": "9d21f19a8edf9c12ce5e2de419a7ef8037c6cf50",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/test/hal-22-lifecycle-restart",
+      "before": "927760384813cde811c865b28cedf6e443a3d541",
+      "after": "927760384813cde811c865b28cedf6e443a3d541",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/test/hal-22-order-guard-poc",
+      "before": "28721162904f70db27a74175118bb45c41d5176c",
+      "after": "28721162904f70db27a74175118bb45c41d5176c",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/test/hal-23-pending-lifecycle",
+      "before": "39e6ac97a0724bc310bd91595bac71543aa738e5",
+      "after": "39e6ac97a0724bc310bd91595bac71543aa738e5",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/test/hal-24-ritual-duelists-dual-gate",
+      "before": "597158fb75892247e872b4db85672311540e9801",
+      "after": "597158fb75892247e872b4db85672311540e9801",
+      "unchanged": true
+    },
+    {
+      "ref": "refs/heads/upstream-v0.2.0",
+      "before": "0185f58df7928cc6338ceb221d169e2b42feca6d",
+      "after": "0185f58df7928cc6338ceb221d169e2b42feca6d",
+      "unchanged": true
+    }
+  ]
+}

@@ -1,0 +1,459 @@
+{
+  "base_commit": "d649647c159c91d615c07d6960928a37e270b461",
+  "official_commit": "aceac3782902746f35ddb0148809450933327cb3",
+  "previous_pr": 16,
+  "previous_commit": "927760384813cde811c865b28cedf6e443a3d541",
+  "local_dependencies": [
+    {
+      "id": "ai-hard-mode",
+      "path": "ai-hard-mode.o",
+      "bytes": 119672,
+      "sha256": "9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc",
+      "published": false,
+      "provenance": "Official base PR #8"
+    },
+    {
+      "id": "ai-hard-mode",
+      "path": "mod.json",
+      "bytes": 4102,
+      "sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "published": false,
+      "provenance": "Official base PR #8"
+    },
+    {
+      "id": "dual-play",
+      "path": "dual-play.o",
+      "bytes": 68196,
+      "sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+      "published": false,
+      "provenance": "Private API 24 i386 rebuild identified in PR #10; no redistribution permission"
+    },
+    {
+      "id": "dual-play",
+      "path": "mod.json",
+      "bytes": 341,
+      "sha256": "c3244ab680764a0d930c12929c5adf8ae3128e4d6b981f5e06ff3eb624839563",
+      "published": false,
+      "provenance": "Private API 24 i386 rebuild identified in PR #10; no redistribution permission"
+    }
+  ],
+  "native_engine_objects": [
+    {
+      "path": "src_game_duel_field_layout.c.o",
+      "source": "src/game/duel_field_layout.c",
+      "bytes": 3052,
+      "sha256": "c04da09c11ccdf055a0624397ae1978bfcb71a2cf38d27132dc14087d652822f",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_ai_opponent_data.c.o",
+      "source": "src/game/ai_opponent_data.c",
+      "bytes": 12696,
+      "sha256": "726f21ba102b4edff7532cc6d139da42119fadeb32bb1729e4b03beb18cae0ef",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_duel_scene_hand_actions.c.o",
+      "source": "src/game/duel_scene_hand_actions.c",
+      "bytes": 29020,
+      "sha256": "182befc7d0ca6a01e5b2ee96522232166a483e05a3c42ba202ed704339ea6e10",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_func_8001B938.c.o",
+      "source": "src/game/func_8001B938.c",
+      "bytes": 13632,
+      "sha256": "34e71b86826935833ffb20adc513c24ad9ce1b886af833cb525031c887451722",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_duel_card_state_helpers.c.o",
+      "source": "src/game/duel_card_state_helpers.c",
+      "bytes": 3948,
+      "sha256": "82b1166941d46b966529351b7cefdb7a658008bcd1d71508d386f99cfac8e52c",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_func_80027DF8.c.o",
+      "source": "src/game/func_80027DF8.c",
+      "bytes": 8780,
+      "sha256": "a93bb53a28fe29ed3cf5c6e42bb8855c5e0924cd98ade8669ebe14eb50243659",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_ai_script_vm.c.o",
+      "source": "src/game/ai_script_vm.c",
+      "bytes": 6736,
+      "sha256": "1bda927aa90bd78a1bdd8f75e2cf4dedf3b6cbaee235757a64cf4d23b1cc6490",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_ai_get_hand_size.c.o",
+      "source": "src/game/ai_get_hand_size.c",
+      "bytes": 2992,
+      "sha256": "3874c01d095ddce9be48aefba59ecd1011fbe948ccb208cb1ba78f08eb03eb4b",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_func_8001B7AC.c.o",
+      "source": "src/game/func_8001B7AC.c",
+      "bytes": 8936,
+      "sha256": "926fb96b1f1d5b4bf94937be58f6430d733b856770b24880af1c0c07c75109aa",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    },
+    {
+      "path": "src_game_duel_state_init.c.o",
+      "source": "src/game/duel_state_init.c",
+      "bytes": 9368,
+      "sha256": "b9388b5fc7fd780fe0682c1afd2ee8981c41c5ab849212a12eb7f5504d623814",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-22"
+    }
+  ],
+  "public_source_files": [
+    {
+      "path": "config/pc/guest_addresses.txt",
+      "sha256": "23f27b2021300b502b65527dbe907a39014e18f922d3336039f689bab8fd0458",
+      "baseline_sha256": "23f27b2021300b502b65527dbe907a39014e18f922d3336039f689bab8fd0458",
+      "base_sha256": "23f27b2021300b502b65527dbe907a39014e18f922d3336039f689bab8fd0458",
+      "experimental": false
+    },
+    {
+      "path": "mods/ai-hard-mode/ai_hard_mode.c",
+      "sha256": "a3b20e76dfe2184d4be225f176e30b99afbc03710e2619efe1063e61cf02cd85",
+      "baseline_sha256": "a3b20e76dfe2184d4be225f176e30b99afbc03710e2619efe1063e61cf02cd85",
+      "base_sha256": "a3b20e76dfe2184d4be225f176e30b99afbc03710e2619efe1063e61cf02cd85",
+      "experimental": false
+    },
+    {
+      "path": "mods/ai-hard-mode/mod.json",
+      "sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "baseline_sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "base_sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "experimental": false
+    },
+    {
+      "path": "mods/ai-hard-mode/planner.c",
+      "sha256": "698ebc20263721dfc8e5d73b2febf4841dfa99ab45ca68a9c7f5372673dd056e",
+      "baseline_sha256": "698ebc20263721dfc8e5d73b2febf4841dfa99ab45ca68a9c7f5372673dd056e",
+      "base_sha256": "698ebc20263721dfc8e5d73b2febf4841dfa99ab45ca68a9c7f5372673dd056e",
+      "experimental": false
+    },
+    {
+      "path": "mods/ai-hard-mode/planner.h",
+      "sha256": "7139473406208aef58badc935a4a07ec8b80fdec57b02cc038b26f0723674032",
+      "baseline_sha256": "7139473406208aef58badc935a4a07ec8b80fdec57b02cc038b26f0723674032",
+      "base_sha256": "7139473406208aef58badc935a4a07ec8b80fdec57b02cc038b26f0723674032",
+      "experimental": false
+    },
+    {
+      "path": "src/game/ai_get_hand_size.c",
+      "sha256": "bcfcca3ac8126712de81e94e9141b5c18c93af1771c8335fcd3f6d43a2ee4e4c",
+      "baseline_sha256": "bcfcca3ac8126712de81e94e9141b5c18c93af1771c8335fcd3f6d43a2ee4e4c",
+      "base_sha256": "bcfcca3ac8126712de81e94e9141b5c18c93af1771c8335fcd3f6d43a2ee4e4c",
+      "experimental": false
+    },
+    {
+      "path": "src/game/ai_opponent_data.c",
+      "sha256": "a622a4614243327d85ad115cb9ccbf06028eb943e9892335975c47a9b2ba4759",
+      "baseline_sha256": "a622a4614243327d85ad115cb9ccbf06028eb943e9892335975c47a9b2ba4759",
+      "base_sha256": "a622a4614243327d85ad115cb9ccbf06028eb943e9892335975c47a9b2ba4759",
+      "experimental": false
+    },
+    {
+      "path": "src/game/ai_script_vm.c",
+      "sha256": "40bc48cd5eedb2bc40856bd8c2d31801caa7f3af15945cffd08b8ea9074ed663",
+      "baseline_sha256": "40bc48cd5eedb2bc40856bd8c2d31801caa7f3af15945cffd08b8ea9074ed663",
+      "base_sha256": "40bc48cd5eedb2bc40856bd8c2d31801caa7f3af15945cffd08b8ea9074ed663",
+      "experimental": false
+    },
+    {
+      "path": "src/game/duel_card_state_helpers.c",
+      "sha256": "4b1ba223edb8acc3300d9c0592052fe53213a16b69f5c2fb90f3a03da048e1fe",
+      "baseline_sha256": "4b1ba223edb8acc3300d9c0592052fe53213a16b69f5c2fb90f3a03da048e1fe",
+      "base_sha256": "4b1ba223edb8acc3300d9c0592052fe53213a16b69f5c2fb90f3a03da048e1fe",
+      "experimental": false
+    },
+    {
+      "path": "src/game/duel_field_layout.c",
+      "sha256": "a9ce8c0a2b52a3e0a0b39baaf3ad328aedb3f731aeff6b71a9f57b6c2cf8bc50",
+      "baseline_sha256": "a9ce8c0a2b52a3e0a0b39baaf3ad328aedb3f731aeff6b71a9f57b6c2cf8bc50",
+      "base_sha256": "a9ce8c0a2b52a3e0a0b39baaf3ad328aedb3f731aeff6b71a9f57b6c2cf8bc50",
+      "experimental": false
+    },
+    {
+      "path": "src/game/duel_scene_hand_actions.c",
+      "sha256": "1bbcd5d132ebcc4dcc77c9e5444130b857c38d32911c2af57c86357ccccacdfd",
+      "baseline_sha256": "1bbcd5d132ebcc4dcc77c9e5444130b857c38d32911c2af57c86357ccccacdfd",
+      "base_sha256": "1bbcd5d132ebcc4dcc77c9e5444130b857c38d32911c2af57c86357ccccacdfd",
+      "experimental": false
+    },
+    {
+      "path": "src/game/duel_state_init.c",
+      "sha256": "e21cab77a2e85ae6656ed11ee26676fc6f1ece40972b07eea0b2fedb3af374f0",
+      "baseline_sha256": "e21cab77a2e85ae6656ed11ee26676fc6f1ece40972b07eea0b2fedb3af374f0",
+      "base_sha256": "e21cab77a2e85ae6656ed11ee26676fc6f1ece40972b07eea0b2fedb3af374f0",
+      "experimental": false
+    },
+    {
+      "path": "src/game/func_8001B7AC.c",
+      "sha256": "450277f47992e6d3289e64659b546f3ec802b4d642ada57862d496d971a7e610",
+      "baseline_sha256": "450277f47992e6d3289e64659b546f3ec802b4d642ada57862d496d971a7e610",
+      "base_sha256": "450277f47992e6d3289e64659b546f3ec802b4d642ada57862d496d971a7e610",
+      "experimental": false
+    },
+    {
+      "path": "src/game/func_8001B938.c",
+      "sha256": "89632c300dd5e82a762143d9289a9adcecdd6d6ae6b1fe8fe8f1a24602110f9d",
+      "baseline_sha256": "89632c300dd5e82a762143d9289a9adcecdd6d6ae6b1fe8fe8f1a24602110f9d",
+      "base_sha256": "89632c300dd5e82a762143d9289a9adcecdd6d6ae6b1fe8fe8f1a24602110f9d",
+      "experimental": false
+    },
+    {
+      "path": "src/game/func_80027DF8.c",
+      "sha256": "65bd6323f7bd62228d9ef0a50b06fa89fbe15421ddcbedba9e89a5c23aed6b74",
+      "baseline_sha256": "65bd6323f7bd62228d9ef0a50b06fa89fbe15421ddcbedba9e89a5c23aed6b74",
+      "base_sha256": "65bd6323f7bd62228d9ef0a50b06fa89fbe15421ddcbedba9e89a5c23aed6b74",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/hooks.c",
+      "sha256": "87f512876556972b168fba3b53a86256e1b68c72fa81ff559a12bb17bdc79c95",
+      "baseline_sha256": "87f512876556972b168fba3b53a86256e1b68c72fa81ff559a12bb17bdc79c95",
+      "base_sha256": "87f512876556972b168fba3b53a86256e1b68c72fa81ff559a12bb17bdc79c95",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/manager.c",
+      "sha256": "d7bc8bcfb7b3d604166e0ab07a2478b3496d12f673cc6cdab59fdab03b72a8a6",
+      "baseline_sha256": "ec8136925fb1b8b6b2cf89491568c3e20aeb8960008b036d35509cd5b36a1fb0",
+      "base_sha256": "ec8136925fb1b8b6b2cf89491568c3e20aeb8960008b036d35509cd5b36a1fb0",
+      "experimental": true
+    },
+    {
+      "path": "src/pc/mods/mods.c",
+      "sha256": "698a8daefa1e5d9a7a38fbc3edd8148b34816546637e7f778267678060725306",
+      "baseline_sha256": "4abb0990dada4c2c17f2d147ee7bdaf984dde1756cec1d7c28ff70ee60d2ff4d",
+      "base_sha256": "4abb0990dada4c2c17f2d147ee7bdaf984dde1756cec1d7c28ff70ee60d2ff4d",
+      "experimental": true
+    },
+    {
+      "path": "src/pc/platform/mods_window.c",
+      "sha256": "7e8af609ae7f266a027fb6b2440ddb144eaec5f27f7629c2750527bd7c9ec80e",
+      "baseline_sha256": "9c7cdc112e2fe07ddfc5c94af38ea4d3dd047af8944fcd6a09d40d489b7a7095",
+      "base_sha256": "9c7cdc112e2fe07ddfc5c94af38ea4d3dd047af8944fcd6a09d40d489b7a7095",
+      "experimental": true
+    },
+    {
+      "path": "src/pc/platform/settings.c",
+      "sha256": "06a9fe5d5307bb45df06b5a4cdbeea09c0ec9a24f3a86397aed80612cc19e53f",
+      "baseline_sha256": "06a9fe5d5307bb45df06b5a4cdbeea09c0ec9a24f3a86397aed80612cc19e53f",
+      "base_sha256": "06a9fe5d5307bb45df06b5a4cdbeea09c0ec9a24f3a86397aed80612cc19e53f",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/platform/paths.c",
+      "sha256": "5ebd7f27a0fa2250994b800fcca010a7d77427bd3607c83dce97d92836298b14",
+      "baseline_sha256": "5ebd7f27a0fa2250994b800fcca010a7d77427bd3607c83dce97d92836298b14",
+      "base_sha256": "5ebd7f27a0fa2250994b800fcca010a7d77427bd3607c83dce97d92836298b14",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/events.c",
+      "sha256": "f7068a45a4d5f35b535bdd507cf5a92d9d6973d0ddd5bfbc3b81c28b80b3489f",
+      "baseline_sha256": "f7068a45a4d5f35b535bdd507cf5a92d9d6973d0ddd5bfbc3b81c28b80b3489f",
+      "base_sha256": "f7068a45a4d5f35b535bdd507cf5a92d9d6973d0ddd5bfbc3b81c28b80b3489f",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/object_loader.c",
+      "sha256": "c5455d6ecb00f0bae375cc54c94d97b74f92bc20e3814ee5157ab409bf9ccf64",
+      "baseline_sha256": "c5455d6ecb00f0bae375cc54c94d97b74f92bc20e3814ee5157ab409bf9ccf64",
+      "base_sha256": "c5455d6ecb00f0bae375cc54c94d97b74f92bc20e3814ee5157ab409bf9ccf64",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/overlap.c",
+      "sha256": "27a764905eef9834e858ef42a8c29c1a2e2103bedf6ad683d576588cb69957d0",
+      "baseline_sha256": "27a764905eef9834e858ef42a8c29c1a2e2103bedf6ad683d576588cb69957d0",
+      "base_sha256": "27a764905eef9834e858ef42a8c29c1a2e2103bedf6ad683d576588cb69957d0",
+      "experimental": false
+    },
+    {
+      "path": "src/game/main_run_duel.c",
+      "sha256": "768be4b5eb703aaf3c1b265b38ece19ef6b6d046fed89051cc2a01dde05b1524",
+      "base_sha256": "b771367ff0ba1208f2762a451332929d9b988bb5d8f82ca6be23f883c28981dd",
+      "experimental": true
+    },
+    {
+      "path": "src/pc/mods/mods.h",
+      "sha256": "f1d491fc7a529bbf5f8014b2c4f65cb143f0981bb802419d7c9da7f7a4fded62",
+      "base_sha256": "f58ca3e6508936a6f7512ef2779129c0671733ee4bcee8b23bbc86d6b5b1262b",
+      "experimental": true
+    },
+    {
+      "path": "mods/3d-monsters/mod.json",
+      "sha256": "b5c8f616e9c7ac87fe3918b85831589ffeb9794cd5183e3c54dc00ec3177b445",
+      "base_sha256": "b5c8f616e9c7ac87fe3918b85831589ffeb9794cd5183e3c54dc00ec3177b445",
+      "experimental": false
+    },
+    {
+      "path": "mods/hand-camera/mod.json",
+      "sha256": "e1eaf2360aa7370e5ecf001bafa1407041794519debcd102922d56faa7863eaa",
+      "base_sha256": "e1eaf2360aa7370e5ecf001bafa1407041794519debcd102922d56faa7863eaa",
+      "experimental": false
+    },
+    {
+      "path": "mods/yamyi-mods/mod.json",
+      "sha256": "7b213d01b7a2ee90e75349bc2bf0b4b467d0bf0d2f30bf32b8752c28fc5d71f8",
+      "base_sha256": "7b213d01b7a2ee90e75349bc2bf0b4b467d0bf0d2f30bf32b8752c28fc5d71f8",
+      "experimental": false
+    },
+    {
+      "path": "mods/drop-missing-cards/mod.json",
+      "sha256": "f4b3646f5d206e8728be62b089a383bddb7e30ffa37c154144553081b01a7d7c",
+      "base_sha256": "f4b3646f5d206e8728be62b089a383bddb7e30ffa37c154144553081b01a7d7c",
+      "experimental": false
+    }
+  ],
+  "reused_pr14_evidence": [
+    {
+      "path": "notes/HAL20_INTEGRACAO_INICIAL.md",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "a0312eac5a59093ed22f22a4d31513ce771dfe17b451c904579de115e7ac5658"
+    },
+    {
+      "path": "notes/hal-20/integracao-inicial/MATRIZ.md",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "02e3ebfe69e1b55bc7c1ebec3ca9b5c97cfa7f20c4c9bcfac972325272943ae2"
+    },
+    {
+      "path": "tests/hal20-integration/harness.c",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "efe752fe7832d40ea69c969ad93c9ac677e6b7711f96740a0b8ae088260dfb50"
+    },
+    {
+      "path": "tests/hal20-integration/order.c",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "321b24189fd3503a15938e8c313cf8ba770adee1477e08a51019399faab30ce9"
+    },
+    {
+      "path": "tests/hal20-integration/run.py",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "de81f3917ecbcf2621f29840f21f4b1bd3a1b9f7411976bd17bc3b9e776cd63d"
+    },
+    {
+      "path": "notes/hal-20/integracao-inicial/s1-h1-d1-o2.log",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "6fd4302f58acfe15dc678ba83bbaf3cc97a5522fd5e7cf734ab870b7db85b340"
+    }
+  ],
+  "sdk_exports": {
+    "path": "exports.i386.txt",
+    "sha256": "4ced636164387bf0b0d2714bc15bbb560c8df54d02aed4a0764775e0cfab4184"
+  },
+  "reused_pr15": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "24b7b426cd301b7b7dbe634c99d0c7c710e0dd18a21eceb1d2d1c92454f46809"
+    },
+    {
+      "path": "notes/HAL22_AI_HARD_MODE_DUAL_PLAY.md",
+      "sha256": "26bfa2a6824fa0cbf308df5f1d75516fc1b81eb5252003ad9daa8830adccacd9"
+    },
+    {
+      "path": "tests/hal22/harness.c",
+      "sha256": "b63d1f13930114a1860c4ff9220d258b9234edb961a24cd765a073406b50b3ef"
+    },
+    {
+      "path": "tests/hal22/run.py",
+      "sha256": "ea9254b26bcd3efeacd647bb5bff1c2dde5969b97a9fa2df06cd2c1772436f8a"
+    },
+    {
+      "path": "notes/hal-22/resultados/RESULTADOS.json",
+      "sha256": "f2a5fd266b91fde9d74a4cb6db1f813c9aa3a2c6f89b0419650a191b7ef1efca"
+    }
+  ],
+  "own_manifests": [
+    {
+      "path": "melhoria-dos-rituais/mod.json",
+      "sha256": "9971f476b1bc44ff5f368194c6e5dcaf1fd05275fe0eb53f04c9d8a1438d3b8e"
+    },
+    {
+      "path": "ritual-card-effects/mod.json",
+      "sha256": "c334e2cb1d6b1b85a321498f9cf25286e7a887aaadaf4425c10b2102832af056"
+    },
+    {
+      "path": "fusion-auxiliary-balance/mod.json",
+      "sha256": "e8ff14b500189b1e6bca253677756535c5f8e3c00b27d2904f3640d870fadd7a"
+    },
+    {
+      "path": "ritual-duelists/mod.json",
+      "sha256": "6875e76bfd5e81dfcac635199f8f159e730624e5142185c99e385cb8cdcccdb5"
+    }
+  ],
+  "experimental_production_files": [
+    {
+      "path": "src/game/main_run_duel.c",
+      "baseline_sha256": "b771367ff0ba1208f2762a451332929d9b988bb5d8f82ca6be23f883c28981dd",
+      "poc_sha256": "dbc0287e29ccb3a4a1879fba9c50317dec03eef74bddade2ae870c11b938a644"
+    },
+    {
+      "path": "src/pc/mods/manager.c",
+      "baseline_sha256": "ec8136925fb1b8b6b2cf89491568c3e20aeb8960008b036d35509cd5b36a1fb0",
+      "poc_sha256": "28879373769d8449a1618d5106e0098ab164bbf30e6f32d7068fe9f738e80498"
+    },
+    {
+      "path": "src/pc/mods/mods.c",
+      "baseline_sha256": "4abb0990dada4c2c17f2d147ee7bdaf984dde1756cec1d7c28ff70ee60d2ff4d",
+      "poc_sha256": "c2b46ff84cf3a2db23cc042304f31ad1f6a9f9acb4e4aa5cd9bff029602c257f"
+    },
+    {
+      "path": "src/pc/mods/mods.h",
+      "baseline_sha256": "f58ca3e6508936a6f7512ef2779129c0671733ee4bcee8b23bbc86d6b5b1262b",
+      "poc_sha256": "b401ff14de38e8f44fdcfa3d225d5b1d8974c38495b545074a54265b171c6ae3"
+    },
+    {
+      "path": "src/pc/platform/mods_window.c",
+      "baseline_sha256": "9c7cdc112e2fe07ddfc5c94af38ea4d3dd047af8944fcd6a09d40d489b7a7095",
+      "poc_sha256": "5753167a4c0af9c5672060741c5b064d5386c74ae1768d318bfa7bc66373dc3b"
+    }
+  ],
+  "reused_pr16": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "098b4f91853df0f7251964650cbe5643fec91c22be21386f976506ecf7e6b112"
+    },
+    {
+      "path": "notes/HAL22_LIFECYCLE_RESTART.md",
+      "sha256": "cf14e19001d22fe2e970af195698133386d3ea868244edb7c09d1af1a8ad3c68"
+    },
+    {
+      "path": "tests/hal22-lifecycle/harness.c",
+      "sha256": "081917715436300590bc79cb57d90d5e0c9329c63aacc8b1d53712ae86ea047e"
+    },
+    {
+      "path": "tests/hal22-lifecycle/run.py",
+      "sha256": "cdcd6854025743bb04da7e8f573cb0069f5ea78b3346ae1de9cb2b2df38747c3"
+    },
+    {
+      "path": "tests/hal22-lifecycle/window_bridge.c",
+      "sha256": "9d38fc5c8f72ece90ca11afe157c65b2bf9df2d21d64942ecca7c11b93309b47"
+    }
+  ],
+  "patch_check": {
+    "applies_to_base": true,
+    "reversible": true,
+    "patch_sha256": "3d9d500832ecbc021d46a7ae469dc1610f708c785aaa9998bdd21dec6c098ee2"
+  },
+  "scope": "Opt-in HAL22+HAL24 experimental order guard; default off; qualified local objects only."
+}
