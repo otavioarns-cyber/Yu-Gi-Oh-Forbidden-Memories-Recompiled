@@ -1,0 +1,115 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gBuildDeck_aWorkspace
+NATIVE_BIND Main_RunDuel unit=guard_main
+NATIVE_DATA D_8009B26C size=1
+REAL_HOST_EXPORTS count=132
+MODEL_DATA gCard_nCount
+LIBRARY_INIT owner=dual-play hash=3028c68a loads=1
+REGISTER owner=dual-play target=DuelScene_UpdateHandActions token=1
+REGISTER owner=dual-play target=DuelScene_UpdateDrawPhase token=2
+REGISTER owner=dual-play target=DuelScene_UpdateFieldActions token=3
+REGISTER owner=dual-play target=func_80028220 token=4
+REGISTER owner=dual-play target=func_8001BAF0 token=5
+REGISTER owner=dual-play target=Duel_InitScene token=6
+STATE owner=dual-play size=50 version=10
+memories-pc: mods: dual-play loaded its code (dual-play.o)
+LIFECYCLE boot H(want=0 active=0 restart=1 loads=0) D(want=1 active=1 loads=1) rank=0,1 resolved=dual-play
+PROCESS phase=1 pid=9441
+CASE after-boot
+TRACE case=after-boot owner=engine name=Main_RunDuel
+TRACE case=after-boot owner=engine name=Mods_Hal22GuardReady
+ADMISSION after-boot guard=1 ready=1 body_entered=1 notices=0 reason=none
+RESULT duel-entry-fence PASS Modified Main_RunDuel native code must return before initialization/controller work when guard refuses.
+TRACE case=after-boot owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=after-boot owner=engine name=Duel_InitScene
+TRACE case=after-boot owner=dual-play kind=hook name=func_80028220
+TRACE case=after-boot owner=engine name=func_80028220
+TRACE case=after-boot owner=engine name=func_80027DF8
+TRACE case=after-boot owner=engine name=func_80027DF8
+TRACE case=after-boot owner=engine name=AiScript_Init
+TRACE case=after-boot owner=engine name=bzero
+TRACE case=after-boot owner=engine name=bzero
+TRACE case=after-boot owner=engine name=bzero
+TRACE case=after-boot owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=after-boot owner=engine name=func_8001BAF0
+TRACE case=after-boot owner=engine name=Duel_SetupCardRecord
+TRACE case=after-boot owner=engine name=func_80018004
+TRACE case=after-boot owner=engine name=DisplayObject_ReleaseIfPresent
+PROBE after-boot H=0 D=1 gate=1 ai_worker=0 motor=1 setups=1 path=dual-play>engine>
+RESULT active-gate-chain PASS Active Dual must validate before any active AI worker.
+RESULT one-materializer PASS Exactly one swap worker and one logical-to-physical exchange, including OFF combinations.
+RESULT no-library-reinitialization PASS Libraries initialize once per process; OFF/ON does not recreate registration order.
+TRANSACTION late-apply accepted=1 reason=none
+LIFECYCLE late-apply H(want=1 active=0 restart=1 loads=0) D(want=1 active=1 loads=1) rank=0,1 resolved=ai-hard-mode>dual-play
+RESULT restart-defers-first-ai PASS restart=true records preference without first library initialization; control restart=false activates live.
+LIFECYCLE after-action H(want=1 active=0 restart=1 loads=0) D(want=1 active=1 loads=1) rank=0,1 resolved=ai-hard-mode>dual-play
+CASE after-action
+TRACE case=after-action owner=engine name=Main_RunDuel
+TRACE case=after-action owner=engine name=Mods_Hal22GuardReady
+ADMISSION after-action guard=1 ready=1 body_entered=1 notices=0 reason=none
+RESULT duel-entry-fence PASS Modified Main_RunDuel native code must return before initialization/controller work when guard refuses.
+TRACE case=after-action owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=after-action owner=engine name=Duel_InitScene
+TRACE case=after-action owner=dual-play kind=hook name=func_80028220
+TRACE case=after-action owner=engine name=func_80028220
+TRACE case=after-action owner=engine name=func_80027DF8
+TRACE case=after-action owner=engine name=func_80027DF8
+TRACE case=after-action owner=engine name=AiScript_Init
+TRACE case=after-action owner=engine name=bzero
+TRACE case=after-action owner=engine name=bzero
+TRACE case=after-action owner=engine name=bzero
+TRACE case=after-action owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=after-action owner=engine name=func_8001BAF0
+TRACE case=after-action owner=engine name=Duel_SetupCardRecord
+TRACE case=after-action owner=engine name=func_80018004
+TRACE case=after-action owner=engine name=DisplayObject_ReleaseIfPresent
+PROBE after-action H=0 D=1 gate=1 ai_worker=0 motor=1 setups=1 path=dual-play>engine>
+RESULT active-gate-chain PASS Active Dual must validate before any active AI worker.
+RESULT one-materializer PASS Exactly one swap worker and one logical-to-physical exchange, including OFF combinations.
+RESULT no-library-reinitialization PASS Libraries initialize once per process; OFF/ON does not recreate registration order.
+TRACE case=after-action owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=after-action owner=engine name=Duel_InitScene
+CASE after-new-duel
+TRACE case=after-new-duel owner=engine name=Main_RunDuel
+TRACE case=after-new-duel owner=engine name=Mods_Hal22GuardReady
+ADMISSION after-new-duel guard=1 ready=1 body_entered=1 notices=0 reason=none
+RESULT duel-entry-fence PASS Modified Main_RunDuel native code must return before initialization/controller work when guard refuses.
+TRACE case=after-new-duel owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=after-new-duel owner=engine name=Duel_InitScene
+TRACE case=after-new-duel owner=dual-play kind=hook name=func_80028220
+TRACE case=after-new-duel owner=engine name=func_80028220
+TRACE case=after-new-duel owner=engine name=func_80027DF8
+TRACE case=after-new-duel owner=engine name=func_80027DF8
+TRACE case=after-new-duel owner=engine name=AiScript_Init
+TRACE case=after-new-duel owner=engine name=bzero
+TRACE case=after-new-duel owner=engine name=bzero
+TRACE case=after-new-duel owner=engine name=bzero
+TRACE case=after-new-duel owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=after-new-duel owner=engine name=func_8001BAF0
+TRACE case=after-new-duel owner=engine name=Duel_SetupCardRecord
+TRACE case=after-new-duel owner=engine name=func_80018004
+TRACE case=after-new-duel owner=engine name=DisplayObject_ReleaseIfPresent
+PROBE after-new-duel H=0 D=1 gate=1 ai_worker=0 motor=1 setups=1 path=dual-play>engine>
+RESULT active-gate-chain PASS Active Dual must validate before any active AI worker.
+RESULT one-materializer PASS Exactly one swap worker and one logical-to-physical exchange, including OFF combinations.
+RESULT no-library-reinitialization PASS Libraries initialize once per process; OFF/ON does not recreate registration order.
+RESULT new-duel-is-not-process-restart PASS New duel clears gameplay state, not registration history or deferred activation.
+CASE ai-defaults
+DEFAULTS preserve_hand=1 deck_access=0 options=17
+RESULT strategy-defaults-preserved PASS Actual manager options equal all original defaults; only temporary restart flag differs in candidate inputs.
+NOT_RUN controller-suite both-MODs-not-active; materializer OFF paths tested by probes; stock VM not run
+SUMMARY assertions=5905 cases=4 failures=0 real-manager-partial-engine

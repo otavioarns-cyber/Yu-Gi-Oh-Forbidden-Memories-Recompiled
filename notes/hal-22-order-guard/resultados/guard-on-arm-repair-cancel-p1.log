@@ -1,0 +1,62 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gBuildDeck_aWorkspace
+NATIVE_BIND Main_RunDuel unit=guard_main
+NATIVE_DATA D_8009B26C size=1
+REAL_HOST_EXPORTS count=132
+MODEL_DATA gCard_nCount
+memories-pc: mod ai-hard-mode: HAL-22: load AI Hard Mode before Dual Play, then restart. This profile order was rejected; preferences were kept.
+memories-pc: mod dual-play: HAL-22: load AI Hard Mode before Dual Play, then restart. This profile order was rejected; preferences were kept.
+memories-pc: experimental mod profile rejected: HAL-22: load AI Hard Mode before Dual Play, then restart. This profile order was rejected; preferences were kept.
+LIFECYCLE boot H(want=1 active=0 restart=1 loads=0) D(want=1 active=0 loads=0) rank=1,0 resolved=dual-play>ai-hard-mode
+PROCESS phase=1 pid=9501
+CASE after-boot
+TRACE case=after-boot owner=engine name=Main_RunDuel
+TRACE case=after-boot owner=engine name=Mods_Hal22GuardReady
+TRACE case=after-boot owner=engine name=Platform_ShowError
+VISIBLE_ERROR title=HAL-22 experimental mod profile text=HAL-22: the mod profile was not initialized. Set AI Hard Mode before Dual Play and restart the game. Preferences were kept.
+ADMISSION after-boot guard=1 ready=0 body_entered=0 notices=1 reason=HAL-22: the mod profile was not initialized. Set AI Hard Mode before Dual Play and restart the game. Preferences were kept.
+RESULT duel-entry-fence PASS Modified Main_RunDuel native code must return before initialization/controller work when guard refuses.
+TRACE case=after-boot owner=engine name=Main_RunDuel
+TRACE case=after-boot owner=engine name=Mods_Hal22GuardReady
+RESULT explicit-rejection-notice PASS Visible error once per blocked period, no repeated modal flood; platform display observed by stub.
+RESULT no-unsafe-action-dispatched PASS Expected profile/admission refusal: controller/materializer probes are deliberately not dispatched.
+LIFECYCLE after-action H(want=1 active=0 restart=1 loads=0) D(want=1 active=0 loads=0) rank=1,0 resolved=dual-play>ai-hard-mode
+CASE after-action
+TRACE case=after-action owner=engine name=Main_RunDuel
+TRACE case=after-action owner=engine name=Mods_Hal22GuardReady
+ADMISSION after-action guard=1 ready=0 body_entered=0 notices=1 reason=HAL-22: the mod profile was not initialized. Set AI Hard Mode before Dual Play and restart the game. Preferences were kept.
+RESULT duel-entry-fence PASS Modified Main_RunDuel native code must return before initialization/controller work when guard refuses.
+TRACE case=after-action owner=engine name=Main_RunDuel
+TRACE case=after-action owner=engine name=Mods_Hal22GuardReady
+RESULT explicit-rejection-notice PASS Visible error once per blocked period, no repeated modal flood; platform display observed by stub.
+RESULT no-unsafe-action-dispatched PASS Expected profile/admission refusal: controller/materializer probes are deliberately not dispatched.
+TRACE case=after-action owner=engine name=Duel_InitScene
+CASE after-new-duel
+TRACE case=after-new-duel owner=engine name=Main_RunDuel
+TRACE case=after-new-duel owner=engine name=Mods_Hal22GuardReady
+ADMISSION after-new-duel guard=1 ready=0 body_entered=0 notices=1 reason=HAL-22: the mod profile was not initialized. Set AI Hard Mode before Dual Play and restart the game. Preferences were kept.
+RESULT duel-entry-fence PASS Modified Main_RunDuel native code must return before initialization/controller work when guard refuses.
+TRACE case=after-new-duel owner=engine name=Main_RunDuel
+TRACE case=after-new-duel owner=engine name=Mods_Hal22GuardReady
+RESULT explicit-rejection-notice PASS Visible error once per blocked period, no repeated modal flood; platform display observed by stub.
+RESULT no-unsafe-action-dispatched PASS Expected profile/admission refusal: controller/materializer probes are deliberately not dispatched.
+RESULT new-duel-is-not-process-restart PASS New duel clears gameplay state, not registration history or deferred activation.
+CASE ai-defaults
+DEFAULTS preserve_hand=1 deck_access=0 options=17
+RESULT strategy-defaults-preserved PASS Actual manager options equal all original defaults; only temporary restart flag differs in candidate inputs.
+NOT_RUN controller-suite both-MODs-not-active; materializer OFF paths tested by probes; stock VM not run
+SUMMARY assertions=5781 cases=4 failures=0 real-manager-partial-engine

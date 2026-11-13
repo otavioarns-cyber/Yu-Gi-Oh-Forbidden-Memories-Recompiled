@@ -6,6 +6,7 @@
 #include "overlap.h"
 #include "hooks.h"
 #include "events.h"
+#include "exports.h"
 #include "pc/debug/log.h"
 #include "pc/platform/paths.h"
 #include "pc/platform/settings.h"
@@ -148,6 +149,79 @@ static int order_ranked(const int *enabled, const int *ranks, int *order, char *
     }
     return total;
 }
+/* HAL-22 POC: a narrow, opt-in profile constraint. Hooks_At is read-only;
+ * Hooks_Relink and order_ranked retain their original semantics. */
+static char hal22_startup_error[256];
+int Mods_Hal22GuardEnabled(void)
+{
+    return Settings_GetNamed("experimental.hal22_order_guard", 0) == 1;
+}
+static int hal22_error(char *out, size_t size, const char *why)
+{
+    if (out && size) snprintf(out, size, "%s", why);
+    return 0;
+}
+static int hal22_pair(int *h, int *d)
+{
+    *h = find("ai-hard-mode"); *d = find("dual-play");
+    return *h >= 0 && *d >= 0;
+}
+static void hal22_registered(int h, int d, int *hi, int *di, int *hc, int *dc)
+{
+    int i, owner;
+    const void *function, *swap = Mods_Lookup("func_8001BAF0");
+    *hi = *di = -1; *hc = *dc = 0;
+    if (!swap) return;
+    for (i = 0; Hooks_At(i, &owner, &function); i++) {
+        if (function != swap) continue;
+        if (owner == h) { *hi = i; ++*hc; }
+        if (owner == d) { *di = i; ++*dc; }
+    }
+}
+int Mods_Hal22GuardValidate(const int *enabled, const int *ranks, char *error, size_t size)
+{
+    int h, d, order[MODS_MAX], count, hp = -1, dp = -1, hi, di, hc, dc;
+    int future_h, future_d;
+    if (!Mods_Hal22GuardEnabled() || !hal22_pair(&h, &d)) return 1;
+    if (enabled[h] && enabled[d]) {
+        count = order_ranked(enabled, ranks, order, error, size);
+        if (count < 0) return 0;
+        for (int i = 0; i < count; i++) {
+            if (order[i] == h) hp = i;
+            if (order[i] == d) dp = i;
+        }
+        if (hp < 0 || dp < 0 || hp >= dp)
+            return hal22_error(error, size, "HAL-22: load AI Hard Mode before Dual Play, then restart. This profile order was rejected; preferences were kept.");
+    }
+    /* A restart mod keeps its current active state until a fresh process.
+     * Consider that state even when its OFF preference is already saved. */
+    future_h = Mods_RequiresRestart(h) ? Mods_Active(h) : enabled[h];
+    future_d = Mods_RequiresRestart(d) ? Mods_Active(d) : enabled[d];
+    if (future_h && future_d && !(Mods_Active(h) && Mods_Active(d))) {
+        hal22_registered(h, d, &hi, &di, &hc, &dc);
+        if (hc > 1 || dc > 1 || (!hc && dc) || (hc && dc && hi >= di))
+            return hal22_error(error, size, "HAL-22: this activation needs a complete restart to keep Dual Play validation before AI Hard Mode. Activation rejected; preferences were kept.");
+    }
+    return 1;
+}
+void Mods_Hal22GuardStartupRejected(const char *reason)
+{
+    snprintf(hal22_startup_error, sizeof(hal22_startup_error), "%s", reason);
+}
+int Mods_Hal22GuardReady(char *error, size_t size)
+{
+    int h, d, hi, di, hc, dc;
+    if (!Mods_Hal22GuardEnabled()) return 1;
+    if (*hal22_startup_error)
+        return hal22_error(error, size, "HAL-22: the mod profile was not initialized. Set AI Hard Mode before Dual Play and restart the game. Preferences were kept.");
+    if (!hal22_pair(&h, &d) || !Mods_Active(h) || !Mods_Active(d)) return 1;
+    hal22_registered(h, d, &hi, &di, &hc, &dc);
+    if (hc != 1 || dc != 1)
+        return hal22_error(error, size, "HAL-22: this AI Hard Mode/Dual Play combination could not be verified. Duel blocked; review the experimental profile.");
+    if (hi >= di)
+        return hal22_error(error, size, "HAL-22: active mod order is unsafe. Duel blocked. Set AI Hard Mode before Dual Play and restart the game.");
+    return 1;
+}
 int Mods_Validate(const int *enabled, char *error, size_t size)
 {
     int i, order[MODS_MAX];
@@ -177,7 +251,8 @@ static int newest_first(int *out)
 int Mods_Apply(const int *enabled, char *error, size_t size)
 {
     int old[MODS_MAX], stored[MODS_MAX], order[MODS_MAX], newest[MODS_MAX], i, n;
-    if (!Mods_Validate(enabled, error, size))
+    if (!Mods_Validate(enabled, error, size) ||
+        !Mods_Hal22GuardValidate(enabled, NULL, error, size))
         return 0;
     /* Only what the player changed is written: a mod MEMORIES_MODS=0 or
      * MEMORIES_MOD_<ID> turned on or off for this run keeps its choice. */

@@ -24,6 +24,8 @@
 #include "../game/main_reset_frontend_runtime.h"
 #ifdef MEMORIES_PC
 #include "pc/saves/deck_menu.h"
+#include "pc/mods/mods.h"
+#include "pc/platform/platform.h"
 #endif
 #include "../game/main_services.h"
 #include "../game/sound.h"
@@ -45,6 +47,21 @@ u8 D_8009B26C;
 
 void Main_RunDuel(void)
 {
+#ifdef MEMORIES_PC
+    /* Experimental I2 fence, before init or any controller action. The
+     * platform menu remains available to repair preferences and restart. */
+    static int hal22_notice;
+    char hal22_why[256];
+    if (!Mods_Hal22GuardReady(hal22_why, sizeof(hal22_why))) {
+        if (!hal22_notice) {
+            Platform_ShowError("HAL-22 experimental mod profile", hal22_why);
+            hal22_notice = 1;
+        }
+        return;
+    }
+    hal22_notice = 0;
+#endif
+
     u8 value = D_8009B26C;
     int state;
 

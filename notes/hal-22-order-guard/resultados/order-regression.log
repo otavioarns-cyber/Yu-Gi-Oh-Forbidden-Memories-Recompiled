@@ -1,0 +1,1 @@
+RESULT other-mod-order-regression PASS variants=3 masks=1024 comparisons=3072 accepted=2816 rejected=256 singleton_or_absent=2304; exact order unchanged with guard ON/OFF/staged checks
