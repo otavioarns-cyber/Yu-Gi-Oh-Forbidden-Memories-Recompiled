@@ -1,0 +1,212 @@
+[
+  {
+    "materials": [
+      162,
+      175
+    ],
+    "names": [
+      "Tainted Wisdom",
+      "Ancient Brain"
+    ],
+    "result": 707,
+    "result_name": "Skull Knight",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  },
+  {
+    "materials": [
+      412,
+      512
+    ],
+    "names": [
+      "Giga-tech Wolf",
+      "Cannon Soldier"
+    ],
+    "result": 370,
+    "result_name": "Labyrinth Tank",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  },
+  {
+    "materials": [
+      95,
+      120
+    ],
+    "names": [
+      "Crass Clown",
+      "Dream Clown"
+    ],
+    "result": 385,
+    "result_name": "Bickuribox",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  },
+  {
+    "materials": [
+      7,
+      603
+    ],
+    "names": [
+      "Winged Dragon #1",
+      "Fairy Dragon"
+    ],
+    "result": 427,
+    "result_name": "Kaiser Dragon",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  },
+  {
+    "materials": [
+      125,
+      466
+    ],
+    "names": [
+      "Faith Bird",
+      "Skull Red Bird"
+    ],
+    "result": 467,
+    "result_name": "Crimson Sunbird",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 501
+  },
+  {
+    "materials": [
+      603,
+      626
+    ],
+    "names": [
+      "Fairy Dragon",
+      "Amazon of the Seas"
+    ],
+    "result": 442,
+    "result_name": "Aqua Dragon",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  },
+  {
+    "materials": [
+      32,
+      81
+    ],
+    "names": [
+      "Two-headed King Rex",
+      "Crawling Dragon #2"
+    ],
+    "result": 509,
+    "result_name": "Bracchio-raidus",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  },
+  {
+    "materials": [
+      149,
+      560
+    ],
+    "names": [
+      "Lord of the Lamp",
+      "Invader from Another Dimension"
+    ],
+    "result": 471,
+    "result_name": "Soul Hunter",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 24
+  },
+  {
+    "materials": [
+      36,
+      97
+    ],
+    "names": [
+      "The Snake Hair",
+      "Dragon Zombie"
+    ],
+    "result": 564,
+    "result_name": "Great Mammoth of Goldfine",
+    "vanilla": 545,
+    "beta31": 545,
+    "vanilla_recipes_for_result": 30
+  },
+  {
+    "materials": [
+      387,
+      647
+    ],
+    "names": [
+      "Mystic Lamp",
+      "Hyosube"
+    ],
+    "result": 223,
+    "result_name": "Roaring Ocean Snake",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  },
+  {
+    "materials": [
+      636,
+      538
+    ],
+    "names": [
+      "Blue-winged Crown",
+      "Niwatori"
+    ],
+    "result": 465,
+    "result_name": "Punished Eagle",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 20
+  },
+  {
+    "materials": [
+      74,
+      433
+    ],
+    "names": [
+      "Giant Soldier of Stone",
+      "Ancient Elf"
+    ],
+    "result": 531,
+    "result_name": "Mystical Sand",
+    "vanilla": 531,
+    "beta31": 531,
+    "vanilla_recipes_for_result": 1174
+  },
+  {
+    "materials": [
+      635,
+      649
+    ],
+    "names": [
+      "Queen's Double",
+      "Hibikime"
+    ],
+    "result": 572,
+    "result_name": "Empress Judge",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  },
+  {
+    "materials": [
+      646,
+      626
+    ],
+    "names": [
+      "Gruesome Goo",
+      "Amazon of the Seas"
+    ],
+    "result": 565,
+    "result_name": "Man-eating Black Shark",
+    "vanilla": 0,
+    "beta31": 0,
+    "vanilla_recipes_for_result": 0
+  }
+]

@@ -1,0 +1,1203 @@
+{
+  "scope": "HAL21 revoke review candidate; independent branch, no merge/release",
+  "self_excluded": "notes/hal-21/fix/PUBLICACAO.json avoids cyclic self hash",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5653,
+      "sha256": "c3ac2b326143c4961b13d6f79cff835d6f7bfa14cd69bb7edcf0b72d6d23cdbc"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/AUDITORIA-RECEITAS-RODADA2.md",
+      "bytes": 2015,
+      "sha256": "fb5db2f697442bb017352db342261650024f0f7789e76cb1289a0692cf6399b6"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/BASE-BETA31-SHA256.txt",
+      "bytes": 120,
+      "sha256": "f32bbcd1fb8d2d43703dab8e2a18ad9901c490c59b4b5669726fbb189d212aee"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/BETA36-VALIDACAO.md",
+      "bytes": 1662,
+      "sha256": "cacf87bd885075681156c39f98cd5c4a3f5c97bd91dcdbec9af8963600fbcfd4"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/EFEITOS-FUTUROS.md",
+      "bytes": 2838,
+      "sha256": "e55ec7d1c5572c54f0a523663659f52ed058880019acdf4266ab845067588630"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/IA-DE-EFEITOS.md",
+      "bytes": 6224,
+      "sha256": "3caaff03666df5a0be26771236471541e1e1e05e584c2f85ecbcb6bc93e0414b"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/NOTICES-HAL20.md",
+      "bytes": 1256,
+      "sha256": "8b33a33cf363357d7e255c5b816d93a98384444b7c563e401a42760b6fb56d97"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/PROMPT-RODADA03-ORIGINAL.txt",
+      "bytes": 49136,
+      "sha256": "15b2df30f450e2b5b62dd25fd37b0589b872737fc903e81ced4c32b27a31f4b1"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/README-PREVIEW2.md",
+      "bytes": 3160,
+      "sha256": "5a5e9affcc0979e26697ee5e0e375592db00eb5df1d19f03213eb63c6f83b75f"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/README.md",
+      "bytes": 89075,
+      "sha256": "48d3c44cb6c98aac9f5a76d1b6e3db5cbc10d0b939d67e027480c2a003e4230f"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/RODADA03-STATUS.md",
+      "bytes": 5641,
+      "sha256": "fa72bb27dccd3ad89d458b76076fe07a3cf230c6a1ac333fda19bc9f7f2af32b"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/SDK-PROVENANCE.hal20-pr12.json",
+      "bytes": 4306,
+      "sha256": "af766594ba8ecdfbe62563b43e0c1df2040824591f2323ddf448396bb6c6b153"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/SDK-PROVENANCE.json",
+      "bytes": 4824,
+      "sha256": "85334513882250d98cf0131327a185ba71091ef0bc2d9efa2f39f0e46e5c6c17"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/SDK-PROVENANCE.preview1.recebido.json",
+      "bytes": 824,
+      "sha256": "23efd2d4099a7cd861dbbcb837ce25b801c3ba0426631593db94539d799d1258"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/TESTES-IA.txt",
+      "bytes": 2266,
+      "sha256": "934a5b5c5237b0ea1c29042d0ef74123e357414185b88ce7546b3e8b1b21ca27"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/attribute-icons/dark.png",
+      "bytes": 46855,
+      "sha256": "68b4040e699a0170d1566ae9e18154b81d303642e713059c285ab76c40c4ed77"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/attribute-icons/earth.png",
+      "bytes": 49137,
+      "sha256": "0364465929cd6423c0cc06fcf69c97b727eba93082f4d455efe746f57de571b6"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/attribute-icons/fire.png",
+      "bytes": 45376,
+      "sha256": "3772c109d379805c7642c79e9505251113ebfb1e464037987533409785331b04"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/attribute-icons/light.png",
+      "bytes": 50677,
+      "sha256": "be624f2f650ff0bcb4084f6b0c6aed2ed29edff64b3c69e20659399d5f5e8b78"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/attribute-icons/water.png",
+      "bytes": 45109,
+      "sha256": "83463915b2cc8081d89fe5c348488ae7000fe9de0ece080d98626965a33372e7"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/attribute-icons/wind.png",
+      "bytes": 45397,
+      "sha256": "08d5daae18679053df710622d53a12c303ac9aeb4ddf74d1c7a629b2909968ee"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/00.png",
+      "bytes": 31712,
+      "sha256": "497efdabc6ade9bd12dd92f2a479ac86a9564632c4ae04f33029c1c1a5f060df"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/01.png",
+      "bytes": 30524,
+      "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/02.png",
+      "bytes": 27114,
+      "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/03.png",
+      "bytes": 22635,
+      "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/04.png",
+      "bytes": 20041,
+      "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/05.png",
+      "bytes": 17136,
+      "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/06.png",
+      "bytes": 11145,
+      "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/07.png",
+      "bytes": 5867,
+      "sha256": "c0ccf63d06a13a6c38721c98aafb49a7a400e881e4e559bde4d9e5ee615719cf"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/08.png",
+      "bytes": 12004,
+      "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/09.png",
+      "bytes": 16379,
+      "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/10.png",
+      "bytes": 19341,
+      "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/11.png",
+      "bytes": 20385,
+      "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/12.png",
+      "bytes": 26475,
+      "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/13.png",
+      "bytes": 31413,
+      "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/14.png",
+      "bytes": 32512,
+      "sha256": "37291c8f07f327254b5531bb8142a457aad056806cb0b75662675710cddd699e"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/15.png",
+      "bytes": 31413,
+      "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/16.png",
+      "bytes": 26475,
+      "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/17.png",
+      "bytes": 20385,
+      "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/18.png",
+      "bytes": 19341,
+      "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/19.png",
+      "bytes": 16379,
+      "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/20.png",
+      "bytes": 12004,
+      "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/21.png",
+      "bytes": 6150,
+      "sha256": "a2ccc08933af7dd06db84a379382ad6f7e47687991b1c934a9935f180faef131"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/22.png",
+      "bytes": 11145,
+      "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/23.png",
+      "bytes": 17136,
+      "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/24.png",
+      "bytes": 20041,
+      "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/25.png",
+      "bytes": 22635,
+      "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/26.png",
+      "bytes": 27114,
+      "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/27.png",
+      "bytes": 30524,
+      "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/assets/coin-normal/coin.txt",
+      "bytes": 19,
+      "sha256": "6a79338a43aa97ff3506d5fb93f9685769555abb1b6c9cdf9c8a85a649b95d22"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/battle_coin.h",
+      "bytes": 7665,
+      "sha256": "526ba03f7d83d6bb5b11720ff130587f834ca7e607a1d47c308ae6f8826dfa4b"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/battle_stat_tween.h",
+      "bytes": 1478,
+      "sha256": "ee73b0451ab7874e03b41a07adec88e52e65e2f1ef98376061ef44842b9e3efc"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/effect_title_instance.h",
+      "bytes": 2437,
+      "sha256": "484b37201af8c606cdb9dde8d8885d5f1affde80acbecc6a9884ccf0cda258b8"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/effect_title_visual.h",
+      "bytes": 7407,
+      "sha256": "aa497af6ef8d63532aff71a07a5a8ac2fa36e3ebac72f25918f0a403ee985638"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/egotist_targets.h",
+      "bytes": 1882,
+      "sha256": "30510dd4c763fed5b23358071ab4d1d7fac3b468edbfb5911c5d323dc323a1e7"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/fusion-auxiliary-balance.o",
+      "bytes": 380288,
+      "sha256": "384e11eeeae32412e23afbbbd9ebc308761674b8a2181238fd60e17e315b865c"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/fusion_round2_rules.h",
+      "bytes": 1426,
+      "sha256": "be8e222ea498f594932a7a48e6389bc6cc88abdea5f153884f2ed03b109b82ac"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/fusion_round2_runtime.h",
+      "bytes": 15917,
+      "sha256": "616211da4ab0b02399b62be90c57982d9aa981c5b964fd7ed467b925005efd09"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/fusion_round3_rules.h",
+      "bytes": 1524,
+      "sha256": "12d5efc3b58ef3e3c630b9dc026b79830547266d454dd9097c9e5bf315795013"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/fusion_round3_runtime.h",
+      "bytes": 19222,
+      "sha256": "4103de2ab59f5dafcc386393af89a0ea22dc9e531fa1ee02372a9372bf16d683"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/fusionist_rules.h",
+      "bytes": 2224,
+      "sha256": "dca72615402d7c67280955036a8797c906ceed4f9b51443f7c005c1649a5a55f"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/fusionist_runtime.h",
+      "bytes": 11083,
+      "sha256": "bedb3cdf7e7984301ba19552ee2d599214f06a1184ec6260ea661f3878f0eb57"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/generated_card_restore.h",
+      "bytes": 2699,
+      "sha256": "390b184bb7bb6edfb21cb553fa1e59e12663ad353ee6b83a62b5012bcb927b59"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/logic.h",
+      "bytes": 14056,
+      "sha256": "7b7803d9309284e697237a3f344c88bde391041bd33318d5d31e52aa0b384dcc"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/mod.c",
+      "bytes": 105819,
+      "sha256": "a9e6e2d04d98db5288ef7b1dc1610c86d3c4d9d902e338eee8b293dbb975b521"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/mod.json",
+      "bytes": 22067,
+      "sha256": "e8ff14b500189b1e6bca253677756535c5f8e3c00b27d2904f3640d870fadd7a"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/model.h",
+      "bytes": 8222,
+      "sha256": "9646f4c50c51dea2470400d7f01521bebf9e9d047e9356885b3a9536b2f376eb"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/native.h",
+      "bytes": 2817,
+      "sha256": "5890a4e33435d6515b571ca14ca6dbd483c765dcc0027d86c33dffde08b9d2d9"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/native_actions.h",
+      "bytes": 2504,
+      "sha256": "70749174b4208864f3c062b81c90f338f64421b4c801c30b289b8001787326e0"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/origin_effects_v1.h",
+      "bytes": 861,
+      "sha256": "b6355739c6d97dcc7c12bca468f882124550a399fb1a8b174e316a1341fd8585"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/owner_f.h",
+      "bytes": 2683,
+      "sha256": "916eaaad2596fece911ca43b52d6e48625d37e355f0abff45da4d033a6ba8b78"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/png.c",
+      "bytes": 11193,
+      "sha256": "a5a55b3b349046813fd8c8e26d347527acda6de856858e9aacb7028b95935d06"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/png.h",
+      "bytes": 353,
+      "sha256": "26a5ef08cf76239964ea952185c7f9428cd2aaed4e087f5d6feafc37b4a2272d"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/ritual_effect_intelligence_v1.h",
+      "bytes": 1476,
+      "sha256": "dc46868090ad84a2b4ece1dc40e4a6fe2898bfd2fd5b8f79c28bbca8f3a0e579"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/secondary_dragon_types.h",
+      "bytes": 1083,
+      "sha256": "4a6f1223db8563b41d65ff00651c7224df5297607de3cfaddaa3f0efc904f467"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/skull_monster.h",
+      "bytes": 642,
+      "sha256": "3a8c889df2b8801fe2cc2c5965253fa138ebf2af13780c82b8f38d21c7aa478e"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/snapshot.h",
+      "bytes": 1974,
+      "sha256": "33b45eff6855d6da800367a35a6fd1f165b970fd800124a388be8b2d436a9982"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/base31_manifest.json",
+      "bytes": 6637,
+      "sha256": "950d80aa0827027d947bb6711bcdce96cef812231a94e906af9bf25d6691b717"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/preview2_loader.c",
+      "bytes": 14355,
+      "sha256": "2efb2fe4540beb8ecec81a45b09773eb1e877b259e8dfa939d5f3b883eef3308"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/recipe_audit.json",
+      "bytes": 3554,
+      "sha256": "04cc112a34ec29bf9a419e3e35a315f191c7cb8ed3f01a067549e0c5d9a81026"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/run_fusionist.py",
+      "bytes": 875,
+      "sha256": "8debe3dd2b17b3f6c3ea01e23e3f9ee38859f7c40415024527f5b8a1fb49b6d4"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/run_preview2.py",
+      "bytes": 2470,
+      "sha256": "7a5650d8e528804118ced6c30ef10a2418a469ca0081e70a444c482ae0095439"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_attribute_icons.py",
+      "bytes": 1807,
+      "sha256": "8d850af7bd91613123c32e3414b6449c08c163baea302cc8c34cfc6f937c78ec"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_battle_stat_tween.c",
+      "bytes": 1738,
+      "sha256": "bb21821cef818dc292563fba2879c76cad0c6b3307d5685e3ee52d6899c06aff"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_effect_title_instance.c",
+      "bytes": 3417,
+      "sha256": "0d02c207134db14c400e4cf0eb743647d2bffeb4b9d7a4b05a7cddd8a0a3f319"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_effect_title_visual.c",
+      "bytes": 11089,
+      "sha256": "d1ba6e4ae4a7e90ae2774fafe2dcd98af1749663f32b2d563f9fbd78e025c1db"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_forecast_parity.c",
+      "bytes": 1271,
+      "sha256": "61d44ff2b27108aa9f86400f8b4d7049107e8341a5a3f0d5dea1bdc9450ac9fa"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_fusionist_runtime.c",
+      "bytes": 11980,
+      "sha256": "1ce41dfaaf65cd8ecf45a53b242f286571fa68ad28bf92f4cebc4ea786fadacd"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_manifest.py",
+      "bytes": 11200,
+      "sha256": "047567c709caa61779896e3311b3ed12cb0c69ea6aaa94c5e0fafafe61d14b35"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_preview2_assets.py",
+      "bytes": 2408,
+      "sha256": "8d944ab58d784ebc54be1fda86aa7c5fd60953aa9bae33b5ef992d9e003ce6df"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_round2_manifest.py",
+      "bytes": 1959,
+      "sha256": "e4e75e85a836bd9ea6b695aecff8c398a2526830f6fd790bd69d98ee60ad7626"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_round2_runtime.c",
+      "bytes": 14206,
+      "sha256": "916e4312c9c3527f812c94fcc9f720f75a9eebcdd27af8f35adfb225cebb1f03"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_round3_recipes.c",
+      "bytes": 946,
+      "sha256": "755bf3c525a43a3afe2494003f4fb40d852a28518333311efa78aeab84d09df3"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_round3_runtime.c",
+      "bytes": 28712,
+      "sha256": "9ccc7c58e7e0fc61493b60d6036502921b03a3935ef36800a46b57da658b7264"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_rules.c",
+      "bytes": 12417,
+      "sha256": "0739a7de8952e7b776f21bb8d22ca23f3a2b7b7f57a0b5573d949597acf23808"
+    },
+    {
+      "path": "mods/fusion-auxiliary-balance/tests/test_visual_dispatch.py",
+      "bytes": 814,
+      "sha256": "c87ed26ea128db969733d96f1142582f2ab43690fd84396e0ae714633ffe7aef"
+    },
+    {
+      "path": "notes/HAL21_FUSION_OFF_REVOKE_PREVIEW2.md",
+      "bytes": 16434,
+      "sha256": "aa0caf0c82bcc9c65cc105cd2210b0b57f85df71d2052d3ea2e3d36517aa7dfc"
+    },
+    {
+      "path": "notes/hal-21/fix/ABI.json",
+      "bytes": 17117,
+      "sha256": "47888ba9dc12c096435cb0d3b2fb7b15f89ccf352afa3cad2a2df183bc760f30"
+    },
+    {
+      "path": "notes/hal-21/fix/COMPARACAO.json",
+      "bytes": 34138,
+      "sha256": "828c2c412c75e595c90c941710f4a84069a6fc6078e25c2f0bb222b3edf1f8eb"
+    },
+    {
+      "path": "notes/hal-21/fix/INPUTS.json",
+      "bytes": 16589,
+      "sha256": "4a79381f6e103c55d92ca81bd8059b8f9bcbf7d5f894417f74a322e7d4b9c27f"
+    },
+    {
+      "path": "notes/hal-21/fix/MATRIZ.csv",
+      "bytes": 87822,
+      "sha256": "c93fe9b3e8237e3e09e71a36d29268607520a43b590e133ac8914a93c4a52811"
+    },
+    {
+      "path": "notes/hal-21/fix/ORIGINAL_SUITE.json",
+      "bytes": 15805,
+      "sha256": "de245a8878b6b7382361a788684d8969fe042be79a48c084718262e513ebf7fa"
+    },
+    {
+      "path": "notes/hal-21/fix/PROVENIENCIA.json",
+      "bytes": 4824,
+      "sha256": "85334513882250d98cf0131327a185ba71091ef0bc2d9efa2f39f0e46e5c6c17"
+    },
+    {
+      "path": "notes/hal-21/fix/REFS_PRESERVADAS.json",
+      "bytes": 3712,
+      "sha256": "1bac3cee939ff862366905f3d3b73fbfc015ee6747f9351102c6ef95facfe11f"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/RESULTADOS.json",
+      "bytes": 174138,
+      "sha256": "8be11113238635e4512791e8688f3ab7a7e0ed09d86893a8b1993567c256c52b"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/apply-patch-hide.log",
+      "bytes": 78,
+      "sha256": "2352ed5010d60297f6f1c624524f63934ef1b198b08bd3611718fd7457c5bfca"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/apply-patch-revoke.log",
+      "bytes": 78,
+      "sha256": "2352ed5010d60297f6f1c624524f63934ef1b198b08bd3611718fd7457c5bfca"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/baseline-ON-characterization.log",
+      "bytes": 138,
+      "sha256": "62370d34af9f75da4e5b37e84b159cbecf80e9367ed0d25128993bc3f08c675a"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/build-original-loader.log",
+      "bytes": 3818,
+      "sha256": "c5c442bc762dc4a7b9e3849276a0d98054be97d4130149af1a9de930b45d3684"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/build-real-manager.log",
+      "bytes": 12665,
+      "sha256": "9b00c7d1608f12d8ca73824c37034589d56149378eec2336ad0174b771fb3355"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/candidate-F1.log",
+      "bytes": 237,
+      "sha256": "58a82b226ba80dd2ef836a060530b18285b246ad09ede886e8f957a7973e8786"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/candidate-ON-characterization.log",
+      "bytes": 138,
+      "sha256": "f1082871842f473766131d843c9a641b170718c99b5435ebd00fd6f7ff777df5"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/hide-F1.log",
+      "bytes": 237,
+      "sha256": "c427c789f4f5c64b8026c87b2162cceac367e4005fd9fd6b9f7f947de8a9780e"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/hide-ON-characterization.log",
+      "bytes": 138,
+      "sha256": "8e7ac385afc975e6cf8409bac7e4bc07d7a277dbbe65775d420e8fee3b2b3ab8"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-absent-R.log",
+      "bytes": 4468,
+      "sha256": "ff0920e6af143d2d9dc38cf8950d8a797230794a261e5acc036719317d6afddd"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-baseline-F.log",
+      "bytes": 10845,
+      "sha256": "afa59e2483acd21c949693974b7cec6654c1f4042484f21d52ce3fc9a7dbd2bb"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-baseline-FR.log",
+      "bytes": 16303,
+      "sha256": "6aa2ff1b37a05c772b2caa934d20f3ab5f2d24fee3db5e09d9ae70b3d44f552b"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-baseline-RF.log",
+      "bytes": 16303,
+      "sha256": "63fafd9c7d8afc943c63ad5d7d965c5e486caa4d84faf217f02ef4cd08ff0592"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-candidate-F.log",
+      "bytes": 11613,
+      "sha256": "ab552e1940d55756f94c1d9d55f645122c8a21be160920533d8f79387aea969e"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-candidate-FR.log",
+      "bytes": 17071,
+      "sha256": "c9f0a169d69421d728213beb2b6b36b5508df01ca4dd319a9a94843b847f11d2"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-candidate-RF.log",
+      "bytes": 17071,
+      "sha256": "bde55b3ca45bf0e0738b7c2e418512ecae222b103b9971066bfaa28239f9f1b2"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-hide-F.log",
+      "bytes": 10840,
+      "sha256": "9d34ee6a4e7f3b90eac9757e30f581bec8f422815f6a7bd6ee90b3a68130fb98"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-hide-FR.log",
+      "bytes": 16298,
+      "sha256": "2918f07d026cfc7023ee9856efa5e42f41f06137c95576e0581779931c5b78b9"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-hide-RF.log",
+      "bytes": 16298,
+      "sha256": "0226decf609307b3d5d2669953a297242bc5176e014331a74400a4fb01dcbfdb"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-restart-startup-OFF.log",
+      "bytes": 4525,
+      "sha256": "3f045dce4488fdc88745a746b931975303db75309a08234e6465b7e739debb10"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-revoke-F.log",
+      "bytes": 10829,
+      "sha256": "bba575d9010b4374749a01c7132f542aad36ffe5d7d2668f15192bb61ba0222a"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-revoke-FR.log",
+      "bytes": 16287,
+      "sha256": "e2e06b70bb8ae091990f65789705da871e2ed4ff24bf7ac3551bae9692b3f4c3"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/manager-revoke-RF.log",
+      "bytes": 16287,
+      "sha256": "6e5f12330c234298e0c96beb6be07b8f697fc0baf1b5201f96fb76560a0d571c"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/original-api18-F1.log",
+      "bytes": 239,
+      "sha256": "ad433536e939e7d35c12e183a5d790a59a8138ab7cdbbaae33ec5f5bf42e0a9a"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/original-api24-F1.log",
+      "bytes": 239,
+      "sha256": "c2fed96e47d77a304d1c689d1639d90f181f9daf77f8035748bc2333a16c0c37"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/revoke-F1.log",
+      "bytes": 237,
+      "sha256": "58a82b226ba80dd2ef836a060530b18285b246ad09ede886e8f957a7973e8786"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/revoke-ON-characterization.log",
+      "bytes": 138,
+      "sha256": "f1082871842f473766131d843c9a641b170718c99b5435ebd00fd6f7ff777df5"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/sdk-build-hide.log",
+      "bytes": 126,
+      "sha256": "d83a86fd774f15780039bd3bf34c2fabdb3c2eabac7ee1498665a0e26a958b7f"
+    },
+    {
+      "path": "notes/hal-21/fix/contracts/sdk-build-revoke.log",
+      "bytes": 130,
+      "sha256": "93f1c9e11e30aa66c32a05e8d2a9a3056568611cb697bb5a355aec1ec6539ac0"
+    },
+    {
+      "path": "notes/hal-21/fix/on/RESULTADOS.json",
+      "bytes": 16571,
+      "sha256": "b5fc268145b307e3ff84e73a44e3a23a73e9be3bd58f4b5f4f39fb7c3725dcf3"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_attribute_icons.log",
+      "bytes": 110,
+      "sha256": "091882a1be1db783fb022d3bb11eba45c49d4cab11a2dc08530a2557ef2d54e5"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_battle_stat_tween-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_battle_stat_tween.log",
+      "bytes": 89,
+      "sha256": "ebd80124ff155247f447e270867471795e5b470779223a4699b5a48e9d9ae9aa"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_effect_title_instance-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_effect_title_instance.log",
+      "bytes": 63,
+      "sha256": "23df8467fe3ad3f024ac5dec872fda81b1256a5e2917f5ad20ec1cf553a2f7f8"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_effect_title_visual-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_effect_title_visual.log",
+      "bytes": 74,
+      "sha256": "6068381cb481c66fcb879784945bb56983d4c78a6f506909766f2b4638c64dab"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_forecast_parity-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_forecast_parity.log",
+      "bytes": 82,
+      "sha256": "ad722c2f7e86621f0d7f7e154f859157eb7aa085affaffa75fba4ecead4403c3"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_fusionist_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_fusionist_runtime.log",
+      "bytes": 126,
+      "sha256": "d73bff2932c1dcf0d31f7f18435b594a41f7f5a8e5c03a5e3b34aef71bbdc984"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_manifest.log",
+      "bytes": 471,
+      "sha256": "931bbde9e04bb8d4a5362bd0b2313221f3dc29db5a1c30e9cccd7ff68a67bb69"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_preview2_assets.log",
+      "bytes": 136,
+      "sha256": "1e7425c04e4f8526acc0215eb15954442ef7b1f0a07121188e4f2f5c63c05050"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_round2_manifest.log",
+      "bytes": 83,
+      "sha256": "4f6aa3d6305b797d4cd70633fdc81d5c62dd9031117690cc6e8a5cbd82356ec8"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_round2_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_round2_runtime.log",
+      "bytes": 98,
+      "sha256": "61f83434703f9a4139a25111739d9323550f64949937ae258646bc9661e4582f"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_round3_recipes-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_round3_recipes.log",
+      "bytes": 84,
+      "sha256": "0619f2373cfa3d6d9954de81dfd310b12b23ebbc2ce5df00f7d0d6d653bcbdfb"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_round3_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_round3_runtime.log",
+      "bytes": 83,
+      "sha256": "975b6d377499f586606f3cb6996ffc655970948260cb9db5d4471a694dd623c7"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_rules-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_rules.log",
+      "bytes": 95,
+      "sha256": "29164152184b5b17fc71f37c53cec2b9365a7f3998ae9a9518cf152202880bee"
+    },
+    {
+      "path": "notes/hal-21/fix/on/baseline-test_visual_dispatch.log",
+      "bytes": 108,
+      "sha256": "c9cdbda7b9cce64c52e8310c16f73e339ba3eb7cc67e4b68d421126a5976b2ea"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_attribute_icons.log",
+      "bytes": 110,
+      "sha256": "091882a1be1db783fb022d3bb11eba45c49d4cab11a2dc08530a2557ef2d54e5"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_battle_stat_tween-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_battle_stat_tween.log",
+      "bytes": 89,
+      "sha256": "ebd80124ff155247f447e270867471795e5b470779223a4699b5a48e9d9ae9aa"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_effect_title_instance-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_effect_title_instance.log",
+      "bytes": 63,
+      "sha256": "23df8467fe3ad3f024ac5dec872fda81b1256a5e2917f5ad20ec1cf553a2f7f8"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_effect_title_visual-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_effect_title_visual.log",
+      "bytes": 74,
+      "sha256": "6068381cb481c66fcb879784945bb56983d4c78a6f506909766f2b4638c64dab"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_forecast_parity-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_forecast_parity.log",
+      "bytes": 82,
+      "sha256": "ad722c2f7e86621f0d7f7e154f859157eb7aa085affaffa75fba4ecead4403c3"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_fusionist_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_fusionist_runtime.log",
+      "bytes": 126,
+      "sha256": "d73bff2932c1dcf0d31f7f18435b594a41f7f5a8e5c03a5e3b34aef71bbdc984"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_manifest.log",
+      "bytes": 471,
+      "sha256": "931bbde9e04bb8d4a5362bd0b2313221f3dc29db5a1c30e9cccd7ff68a67bb69"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_preview2_assets.log",
+      "bytes": 136,
+      "sha256": "1e7425c04e4f8526acc0215eb15954442ef7b1f0a07121188e4f2f5c63c05050"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_round2_manifest.log",
+      "bytes": 83,
+      "sha256": "4f6aa3d6305b797d4cd70633fdc81d5c62dd9031117690cc6e8a5cbd82356ec8"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_round2_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_round2_runtime.log",
+      "bytes": 98,
+      "sha256": "61f83434703f9a4139a25111739d9323550f64949937ae258646bc9661e4582f"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_round3_recipes-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_round3_recipes.log",
+      "bytes": 84,
+      "sha256": "0619f2373cfa3d6d9954de81dfd310b12b23ebbc2ce5df00f7d0d6d653bcbdfb"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_round3_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_round3_runtime.log",
+      "bytes": 83,
+      "sha256": "975b6d377499f586606f3cb6996ffc655970948260cb9db5d4471a694dd623c7"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_rules-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_rules.log",
+      "bytes": 95,
+      "sha256": "29164152184b5b17fc71f37c53cec2b9365a7f3998ae9a9518cf152202880bee"
+    },
+    {
+      "path": "notes/hal-21/fix/on/candidate-test_visual_dispatch.log",
+      "bytes": 108,
+      "sha256": "c9cdbda7b9cce64c52e8310c16f73e339ba3eb7cc67e4b68d421126a5976b2ea"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_attribute_icons.log",
+      "bytes": 110,
+      "sha256": "091882a1be1db783fb022d3bb11eba45c49d4cab11a2dc08530a2557ef2d54e5"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_battle_stat_tween-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_battle_stat_tween.log",
+      "bytes": 89,
+      "sha256": "ebd80124ff155247f447e270867471795e5b470779223a4699b5a48e9d9ae9aa"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_effect_title_instance-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_effect_title_instance.log",
+      "bytes": 63,
+      "sha256": "23df8467fe3ad3f024ac5dec872fda81b1256a5e2917f5ad20ec1cf553a2f7f8"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_effect_title_visual-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_effect_title_visual.log",
+      "bytes": 74,
+      "sha256": "6068381cb481c66fcb879784945bb56983d4c78a6f506909766f2b4638c64dab"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_forecast_parity-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_forecast_parity.log",
+      "bytes": 82,
+      "sha256": "ad722c2f7e86621f0d7f7e154f859157eb7aa085affaffa75fba4ecead4403c3"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_fusionist_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_fusionist_runtime.log",
+      "bytes": 126,
+      "sha256": "d73bff2932c1dcf0d31f7f18435b594a41f7f5a8e5c03a5e3b34aef71bbdc984"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_manifest.log",
+      "bytes": 471,
+      "sha256": "931bbde9e04bb8d4a5362bd0b2313221f3dc29db5a1c30e9cccd7ff68a67bb69"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_preview2_assets.log",
+      "bytes": 136,
+      "sha256": "1e7425c04e4f8526acc0215eb15954442ef7b1f0a07121188e4f2f5c63c05050"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_round2_manifest.log",
+      "bytes": 83,
+      "sha256": "4f6aa3d6305b797d4cd70633fdc81d5c62dd9031117690cc6e8a5cbd82356ec8"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_round2_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_round2_runtime.log",
+      "bytes": 98,
+      "sha256": "61f83434703f9a4139a25111739d9323550f64949937ae258646bc9661e4582f"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_round3_recipes-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_round3_recipes.log",
+      "bytes": 84,
+      "sha256": "0619f2373cfa3d6d9954de81dfd310b12b23ebbc2ce5df00f7d0d6d653bcbdfb"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_round3_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_round3_runtime.log",
+      "bytes": 83,
+      "sha256": "975b6d377499f586606f3cb6996ffc655970948260cb9db5d4471a694dd623c7"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_rules-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_rules.log",
+      "bytes": 95,
+      "sha256": "29164152184b5b17fc71f37c53cec2b9365a7f3998ae9a9518cf152202880bee"
+    },
+    {
+      "path": "notes/hal-21/fix/on/hide-test_visual_dispatch.log",
+      "bytes": 108,
+      "sha256": "c9cdbda7b9cce64c52e8310c16f73e339ba3eb7cc67e4b68d421126a5976b2ea"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_attribute_icons.log",
+      "bytes": 110,
+      "sha256": "091882a1be1db783fb022d3bb11eba45c49d4cab11a2dc08530a2557ef2d54e5"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_battle_stat_tween-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_battle_stat_tween.log",
+      "bytes": 89,
+      "sha256": "ebd80124ff155247f447e270867471795e5b470779223a4699b5a48e9d9ae9aa"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_effect_title_instance-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_effect_title_instance.log",
+      "bytes": 63,
+      "sha256": "23df8467fe3ad3f024ac5dec872fda81b1256a5e2917f5ad20ec1cf553a2f7f8"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_effect_title_visual-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_effect_title_visual.log",
+      "bytes": 74,
+      "sha256": "6068381cb481c66fcb879784945bb56983d4c78a6f506909766f2b4638c64dab"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_forecast_parity-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_forecast_parity.log",
+      "bytes": 82,
+      "sha256": "ad722c2f7e86621f0d7f7e154f859157eb7aa085affaffa75fba4ecead4403c3"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_fusionist_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_fusionist_runtime.log",
+      "bytes": 126,
+      "sha256": "d73bff2932c1dcf0d31f7f18435b594a41f7f5a8e5c03a5e3b34aef71bbdc984"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_manifest.log",
+      "bytes": 471,
+      "sha256": "931bbde9e04bb8d4a5362bd0b2313221f3dc29db5a1c30e9cccd7ff68a67bb69"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_preview2_assets.log",
+      "bytes": 136,
+      "sha256": "1e7425c04e4f8526acc0215eb15954442ef7b1f0a07121188e4f2f5c63c05050"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_round2_manifest.log",
+      "bytes": 83,
+      "sha256": "4f6aa3d6305b797d4cd70633fdc81d5c62dd9031117690cc6e8a5cbd82356ec8"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_round2_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_round2_runtime.log",
+      "bytes": 98,
+      "sha256": "61f83434703f9a4139a25111739d9323550f64949937ae258646bc9661e4582f"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_round3_recipes-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_round3_recipes.log",
+      "bytes": 84,
+      "sha256": "0619f2373cfa3d6d9954de81dfd310b12b23ebbc2ce5df00f7d0d6d653bcbdfb"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_round3_runtime-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_round3_runtime.log",
+      "bytes": 83,
+      "sha256": "975b6d377499f586606f3cb6996ffc655970948260cb9db5d4471a694dd623c7"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_rules-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_rules.log",
+      "bytes": 95,
+      "sha256": "29164152184b5b17fc71f37c53cec2b9365a7f3998ae9a9518cf152202880bee"
+    },
+    {
+      "path": "notes/hal-21/fix/on/revoke-test_visual_dispatch.log",
+      "bytes": 108,
+      "sha256": "c9cdbda7b9cce64c52e8310c16f73e339ba3eb7cc67e4b68d421126a5976b2ea"
+    },
+    {
+      "path": "notes/hal-21/fix/original-suite.log",
+      "bytes": 7616,
+      "sha256": "99f84e7979a75653ba2661b292c1e56f280a1d24d890f1c3158bea5387bf9843"
+    },
+    {
+      "path": "notes/hal-21/fix/sdk-build-candidate.log",
+      "bytes": 152,
+      "sha256": "ec22a751210bc01cb05c2e094443941663275d50ec267e64d6e77e2f69920ece"
+    },
+    {
+      "path": "tests/hal21/README.md",
+      "bytes": 6270,
+      "sha256": "be8e757ec4c8f1f6a469c53700e5ab13371694d80510c89629a92ec3caf7fb09"
+    },
+    {
+      "path": "tests/hal21/abi.py",
+      "bytes": 1868,
+      "sha256": "a12d020ccff57d87e787c64ba3c970b18787d10069951909f78486a8a506b9eb"
+    },
+    {
+      "path": "tests/hal21/compare.py",
+      "bytes": 3964,
+      "sha256": "9f777f069686d9a8cf51ac5406a1d72f2a8223f29a3a98b71b914ec5b924e817"
+    },
+    {
+      "path": "tests/hal21/manager_bridge.c",
+      "bytes": 421,
+      "sha256": "2c8a0eb9a061ea57971a72e7f48cc2b49dc2fd6c3708bcc943a8172eac93ee3f"
+    },
+    {
+      "path": "tests/hal21/manager_fixture.c",
+      "bytes": 29188,
+      "sha256": "ab5f234c5c75a3da9380d70232072f8e4bc9d98a0b6eb48fd8fbda11be29a922"
+    },
+    {
+      "path": "tests/hal21/on_suite.py",
+      "bytes": 2892,
+      "sha256": "6b3d362413ac015b95613938cba1e6ced9543be660f48e500459cfc75bb74b72"
+    },
+    {
+      "path": "tests/hal21/reference/hide.patch",
+      "bytes": 2186,
+      "sha256": "0ee37fa44d19af3421452f66feda56bfd4f8806e0a794ceb4c3613a907c8f78d"
+    },
+    {
+      "path": "tests/hal21/reference/revoke.patch",
+      "bytes": 1984,
+      "sha256": "fdc26d3e8f85b109bf5be990289af78b49b6c7641b12898a694fda834f27fec4"
+    },
+    {
+      "path": "tests/hal21/run.py",
+      "bytes": 12781,
+      "sha256": "644d1823abaf59c894d60df5812cf18df9e155b002106d9045a370a21cfc7c01"
+    },
+    {
+      "path": "tests/hal21/tw_adapter.c",
+      "bytes": 1657,
+      "sha256": "139c3c367e760b3f988918ff795637e87a84e03bb3bb38881544a7a116afb3f9"
+    }
+  ],
+  "binary_permissions": "One newly compiled Fusion object and 34 original authorized PNG assets. Source PR12 exact provenance, PeterIron permission/credits in NOTICES-HAL20.md; no private Dual/TimeWizard binary or new asset.",
+  "draft_PR": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/22"
+}

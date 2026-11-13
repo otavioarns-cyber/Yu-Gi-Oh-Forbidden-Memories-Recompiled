@@ -1,0 +1,512 @@
+suite,variant,order,case,status,log,details
+F1-original,api18,,OFF query,FAIL,contracts/original-api18-F1.log,Expected known original defect; not a candidate failure
+F1-original,api24,,OFF query,FAIL,contracts/original-api24-F1.log,Expected known original defect; not a candidate failure
+loader,baseline-ON,,ON/OFF characterization,PASS,contracts/baseline-ON-characterization.log,"object_hash=e6f40fd4 declared_api=24 hooks=33 subscriptions=4 providers=4; PASS 2652 characterization assertions (synthetic host, no duel)"
+loader,hide-ON,,ON/OFF characterization,PASS,contracts/hide-ON-characterization.log,"object_hash=8f442fbc declared_api=24 hooks=33 subscriptions=4 providers=4; PASS 2652 characterization assertions (synthetic host, no duel)"
+loader,hide-F1,,ON/OFF characterization,PASS,contracts/hide-F1.log,"object_hash=8f442fbc declared_api=24 hooks=33 subscriptions=4 providers=4; OFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=0 lease=0 extended=0 forecast=0; PASS 214 characterization assertions (synthetic host, no duel)"
+loader,revoke-ON,,ON/OFF characterization,PASS,contracts/revoke-ON-characterization.log,"object_hash=afb75202 declared_api=24 hooks=33 subscriptions=4 providers=4; PASS 2652 characterization assertions (synthetic host, no duel)"
+loader,revoke-F1,,ON/OFF characterization,PASS,contracts/revoke-F1.log,"object_hash=afb75202 declared_api=24 hooks=33 subscriptions=4 providers=4; OFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=0 lease=0 extended=0 forecast=0; PASS 214 characterization assertions (synthetic host, no duel)"
+loader,candidate-ON,,ON/OFF characterization,PASS,contracts/candidate-ON-characterization.log,"object_hash=afb75202 declared_api=24 hooks=33 subscriptions=4 providers=4; PASS 2652 characterization assertions (synthetic host, no duel)"
+loader,candidate-F1,,ON/OFF characterization,PASS,contracts/candidate-F1.log,"object_hash=afb75202 declared_api=24 hooks=33 subscriptions=4 providers=4; OFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=0 lease=0 extended=0 forecast=0; PASS 214 characterization assertions (synthetic host, no duel)"
+manager,baseline,FR,ABI-versions-layout,PASS,contracts/manager-baseline-FR.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,baseline,FR,ON-public-answers,PASS,contracts/manager-baseline-FR.log,Original valid owner/face-up Musician and identity lease answers.
+manager,baseline,FR,ON-real-consumers,PASS,contracts/manager-baseline-FR.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,baseline,FR,restart-defers-supported-OFF,PASS,contracts/manager-baseline-FR.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,baseline,FR,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-baseline-FR.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,baseline,FR,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-baseline-FR.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,baseline,FR,OFF-benefit-queries-neutral,FAIL,contracts/manager-baseline-FR.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,baseline,FR,OFF-consumers-neutral,FAIL,contracts/manager-baseline-FR.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,baseline,FR,OFF-provider-management-still-works,PASS,contracts/manager-baseline-FR.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,baseline,FR,policy-valid-identity-after-ON,PASS,contracts/manager-baseline-FR.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,baseline,FR,policy-identity-result,PASS,contracts/manager-baseline-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,FR,policy-identity-result,PASS,contracts/manager-baseline-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,FR,control-change-follows-identity,PASS,contracts/manager-baseline-FR.log,Presence side changes independently of lease storage slot.
+manager,baseline,FR,policy-identity-result,PASS,contracts/manager-baseline-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,FR,policy-identity-result,PASS,contracts/manager-baseline-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,FR,policy-identity-result,PASS,contracts/manager-baseline-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,FR,policy-identity-result,PASS,contracts/manager-baseline-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,FR,face-down-encore-neutral,PASS,contracts/manager-baseline-FR.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,baseline,FR,policy-identity-result,PASS,contracts/manager-baseline-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,FR,no-old-lease-after-unobserved-zone-roundtrip,FAIL,contracts/manager-baseline-FR.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,baseline,FR,new-lease-monotonic,PASS,contracts/manager-baseline-FR.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,baseline,FR,external-producer-revalidation,FAIL,contracts/manager-baseline-FR.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,baseline,FR,setting-disabled-on-reactivation,PASS,contracts/manager-baseline-FR.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,baseline,FR,revoke-cleanup-allowed-OFF,PASS,contracts/manager-baseline-FR.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,baseline,FR,inactive-reset-does-not-revive-old-lease,FAIL,contracts/manager-baseline-FR.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,baseline,FR,load-reset-clears-leases,PASS,contracts/manager-baseline-FR.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,baseline,FR,active-new-duel-clears-leases,PASS,contracts/manager-baseline-FR.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,baseline,FR,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-baseline-FR.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,baseline,FR,TimeWizard-new-attempt-OFF-neutral,FAIL,contracts/manager-baseline-FR.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,baseline,FR,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-baseline-FR.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,baseline,FR,Ritual-reconcile-ON-preserved,PASS,contracts/manager-baseline-FR.log,Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+manager,baseline,FR,Ritual-reconcile-OFF-retires,FAIL,contracts/manager-baseline-FR.log,Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+manager,baseline,FR,real-Ritual-enabled-contract,PASS,contracts/manager-baseline-FR.log,"Unmodified PR11 object supplies effect catalogue, not fixture provider."
+manager,baseline,FR,ON-revalidates-unavailable-producer,FAIL,contracts/manager-baseline-FR.log,Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+manager,baseline,RF,ABI-versions-layout,PASS,contracts/manager-baseline-RF.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,baseline,RF,ON-public-answers,PASS,contracts/manager-baseline-RF.log,Original valid owner/face-up Musician and identity lease answers.
+manager,baseline,RF,ON-real-consumers,PASS,contracts/manager-baseline-RF.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,baseline,RF,restart-defers-supported-OFF,PASS,contracts/manager-baseline-RF.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,baseline,RF,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-baseline-RF.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,baseline,RF,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-baseline-RF.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,baseline,RF,OFF-benefit-queries-neutral,FAIL,contracts/manager-baseline-RF.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,baseline,RF,OFF-consumers-neutral,FAIL,contracts/manager-baseline-RF.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,baseline,RF,OFF-provider-management-still-works,PASS,contracts/manager-baseline-RF.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,baseline,RF,policy-valid-identity-after-ON,PASS,contracts/manager-baseline-RF.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,baseline,RF,policy-identity-result,PASS,contracts/manager-baseline-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,RF,policy-identity-result,PASS,contracts/manager-baseline-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,RF,control-change-follows-identity,PASS,contracts/manager-baseline-RF.log,Presence side changes independently of lease storage slot.
+manager,baseline,RF,policy-identity-result,PASS,contracts/manager-baseline-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,RF,policy-identity-result,PASS,contracts/manager-baseline-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,RF,policy-identity-result,PASS,contracts/manager-baseline-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,RF,policy-identity-result,PASS,contracts/manager-baseline-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,RF,face-down-encore-neutral,PASS,contracts/manager-baseline-RF.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,baseline,RF,policy-identity-result,PASS,contracts/manager-baseline-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,RF,no-old-lease-after-unobserved-zone-roundtrip,FAIL,contracts/manager-baseline-RF.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,baseline,RF,new-lease-monotonic,PASS,contracts/manager-baseline-RF.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,baseline,RF,external-producer-revalidation,FAIL,contracts/manager-baseline-RF.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,baseline,RF,setting-disabled-on-reactivation,PASS,contracts/manager-baseline-RF.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,baseline,RF,revoke-cleanup-allowed-OFF,PASS,contracts/manager-baseline-RF.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,baseline,RF,inactive-reset-does-not-revive-old-lease,FAIL,contracts/manager-baseline-RF.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,baseline,RF,load-reset-clears-leases,PASS,contracts/manager-baseline-RF.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,baseline,RF,active-new-duel-clears-leases,PASS,contracts/manager-baseline-RF.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,baseline,RF,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-baseline-RF.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,baseline,RF,TimeWizard-new-attempt-OFF-neutral,FAIL,contracts/manager-baseline-RF.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,baseline,RF,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-baseline-RF.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,baseline,RF,Ritual-reconcile-ON-preserved,PASS,contracts/manager-baseline-RF.log,Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+manager,baseline,RF,Ritual-reconcile-OFF-retires,FAIL,contracts/manager-baseline-RF.log,Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+manager,baseline,RF,real-Ritual-enabled-contract,PASS,contracts/manager-baseline-RF.log,"Unmodified PR11 object supplies effect catalogue, not fixture provider."
+manager,baseline,RF,ON-revalidates-unavailable-producer,FAIL,contracts/manager-baseline-RF.log,Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+manager,baseline,F,ABI-versions-layout,PASS,contracts/manager-baseline-F.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,baseline,F,ON-public-answers,PASS,contracts/manager-baseline-F.log,Original valid owner/face-up Musician and identity lease answers.
+manager,baseline,F,ON-real-consumers,PASS,contracts/manager-baseline-F.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,baseline,F,restart-defers-supported-OFF,PASS,contracts/manager-baseline-F.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,baseline,F,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-baseline-F.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,baseline,F,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-baseline-F.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,baseline,F,OFF-benefit-queries-neutral,FAIL,contracts/manager-baseline-F.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,baseline,F,OFF-consumers-neutral,FAIL,contracts/manager-baseline-F.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,baseline,F,OFF-provider-management-still-works,PASS,contracts/manager-baseline-F.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,baseline,F,policy-valid-identity-after-ON,PASS,contracts/manager-baseline-F.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,baseline,F,policy-identity-result,PASS,contracts/manager-baseline-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,F,policy-identity-result,PASS,contracts/manager-baseline-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,F,control-change-follows-identity,PASS,contracts/manager-baseline-F.log,Presence side changes independently of lease storage slot.
+manager,baseline,F,policy-identity-result,PASS,contracts/manager-baseline-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,F,policy-identity-result,PASS,contracts/manager-baseline-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,F,policy-identity-result,PASS,contracts/manager-baseline-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,F,policy-identity-result,PASS,contracts/manager-baseline-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,F,face-down-encore-neutral,PASS,contracts/manager-baseline-F.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,baseline,F,policy-identity-result,PASS,contracts/manager-baseline-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,baseline,F,no-old-lease-after-unobserved-zone-roundtrip,FAIL,contracts/manager-baseline-F.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,baseline,F,new-lease-monotonic,PASS,contracts/manager-baseline-F.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,baseline,F,external-producer-revalidation,FAIL,contracts/manager-baseline-F.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,baseline,F,setting-disabled-on-reactivation,PASS,contracts/manager-baseline-F.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,baseline,F,revoke-cleanup-allowed-OFF,PASS,contracts/manager-baseline-F.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,baseline,F,inactive-reset-does-not-revive-old-lease,FAIL,contracts/manager-baseline-F.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,baseline,F,load-reset-clears-leases,PASS,contracts/manager-baseline-F.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,baseline,F,active-new-duel-clears-leases,PASS,contracts/manager-baseline-F.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,baseline,F,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-baseline-F.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,baseline,F,TimeWizard-new-attempt-OFF-neutral,FAIL,contracts/manager-baseline-F.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,baseline,F,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-baseline-F.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,hide,FR,ABI-versions-layout,PASS,contracts/manager-hide-FR.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,hide,FR,ON-public-answers,PASS,contracts/manager-hide-FR.log,Original valid owner/face-up Musician and identity lease answers.
+manager,hide,FR,ON-real-consumers,PASS,contracts/manager-hide-FR.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,hide,FR,restart-defers-supported-OFF,PASS,contracts/manager-hide-FR.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,hide,FR,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-hide-FR.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,hide,FR,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-hide-FR.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,hide,FR,OFF-benefit-queries-neutral,PASS,contracts/manager-hide-FR.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,hide,FR,OFF-consumers-neutral,PASS,contracts/manager-hide-FR.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,hide,FR,OFF-provider-management-still-works,PASS,contracts/manager-hide-FR.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,hide,FR,policy-valid-identity-after-ON,PASS,contracts/manager-hide-FR.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,hide,FR,policy-identity-result,PASS,contracts/manager-hide-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,FR,policy-identity-result,PASS,contracts/manager-hide-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,FR,control-change-follows-identity,PASS,contracts/manager-hide-FR.log,Presence side changes independently of lease storage slot.
+manager,hide,FR,policy-identity-result,PASS,contracts/manager-hide-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,FR,policy-identity-result,PASS,contracts/manager-hide-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,FR,policy-identity-result,PASS,contracts/manager-hide-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,FR,policy-identity-result,PASS,contracts/manager-hide-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,FR,face-down-encore-neutral,PASS,contracts/manager-hide-FR.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,hide,FR,policy-identity-result,PASS,contracts/manager-hide-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,FR,no-old-lease-after-unobserved-zone-roundtrip,FAIL,contracts/manager-hide-FR.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,hide,FR,new-lease-monotonic,PASS,contracts/manager-hide-FR.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,hide,FR,external-producer-revalidation,PASS,contracts/manager-hide-FR.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,hide,FR,setting-disabled-on-reactivation,PASS,contracts/manager-hide-FR.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,hide,FR,revoke-cleanup-allowed-OFF,PASS,contracts/manager-hide-FR.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,hide,FR,inactive-reset-does-not-revive-old-lease,FAIL,contracts/manager-hide-FR.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,hide,FR,load-reset-clears-leases,PASS,contracts/manager-hide-FR.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,hide,FR,active-new-duel-clears-leases,PASS,contracts/manager-hide-FR.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,hide,FR,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-hide-FR.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,hide,FR,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-hide-FR.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,hide,FR,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-hide-FR.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,hide,FR,Ritual-reconcile-ON-preserved,PASS,contracts/manager-hide-FR.log,Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+manager,hide,FR,Ritual-reconcile-OFF-retires,PASS,contracts/manager-hide-FR.log,Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+manager,hide,FR,real-Ritual-enabled-contract,PASS,contracts/manager-hide-FR.log,"Unmodified PR11 object supplies effect catalogue, not fixture provider."
+manager,hide,FR,ON-revalidates-unavailable-producer,PASS,contracts/manager-hide-FR.log,Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+manager,hide,RF,ABI-versions-layout,PASS,contracts/manager-hide-RF.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,hide,RF,ON-public-answers,PASS,contracts/manager-hide-RF.log,Original valid owner/face-up Musician and identity lease answers.
+manager,hide,RF,ON-real-consumers,PASS,contracts/manager-hide-RF.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,hide,RF,restart-defers-supported-OFF,PASS,contracts/manager-hide-RF.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,hide,RF,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-hide-RF.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,hide,RF,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-hide-RF.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,hide,RF,OFF-benefit-queries-neutral,PASS,contracts/manager-hide-RF.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,hide,RF,OFF-consumers-neutral,PASS,contracts/manager-hide-RF.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,hide,RF,OFF-provider-management-still-works,PASS,contracts/manager-hide-RF.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,hide,RF,policy-valid-identity-after-ON,PASS,contracts/manager-hide-RF.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,hide,RF,policy-identity-result,PASS,contracts/manager-hide-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,RF,policy-identity-result,PASS,contracts/manager-hide-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,RF,control-change-follows-identity,PASS,contracts/manager-hide-RF.log,Presence side changes independently of lease storage slot.
+manager,hide,RF,policy-identity-result,PASS,contracts/manager-hide-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,RF,policy-identity-result,PASS,contracts/manager-hide-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,RF,policy-identity-result,PASS,contracts/manager-hide-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,RF,policy-identity-result,PASS,contracts/manager-hide-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,RF,face-down-encore-neutral,PASS,contracts/manager-hide-RF.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,hide,RF,policy-identity-result,PASS,contracts/manager-hide-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,RF,no-old-lease-after-unobserved-zone-roundtrip,FAIL,contracts/manager-hide-RF.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,hide,RF,new-lease-monotonic,PASS,contracts/manager-hide-RF.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,hide,RF,external-producer-revalidation,PASS,contracts/manager-hide-RF.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,hide,RF,setting-disabled-on-reactivation,PASS,contracts/manager-hide-RF.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,hide,RF,revoke-cleanup-allowed-OFF,PASS,contracts/manager-hide-RF.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,hide,RF,inactive-reset-does-not-revive-old-lease,FAIL,contracts/manager-hide-RF.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,hide,RF,load-reset-clears-leases,PASS,contracts/manager-hide-RF.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,hide,RF,active-new-duel-clears-leases,PASS,contracts/manager-hide-RF.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,hide,RF,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-hide-RF.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,hide,RF,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-hide-RF.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,hide,RF,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-hide-RF.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,hide,RF,Ritual-reconcile-ON-preserved,PASS,contracts/manager-hide-RF.log,Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+manager,hide,RF,Ritual-reconcile-OFF-retires,PASS,contracts/manager-hide-RF.log,Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+manager,hide,RF,real-Ritual-enabled-contract,PASS,contracts/manager-hide-RF.log,"Unmodified PR11 object supplies effect catalogue, not fixture provider."
+manager,hide,RF,ON-revalidates-unavailable-producer,PASS,contracts/manager-hide-RF.log,Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+manager,hide,F,ABI-versions-layout,PASS,contracts/manager-hide-F.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,hide,F,ON-public-answers,PASS,contracts/manager-hide-F.log,Original valid owner/face-up Musician and identity lease answers.
+manager,hide,F,ON-real-consumers,PASS,contracts/manager-hide-F.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,hide,F,restart-defers-supported-OFF,PASS,contracts/manager-hide-F.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,hide,F,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-hide-F.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,hide,F,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-hide-F.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,hide,F,OFF-benefit-queries-neutral,PASS,contracts/manager-hide-F.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,hide,F,OFF-consumers-neutral,PASS,contracts/manager-hide-F.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,hide,F,OFF-provider-management-still-works,PASS,contracts/manager-hide-F.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,hide,F,policy-valid-identity-after-ON,PASS,contracts/manager-hide-F.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,hide,F,policy-identity-result,PASS,contracts/manager-hide-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,F,policy-identity-result,PASS,contracts/manager-hide-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,F,control-change-follows-identity,PASS,contracts/manager-hide-F.log,Presence side changes independently of lease storage slot.
+manager,hide,F,policy-identity-result,PASS,contracts/manager-hide-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,F,policy-identity-result,PASS,contracts/manager-hide-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,F,policy-identity-result,PASS,contracts/manager-hide-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,F,policy-identity-result,PASS,contracts/manager-hide-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,F,face-down-encore-neutral,PASS,contracts/manager-hide-F.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,hide,F,policy-identity-result,PASS,contracts/manager-hide-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,hide,F,no-old-lease-after-unobserved-zone-roundtrip,FAIL,contracts/manager-hide-F.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,hide,F,new-lease-monotonic,PASS,contracts/manager-hide-F.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,hide,F,external-producer-revalidation,PASS,contracts/manager-hide-F.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,hide,F,setting-disabled-on-reactivation,PASS,contracts/manager-hide-F.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,hide,F,revoke-cleanup-allowed-OFF,PASS,contracts/manager-hide-F.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,hide,F,inactive-reset-does-not-revive-old-lease,FAIL,contracts/manager-hide-F.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,hide,F,load-reset-clears-leases,PASS,contracts/manager-hide-F.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,hide,F,active-new-duel-clears-leases,PASS,contracts/manager-hide-F.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,hide,F,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-hide-F.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,hide,F,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-hide-F.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,hide,F,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-hide-F.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,revoke,FR,ABI-versions-layout,PASS,contracts/manager-revoke-FR.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,revoke,FR,ON-public-answers,PASS,contracts/manager-revoke-FR.log,Original valid owner/face-up Musician and identity lease answers.
+manager,revoke,FR,ON-real-consumers,PASS,contracts/manager-revoke-FR.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,revoke,FR,restart-defers-supported-OFF,PASS,contracts/manager-revoke-FR.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,revoke,FR,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-revoke-FR.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,revoke,FR,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-revoke-FR.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,revoke,FR,OFF-benefit-queries-neutral,PASS,contracts/manager-revoke-FR.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,revoke,FR,OFF-consumers-neutral,PASS,contracts/manager-revoke-FR.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,revoke,FR,OFF-provider-management-still-works,PASS,contracts/manager-revoke-FR.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,revoke,FR,policy-valid-identity-after-ON,PASS,contracts/manager-revoke-FR.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,revoke,FR,policy-identity-result,PASS,contracts/manager-revoke-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,FR,policy-identity-result,PASS,contracts/manager-revoke-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,FR,control-change-follows-identity,PASS,contracts/manager-revoke-FR.log,Presence side changes independently of lease storage slot.
+manager,revoke,FR,policy-identity-result,PASS,contracts/manager-revoke-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,FR,policy-identity-result,PASS,contracts/manager-revoke-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,FR,policy-identity-result,PASS,contracts/manager-revoke-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,FR,policy-identity-result,PASS,contracts/manager-revoke-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,FR,face-down-encore-neutral,PASS,contracts/manager-revoke-FR.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,revoke,FR,policy-identity-result,PASS,contracts/manager-revoke-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,FR,no-old-lease-after-unobserved-zone-roundtrip,PASS,contracts/manager-revoke-FR.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,revoke,FR,new-lease-monotonic,PASS,contracts/manager-revoke-FR.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,revoke,FR,external-producer-revalidation,PASS,contracts/manager-revoke-FR.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,revoke,FR,setting-disabled-on-reactivation,PASS,contracts/manager-revoke-FR.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,revoke,FR,revoke-cleanup-allowed-OFF,PASS,contracts/manager-revoke-FR.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,revoke,FR,inactive-reset-does-not-revive-old-lease,PASS,contracts/manager-revoke-FR.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,revoke,FR,load-reset-clears-leases,PASS,contracts/manager-revoke-FR.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,revoke,FR,active-new-duel-clears-leases,PASS,contracts/manager-revoke-FR.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,revoke,FR,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-revoke-FR.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,revoke,FR,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-revoke-FR.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,revoke,FR,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-revoke-FR.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,revoke,FR,Ritual-reconcile-ON-preserved,PASS,contracts/manager-revoke-FR.log,Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+manager,revoke,FR,Ritual-reconcile-OFF-retires,PASS,contracts/manager-revoke-FR.log,Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+manager,revoke,FR,real-Ritual-enabled-contract,PASS,contracts/manager-revoke-FR.log,"Unmodified PR11 object supplies effect catalogue, not fixture provider."
+manager,revoke,FR,ON-revalidates-unavailable-producer,PASS,contracts/manager-revoke-FR.log,Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+manager,revoke,RF,ABI-versions-layout,PASS,contracts/manager-revoke-RF.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,revoke,RF,ON-public-answers,PASS,contracts/manager-revoke-RF.log,Original valid owner/face-up Musician and identity lease answers.
+manager,revoke,RF,ON-real-consumers,PASS,contracts/manager-revoke-RF.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,revoke,RF,restart-defers-supported-OFF,PASS,contracts/manager-revoke-RF.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,revoke,RF,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-revoke-RF.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,revoke,RF,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-revoke-RF.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,revoke,RF,OFF-benefit-queries-neutral,PASS,contracts/manager-revoke-RF.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,revoke,RF,OFF-consumers-neutral,PASS,contracts/manager-revoke-RF.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,revoke,RF,OFF-provider-management-still-works,PASS,contracts/manager-revoke-RF.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,revoke,RF,policy-valid-identity-after-ON,PASS,contracts/manager-revoke-RF.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,revoke,RF,policy-identity-result,PASS,contracts/manager-revoke-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,RF,policy-identity-result,PASS,contracts/manager-revoke-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,RF,control-change-follows-identity,PASS,contracts/manager-revoke-RF.log,Presence side changes independently of lease storage slot.
+manager,revoke,RF,policy-identity-result,PASS,contracts/manager-revoke-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,RF,policy-identity-result,PASS,contracts/manager-revoke-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,RF,policy-identity-result,PASS,contracts/manager-revoke-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,RF,policy-identity-result,PASS,contracts/manager-revoke-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,RF,face-down-encore-neutral,PASS,contracts/manager-revoke-RF.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,revoke,RF,policy-identity-result,PASS,contracts/manager-revoke-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,RF,no-old-lease-after-unobserved-zone-roundtrip,PASS,contracts/manager-revoke-RF.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,revoke,RF,new-lease-monotonic,PASS,contracts/manager-revoke-RF.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,revoke,RF,external-producer-revalidation,PASS,contracts/manager-revoke-RF.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,revoke,RF,setting-disabled-on-reactivation,PASS,contracts/manager-revoke-RF.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,revoke,RF,revoke-cleanup-allowed-OFF,PASS,contracts/manager-revoke-RF.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,revoke,RF,inactive-reset-does-not-revive-old-lease,PASS,contracts/manager-revoke-RF.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,revoke,RF,load-reset-clears-leases,PASS,contracts/manager-revoke-RF.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,revoke,RF,active-new-duel-clears-leases,PASS,contracts/manager-revoke-RF.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,revoke,RF,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-revoke-RF.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,revoke,RF,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-revoke-RF.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,revoke,RF,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-revoke-RF.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,revoke,RF,Ritual-reconcile-ON-preserved,PASS,contracts/manager-revoke-RF.log,Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+manager,revoke,RF,Ritual-reconcile-OFF-retires,PASS,contracts/manager-revoke-RF.log,Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+manager,revoke,RF,real-Ritual-enabled-contract,PASS,contracts/manager-revoke-RF.log,"Unmodified PR11 object supplies effect catalogue, not fixture provider."
+manager,revoke,RF,ON-revalidates-unavailable-producer,PASS,contracts/manager-revoke-RF.log,Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+manager,revoke,F,ABI-versions-layout,PASS,contracts/manager-revoke-F.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,revoke,F,ON-public-answers,PASS,contracts/manager-revoke-F.log,Original valid owner/face-up Musician and identity lease answers.
+manager,revoke,F,ON-real-consumers,PASS,contracts/manager-revoke-F.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,revoke,F,restart-defers-supported-OFF,PASS,contracts/manager-revoke-F.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,revoke,F,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-revoke-F.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,revoke,F,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-revoke-F.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,revoke,F,OFF-benefit-queries-neutral,PASS,contracts/manager-revoke-F.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,revoke,F,OFF-consumers-neutral,PASS,contracts/manager-revoke-F.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,revoke,F,OFF-provider-management-still-works,PASS,contracts/manager-revoke-F.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,revoke,F,policy-valid-identity-after-ON,PASS,contracts/manager-revoke-F.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,revoke,F,policy-identity-result,PASS,contracts/manager-revoke-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,F,policy-identity-result,PASS,contracts/manager-revoke-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,F,control-change-follows-identity,PASS,contracts/manager-revoke-F.log,Presence side changes independently of lease storage slot.
+manager,revoke,F,policy-identity-result,PASS,contracts/manager-revoke-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,F,policy-identity-result,PASS,contracts/manager-revoke-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,F,policy-identity-result,PASS,contracts/manager-revoke-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,F,policy-identity-result,PASS,contracts/manager-revoke-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,F,face-down-encore-neutral,PASS,contracts/manager-revoke-F.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,revoke,F,policy-identity-result,PASS,contracts/manager-revoke-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,revoke,F,no-old-lease-after-unobserved-zone-roundtrip,PASS,contracts/manager-revoke-F.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,revoke,F,new-lease-monotonic,PASS,contracts/manager-revoke-F.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,revoke,F,external-producer-revalidation,PASS,contracts/manager-revoke-F.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,revoke,F,setting-disabled-on-reactivation,PASS,contracts/manager-revoke-F.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,revoke,F,revoke-cleanup-allowed-OFF,PASS,contracts/manager-revoke-F.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,revoke,F,inactive-reset-does-not-revive-old-lease,PASS,contracts/manager-revoke-F.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,revoke,F,load-reset-clears-leases,PASS,contracts/manager-revoke-F.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,revoke,F,active-new-duel-clears-leases,PASS,contracts/manager-revoke-F.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,revoke,F,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-revoke-F.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,revoke,F,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-revoke-F.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,revoke,F,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-revoke-F.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,candidate,FR,ABI-versions-layout,PASS,contracts/manager-candidate-FR.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,candidate,FR,ON-public-answers,PASS,contracts/manager-candidate-FR.log,Original valid owner/face-up Musician and identity lease answers.
+manager,candidate,FR,ON-real-consumers,PASS,contracts/manager-candidate-FR.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,candidate,FR,restart-defers-supported-OFF,PASS,contracts/manager-candidate-FR.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,candidate,FR,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-candidate-FR.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,candidate,FR,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-candidate-FR.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,candidate,FR,OFF-benefit-queries-neutral,PASS,contracts/manager-candidate-FR.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,candidate,FR,OFF-consumers-neutral,PASS,contracts/manager-candidate-FR.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,candidate,FR,OFF-provider-management-still-works,PASS,contracts/manager-candidate-FR.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,candidate,FR,policy-valid-identity-after-ON,PASS,contracts/manager-candidate-FR.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,candidate,FR,policy-identity-result,PASS,contracts/manager-candidate-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,FR,policy-identity-result,PASS,contracts/manager-candidate-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,FR,control-change-follows-identity,PASS,contracts/manager-candidate-FR.log,Presence side changes independently of lease storage slot.
+manager,candidate,FR,policy-identity-result,PASS,contracts/manager-candidate-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,FR,policy-identity-result,PASS,contracts/manager-candidate-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,FR,policy-identity-result,PASS,contracts/manager-candidate-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,FR,policy-identity-result,PASS,contracts/manager-candidate-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,FR,face-down-encore-neutral,PASS,contracts/manager-candidate-FR.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,candidate,FR,policy-identity-result,PASS,contracts/manager-candidate-FR.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,FR,no-old-lease-after-unobserved-zone-roundtrip,PASS,contracts/manager-candidate-FR.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,candidate,FR,new-lease-monotonic,PASS,contracts/manager-candidate-FR.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,candidate,FR,external-producer-revalidation,PASS,contracts/manager-candidate-FR.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,candidate,FR,setting-disabled-on-reactivation,PASS,contracts/manager-candidate-FR.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,candidate,FR,revoke-cleanup-allowed-OFF,PASS,contracts/manager-candidate-FR.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,candidate,FR,inactive-reset-does-not-revive-old-lease,PASS,contracts/manager-candidate-FR.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,candidate,FR,load-reset-clears-leases,PASS,contracts/manager-candidate-FR.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,candidate,FR,active-new-duel-clears-leases,PASS,contracts/manager-candidate-FR.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,candidate,FR,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-candidate-FR.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,candidate,FR,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-candidate-FR.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,candidate,FR,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-candidate-FR.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,candidate,FR,Ritual-reconcile-ON-preserved,PASS,contracts/manager-candidate-FR.log,Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+manager,candidate,FR,Ritual-reconcile-OFF-retires,PASS,contracts/manager-candidate-FR.log,Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+manager,candidate,FR,real-Ritual-enabled-contract,PASS,contracts/manager-candidate-FR.log,"Unmodified PR11 object supplies effect catalogue, not fixture provider."
+manager,candidate,FR,ON-revalidates-unavailable-producer,PASS,contracts/manager-candidate-FR.log,Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+manager,candidate,FR,candidate-OFF-only-owner-and-leases-mutated,PASS,contracts/manager-candidate-FR.log,"Byte comparison of entire loaded image except ea_applied/aux_unlocks; serial, independent nonzero fusion/metal marks and provider catalogue preserved."
+manager,candidate,FR,candidate-callback-OFF-overrides-host-preference,PASS,contracts/manager-candidate-FR.log,Callback-only instrument: host preference still ON; owner applied(0) is authoritative.
+manager,candidate,FR,candidate-all-forecast-callbacks-neutral-OFF,PASS,contracts/manager-candidate-FR.log,Public forecast callbacks are gated; no card/result mutation OFF.
+manager,candidate,FR,candidate-repeated-OFF-idempotent,PASS,contracts/manager-candidate-FR.log,Repeated OFF does not reset counter or restore a lease.
+manager,candidate,FR,candidate-ON-independent-state-and-registration-preserved,PASS,contracts/manager-candidate-FR.log,Only lease grant ended. Own effects and provider management remain; ON does not recover serial 77.
+manager,candidate,RF,ABI-versions-layout,PASS,contracts/manager-candidate-RF.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,candidate,RF,ON-public-answers,PASS,contracts/manager-candidate-RF.log,Original valid owner/face-up Musician and identity lease answers.
+manager,candidate,RF,ON-real-consumers,PASS,contracts/manager-candidate-RF.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,candidate,RF,restart-defers-supported-OFF,PASS,contracts/manager-candidate-RF.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,candidate,RF,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-candidate-RF.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,candidate,RF,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-candidate-RF.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,candidate,RF,OFF-benefit-queries-neutral,PASS,contracts/manager-candidate-RF.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,candidate,RF,OFF-consumers-neutral,PASS,contracts/manager-candidate-RF.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,candidate,RF,OFF-provider-management-still-works,PASS,contracts/manager-candidate-RF.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,candidate,RF,policy-valid-identity-after-ON,PASS,contracts/manager-candidate-RF.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,candidate,RF,policy-identity-result,PASS,contracts/manager-candidate-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,RF,policy-identity-result,PASS,contracts/manager-candidate-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,RF,control-change-follows-identity,PASS,contracts/manager-candidate-RF.log,Presence side changes independently of lease storage slot.
+manager,candidate,RF,policy-identity-result,PASS,contracts/manager-candidate-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,RF,policy-identity-result,PASS,contracts/manager-candidate-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,RF,policy-identity-result,PASS,contracts/manager-candidate-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,RF,policy-identity-result,PASS,contracts/manager-candidate-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,RF,face-down-encore-neutral,PASS,contracts/manager-candidate-RF.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,candidate,RF,policy-identity-result,PASS,contracts/manager-candidate-RF.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,RF,no-old-lease-after-unobserved-zone-roundtrip,PASS,contracts/manager-candidate-RF.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,candidate,RF,new-lease-monotonic,PASS,contracts/manager-candidate-RF.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,candidate,RF,external-producer-revalidation,PASS,contracts/manager-candidate-RF.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,candidate,RF,setting-disabled-on-reactivation,PASS,contracts/manager-candidate-RF.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,candidate,RF,revoke-cleanup-allowed-OFF,PASS,contracts/manager-candidate-RF.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,candidate,RF,inactive-reset-does-not-revive-old-lease,PASS,contracts/manager-candidate-RF.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,candidate,RF,load-reset-clears-leases,PASS,contracts/manager-candidate-RF.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,candidate,RF,active-new-duel-clears-leases,PASS,contracts/manager-candidate-RF.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,candidate,RF,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-candidate-RF.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,candidate,RF,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-candidate-RF.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,candidate,RF,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-candidate-RF.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,candidate,RF,Ritual-reconcile-ON-preserved,PASS,contracts/manager-candidate-RF.log,Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+manager,candidate,RF,Ritual-reconcile-OFF-retires,PASS,contracts/manager-candidate-RF.log,Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+manager,candidate,RF,real-Ritual-enabled-contract,PASS,contracts/manager-candidate-RF.log,"Unmodified PR11 object supplies effect catalogue, not fixture provider."
+manager,candidate,RF,ON-revalidates-unavailable-producer,PASS,contracts/manager-candidate-RF.log,Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+manager,candidate,RF,candidate-OFF-only-owner-and-leases-mutated,PASS,contracts/manager-candidate-RF.log,"Byte comparison of entire loaded image except ea_applied/aux_unlocks; serial, independent nonzero fusion/metal marks and provider catalogue preserved."
+manager,candidate,RF,candidate-callback-OFF-overrides-host-preference,PASS,contracts/manager-candidate-RF.log,Callback-only instrument: host preference still ON; owner applied(0) is authoritative.
+manager,candidate,RF,candidate-all-forecast-callbacks-neutral-OFF,PASS,contracts/manager-candidate-RF.log,Public forecast callbacks are gated; no card/result mutation OFF.
+manager,candidate,RF,candidate-repeated-OFF-idempotent,PASS,contracts/manager-candidate-RF.log,Repeated OFF does not reset counter or restore a lease.
+manager,candidate,RF,candidate-ON-independent-state-and-registration-preserved,PASS,contracts/manager-candidate-RF.log,Only lease grant ended. Own effects and provider management remain; ON does not recover serial 77.
+manager,candidate,F,ABI-versions-layout,PASS,contracts/manager-candidate-F.log,Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+manager,candidate,F,ON-public-answers,PASS,contracts/manager-candidate-F.log,Original valid owner/face-up Musician and identity lease answers.
+manager,candidate,F,ON-real-consumers,PASS,contracts/manager-candidate-F.log,Verbatim external source consumer functions call real providers through official Mods_Find.
+manager,candidate,F,restart-defers-supported-OFF,PASS,contracts/manager-candidate-F.log,Original restart:true saves OFF but retains actual ON; not a provider failure.
+manager,candidate,F,restart-Apply-reload-keeps-actual-ON,PASS,contracts/manager-candidate-F.log,Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+manager,candidate,F,Mods-Find-keeps-disabled-providers,PASS,contracts/manager-candidate-F.log,Official registry leaves cached/public pointers callable while owner OFF.
+manager,candidate,F,OFF-benefit-queries-neutral,PASS,contracts/manager-candidate-F.log,F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+manager,candidate,F,OFF-consumers-neutral,PASS,contracts/manager-candidate-F.log,"Fresh Ritual/Time Wizard contract queries, not full roulette core or effects."
+manager,candidate,F,OFF-provider-management-still-works,PASS,contracts/manager-candidate-F.log,"Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF."
+manager,candidate,F,policy-valid-identity-after-ON,PASS,contracts/manager-candidate-F.log,"Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease."
+manager,candidate,F,policy-identity-result,PASS,contracts/manager-candidate-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,F,policy-identity-result,PASS,contracts/manager-candidate-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,F,control-change-follows-identity,PASS,contracts/manager-candidate-F.log,Presence side changes independently of lease storage slot.
+manager,candidate,F,policy-identity-result,PASS,contracts/manager-candidate-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,F,policy-identity-result,PASS,contracts/manager-candidate-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,F,policy-identity-result,PASS,contracts/manager-candidate-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,F,policy-identity-result,PASS,contracts/manager-candidate-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,F,face-down-encore-neutral,PASS,contracts/manager-candidate-F.log,Face-down origin lease is distinct from live Encore eligibility.
+manager,candidate,F,policy-identity-result,PASS,contracts/manager-candidate-F.log,Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+manager,candidate,F,no-old-lease-after-unobserved-zone-roundtrip,PASS,contracts/manager-candidate-F.log,Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+manager,candidate,F,new-lease-monotonic,PASS,contracts/manager-candidate-F.log,Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+manager,candidate,F,external-producer-revalidation,PASS,contracts/manager-candidate-F.log,Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+manager,candidate,F,setting-disabled-on-reactivation,PASS,contracts/manager-candidate-F.log,Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+manager,candidate,F,revoke-cleanup-allowed-OFF,PASS,contracts/manager-candidate-F.log,Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+manager,candidate,F,inactive-reset-does-not-revive-old-lease,PASS,contracts/manager-candidate-F.log,Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+manager,candidate,F,load-reset-clears-leases,PASS,contracts/manager-candidate-F.log,Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+manager,candidate,F,active-new-duel-clears-leases,PASS,contracts/manager-candidate-F.log,"Real Fusion scene hook first phase tick, native scene body modeled."
+manager,candidate,F,TimeWizard-bridge-ON-unchanged,PASS,contracts/manager-candidate-F.log,Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+manager,candidate,F,TimeWizard-new-attempt-OFF-neutral,PASS,contracts/manager-candidate-F.log,Fresh attempt queries fixed provider; baseline F1 stays visible.
+manager,candidate,F,TimeWizard-cached-attempt-characterized,PASS,contracts/manager-candidate-F.log,Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+manager,candidate,F,candidate-OFF-only-owner-and-leases-mutated,PASS,contracts/manager-candidate-F.log,"Byte comparison of entire loaded image except ea_applied/aux_unlocks; serial, independent nonzero fusion/metal marks and provider catalogue preserved."
+manager,candidate,F,candidate-callback-OFF-overrides-host-preference,PASS,contracts/manager-candidate-F.log,Callback-only instrument: host preference still ON; owner applied(0) is authoritative.
+manager,candidate,F,candidate-all-forecast-callbacks-neutral-OFF,PASS,contracts/manager-candidate-F.log,Public forecast callbacks are gated; no card/result mutation OFF.
+manager,candidate,F,candidate-repeated-OFF-idempotent,PASS,contracts/manager-candidate-F.log,Repeated OFF does not reset counter or restore a lease.
+manager,candidate,F,candidate-ON-independent-state-and-registration-preserved,PASS,contracts/manager-candidate-F.log,Only lease grant ended. Own effects and provider management remain; ON does not recover serial 77.
+manager,absent,R,absent-provider-fallback,PASS,contracts/manager-absent-R.log,Real manager registry with Fusion absent.
+manager,startup-off,FR,restart-startup-OFF-no-providers,PASS,contracts/manager-restart-startup-OFF.log,Real manager registry with Fusion absent.
+original-suite,candidate,,test_attribute_icons,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_manifest,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_preview2_assets,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_round2_manifest,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_visual_dispatch,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,run_fusionist,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_battle_stat_tween,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_effect_title_instance,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_effect_title_visual,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_forecast_parity,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_round2_runtime,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_round3_recipes,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_round3_runtime,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,test_rules,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,preview2_loader,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+original-suite,candidate,,preview2_contract_off,PASS,ORIGINAL_SUITE.json,Original assertions retained; owner-ON mock added only to standalone fixture
+ON-parity,baseline,,test_attribute_icons,PASS,on/baseline-test_attribute_icons.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_manifest,PASS,on/baseline-test_manifest.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_preview2_assets,PASS,on/baseline-test_preview2_assets.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_round2_manifest,PASS,on/baseline-test_round2_manifest.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_visual_dispatch,PASS,on/baseline-test_visual_dispatch.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_battle_stat_tween,PASS,on/baseline-test_battle_stat_tween.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_effect_title_instance,PASS,on/baseline-test_effect_title_instance.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_effect_title_visual,PASS,on/baseline-test_effect_title_visual.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_forecast_parity,PASS,on/baseline-test_forecast_parity.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_fusionist_runtime,PASS,on/baseline-test_fusionist_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_round2_runtime,PASS,on/baseline-test_round2_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_round3_recipes,PASS,on/baseline-test_round3_recipes.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_round3_runtime,PASS,on/baseline-test_round3_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,baseline,,test_rules,PASS,on/baseline-test_rules.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_attribute_icons,PASS,on/hide-test_attribute_icons.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_manifest,PASS,on/hide-test_manifest.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_preview2_assets,PASS,on/hide-test_preview2_assets.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_round2_manifest,PASS,on/hide-test_round2_manifest.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_visual_dispatch,PASS,on/hide-test_visual_dispatch.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_battle_stat_tween,PASS,on/hide-test_battle_stat_tween.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_effect_title_instance,PASS,on/hide-test_effect_title_instance.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_effect_title_visual,PASS,on/hide-test_effect_title_visual.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_forecast_parity,PASS,on/hide-test_forecast_parity.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_fusionist_runtime,PASS,on/hide-test_fusionist_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_round2_runtime,PASS,on/hide-test_round2_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_round3_recipes,PASS,on/hide-test_round3_recipes.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_round3_runtime,PASS,on/hide-test_round3_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,hide,,test_rules,PASS,on/hide-test_rules.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_attribute_icons,PASS,on/revoke-test_attribute_icons.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_manifest,PASS,on/revoke-test_manifest.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_preview2_assets,PASS,on/revoke-test_preview2_assets.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_round2_manifest,PASS,on/revoke-test_round2_manifest.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_visual_dispatch,PASS,on/revoke-test_visual_dispatch.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_battle_stat_tween,PASS,on/revoke-test_battle_stat_tween.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_effect_title_instance,PASS,on/revoke-test_effect_title_instance.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_effect_title_visual,PASS,on/revoke-test_effect_title_visual.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_forecast_parity,PASS,on/revoke-test_forecast_parity.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_fusionist_runtime,PASS,on/revoke-test_fusionist_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_round2_runtime,PASS,on/revoke-test_round2_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_round3_recipes,PASS,on/revoke-test_round3_recipes.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_round3_runtime,PASS,on/revoke-test_round3_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,revoke,,test_rules,PASS,on/revoke-test_rules.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_attribute_icons,PASS,on/candidate-test_attribute_icons.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_manifest,PASS,on/candidate-test_manifest.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_preview2_assets,PASS,on/candidate-test_preview2_assets.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_round2_manifest,PASS,on/candidate-test_round2_manifest.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_visual_dispatch,PASS,on/candidate-test_visual_dispatch.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_battle_stat_tween,PASS,on/candidate-test_battle_stat_tween.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_effect_title_instance,PASS,on/candidate-test_effect_title_instance.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_effect_title_visual,PASS,on/candidate-test_effect_title_visual.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_forecast_parity,PASS,on/candidate-test_forecast_parity.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_fusionist_runtime,PASS,on/candidate-test_fusionist_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_round2_runtime,PASS,on/candidate-test_round2_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_round3_recipes,PASS,on/candidate-test_round3_recipes.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_round3_runtime,PASS,on/candidate-test_round3_runtime.log,"ASan/UBSan native C or Python, not gameplay"
+ON-parity,candidate,,test_rules,PASS,on/candidate-test_rules.log,"ASan/UBSan native C or Python, not gameplay"
+preservation,candidate,,only_three_production_sources_changed,PASS,COMPARACAO.json,Exact source patch/manifest/assets and allocated-section comparison
+preservation,candidate,,exact_approved_patch,PASS,COMPARACAO.json,Exact source patch/manifest/assets and allocated-section comparison
+preservation,candidate,,asset_inventory_identical,PASS,COMPARACAO.json,Exact source patch/manifest/assets and allocated-section comparison
+preservation,candidate,,all_assets_identical,PASS,COMPARACAO.json,Exact source patch/manifest/assets and allocated-section comparison
+preservation,candidate,,manifest_identical,PASS,COMPARACAO.json,Exact source patch/manifest/assets and allocated-section comparison
+preservation,candidate,,source_inventory_identical,PASS,COMPARACAO.json,Exact source patch/manifest/assets and allocated-section comparison
+preservation,candidate,,allocated_sections_identical_to_approved_revoke,PASS,COMPARACAO.json,Exact source patch/manifest/assets and allocated-section comparison
+preservation,candidate,,only_debug_sections_differ_from_approved_revoke,PASS,COMPARACAO.json,Exact source patch/manifest/assets and allocated-section comparison
+ABI,384e11eeeae32412e23afbbbd9ebc308761674b8a2181238fd60e17e315b865c,,public_exports_unchanged,PASS,ABI.json,131 imports and 2 global exports unchanged
+ABI,384e11eeeae32412e23afbbbd9ebc308761674b8a2181238fd60e17e315b865c,,imports_unchanged,PASS,ABI.json,131 imports and 2 global exports unchanged
+ABI,384e11eeeae32412e23afbbbd9ebc308761674b8a2181238fd60e17e315b865c,,imports_in_SDK,PASS,ABI.json,131 imports and 2 global exports unchanged
+ABI,3d85b23482682deb012b2d32458f077da0b4cfd4a3b3ee92d79f9bdae00bdcd9,,public_exports_unchanged,PASS,ABI.json,131 imports and 2 global exports unchanged
+ABI,3d85b23482682deb012b2d32458f077da0b4cfd4a3b3ee92d79f9bdae00bdcd9,,imports_unchanged,PASS,ABI.json,131 imports and 2 global exports unchanged
+ABI,3d85b23482682deb012b2d32458f077da0b4cfd4a3b3ee92d79f9bdae00bdcd9,,imports_in_SDK,PASS,ABI.json,131 imports and 2 global exports unchanged
+ABI,1236eb5408b22c5fefecea748a5b9af6f925ef4fab1409ef869b36faff7571dd,,public_exports_unchanged,PASS,ABI.json,131 imports and 2 global exports unchanged
+ABI,1236eb5408b22c5fefecea748a5b9af6f925ef4fab1409ef869b36faff7571dd,,imports_unchanged,PASS,ABI.json,131 imports and 2 global exports unchanged
+ABI,1236eb5408b22c5fefecea748a5b9af6f925ef4fab1409ef869b36faff7571dd,,imports_in_SDK,PASS,ABI.json,131 imports and 2 global exports unchanged
+limitations,candidate,,Gameplay Windows,PENDING,../../HAL21_FUSION_OFF_REVOKE_PREVIEW2.md,No Windows real duel executed
+limitations,candidate,,Old savestate compatibility,NOT VALIDATED,../../HAL21_FUSION_OFF_REVOKE_PREVIEW2.md,"Simulated callbacks/reset only, not old save format"
+limitations,candidate,,Full TimeWizard core,BLOCKED,../../HAL21_FUSION_OFF_REVOKE_PREVIEW2.md,Only bridge source; pending cache behavior characterized with modeled core/wheel
+limitations,candidate,,AI/Dual integrated matrix,PENDING,../../HAL21_FUSION_OFF_REVOKE_PREVIEW2.md,Other MODs unchanged; PR20 absent

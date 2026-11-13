@@ -1,0 +1,81 @@
+In file included from /tmp/hal21-91fovvmo/legacy.c:13:
+src/game/duel_card.h:50:1: warning: variably modified ‘DuelCardRecord_object_offset_must_be_0x00’ at file scope
+   50 | ];
+      | ^
+src/game/duel_card.h:53:1: warning: variably modified ‘DuelCardRecord_data_offset_must_be_0x04’ at file scope
+   53 | ];
+      | ^
+src/game/duel_card.h:56:1: warning: variably modified ‘DuelCardRecord_card_id_offset_must_be_0x0C’ at file scope
+   56 | ];
+      | ^
+src/game/duel_card.h:59:1: warning: variably modified ‘DuelCardRecord_attack_offset_must_be_0x0E’ at file scope
+   59 | ];
+      | ^
+src/game/duel_card.h:62:1: warning: variably modified ‘DuelCardRecord_defense_offset_must_be_0x10’ at file scope
+   62 | ];
+      | ^
+src/game/duel_card.h:65:1: warning: variably modified ‘DuelCardRecord_stat_modifier_offset_must_be_0x12’ at file scope
+   65 | ];
+      | ^
+src/game/duel_card.h:69:1: warning: variably modified ‘DuelCardRecord_defense_modifier_offset_must_be_0x1A’ at file scope
+   69 | ];
+      | ^
+src/game/duel_card.h:73:1: warning: variably modified ‘DuelCardRecord_terrain_modifier_offset_must_be_0x14’ at file scope
+   73 | ];
+      | ^
+src/game/duel_card.h:76:1: warning: variably modified ‘DuelCardRecord_flags_offset_must_be_0x16’ at file scope
+   76 | ];
+      | ^
+src/game/duel_card.h:79:1: warning: variably modified ‘DuelCardRecord_table_index_offset_must_be_0x18’ at file scope
+   79 | ];
+      | ^
+In file included from /tmp/hal21-91fovvmo/legacy.c:14:
+src/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope
+   22 | ];
+      | ^
+src/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope
+   25 | ];
+      | ^
+src/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope
+   28 | ];
+      | ^
+src/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope
+   31 | ];
+      | ^
+src/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope
+   34 | ];
+      | ^
+In file included from /tmp/hal21-91fovvmo/legacy.c:16:
+src/game/display_object.h:438:1: warning: variably modified ‘DisplayObject_field_22_must_be_at_0x22’ at file scope
+  438 | ];
+      | ^
+src/game/display_object.h:441:1: warning: variably modified ‘DisplayObject_update_must_be_at_0x24’ at file scope
+  441 | ];
+      | ^
+src/game/display_object.h:444:1: warning: variably modified ‘DisplayObject_position_must_be_at_0x28’ at file scope
+  444 | ];
+      | ^
+src/game/display_object.h:447:1: warning: variably modified ‘DisplayObject_field_3E_must_be_at_0x3E’ at file scope
+  447 | ];
+      | ^
+src/game/display_object.h:450:1: warning: variably modified ‘DisplayObject_field_42_must_be_at_0x42’ at file scope
+  450 | ];
+      | ^
+src/game/display_object.h:453:1: warning: variably modified ‘DisplayObject_field_4A_must_be_at_0x4A’ at file scope
+  453 | ];
+      | ^
+src/game/display_object.h:456:1: warning: variably modified ‘DisplayObject_field_3A_must_be_at_0x3A’ at file scope
+  456 | ];
+      | ^
+src/game/display_object.h:459:1: warning: variably modified ‘DisplayObject_field_52_must_be_at_0x52’ at file scope
+  459 | ];
+      | ^
+src/game/display_object.h:462:1: warning: variably modified ‘DisplayObject_field_58_must_be_at_0x58’ at file scope
+  462 | ];
+      | ^
+src/game/display_object.h:465:1: warning: variably modified ‘DisplayObject_field_64_must_be_at_0x64’ at file scope
+  465 | ];
+      | ^
+src/game/display_object.h:468:1: warning: variably modified ‘DisplayObject_field_65_must_be_at_0x65’ at file scope
+  468 | ];
+      | ^

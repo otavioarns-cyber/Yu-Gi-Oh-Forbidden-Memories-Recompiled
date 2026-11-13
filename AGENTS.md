@@ -12,7 +12,11 @@ Em 11/11/2026, o usuário pediu que as informações das entregas e mudanças se
 
 ## Ponto de partida atual
 
-- Entrega mais recente: [HAL-20 — base oficial atualizada e resultados](notes/HAL20_BASE_OFICIAL_V031_PREVIEW2.md), [PR #8](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/8).
+- Etapa candidata atual: [HAL-21 — Fusion OFF Revogar](notes/HAL21_FUSION_OFF_REVOKE_PREVIEW2.md), branch `fix/hal-21-fusion-off-revoke-preview2`; [PR #22 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/22). O usuário autorizou escolher Revogar para preparar/testar a candidata, sem merge ou release. Fonte PR #12 + patch exato Revogar PR #21; somente três arquivos de produção modificados.
+- Resultado: suíte original 16 grupos PASS, manager real/motor parcial 113 verificações PASS, código carregado idêntico a Revogar do #21 (`afb75202`), manifest/settings/assets e ABI preservados. OFF efetivo limpa só leases, preserva serial e estados independentes. Não usar host->applied (preferência) como estado efetivo. Restart original mantido.
+- Referências preservadas: [PR #12](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/12), [PR #14](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14), [PoC #21](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/21). PR #20 não incorporado. Consumidores inalterados; Time Wizard mantém cache de tentativas iniciadas, gameplay Windows e matriz AI/Dual pendentes. Não fechar HAL-21 apenas por estes testes.
+
+- Base oficial anterior: [HAL-20 — base oficial atualizada e resultados](notes/HAL20_BASE_OFICIAL_V031_PREVIEW2.md), [PR #8](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/8).
 - Inventário anterior: [HAL-20 — inventário e plano](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/docs/hal-20-inventario-plano/notes/HAL20_INVENTARIO_E_PLANO.md), [PR #7](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/7).
 - Evidência integral: [495 arquivos do ZIP, tamanhos e SHA-256](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/docs/hal-20-inventario-plano/notes/hal-20/INVENTARIO_ARQUIVOS.csv).
 - Branch de integração atual: `integration/hal-20-v0.3.1-preview.2`; branch documental anterior: `docs/hal-20-inventario-plano`. Preservar ambas e as branches antigas.
