@@ -1,0 +1,1732 @@
+{
+  "scope": "HAL-22 I2 only; no Windows gameplay",
+  "preflight": [
+    {
+      "name": "ai-hard-mode/ai-hard-mode.o",
+      "status": "PASS",
+      "expected_sha256": "9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc",
+      "actual_sha256": "9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc"
+    },
+    {
+      "name": "ai-hard-mode/mod.json",
+      "status": "PASS",
+      "expected_sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "actual_sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f"
+    },
+    {
+      "name": "dual-play/dual-play.o",
+      "status": "PASS",
+      "expected_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+      "actual_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378"
+    },
+    {
+      "name": "dual-play/mod.json",
+      "status": "PASS",
+      "expected_sha256": "c3244ab680764a0d930c12929c5adf8ae3128e4d6b981f5e06ff3eb624839563",
+      "actual_sha256": "c3244ab680764a0d930c12929c5adf8ae3128e4d6b981f5e06ff3eb624839563"
+    },
+    {
+      "name": "src_game_duel_field_layout.c.o",
+      "status": "PASS",
+      "expected_sha256": "c04da09c11ccdf055a0624397ae1978bfcb71a2cf38d27132dc14087d652822f",
+      "actual_sha256": "c04da09c11ccdf055a0624397ae1978bfcb71a2cf38d27132dc14087d652822f"
+    },
+    {
+      "name": "src_game_ai_opponent_data.c.o",
+      "status": "PASS",
+      "expected_sha256": "726f21ba102b4edff7532cc6d139da42119fadeb32bb1729e4b03beb18cae0ef",
+      "actual_sha256": "726f21ba102b4edff7532cc6d139da42119fadeb32bb1729e4b03beb18cae0ef"
+    },
+    {
+      "name": "src_game_duel_scene_hand_actions.c.o",
+      "status": "PASS",
+      "expected_sha256": "182befc7d0ca6a01e5b2ee96522232166a483e05a3c42ba202ed704339ea6e10",
+      "actual_sha256": "182befc7d0ca6a01e5b2ee96522232166a483e05a3c42ba202ed704339ea6e10"
+    },
+    {
+      "name": "src_game_func_8001B938.c.o",
+      "status": "PASS",
+      "expected_sha256": "34e71b86826935833ffb20adc513c24ad9ce1b886af833cb525031c887451722",
+      "actual_sha256": "34e71b86826935833ffb20adc513c24ad9ce1b886af833cb525031c887451722"
+    },
+    {
+      "name": "src_game_duel_card_state_helpers.c.o",
+      "status": "PASS",
+      "expected_sha256": "82b1166941d46b966529351b7cefdb7a658008bcd1d71508d386f99cfac8e52c",
+      "actual_sha256": "82b1166941d46b966529351b7cefdb7a658008bcd1d71508d386f99cfac8e52c"
+    },
+    {
+      "name": "src_game_func_80027DF8.c.o",
+      "status": "PASS",
+      "expected_sha256": "a93bb53a28fe29ed3cf5c6e42bb8855c5e0924cd98ade8669ebe14eb50243659",
+      "actual_sha256": "a93bb53a28fe29ed3cf5c6e42bb8855c5e0924cd98ade8669ebe14eb50243659"
+    },
+    {
+      "name": "src_game_ai_script_vm.c.o",
+      "status": "PASS",
+      "expected_sha256": "1bda927aa90bd78a1bdd8f75e2cf4dedf3b6cbaee235757a64cf4d23b1cc6490",
+      "actual_sha256": "1bda927aa90bd78a1bdd8f75e2cf4dedf3b6cbaee235757a64cf4d23b1cc6490"
+    },
+    {
+      "name": "src_game_ai_get_hand_size.c.o",
+      "status": "PASS",
+      "expected_sha256": "3874c01d095ddce9be48aefba59ecd1011fbe948ccb208cb1ba78f08eb03eb4b",
+      "actual_sha256": "3874c01d095ddce9be48aefba59ecd1011fbe948ccb208cb1ba78f08eb03eb4b"
+    },
+    {
+      "name": "src_game_func_8001B7AC.c.o",
+      "status": "PASS",
+      "expected_sha256": "926fb96b1f1d5b4bf94937be58f6430d733b856770b24880af1c0c07c75109aa",
+      "actual_sha256": "926fb96b1f1d5b4bf94937be58f6430d733b856770b24880af1c0c07c75109aa"
+    },
+    {
+      "name": "src_game_duel_state_init.c.o",
+      "status": "PASS",
+      "expected_sha256": "b9388b5fc7fd780fe0682c1afd2ee8981c41c5ab849212a12eb7f5504d623814",
+      "actual_sha256": "b9388b5fc7fd780fe0682c1afd2ee8981c41c5ab849212a12eb7f5504d623814"
+    },
+    {
+      "name": "config/pc/guest_addresses.txt",
+      "status": "PASS",
+      "expected_sha256": "23f27b2021300b502b65527dbe907a39014e18f922d3336039f689bab8fd0458",
+      "actual_sha256": "23f27b2021300b502b65527dbe907a39014e18f922d3336039f689bab8fd0458"
+    },
+    {
+      "name": "mods/ai-hard-mode/ai_hard_mode.c",
+      "status": "PASS",
+      "expected_sha256": "a3b20e76dfe2184d4be225f176e30b99afbc03710e2619efe1063e61cf02cd85",
+      "actual_sha256": "a3b20e76dfe2184d4be225f176e30b99afbc03710e2619efe1063e61cf02cd85"
+    },
+    {
+      "name": "mods/ai-hard-mode/mod.json",
+      "status": "PASS",
+      "expected_sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "actual_sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f"
+    },
+    {
+      "name": "mods/ai-hard-mode/planner.c",
+      "status": "PASS",
+      "expected_sha256": "698ebc20263721dfc8e5d73b2febf4841dfa99ab45ca68a9c7f5372673dd056e",
+      "actual_sha256": "698ebc20263721dfc8e5d73b2febf4841dfa99ab45ca68a9c7f5372673dd056e"
+    },
+    {
+      "name": "mods/ai-hard-mode/planner.h",
+      "status": "PASS",
+      "expected_sha256": "7139473406208aef58badc935a4a07ec8b80fdec57b02cc038b26f0723674032",
+      "actual_sha256": "7139473406208aef58badc935a4a07ec8b80fdec57b02cc038b26f0723674032"
+    },
+    {
+      "name": "src/game/ai_get_hand_size.c",
+      "status": "PASS",
+      "expected_sha256": "bcfcca3ac8126712de81e94e9141b5c18c93af1771c8335fcd3f6d43a2ee4e4c",
+      "actual_sha256": "bcfcca3ac8126712de81e94e9141b5c18c93af1771c8335fcd3f6d43a2ee4e4c"
+    },
+    {
+      "name": "src/game/ai_opponent_data.c",
+      "status": "PASS",
+      "expected_sha256": "a622a4614243327d85ad115cb9ccbf06028eb943e9892335975c47a9b2ba4759",
+      "actual_sha256": "a622a4614243327d85ad115cb9ccbf06028eb943e9892335975c47a9b2ba4759"
+    },
+    {
+      "name": "src/game/ai_script_vm.c",
+      "status": "PASS",
+      "expected_sha256": "40bc48cd5eedb2bc40856bd8c2d31801caa7f3af15945cffd08b8ea9074ed663",
+      "actual_sha256": "40bc48cd5eedb2bc40856bd8c2d31801caa7f3af15945cffd08b8ea9074ed663"
+    },
+    {
+      "name": "src/game/duel_card_state_helpers.c",
+      "status": "PASS",
+      "expected_sha256": "4b1ba223edb8acc3300d9c0592052fe53213a16b69f5c2fb90f3a03da048e1fe",
+      "actual_sha256": "4b1ba223edb8acc3300d9c0592052fe53213a16b69f5c2fb90f3a03da048e1fe"
+    },
+    {
+      "name": "src/game/duel_field_layout.c",
+      "status": "PASS",
+      "expected_sha256": "a9ce8c0a2b52a3e0a0b39baaf3ad328aedb3f731aeff6b71a9f57b6c2cf8bc50",
+      "actual_sha256": "a9ce8c0a2b52a3e0a0b39baaf3ad328aedb3f731aeff6b71a9f57b6c2cf8bc50"
+    },
+    {
+      "name": "src/game/duel_scene_hand_actions.c",
+      "status": "PASS",
+      "expected_sha256": "1bbcd5d132ebcc4dcc77c9e5444130b857c38d32911c2af57c86357ccccacdfd",
+      "actual_sha256": "1bbcd5d132ebcc4dcc77c9e5444130b857c38d32911c2af57c86357ccccacdfd"
+    },
+    {
+      "name": "src/game/duel_state_init.c",
+      "status": "PASS",
+      "expected_sha256": "e21cab77a2e85ae6656ed11ee26676fc6f1ece40972b07eea0b2fedb3af374f0",
+      "actual_sha256": "e21cab77a2e85ae6656ed11ee26676fc6f1ece40972b07eea0b2fedb3af374f0"
+    },
+    {
+      "name": "src/game/func_8001B7AC.c",
+      "status": "PASS",
+      "expected_sha256": "450277f47992e6d3289e64659b546f3ec802b4d642ada57862d496d971a7e610",
+      "actual_sha256": "450277f47992e6d3289e64659b546f3ec802b4d642ada57862d496d971a7e610"
+    },
+    {
+      "name": "src/game/func_8001B938.c",
+      "status": "PASS",
+      "expected_sha256": "89632c300dd5e82a762143d9289a9adcecdd6d6ae6b1fe8fe8f1a24602110f9d",
+      "actual_sha256": "89632c300dd5e82a762143d9289a9adcecdd6d6ae6b1fe8fe8f1a24602110f9d"
+    },
+    {
+      "name": "src/game/func_80027DF8.c",
+      "status": "PASS",
+      "expected_sha256": "65bd6323f7bd62228d9ef0a50b06fa89fbe15421ddcbedba9e89a5c23aed6b74",
+      "actual_sha256": "65bd6323f7bd62228d9ef0a50b06fa89fbe15421ddcbedba9e89a5c23aed6b74"
+    },
+    {
+      "name": "src/pc/mods/hooks.c",
+      "status": "PASS",
+      "expected_sha256": "87f512876556972b168fba3b53a86256e1b68c72fa81ff559a12bb17bdc79c95",
+      "actual_sha256": "87f512876556972b168fba3b53a86256e1b68c72fa81ff559a12bb17bdc79c95"
+    },
+    {
+      "name": "src/pc/mods/manager.c",
+      "status": "PASS",
+      "expected_sha256": "ec8136925fb1b8b6b2cf89491568c3e20aeb8960008b036d35509cd5b36a1fb0",
+      "actual_sha256": "ec8136925fb1b8b6b2cf89491568c3e20aeb8960008b036d35509cd5b36a1fb0"
+    },
+    {
+      "name": "src/pc/mods/mods.c",
+      "status": "PASS",
+      "expected_sha256": "4abb0990dada4c2c17f2d147ee7bdaf984dde1756cec1d7c28ff70ee60d2ff4d",
+      "actual_sha256": "4abb0990dada4c2c17f2d147ee7bdaf984dde1756cec1d7c28ff70ee60d2ff4d"
+    }
+  ],
+  "builds": [
+    {
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-Isrc",
+        "tests/hal22/harness.c",
+        "src/pc/mods/object_loader.c",
+        "src/pc/mods/mod_libc.c",
+        "src/pc/guest/branch_thunks.c",
+        "src/pc/compat/fs.c",
+        "src/pc/mods/hooks.c",
+        "src/pc/mods/events.c",
+        "src/pc/mods/json.c",
+        "-lm",
+        "-o",
+        "/tmp/hal22-p5mjp5gw/harness"
+      ],
+      "returncode": 0,
+      "seconds": 0.8275,
+      "log": "build-harness.log"
+    },
+    {
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-Wl,--gc-sections",
+        "-Isrc",
+        "tests/hal22/order.c",
+        "src/pc/mods/manager.c",
+        "src/pc/mods/json.c",
+        "-o",
+        "/tmp/hal22-p5mjp5gw/order"
+      ],
+      "returncode": 0,
+      "seconds": 0.3879,
+      "log": "build-order.log"
+    }
+  ],
+  "profiles": [
+    {
+      "name": "O0",
+      "requested_order": 0,
+      "mode": "all",
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal22-p5mjp5gw/order",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "0"
+        ],
+        "returncode": 0,
+        "seconds": 0.0372,
+        "log": "O0-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal22-p5mjp5gw/harness",
+          "/workspace/work/hal22/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "/workspace/work/hal20-base/repo/tmp/pc/game32/obj",
+          "0",
+          "all"
+        ],
+        "returncode": 0,
+        "seconds": 0.3383,
+        "log": "O0.log"
+      },
+      "cases": [
+        {
+          "name": "native-data-aliases",
+          "status": "PASS",
+          "details": "Synthetic RAM preserves native byte identities and staging/deck aliases.",
+          "scenario": "memory-layout"
+        },
+        {
+          "name": "controller-completes-one-action",
+          "status": "PASS",
+          "details": "Native controller consumes exactly one physical hand instance.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "planner-unforced-choice",
+          "status": "PASS",
+          "details": "Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "gate-called-on-first-plan",
+          "status": "PASS",
+          "details": "Dual authoritative CPU category snapshot must run even for physical-only plans.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "one-worker-first-action",
+          "status": "PASS",
+          "details": "One AI materializer entry; physical selection requires no deck-record exchange.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "ledger-matches-first-action",
+          "status": "PASS",
+          "details": "Quota category must match actual controller-consumed card, not initial cursor.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "bonus-from-controller-state",
+          "status": "PASS",
+          "details": "Actual Dual frame rebuild; no bonus/quota state injected.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "setup-masks-recorded-used-and-ritual",
+          "status": "PASS",
+          "details": "Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "one-worker-bonus-action",
+          "status": "PASS",
+          "details": "Exactly one materializer entry for bonus plan.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "gate-called-on-bonus-plan",
+          "status": "PASS",
+          "details": "Dual gate must run before responsible materializer.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "no-repeated-category",
+          "status": "PASS",
+          "details": "Two actual controller-consumed categories must be distinct.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "final-ledger-matches-actions",
+          "status": "PASS",
+          "details": "A complete Monster+Support pair exhausts both quotas exactly once.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "controller-completes-one-action",
+          "status": "PASS",
+          "details": "Native controller consumes exactly one physical hand instance.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "planner-unforced-choice",
+          "status": "PASS",
+          "details": "Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "gate-called-on-first-plan",
+          "status": "PASS",
+          "details": "Dual authoritative CPU category snapshot must run even for physical-only plans.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "one-worker-first-action",
+          "status": "PASS",
+          "details": "One AI materializer entry; physical selection requires no deck-record exchange.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "ledger-matches-first-action",
+          "status": "PASS",
+          "details": "Quota category must match actual controller-consumed card, not initial cursor.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "bonus-from-controller-state",
+          "status": "PASS",
+          "details": "Actual Dual frame rebuild; no bonus/quota state injected.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "setup-masks-recorded-used-and-ritual",
+          "status": "PASS",
+          "details": "Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "one-worker-bonus-action",
+          "status": "PASS",
+          "details": "Exactly one materializer entry for bonus plan.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "gate-called-on-bonus-plan",
+          "status": "PASS",
+          "details": "Dual gate must run before responsible materializer.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "no-repeated-category",
+          "status": "PASS",
+          "details": "Two actual controller-consumed categories must be distinct.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "final-ledger-matches-actions",
+          "status": "PASS",
+          "details": "A complete Monster+Support pair exhausts both quotas exactly once.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "offscreen-exactly-one-exchange",
+          "status": "PASS",
+          "details": "Actual default native eight-card window selects upcoming Dark Magician; AI owns one exchange.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "offscreen-instance-conservation",
+          "status": "PASS",
+          "details": "All 80 unique data-block identities conserved and deck positions stable.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "offscreen-gate-executed",
+          "status": "PASS",
+          "details": "Preserve-hand worker must remain behind Dual validation/snapshot.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "two-instances-one-worker",
+          "status": "PASS",
+          "details": "Injected two-card plan: one worker, one exchange per distinct selected instance; all identities conserved.",
+          "scenario": "two-logical-instances"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "PASS",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "PASS",
+          "details": "Actual rejection cleanup/frame callback, UI completion modeled.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "PASS",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "PASS",
+          "details": "Actual rejection cleanup/frame callback, UI completion modeled.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "PASS",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "PASS",
+          "details": "Actual rejection cleanup/frame callback, UI completion modeled.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "PASS",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "PASS",
+          "details": "Actual rejection cleanup/frame callback, UI completion modeled.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "loaded-off-on-preserves-chain",
+          "status": "PASS",
+          "details": "Official Hooks_Relink retains registration order; neither fixes nor reverses I2.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "ai-off-stock-worker-once",
+          "status": "PASS",
+          "details": "Inactive AI delegates through official chain; original materializer executes once.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "dual-off-ai-worker-once",
+          "status": "PASS",
+          "details": "OFF removes gate without duplicating active AI worker.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "new-duel-clears-quota-state",
+          "status": "PASS",
+          "details": "Real Dual scene-init hook clears its registered state.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "official-manager-order",
+          "status": "PASS",
+          "details": "EFFECTIVE_ORDER ai-hard-mode dual-play\nRESULT official-manager-order PASS Both ranks valid with unchanged manifests; O0/O1 project to H then D.",
+          "scenario": "global"
+        }
+      ],
+      "observations": [
+        "first-id=344 category=2 hand=4 phase=6 gate=1 worker=1 stock_worker=0 setups=0 spawns=0 path=dual-play>ai-hard-mode>",
+        "window=4 used=2 ids=24,0,110,0",
+        "second-id=110 category=1 hand=3 phase=7 window=4 mask-ok=1 path=dual-play>ai-hard-mode>dual-play>ai-hard-mode>",
+        "first-id=35 category=1 hand=4 phase=7 gate=1 worker=1 stock_worker=0 setups=0 spawns=0 path=dual-play>ai-hard-mode>",
+        "window=4 used=1 ids=344,0,0,0",
+        "second-id=344 category=2 hand=3 phase=6 window=4 mask-ok=1 path=dual-play>ai-hard-mode>dual-play>ai-hard-mode>",
+        "offscreen id=35 phase=7 setups=1 spawns=1 path=dual-play>ai-hard-mode>",
+        "injected=spent-category used=1 selection=0 rejected=1 gate=1 worker=0",
+        "injected=spent-category used=2 selection=0 rejected=1 gate=1 worker=0",
+        "injected=ritual used=1 selection=0 rejected=1 gate=1 worker=0",
+        "injected=empty used=1 selection=0 rejected=1 gate=1 worker=0",
+        "before-toggle=dual-play>ai-hard-mode> after-toggle=dual-play>ai-hard-mode>"
+      ]
+    },
+    {
+      "name": "O1",
+      "requested_order": 1,
+      "mode": "all",
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal22-p5mjp5gw/order",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "1"
+        ],
+        "returncode": 0,
+        "seconds": 0.0186,
+        "log": "O1-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal22-p5mjp5gw/harness",
+          "/workspace/work/hal22/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "/workspace/work/hal20-base/repo/tmp/pc/game32/obj",
+          "1",
+          "all"
+        ],
+        "returncode": 0,
+        "seconds": 0.2818,
+        "log": "O1.log"
+      },
+      "cases": [
+        {
+          "name": "native-data-aliases",
+          "status": "PASS",
+          "details": "Synthetic RAM preserves native byte identities and staging/deck aliases.",
+          "scenario": "memory-layout"
+        },
+        {
+          "name": "controller-completes-one-action",
+          "status": "PASS",
+          "details": "Native controller consumes exactly one physical hand instance.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "planner-unforced-choice",
+          "status": "PASS",
+          "details": "Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "gate-called-on-first-plan",
+          "status": "PASS",
+          "details": "Dual authoritative CPU category snapshot must run even for physical-only plans.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "one-worker-first-action",
+          "status": "PASS",
+          "details": "One AI materializer entry; physical selection requires no deck-record exchange.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "ledger-matches-first-action",
+          "status": "PASS",
+          "details": "Quota category must match actual controller-consumed card, not initial cursor.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "bonus-from-controller-state",
+          "status": "PASS",
+          "details": "Actual Dual frame rebuild; no bonus/quota state injected.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "setup-masks-recorded-used-and-ritual",
+          "status": "PASS",
+          "details": "Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "one-worker-bonus-action",
+          "status": "PASS",
+          "details": "Exactly one materializer entry for bonus plan.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "gate-called-on-bonus-plan",
+          "status": "PASS",
+          "details": "Dual gate must run before responsible materializer.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "no-repeated-category",
+          "status": "PASS",
+          "details": "Two actual controller-consumed categories must be distinct.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "final-ledger-matches-actions",
+          "status": "PASS",
+          "details": "A complete Monster+Support pair exhausts both quotas exactly once.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "controller-completes-one-action",
+          "status": "PASS",
+          "details": "Native controller consumes exactly one physical hand instance.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "planner-unforced-choice",
+          "status": "PASS",
+          "details": "Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "gate-called-on-first-plan",
+          "status": "PASS",
+          "details": "Dual authoritative CPU category snapshot must run even for physical-only plans.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "one-worker-first-action",
+          "status": "PASS",
+          "details": "One AI materializer entry; physical selection requires no deck-record exchange.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "ledger-matches-first-action",
+          "status": "PASS",
+          "details": "Quota category must match actual controller-consumed card, not initial cursor.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "bonus-from-controller-state",
+          "status": "PASS",
+          "details": "Actual Dual frame rebuild; no bonus/quota state injected.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "setup-masks-recorded-used-and-ritual",
+          "status": "PASS",
+          "details": "Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "one-worker-bonus-action",
+          "status": "PASS",
+          "details": "Exactly one materializer entry for bonus plan.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "gate-called-on-bonus-plan",
+          "status": "PASS",
+          "details": "Dual gate must run before responsible materializer.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "no-repeated-category",
+          "status": "PASS",
+          "details": "Two actual controller-consumed categories must be distinct.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "final-ledger-matches-actions",
+          "status": "PASS",
+          "details": "A complete Monster+Support pair exhausts both quotas exactly once.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "offscreen-exactly-one-exchange",
+          "status": "PASS",
+          "details": "Actual default native eight-card window selects upcoming Dark Magician; AI owns one exchange.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "offscreen-instance-conservation",
+          "status": "PASS",
+          "details": "All 80 unique data-block identities conserved and deck positions stable.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "offscreen-gate-executed",
+          "status": "PASS",
+          "details": "Preserve-hand worker must remain behind Dual validation/snapshot.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "two-instances-one-worker",
+          "status": "PASS",
+          "details": "Injected two-card plan: one worker, one exchange per distinct selected instance; all identities conserved.",
+          "scenario": "two-logical-instances"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "PASS",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "PASS",
+          "details": "Actual rejection cleanup/frame callback, UI completion modeled.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "PASS",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "PASS",
+          "details": "Actual rejection cleanup/frame callback, UI completion modeled.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "PASS",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "PASS",
+          "details": "Actual rejection cleanup/frame callback, UI completion modeled.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "PASS",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "PASS",
+          "details": "Actual rejection cleanup/frame callback, UI completion modeled.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "loaded-off-on-preserves-chain",
+          "status": "PASS",
+          "details": "Official Hooks_Relink retains registration order; neither fixes nor reverses I2.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "ai-off-stock-worker-once",
+          "status": "PASS",
+          "details": "Inactive AI delegates through official chain; original materializer executes once.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "dual-off-ai-worker-once",
+          "status": "PASS",
+          "details": "OFF removes gate without duplicating active AI worker.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "new-duel-clears-quota-state",
+          "status": "PASS",
+          "details": "Real Dual scene-init hook clears its registered state.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "official-manager-order",
+          "status": "PASS",
+          "details": "EFFECTIVE_ORDER ai-hard-mode dual-play\nRESULT official-manager-order PASS Both ranks valid with unchanged manifests; O0/O1 project to H then D.",
+          "scenario": "global"
+        }
+      ],
+      "observations": [
+        "first-id=344 category=2 hand=4 phase=6 gate=1 worker=1 stock_worker=0 setups=0 spawns=0 path=dual-play>ai-hard-mode>",
+        "window=4 used=2 ids=24,0,110,0",
+        "second-id=110 category=1 hand=3 phase=7 window=4 mask-ok=1 path=dual-play>ai-hard-mode>dual-play>ai-hard-mode>",
+        "first-id=35 category=1 hand=4 phase=7 gate=1 worker=1 stock_worker=0 setups=0 spawns=0 path=dual-play>ai-hard-mode>",
+        "window=4 used=1 ids=344,0,0,0",
+        "second-id=344 category=2 hand=3 phase=6 window=4 mask-ok=1 path=dual-play>ai-hard-mode>dual-play>ai-hard-mode>",
+        "offscreen id=35 phase=7 setups=1 spawns=1 path=dual-play>ai-hard-mode>",
+        "injected=spent-category used=1 selection=0 rejected=1 gate=1 worker=0",
+        "injected=spent-category used=2 selection=0 rejected=1 gate=1 worker=0",
+        "injected=ritual used=1 selection=0 rejected=1 gate=1 worker=0",
+        "injected=empty used=1 selection=0 rejected=1 gate=1 worker=0",
+        "before-toggle=dual-play>ai-hard-mode> after-toggle=dual-play>ai-hard-mode>"
+      ]
+    },
+    {
+      "name": "O2",
+      "requested_order": 2,
+      "mode": "all",
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal22-p5mjp5gw/order",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "2"
+        ],
+        "returncode": 0,
+        "seconds": 0.0164,
+        "log": "O2-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal22-p5mjp5gw/harness",
+          "/workspace/work/hal22/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "/workspace/work/hal20-base/repo/tmp/pc/game32/obj",
+          "2",
+          "all"
+        ],
+        "returncode": 2,
+        "seconds": 0.2342,
+        "log": "O2.log"
+      },
+      "cases": [
+        {
+          "name": "native-data-aliases",
+          "status": "PASS",
+          "details": "Synthetic RAM preserves native byte identities and staging/deck aliases.",
+          "scenario": "memory-layout"
+        },
+        {
+          "name": "controller-completes-one-action",
+          "status": "PASS",
+          "details": "Native controller consumes exactly one physical hand instance.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "planner-unforced-choice",
+          "status": "PASS",
+          "details": "Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "gate-called-on-first-plan",
+          "status": "FAIL",
+          "details": "Dual authoritative CPU category snapshot must run even for physical-only plans.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "one-worker-first-action",
+          "status": "PASS",
+          "details": "One AI materializer entry; physical selection requires no deck-record exchange.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "ledger-matches-first-action",
+          "status": "FAIL",
+          "details": "Quota category must match actual controller-consumed card, not initial cursor.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "bonus-from-controller-state",
+          "status": "PASS",
+          "details": "Actual Dual frame rebuild; no bonus/quota state injected.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "setup-masks-recorded-used-and-ritual",
+          "status": "PASS",
+          "details": "Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "one-worker-bonus-action",
+          "status": "PASS",
+          "details": "Exactly one materializer entry for bonus plan.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "gate-called-on-bonus-plan",
+          "status": "FAIL",
+          "details": "Dual gate must run before responsible materializer.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "no-repeated-category",
+          "status": "FAIL",
+          "details": "Two actual controller-consumed categories must be distinct.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "final-ledger-matches-actions",
+          "status": "FAIL",
+          "details": "A complete Monster+Support pair exhausts both quotas exactly once.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "controller-completes-one-action",
+          "status": "PASS",
+          "details": "Native controller consumes exactly one physical hand instance.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "planner-unforced-choice",
+          "status": "PASS",
+          "details": "Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "gate-called-on-first-plan",
+          "status": "FAIL",
+          "details": "Dual authoritative CPU category snapshot must run even for physical-only plans.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "one-worker-first-action",
+          "status": "PASS",
+          "details": "One AI materializer entry; physical selection requires no deck-record exchange.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "ledger-matches-first-action",
+          "status": "FAIL",
+          "details": "Quota category must match actual controller-consumed card, not initial cursor.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "bonus-from-controller-state",
+          "status": "PASS",
+          "details": "Actual Dual frame rebuild; no bonus/quota state injected.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "setup-masks-recorded-used-and-ritual",
+          "status": "PASS",
+          "details": "Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "one-worker-bonus-action",
+          "status": "PASS",
+          "details": "Exactly one materializer entry for bonus plan.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "gate-called-on-bonus-plan",
+          "status": "FAIL",
+          "details": "Dual gate must run before responsible materializer.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "no-repeated-category",
+          "status": "FAIL",
+          "details": "Two actual controller-consumed categories must be distinct.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "final-ledger-matches-actions",
+          "status": "FAIL",
+          "details": "A complete Monster+Support pair exhausts both quotas exactly once.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "offscreen-exactly-one-exchange",
+          "status": "PASS",
+          "details": "Actual default native eight-card window selects upcoming Dark Magician; AI owns one exchange.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "offscreen-instance-conservation",
+          "status": "PASS",
+          "details": "All 80 unique data-block identities conserved and deck positions stable.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "offscreen-gate-executed",
+          "status": "FAIL",
+          "details": "Preserve-hand worker must remain behind Dual validation/snapshot.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "two-instances-one-worker",
+          "status": "PASS",
+          "details": "Injected two-card plan: one worker, one exchange per distinct selected instance; all identities conserved.",
+          "scenario": "two-logical-instances"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "FAIL",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "BLOCKED",
+          "details": "NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "FAIL",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "BLOCKED",
+          "details": "NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "FAIL",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "BLOCKED",
+          "details": "NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "FAIL",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "BLOCKED",
+          "details": "NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "loaded-off-on-preserves-chain",
+          "status": "PASS",
+          "details": "Official Hooks_Relink retains registration order; neither fixes nor reverses I2.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "ai-off-stock-worker-once",
+          "status": "PASS",
+          "details": "Inactive AI delegates through official chain; original materializer executes once.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "dual-off-ai-worker-once",
+          "status": "PASS",
+          "details": "OFF removes gate without duplicating active AI worker.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "new-duel-clears-quota-state",
+          "status": "PASS",
+          "details": "Real Dual scene-init hook clears its registered state.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "official-manager-order",
+          "status": "PASS",
+          "details": "EFFECTIVE_ORDER dual-play ai-hard-mode\nRESULT official-manager-order PASS Both ranks valid with unchanged manifests; O0/O1 project to H then D.",
+          "scenario": "global"
+        }
+      ],
+      "observations": [
+        "first-id=344 category=2 hand=4 phase=6 gate=0 worker=1 stock_worker=0 setups=0 spawns=0 path=ai-hard-mode>",
+        "window=4 used=1 ids=0,343,0,0",
+        "second-id=343 category=2 hand=3 phase=6 window=4 mask-ok=1 path=ai-hard-mode>ai-hard-mode>",
+        "first-id=35 category=1 hand=4 phase=7 gate=0 worker=1 stock_worker=0 setups=0 spawns=0 path=ai-hard-mode>",
+        "window=4 used=2 ids=0,24,110,0",
+        "second-id=110 category=1 hand=3 phase=7 window=4 mask-ok=1 path=ai-hard-mode>ai-hard-mode>",
+        "offscreen id=35 phase=7 setups=1 spawns=1 path=ai-hard-mode>",
+        "injected=spent-category used=1 selection=11 rejected=0 gate=0 worker=1",
+        "injected=spent-category used=2 selection=11 rejected=0 gate=0 worker=1",
+        "injected=ritual used=1 selection=11 rejected=0 gate=0 worker=1",
+        "injected=empty used=1 selection=0 rejected=0 gate=0 worker=1",
+        "before-toggle=ai-hard-mode> after-toggle=ai-hard-mode>"
+      ]
+    },
+    {
+      "name": "O0-late-AI",
+      "requested_order": 0,
+      "mode": "late-ai-first-load",
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal22-p5mjp5gw/order",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "0"
+        ],
+        "returncode": 0,
+        "seconds": 0.0145,
+        "log": "O0-late-AI-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal22-p5mjp5gw/harness",
+          "/workspace/work/hal22/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "/workspace/work/hal20-base/repo/tmp/pc/game32/obj",
+          "0",
+          "late-ai-first-load"
+        ],
+        "returncode": 2,
+        "seconds": 0.2502,
+        "log": "O0-late-AI.log"
+      },
+      "cases": [
+        {
+          "name": "native-data-aliases",
+          "status": "PASS",
+          "details": "Synthetic RAM preserves native byte identities and staging/deck aliases.",
+          "scenario": "memory-layout"
+        },
+        {
+          "name": "controller-completes-one-action",
+          "status": "PASS",
+          "details": "Native controller consumes exactly one physical hand instance.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "planner-unforced-choice",
+          "status": "PASS",
+          "details": "Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "gate-called-on-first-plan",
+          "status": "FAIL",
+          "details": "Dual authoritative CPU category snapshot must run even for physical-only plans.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "one-worker-first-action",
+          "status": "PASS",
+          "details": "One AI materializer entry; physical selection requires no deck-record exchange.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "ledger-matches-first-action",
+          "status": "FAIL",
+          "details": "Quota category must match actual controller-consumed card, not initial cursor.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "bonus-from-controller-state",
+          "status": "PASS",
+          "details": "Actual Dual frame rebuild; no bonus/quota state injected.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "setup-masks-recorded-used-and-ritual",
+          "status": "PASS",
+          "details": "Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "one-worker-bonus-action",
+          "status": "PASS",
+          "details": "Exactly one materializer entry for bonus plan.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "gate-called-on-bonus-plan",
+          "status": "FAIL",
+          "details": "Dual gate must run before responsible materializer.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "no-repeated-category",
+          "status": "FAIL",
+          "details": "Two actual controller-consumed categories must be distinct.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "final-ledger-matches-actions",
+          "status": "FAIL",
+          "details": "A complete Monster+Support pair exhausts both quotas exactly once.",
+          "scenario": "controller-support-first-cursor-monster"
+        },
+        {
+          "name": "controller-completes-one-action",
+          "status": "PASS",
+          "details": "Native controller consumes exactly one physical hand instance.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "planner-unforced-choice",
+          "status": "PASS",
+          "details": "Unmodified official Hm_PlanHand, default settings, synthetic public-ID catalog.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "gate-called-on-first-plan",
+          "status": "FAIL",
+          "details": "Dual authoritative CPU category snapshot must run even for physical-only plans.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "one-worker-first-action",
+          "status": "PASS",
+          "details": "One AI materializer entry; physical selection requires no deck-record exchange.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "ledger-matches-first-action",
+          "status": "FAIL",
+          "details": "Quota category must match actual controller-consumed card, not initial cursor.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "bonus-from-controller-state",
+          "status": "PASS",
+          "details": "Actual Dual frame rebuild; no bonus/quota state injected.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "setup-masks-recorded-used-and-ritual",
+          "status": "PASS",
+          "details": "Actual snapshot + Dual filtering; available hand shrinks to four under default AI window.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "one-worker-bonus-action",
+          "status": "PASS",
+          "details": "Exactly one materializer entry for bonus plan.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "gate-called-on-bonus-plan",
+          "status": "FAIL",
+          "details": "Dual gate must run before responsible materializer.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "no-repeated-category",
+          "status": "FAIL",
+          "details": "Two actual controller-consumed categories must be distinct.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "final-ledger-matches-actions",
+          "status": "FAIL",
+          "details": "A complete Monster+Support pair exhausts both quotas exactly once.",
+          "scenario": "controller-monster-first-cursor-support"
+        },
+        {
+          "name": "offscreen-exactly-one-exchange",
+          "status": "PASS",
+          "details": "Actual default native eight-card window selects upcoming Dark Magician; AI owns one exchange.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "offscreen-instance-conservation",
+          "status": "PASS",
+          "details": "All 80 unique data-block identities conserved and deck positions stable.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "offscreen-gate-executed",
+          "status": "FAIL",
+          "details": "Preserve-hand worker must remain behind Dual validation/snapshot.",
+          "scenario": "controller-offscreen-first-action"
+        },
+        {
+          "name": "two-instances-one-worker",
+          "status": "PASS",
+          "details": "Injected two-card plan: one worker, one exchange per distinct selected instance; all identities conserved.",
+          "scenario": "two-logical-instances"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "FAIL",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "BLOCKED",
+          "details": "NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed",
+          "scenario": "adversarial-monster-already-used"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "FAIL",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "BLOCKED",
+          "details": "NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed",
+          "scenario": "adversarial-support-already-used"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "FAIL",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "BLOCKED",
+          "details": "NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed",
+          "scenario": "adversarial-ritual-during-bonus"
+        },
+        {
+          "name": "invalid-plan-rejected-before-worker",
+          "status": "FAIL",
+          "details": "Adversarial post-filter injection, not natural gameplay reachability.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "rejected-plan-does-not-consume",
+          "status": "PASS",
+          "details": "Validation attempt alone cannot consume hand/deck instances or quotas.",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "rejected-bonus-cancels-cleanly",
+          "status": "BLOCKED",
+          "details": "NOT_EXECUTED rejected-bonus-cancels-cleanly gate-bypassed",
+          "scenario": "adversarial-empty-plan-cancel"
+        },
+        {
+          "name": "loaded-off-on-preserves-chain",
+          "status": "PASS",
+          "details": "Official Hooks_Relink retains registration order; neither fixes nor reverses I2.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "ai-off-stock-worker-once",
+          "status": "PASS",
+          "details": "Inactive AI delegates through official chain; original materializer executes once.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "dual-off-ai-worker-once",
+          "status": "PASS",
+          "details": "OFF removes gate without duplicating active AI worker.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "new-duel-clears-quota-state",
+          "status": "PASS",
+          "details": "Real Dual scene-init hook clears its registered state.",
+          "scenario": "off-on-stable-chain"
+        },
+        {
+          "name": "official-manager-order",
+          "status": "PASS",
+          "details": "EFFECTIVE_ORDER ai-hard-mode dual-play\nRESULT official-manager-order PASS Both ranks valid with unchanged manifests; O0/O1 project to H then D.",
+          "scenario": "global"
+        }
+      ],
+      "observations": [
+        "Dual already loaded; AI unloaded; requested rank still H<D",
+        "first-id=344 category=2 hand=4 phase=6 gate=0 worker=1 stock_worker=0 setups=0 spawns=0 path=ai-hard-mode>",
+        "window=4 used=1 ids=0,343,0,0",
+        "second-id=343 category=2 hand=3 phase=6 window=4 mask-ok=1 path=ai-hard-mode>ai-hard-mode>",
+        "first-id=35 category=1 hand=4 phase=7 gate=0 worker=1 stock_worker=0 setups=0 spawns=0 path=ai-hard-mode>",
+        "window=4 used=2 ids=0,24,110,0",
+        "second-id=110 category=1 hand=3 phase=7 window=4 mask-ok=1 path=ai-hard-mode>ai-hard-mode>",
+        "offscreen id=35 phase=7 setups=1 spawns=1 path=ai-hard-mode>",
+        "injected=spent-category used=1 selection=11 rejected=0 gate=0 worker=1",
+        "injected=spent-category used=2 selection=11 rejected=0 gate=0 worker=1",
+        "injected=ritual used=1 selection=11 rejected=0 gate=0 worker=1",
+        "injected=empty used=1 selection=0 rejected=0 gate=0 worker=1",
+        "before-toggle=ai-hard-mode> after-toggle=ai-hard-mode>"
+      ]
+    }
+  ],
+  "cross_profile": [
+    {
+      "name": "same-unforced-initial-choices",
+      "status": "PASS",
+      "plans": [
+        [
+          [
+            "344",
+            "2"
+          ],
+          [
+            "35",
+            "1"
+          ]
+        ],
+        [
+          [
+            "344",
+            "2"
+          ],
+          [
+            "35",
+            "1"
+          ]
+        ],
+        [
+          [
+            "344",
+            "2"
+          ],
+          [
+            "35",
+            "1"
+          ]
+        ],
+        [
+          [
+            "344",
+            "2"
+          ],
+          [
+            "35",
+            "1"
+          ]
+        ]
+      ]
+    }
+  ],
+  "limitations": [
+    {
+      "name": "Gameplay Windows / complete duel / real opponent decks",
+      "status": "BLOCKED",
+      "reason": "No game image/catalog/decks/runtime; synthetic catalog and constructed board cannot prove live-game reachability."
+    },
+    {
+      "name": "Full effect/placement/field resolution",
+      "status": "MODEL",
+      "reason": "Actual hand controller consumes cards; simple burn/placement-to-field and UI completion are modeled between actions."
+    },
+    {
+      "name": "Native stock AI interpreter when AI OFF / no-plan fallback",
+      "status": "SKIP",
+      "reason": "AiScript_Init is actual code; AiScript_Run base fallback returns zero without executing disc bytecode. AI OFF test covers materializer chain only."
+    },
+    {
+      "name": "Full Mods_Apply/live UI lifecycle",
+      "status": "STATIC+MODEL",
+      "reason": "Actual manager ordering and hooks executed; late first load emulates activation sequence confirmed by mods.c, not full UI."
+    },
+    {
+      "name": "Global automatic order-only fix",
+      "status": "UNPROVEN",
+      "reason": "Safe startup H<D tested; late first-load can register H after already-loaded D despite configured H<D."
+    },
+    {
+      "name": "Production fix",
+      "status": "NOT_IMPLEMENTED",
+      "reason": "Diagnostic task only; no source, manifest, SDK or MOD objects changed."
+    }
+  ],
+  "postflight": [
+    {
+      "name": "src_game_duel_field_layout.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_ai_opponent_data.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_duel_scene_hand_actions.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_func_8001B938.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_duel_card_state_helpers.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_func_80027DF8.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_ai_script_vm.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_ai_get_hand_size.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_func_8001B7AC.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "src_game_duel_state_init.c.o",
+      "status": "PASS"
+    },
+    {
+      "name": "config/pc/guest_addresses.txt",
+      "status": "PASS"
+    },
+    {
+      "name": "mods/ai-hard-mode/ai_hard_mode.c",
+      "status": "PASS"
+    },
+    {
+      "name": "mods/ai-hard-mode/mod.json",
+      "status": "PASS"
+    },
+    {
+      "name": "mods/ai-hard-mode/planner.c",
+      "status": "PASS"
+    },
+    {
+      "name": "mods/ai-hard-mode/planner.h",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/ai_get_hand_size.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/ai_opponent_data.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/ai_script_vm.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/duel_card_state_helpers.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/duel_field_layout.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/duel_scene_hand_actions.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/duel_state_init.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/func_8001B7AC.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/func_8001B938.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/game/func_80027DF8.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/pc/mods/hooks.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/pc/mods/manager.c",
+      "status": "PASS"
+    },
+    {
+      "name": "src/pc/mods/mods.c",
+      "status": "PASS"
+    },
+    {
+      "name": "ai-hard-mode/ai-hard-mode.o",
+      "status": "PASS"
+    },
+    {
+      "name": "ai-hard-mode/mod.json",
+      "status": "PASS"
+    },
+    {
+      "name": "dual-play/dual-play.o",
+      "status": "PASS"
+    },
+    {
+      "name": "dual-play/mod.json",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "profiles": 4,
+    "checks": {
+      "PASS": 138,
+      "FAIL": 30,
+      "BLOCKED": 8
+    },
+    "cross_profile": {
+      "PASS": 1
+    }
+  }
+}
