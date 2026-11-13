@@ -2,7 +2,7 @@
 
 **A HAL-23 foi reproduzida com o planner real do RD, mas somente ao inserir uma chamada reentrante ao manager entre o planner e o swap. Não foi demonstrada essa janela na UI normal.** O controller oficial executa os dois na mesma chamada, sem bombeamento de eventos entre eles. Sob a janela instrumentada, um pending abandonado pode restaurar um fallback antigo numa ação posterior e alterar a carta física consumida. Não foi observada materialização duplicada.
 
-Branch independente `test/hal-23-pending-lifecycle`, derivada diretamente de `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461` (núcleo oficial `aceac3782902746f35ddb0148809450933327cb3`, API24). Diagnóstico ligado à [HAL-23 no Linear](https://linear.app/half-programer/issue/HAL-23). Sem alteração de produção, correção funcional ou merge.
+Branch independente `test/hal-23-pending-lifecycle`, derivada diretamente de `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461` (núcleo oficial `aceac3782902746f35ddb0148809450933327cb3`, API24). Diagnóstico ligado à [HAL-23 no Linear](https://linear.app/half-programer/issue/HAL-23). [PR #18 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/18), direcionado à integração. Sem alteração de produção, correção funcional ou merge.
 
 Continuidade consultada: AGENTS.md, inventário HAL-20 e [PR14](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14), [PR15](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/15), [PR16](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/16), [PR17](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/17). As referências e hashes estão em [INPUTS.json](hal-23/INPUTS.json). O guard e os cinco fontes experimentais do PR17 **não foram incorporados**.
 
@@ -90,7 +90,7 @@ Essa alternativa é maior que reutilizar a política de reinício e **não foi i
 | Preflight / pós-execução de insumos | 41 / 41 PASS |
 | Builds de testes próprios | 2 PASS; nenhum MOD recompilado |
 
-Os 52 FAIL preservam os achados: 44 de pending abandonado +4 de seleção posterior +2 de init +2 de dealer. Não representam 52 bugs distintos ou falhas da política candidata. A suíte retorna1 por eles, deliberadamente. Os avisos de compilação são asserções de offset antigas dos headers oficiais; os builds terminaram0.
+Os 52 FAIL preservam os achados: 44 de pending abandonado +4 de seleção posterior +2 de init +2 de dealer. Não representam 52 bugs distintos ou falhas da política candidata. A suíte retorna1 por eles, deliberadamente. Os avisos de compilação são asserções de offset antigas dos headers oficiais; os builds terminaram0. `git diff --check` dos fontes/documentos passou; o log bruto de compilação conserva uma linha de diagnóstico com whitespace do compilador, sem editar a evidência.
 
 Os objetos foram reutilizados sem alteração: AI SHA256 `9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc`, Dual `77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378`, RD `8df2e8b6e11bea0dd771bc5005848081191e7c468f5ee588976a6633129bb17e`. Identidade e ordem de callbacks estão nos logs. Drop Missing Cards1.0 oficial ficou ON; não se fez teste de probabilidades/drops. Nenhum default estratégico foi alterado.
 

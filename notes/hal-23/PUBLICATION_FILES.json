@@ -3,13 +3,13 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5706,
-      "sha256": "3b2c02a0ee185aca54caebc6a3fd5888db2205239a0255fbec0127808f995441"
+      "bytes": 5812,
+      "sha256": "dab256f3424197c93e3f633b6371d607f89c6597705fc9a43e471c889cbc69ca"
     },
     {
       "path": "notes/HAL23_PENDING_LIFECYCLE.md",
-      "bytes": 15078,
-      "sha256": "3142bdf74d366d2035e9f4f7ca188f0aceeb1d86172edeb6415fc55581471c85"
+      "bytes": 15380,
+      "sha256": "484454612da71863ed048b28fb6a50a0b3ff3faf5d76f20108c184d32db983ac"
     },
     {
       "path": "tests/hal23/README.md",
@@ -53,8 +53,8 @@
     },
     {
       "path": "notes/hal-23/REFS_PRESERVADAS.json",
-      "bytes": 4881,
-      "sha256": "ca25af313f24f690d0911c8714a2b3fccf8ad77deb5d0054505baa14aa3cdb43"
+      "bytes": 5139,
+      "sha256": "891147f6c667b8855ebe583620b1128956b0b2eabc76583e85fda6ee4c3fe8b7"
     },
     {
       "path": "notes/hal-23/SOURCE_EVIDENCE.json",
