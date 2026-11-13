@@ -4439,6 +4439,16 @@ void Mods_Load(void)
         for (count = 0; order[count] >= 0; count++) placed[order[count]] = 1;
         for (i = 0; i < mod_count; i++) if (enabled[i] && !placed[i]) { note(&mods[i], "%s", error); enabled[i] = 0; }
     }
+    if (!Mods_Hal22GuardValidate(enabled, NULL, error, sizeof(error))) {
+        /* Reject the entire startup transaction before data or code changes;
+         * keep requested preferences and mark the duel-entry fence explicitly. */
+        if (first) Mods_Hal22GuardStartupRejected(error);
+        for (i = 0; i < mod_count; i++)
+            if (!strcmp(mods[i].id, "ai-hard-mode") || !strcmp(mods[i].id, "dual-play"))
+                note(&mods[i], "%s", error);
+        fprintf(stderr, "memories-pc: experimental mod profile rejected: %s\n", error);
+        return;
+    }
     if (first) {
         preparing_data = 1;
         for (i = 0; i < count; i++) {
@@ -4560,6 +4570,16 @@ void Mods_SetEnabled(int mod, int enabled)
     /* Unchanged, nothing is written: the choice stored stays, even when an
      * environment variable overrides it for this run. */
     if (mods[mod].enabled == enabled) return;
+    if (Mods_Hal22GuardEnabled()) {
+        int wanted[MODS_MAX]; char why[256];
+        for (int i = 0; i < mod_count; i++) wanted[i] = mods[i].enabled;
+        wanted[mod] = enabled;
+        if (!Mods_Hal22GuardValidate(wanted, NULL, why, sizeof(why))) {
+            note(&mods[mod], "%s", why);
+            return; /* Direct API: no preference or active-state mutation. */
+        }
+    }
+
     if (setting_key(key, sizeof(key), mods[mod].id, NULL)) Settings_SetNamed(key, enabled);
     mods[mod].enabled = enabled;
     /* A mod that could not go in place (a replacement file missing, say) is

@@ -1,0 +1,616 @@
+{
+  "scope": "Experimental five-file production diff, own test sources, own logs and documentation; no third-party payload",
+  "excluded": "This index excludes itself to avoid recursive hashing",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5903,
+      "sha256": "37cd6af2c3ffa8dec081ddad5fbd2e94c4c24608cb9563bfe4ef081ae07469d4"
+    },
+    {
+      "path": "notes/HAL22_ORDER_GUARD_POC.md",
+      "bytes": 14557,
+      "sha256": "4f1399d5dfdd5aaf68145666749c42775e7fbe038574a26dd0b857d80be05071"
+    },
+    {
+      "path": "src/game/main_run_duel.c",
+      "bytes": 3811,
+      "sha256": "dbc0287e29ccb3a4a1879fba9c50317dec03eef74bddade2ae870c11b938a644"
+    },
+    {
+      "path": "src/pc/mods/manager.c",
+      "bytes": 29569,
+      "sha256": "28879373769d8449a1618d5106e0098ab164bbf30e6f32d7068fe9f738e80498"
+    },
+    {
+      "path": "src/pc/mods/mods.c",
+      "bytes": 197771,
+      "sha256": "c2b46ff84cf3a2db23cc042304f31ad1f6a9f9acb4e4aa5cd9bff029602c257f"
+    },
+    {
+      "path": "src/pc/mods/mods.h",
+      "bytes": 24939,
+      "sha256": "b401ff14de38e8f44fdcfa3d225d5b1d8974c38495b545074a54265b171c6ae3"
+    },
+    {
+      "path": "src/pc/platform/mods_window.c",
+      "bytes": 110726,
+      "sha256": "5753167a4c0af9c5672060741c5b064d5386c74ae1768d318bfa7bc66373dc3b"
+    },
+    {
+      "path": "notes/hal-22-order-guard/DIFF_EXPERIMENTAL.patch",
+      "bytes": 9339,
+      "sha256": "3d9d500832ecbc021d46a7ae469dc1610f708c785aaa9998bdd21dec6c098ee2"
+    },
+    {
+      "path": "notes/hal-22-order-guard/INPUTS.json",
+      "bytes": 16203,
+      "sha256": "49facb8398854f50bb7c9b34f2ef95b53ab4eeb11c7ed737e35bd2e0d1cc3d45"
+    },
+    {
+      "path": "notes/hal-22-order-guard/MATRIZ.md",
+      "bytes": 11109,
+      "sha256": "a3e5e613057a58b0c3e4ed4c2f38310d27b5e46882d6f6e907c61b3a42dd68f1"
+    },
+    {
+      "path": "notes/hal-22-order-guard/REFS_PRESERVADAS.json",
+      "bytes": 2082,
+      "sha256": "7b1157212d926b053ff2a21c954d7d339270f0642db284a136211a8f63a60f29"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/MATRIZ.csv",
+      "bytes": 812672,
+      "sha256": "fd7306c635725974033bc36da3467faeccc09f4b996befe786d48a42ff090387"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/RESULTADOS.json",
+      "bytes": 1384592,
+      "sha256": "aeb0559cabfa16226ddcd784d76b061271b074aad017a13ea6c315099e343c23"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/build-duel-entry.log",
+      "bytes": 35691,
+      "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/build-harness.log",
+      "bytes": 11485,
+      "sha256": "616e5c5d4cfc2efa1eb6f40204b28793f952bbf2583f6d99d6b875ddc6cef596"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/build-observer.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/build-official-hooks.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/build-order.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-equal-rank-ai-first-p0.log",
+      "bytes": 213507,
+      "sha256": "bc1afaba05a541e51445b5f6178d2c1723267d756755950a7f49038abcd8ddfc"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-equal-rank-dual-first-p0.log",
+      "bytes": 208757,
+      "sha256": "2cba0024dccc973c319b7d48d41bb666d82b81170fea3172c644078193368954"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-apply-original-p0.log",
+      "bytes": 209045,
+      "sha256": "9523c1397d154dbc867b8d487cbe26c10801f97dd5a88682ea39c6810fe0d5a2"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-apply-original-p1.log",
+      "bytes": 213507,
+      "sha256": "4962406dc97c5fe82e3d558071f56e54c9eaf8ad3316f3ecb34de495708b022f"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-apply-restart-p0.log",
+      "bytes": 7474,
+      "sha256": "ead4ec8c1b6039910f19f0e4c2e3a024df412b2dd424d5d1407dfde0c130b52e"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-apply-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "ce7511843a3d52c98738b4da4488d878ab2259fe7e8f1e173dbcbbb83d0c50da"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-direct-original-p0.log",
+      "bytes": 208932,
+      "sha256": "f4269d9621f3b4e7ace67c9532b1b5e9dc17b5a3feb4d64201d91bf2b41aa7d6"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-direct-original-p1.log",
+      "bytes": 213507,
+      "sha256": "c3797bed4abe00efc91b8d41e1894059d3a14a7a94f0336945854a65a467be47"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-direct-restart-p0.log",
+      "bytes": 7361,
+      "sha256": "b69193a92c4deaf92ac0120d75ae1ba8c95115e369dd37d6e7322948399fe55d"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-direct-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "ad46c4a2b8bf84ab07bc50284fcf130abcad75160e299ee96867f83b77f54fcc"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-reload-original-p0.log",
+      "bytes": 208955,
+      "sha256": "ac1615c2b11c62c559459b9ac11d3883f1dd2a9da3fcf7945819f9efabda96c9"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-reload-original-p1.log",
+      "bytes": 213507,
+      "sha256": "aa39ddd3e364eab44a6cf7ce43197630eb128c771f6dd93dfc34198f82a8bc95"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-reload-restart-p0.log",
+      "bytes": 7384,
+      "sha256": "af4d33f40554b590dfd76d64c70d9ccef9532d104abd90831a9b7c3cbffdeb8c"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-ai-reload-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "49c9a8e01fdbb8855eecfbf51ee83b7c5cdc7f95357b905eafae04ca138fed30"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-dual-original-p0.log",
+      "bytes": 213542,
+      "sha256": "b2b6de8adb3b3789457d4b2d30aff558b41a20b0097925c3b910420fa103b195"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-dual-original-p1.log",
+      "bytes": 213507,
+      "sha256": "5ce0722ac400f9450702403a943508781211b8954b4eafc89e60aa30ff5f488e"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-dual-restart-p0.log",
+      "bytes": 213542,
+      "sha256": "833dd0ca55b2090705902e9cbd8d9bb0eecf769623e0da7c2980e1a8bb7465c6"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-late-dual-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "13a98bb70b54246d8e26635dea1aa77f81cf604ce4be99a548ad6f586d2341ea"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-observers-around-p0.log",
+      "bytes": 216076,
+      "sha256": "815c0843cf57add5e4a4db496907f344acc45cd286ed83e71968c5187dc36feb"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-observers-between-p0.log",
+      "bytes": 228535,
+      "sha256": "7cc2e5d01c35d49d9963c5b2c6c7163744f7b5e7cf69d5894b6d982ac9078c17"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-off-on-original-p0.log",
+      "bytes": 222859,
+      "sha256": "c82d5ad6e2f8bc80c80ff11a75661d4ffd2d16394aefca289929c1568978733e"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-off-on-original-p1.log",
+      "bytes": 213507,
+      "sha256": "0260ad5189f945bf37a78276cb317f64bf42ab9872730ddbeca9f656bdbb4368"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-off-on-restart-p0.log",
+      "bytes": 223053,
+      "sha256": "66f5cfc8a65ead87e1c615659db0f0ab35177eb08806440b6e3c519a93b82f3f"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-off-on-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "7026d093c5727b37a7f9401ce9a6f5610aa925d4b070efeae6727ba2fc587880"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-only-ai-safe-p0.log",
+      "bytes": 6863,
+      "sha256": "3f8259143a07e60b2b5639444f124d3dff3efa6f0728f9b312cbe17af3f948f7"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-only-dual-safe-p0.log",
+      "bytes": 7145,
+      "sha256": "327837ff5744b97db07975eefa93b382cb313fc363268d2abdf36ad23d178091"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-persist-off-restart-p0.log",
+      "bytes": 213767,
+      "sha256": "ccedb9e39abb88a90c580a5ab17cbdf7250d28fac5c5d83d0cf8a13b7107c351"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-persist-off-restart-p1.log",
+      "bytes": 7474,
+      "sha256": "9c94e1e9b8d4e2ecfc2b2cb48e7e9acfca2229751b123cff2af8ed0e0b4e59ad"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-persist-off-restart-p2.log",
+      "bytes": 213507,
+      "sha256": "e67f7231ec06449e53b377104eafb9cbea8cb229fbde99d0fcb1bf6499fc3bdf"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-rank-invert-original-p0.log",
+      "bytes": 213969,
+      "sha256": "6d903c0edc9156eeda089b3789eb0218a0291c0ce2ba13b7ab49d9e2c0ca478a"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-rank-invert-original-p1.log",
+      "bytes": 208757,
+      "sha256": "b1168ae72ccfa311fe043e1eb8c3a1e714c7a3577232e16db3db89cf3aa1c573"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-rank-invert-restart-p0.log",
+      "bytes": 213969,
+      "sha256": "345a439490bd22265aa095bb8abac672874248d9bc4c60d95039a798124df4be"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-rank-invert-restart-p1.log",
+      "bytes": 208757,
+      "sha256": "adb307fce3172f38275ba819ee0c4d3d96168ffc3d3e21c0325fb687ff67a79c"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-rank-repair-restart-p0.log",
+      "bytes": 209219,
+      "sha256": "3a85207002a1c71ccc32d4c1354a40c080b142ac17e2d406ea426f9c8472b35c"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-rank-repair-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "8b4af53b218aa4ad1caf72700c1dce62454de0f39b6a854efc5602fbce0796ca"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-restart-fails-repair-p0.log",
+      "bytes": 209405,
+      "sha256": "d60b5af262669d10a866e025d522b84963539c3e3484413486a075a035161aee"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-restart-fails-repair-p1.log",
+      "bytes": 213507,
+      "sha256": "071dfc346f4e6a21e74b0216ce757ef80cab708d8a53a27f99967acfcf0bbd5f"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-safe-original-p0.log",
+      "bytes": 213507,
+      "sha256": "30cf535d5ea7127b907da3824b3a518e039c40e4e34201453862587158a77806"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-safe-restart-p0.log",
+      "bytes": 213507,
+      "sha256": "e964e793a24223aeed663d72477010a3ed48d7a8502bc68e8112716542788feb"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-window-cancel-restart-p0.log",
+      "bytes": 7534,
+      "sha256": "9ba65fd1b2abf097cb5d5088701871af6f0d02866714973ee7a7fd022118e639"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-window-cancel-restart-p1.log",
+      "bytes": 7145,
+      "sha256": "0cc43a250bb681ece2f86090da9ad08ed53543670f05afef771f4e7fc05cc130"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-window-first-ai-original-p0.log",
+      "bytes": 209070,
+      "sha256": "60b7f1d4ef761eb6f8f25347dd8aebaf949b3ef0b87298452f2246f96d33ad6c"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-window-first-ai-original-p1.log",
+      "bytes": 213507,
+      "sha256": "62786fea0866f8fb04b345b6038a4305f166caad8851394f5596a8d4325f4f5a"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-window-first-ai-restart-p0.log",
+      "bytes": 7622,
+      "sha256": "acfd4e407f2fd2ce7c3d9b689902c040a5c5b3347f435d4d3aaed43af8679a80"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-off-window-first-ai-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "239c7081e0982703ebda64a5e35b5af26988aaf9b0f9a1060234a3c502932970"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-arm-pending-off-p0.log",
+      "bytes": 9478,
+      "sha256": "4bae4c493ce65b5463946fca44c9099b1ede34aba5e0aa251631877551df1f0e"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-arm-repair-cancel-p0.log",
+      "bytes": 6138,
+      "sha256": "1b09d7d490ce4d754e1c324619fd0fa130e0cb1e954ecc62c481cc8d5a544b6a"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-arm-repair-cancel-p1.log",
+      "bytes": 4930,
+      "sha256": "90787951b8caca2b9d070d1d31cf2f80618ef3beea9cb6c33e95fb5147a06eea"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-arm-repair-fails-p0.log",
+      "bytes": 6386,
+      "sha256": "42ebb0e14e02b805e2f26de67d309f2712627212ee51076cf2892d08a6f81ccb"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-arm-repair-fails-p1.log",
+      "bytes": 213507,
+      "sha256": "2c9351729646708f71836b46bd696e1cc2785da3c9377adc10e2e296fffe6e95"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-arm-unsafe-p0.log",
+      "bytes": 5738,
+      "sha256": "64652f42f3db13805b7878e5019311f012f9dc67daae763947dbd7e5e1d58c8c"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-equal-rank-ai-first-p0.log",
+      "bytes": 213507,
+      "sha256": "857b58c49ddab02f7b33344d307a306be03577dba5206f95b54fc9255d04816a"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-equal-rank-dual-first-p0.log",
+      "bytes": 4930,
+      "sha256": "5a077cbe746dcf55e9e0a218d30189e8980ac6e654bb06e9c4ec0fa05f9f22d9"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-apply-original-p0.log",
+      "bytes": 7692,
+      "sha256": "c4c824553c3148a1e27a5e9511f914b5aea3243a660d1d9cdb282e977ed603b9"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-apply-original-p1.log",
+      "bytes": 7145,
+      "sha256": "37ce1a3628f8af15f3ffbd452308a18369abda171a29642a3f23354c0389cf70"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-apply-restart-p0.log",
+      "bytes": 7474,
+      "sha256": "9b304b99c621ceaacb87cbb654d20e5e31a2957ad3f9114023beebf766ba836a"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-apply-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "fe413c9438264812377b54d59ff94fe4bdddf369b415441f970c9531f82b842e"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-direct-original-p0.log",
+      "bytes": 7509,
+      "sha256": "0f4574bed3d13508ba6e18a4c2b1bff1ec27b4efc4b435bf8a817ba49d2868f3"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-direct-original-p1.log",
+      "bytes": 7145,
+      "sha256": "5e2fcfbe06f0ac9205b52f6cbca0c8b0b71054392a14d10a497192bb3cd3f5c7"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-direct-restart-p0.log",
+      "bytes": 7361,
+      "sha256": "3e2eeed50e95686525ae6575ff73aa86a9e47d9acc8e4a41aa5561e26262aadc"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-direct-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "201917321b3d1c5f1a064bba9f7163b5f31c6a0cefd717843649a764902c16b5"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-reload-original-p0.log",
+      "bytes": 7920,
+      "sha256": "21b0a6114c611f08823a02f03262d7d97183ad59be99d07c6ad3e5d3c82915bb"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-reload-original-p1.log",
+      "bytes": 213507,
+      "sha256": "9856f99778f838af7906080532f0818298f1ac7f7b608dafb4645ab9b7f31585"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-reload-restart-p0.log",
+      "bytes": 7384,
+      "sha256": "796f48de30fc90319d257b780212dd685e8d3ff853dd4fcfaa79065f1633936b"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-ai-reload-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "7d8337dbadbb2ec07a021eef69c658d3994667f205b0b038f0fb3d5e695e59f6"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-dual-original-p0.log",
+      "bytes": 213542,
+      "sha256": "1f95c14ab5d2038b291899b8932b55ce56977d99852b4b6bed86ccbf39e05aaa"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-dual-original-p1.log",
+      "bytes": 213507,
+      "sha256": "138a59ab676d332c24023001b64af7d2a16120c30815fd215668e6a56ac4d9dc"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-dual-restart-p0.log",
+      "bytes": 213542,
+      "sha256": "c9b45489e9bf3accb19d6a874c900d06e2bf0e53af39a76b3ec2860dadd41de0"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-late-dual-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "b220d25b13fde8de3d35c0b82aad1687844381690fbb68dedf86235ccfaf1c93"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-observers-around-p0.log",
+      "bytes": 216076,
+      "sha256": "0f26997b0a172e386001821606a15be533798c51cd61e29f260a2aff2c9223c5"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-observers-between-p0.log",
+      "bytes": 228535,
+      "sha256": "204f5367873dc599f1ef02402c094df4fb688a5cf95045e73d978847a51af9df"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-off-on-original-p0.log",
+      "bytes": 222859,
+      "sha256": "6c8625d4fdef64e83ad3af832c2315000d9ce8098669c59f2f1f7b0161fff37b"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-off-on-original-p1.log",
+      "bytes": 213507,
+      "sha256": "b8c373e0f62ac7f60f20256983180c249ababee1004d3d7fa3a9e4b5b5103c65"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-off-on-restart-p0.log",
+      "bytes": 223053,
+      "sha256": "3e43288f60bc54aa14c1e2bb96754319acac2c926fc5ec49e06b587f464c7865"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-off-on-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "61c1d1634d9ee9a2d7d4a6abc35babdc0f2f424c5e4367882dc0a1ba6c192abc"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-only-ai-safe-p0.log",
+      "bytes": 6863,
+      "sha256": "cfe7e0954cc9486815419db5b6ab943da43b2df6e0208726c402e76f91eddc3a"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-only-dual-safe-p0.log",
+      "bytes": 7145,
+      "sha256": "0920e979481dfdbff183cb12f7386731da9fcf79ec5a4c5eaa71108ebef3a29b"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-persist-off-restart-p0.log",
+      "bytes": 213767,
+      "sha256": "c1ad51f883cb328f41d2cf1ff8a0e069642a738f15518ceb88aab93fdc91d765"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-persist-off-restart-p1.log",
+      "bytes": 7474,
+      "sha256": "b6a1dcc5a41d3ff2090e38dcc1a937b8194bf455a578ff3ab7a23327d5cc328a"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-persist-off-restart-p2.log",
+      "bytes": 213507,
+      "sha256": "9c94c85637f8ea15ad1e867953bb5eb230dd3e4bd0bfd023c309ecb7a0151c00"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-rank-invert-original-p0.log",
+      "bytes": 213943,
+      "sha256": "6cee2f3b4e1f97d56782f2685e62112151c2dab6d87d7da1478c318dc6c6668c"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-rank-invert-original-p1.log",
+      "bytes": 213507,
+      "sha256": "0220e391258175b1f55293161585a87cb2ff22cce00e529f42201a218525c088"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-rank-invert-restart-p0.log",
+      "bytes": 213943,
+      "sha256": "e4b06384ffccda8d49ffe04aa8ef4ec28740f0c11e02af95689bedd37bf9bef2"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-rank-invert-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "69b97d8848f46671bf6f973c7e68764c4ffd11535628685e74d9429d7db43a37"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-rank-repair-restart-p0.log",
+      "bytes": 5392,
+      "sha256": "3ded92072608e1d1c9b5705023fe21a3418a4e07a4954b01fe35d24a68ac9dc4"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-rank-repair-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "155976e84a43c5922da725c108fb6ea0c27a2748c7aa7aa8e061b21fb1b8f926"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-restart-fails-repair-p0.log",
+      "bytes": 5578,
+      "sha256": "37ae4cd8d16de5f316cd5e134af1ceb33b92696f73995427c8077c1f683166ac"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-restart-fails-repair-p1.log",
+      "bytes": 213507,
+      "sha256": "ef6d5113c2cd237d707214f2c3102635801f734e437ec5b814e34cce09dfc585"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-safe-original-p0.log",
+      "bytes": 213507,
+      "sha256": "f025bd3e35000edc59c55cb380110a2c04e2ade8aa465a029ae3a7e9a41a57d6"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-safe-restart-p0.log",
+      "bytes": 213507,
+      "sha256": "729632d564a13d04092aeb180e0269489327a4af42d2f56cfbca7b0741be243d"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-window-cancel-restart-p0.log",
+      "bytes": 7534,
+      "sha256": "3ee295439d798581ba49d16378d2f441edeef930aea0d4226f3ed81a13b98409"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-window-cancel-restart-p1.log",
+      "bytes": 7145,
+      "sha256": "317ba98ce0fb94087f13b99fd0300895cadc7d2b8e881b37b4b1ae1c813ab943"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-window-first-ai-original-p0.log",
+      "bytes": 7599,
+      "sha256": "725765e1794a5416804e5e5cb79ec2a86ad361b4fbcf33dbec4483fce51c51e8"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-window-first-ai-original-p1.log",
+      "bytes": 7145,
+      "sha256": "aa5d9d4542cd888554dc9e3c1c2aaa4b94690f4583cb33a96b00236b603c34f9"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-window-first-ai-restart-p0.log",
+      "bytes": 7622,
+      "sha256": "ec096862ce7e92ebb094a567923688993be5f026330cd575fc3b4d7b8363b132"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/guard-on-window-first-ai-restart-p1.log",
+      "bytes": 213507,
+      "sha256": "c582dd4ba7a25e7d9aef2b0779e71940479fb81ee1e81823f053ec63a5f9bbb8"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/official-hooks-regression.log",
+      "bytes": 14,
+      "sha256": "f322f06a86c055bb80ed9dc894545933fdf4b1fd59e01eb4cb3fe7dd852e1f92"
+    },
+    {
+      "path": "notes/hal-22-order-guard/resultados/order-regression.log",
+      "bytes": 185,
+      "sha256": "cb099479474a51014cd1bb8999d8b224e498db1c8dc2a265f83c9700f328f09c"
+    },
+    {
+      "path": "tests/hal22-order-guard/README.md",
+      "bytes": 4843,
+      "sha256": "1def63a173a86c618cf47f16625c7e856e6b78cfa53b6ae4a9a9898fd96e31b9"
+    },
+    {
+      "path": "tests/hal22-order-guard/harness.c",
+      "bytes": 37670,
+      "sha256": "47f27d2d5adc773f3837f2804d8d790dcfb0453c8af06bf32125c4f341ae20fe"
+    },
+    {
+      "path": "tests/hal22-order-guard/observer.c",
+      "bytes": 471,
+      "sha256": "8c825a1e457d280f0fe18f864633be2493735c2446fe9936eebc236d84986656"
+    },
+    {
+      "path": "tests/hal22-order-guard/order.c",
+      "bytes": 3105,
+      "sha256": "e587ada411f4b9f8bd2d01455fe8ad84574cd24c50f4aaa2cd33ef08bcee59f6"
+    },
+    {
+      "path": "tests/hal22-order-guard/run.py",
+      "bytes": 16105,
+      "sha256": "4942901b2cafcf2be031afdfdf0558d8638b74e17571e25d47d13314ba8e90e0"
+    },
+    {
+      "path": "tests/hal22-order-guard/window_bridge.c",
+      "bytes": 988,
+      "sha256": "9d38fc5c8f72ece90ca11afe157c65b2bf9df2d21d64942ecca7c11b93309b47"
+    }
+  ]
+}

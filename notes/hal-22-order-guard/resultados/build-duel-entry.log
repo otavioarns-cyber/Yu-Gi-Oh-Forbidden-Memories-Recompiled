@@ -1,0 +1,690 @@
+In file included from src/game/../game/ai_opponent_data.h:5,
+                 from src/game/main_run_duel.c:12:
+src/game/../game/../ygo_types.h:21:1: warning: variably modified ‘HighMemoryModelAddressPrefix_modules_offset_must_be_0xC’ at file scope
+   21 | ];
+      | ^
+src/game/../game/../ygo_types.h:128:1: warning: variably modified ‘SpritePrim_cy_must_be_at_0x12’ at file scope
+  128 | ];
+      | ^
+src/game/../game/../ygo_types.h:233:1: warning: variably modified ‘SoundIndexList_indices_offset_must_be_0x10’ at file scope
+  233 | ];
+      | ^
+src/game/../game/../ygo_types.h:336:1: warning: variably modified ‘DuelEffectEntry_code_00_offset_must_be_0’ at file scope
+  336 | ];
+      | ^
+src/game/../game/../ygo_types.h:339:1: warning: variably modified ‘DuelEffectEntry_x_0C_offset_must_be_0x0C’ at file scope
+  339 | ];
+      | ^
+src/game/../game/../ygo_types.h:342:1: warning: variably modified ‘DuelEffectEntry_field_10_offset_must_be_0x10’ at file scope
+  342 | ];
+      | ^
+src/game/../game/../ygo_types.h:345:1: warning: variably modified ‘DuelEffectEntry_flags_11_offset_must_be_0x11’ at file scope
+  345 | ];
+      | ^
+src/game/../game/../ygo_types.h:348:1: warning: variably modified ‘DuelEffectEntry_field_12_offset_must_be_0x12’ at file scope
+  348 | ];
+      | ^
+src/game/../game/../ygo_types.h:351:1: warning: variably modified ‘DuelEffectEntry_field_13_offset_must_be_0x13’ at file scope
+  351 | ];
+      | ^
+src/game/../game/../ygo_types.h:354:1: warning: variably modified ‘DuelEffectEntry_field_15_offset_must_be_0x15’ at file scope
+  354 | ];
+      | ^
+src/game/../game/../ygo_types.h:357:1: warning: variably modified ‘DuelEffectEntry_field_18_offset_must_be_0x18’ at file scope
+  357 | ];
+      | ^
+src/game/../game/../ygo_types.h:406:1: warning: variably modified ‘TextStreamOwner_stream_index_offset_must_be_0x58’ at file scope
+  406 | ];
+      | ^
+src/game/../game/../ygo_types.h:409:1: warning: variably modified ‘EffectObject_depth_offset_must_be_0x58’ at file scope
+  409 | ];
+      | ^
+src/game/../game/../ygo_types.h:418:1: warning: variably modified ‘ScriptImageEntry_field_10_offset_must_be_0x10’ at file scope
+  418 | ];
+      | ^
+src/game/../game/../ygo_types.h:452:1: warning: variably modified ‘LibraryMotionState_x_offset_must_be_0x8’ at file scope
+  452 | ];
+      | ^
+src/game/../game/../ygo_types.h:455:1: warning: variably modified ‘LibraryMotionState_frames_offset_must_be_0x16’ at file scope
+  455 | ];
+      | ^
+src/game/../game/../ygo_types.h:458:1: warning: variably modified ‘LibraryMotionState_velocity_x_offset_must_be_0x18’ at file scope
+  458 | ];
+      | ^
+src/game/../game/../ygo_types.h:461:1: warning: variably modified ‘LibraryMotionState_render_offset_must_be_0x44’ at file scope
+  461 | ];
+      | ^
+src/game/../game/../ygo_types.h:562:1: warning: variably modified ‘DuelEffectChannel_entry_end_20_offset_must_be_0x20’ at file scope
+  562 | ];
+      | ^
+src/game/../game/../ygo_types.h:565:1: warning: variably modified ‘DuelEffectChannel_entry_head_24_offset_must_be_0x24’ at file scope
+  565 | ];
+      | ^
+src/game/../game/../ygo_types.h:568:1: warning: variably modified ‘DuelEffectChannel_field_28_offset_must_be_0x28’ at file scope
+  568 | ];
+      | ^
+src/game/../game/../ygo_types.h:571:1: warning: variably modified ‘DuelEffectChannel_field_2C_offset_must_be_0x2C’ at file scope
+  571 | ];
+      | ^
+src/game/../game/../ygo_types.h:574:1: warning: variably modified ‘DuelEffectChannel_field_30_offset_must_be_0x30’ at file scope
+  574 | ];
+      | ^
+src/game/../game/../ygo_types.h:577:1: warning: variably modified ‘DuelEffectChannel_flags_34_offset_must_be_0x34’ at file scope
+  577 | ];
+      | ^
+src/game/../game/../ygo_types.h:580:1: warning: variably modified ‘DuelEffectChannel_field_3C_offset_must_be_0x3C’ at file scope
+  580 | ];
+      | ^
+src/game/../game/../ygo_types.h:583:1: warning: variably modified ‘DuelEffectChannel_state_51_offset_must_be_0x51’ at file scope
+  583 | ];
+      | ^
+src/game/../game/../ygo_types.h:586:1: warning: variably modified ‘DuelEffectChannel_field_53_offset_must_be_0x53’ at file scope
+  586 | ];
+      | ^
+src/game/../game/../ygo_types.h:589:1: warning: variably modified ‘DuelEffectChannel_field_56_offset_must_be_0x56’ at file scope
+  589 | ];
+      | ^
+src/game/../game/../ygo_types.h:592:1: warning: variably modified ‘DuelEffectChannel_index_57_offset_must_be_0x57’ at file scope
+  592 | ];
+      | ^
+src/game/../game/../ygo_types.h:595:1: warning: variably modified ‘DuelEffectChannel_stream_58_offset_must_be_0x58’ at file scope
+  595 | ];
+      | ^
+src/game/../game/../ygo_types.h:598:1: warning: variably modified ‘DuelEffectChannel_field_5A_offset_must_be_0x5A’ at file scope
+  598 | ];
+      | ^
+src/game/../game/../ygo_types.h:601:1: warning: variably modified ‘DuelEffectChannel_range_start_5C_offset_must_be_0x5C’ at file scope
+  601 | ];
+      | ^
+src/game/../game/../ygo_types.h:604:1: warning: variably modified ‘DuelEffectChannel_field_61_offset_must_be_0x61’ at file scope
+  604 | ];
+      | ^
+src/game/../game/../ygo_types.h:633:1: warning: variably modified ‘GlyphSprite_scale_offset_must_be_0x44’ at file scope
+  633 | ];
+      | ^
+src/game/../game/../ygo_types.h:636:1: warning: variably modified ‘GlyphSprite_source_offset_must_be_0x4C’ at file scope
+  636 | ];
+      | ^
+src/game/../game/../ygo_types.h:639:1: warning: variably modified ‘GlyphSprite_saved_x_offset_must_be_0x5A’ at file scope
+  639 | ];
+      | ^
+src/game/../game/../ygo_types.h:642:1: warning: variably modified ‘GlyphSprite_frame_offset_must_be_0x60’ at file scope
+  642 | ];
+      | ^
+src/game/../game/../ygo_types.h:645:1: warning: variably modified ‘GlyphSprite_sequence_offset_must_be_0x6A’ at file scope
+  645 | ];
+      | ^
+src/game/../game/../ygo_types.h:666:1: warning: variably modified ‘DialogCaret_position_offset_must_be_0x30’ at file scope
+  666 | ];
+      | ^
+src/game/../game/../ygo_types.h:669:1: warning: variably modified ‘DialogCaret_slide_offset_must_be_0x60’ at file scope
+  669 | ];
+      | ^
+src/game/../game/../ygo_types.h:672:1: warning: variably modified ‘DialogCaret_status_offset_must_be_0x6C’ at file scope
+  672 | ];
+      | ^
+src/game/../game/../ygo_types.h:734:1: warning: variably modified ‘PasswordCursorView_phase_offset_must_be_0x22’ at file scope
+  734 | ];
+      | ^
+src/game/../game/../ygo_types.h:737:1: warning: variably modified ‘PasswordCursorView_step_x_offset_must_be_0x36’ at file scope
+  737 | ];
+      | ^
+src/game/../game/../ygo_types.h:740:1: warning: variably modified ‘PasswordCursorView_timer_offset_must_be_0x60’ at file scope
+  740 | ];
+      | ^
+src/game/../game/../ygo_types.h:743:1: warning: variably modified ‘PasswordCursorView_update_flags_offset_must_be_0x6C’ at file scope
+  743 | ];
+      | ^
+src/game/../game/../ygo_types.h:786:1: warning: variably modified ‘SelectionFrame_priority_offset_must_be_0x14’ at file scope
+  786 | ];
+      | ^
+src/game/../game/../ygo_types.h:789:1: warning: variably modified ‘SelectionFrame_position_offset_must_be_0x30’ at file scope
+  789 | ];
+      | ^
+src/game/../game/../ygo_types.h:792:1: warning: variably modified ‘SelectionFrame_velocity_offset_must_be_0x36’ at file scope
+  792 | ];
+      | ^
+src/game/../game/../ygo_types.h:795:1: warning: variably modified ‘SelectionFrame_extent_offset_must_be_0x3C’ at file scope
+  795 | ];
+      | ^
+src/game/../game/../ygo_types.h:798:1: warning: variably modified ‘SelectionFrame_bonus_offset_must_be_0x5E’ at file scope
+  798 | ];
+      | ^
+src/game/../game/../ygo_types.h:801:1: warning: variably modified ‘SelectionFrame_timer_offset_must_be_0x60’ at file scope
+  801 | ];
+      | ^
+src/game/../game/../ygo_types.h:816:1: warning: variably modified ‘NameEntryStarterDeckPool_weights_offset_must_be_2’ at file scope
+  816 | ];
+      | ^
+src/game/../game/../ygo_types.h:850:1: warning: variably modified ‘CampaignMapExit_input_mask_offset_must_be_6’ at file scope
+  850 | ];
+      | ^
+src/game/../game/../ygo_types.h:853:1: warning: variably modified ‘CampaignMapExit_destination_offset_must_be_9’ at file scope
+  853 | ];
+      | ^
+src/game/../game/../ygo_types.h:859:1: warning: variably modified ‘MapLocation_marker_offset_must_be_12’ at file scope
+  859 | ];
+      | ^
+src/game/../game/../ygo_types.h:862:1: warning: variably modified ‘MapLocation_exits_offset_must_be_18’ at file scope
+  862 | ];
+      | ^
+src/game/../game/../ygo_types.h:879:1: warning: variably modified ‘MapObject_position_offset_must_be_48’ at file scope
+  879 | ];
+      | ^
+src/game/../game/../ygo_types.h:882:1: warning: variably modified ‘MapObject_transition_offset_must_be_96’ at file scope
+  882 | ];
+      | ^
+src/game/../game/../ygo_types.h:898:1: warning: variably modified ‘ModelEffectEndpoint_kind_offset_must_be_0x6’ at file scope
+  898 | ];
+      | ^
+src/game/../game/../ygo_types.h:914:1: warning: variably modified ‘ModelEffectAdjustment_max_offset_must_be_0x6’ at file scope
+  914 | ];
+      | ^
+src/game/../game/../ygo_types.h:972:1: warning: variably modified ‘FileTransferDescriptor_w_offset_must_be_0x04’ at file scope
+  972 | ];
+      | ^
+src/game/../game/../ygo_types.h:975:1: warning: variably modified ‘FileTransferDescriptor_h_offset_must_be_0x06’ at file scope
+  975 | ];
+      | ^
+src/game/../game/../ygo_types.h:978:1: warning: variably modified ‘FileTransferDescriptor_value_08_offset_must_be_0x08’ at file scope
+  978 | ];
+      | ^
+src/game/../game/../ygo_types.h:981:1: warning: variably modified ‘FileTransferDescriptor_total_bytes_offset_must_be_0x10’ at file scope
+  981 | ];
+      | ^
+src/game/../game/../ygo_types.h:984:1: warning: variably modified ‘FileTransferDescriptor_phase_size_offset_must_be_0x1C’ at file scope
+  984 | ];
+      | ^
+src/game/../game/../ygo_types.h:987:1: warning: variably modified ‘FileTransferDescriptor_phase_callback_offset_must_be_0x20’ at file scope
+  987 | ];
+      | ^
+src/game/../game/../ygo_types.h:990:1: warning: variably modified ‘FileTransferDescriptor_absolute_lba_offset_must_be_0x24’ at file scope
+  990 | ];
+      | ^
+src/game/../game/../ygo_types.h:993:1: warning: variably modified ‘FileTransferDescriptor_status_flags_offset_must_be_0x2C’ at file scope
+  993 | ];
+      | ^
+src/game/../game/../ygo_types.h:996:1: warning: variably modified ‘FileTransferDescriptor_counter_offset_must_be_0x30’ at file scope
+  996 | ];
+      | ^
+src/game/../game/../ygo_types.h:999:1: warning: variably modified ‘FileTransferDescriptor_field_32_offset_must_be_0x32’ at file scope
+  999 | ];
+      | ^
+src/game/../game/../ygo_types.h:1002:1: warning: variably modified ‘FileTransferDescriptor_callback_data_offset_must_be_0x38’ at file scope
+ 1002 | ];
+      | ^
+src/game/../game/../ygo_types.h:1005:1: warning: variably modified ‘FileTransferDescriptor_done_offset_must_be_0x46’ at file scope
+ 1005 | ];
+      | ^
+src/game/../game/../ygo_types.h:1008:1: warning: variably modified ‘FileTransferDescriptor_substate_offset_must_be_0x47’ at file scope
+ 1008 | ];
+      | ^
+src/game/../game/../ygo_types.h:1043:1: warning: variably modified ‘FileRequestSlot_field_00_offset_must_be_0x00’ at file scope
+ 1043 | ];
+      | ^
+src/game/../game/../ygo_types.h:1046:1: warning: variably modified ‘FileRequestSlot_field_04_offset_must_be_0x04’ at file scope
+ 1046 | ];
+      | ^
+src/game/../game/../ygo_types.h:1049:1: warning: variably modified ‘FileRequestSlot_field_0C_offset_must_be_0x0C’ at file scope
+ 1049 | ];
+      | ^
+src/game/../game/../ygo_types.h:1052:1: warning: variably modified ‘FileRequestSlot_field_10_offset_must_be_0x10’ at file scope
+ 1052 | ];
+      | ^
+src/game/../game/../ygo_types.h:1055:1: warning: variably modified ‘FileRequestSlot_field_14_offset_must_be_0x14’ at file scope
+ 1055 | ];
+      | ^
+src/game/../game/../ygo_types.h:1058:1: warning: variably modified ‘FileRequestSlot_field_18_offset_must_be_0x18’ at file scope
+ 1058 | ];
+      | ^
+src/game/../game/../ygo_types.h:1061:1: warning: variably modified ‘FileRequestSlot_field_1C_offset_must_be_0x1C’ at file scope
+ 1061 | ];
+      | ^
+src/game/../game/../ygo_types.h:1064:1: warning: variably modified ‘FileRequestSlot_field_1E_offset_must_be_0x1E’ at file scope
+ 1064 | ];
+      | ^
+src/game/../game/../ygo_types.h:1067:1: warning: variably modified ‘FileRequestSlot_field_1F_offset_must_be_0x1F’ at file scope
+ 1067 | ];
+      | ^
+src/game/../game/../ygo_types.h:1082:1: warning: variably modified ‘ModelTransferItem_id_offset_must_be_0’ at file scope
+ 1082 | ];
+      | ^
+src/game/../game/../ygo_types.h:1085:1: warning: variably modified ‘ModelTransferItem_state_offset_must_be_6’ at file scope
+ 1085 | ];
+      | ^
+src/game/../game/../ygo_types.h:1099:1: warning: variably modified ‘MovieStreamRange_end_frame_offset_must_be_2’ at file scope
+ 1099 | ];
+      | ^
+src/game/../game/../ygo_types.h:1116:1: warning: variably modified ‘SaveDataDuelistRecord_losses_offset_must_be_2’ at file scope
+ 1116 | ];
+      | ^
+src/game/../game/../ygo_types.h:1140:1: warning: variably modified ‘FadeTransitionState_level_offset_must_be_0x04’ at file scope
+ 1140 | ];
+      | ^
+src/game/../game/../ygo_types.h:1143:1: warning: variably modified ‘FadeTransitionState_target_level_offset_must_be_0x05’ at file scope
+ 1143 | ];
+      | ^
+src/game/../game/../ygo_types.h:1146:1: warning: variably modified ‘FadeTransitionState_flags_offset_must_be_0x06’ at file scope
+ 1146 | ];
+      | ^
+src/game/../game/../ygo_types.h:1149:1: warning: variably modified ‘FadeTransitionState_step_offset_must_be_0x07’ at file scope
+ 1149 | ];
+      | ^
+src/game/../game/../ygo_types.h:1152:1: warning: variably modified ‘FadeTransitionState_field_08_offset_must_be_0x08’ at file scope
+ 1152 | ];
+      | ^
+src/game/../game/../ygo_types.h:1155:1: warning: variably modified ‘FadeTransitionState_band_levels_offset_must_be_0x0A’ at file scope
+ 1155 | ];
+      | ^
+src/game/../game/../ygo_types.h:1187:1: warning: variably modified ‘DisplayObjectStreamState_field_22_offset_must_be_0x22’ at file scope
+ 1187 | ];
+      | ^
+src/game/../game/../ygo_types.h:1190:1: warning: variably modified ‘DisplayObjectStreamState_field_48_offset_must_be_0x48’ at file scope
+ 1190 | ];
+      | ^
+src/game/../game/../ygo_types.h:1193:1: warning: variably modified ‘DisplayObjectStreamState_field_4A_offset_must_be_0x4A’ at file scope
+ 1193 | ];
+      | ^
+src/game/../game/../ygo_types.h:1196:1: warning: variably modified ‘DisplayObjectStreamState_field_4C_offset_must_be_0x4C’ at file scope
+ 1196 | ];
+      | ^
+src/game/../game/../ygo_types.h:1199:1: warning: variably modified ‘DisplayObjectStreamState_current_offset_must_be_0x50’ at file scope
+ 1199 | ];
+      | ^
+src/game/../game/../ygo_types.h:1202:1: warning: variably modified ‘DisplayObjectStreamState_base_offset_must_be_0x54’ at file scope
+ 1202 | ];
+      | ^
+src/game/../game/../ygo_types.h:1205:1: warning: variably modified ‘DisplayObjectStreamState_field_58_offset_must_be_0x58’ at file scope
+ 1205 | ];
+      | ^
+src/game/../game/../ygo_types.h:1208:1: warning: variably modified ‘DisplayObjectStreamState_field_5A_offset_must_be_0x5A’ at file scope
+ 1208 | ];
+      | ^
+src/game/../game/../ygo_types.h:1226:1: warning: variably modified ‘DuelStatusDigitPacket_field_14_offset_must_be_0x14’ at file scope
+ 1226 | ];
+      | ^
+In file included from src/game/../game/duel_init_scene.h:4,
+                 from src/game/main_run_duel.c:14:
+src/game/../game/display_object.h:438:1: warning: variably modified ‘DisplayObject_field_22_must_be_at_0x22’ at file scope
+  438 | ];
+      | ^
+src/game/../game/display_object.h:441:1: warning: variably modified ‘DisplayObject_update_must_be_at_0x24’ at file scope
+  441 | ];
+      | ^
+src/game/../game/display_object.h:444:1: warning: variably modified ‘DisplayObject_position_must_be_at_0x28’ at file scope
+  444 | ];
+      | ^
+src/game/../game/display_object.h:447:1: warning: variably modified ‘DisplayObject_field_3E_must_be_at_0x3E’ at file scope
+  447 | ];
+      | ^
+src/game/../game/display_object.h:450:1: warning: variably modified ‘DisplayObject_field_42_must_be_at_0x42’ at file scope
+  450 | ];
+      | ^
+src/game/../game/display_object.h:453:1: warning: variably modified ‘DisplayObject_field_4A_must_be_at_0x4A’ at file scope
+  453 | ];
+      | ^
+src/game/../game/display_object.h:456:1: warning: variably modified ‘DisplayObject_field_3A_must_be_at_0x3A’ at file scope
+  456 | ];
+      | ^
+src/game/../game/display_object.h:459:1: warning: variably modified ‘DisplayObject_field_52_must_be_at_0x52’ at file scope
+  459 | ];
+      | ^
+src/game/../game/display_object.h:462:1: warning: variably modified ‘DisplayObject_field_58_must_be_at_0x58’ at file scope
+  462 | ];
+      | ^
+src/game/../game/display_object.h:465:1: warning: variably modified ‘DisplayObject_field_64_must_be_at_0x64’ at file scope
+  465 | ];
+      | ^
+src/game/../game/display_object.h:468:1: warning: variably modified ‘DisplayObject_field_65_must_be_at_0x65’ at file scope
+  468 | ];
+      | ^
+In file included from src/game/../game/duel_init_scene.h:5:
+src/game/../game/save_data.h:128:1: warning: variably modified ‘SaveDataState_card_quantities_offset_must_be_0x50’ at file scope
+  128 | ];
+      | ^
+src/game/../game/save_data.h:132:1: warning: variably modified ‘SaveDataState_duelist_code_offset_must_be_0x334’ at file scope
+  132 | ];
+      | ^
+src/game/../game/save_data.h:136:1: warning: variably modified ‘SaveDataState_field_3DE_offset_must_be_0x3DE’ at file scope
+  136 | ];
+      | ^
+src/game/../game/save_data.h:140:1: warning: variably modified ‘SaveDataState_campaign_flags_offset_must_be_0x418’ at file scope
+  140 | ];
+      | ^
+src/game/../game/save_data.h:143:1: warning: variably modified ‘SaveDataState_duelist_records_offset_must_be_0x51C’ at file scope
+  143 | ];
+      | ^
+src/game/../game/save_data.h:148:1: warning: variably modified ‘SaveDataState_duel_totals_offsets_must_match’ at file scope
+  148 | ];
+      | ^
+src/game/../game/save_data.h:152:1: warning: variably modified ‘SaveDataState_campaign_scene_index_offset_must_be_0x5DC’ at file scope
+  152 | ];
+      | ^
+src/game/../game/save_data.h:156:1: warning: variably modified ‘SaveDataState_starchips_offset_must_be_0x5E0’ at file scope
+  156 | ];
+      | ^
+src/game/../game/save_data.h:163:1: warning: variably modified ‘SaveDataPayload_duplicate_offset_must_follow_the_state’ at file scope
+  163 | ];
+      | ^
+src/game/../game/save_data.h:170:1: warning: variably modified ‘SaveDataWorkspace_state_offset_must_be_0x200’ at file scope
+  170 | ];
+      | ^
+In file included from src/game/../game/graphics_frame.h:6,
+                 from src/game/main_run_duel.c:16:
+src/game/../game/../psyq/libgte.h:443:12: warning: conflicting types for built-in function ‘ccos’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+  443 | extern int ccos(int a);
+      |            ^~~~
+src/game/../game/../psyq/libgte.h:9:1: note: ‘ccos’ is declared in header ‘<complex.h>’
+    8 | #include "../types.h"
+  +++ |+#include <complex.h>
+    9 | 
+src/game/../game/../psyq/libgte.h:444:12: warning: conflicting types for built-in function ‘csin’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+  444 | extern int csin(int a);
+      |            ^~~~
+src/game/../game/../psyq/libgte.h:444:12: note: ‘csin’ is declared in header ‘<complex.h>’
+src/game/../game/../psyq/libgte.h:446:12: warning: conflicting types for built-in function ‘csqrt’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+  446 | extern int csqrt(int a);
+      |            ^~~~~
+src/game/../game/../psyq/libgte.h:446:12: note: ‘csqrt’ is declared in header ‘<complex.h>’
+src/game/../game/../psyq/libgte.h:447:12: warning: conflicting types for built-in function ‘catan’; expected ‘_Complex double(_Complex double)’ [-Wbuiltin-declaration-mismatch]
+  447 | extern int catan(int a);
+      |            ^~~~~
+src/game/../game/../psyq/libgte.h:447:12: note: ‘catan’ is declared in header ‘<complex.h>’
+src/game/../game/graphics_frame.h:280:5: warning: variably modified ‘GraphicsDrawEnvDitherOffset’ at file scope
+  280 |     (u32)&((DRAWENV *)0)->dtd == 0x16 ? 1 : -1];
+      |     ^
+src/game/../game/graphics_frame.h:282:5: warning: variably modified ‘GraphicsDrawEnvClearOffset’ at file scope
+  282 |     (u32)&((DRAWENV *)0)->isbg == 0x18 ? 1 : -1];
+      |     ^
+src/game/../game/graphics_frame.h:284:5: warning: variably modified ‘GraphicsDrawEnvRedOffset’ at file scope
+  284 |     (u32)&((DRAWENV *)0)->r0 == 0x19 ? 1 : -1];
+      |     ^
+src/game/../game/graphics_frame.h:286:5: warning: variably modified ‘GraphicsDrawEnvGreenOffset’ at file scope
+  286 |     (u32)&((DRAWENV *)0)->g0 == 0x1A ? 1 : -1];
+      |     ^
+src/game/../game/graphics_frame.h:288:5: warning: variably modified ‘GraphicsDrawEnvBlueOffset’ at file scope
+  288 |     (u32)&((DRAWENV *)0)->b0 == 0x1B ? 1 : -1];
+      |     ^
+In file included from src/game/../game/build_deck_transition_state.h:6,
+                 from src/game/../game/func_800339D0.h:4,
+                 from src/game/main_run_duel.c:18:
+src/game/../game/card_list_text_boxes.h:79:1: warning: variably modified ‘CardListAssertCursorBox’ at file scope
+   79 | ];
+      | ^
+src/game/../game/card_list_text_boxes.h:82:1: warning: variably modified ‘CardListAssertScrollBox’ at file scope
+   82 | ];
+      | ^
+src/game/../game/card_list_text_boxes.h:83:1: warning: variably modified ‘CardListAssertFirst’ at file scope
+   83 | typedef char CardListAssertFirst[CARD_LIST_OFFSET(first) == CARD_LIST_ROWS_END + 0xC ? 1 : -1];
+      | ^~~~~~~
+src/game/../game/card_list_text_boxes.h:86:1: warning: variably modified ‘CardListAssertFirstTarget’ at file scope
+   86 | ];
+      | ^
+src/game/../game/card_list_text_boxes.h:89:1: warning: variably modified ‘CardListAssertRowCount’ at file scope
+   89 | ];
+      | ^
+src/game/../game/card_list_text_boxes.h:92:1: warning: variably modified ‘CardListAssertSortRowCount’ at file scope
+   92 | ];
+      | ^
+src/game/../game/card_list_text_boxes.h:95:1: warning: variably modified ‘CardListAssertSortMode’ at file scope
+   95 | ];
+      | ^
+src/game/../game/card_list_text_boxes.h:98:1: warning: variably modified ‘CardListAssertSortChoice’ at file scope
+   98 | ];
+      | ^
+src/game/../game/card_list_text_boxes.h:99:1: warning: variably modified ‘CardListAssertKind’ at file scope
+   99 | typedef char CardListAssertKind[CARD_LIST_OFFSET(kind) == CARD_LIST_ROWS_END + 0x17 ? 1 : -1];
+      | ^~~~~~~
+src/game/../game/card_list_text_boxes.h:102:1: warning: variably modified ‘CardListAssertCursor’ at file scope
+  102 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:42:1: warning: variably modified ‘BuildDeckTransitionState_target_offset_must_be_0x5AA4’ at file scope
+   42 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:45:1: warning: variably modified ‘BuildDeckTransitionState_lists_offset_must_be_0x4’ at file scope
+   45 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:48:1: warning: variably modified ‘BuildDeckTransitionState_deck_list_offset_must_be_0x2D50’ at file scope
+   48 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:51:1: warning: variably modified ‘BuildDeckTransitionState_chest_total_offset_must_be_0x5A9C’ at file scope
+   51 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:55:1: warning: variably modified ‘BuildDeckTransitionState_deck_quantity_offset_must_be_0x5AC4’ at file scope
+   55 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:59:1: warning: variably modified ‘BuildDeckTransitionState_chest_quantity_offset_must_be_0x5D97’ at file scope
+   59 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:63:1: warning: variably modified ‘BuildDeckTransitionState_sort_rank_offset_must_be_0x606A’ at file scope
+   63 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:67:1: warning: variably modified ‘BuildDeckTransitionState_state_offset_must_be_0x633E’ at file scope
+   67 | ];
+      | ^
+src/game/../game/build_deck_transition_state.h:71:1: warning: variably modified ‘BuildDeckTransitionState_pane_index_offset_must_be_0x6342’ at file scope
+   71 | ];
+      | ^
+In file included from src/game/main_run_duel.c:31:
+src/game/../game/sound.h:70:1: warning: variably modified ‘SDMusicPackage_spu_address_offset_must_be_0x0C’ at file scope
+   70 | ];
+      | ^
+src/game/../game/sound.h:73:1: warning: variably modified ‘SDMusicPackage_vab_header_offset_must_be_0x50’ at file scope
+   73 | ];
+      | ^
+src/game/../game/sound.h:437:1: warning: variably modified ‘SDCommand_field_0002_offset_must_be_0x02’ at file scope
+  437 | ];
+      | ^
+src/game/../game/sound.h:440:1: warning: variably modified ‘SDCommand_field_0004_offset_must_be_0x04’ at file scope
+  440 | ];
+      | ^
+src/game/../game/sound.h:443:1: warning: variably modified ‘SDCommand_field_0010_offset_must_be_0x10’ at file scope
+  443 | ];
+      | ^
+src/game/../game/sound.h:452:1: warning: variably modified ‘SDValueLink_sector_offset_must_be_at_0x00’ at file scope
+  452 | ];
+      | ^
+src/game/../game/sound.h:459:1: warning: variably modified ‘SDCommandShiftView_queue_must_overlay_commands’ at file scope
+  459 | ];
+      | ^
+src/game/../game/sound.h:479:1: warning: variably modified ‘SDValue_lookup_offset_must_be_0x44C’ at file scope
+  479 | ];
+      | ^
+src/game/../game/sound.h:484:1: warning: variably modified ‘SDValue_lookup_end_must_match_extent’ at file scope
+  484 | ];
+      | ^
+src/game/../game/sound.h:487:1: warning: variably modified ‘SDValue_commands_offset_must_be_0x80’ at file scope
+  487 | ];
+      | ^
+src/game/../game/sound.h:490:1: warning: variably modified ‘SDValue_voice_attr_offset_must_be_0x384’ at file scope
+  490 | ];
+      | ^
+src/game/../game/sound.h:494:1: warning: variably modified ‘SDValue_voice_attr_note_offset_must_be_0x39A’ at file scope
+  494 | ];
+      | ^
+src/game/../game/sound.h:498:1: warning: variably modified ‘SDValue_voice_attr_must_end_at_field_03C4’ at file scope
+  498 | ];
+      | ^
+src/game/../game/sound.h:501:1: warning: variably modified ‘SDValue_field_0044_offset_must_be_0x44’ at file scope
+  501 | ];
+      | ^
+src/game/../game/sound.h:504:1: warning: variably modified ‘SDValue_field_0002_offset_must_be_0x02’ at file scope
+  504 | ];
+      | ^
+src/game/../game/sound.h:507:1: warning: variably modified ‘SDValue_bank_0518_offset_must_be_0x518’ at file scope
+  507 | ];
+      | ^
+src/game/../game/sound.h:510:1: warning: variably modified ‘SDValue_mix_multiplier_offset_must_be_0x533’ at file scope
+  510 | ];
+      | ^
+src/game/../game/sound.h:513:1: warning: variably modified ‘SDValue_field_1649_offset_must_be_0x1649’ at file scope
+  513 | ];
+      | ^
+src/game/../game/sound.h:516:1: warning: variably modified ‘SDValue_field_164A_offset_must_be_0x164A’ at file scope
+  516 | ];
+      | ^
+src/game/../game/sound.h:519:1: warning: variably modified ‘SDValue_field_004E_offset_must_be_0x4E’ at file scope
+  519 | ];
+      | ^
+src/game/../game/sound.h:522:1: warning: variably modified ‘SDValue_field_007C_offset_must_be_0x7C’ at file scope
+  522 | ];
+      | ^
+src/game/../game/sound.h:525:1: warning: variably modified ‘SDValue_field_1580_offset_must_be_0x1580’ at file scope
+  525 | ];
+      | ^
+src/game/../game/sound.h:528:1: warning: variably modified ‘SDValue_field_158A_offset_must_be_0x158A’ at file scope
+  528 | ];
+      | ^
+src/game/../game/sound.h:531:1: warning: variably modified ‘SDValue_field_15EC_offset_must_be_0x15EC’ at file scope
+  531 | ];
+      | ^
+src/game/../game/sound.h:534:1: warning: variably modified ‘SDValue_field_15F4_offset_must_be_0x15F4’ at file scope
+  534 | ];
+      | ^
+src/game/../game/sound.h:537:1: warning: variably modified ‘SDValue_decoded_half_offset_must_be_0x538’ at file scope
+  537 | ];
+      | ^
+src/game/../game/sound.h:541:1: warning: variably modified ‘SDValue_output_level_offset_must_be_0x154C’ at file scope
+  541 | ];
+      | ^
+src/game/../game/sound.h:549:1: warning: variably modified ‘SDToneEnvelopeView_offsets_must_match’ at file scope
+  549 | ];
+      | ^
+src/game/../game/sound.h:552:1: warning: variably modified ‘SDSecondaryObject_channel_index_offset_must_be_0x03’ at file scope
+  552 | ];
+      | ^
+src/game/../game/sound.h:557:1: warning: variably modified ‘SDSecondaryObject_gain_offsets_must_match’ at file scope
+  557 | ];
+      | ^
+src/game/../game/sound.h:562:1: warning: variably modified ‘SDSecondaryObject_pan_offsets_must_match’ at file scope
+  562 | ];
+      | ^
+src/game/../game/sound.h:566:1: warning: variably modified ‘SDSecondaryObject_level_offsets_must_match’ at file scope
+  566 | ];
+      | ^
+src/game/../game/sound.h:572:1: warning: variably modified ‘SDSecondaryRecord_program_offset_must_be_0x00’ at file scope
+  572 | ];
+      | ^
+src/game/../game/sound.h:575:1: warning: variably modified ‘SDSecondaryRecord_pan_offset_must_be_0x01’ at file scope
+  575 | ];
+      | ^
+src/game/../game/sound.h:578:1: warning: variably modified ‘SDSecondaryRecord_volume_offset_must_be_0x03’ at file scope
+  578 | ];
+      | ^
+src/game/../game/sound.h:581:1: warning: variably modified ‘SDSecondaryRecord_expression_offset_must_be_0x05’ at file scope
+  581 | ];
+      | ^
+src/game/../game/sound.h:584:1: warning: variably modified ‘SDSecondaryRecord_pitch_bend_msb_offset_must_be_0x07’ at file scope
+  584 | ];
+      | ^
+src/game/../game/sound.h:587:1: warning: variably modified ‘SDSecondaryRecord_parameter_selector_offset_must_be_0x11’ at file scope
+  587 | ];
+      | ^
+src/game/../game/sound.h:590:1: warning: variably modified ‘SDSecondaryRecord_control_mode_offset_must_be_0x12’ at file scope
+  590 | ];
+      | ^
+src/game/../game/sound.h:593:1: warning: variably modified ‘SDSecondaryRecord_control_value_offset_must_be_0x13’ at file scope
+  593 | ];
+      | ^
+src/game/../game/sound.h:599:1: warning: variably modified ‘SDSequenceTrack_tempo_accumulator_offset_must_be_0x14’ at file scope
+  599 | ];
+      | ^
+src/game/../game/sound.h:602:1: warning: variably modified ‘SDSequenceTrack_delta_remaining_offset_must_be_0x1C’ at file scope
+  602 | ];
+      | ^
+src/game/../game/sound.h:605:1: warning: variably modified ‘SDSequenceTrack_ended_offset_must_be_0x24’ at file scope
+  605 | ];
+      | ^
+src/game/../game/sound.h:608:1: warning: variably modified ‘SDSequenceTrack_running_status_offset_must_be_0x29’ at file scope
+  608 | ];
+      | ^
+src/game/../game/sound.h:617:1: warning: variably modified ‘SDSecondaryState_channels_offset_must_be_0x00’ at file scope
+  617 | ];
+      | ^
+src/game/../game/sound.h:620:1: warning: variably modified ‘SDSecondaryState_objects_offset_must_be_0x180’ at file scope
+  620 | ];
+      | ^
+src/game/../game/sound.h:623:1: warning: variably modified ‘SDSecondaryState_transfer_offset_must_be_0x4A4’ at file scope
+  623 | ];
+      | ^
+src/game/../game/sound.h:627:1: warning: variably modified ‘SDSecondaryState_transfer_gain_pan_offsets_must_match’ at file scope
+  627 | ];
+      | ^
+src/game/../game/sound.h:632:1: warning: variably modified ‘SDSecondaryState_spatial_level_offsets_must_match’ at file scope
+  632 | ];
+      | ^
+src/game/../game/sound.h:635:1: warning: variably modified ‘SDSecondaryState_pan_override_offset_must_be_0x815’ at file scope
+  635 | ];
+      | ^
+src/game/../game/sound.h:638:1: warning: variably modified ‘SDSecondaryState_flag_0500_offset_must_be_0x500’ at file scope
+  638 | ];
+      | ^
+src/game/../game/sound.h:641:1: warning: variably modified ‘SDSecondaryState_event_guard_offset_must_be_0x503’ at file scope
+  641 | ];
+      | ^
+src/game/../game/sound.h:644:1: warning: variably modified ‘SDSecondaryState_event_handle_offset_must_be_0x504’ at file scope
+  644 | ];
+      | ^
+src/game/../game/sound.h:647:1: warning: variably modified ‘SDSecondaryState_voice_attr_offset_must_be_0x4C0’ at file scope
+  647 | ];
+      | ^
+src/game/../game/sound.h:653:1: warning: variably modified ‘SDSecondaryState_object_count_offset_must_be_0x510’ at file scope
+  653 | ];
+      | ^
+src/game/../game/sound.h:656:1: warning: variably modified ‘SDSecondaryState_field_07DC_offset_must_be_0x7DC’ at file scope
+  656 | ];
+      | ^
+src/game/../game/sound.h:659:1: warning: variably modified ‘SDSecondaryState_field_07E0_offset_must_be_0x7E0’ at file scope
+  659 | ];
+      | ^
+src/game/../game/sound.h:663:1: warning: variably modified ‘SDSecondaryState_tracks_offset_must_be_0x518’ at file scope
+  663 | ];
+      | ^
+src/game/../game/sound.h:666:1: warning: variably modified ‘SDSecondaryState_track_count_offset_must_be_0x7FA’ at file scope
+  666 | ];
+      | ^
+src/game/../game/sound.h:669:1: warning: variably modified ‘SDSecondaryState_field_0801_offset_must_be_0x801’ at file scope
+  669 | ];
+      | ^
+src/game/../game/sound.h:672:1: warning: variably modified ‘SDSecondaryState_timebase_offset_must_be_0x7FC’ at file scope
+  672 | ];
+      | ^
+src/game/../game/sound.h:675:1: warning: variably modified ‘SDSecondaryState_bytes_consumed_offset_must_be_0x818’ at file scope
+  675 | ];
+      | ^
+src/game/../game/sound.h:678:1: warning: variably modified ‘SDSecondaryState_field_081C_offset_must_be_0x81C’ at file scope
+  678 | ];
+      | ^
+src/game/../game/sound.h:681:1: warning: variably modified ‘SDSecondaryState_field_0844_offset_must_be_0x844’ at file scope
+  681 | ];
+      | ^
+In file included from src/game/main_run_duel.c:32:
+src/game/../game/sound_pending_entries.h:29:1: warning: variably modified ‘SDSeqBlock_keys_must_match_input_offset’ at file scope
+   29 | ];
+      | ^
+src/game/../game/sound_pending_entries.h:33:1: warning: variably modified ‘SDSeqBlock_data_must_match_input_offset’ at file scope
+   33 | ];
+      | ^
+In file included from src/game/../game/duel_side_state.h:8,
+                 from src/game/main_run_duel.c:36:
+src/game/../game/duel_card_effects.h:36:1: warning: variably modified ‘DuelFieldEffectObject_callback_offset_must_be_0x24’ at file scope
+   36 | ];
+      | ^
+src/game/../game/duel_card_effects.h:39:1: warning: variably modified ‘DuelFieldEffectObject_mark_offset_must_be_0x67’ at file scope
+   39 | ];
+      | ^
+src/game/../game/duel_card_effects.h:42:1: warning: variably modified ‘DuelFieldEffectObject_active_offset_must_be_0x6C’ at file scope
+   42 | ];
+      | ^
+src/game/../game/duel_side_state.h:79:1: warning: variably modified ‘DuelSideState_hand_must_be_at_0x1A’ at file scope
+   79 | ];
+      | ^
+src/game/../game/duel_side_state.h:85:1: warning: variably modified ‘DuelSideState_deck_draw_cursor_must_be_at_0x18’ at file scope
+   85 | ];
+      | ^
+src/game/../game/duel_side_state.h:88:1: warning: variably modified ‘DuelSideState_swords_turns_remaining_must_be_at_0x19’ at file scope
+   88 | ];
+      | ^
+src/game/../game/duel_side_state.h:91:1: warning: variably modified ‘DuelSideState_card_view_mode_must_be_at_0x1F’ at file scope
+   91 | ];
+      | ^
