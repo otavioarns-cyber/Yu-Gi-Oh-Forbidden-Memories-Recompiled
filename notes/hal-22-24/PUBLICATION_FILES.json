@@ -8,8 +8,8 @@
     },
     {
       "path": "notes/HAL22_24_THREE_WAY_GUARD_POC.md",
-      "bytes": 17246,
-      "sha256": "fbdc5dc1ede820818a79b1832ca2436d809e6a9ecb3c87b48307273a8ebd186b"
+      "bytes": 17477,
+      "sha256": "2ca55ef5cb31cbf52a0c28d10fd37cf5df6e2ed43f0a68e68a6a28d7efc3ecac"
     },
     {
       "path": "notes/hal-22-24/DIFF_EXPERIMENTAL.patch",
@@ -588,8 +588,8 @@
     },
     {
       "path": "notes/hal-22-24/resultados/RESULTADOS.json",
-      "bytes": 597036,
-      "sha256": "145518e49ebaa9acda31d51d57dbfb4c59c4646570a5ac54064daaba902ef75f"
+      "bytes": 735424,
+      "sha256": "93d9b4765e91dd490e58206653a61dc30ae5bf2aa3db60768fbd1ccee23b4bfd"
     },
     {
       "path": "notes/hal-22-24/resultados/build-duel-entry.log",
@@ -1708,8 +1708,8 @@
     },
     {
       "path": "tests/hal2224/run.py",
-      "bytes": 12285,
-      "sha256": "237c0dafea791805c165452c74d8265f97f3b3b7b42592c1d3a61e5d036159ea"
+      "bytes": 12540,
+      "sha256": "777c83a839f103830c44d6e3abd1620b01a6c394da9271726d5267ca87815433"
     },
     {
       "path": "tests/hal2224/summarize.py",

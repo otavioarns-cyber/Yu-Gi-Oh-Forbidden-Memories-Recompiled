@@ -12,7 +12,7 @@ dirs={m:Path(os.environ.get(env,'/nonexistent/'+m)).resolve() for m,env in [('ai
 engine=Path(os.environ.get('MEMORIES_ENGINE_OBJ_DIR','/nonexistent/obj')).resolve();sdk=Path(os.environ.get('MEMORIES_SDK_EXPORTS','/nonexistent/sdk')).resolve()
 cc=shlex.split(os.environ.get('MEMORIES_I386_CC','gcc'));runner=shlex.split(os.environ.get('MEMORIES_I386_RUNNER',''))
 sha=lambda f:hashlib.sha256(f.read_bytes()).hexdigest()
-results={'scope':'HAL22+24 opt-in guard; real controller/planners; partial engine, no Windows gameplay','preflight':[],'builds':[],'profiles':[],'postflight':[]}
+results={'manifest_copy_checks':[],'scope':'HAL22+24 opt-in guard; real controller/planners; partial engine, no Windows gameplay','preflight':[],'builds':[],'profiles':[],'postflight':[]}
 checks=[(f,dirs[f['id']]/f['path']) for f in meta['local_dependencies']]+[(f,engine/f['path']) for f in meta['native_engine_objects']]+[(f,repo/f['path']) for f in meta['public_source_files']]+[(meta['sdk_exports'],sdk)]
 for f,path in checks:results['preflight'].append({'path':f.get('id','')+'/'+f['path'],'expected_sha256':f['sha256'],'actual_sha256':sha(path) if path.is_file() else None,'status':'PASS' if path.is_file() and sha(path)==f['sha256'] else 'BLOCKED'})
 def finish():
@@ -87,8 +87,12 @@ with tempfile.TemporaryDirectory(prefix='hal24-') as tmp:
   for m,src in {**dirs,'drop-missing-cards':repo/'mods/drop-missing-cards'}.items():
    if m=='melhoria-dos-rituais' and q['rules']=='absent':continue
    dest=mods/((('0' if m=='ai-hard-mode' else '2' if m=='dual-play' else '1') if q['reverse']==2 else ('0' if m=='dual-play' else '2' if m=='ai-hard-mode' else '1'))+'-'+m if q['reverse'] else m);dest.mkdir();manifest=json.loads((src/'mod.json').read_text())
-   if m=='ai-hard-mode' and q['restart']:manifest['restart']=True
-   (dest/'mod.json').write_text(json.dumps(manifest,ensure_ascii=False))
+   if m=='ai-hard-mode' and q['restart']:
+    manifest['restart']=True;(dest/'mod.json').write_text(json.dumps(manifest,ensure_ascii=False))
+   else:
+    shutil.copy2(src/'mod.json',dest/'mod.json')
+    assert sha(src/'mod.json')==sha(dest/'mod.json')
+    results['manifest_copy_checks'].append({'case':q['case'],'id':m,'sha256':sha(dest/'mod.json'),'status':'PASS'})
    if m in dirs:shutil.copy2(src/objects[m],dest/objects[m])
   dest=mods/'hal2224-observer';dest.mkdir();shutil.copy2(tmp/'observer.o',dest/'observer.o');(dest/'mod.json').write_text(json.dumps({'id':'hal2224-observer','library':'observer','enabled':True}))
   if q['wrapper']!='none':
