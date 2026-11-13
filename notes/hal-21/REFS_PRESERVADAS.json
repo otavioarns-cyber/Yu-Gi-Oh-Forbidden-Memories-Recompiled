@@ -1,6 +1,6 @@
 {
   "checked_UTC": "2026-11-13",
-  "stage": "pre-publication",
+  "stage": "after initial push and draft PR creation",
   "old_heads_count": 25,
   "all_original_heads_unchanged": true,
   "original_heads": [
@@ -107,5 +107,9 @@
   ],
   "branch_base": "d649647c159c91d615c07d6960928a37e270b461",
   "merge_performed": false,
-  "src_or_mods_diff": false
+  "src_or_mods_diff": false,
+  "draft_PR": 21,
+  "draft_PR_url": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/21",
+  "remote_branch_accessible": true,
+  "original_heads_count": 25
 }

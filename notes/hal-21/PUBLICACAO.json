@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5631,
-      "sha256": "56e482e9ee9a188b6eb6877a004af03d62fa1b3e67eaf7f74db31a10515b108b"
+      "bytes": 5694,
+      "sha256": "66e63efacd3d05aa60af13bc320856363f0bfd434ceb26dd43b6bbb73529a1bf"
     },
     {
       "path": "artifacts/hal21/hide/fusion-auxiliary-balance.o",
@@ -39,8 +39,8 @@
     },
     {
       "path": "notes/HAL21_FUSION_OFF_PROVIDERS_POC.md",
-      "bytes": 19190,
-      "sha256": "7ba4a14f917cad24d61e37f7a3069d60b04d3de853302f37d91afa5473e45434"
+      "bytes": 19450,
+      "sha256": "2bb00106a8714b0df1b1d05ef68c20be0b904e576e6a2852300e2e20ef359b25"
     },
     {
       "path": "notes/hal-21/ABI.json",
@@ -64,8 +64,8 @@
     },
     {
       "path": "notes/hal-21/REFS_PRESERVADAS.json",
-      "bytes": 3409,
-      "sha256": "d1f33573a7d01193345ce1d19b3f72812ac708220d1bcb9b48f6f35f7c08c790"
+      "bytes": 3622,
+      "sha256": "0fd1024e4aa4954cfb10689404f6ead4d8641d518e9ef30f92a1fb5495f4c044"
     },
     {
       "path": "notes/hal-21/contracts/RESULTADOS.json",
@@ -578,5 +578,6 @@
       "sha256": "139c3c367e760b3f988918ff795637e87a84e03bb3bb38881544a7a116afb3f9"
     }
   ],
-  "binary_permissions": "Only two own Fusion candidates, same authorized PR12 source package/coin-lib credits. No private Dual/TimeWizard binaries or new assets."
+  "binary_permissions": "Only two own Fusion candidates, same authorized PR12 source package/coin-lib credits. No private Dual/TimeWizard binaries or new assets.",
+  "draft_PR": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/21"
 }

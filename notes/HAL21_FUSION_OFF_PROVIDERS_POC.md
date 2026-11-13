@@ -9,7 +9,7 @@
 - Branch nova: [`test/hal-21-fusion-off-providers-poc`](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-21-fusion-off-providers-poc).
 - Insumo autorizado: [PR #12](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/12), commit `907ed98cfb763a96f5aa1ad6369f809cceca5f1c`, [relatório original](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/mods/hal-20-fusion-effects-preview2/notes/HAL20_FUSION_EFFECTS_PREVIEW2.md).
 - Lidos `AGENTS.md`, inventário HAL-20, relatório #12, [primeira integração #14](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14) e registro da issue. A [PoC #20](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/20) continua separada: nenhum guard, manifest experimental ou mudança de ordem foi incorporado.
-- PR desta entrega: link registrado após publicação no fim deste documento.
+- PR desta entrega: [#21 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/21).
 
 As alternativas estão como patches em `experiments/hal21/` e objetos em `artifacts/hal21/`. Não há pacote escolhido em `mods/`. PR #12, integração, master e branches anteriores foram preservados. Nenhum arquivo de produção do core/AI nem de Ritual Effects, Time Wizard, Dual Play ou outro MOD foi editado.
 
@@ -147,4 +147,4 @@ Sem execução Windows/gameplay nesta etapa; sem promoção automática. A PoC e
 
 ## Publicação
 
-PR em rascunho: a registrar após criação. Branch de destino exclusiva: `integration/hal-20-v0.3.1-preview.2`. Índice de arquivos publicados e verificação das heads anteriores em `notes/hal-21/`.
+Publicado no [PR #21 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/21). Branch de destino exclusiva: `integration/hal-20-v0.3.1-preview.2`. Índice dos arquivos e hashes em [PUBLICACAO.json](hal-21/PUBLICACAO.json); [25 heads anteriores preservadas](hal-21/REFS_PRESERVADAS.json). O push foi normal, sem force; os objetos e logs da rodada final estão na branch remota.
