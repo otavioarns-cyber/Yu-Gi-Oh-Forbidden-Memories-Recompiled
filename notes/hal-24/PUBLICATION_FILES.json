@@ -1,0 +1,915 @@
+{
+  "scope": "Own tests and documentation only; private Dual, MOD assets and ROM absent. Index excludes itself.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 5932,
+      "sha256": "aa1499d578aec70d966eda4a02ebd4793dbf45ae735602d0076666f39665cdf3"
+    },
+    {
+      "path": "notes/HAL24_RITUAL_DUELISTS_DUAL_GATE.md",
+      "bytes": 16129,
+      "sha256": "2da50d385b3ba27dc214c57f926691b58cd8db064f9e4ecb82c24d5c223c6a92"
+    },
+    {
+      "path": "tests/hal24/README.md",
+      "bytes": 6510,
+      "sha256": "8cc6058140b5c966aaba7c456667dd738034b9793c294e6fbe70f5d2feaed54a"
+    },
+    {
+      "path": "tests/hal24/harness.c",
+      "bytes": 29337,
+      "sha256": "2d53438669d1b610788b98c4c2b28fa9fe48495370344c9dc204a4263576a78d"
+    },
+    {
+      "path": "tests/hal24/observer.c",
+      "bytes": 475,
+      "sha256": "cc0d2093c3c7f88f8b19c398dadaae7883dfe7bce5b79f9756ba37cec9177bde"
+    },
+    {
+      "path": "tests/hal24/run.py",
+      "bytes": 8893,
+      "sha256": "c7e5c5134526b95b509ae059450391413c10a0a73584fe9a4019193213e64a1f"
+    },
+    {
+      "path": "notes/hal-24/CLASSIFICACAO.json",
+      "bytes": 8181,
+      "sha256": "b785038c306d14727467e746415497d6f23d21934473f1ec1317aa19e0b81cee"
+    },
+    {
+      "path": "notes/hal-24/INPUTS.json",
+      "bytes": 15858,
+      "sha256": "aa048370ff830c8423e5334c6751bd0f0f745e512ff712ac8b2b793f7f97950b"
+    },
+    {
+      "path": "notes/hal-24/MATRIZ.md",
+      "bytes": 23694,
+      "sha256": "2d531adffda6f78a2cf6dab618ba805e6787d8a36727c83f31e07c9526deddd7"
+    },
+    {
+      "path": "notes/hal-24/REFS_PRESERVADAS.json",
+      "bytes": 5079,
+      "sha256": "e47ff555cc6ac03480683be8e960871d18cda37a04a1a586c44218aa3a260e75"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/MATRIZ.csv",
+      "bytes": 2093,
+      "sha256": "11c9894eb7bc93a93a6d34a54326fd766ea545a0473722a806fd29243b73afb4"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/RESULTADOS.json",
+      "bytes": 19904,
+      "sha256": "b86ec47c280d0b31bd83362fd56d222d557b3a6a074c3d6e237c7771102d0349"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/build-harness.log",
+      "bytes": 8394,
+      "sha256": "04881c47a87c2c7981805f1b148c2b364becff136b78671d6ab0a09c73a87a4d"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/build-order.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h0-d1-o0-order.log",
+      "bytes": 243,
+      "sha256": "cdff0e173b937845902c23fe5f2f53c3f998c8e359ce2e4d315dfad3f6050d1f"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h0-d1-o0.log",
+      "bytes": 11011,
+      "sha256": "77d2c9baf3f4345f1a3a3d1aaf1e80d5c4a2368cb1a56bc3444b32e3f1208d90"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h0-d1-o1-order.log",
+      "bytes": 243,
+      "sha256": "8df12e4f0978830cff93b8c53c685a4db38b50ca76a9a3f10b5472b229e15e00"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h0-d1-o1.log",
+      "bytes": 11522,
+      "sha256": "ef6d3ea93b231765afc5c0410cd687a433994aa0d717d587ae8624e9ef120200"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h0-d1-o2-order.log",
+      "bytes": 243,
+      "sha256": "a4338300b96586a59b46a500368671d50a7eeb04d0fce0d059b38817d5d4212e"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h0-d1-o2.log",
+      "bytes": 11115,
+      "sha256": "2a3337cc7ccd6df5c25c07c3163abc5930f371d0098ce35a30ee2596b8e37a61"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h1-d1-o0-order.log",
+      "bytes": 256,
+      "sha256": "2aa2597aac3f687b33e698992b3ea70ff83b1c85c43c16bb717af02c8c93e305"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h1-d1-o0.log",
+      "bytes": 11011,
+      "sha256": "f772205f97bab766d93cd51b127dde2617a585a8addc37c0d10aeaf73cb49d37"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h1-d1-o1-order.log",
+      "bytes": 256,
+      "sha256": "847635ee6c8a65945fa80ce5f20b184bab4c766b1f668db0b1f1a98ba6b64c34"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h1-d1-o1.log",
+      "bytes": 11615,
+      "sha256": "68d32f733cc1fbfcff9f8affdde6fccfd82c98858d01b052b53976b553ad2a86"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h1-d1-o2-order.log",
+      "bytes": 256,
+      "sha256": "4f1848697c911f07f3ef7de5a87a1069b255b393d63244cab149e98f8fe9d980"
+    },
+    {
+      "path": "notes/hal-24/controles-pr14/s4-h1-d1-o2.log",
+      "bytes": 11112,
+      "sha256": "33cdbd4e9ac900b31baf59e37a23d833b8a3fcd67f5eb7ef3eeb12a76a9288a8"
+    },
+    {
+      "path": "notes/hal-24/resultados/MATRIZ.csv",
+      "bytes": 288716,
+      "sha256": "39815fb8f19fb0ed76c429b8aa4a417223d37219a696fb849cfaecea70f59ef7"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d0-v0-none-restart0-absent.log",
+      "bytes": 10644,
+      "sha256": "c251186d32bce6dbbd6626290bf6c197e90460dea9e85c62f38fd5f455691a8f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d0-v1-none-restart0-absent.log",
+      "bytes": 9821,
+      "sha256": "0c0afc2e45980c6d0f6265c2459c77303158721ca26a13fd38735b5c18ed8d15"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d0-v2-none-restart0-absent.log",
+      "bytes": 12747,
+      "sha256": "38c0626b3393f8584551da3188ade16dc90020b3817c728cc1c252165abfae81"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d0-v3-none-restart0-absent.log",
+      "bytes": 11285,
+      "sha256": "f083bdfc6e69fd194f7209805ac43cd2ef5875c5407d56f0b4d8250a0d08fe0f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d0-v4-none-restart0-absent.log",
+      "bytes": 12749,
+      "sha256": "448d65bbaedc268b08c4c21ddf044646bd2336da30ec454a9cc85bdade83a018"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d0-v5-none-restart0-absent.log",
+      "bytes": 10644,
+      "sha256": "580f9e718ec70337e2c3497b1cb013a7bb8dd70511eb029a86ae1a9c2e4a4792"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v0-none-restart0-absent.log",
+      "bytes": 16419,
+      "sha256": "63662479d9295953dd335b7a67a87357754bd8cedc3e9afdb2ae01326d884a1c"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v1-none-restart0-absent.log",
+      "bytes": 29041,
+      "sha256": "bb46180217392df75b88c36b7022e3dd5e6e0b2fb6bf3785800bfd85d8f6dc3f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v2-none-restart0-absent.log",
+      "bytes": 35667,
+      "sha256": "6a0b784971dee785339f3b8edf046be864ba24a00e5e75e398951395d975eb18"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v3-none-restart0-absent.log",
+      "bytes": 34343,
+      "sha256": "80401af6d03d1b4ceeac17807b22462df9cf8d87cde357c6a2a25823fd6d939d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v4-none-restart0-absent.log",
+      "bytes": 34345,
+      "sha256": "581c103da49afa80aa8a5b7ab8aff9fb743a00379575e56dad0fadc0912b8d92"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v5-none-restart0-absent.log",
+      "bytes": 30168,
+      "sha256": "60f4c98b133f8c61d189aa552c06ae32b350f5f3932d7de22d7b8b4483b81b5b"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v6-none-restart0-field.log",
+      "bytes": 44139,
+      "sha256": "fbb1596273d057f7a0d76914a323663027bb52d5aef0b48dc11d740cb49fe1d9"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v7-none-restart0-hand.log",
+      "bytes": 38964,
+      "sha256": "8b800565378566c327d931501408cacce967e9b2bf1a6976bb649bb586525d80"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h0-d1-v8-none-restart0-both.log",
+      "bytes": 39737,
+      "sha256": "edc359cd100046344c18871e782b59983c0954a8f7ebc7354fef97be2a4c8bba"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d0-v0-none-restart0-absent.log",
+      "bytes": 36601,
+      "sha256": "5f5cb94e7f9dca43b89ee58f88fbee9bec6e1be73a6955e0c534ec69ad7cb707"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d0-v1-none-restart0-absent.log",
+      "bytes": 32250,
+      "sha256": "8a89da7d633b6a1e44b424cbcc1328f0eefd82f7347f0efcf04324ee75325e69"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d0-v2-none-restart0-absent.log",
+      "bytes": 35176,
+      "sha256": "d49d1dac8e728f675908a96459ede55ba503133225adb5af91e4d81f64264205"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d0-v3-none-restart0-absent.log",
+      "bytes": 30165,
+      "sha256": "789a00ccf41195cff7961d55b14165048496fb6cb6a7de7fd2bc063164a9ba02"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d0-v4-none-restart0-absent.log",
+      "bytes": 35178,
+      "sha256": "0f7ed884203d5ff3bbe5fba194b0e24e14adddf2885710efeb4607a6b9494164"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d0-v5-none-restart0-absent.log",
+      "bytes": 33052,
+      "sha256": "df13f77ce5c8d636d4a2d2fd7fe4b5af8f8a97824e2bb6d0082cd2bef0adb331"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v0-none-restart0-absent.log",
+      "bytes": 42376,
+      "sha256": "fa9cfc9a7663fe485a38cdd04b3dd8e87a72cd0993c3f3d742d195838e0dfa7a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v1-none-restart0-absent.log",
+      "bytes": 56775,
+      "sha256": "04954ea0ac1a1b6e800d2bad6ea406ff379d7cea227b727222a0fb57e22e1245"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v2-none-restart0-absent.log",
+      "bytes": 63401,
+      "sha256": "a18d1d2207ffcf173838ff2510c920a816048eb841f75f1db357b05c8e0f44f2"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v3-none-restart0-absent.log",
+      "bytes": 57007,
+      "sha256": "124ec4d8d4a5a235d6feddfddd80d410953a78b7a32e1b9bf17432582655745d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v4-none-restart0-absent.log",
+      "bytes": 62079,
+      "sha256": "6c0e8356ccea14c70c30765c7cf2cc8b574840a3ef8b1b40b2899cb1e01fa00a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-cycle-ai-restart0-absent.log",
+      "bytes": 49091,
+      "sha256": "d60f7c0299f538822a9ae2b4fe60aaab6664367f87adec6879f7333d7b5f5736"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-cycle-ai-restart1-absent.log",
+      "bytes": 49091,
+      "sha256": "0c0d0a5344572b03c206a90621c41e9bf78df53ef17ccf63be7f6dabc3b2cddf"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-cycle-dual-restart0-absent.log",
+      "bytes": 49093,
+      "sha256": "ab231976d142afdbdca64a4dbf70482bae7ee7f0ee9c94f6e170109c980f7472"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-cycle-dual-restart1-absent.log",
+      "bytes": 49093,
+      "sha256": "b1ec4d659668b925904ffdb4f61646cd86ea0a9f69d5986d608045364d051392"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-cycle-rd-restart0-absent.log",
+      "bytes": 49091,
+      "sha256": "560b7d586ac2ffd825de67ae70d719d81677002226e690e12aa6ad7901988497"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-cycle-rd-restart1-absent.log",
+      "bytes": 49091,
+      "sha256": "4bbca073b36a18760baf58e3933f7ea038853b7958fae0fdd8bb882256435213"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-ai-restart0-absent-reboot.log",
+      "bytes": 49087,
+      "sha256": "d807523379624ea0c89f3ad9c3811e561e4f1b6c55c1684cb605633a2568354d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-ai-restart0-absent.log",
+      "bytes": 199429,
+      "sha256": "e6ae5691c649aab3ade50a4e950edff9daece75858a92d51b9e4365f23be7667"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-ai-restart1-absent-reboot.log",
+      "bytes": 49087,
+      "sha256": "ea4c3aa52002039b827c6b6708a04c8153c9c21ce530e1431ad26733a8aedc32"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-ai-restart1-absent.log",
+      "bytes": 30171,
+      "sha256": "04c385cc9bc4b5501178c48d9c2c5b4d1c02a5066452611139eb387650e659c8"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-dual-restart0-absent-reboot.log",
+      "bytes": 49087,
+      "sha256": "d807523379624ea0c89f3ad9c3811e561e4f1b6c55c1684cb605633a2568354d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-dual-restart0-absent.log",
+      "bytes": 56846,
+      "sha256": "612253f7268e7654d08ca464a56c7570f88b3e3ea2f26f8066ef231ececd14b6"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-dual-restart1-absent-reboot.log",
+      "bytes": 49087,
+      "sha256": "ea4c3aa52002039b827c6b6708a04c8153c9c21ce530e1431ad26733a8aedc32"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-dual-restart1-absent.log",
+      "bytes": 56846,
+      "sha256": "800271872bf58d66efb34832a176fee6dd28b00d1e0e466eb78f561c06705182"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-rd-restart0-absent-reboot.log",
+      "bytes": 49087,
+      "sha256": "d807523379624ea0c89f3ad9c3811e561e4f1b6c55c1684cb605633a2568354d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-rd-restart0-absent.log",
+      "bytes": 34159,
+      "sha256": "d930315ebfa5c4830f93f914c84d9358a3f302f29272841dbed5b828a5712535"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-rd-restart1-absent-reboot.log",
+      "bytes": 49087,
+      "sha256": "ea4c3aa52002039b827c6b6708a04c8153c9c21ce530e1431ad26733a8aedc32"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-late-rd-restart1-absent.log",
+      "bytes": 34159,
+      "sha256": "aca5479854af8febf91bb714e2278ccbd9e22767c10b8298fac7c71e8e96aaf4"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-none-restart0-absent.log",
+      "bytes": 49087,
+      "sha256": "d807523379624ea0c89f3ad9c3811e561e4f1b6c55c1684cb605633a2568354d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-reload-restart0-absent.log",
+      "bytes": 49089,
+      "sha256": "7cbc293bb0eba73fdc828c19250469bb73045644745bc0173c998984e6df6c26"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v5-reload-restart1-absent.log",
+      "bytes": 49089,
+      "sha256": "483fe433817b2b56cab84bed96b5e55bcadf1fc4b0812b13d92a0ddc1e07bd93"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v6-none-restart0-field.log",
+      "bytes": 89739,
+      "sha256": "dcea9237b5a070b031b84362557112f02229cd7e07fdf3a9214df06435f06203"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v7-none-restart0-hand.log",
+      "bytes": 67250,
+      "sha256": "7e6b2ba69c7ebd07e907dd9ce53dfbcdb30c1ce66fd88d01ea3312b28fd1dc29"
+    },
+    {
+      "path": "notes/hal-24/resultados/O0-h1-d1-v8-none-restart0-both.log",
+      "bytes": 81265,
+      "sha256": "a0b663df81fdfc9cb8ed6c8b330e759063e0f9c558d84be55237f3e3f9f23db8"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d0-v0-none-restart0-absent.log",
+      "bytes": 10644,
+      "sha256": "c251186d32bce6dbbd6626290bf6c197e90460dea9e85c62f38fd5f455691a8f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d0-v1-none-restart0-absent.log",
+      "bytes": 9821,
+      "sha256": "0c0afc2e45980c6d0f6265c2459c77303158721ca26a13fd38735b5c18ed8d15"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d0-v2-none-restart0-absent.log",
+      "bytes": 12747,
+      "sha256": "38c0626b3393f8584551da3188ade16dc90020b3817c728cc1c252165abfae81"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d0-v3-none-restart0-absent.log",
+      "bytes": 11285,
+      "sha256": "f083bdfc6e69fd194f7209805ac43cd2ef5875c5407d56f0b4d8250a0d08fe0f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d0-v4-none-restart0-absent.log",
+      "bytes": 12749,
+      "sha256": "448d65bbaedc268b08c4c21ddf044646bd2336da30ec454a9cc85bdade83a018"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d0-v5-none-restart0-absent.log",
+      "bytes": 10644,
+      "sha256": "580f9e718ec70337e2c3497b1cb013a7bb8dd70511eb029a86ae1a9c2e4a4792"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v0-none-restart0-absent.log",
+      "bytes": 30461,
+      "sha256": "ab703d4cbdf81252bb5678618a5b9adf86213498e2aa4385bbc9f75b3d742317"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v1-none-restart0-absent.log",
+      "bytes": 29041,
+      "sha256": "89251223b33e07e552be3e1bd63d0d60b16294267843d2e7328340e11def682b"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v2-none-restart0-absent.log",
+      "bytes": 35667,
+      "sha256": "4c7511d523652001cd80165700c382f8c4baf6ffcc12e11f2225eb1ae026f6f7"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v3-none-restart0-absent.log",
+      "bytes": 34343,
+      "sha256": "e4f684d42893d6b507e2a88a036a4c193204e8afe75fd411cbafe55a05093360"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v4-none-restart0-absent.log",
+      "bytes": 34345,
+      "sha256": "d751215301b0307cda8284d357ad260f2b2a98b77dbf3b118d18177478be3e8e"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v5-none-restart0-absent.log",
+      "bytes": 39227,
+      "sha256": "41331627f5e85ea214ab065b36d7cd69430b813c00e74e24f6417301d1eda96a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v6-none-restart0-field.log",
+      "bytes": 44032,
+      "sha256": "4f6eadecbd200a89a628126aa149665890e7c1e1adb7cd1a991dee1c1431a964"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v7-none-restart0-hand.log",
+      "bytes": 38964,
+      "sha256": "34710bd806add97c4c757431b0461290cf525ba471fe39af1a1c3d5c2c5f2fe2"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h0-d1-v8-none-restart0-both.log",
+      "bytes": 39737,
+      "sha256": "e6f388bd1c9b1db00f4d57c619195a8832da3b2a12139cbd1f7aacca5e2f750d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d0-v0-none-restart0-absent.log",
+      "bytes": 36601,
+      "sha256": "5f5cb94e7f9dca43b89ee58f88fbee9bec6e1be73a6955e0c534ec69ad7cb707"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d0-v1-none-restart0-absent.log",
+      "bytes": 32250,
+      "sha256": "8a89da7d633b6a1e44b424cbcc1328f0eefd82f7347f0efcf04324ee75325e69"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d0-v2-none-restart0-absent.log",
+      "bytes": 35176,
+      "sha256": "d49d1dac8e728f675908a96459ede55ba503133225adb5af91e4d81f64264205"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d0-v3-none-restart0-absent.log",
+      "bytes": 30165,
+      "sha256": "789a00ccf41195cff7961d55b14165048496fb6cb6a7de7fd2bc063164a9ba02"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d0-v4-none-restart0-absent.log",
+      "bytes": 35178,
+      "sha256": "0f7ed884203d5ff3bbe5fba194b0e24e14adddf2885710efeb4607a6b9494164"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d0-v5-none-restart0-absent.log",
+      "bytes": 33052,
+      "sha256": "df13f77ce5c8d636d4a2d2fd7fe4b5af8f8a97824e2bb6d0082cd2bef0adb331"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v0-none-restart0-absent.log",
+      "bytes": 61913,
+      "sha256": "873db68de386c5e51b62dfc6e463d01b8e924cfe374d7e08e6651e97050b58cc"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v1-none-restart0-absent.log",
+      "bytes": 56775,
+      "sha256": "027ee648d5f35a87aec722a2f570844b237c9efa9410dc127845c95b94f456fb"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v2-none-restart0-absent.log",
+      "bytes": 63401,
+      "sha256": "7be86f52b9298fa6acc7d03fe2419b90f53ae83bd766ab06889dc1b47b83e276"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v3-none-restart0-absent.log",
+      "bytes": 57007,
+      "sha256": "8a4ff2e3591c7e45531e052e1eb129f9fb229c9c33e919e90bc89fafd5c2a723"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v4-none-restart0-absent.log",
+      "bytes": 62079,
+      "sha256": "d49dd135fbc8decf4e6ddeaedc4cb705ac484f4d477de18eaa6be8eaba903b70"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-cycle-ai-restart0-absent.log",
+      "bytes": 56845,
+      "sha256": "9154e4a566a93f27c45d86206f2c38d82c7b4616443a124be981383d40349f2a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-cycle-ai-restart1-absent.log",
+      "bytes": 56845,
+      "sha256": "0ecc5e44254435ce0b2f9ec17c3ff868e5f40b1a0e018f76d1a69c8126fc6906"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-cycle-dual-restart0-absent.log",
+      "bytes": 56847,
+      "sha256": "cf2e5b4022d88a2b4ef61f62863dc8561391ecce21641becb3a3017841b867ea"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-cycle-dual-restart1-absent.log",
+      "bytes": 56847,
+      "sha256": "137d6debdae986deafd8e260076e939daa782bda58d7e18e19d7d658c177cd92"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-cycle-rd-restart0-absent.log",
+      "bytes": 56845,
+      "sha256": "5944f2310bacb72cc65c155cd34012e69a2c86342a2331ffe20cf39d7226f83e"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-cycle-rd-restart1-absent.log",
+      "bytes": 56845,
+      "sha256": "1b22c9353227251f85bcef63e6902e21a42765c19ab3fa74c36a84771539e2cd"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-ai-restart0-absent-reboot.log",
+      "bytes": 56841,
+      "sha256": "f3738058d5e12fdd69d1dea70f5fc03c115fab774431cc2563d67fd4b93c9456"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-ai-restart0-absent.log",
+      "bytes": 199429,
+      "sha256": "7735705739aa5d0c489083d418bdd5c8b9ed39ec0497e982d990c38aa8f4ac4a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-ai-restart1-absent-reboot.log",
+      "bytes": 56841,
+      "sha256": "ef67f6d35954b0d57833c781d77701e3ce00238bfb5393800f45458c061f7456"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-ai-restart1-absent.log",
+      "bytes": 39230,
+      "sha256": "f8d4492ccc902b33471ce413ed33b39a1c6f57657f412df2b90536bca16156d2"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-dual-restart0-absent-reboot.log",
+      "bytes": 56841,
+      "sha256": "f3738058d5e12fdd69d1dea70f5fc03c115fab774431cc2563d67fd4b93c9456"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-dual-restart0-absent.log",
+      "bytes": 56846,
+      "sha256": "612253f7268e7654d08ca464a56c7570f88b3e3ea2f26f8066ef231ececd14b6"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-dual-restart1-absent-reboot.log",
+      "bytes": 56841,
+      "sha256": "ef67f6d35954b0d57833c781d77701e3ce00238bfb5393800f45458c061f7456"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-dual-restart1-absent.log",
+      "bytes": 56846,
+      "sha256": "800271872bf58d66efb34832a176fee6dd28b00d1e0e466eb78f561c06705182"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-rd-restart0-absent-reboot.log",
+      "bytes": 56841,
+      "sha256": "f3738058d5e12fdd69d1dea70f5fc03c115fab774431cc2563d67fd4b93c9456"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-rd-restart0-absent.log",
+      "bytes": 34159,
+      "sha256": "d930315ebfa5c4830f93f914c84d9358a3f302f29272841dbed5b828a5712535"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-rd-restart1-absent-reboot.log",
+      "bytes": 56841,
+      "sha256": "ef67f6d35954b0d57833c781d77701e3ce00238bfb5393800f45458c061f7456"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-late-rd-restart1-absent.log",
+      "bytes": 34159,
+      "sha256": "aca5479854af8febf91bb714e2278ccbd9e22767c10b8298fac7c71e8e96aaf4"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-none-restart0-absent.log",
+      "bytes": 56841,
+      "sha256": "f3738058d5e12fdd69d1dea70f5fc03c115fab774431cc2563d67fd4b93c9456"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-reload-restart0-absent.log",
+      "bytes": 56843,
+      "sha256": "f3f3b75557108b35192f88674656f573505e9fa92ec09d4c18df60e854a9eb2f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v5-reload-restart1-absent.log",
+      "bytes": 56843,
+      "sha256": "f3e075bd2592b5cea9db1dab469123bc636fe61cc6840818f74a4c1f40f79487"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v6-none-restart0-field.log",
+      "bytes": 89739,
+      "sha256": "9cabfce55c3662e1166e73e3c98958a3823b7c9b8608286a9cea1e1db2d1835f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v7-none-restart0-hand.log",
+      "bytes": 67250,
+      "sha256": "355fc9161330b673bc5a6b83d6d91f6139fa3119e2e343a859229a235a07857c"
+    },
+    {
+      "path": "notes/hal-24/resultados/O1-h1-d1-v8-none-restart0-both.log",
+      "bytes": 81265,
+      "sha256": "6d5ca452e48cb22ac3a168d1852e35059015e61baebe6be4d77fdcdc0ccbeed8"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d0-v0-none-restart0-absent.log",
+      "bytes": 10644,
+      "sha256": "c251186d32bce6dbbd6626290bf6c197e90460dea9e85c62f38fd5f455691a8f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d0-v1-none-restart0-absent.log",
+      "bytes": 9821,
+      "sha256": "0c0afc2e45980c6d0f6265c2459c77303158721ca26a13fd38735b5c18ed8d15"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d0-v2-none-restart0-absent.log",
+      "bytes": 12747,
+      "sha256": "38c0626b3393f8584551da3188ade16dc90020b3817c728cc1c252165abfae81"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d0-v3-none-restart0-absent.log",
+      "bytes": 11285,
+      "sha256": "f083bdfc6e69fd194f7209805ac43cd2ef5875c5407d56f0b4d8250a0d08fe0f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d0-v4-none-restart0-absent.log",
+      "bytes": 12749,
+      "sha256": "448d65bbaedc268b08c4c21ddf044646bd2336da30ec454a9cc85bdade83a018"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d0-v5-none-restart0-absent.log",
+      "bytes": 10644,
+      "sha256": "580f9e718ec70337e2c3497b1cb013a7bb8dd70511eb029a86ae1a9c2e4a4792"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v0-none-restart0-absent.log",
+      "bytes": 16419,
+      "sha256": "63662479d9295953dd335b7a67a87357754bd8cedc3e9afdb2ae01326d884a1c"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v1-none-restart0-absent.log",
+      "bytes": 29041,
+      "sha256": "bb46180217392df75b88c36b7022e3dd5e6e0b2fb6bf3785800bfd85d8f6dc3f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v2-none-restart0-absent.log",
+      "bytes": 35667,
+      "sha256": "6a0b784971dee785339f3b8edf046be864ba24a00e5e75e398951395d975eb18"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v3-none-restart0-absent.log",
+      "bytes": 34343,
+      "sha256": "80401af6d03d1b4ceeac17807b22462df9cf8d87cde357c6a2a25823fd6d939d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v4-none-restart0-absent.log",
+      "bytes": 34345,
+      "sha256": "581c103da49afa80aa8a5b7ab8aff9fb743a00379575e56dad0fadc0912b8d92"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v5-none-restart0-absent.log",
+      "bytes": 30168,
+      "sha256": "60f4c98b133f8c61d189aa552c06ae32b350f5f3932d7de22d7b8b4483b81b5b"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v6-none-restart0-field.log",
+      "bytes": 44139,
+      "sha256": "fbb1596273d057f7a0d76914a323663027bb52d5aef0b48dc11d740cb49fe1d9"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v7-none-restart0-hand.log",
+      "bytes": 38964,
+      "sha256": "8b800565378566c327d931501408cacce967e9b2bf1a6976bb649bb586525d80"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h0-d1-v8-none-restart0-both.log",
+      "bytes": 39737,
+      "sha256": "edc359cd100046344c18871e782b59983c0954a8f7ebc7354fef97be2a4c8bba"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d0-v0-none-restart0-absent.log",
+      "bytes": 193561,
+      "sha256": "cb0fba8fa9aa0fc91a9202c9eb3d7076ad778787cec180170637cab8aafda3e7"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d0-v1-none-restart0-absent.log",
+      "bytes": 184652,
+      "sha256": "0e280a89cd626d2e34ce85718faf18e239547e90ddd5621e0fc4f5ff111fa02d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d0-v2-none-restart0-absent.log",
+      "bytes": 183918,
+      "sha256": "e6d8924aa3da0b8484f1503645e6178bf75fc42cbc818e409afcdd8493cba558"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d0-v3-none-restart0-absent.log",
+      "bytes": 176483,
+      "sha256": "0f20bdddf7491f377ad12b4eb17781342fb62d4cfe872ee3e5961f6a7cadb677"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d0-v4-none-restart0-absent.log",
+      "bytes": 186362,
+      "sha256": "4b26f4578b80019a0cf4476e2e1e23d04a77d4a8d3a8ff1040d8b8dfb646170f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d0-v5-none-restart0-absent.log",
+      "bytes": 183928,
+      "sha256": "400fa257f3d1c3f1fbd9418b79f8b9c09af765a688da5eb2aa76e37160eadc07"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v0-none-restart0-absent.log",
+      "bytes": 198742,
+      "sha256": "7adc34e6bbca25eba7c9a1121df7fe6ebd73a88237bb894de2a9b42277c219b0"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v1-none-restart0-absent.log",
+      "bytes": 211178,
+      "sha256": "74b478de76badfaf110ed2c58b3a55bf4685a2abe8c1d77e85c409f3fd05622a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v2-none-restart0-absent.log",
+      "bytes": 201417,
+      "sha256": "afb7e2213d47ff0add07142d794f852e7085536687c88922dfc2d15a9b2e8839"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v3-none-restart0-absent.log",
+      "bytes": 202671,
+      "sha256": "dcde725cc461a364b0a120b1891cb3561a1d31baf79a97abcfc688c4eb4994c4"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v4-none-restart0-absent.log",
+      "bytes": 211503,
+      "sha256": "56cf3282fd78ea857d407f9084450b4ece468c437215af4b9c2d6b74285fc652"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-cycle-ai-restart0-absent.log",
+      "bytes": 200105,
+      "sha256": "364912302553386701fadea5a7781350f2af4239883821451512781f7bceeaa3"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-cycle-ai-restart1-absent.log",
+      "bytes": 200105,
+      "sha256": "cf538e69608f54801155ca27df76ee4bc7fafec6d712b16cb3a527b8db4f0f68"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-cycle-dual-restart0-absent.log",
+      "bytes": 200107,
+      "sha256": "ba8b3e97d1c54ef64a6384d151f44ad392d799d15050e697bf545f000594399f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-cycle-dual-restart1-absent.log",
+      "bytes": 200107,
+      "sha256": "d047089cdc029c3de04eeb8b33b824b1d0fac00298a450c628940664f1e118c0"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-cycle-rd-restart0-absent.log",
+      "bytes": 200105,
+      "sha256": "1f8a4413d8508419393b9bab2158e544b8ac20a4138aa2c230cca5b208009516"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-cycle-rd-restart1-absent.log",
+      "bytes": 200105,
+      "sha256": "d1325a7f159f32580632fe6c78984cc116e6e29d8a469025724110770f4baf91"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-ai-restart0-absent-reboot.log",
+      "bytes": 200101,
+      "sha256": "a2bbd31c18a8837870e1a5b4fbadc629e34dae2f5e2b918946e4e917ad15f86b"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-ai-restart0-absent.log",
+      "bytes": 199429,
+      "sha256": "e6ae5691c649aab3ade50a4e950edff9daece75858a92d51b9e4365f23be7667"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-ai-restart1-absent-reboot.log",
+      "bytes": 200101,
+      "sha256": "efaa7d6572ebc35adbb7edc9fb1e5b4003bb70eb91df7ed0f5036c00cdc3d74a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-ai-restart1-absent.log",
+      "bytes": 30171,
+      "sha256": "04c385cc9bc4b5501178c48d9c2c5b4d1c02a5066452611139eb387650e659c8"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-dual-restart0-absent-reboot.log",
+      "bytes": 200101,
+      "sha256": "a2bbd31c18a8837870e1a5b4fbadc629e34dae2f5e2b918946e4e917ad15f86b"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-dual-restart0-absent.log",
+      "bytes": 201287,
+      "sha256": "e1274f4aea92705976a000a8dc418ae54353ed53d29618f167bd9a3a5f703e50"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-dual-restart1-absent-reboot.log",
+      "bytes": 200101,
+      "sha256": "efaa7d6572ebc35adbb7edc9fb1e5b4003bb70eb91df7ed0f5036c00cdc3d74a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-dual-restart1-absent.log",
+      "bytes": 201287,
+      "sha256": "41ba71fac479bc81768c1c387837417e1c0cba60cd4ae531ec4eab89fd962754"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-rd-restart0-absent-reboot.log",
+      "bytes": 200101,
+      "sha256": "a2bbd31c18a8837870e1a5b4fbadc629e34dae2f5e2b918946e4e917ad15f86b"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-rd-restart0-absent.log",
+      "bytes": 33254,
+      "sha256": "513c1d1954e5a6bdf564f7356492bbad6aeeb022a715063c296ecdd95846878f"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-rd-restart1-absent-reboot.log",
+      "bytes": 200101,
+      "sha256": "efaa7d6572ebc35adbb7edc9fb1e5b4003bb70eb91df7ed0f5036c00cdc3d74a"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-late-rd-restart1-absent.log",
+      "bytes": 33254,
+      "sha256": "8dc81d24c97dcca820c419a325ad3d4c7aff2f13e895ff271219fd3b1625a971"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-none-restart0-absent.log",
+      "bytes": 200101,
+      "sha256": "a2bbd31c18a8837870e1a5b4fbadc629e34dae2f5e2b918946e4e917ad15f86b"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-reload-restart0-absent.log",
+      "bytes": 200103,
+      "sha256": "7c2452676cac2560cdc1dfd7cb7cdcbf564e035bc75f7fa582036aff3eb98f9d"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v5-reload-restart1-absent.log",
+      "bytes": 200103,
+      "sha256": "2085df921ed7673eef29b41d9141df62df24610c49e14ffd158e9e5478e49d47"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v6-none-restart0-field.log",
+      "bytes": 261737,
+      "sha256": "263ac1a22d64e4169e2b8419d7db6e71e3ed4b1aa38f0e53c1ebd83bc1c638e0"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v7-none-restart0-hand.log",
+      "bytes": 212583,
+      "sha256": "bc45c1bf9c8354b035b07c318fe7d28ac2601a2d33cb01de01c32c62fce1dd33"
+    },
+    {
+      "path": "notes/hal-24/resultados/O2-h1-d1-v8-none-restart0-both.log",
+      "bytes": 236209,
+      "sha256": "182e47c5b8b2d48eef8594171700a318162b907643eb28b64109516856ae2d58"
+    },
+    {
+      "path": "notes/hal-24/resultados/RESULTADOS.json",
+      "bytes": 497303,
+      "sha256": "1373a3474179862b07035f21693dc1097aadd473137e6289179c70837416f542"
+    },
+    {
+      "path": "notes/hal-24/resultados/build-harness.log",
+      "bytes": 11389,
+      "sha256": "fcf59d8a1b5a73e8f423f189ead0d0238a34eab0b0b7d39792d1172b45444c17"
+    },
+    {
+      "path": "notes/hal-24/resultados/build-observer.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "tests/hal24/classify.py",
+      "bytes": 1447,
+      "sha256": "2543764f7763821f6150126af04a66eabfd9ada355e9f83e28afc638ca245a4c"
+    },
+    {
+      "path": "notes/hal-24/ENVIRONMENT.json",
+      "bytes": 581,
+      "sha256": "1146b1b3464d86e9f643fe5ef14d50323164b0ff39470e33b62283f8fd9dddd6"
+    }
+  ]
+}

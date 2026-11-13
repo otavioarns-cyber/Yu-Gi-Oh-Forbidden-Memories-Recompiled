@@ -1,0 +1,31 @@
+profile,stage,AI_HARD_MODE,Dual_Play,order,scenario,status,evidence
+s4-h0-d1-o0,4,0,1,0,RD-own-materialization-Dual-gate,FAIL,s4-h0-d1-o0.log
+s4-h0-d1-o0,4,0,1,0,RD-pending-after-other-materializer,PASS,s4-h0-d1-o0.log
+s4-h0-d1-o0,4,0,1,0,manager-order,PASS,s4-h0-d1-o0.log
+s4-h0-d1-o0,4,0,1,0,manager-order-vs-initialized-hooks,PASS,s4-h0-d1-o0.log
+s4-h1-d1-o0,4,1,1,0,RD-own-materialization-Dual-gate,FAIL,s4-h1-d1-o0.log
+s4-h1-d1-o0,4,1,1,0,RD-pending-after-other-materializer,PASS,s4-h1-d1-o0.log
+s4-h1-d1-o0,4,1,1,0,manager-order,PASS,s4-h1-d1-o0.log
+s4-h1-d1-o0,4,1,1,0,manager-order-vs-initialized-hooks,PASS,s4-h1-d1-o0.log
+s4-h0-d1-o1,4,0,1,1,RD-own-materialization-Dual-gate,PASS,s4-h0-d1-o1.log
+s4-h0-d1-o1,4,0,1,1,manager-order,PASS,s4-h0-d1-o1.log
+s4-h0-d1-o1,4,0,1,1,manager-order-vs-initialized-hooks,PASS,s4-h0-d1-o1.log
+s4-h1-d1-o1,4,1,1,1,RD-own-materialization-Dual-gate,PASS,s4-h1-d1-o1.log
+s4-h1-d1-o1,4,1,1,1,manager-order,PASS,s4-h1-d1-o1.log
+s4-h1-d1-o1,4,1,1,1,manager-order-vs-initialized-hooks,PASS,s4-h1-d1-o1.log
+s4-h0-d1-o2,4,0,1,2,RD-own-materialization-Dual-gate,FAIL,s4-h0-d1-o2.log
+s4-h0-d1-o2,4,0,1,2,RD-pending-after-other-materializer,PASS,s4-h0-d1-o2.log
+s4-h0-d1-o2,4,0,1,2,manager-order,PASS,s4-h0-d1-o2.log
+s4-h0-d1-o2,4,0,1,2,manager-order-vs-initialized-hooks,PASS,s4-h0-d1-o2.log
+s4-h1-d1-o2,4,1,1,2,RD-own-materialization-Dual-gate,FAIL,s4-h1-d1-o2.log
+s4-h1-d1-o2,4,1,1,2,RD-pending-after-other-materializer,FAIL,s4-h1-d1-o2.log
+s4-h1-d1-o2,4,1,1,2,manager-order,PASS,s4-h1-d1-o2.log
+s4-h1-d1-o2,4,1,1,2,manager-order-vs-initialized-hooks,PASS,s4-h1-d1-o2.log
+global,,,,,Time Wizard,BLOCKED,RESULTADOS.json
+global,,,,,AI effect-aware adapter 0.1.1,BLOCKED,RESULTADOS.json
+global,,,,,Droplist 1.4.0,BLOCKED,RESULTADOS.json
+global,,,,,Full integrated drop balance,BLOCKED,RESULTADOS.json
+global,,,,,Gameplay Windows/render/audio/controllers,SKIP,RESULTADOS.json
+global,,,,,Complete bonus-action award/turn loop,SKIP,RESULTADOS.json
+global,,,,,Historical savestates,SKIP,RESULTADOS.json
+global,,,,,All effects and full ecosystem,SKIP,RESULTADOS.json

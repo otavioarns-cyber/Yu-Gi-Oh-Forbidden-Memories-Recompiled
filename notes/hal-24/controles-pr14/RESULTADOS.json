@@ -1,0 +1,613 @@
+{
+  "preflight": [
+    {
+      "name": "melhoria-dos-rituais",
+      "status": "PASS",
+      "mismatches": [],
+      "files": 21
+    },
+    {
+      "name": "ritual-card-effects-test",
+      "status": "PASS",
+      "mismatches": [],
+      "files": 199
+    },
+    {
+      "name": "fusion-auxiliary-balance",
+      "status": "PASS",
+      "mismatches": [],
+      "files": 94
+    },
+    {
+      "name": "ritual-duelists",
+      "status": "PASS",
+      "mismatches": [],
+      "files": 154
+    },
+    {
+      "name": "ai-hard-mode",
+      "status": "PASS",
+      "path": "/workspace/work/hal20-integration/local/ai-hard-mode/ai-hard-mode.o",
+      "expected_sha256": "9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc",
+      "actual_sha256": "9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc"
+    },
+    {
+      "name": "dual-play",
+      "status": "PASS",
+      "path": "/workspace/work/hal20-integration/local/dual-play/dual-play.o",
+      "expected_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+      "actual_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378"
+    }
+  ],
+  "builds": [
+    {
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-Isrc",
+        "tests/hal20-integration/harness.c",
+        "src/pc/mods/object_loader.c",
+        "src/pc/mods/mod_libc.c",
+        "src/pc/guest/branch_thunks.c",
+        "src/pc/compat/fs.c",
+        "src/pc/mods/hooks.c",
+        "src/pc/mods/events.c",
+        "src/pc/mods/json.c",
+        "-lm",
+        "-o",
+        "/tmp/hal20-integrated-wd_9s_3p/harness"
+      ],
+      "cwd": "/workspace/work/hal20-integration/repo",
+      "returncode": 0,
+      "seconds": 0.9771,
+      "log": "build-harness.log"
+    },
+    {
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-Wl,--gc-sections",
+        "-Isrc",
+        "tests/hal20-integration/order.c",
+        "src/pc/mods/manager.c",
+        "src/pc/mods/json.c",
+        "-o",
+        "/tmp/hal20-integrated-wd_9s_3p/order"
+      ],
+      "cwd": "/workspace/work/hal20-integration/repo",
+      "returncode": 0,
+      "seconds": 0.3935,
+      "log": "build-order.log"
+    }
+  ],
+  "profiles": [
+    {
+      "name": "s4-h0-d1-o0",
+      "stage": 4,
+      "hm": 0,
+      "dual": 1,
+      "order": 0,
+      "effective_order": [
+        "drop-missing-cards",
+        "melhoria-dos-rituais",
+        "dual-play",
+        "fusion-auxiliary-balance",
+        "ritual-card-effects-test",
+        "ritual-duelists"
+      ],
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/order",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "0",
+          "1",
+          "0"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 0,
+        "seconds": 0.0236,
+        "log": "s4-h0-d1-o0-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/harness",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "0",
+          "1",
+          "0",
+          "rd-materialize"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 2,
+        "seconds": 0.3681,
+        "log": "s4-h0-d1-o0.log"
+      },
+      "cases": [
+        {
+          "name": "RD-own-materialization-Dual-gate",
+          "status": "FAIL",
+          "details": "pending RD action explicitly seeded; actual hook chain called at engine entry"
+        },
+        {
+          "name": "RD-pending-after-other-materializer",
+          "status": "PASS",
+          "details": "detect stale pending when another materializer never delegates"
+        },
+        {
+          "name": "manager-order",
+          "status": "PASS",
+          "details": "Official Mods_Order; DMC ON; manifests unchanged."
+        },
+        {
+          "name": "manager-order-vs-initialized-hooks",
+          "status": "PASS",
+          "details": "actual=['melhoria-dos-rituais', 'dual-play', 'fusion-auxiliary-balance', 'ritual-card-effects-test', 'ritual-duelists']; expected=['melhoria-dos-rituais', 'dual-play', 'fusion-auxiliary-balance', 'ritual-card-effects-test', 'ritual-duelists']"
+        }
+      ],
+      "observations": [
+        "rd_materialization dest=0 rd_pending=0 dual_callbacks=0 hm_callbacks=0 rejected=0 quota=0 selection=11"
+      ],
+      "chains": []
+    },
+    {
+      "name": "s4-h1-d1-o0",
+      "stage": 4,
+      "hm": 1,
+      "dual": 1,
+      "order": 0,
+      "effective_order": [
+        "drop-missing-cards",
+        "melhoria-dos-rituais",
+        "ai-hard-mode",
+        "dual-play",
+        "fusion-auxiliary-balance",
+        "ritual-card-effects-test",
+        "ritual-duelists"
+      ],
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/order",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "1",
+          "1",
+          "0"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 0,
+        "seconds": 0.0184,
+        "log": "s4-h1-d1-o0-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/harness",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "1",
+          "1",
+          "0",
+          "rd-materialize"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 2,
+        "seconds": 0.3296,
+        "log": "s4-h1-d1-o0.log"
+      },
+      "cases": [
+        {
+          "name": "RD-own-materialization-Dual-gate",
+          "status": "FAIL",
+          "details": "pending RD action explicitly seeded; actual hook chain called at engine entry"
+        },
+        {
+          "name": "RD-pending-after-other-materializer",
+          "status": "PASS",
+          "details": "detect stale pending when another materializer never delegates"
+        },
+        {
+          "name": "manager-order",
+          "status": "PASS",
+          "details": "Official Mods_Order; DMC ON; manifests unchanged."
+        },
+        {
+          "name": "manager-order-vs-initialized-hooks",
+          "status": "PASS",
+          "details": "actual=['melhoria-dos-rituais', 'ai-hard-mode', 'dual-play', 'fusion-auxiliary-balance', 'ritual-card-effects-test', 'ritual-duelists']; expected=['melhoria-dos-rituais', 'ai-hard-mode', 'dual-play', 'fusion-auxiliary-balance', 'ritual-card-effects-test', 'ritual-duelists']"
+        }
+      ],
+      "observations": [
+        "rd_materialization dest=0 rd_pending=0 dual_callbacks=0 hm_callbacks=0 rejected=0 quota=0 selection=11"
+      ],
+      "chains": []
+    },
+    {
+      "name": "s4-h0-d1-o1",
+      "stage": 4,
+      "hm": 0,
+      "dual": 1,
+      "order": 1,
+      "effective_order": [
+        "drop-missing-cards",
+        "melhoria-dos-rituais",
+        "fusion-auxiliary-balance",
+        "ritual-card-effects-test",
+        "ritual-duelists",
+        "dual-play"
+      ],
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/order",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "0",
+          "1",
+          "1"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 0,
+        "seconds": 0.0182,
+        "log": "s4-h0-d1-o1-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/harness",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "0",
+          "1",
+          "1",
+          "rd-materialize"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 0,
+        "seconds": 0.3189,
+        "log": "s4-h0-d1-o1.log"
+      },
+      "cases": [
+        {
+          "name": "RD-own-materialization-Dual-gate",
+          "status": "PASS",
+          "details": "pending RD action explicitly seeded; actual hook chain called at engine entry"
+        },
+        {
+          "name": "manager-order",
+          "status": "PASS",
+          "details": "Official Mods_Order; DMC ON; manifests unchanged."
+        },
+        {
+          "name": "manager-order-vs-initialized-hooks",
+          "status": "PASS",
+          "details": "actual=['melhoria-dos-rituais', 'fusion-auxiliary-balance', 'ritual-card-effects-test', 'ritual-duelists', 'dual-play']; expected=['melhoria-dos-rituais', 'fusion-auxiliary-balance', 'ritual-card-effects-test', 'ritual-duelists', 'dual-play']"
+        }
+      ],
+      "observations": [
+        "rd_materialization dest=-1 rd_pending=1 dual_callbacks=1 hm_callbacks=0 rejected=1 quota=0 selection=0"
+      ],
+      "chains": []
+    },
+    {
+      "name": "s4-h1-d1-o1",
+      "stage": 4,
+      "hm": 1,
+      "dual": 1,
+      "order": 1,
+      "effective_order": [
+        "drop-missing-cards",
+        "melhoria-dos-rituais",
+        "ai-hard-mode",
+        "fusion-auxiliary-balance",
+        "ritual-card-effects-test",
+        "ritual-duelists",
+        "dual-play"
+      ],
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/order",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "1",
+          "1",
+          "1"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 0,
+        "seconds": 0.0157,
+        "log": "s4-h1-d1-o1-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/harness",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "1",
+          "1",
+          "1",
+          "rd-materialize"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 0,
+        "seconds": 0.332,
+        "log": "s4-h1-d1-o1.log"
+      },
+      "cases": [
+        {
+          "name": "RD-own-materialization-Dual-gate",
+          "status": "PASS",
+          "details": "pending RD action explicitly seeded; actual hook chain called at engine entry"
+        },
+        {
+          "name": "manager-order",
+          "status": "PASS",
+          "details": "Official Mods_Order; DMC ON; manifests unchanged."
+        },
+        {
+          "name": "manager-order-vs-initialized-hooks",
+          "status": "PASS",
+          "details": "actual=['melhoria-dos-rituais', 'ai-hard-mode', 'fusion-auxiliary-balance', 'ritual-card-effects-test', 'ritual-duelists', 'dual-play']; expected=['melhoria-dos-rituais', 'ai-hard-mode', 'fusion-auxiliary-balance', 'ritual-card-effects-test', 'ritual-duelists', 'dual-play']"
+        }
+      ],
+      "observations": [
+        "rd_materialization dest=-1 rd_pending=1 dual_callbacks=1 hm_callbacks=0 rejected=1 quota=0 selection=0"
+      ],
+      "chains": []
+    },
+    {
+      "name": "s4-h0-d1-o2",
+      "stage": 4,
+      "hm": 0,
+      "dual": 1,
+      "order": 2,
+      "effective_order": [
+        "drop-missing-cards",
+        "melhoria-dos-rituais",
+        "dual-play",
+        "fusion-auxiliary-balance",
+        "ritual-duelists",
+        "ritual-card-effects-test"
+      ],
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/order",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "0",
+          "1",
+          "2"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 0,
+        "seconds": 0.0154,
+        "log": "s4-h0-d1-o2-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/harness",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "0",
+          "1",
+          "2",
+          "rd-materialize"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 2,
+        "seconds": 0.3212,
+        "log": "s4-h0-d1-o2.log"
+      },
+      "cases": [
+        {
+          "name": "RD-own-materialization-Dual-gate",
+          "status": "FAIL",
+          "details": "pending RD action explicitly seeded; actual hook chain called at engine entry"
+        },
+        {
+          "name": "RD-pending-after-other-materializer",
+          "status": "PASS",
+          "details": "detect stale pending when another materializer never delegates"
+        },
+        {
+          "name": "manager-order",
+          "status": "PASS",
+          "details": "Official Mods_Order; DMC ON; manifests unchanged."
+        },
+        {
+          "name": "manager-order-vs-initialized-hooks",
+          "status": "PASS",
+          "details": "actual=['melhoria-dos-rituais', 'dual-play', 'fusion-auxiliary-balance', 'ritual-duelists', 'ritual-card-effects-test']; expected=['melhoria-dos-rituais', 'dual-play', 'fusion-auxiliary-balance', 'ritual-duelists', 'ritual-card-effects-test']"
+        }
+      ],
+      "observations": [
+        "rd_materialization dest=0 rd_pending=0 dual_callbacks=0 hm_callbacks=0 rejected=0 quota=0 selection=11"
+      ],
+      "chains": []
+    },
+    {
+      "name": "s4-h1-d1-o2",
+      "stage": 4,
+      "hm": 1,
+      "dual": 1,
+      "order": 2,
+      "effective_order": [
+        "drop-missing-cards",
+        "melhoria-dos-rituais",
+        "dual-play",
+        "fusion-auxiliary-balance",
+        "ritual-duelists",
+        "ai-hard-mode",
+        "ritual-card-effects-test"
+      ],
+      "ordering": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/order",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "1",
+          "1",
+          "2"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 0,
+        "seconds": 0.0191,
+        "log": "s4-h1-d1-o2-order.log"
+      },
+      "execution": {
+        "command": [
+          "/workspace/work/hal20-base/tools/qemu-i386-static",
+          "-L",
+          "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+          "/tmp/hal20-integrated-wd_9s_3p/harness",
+          "/workspace/work/hal20-integration/repo",
+          "/workspace/work/hal20-integration/local/ai-hard-mode",
+          "/workspace/work/hal20-integration/local/dual-play",
+          "4",
+          "1",
+          "1",
+          "2",
+          "rd-materialize"
+        ],
+        "cwd": "/tmp/hal20-integrated-wd_9s_3p",
+        "returncode": 2,
+        "seconds": 0.3662,
+        "log": "s4-h1-d1-o2.log"
+      },
+      "cases": [
+        {
+          "name": "RD-own-materialization-Dual-gate",
+          "status": "FAIL",
+          "details": "pending RD action explicitly seeded; actual hook chain called at engine entry"
+        },
+        {
+          "name": "RD-pending-after-other-materializer",
+          "status": "FAIL",
+          "details": "detect stale pending when another materializer never delegates"
+        },
+        {
+          "name": "manager-order",
+          "status": "PASS",
+          "details": "Official Mods_Order; DMC ON; manifests unchanged."
+        },
+        {
+          "name": "manager-order-vs-initialized-hooks",
+          "status": "PASS",
+          "details": "actual=['melhoria-dos-rituais', 'dual-play', 'fusion-auxiliary-balance', 'ritual-duelists', 'ai-hard-mode', 'ritual-card-effects-test']; expected=['melhoria-dos-rituais', 'dual-play', 'fusion-auxiliary-balance', 'ritual-duelists', 'ai-hard-mode', 'ritual-card-effects-test']"
+        }
+      ],
+      "observations": [
+        "rd_materialization dest=0 rd_pending=1 dual_callbacks=0 hm_callbacks=1 rejected=0 quota=0 selection=11"
+      ],
+      "chains": []
+    }
+  ],
+  "limitations": [
+    {
+      "name": "Time Wizard",
+      "status": "BLOCKED",
+      "reason": "Core source/provenance unresolved; deliberately not loaded."
+    },
+    {
+      "name": "AI effect-aware adapter 0.1.1",
+      "status": "BLOCKED",
+      "reason": "Not supplied; official base 0.1.0 used."
+    },
+    {
+      "name": "Droplist 1.4.0",
+      "status": "BLOCKED",
+      "reason": "External package absent; internal viewer remains removed."
+    },
+    {
+      "name": "Full integrated drop balance",
+      "status": "BLOCKED",
+      "reason": "Drop Missing Cards enabled in actual manager profile; full disc catalog/table evaluation not implemented in synthetic engine."
+    },
+    {
+      "name": "Gameplay Windows/render/audio/controllers",
+      "status": "SKIP",
+      "reason": "No game image or Windows gameplay runtime."
+    },
+    {
+      "name": "Complete bonus-action award/turn loop",
+      "status": "SKIP",
+      "reason": "Quota gates tested; actual input/controller/award loop not simulated end to end."
+    },
+    {
+      "name": "Historical savestates",
+      "status": "SKIP",
+      "reason": "No old saves supplied; signatures/old state compatibility not bypassed."
+    },
+    {
+      "name": "All effects and full ecosystem",
+      "status": "SKIP",
+      "reason": "Selected integrated instances/transformations tested; not every effect/texture/strategy/game path."
+    }
+  ],
+  "summary": {
+    "profiles": 6,
+    "checks": {
+      "FAIL": 5,
+      "PASS": 17
+    },
+    "global_limits": {
+      "BLOCKED": 4,
+      "SKIP": 4
+    }
+  }
+}
