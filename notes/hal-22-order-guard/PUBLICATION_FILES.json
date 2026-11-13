@@ -4,13 +4,13 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5903,
-      "sha256": "37cd6af2c3ffa8dec081ddad5fbd2e94c4c24608cb9563bfe4ef081ae07469d4"
+      "bytes": 6022,
+      "sha256": "826306c695184c33564def8d0d4ff0d53bde0cf505ffa272692f5cc685c2355b"
     },
     {
       "path": "notes/HAL22_ORDER_GUARD_POC.md",
-      "bytes": 14557,
-      "sha256": "4f1399d5dfdd5aaf68145666749c42775e7fbe038574a26dd0b857d80be05071"
+      "bytes": 14703,
+      "sha256": "0c3bce77b0c4393e1602e295375bc67cbe2474fd2d6fb8c37ffec2f8f6144476"
     },
     {
       "path": "src/game/main_run_duel.c",
