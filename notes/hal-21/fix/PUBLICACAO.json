@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5575,
-      "sha256": "fd30b4ed2f2d77c6224d507c6195099d9edaa3c428db6148a176ffef77b1a646"
+      "bytes": 5653,
+      "sha256": "c3ac2b326143c4961b13d6f79cff835d6f7bfa14cd69bb7edcf0b72d6d23cdbc"
     },
     {
       "path": "mods/fusion-auxiliary-balance/AUDITORIA-RECEITAS-RODADA2.md",
@@ -484,8 +484,8 @@
     },
     {
       "path": "notes/HAL21_FUSION_OFF_REVOKE_PREVIEW2.md",
-      "bytes": 16244,
-      "sha256": "f13cc2364d74134b1d1d115c86e22e2dc4cada5b8c07310b9ed6328a41707d02"
+      "bytes": 16434,
+      "sha256": "aa0caf0c82bcc9c65cc105cd2210b0b57f85df71d2052d3ea2e3d36517aa7dfc"
     },
     {
       "path": "notes/hal-21/fix/ABI.json",
@@ -504,8 +504,8 @@
     },
     {
       "path": "notes/hal-21/fix/MATRIZ.csv",
-      "bytes": 88334,
-      "sha256": "000b368a019369240e0ccfba96ea1498d01ca49f0c700dab11acb968daf58356"
+      "bytes": 87822,
+      "sha256": "c93fe9b3e8237e3e09e71a36d29268607520a43b590e133ac8914a93c4a52811"
     },
     {
       "path": "notes/hal-21/fix/ORIGINAL_SUITE.json",
@@ -519,8 +519,8 @@
     },
     {
       "path": "notes/hal-21/fix/REFS_PRESERVADAS.json",
-      "bytes": 3555,
-      "sha256": "8052f517a845ac2f1f853070fb266946aa72fcc6fd2eb6e5a7a6fb4d761a0290"
+      "bytes": 3712,
+      "sha256": "1bac3cee939ff862366905f3d3b73fbfc015ee6747f9351102c6ef95facfe11f"
     },
     {
       "path": "notes/hal-21/fix/contracts/RESULTADOS.json",
@@ -1198,5 +1198,6 @@
       "sha256": "139c3c367e760b3f988918ff795637e87a84e03bb3bb38881544a7a116afb3f9"
     }
   ],
-  "binary_permissions": "One newly compiled Fusion object and 34 original authorized PNG assets. Source PR12 exact provenance, PeterIron permission/credits in NOTICES-HAL20.md; no private Dual/TimeWizard binary or new asset."
+  "binary_permissions": "One newly compiled Fusion object and 34 original authorized PNG assets. Source PR12 exact provenance, PeterIron permission/credits in NOTICES-HAL20.md; no private Dual/TimeWizard binary or new asset.",
+  "draft_PR": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/22"
 }

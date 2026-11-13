@@ -11,7 +11,7 @@
 - Fonte do Fusion: [PR #12](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/12), commit **`907ed98cfb763a96f5aa1ad6369f809cceca5f1c`**, [relatório original](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/907ed98cfb763a96f5aa1ad6369f809cceca5f1c/notes/HAL20_FUSION_EFFECTS_PREVIEW2.md).
 - Evidência de integração: [PR #14](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14). F1 original independente de AI/Dual; os conflitos de hooks da integração permanecem tarefas separadas.
 - Patch e testes: [PR #21](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/21), commit **`f380d33bee48ce21c8a3c71c610d9c622f7cdb83`**, [relatório da PoC](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/blob/f380d33bee48ce21c8a3c71c610d9c622f7cdb83/notes/HAL21_FUSION_OFF_PROVIDERS_POC.md), `experiments/hal21/revoke.patch`.
-- Nova branch: [`fix/hal-21-fusion-off-revoke-preview2`](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/fix/hal-21-fusion-off-revoke-preview2). PR desta candidata: a registrar após publicação.
+- Nova branch: [`fix/hal-21-fusion-off-revoke-preview2`](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/fix/hal-21-fusion-off-revoke-preview2). PR desta candidata: [#22 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/22).
 
 Foram lidos AGENTS.md, HAL-21, inventário e relatórios #12/#14/#21. A autorização escolhe Revogar para preparação/testes; não autoriza merge, release, nova regra de efeito ou promoção à integração. Não foi incorporada a PoC de hooks #20.
 
@@ -127,4 +127,4 @@ Esta branch contém uma única versão instalável do ID `fusion-auxiliary-balan
 
 O pacote está pronto **para revisão e futura validação integrada**. A política foi autorizada somente como candidata. Antes de promover: revisão do diff dos três arquivos, gameplay Windows i386 com grants reais de Egotist/instâncias/controle/remoção/retorno, cargas e efeitos já resolvidos, restart/Apply/UI, roletas em voo, SAVE/LOAD real e matriz com Ritual/AI/Dual. Não presumir compatibilidade de savestates antigos a partir do hash de código igual à PoC.
 
-PR em rascunho: a registrar após criação, destino `integration/hal-20-v0.3.1-preview.2`. Índice de publicação e confirmação das heads anteriores serão registrados em `notes/hal-21/fix/`.
+Publicado no [PR #22 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/22), destino `integration/hal-20-v0.3.1-preview.2`. [Índice de publicação](hal-21/fix/PUBLICACAO.json) e [26 heads anteriores preservadas](hal-21/fix/REFS_PRESERVADAS.json). Push normal, sem force.

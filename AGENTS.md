@@ -12,7 +12,7 @@ Em 11/11/2026, o usuário pediu que as informações das entregas e mudanças se
 
 ## Ponto de partida atual
 
-- Etapa candidata atual: [HAL-21 — Fusion OFF Revogar](notes/HAL21_FUSION_OFF_REVOKE_PREVIEW2.md), branch `fix/hal-21-fusion-off-revoke-preview2`; PR em rascunho a registrar. O usuário autorizou escolher Revogar para preparar/testar a candidata, sem merge ou release. Fonte PR #12 + patch exato Revogar PR #21; somente três arquivos de produção modificados.
+- Etapa candidata atual: [HAL-21 — Fusion OFF Revogar](notes/HAL21_FUSION_OFF_REVOKE_PREVIEW2.md), branch `fix/hal-21-fusion-off-revoke-preview2`; [PR #22 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/22). O usuário autorizou escolher Revogar para preparar/testar a candidata, sem merge ou release. Fonte PR #12 + patch exato Revogar PR #21; somente três arquivos de produção modificados.
 - Resultado: suíte original 16 grupos PASS, manager real/motor parcial 113 verificações PASS, código carregado idêntico a Revogar do #21 (`afb75202`), manifest/settings/assets e ABI preservados. OFF efetivo limpa só leases, preserva serial e estados independentes. Não usar host->applied (preferência) como estado efetivo. Restart original mantido.
 - Referências preservadas: [PR #12](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/12), [PR #14](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14), [PoC #21](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/21). PR #20 não incorporado. Consumidores inalterados; Time Wizard mantém cache de tentativas iniciadas, gameplay Windows e matriz AI/Dual pendentes. Não fechar HAL-21 apenas por estes testes.
 
