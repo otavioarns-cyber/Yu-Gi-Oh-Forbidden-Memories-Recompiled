@@ -1,6 +1,6 @@
 {
   "base": "d649647c159c91d615c07d6960928a37e270b461",
-  "verification": "All existing remote heads checked unchanged before publication; only new HAL22-24 experimental branch may be added. No merge or force push.",
+  "verification": "All 24 prior remote heads checked unchanged after initial push and draft PR20 creation. Only new HAL22-24 experimental branch added. No merge or force push.",
   "heads": [
     {
       "ref": "refs/heads/backup/master-pre-v0.2.0",
@@ -146,5 +146,13 @@
       "after": "0185f58df7928cc6338ceb221d169e2b42feca6d",
       "unchanged": true
     }
-  ]
+  ],
+  "pr": {
+    "number": 20,
+    "draft": true,
+    "merged": false,
+    "base": "integration/hal-20-v0.3.1-preview.2",
+    "head": "test/hal-22-24-three-way-guard-poc",
+    "initial_published_commit": "744779a44b3be91dfb68ef15a9c395465a4af0f1"
+  }
 }

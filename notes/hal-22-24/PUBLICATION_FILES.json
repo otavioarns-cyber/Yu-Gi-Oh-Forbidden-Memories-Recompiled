@@ -3,13 +3,13 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 6162,
-      "sha256": "37d430beb17913b0b219ef9a7ac174917d854e267e4bfd11c504339199671098"
+      "bytes": 6271,
+      "sha256": "2551855e386d75c876e1729ca0ecb3cd518441d8c4df46c531b028db9512c4dc"
     },
     {
       "path": "notes/HAL22_24_THREE_WAY_GUARD_POC.md",
-      "bytes": 17103,
-      "sha256": "f697ac21e0c0622556ba6755a0631859238d81684f67580cbc9f06b256304742"
+      "bytes": 17246,
+      "sha256": "fbdc5dc1ede820818a79b1832ca2436d809e6a9ecb3c87b48307273a8ebd186b"
     },
     {
       "path": "notes/hal-22-24/DIFF_EXPERIMENTAL.patch",
@@ -48,8 +48,8 @@
     },
     {
       "path": "notes/hal-22-24/REFS_PRESERVADAS.json",
-      "bytes": 5328,
-      "sha256": "581883f97ff76a5f22e9a87295d1d04d07e4c2fc8762e06dbe83031d349f4132"
+      "bytes": 5594,
+      "sha256": "11dcc850ba6fd75d84ccb7e813b2a91593533c0a83b8b0ce7e2eecff38e2332c"
     },
     {
       "path": "notes/hal-22-24/SUMMARY.json",
