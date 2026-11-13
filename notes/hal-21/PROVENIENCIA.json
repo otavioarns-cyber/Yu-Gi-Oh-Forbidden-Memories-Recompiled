@@ -1,0 +1,3323 @@
+{
+  "task": "HAL-21",
+  "date_UTC": "2026-11-13",
+  "experimental_only": true,
+  "base_commit": "d649647c159c91d615c07d6960928a37e270b461",
+  "official_commit": "aceac3782902746f35ddb0148809450933327cb3",
+  "source_PR12_commit": "907ed98cfb763a96f5aa1ad6369f809cceca5f1c",
+  "source_id": "fusion-auxiliary-balance",
+  "version": "0.1.0-beta.44-effect-ai",
+  "target": "Windows i386 / API24; SDK ELF32 REL EM_386",
+  "command": "MEMORIES_MOD_CC=<Clang> python <SDK>/tools/build_mod.py <temporary-copy> --target i386",
+  "toolchain": {
+    "path": "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang",
+    "sha256": "bab7f174d7e136ae093ad232d5a894ee00f0a8f9051bcff4eb6a70c132898248",
+    "bytes": 110184
+  },
+  "toolchain_version": [
+    "clang version 23.1.2 (https://github.com/llvm/llvm-project.git 85ac560262434c9ccfc0c183ec22d4138ed647fb)",
+    "Target: x86_64-unknown-linux-gnu",
+    "Thread model: posix",
+    "InstalledDir: /workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin"
+  ],
+  "builder": {
+    "path": "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/tools/build_mod.py",
+    "sha256": "181ba2e2d5363b90bae87e5a0c531b1ba3640e74d4d17f6f026d1db055a609b9",
+    "bytes": 68822
+  },
+  "sdk_exports": {
+    "path": "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/exports.i386.txt",
+    "sha256": "7aae333e2548e5b884bfcc8ea65ccc8ff753fbad72ed98bd2c7acbff334e5da0",
+    "bytes": 74598
+  },
+  "sdk_headers": [
+    {
+      "path": "external_funcs.h",
+      "sha256": "b16c018038aef4d05ac532d5bfb180e5056a5ee266ab6a8ea74e5309b019a1aa"
+    },
+    {
+      "path": "game/ai.h",
+      "sha256": "299305444d0147e9b36a12dbf7b90a828aad94e7ecd1c50dbaf88e19248de1c9"
+    },
+    {
+      "path": "game/ai_constants.h",
+      "sha256": "9bbe064612d5ae89ed08f3a6397c70e3eeb2325c6bad71001d6f4c5b8ae02d8a"
+    },
+    {
+      "path": "game/ai_opponent_data.h",
+      "sha256": "9a2d650827edc5ca7bfd4352d3b7e0d3e2eb72233225bde01fba3aae6c6be531"
+    },
+    {
+      "path": "game/ai_script_commands.h",
+      "sha256": "e80d6164de270880461c89f50d34afdd9cdd0afdbcf7e56fd1055af374f02fff"
+    },
+    {
+      "path": "game/ai_script_control_flow.h",
+      "sha256": "41a5e40fac333c616ee198b5739e75e507a5c92d1d65a9d18b5bdf2d2d650fd0"
+    },
+    {
+      "path": "game/ai_script_end.h",
+      "sha256": "dfcfa45b607a96a398bcace27727ef4ee62bb5195108cfb80822cdd3082566a0"
+    },
+    {
+      "path": "game/ai_script_read_byte.h",
+      "sha256": "921740fd7fdd0227a30003856be531fc13016338185bbc0c09480202811be1aa"
+    },
+    {
+      "path": "game/ai_script_read_short.h",
+      "sha256": "d515129bafc7879fd2e920a7009b26312571fd38693b526a0524763158fd1ae4"
+    },
+    {
+      "path": "game/ai_script_source_line_format.h",
+      "sha256": "b400cb72740839815e0093da202574a83f3ffdaa54e336fc22e775b0e29654bc"
+    },
+    {
+      "path": "game/build_deck_active_card.h",
+      "sha256": "041dd47dcdcc327d7bf3551269bbc5951d16c238086d6b5d6199e210f869c19b"
+    },
+    {
+      "path": "game/build_deck_card_counts.h",
+      "sha256": "097b434f3fb880051d7cacf353807d376b726f665678d01f717727605b9e76ed"
+    },
+    {
+      "path": "game/build_deck_deck_capacity.h",
+      "sha256": "6d34e8ac161a0567125f8d7e914a079245863add982d23faa5635bf3fdba322f"
+    },
+    {
+      "path": "game/build_deck_pane_input.h",
+      "sha256": "bd8ad114256cc4a9bd7952292ef2888908776b03a04d6ad21c5641e2b45e92ae"
+    },
+    {
+      "path": "game/build_deck_transition_state.h",
+      "sha256": "957c78e4d8e3847a77ccdca1ca09d6c02e2907708a641a034f1271371358fadb"
+    },
+    {
+      "path": "game/build_deck_update_pane_transition.h",
+      "sha256": "3078407c29d10d83a65e4fb3cb27938eefe0cf25606c5451ee30ab7303e2530b"
+    },
+    {
+      "path": "game/camera_view.h",
+      "sha256": "fa25765ba5f78df396b9b2ed5930dd36762b30804f7fd972c77dd9dcbb1185b7"
+    },
+    {
+      "path": "game/campaign_flags.h",
+      "sha256": "4279147569f708e8f676148c75d68ebd56f0f56759324f49a2ac80c70426807e"
+    },
+    {
+      "path": "game/campaign_map_load_package_stage.h",
+      "sha256": "0be9b231eb7b96c094ff8abbe584c0598b2837bb5dc39c4d426f32372b7fa0b2"
+    },
+    {
+      "path": "game/campaign_scene_package.h",
+      "sha256": "af9eb330960241c3a6823b11e45211718ee664acc01bac287f39df94eb7fae0b"
+    },
+    {
+      "path": "game/card_constants.h",
+      "sha256": "11cf4a1dc58e7e79928415c26c1a4138229b225fc5b839705bfd01069e31c543"
+    },
+    {
+      "path": "game/card_grid.h",
+      "sha256": "d39729e1b2463f72da37c78bb822fb291c195a163e57c329e330747d31aa4e35"
+    },
+    {
+      "path": "game/card_list_render_deck_box_stats.h",
+      "sha256": "c2050384f7a9c18f455429f3bf948468b6cc07dab71aa03af41dc85e14c416dc"
+    },
+    {
+      "path": "game/card_list_rows.h",
+      "sha256": "1a507b0e8fe36ab283baba936a1ef769ad2ba60f8a97cb1b154f91278edffe88"
+    },
+    {
+      "path": "game/card_list_sort.h",
+      "sha256": "34d941fe5ab66b5b750e179e6ec60d1011069f6f173a8b01ef1bc37a6dbc1007"
+    },
+    {
+      "path": "game/card_list_text_boxes.h",
+      "sha256": "12f4da212740a5bfdfcebebcc42c31143cdb25fb2280ec3856a1151e81a2b308"
+    },
+    {
+      "path": "game/card_preview_callbacks.h",
+      "sha256": "49168726c3a11a1e83960c402a68890d947d05bae62122e2954346b6e42f473d"
+    },
+    {
+      "path": "game/card_type_icon_table.h",
+      "sha256": "7c30f22e9b9af317c289bd082c167d073cab69af5db1aa4a377120b6024224ab"
+    },
+    {
+      "path": "game/checkerboard_background.h",
+      "sha256": "bd2430280708a928560a9e115c3ff2c8a88c8eda888172939626a52815df6d0d"
+    },
+    {
+      "path": "game/color.h",
+      "sha256": "835f74184ff1a43b9f12d2a38b510e5b772fe69809792b8fdb31628af6011e96"
+    },
+    {
+      "path": "game/color_constants.h",
+      "sha256": "73d0d0b8e895ae8397b92532a2fed97dfc4ced96b0608dd5c0c30a475580788d"
+    },
+    {
+      "path": "game/credits_secret_numbers.h",
+      "sha256": "8fd29f0eb18788ebea6bc46847e1c9cfff2e371c364a9ed7178a0370d217f829"
+    },
+    {
+      "path": "game/data_80091510.h",
+      "sha256": "4a62d70b602b3c0d3ed8b0501c2d48cf0f02c5f62b1dc88ec9df65a3b05792df"
+    },
+    {
+      "path": "game/data_transfer_request.h",
+      "sha256": "86123edea3e928672980f8ac28a22820b1da15cdf43502a01e6ac1884c8a7637"
+    },
+    {
+      "path": "game/debug_effect_screen.h",
+      "sha256": "ce551f669c757bdce96b4ee2575db827a64ad2b0ba42f8b305ca173d3110e7e8"
+    },
+    {
+      "path": "game/debug_font_format_data.h",
+      "sha256": "848097398ba24b71497b67e1f54e6acc0e627f255c8639dde8da23b928d0b077"
+    },
+    {
+      "path": "game/debug_menu_bust_up_entry.h",
+      "sha256": "e6a43bda2cfae11106f8570c7097e4b7e31acf3176a0cfe9f03221773c15f376"
+    },
+    {
+      "path": "game/debug_menu_editor_entries.h",
+      "sha256": "434126c9a466ba5e0d98ca53ba55db19224477f6d28bc5740b36cbbc07853596"
+    },
+    {
+      "path": "game/debug_menu_exit.h",
+      "sha256": "6d0e40878b5825792b9533106917f24c4a1755124b05fa3bf70a1f731c6f7ba7"
+    },
+    {
+      "path": "game/debug_menu_mapped_mode.h",
+      "sha256": "06afd06de904bef068086645646cf8a56b405898b2544bab52d1afb5fc7b346a"
+    },
+    {
+      "path": "game/debug_menu_two_player_entry.h",
+      "sha256": "1844917af95ee18c197cd9d52955a792a4a42a74b0a431c48adbfdb039d70c54"
+    },
+    {
+      "path": "game/debug_menu_update.h",
+      "sha256": "81b2ee6ac0127c9b3f06a070b5d99c51dd315006f661336e5219e096130dfe74"
+    },
+    {
+      "path": "game/debug_menu_update_cursor_layout.h",
+      "sha256": "f966d83711509d3bc0b58d45d7d113608e10d550edc90f323216160296219b1a"
+    },
+    {
+      "path": "game/dialog_choice.h",
+      "sha256": "33309c88e8a0c6faca74f11f836c8ac2e632834e84ff679697e54d90afd78a37"
+    },
+    {
+      "path": "game/dialog_choice_state.h",
+      "sha256": "817883b15895a66e778175ef3fcdd86962192e52189ade2aff96c87966bca0df"
+    },
+    {
+      "path": "game/dialog_highlight_choice.h",
+      "sha256": "ee0bf54689d8475fcb83fb73b5f051d965e7e269ae7624864cb4875072d30f00"
+    },
+    {
+      "path": "game/dialog_read_choice_input.h",
+      "sha256": "c00eaa734c02beed808653d88ef60f43259312aeb9679ceab93dbe4785ca81ba"
+    },
+    {
+      "path": "game/dialog_transition.h",
+      "sha256": "72fc56cd8c2dde1a42afe14a84751ac57f2816ac213ee9d3550fc90cd430acfc"
+    },
+    {
+      "path": "game/display_asset_banks.h",
+      "sha256": "0aa872fc1846bf3ae658007a3ff729a905dbfcfc9afb7231c9b46a80e6e537fa"
+    },
+    {
+      "path": "game/display_effect_constants.h",
+      "sha256": "d642e878e03b5897b2ee8edfee47a207a5f9ded6ef72db84a42aef66722319b9"
+    },
+    {
+      "path": "game/display_effect_lifecycle.h",
+      "sha256": "d6157c45ab866203a21d44a4bac59036c3b6b57060e4bff228bb61f554f5097c"
+    },
+    {
+      "path": "game/display_effect_process_menu_records.h",
+      "sha256": "959b91f9ceb633844376ee07468467d49c7420610e76b8dbf26108ac19834815"
+    },
+    {
+      "path": "game/display_effect_step_table.h",
+      "sha256": "3b1761069830319298b227cec338d8a46b75e47cf8447f0ae7ec2847dc48e432"
+    },
+    {
+      "path": "game/display_effect_update_callbacks.h",
+      "sha256": "751b9086ad35dfdb8da7b518629697943c32853a2e177610a06475fa8e55d2d3"
+    },
+    {
+      "path": "game/display_effect_update_menu_record.h",
+      "sha256": "0273bcd7a905d3484b8438fd2dab8837592988690d5053862518f6e7667af498"
+    },
+    {
+      "path": "game/display_flat_lights.h",
+      "sha256": "88d1106ffc45a4d27231c9a32772c17a862bff4e545f9b110754c1bc42d23163"
+    },
+    {
+      "path": "game/display_object.h",
+      "sha256": "c4d07b92bcf70c987f09a30ea603c0cfcc6d9722f845f93b618635644bece0d1"
+    },
+    {
+      "path": "game/display_object_brightness.h",
+      "sha256": "6d7d11eab1ea2c62a3edb7234cacf0014ea9bd0f78bcc28bd516b694d02e5ca6"
+    },
+    {
+      "path": "game/display_object_config.h",
+      "sha256": "1db0cbf2101d69a56964a1c616f71eff7ee305c71d86cc130e0bc39b13698eb4"
+    },
+    {
+      "path": "game/display_object_core.h",
+      "sha256": "d56d5cf6e11872145bdd2994e3b6f79b6d547a424b4da10da8aaadc679018454"
+    },
+    {
+      "path": "game/display_object_fade.h",
+      "sha256": "c229bd18a88d5f43877650fd382b329ac60fb752bf3b448e47439d2f6c5cc940"
+    },
+    {
+      "path": "game/display_object_fade_callbacks.h",
+      "sha256": "5b0a46573e83440e20fc96acf1f60dc0af280533a1b9402a9db3e253e6df38d4"
+    },
+    {
+      "path": "game/display_object_helpers.h",
+      "sha256": "4ce0ea17794a650600e6c5ce615c81d5b6f6553e126f5659fef0b8506dd0feb7"
+    },
+    {
+      "path": "game/display_object_interpolation.h",
+      "sha256": "c7ae622151fe044402ef553822f3452d2dd4d3e3ae5807f5ef47051adfe6bb97"
+    },
+    {
+      "path": "game/display_object_layout.h",
+      "sha256": "675c27d1e58b0d6a8136cab472c41677af6e454cbf0dc5ac2fb465fd0d2c8a89"
+    },
+    {
+      "path": "game/display_object_lifecycle.h",
+      "sha256": "516fffdf532dec8b4fe9f2e1a509574e6f0ae558e53c7cddf68c50dbc227cb43"
+    },
+    {
+      "path": "game/display_object_list_renderer_table.h",
+      "sha256": "36fd0fbdb22ce97709b54311c8553ff7da8d38e18a908a0c9f06ab2cfe48823d"
+    },
+    {
+      "path": "game/display_object_motion.h",
+      "sha256": "3efc12a9c3dd11fb0d01e34fa32b090354915bdeeef3cb1c57c7d4b1b0614d23"
+    },
+    {
+      "path": "game/display_object_packet_submit.h",
+      "sha256": "58433eda8b3cc8f11b1832fcb27137e751fb0e8df0d01c24a1610c4804ebe2a3"
+    },
+    {
+      "path": "game/display_object_position.h",
+      "sha256": "326b97b37d22a9e2b34fe78874b7a3a01008546e9db2a439004f71ccf070b6dd"
+    },
+    {
+      "path": "game/display_object_projection.h",
+      "sha256": "3ad31e785797354f6c41b9e60aee5569d86850dfe07ea68fdab8138f42e5c7b1"
+    },
+    {
+      "path": "game/display_object_property_transitions.h",
+      "sha256": "53e5cb4a1c87c2e9a32edfe747e7c9268424b743acf3b9fb1ad65cde62f9a7cd"
+    },
+    {
+      "path": "game/display_object_render_frame.h",
+      "sha256": "43b18c587abae450267a2445808836f99e5554781c61b3f914ebfdb7bd8b0437"
+    },
+    {
+      "path": "game/display_object_render_spotlight_mask.h",
+      "sha256": "8a6d712517e856f840c128617641b321a935c1c2fff17fe0ffd32eb445c68475"
+    },
+    {
+      "path": "game/display_object_render_sprite_list.h",
+      "sha256": "eb6eb48c5e9096a6ad2d2939c1e50ebc947f029677e1c24a3b56849c9f7ca496"
+    },
+    {
+      "path": "game/display_object_render_sprite_sheet.h",
+      "sha256": "fdf06108e666e4fc4e33c83d94fd6c20faee81f186c4ff3aca9980e0dd405406"
+    },
+    {
+      "path": "game/display_object_render_sprite_sheet_list.h",
+      "sha256": "2ef0cef5eeec7e4fdef3a5e90b94a0768fedcb903e4d2d2ddd47f70e8d697776"
+    },
+    {
+      "path": "game/display_object_stream_read_next_command.h",
+      "sha256": "da6584752df2b88e8e6e4539ec6ab9719990762653d58b7f318ec2a0812e9c62"
+    },
+    {
+      "path": "game/display_object_stream_state.h",
+      "sha256": "4d989df393b73c24a7b6036789937bf0a77b53ee30d09d43c966c19afafeeacc"
+    },
+    {
+      "path": "game/display_object_transition.h",
+      "sha256": "0b6f9596caedae01dcdcb55d412d96c1069fefd2ef0691c044d4092c30b2d528"
+    },
+    {
+      "path": "game/display_object_update_command_stream.h",
+      "sha256": "f5b2cd86832343bc0ccf87ea35c408a6bef6329bd03782e31695c2f50a2c2565"
+    },
+    {
+      "path": "game/display_object_updates.h",
+      "sha256": "c0dd529588c4efecd06bac726ee45ef781f007defa6f18e13f99725b56731f93"
+    },
+    {
+      "path": "game/display_object_work_slots.h",
+      "sha256": "4b79954c408a5650c1f06f465600b41332512842a93097034b8854968d0069ab"
+    },
+    {
+      "path": "game/display_parent_links.h",
+      "sha256": "72779453d7e61178c975d235c8210bebf78f6b62da8b58ac9a2612603796d729"
+    },
+    {
+      "path": "game/display_projection.h",
+      "sha256": "9391e36fe6e2286a09dab57c3cbd609d643123663ac90591935843a58d6f52e9"
+    },
+    {
+      "path": "game/duel_action_lock.h",
+      "sha256": "2a0434da7508f1680bc9f00bce984d667e3938ce972aff0edae6bcabf6b45e45"
+    },
+    {
+      "path": "game/duel_apply_card_object_flags.h",
+      "sha256": "24faa393537921f42a112e278f640e774b673b975ce98a3c8642fada326e8ce2"
+    },
+    {
+      "path": "game/duel_battle_stats.h",
+      "sha256": "a050e64f1e9cd0544631c520638d3a657a9cb5ee5bfde9a10dc6ff7a8e8ff0cf"
+    },
+    {
+      "path": "game/duel_calc_guardian_star_matchup.h",
+      "sha256": "8c9a60bf462890bbad0ad1ab424f6c74c5a9346fb615dd8ba8adf86178956249"
+    },
+    {
+      "path": "game/duel_card.h",
+      "sha256": "e785649545cf4708d597a7c7366a6487c1cff33009d50af683bd91994f9c45ee"
+    },
+    {
+      "path": "game/duel_card_can_act_this_turn.h",
+      "sha256": "e1cc0144d14c053847412b54d048a653a52850af258a041a2380b87eb8eef76e"
+    },
+    {
+      "path": "game/duel_card_checks.h",
+      "sha256": "4f4575276b38f96e8d4b415966486a8012ba21d6a0586333c8b78b8d04cbfb24"
+    },
+    {
+      "path": "game/duel_card_data_transfer.h",
+      "sha256": "bfe2b689f122d079e20dc110617247ede17cd64ae40cd360b67520a813a4f468"
+    },
+    {
+      "path": "game/duel_card_display_state.h",
+      "sha256": "0c0debad31a79764f4d05193d6dd4a11beb1db8c47b734a261179a4281d987b1"
+    },
+    {
+      "path": "game/duel_card_effects.h",
+      "sha256": "ed14933d14dc8933c820117f75e9d0709259530ea63b066aebb1299f9b427f76"
+    },
+    {
+      "path": "game/duel_card_layout.h",
+      "sha256": "3a6cb9ba4892dd74f8aafdef8807974d0fd3dbfa75536bb5bb08c3c94b4d03f2"
+    },
+    {
+      "path": "game/duel_card_object_helpers.h",
+      "sha256": "53e71d97952545cefe4b88130ab9f5f6bc2e6e76465bd92468ee700c5142b9bc"
+    },
+    {
+      "path": "game/duel_card_pick_cursor.h",
+      "sha256": "5f0a50ade98bcb1aa5ec62f53d4b69e124e4ed939f456b22217652987420be09"
+    },
+    {
+      "path": "game/duel_card_record_lifecycle.h",
+      "sha256": "5eb0c45e49d066d18f8095f761e8515a9b105cb5bfff54c5be14b735c32acf90"
+    },
+    {
+      "path": "game/duel_card_selection.h",
+      "sha256": "8669ce11dd5292fbfca3a441192f3371cca30a67898da1abe11a224f87c27dee"
+    },
+    {
+      "path": "game/duel_card_staging.h",
+      "sha256": "6807585bab56c2bb718bcac5592b864d877177545a034b2fdf9620197b14458a"
+    },
+    {
+      "path": "game/duel_card_stat_display.h",
+      "sha256": "d4694cc725d87981b605f36c94ad72fed54da643f132b8fc06886ee9efadc1eb"
+    },
+    {
+      "path": "game/duel_card_state_helpers.h",
+      "sha256": "73e661e16932ff2ebc068ab4ebc5cad28d7f4a1d5f195e49361ff3c81309f203"
+    },
+    {
+      "path": "game/duel_card_turn_animations.h",
+      "sha256": "ecbe92ef67c66abb9c478e95d2ba0d01fa6fc270cef9a1c35c8368255006b93a"
+    },
+    {
+      "path": "game/duel_card_viewer.h",
+      "sha256": "0ba98eb1a23ee133e920b20ab00c3413ad578ff0158be68134d58dcf9dd5c4c7"
+    },
+    {
+      "path": "game/duel_check_quit_input.h",
+      "sha256": "473fa50a5dbf956318238c12f45f363ed1d0dce118ee3352814fdc51431c3d3b"
+    },
+    {
+      "path": "game/duel_check_ritual.h",
+      "sha256": "7418038d972689d08342accb56b744f17f4942f3c93acf7669354934cc2d33fc"
+    },
+    {
+      "path": "game/duel_create_card_effect_overlay.h",
+      "sha256": "98abd9531ee51569e7cf374c2a9cd8cfbcbf3980be83318c57ca2f7af75f611c"
+    },
+    {
+      "path": "game/duel_cursor_status.h",
+      "sha256": "29d5806203fb22847475fab92a6e6b0986aeb707c0129efdcc4368d3dcc699d2"
+    },
+    {
+      "path": "game/duel_deck_card.h",
+      "sha256": "f75a7e824a692397d54cbd9611005f065dd270fc4985b04eb4b4659e44527b63"
+    },
+    {
+      "path": "game/duel_deck_card_data.h",
+      "sha256": "e390131799a546c3d21eb3efd9c14287d486adf531d44ae330eb0afa6782de41"
+    },
+    {
+      "path": "game/duel_deck_lookup.h",
+      "sha256": "0ef203c1379da6da67b29e1ef18276240a52b7e86a9f1dba5b874a5edb59e4b3"
+    },
+    {
+      "path": "game/duel_display.h",
+      "sha256": "269b162fd87b3ab4dec84a514cbc26f10b7f599ea43a498fccedb9258f303ab8"
+    },
+    {
+      "path": "game/duel_draw_card_output_position.h",
+      "sha256": "2b08aa0882253149aaaa1947fbfe199a7c396df5a5cdba5bc3c6d94feae7b2d3"
+    },
+    {
+      "path": "game/duel_draw_resolution.h",
+      "sha256": "0850f540b94cc29989b122f480669f74a32de68a1c7254f55bbdd5bd56c266cf"
+    },
+    {
+      "path": "game/duel_draw_status_numbers.h",
+      "sha256": "aaba2aa3b32c52461a137544d4fd6aceb2ec6cc50716538f7d4175c81b85a43e"
+    },
+    {
+      "path": "game/duel_effect.h",
+      "sha256": "af7c112b6ecd9bc2abc49751b61a408588250b49381cf083c31e128af84d64df"
+    },
+    {
+      "path": "game/duel_effect_allocate_request.h",
+      "sha256": "7d82c4a12f0a091172637a6d48fd69338360ae66b796591768e6ba7f34fa31c1"
+    },
+    {
+      "path": "game/duel_effect_basic_commands.h",
+      "sha256": "98d310883842e953c023142f306e0b875a528baa8e4acde3533ebf72525f1f55"
+    },
+    {
+      "path": "game/duel_effect_card_viewer_state.h",
+      "sha256": "5b7f362a9c38a8ecee0e090c431b4720cbe0b71bb4fd85472019fb2cac79ff1d"
+    },
+    {
+      "path": "game/duel_effect_command.h",
+      "sha256": "a70cbe1cdc778727e77cc8b913821d829b9a42f263ef52fc407866afe96f9491"
+    },
+    {
+      "path": "game/duel_effect_command_table.h",
+      "sha256": "ce32fc9f5d9696b618f67f57fdd1330655ee234a3c42144a61975503f6ed3cd4"
+    },
+    {
+      "path": "game/duel_effect_create_channel.h",
+      "sha256": "dcf97c2ad6f8a3599eb6b8b84057781887cac60188a4ea109708525cb529ed9a"
+    },
+    {
+      "path": "game/duel_effect_dialog_state.h",
+      "sha256": "fe33afd596a727477e7c63cb0c626ad7951ff8bc84390114cd080eae6d33c10e"
+    },
+    {
+      "path": "game/duel_effect_entry_control.h",
+      "sha256": "9f02552b48281e83c6b8e3de78569e71926cb2f63faa9da2a43c96949197a34c"
+    },
+    {
+      "path": "game/duel_effect_entry_occupancy.h",
+      "sha256": "52da6b3f34151050fa2abc01eadaefb777afb5033d38fd0dbbe12aec3f8f7620"
+    },
+    {
+      "path": "game/duel_effect_entry_ranges.h",
+      "sha256": "8911923affdea7d28fadf19c0dc087ecf7539e8a71375220ee91676c7811f2bd"
+    },
+    {
+      "path": "game/duel_effect_fade_out_bgm_command.h",
+      "sha256": "8f035668a75b32c397c51f5665094bff3262eaae87f6b422d5e5caec1a5625d9"
+    },
+    {
+      "path": "game/duel_effect_init_entry.h",
+      "sha256": "b6b2261f5114de1ddd3871e1447422e35f9bd0653fe820ab89cda0f03f864e24"
+    },
+    {
+      "path": "game/duel_effect_mark_object_if_active.h",
+      "sha256": "cb82cfa7c4c5d7a195a2006708d70baed8084f6a20e1644096e1a4f64f730001"
+    },
+    {
+      "path": "game/duel_effect_mode_7.h",
+      "sha256": "bf2947359e0e23eb94a2362c38777a48efac5d34ebab65df8bf1b3439ef06b61"
+    },
+    {
+      "path": "game/duel_effect_noop_handlers.h",
+      "sha256": "59b13207beda19ee2be4211519945878b3cbf25fef7e4575a2d90afb87b7cf39"
+    },
+    {
+      "path": "game/duel_effect_object_commands.h",
+      "sha256": "934bd8f09f917c6be39bd08d82c8c75adab49c2c3ff528610fbbbf1bf5f9c68a"
+    },
+    {
+      "path": "game/duel_effect_object_pool.h",
+      "sha256": "21c78e6651ab83a46cf064a6a13b3ff5c41636ae60d7ec28142cc50437f864a4"
+    },
+    {
+      "path": "game/duel_effect_play_sound_command.h",
+      "sha256": "68b766184240040cb9438d212cc0b6e0ffc9ee93f083fd70ca4d8b01b01fd37e"
+    },
+    {
+      "path": "game/duel_effect_process_entries.h",
+      "sha256": "3b0571122d12a633742145343eebfdd0f0682ac46cbe3209f906718baeaea725"
+    },
+    {
+      "path": "game/duel_effect_request.h",
+      "sha256": "d7c9f4ceb55625f1e6c53a6a399aae6e157f40ffeb9fd767ecd7926168c8d8fe"
+    },
+    {
+      "path": "game/duel_effect_resource_record.h",
+      "sha256": "06c0acadaf82ade7a3f0b3c75b374ec464bcaf28ec8810a2cb31ba90d948b8ba"
+    },
+    {
+      "path": "game/duel_effect_resource_setup.h",
+      "sha256": "9145712237f37e2c6ac11120daa4cb2dd22b41edd68b99b7a68915b66e7f4f51"
+    },
+    {
+      "path": "game/duel_effect_state_callbacks.h",
+      "sha256": "b12b709224a616ace326cf69bf79818884588646c273a78ff74202dfb780ee9e"
+    },
+    {
+      "path": "game/duel_effect_state_latch.h",
+      "sha256": "20ea96d3cfba5bf3320e377bac8377a0226c5b8c9028dfdd34d8c2450ffaac01"
+    },
+    {
+      "path": "game/duel_effect_tables.h",
+      "sha256": "3ebdd59fcdc0363eafa8e0f23887f930a7b07703f642d11b4d7297c2eee6e366"
+    },
+    {
+      "path": "game/duel_effect_update_object_layout.h",
+      "sha256": "e0a2a124b5225cbe7dfa01b7ce9451b6524389148951455f2c26ba1f919b1643"
+    },
+    {
+      "path": "game/duel_field_display_objects.h",
+      "sha256": "b0e363adbb9089490951612affef37db62dc28c75d9e2f68224d474ed0b74a49"
+    },
+    {
+      "path": "game/duel_field_effect_steps.h",
+      "sha256": "8be87a16d3c2adb8c9f59303e675451b46ebb4bc6855811bbfdcfa9a883be2f1"
+    },
+    {
+      "path": "game/duel_field_equip_search.h",
+      "sha256": "7b0161c17d3bf1425e2dac446973e57b005ca938095758f95319aec717f53b30"
+    },
+    {
+      "path": "game/duel_get_base_card_stat.h",
+      "sha256": "edf4f5b737dc06e8c587ee566c7ba50eade0b670e226951e9106f5bb19e50cef"
+    },
+    {
+      "path": "game/duel_get_card_viewer_request_id.h",
+      "sha256": "831629739e101ddb086f1af3ba30b3a31f5dfd97964ffddabd1908993d6ee576"
+    },
+    {
+      "path": "game/duel_grid.h",
+      "sha256": "f560c3d29ce0078dbc8f2f2de5be6c6584ed3220ebe64d0809aba25158c25c88"
+    },
+    {
+      "path": "game/duel_hand.h",
+      "sha256": "54306ce44c61f91cc23c2c86c28602b44c3de462922abf5e09cc52997fd57141"
+    },
+    {
+      "path": "game/duel_init_model_scene.h",
+      "sha256": "c679aecb341f4be1d6324ba9f3d952b539555ee015254cab90d6088041aff6a7"
+    },
+    {
+      "path": "game/duel_init_scene.h",
+      "sha256": "14b11e517b76f350d7c967129b16d7a3396794cb5a8e46fb523ae4f368e9315c"
+    },
+    {
+      "path": "game/duel_interface_setup.h",
+      "sha256": "97a3d3e913cf555d30274cb368d6d87c46e4e4a366801f6758735207a632eebe"
+    },
+    {
+      "path": "game/duel_load_package_stage.h",
+      "sha256": "c6985b703de0058ab07be4c596d16c03b888869f282d59f6aa51e76d30816800"
+    },
+    {
+      "path": "game/duel_magic_effect_dispatch.h",
+      "sha256": "df0a39267de3bf5d4610027ad77acd6a195fd97ec2451503910f44feab893273"
+    },
+    {
+      "path": "game/duel_magic_effect_format.h",
+      "sha256": "d7e01ca16bd158d77ff629b13c710d9ca1f5f287ea3c20e867d0727fb86a8aa0"
+    },
+    {
+      "path": "game/duel_monster_removal_rules.h",
+      "sha256": "fb0f308a63eeb1b1875418b59d27443f7b88c24fcf9db0d7400c6d3a10780bbb"
+    },
+    {
+      "path": "game/duel_package.h",
+      "sha256": "e423f712b81eb1aba9044cc157c177b83cb55a3d31f7e5470242505b99c4d47c"
+    },
+    {
+      "path": "game/duel_phase_entry.h",
+      "sha256": "3b028581c15a92bdb62b5eb5f11c52151516c9bdf6970a5f46f8e206a3ce6e50"
+    },
+    {
+      "path": "game/duel_projection_axes.h",
+      "sha256": "06f6f5c5eeb0ba324415dcbe4e5ce20e949d74efb8909d67329696f077a1d138"
+    },
+    {
+      "path": "game/duel_rank.h",
+      "sha256": "fffb23b095ca348bd8b0e4d229fc8829ae360947ae0788731fd2e9a0d3f3776b"
+    },
+    {
+      "path": "game/duel_result_display.h",
+      "sha256": "00e4636eb94aa5734382895b47ef1c029ee93d7efe21c5fc5445930d60fd0346"
+    },
+    {
+      "path": "game/duel_result_outro.h",
+      "sha256": "8c5db897b7ed2c4dd4cf758fa6deae359e596c33719269f1394cba2c5af3a3d9"
+    },
+    {
+      "path": "game/duel_reward_setup.h",
+      "sha256": "c1a3c053e1f3f7085b8609de8554706f3c5884cd517a8f0cff8685b80860e977"
+    },
+    {
+      "path": "game/duel_rewards.h",
+      "sha256": "1224575f92bc3b8df15dd09137e201a8e2acb26e906b7be7afe351785a9c8ff1"
+    },
+    {
+      "path": "game/duel_ritual_controller.h",
+      "sha256": "514898418a6586afb19d6b9ed40534a2519db5208082b9f7874d4cf25d163496"
+    },
+    {
+      "path": "game/duel_ritual_effect.h",
+      "sha256": "f9b8b7ef7ecb3bb22e3d5353844c85a4a386a6ecf374181169cac1d5ffef8e49"
+    },
+    {
+      "path": "game/duel_scene_battle.h",
+      "sha256": "53eabcdddfcf760365e827f1d96cc3e4e7cb998bdde5958f46ba58407aca0875"
+    },
+    {
+      "path": "game/duel_scene_callbacks.h",
+      "sha256": "7f28e4f46ea0b209cfce5170515920a1376df42f51ccd7ff876b23fd98f448e1"
+    },
+    {
+      "path": "game/duel_scene_card_placement.h",
+      "sha256": "b366b90dfba1906d3d3c6023e9f711af8ce4eeb46c2a751a8e19999651d4d91b"
+    },
+    {
+      "path": "game/duel_scene_card_use.h",
+      "sha256": "f14be491212dbd70150be26f1b261d9ff9d55131886ba4376b2c0b743cd10302"
+    },
+    {
+      "path": "game/duel_scene_exodia_result.h",
+      "sha256": "8def840dabdf1003a81a4f3d217f59f6dc53fbecb037f621746b66ead5c4f3cb"
+    },
+    {
+      "path": "game/duel_scene_field_actions.h",
+      "sha256": "078f1265581d7c14db339b97e83d4a182d2717c767ffa4a0b5d9965f8e0f856c"
+    },
+    {
+      "path": "game/duel_scene_hand_actions.h",
+      "sha256": "4a6779216d27218c8938756ac1a8e646f80178de3a978c8a53bb0b6d5ccfc1f2"
+    },
+    {
+      "path": "game/duel_scene_resume.h",
+      "sha256": "43dba105ee0a34d77392a80764e7600c34e542d8af34009f9beedc7b4920a798"
+    },
+    {
+      "path": "game/duel_scene_state.h",
+      "sha256": "bb7c38f1d1df6f84274e6e76a7f840dc0eff159b7fa2a5e16386a52fe36fffa5"
+    },
+    {
+      "path": "game/duel_scene_turn_switch.h",
+      "sha256": "f348e28c79560a133e646c75d9f37b40735a60d9e1f286ddfd7d007c0b068bb9"
+    },
+    {
+      "path": "game/duel_scene_update.h",
+      "sha256": "4826d8dd21057170bb6ac8ddb308695dc78384ccafd2ebdcbe01dc50b5853ae6"
+    },
+    {
+      "path": "game/duel_screen_tables.h",
+      "sha256": "b37f7349bbbc372c5758f024e30681a2bb00618ef26013ba1ec770c5eda027c7"
+    },
+    {
+      "path": "game/duel_selection_layout.h",
+      "sha256": "5d190905be365cec9f95b52625ca4a2246dc88f1225591c24434556c2a4c2fdf"
+    },
+    {
+      "path": "game/duel_selection_update_linked_object.h",
+      "sha256": "afed2245e4673d116cff69b7f6632c9a10fd9ddf88bc929e55a30555a885af97"
+    },
+    {
+      "path": "game/duel_shuffle_both_decks.h",
+      "sha256": "41e11f7e5f9dc788cc49cb9bb29e73ef2f840767e8207c02c6a2d157e48f945f"
+    },
+    {
+      "path": "game/duel_shuffle_deck.h",
+      "sha256": "dad1ea5d1054362e7675667e0c76a547fb2a7603556c16139d5ce8272156cc75"
+    },
+    {
+      "path": "game/duel_side_state.h",
+      "sha256": "a0cd8911c816303406272a988fdc010b9fdb86f9d3fad3d3bc53b00897989903"
+    },
+    {
+      "path": "game/duel_side_view_angles.h",
+      "sha256": "1f03cdd26d378f8b3321cb909d33b9ad10707fd2a416ee5468e3d2d7d4f89fe1"
+    },
+    {
+      "path": "game/duel_swords_effect.h",
+      "sha256": "5a8e302ba6dcbe4851ec8b0004d82f58f2e26fcb5771bbba7e21db3202c7af57"
+    },
+    {
+      "path": "game/duel_terrain_boost.h",
+      "sha256": "fafe473f0c9b778966e83fcdca520abd38cde921e957750564077b5a61be6c95"
+    },
+    {
+      "path": "game/duel_transition_step_table.h",
+      "sha256": "92af1fdf3a1a0ee67a4156fc0b4008c2106eab41a75508820ea01a3f5fc3c1b3"
+    },
+    {
+      "path": "game/duel_trap_resolution.h",
+      "sha256": "bbf6b4d836cda4270838f48415ffb2e3aeba14a5f4a4d303d6954ff76ad7526a"
+    },
+    {
+      "path": "game/duel_update_draw_card_slide.h",
+      "sha256": "75757ca3221adb113d77adb92260ec0a4c902cc9ca09a8fdee12d1e4afe09115"
+    },
+    {
+      "path": "game/fade.h",
+      "sha256": "9793c63ffd4314b4389a93f1a5e51a9a3ba0b8b74ba5b77ac99c065e813e2471"
+    },
+    {
+      "path": "game/fade_constants.h",
+      "sha256": "b20ac766f34aebb5fa4bb74d35708a5cc4e3fca1157cd57d0b0ec2e38d97cd31"
+    },
+    {
+      "path": "game/file_cd_helpers.h",
+      "sha256": "13af92e46f06800f14a6914564f513c7c997845459db4e8ab21b10240b4f0e82"
+    },
+    {
+      "path": "game/file_constants.h",
+      "sha256": "58a1428dfdec59e3c2290507590dc1cf6cf2b79634a812d99ceb94f55d171dd7"
+    },
+    {
+      "path": "game/file_names.h",
+      "sha256": "3088a6d68dc3559e7d9b50f346d32b6996715f4ff0c1de65a5991a1cce674988"
+    },
+    {
+      "path": "game/file_query_wrappers.h",
+      "sha256": "c6403a4056443dbfd783f05dba39a8ad10a8fae05f74868f0ff2fb50d508a945"
+    },
+    {
+      "path": "game/file_ready_sector.h",
+      "sha256": "3471adfd14828befd39512542ac8612990f8371533cadceb398341b3d2cbd186"
+    },
+    {
+      "path": "game/file_transfer.h",
+      "sha256": "48823a82db4abce7a8a771d7789f00d70130cf37d3fc60c0c5835fd758fc870b"
+    },
+    {
+      "path": "game/file_transfer_steps.h",
+      "sha256": "083c599d60a157bc533034b4650c5e9c5810830725bc5fdf10b38462ae469732"
+    },
+    {
+      "path": "game/free_duel_load_package_stage.h",
+      "sha256": "bb26e44328a713162875ece0d4787df302cb6050f1450aed1e6b602db0f7dcb8"
+    },
+    {
+      "path": "game/frontend_debug_constants.h",
+      "sha256": "631457613ba5afe473d66527234ef0e6630566fea22122ca226ba6c3a80b3b14"
+    },
+    {
+      "path": "game/frontend_debug_state.h",
+      "sha256": "5bf87e25b449077e0c3c7ead037fd016b31bde9f1aa68eff5a3a379d2e09108a"
+    },
+    {
+      "path": "game/frontend_debug_tables.h",
+      "sha256": "f5bd815f678b8aca4aaca45f0d36b04cb4d47d3615f0df8f8d36a2df43919cd3"
+    },
+    {
+      "path": "game/frontend_scene_states.h",
+      "sha256": "8c7798e0a381a52a455b9f15eda243f0b8b6c0ad8c9bb0e1d4f062f67e362ab2"
+    },
+    {
+      "path": "game/frontend_step_tables.h",
+      "sha256": "b86d7ca91168f14a7e15b312758996ac05137b66840c8f0c1f47e287587197c6"
+    },
+    {
+      "path": "game/func_800136D4.h",
+      "sha256": "d8bd4b7f867a83bd1a3906bac50eb14611ffcf9e12904cb30a21b943a39eeb42"
+    },
+    {
+      "path": "game/func_80015EF4.h",
+      "sha256": "f86496bdf91d1f1ee8464c48f63284b8e6b7baf5ca774fd2dbb7183b34dfaacf"
+    },
+    {
+      "path": "game/func_80016778.h",
+      "sha256": "258fbb39d52c2d9f3747bf4d0133d23dbcd117de252332c835996b6ab2335b5f"
+    },
+    {
+      "path": "game/func_80016784.h",
+      "sha256": "a91221a291c7a5fa303d4832ba5b897adf6bda9a6989df9ce4828fb899947044"
+    },
+    {
+      "path": "game/func_80017130.h",
+      "sha256": "9b38f8c45c3f4e029597a4ef15af38b29cc39cf8cb05ef2fdd34b9555898b93c"
+    },
+    {
+      "path": "game/func_800178BC.h",
+      "sha256": "41d1aa1524644e3e006420a0e2c93705c480e24612293bfa188164b539f01937"
+    },
+    {
+      "path": "game/func_80018004.h",
+      "sha256": "b847770d2191417d1be1314172e487dc95fd6b119d994c2c341bf533f06f5dfc"
+    },
+    {
+      "path": "game/func_8001944C.h",
+      "sha256": "cddc5f0732ba6d954fbe4171de3c9aa79be9f3c1ca41ebf75305918f40cd4b1a"
+    },
+    {
+      "path": "game/func_80019B2C.h",
+      "sha256": "3f93dff03b9c987c7f83fb270912793f2c116a8ff96e73ebddbd218e8c152291"
+    },
+    {
+      "path": "game/func_80019BA0.h",
+      "sha256": "afa545a40c05da972d91df343aace44f355531eeb643cf1cd5f1989d59b72a38"
+    },
+    {
+      "path": "game/func_8001B780.h",
+      "sha256": "8e285e4001a58fd1cfbb3f23d9777c1ff73c3bdef2d7c28d48bfa5e9ab20fce5"
+    },
+    {
+      "path": "game/func_8001B7AC.h",
+      "sha256": "a486deed4a8723763a7e82de3e6dc34c1cca87d6587cd60c5fd6305411bc856c"
+    },
+    {
+      "path": "game/func_8001B8B8.h",
+      "sha256": "a6506ff4af87a044e9e6ab7af0f33bdb18f060fbdc466e6aa4a90041f3765ccd"
+    },
+    {
+      "path": "game/func_8001B938.h",
+      "sha256": "7b92b78a0f7864ab07cec4e77f49e83ec44984dcc4186c8cf881f8f24e3be6f2"
+    },
+    {
+      "path": "game/func_8001D240.h",
+      "sha256": "d461fd48c218d77a3e4fa94a693761d8084784ed5f22f7b6b60ed6ee98e1571f"
+    },
+    {
+      "path": "game/func_8001D518.h",
+      "sha256": "cced2aef584abaceb29959a8e56b401e3126b32d7a582f086be43ce506328338"
+    },
+    {
+      "path": "game/func_8001D5B4.h",
+      "sha256": "6c6cb46704bcd4542bdb97048456f67cdb9c2c0e19afe8c8bd2e4f5d0c46bf69"
+    },
+    {
+      "path": "game/func_80020988.h",
+      "sha256": "3f7c7ee56d0b0486d6cd63abf3775376562484678862a82da1b597651cffa425"
+    },
+    {
+      "path": "game/func_80020BE4.h",
+      "sha256": "20477a8e8188d2b1b6957a3ccb1488e58d1c68f7a386d04a54419aa8e3eab96f"
+    },
+    {
+      "path": "game/func_80022D94.h",
+      "sha256": "73f49344199db95a7c4a0721d83b825a0cbfc5cc65c21ee62bdf5ac4ea342a18"
+    },
+    {
+      "path": "game/func_80023D08.h",
+      "sha256": "0075f746ff0f9cf68c2338af536d3319766cd01f3a642a52495e5dd673411704"
+    },
+    {
+      "path": "game/func_80023FBC.h",
+      "sha256": "cc2cb74de6897235102ed3240dc55ea79007a8e0fbc2169876caefd6f4d19917"
+    },
+    {
+      "path": "game/func_80024DC8.h",
+      "sha256": "1d2ec807ce2492b4ce0e3a106ab403e70dbc8edc832f909375c4a7ec118b65bd"
+    },
+    {
+      "path": "game/func_80024E58.h",
+      "sha256": "a3a517928d5ddda0913691395aa4eb7eac76807508fff87b2132d9248b2d2783"
+    },
+    {
+      "path": "game/func_80025028.h",
+      "sha256": "20920f225b2cf71bad8c3b55ac4c83cb35eefe43aa59d2b2ecd0901880ea6d4c"
+    },
+    {
+      "path": "game/func_80027DF8.h",
+      "sha256": "c094477034e21d4dfe98674589ae7d2f04c43132a6890bc19b8e9d54ed3cdc3a"
+    },
+    {
+      "path": "game/func_800291E0.h",
+      "sha256": "3f922f9389ead0a3f92e802501ffd973738e6de021761cf89fe7b800107e6b03"
+    },
+    {
+      "path": "game/func_80029574.h",
+      "sha256": "e17cc97b6a5805e8c513e7218a62cad2cd10c56e21f5e85f97d9c1dba3265862"
+    },
+    {
+      "path": "game/func_80029590.h",
+      "sha256": "7258c4cab13cf68fef399b921007aafba126711e9e4c54f8b641c18da589d670"
+    },
+    {
+      "path": "game/func_80029934.h",
+      "sha256": "1a742c52e21fc0c193114e25c09ac597872bee8a0db7e5e7562233ce3f0dd595"
+    },
+    {
+      "path": "game/func_80029EB0.h",
+      "sha256": "7e4b990180f511d6c931dfe941ec6e26c14e84f339f8151404701e2ec5396a5f"
+    },
+    {
+      "path": "game/func_80029EC4.h",
+      "sha256": "60e9289f25ebe7edc6663c4cef7881db7302c64cf22cd270a3ca5478511d685d"
+    },
+    {
+      "path": "game/func_8002A2F4.h",
+      "sha256": "39a85389cd13e0d074b8315200c2b92872d6f43a0221b52c9b13a8ab33d5e152"
+    },
+    {
+      "path": "game/func_8002A3CC.h",
+      "sha256": "07865b741a215afb459f76659db3a741d8fbfcb4d3788b1700157e19ca325605"
+    },
+    {
+      "path": "game/func_8002A660.h",
+      "sha256": "21653429268632c9b049a8b503357e84937b9b926daeee7294127d265f838f16"
+    },
+    {
+      "path": "game/func_8002A9C0.h",
+      "sha256": "644c929b41754df3e634fcac524b332e498c0176f3776ef5fcb39b18589e8b38"
+    },
+    {
+      "path": "game/func_8002ABB4.h",
+      "sha256": "2ad397b951c01520052ac53d6469fa9a27d8817c72aee70d3b42633e0113dbe9"
+    },
+    {
+      "path": "game/func_8002E3FC.h",
+      "sha256": "7d75d2085b2bf5fb3f2ad881b322f9c6caca62b13590dd50961cd8fbf4b2ff52"
+    },
+    {
+      "path": "game/func_8002EB48.h",
+      "sha256": "9c631405d9cda903005b1cd63553494c3bcb74ea3ff57f271592f233ecd8078a"
+    },
+    {
+      "path": "game/func_8002F4C0.h",
+      "sha256": "4b7b99e2259aa7dd806c381915455d0c16c56f3f7c11eb4156d8400b58f0399a"
+    },
+    {
+      "path": "game/func_8002FED8.h",
+      "sha256": "e19267e9e458da76c6571e062136053372069be70b4f6f67cd61d6519b5ec198"
+    },
+    {
+      "path": "game/func_8003134C.h",
+      "sha256": "43ba938d867fe35d268b73eb317532fa99aa7b9aea32aed67ac4d64f23d91da2"
+    },
+    {
+      "path": "game/func_80031784.h",
+      "sha256": "1c81910c224d053025e6781fa0f9aa80ec5ed6437dab5fe46301674a7882e3c7"
+    },
+    {
+      "path": "game/func_80031874.h",
+      "sha256": "23a2e2bba3e36155b8529ddeb49ffea941d53dbac4c4abe6a405b6b09186e0f9"
+    },
+    {
+      "path": "game/func_800323F8.h",
+      "sha256": "fcc0cf05e81c599a494736b773a7a7e9fc135971ec18918d7663ab63b2023e8b"
+    },
+    {
+      "path": "game/func_80032B38.h",
+      "sha256": "7a7715643f93f5dd1674fcaf7ddccf0088d5fec15a8f32a89594422ebe5fb0cf"
+    },
+    {
+      "path": "game/func_800339D0.h",
+      "sha256": "de6706f169eb61bf63e33b1cb5ab4836e86ecb21b2415ffd1f713ff944a72fd5"
+    },
+    {
+      "path": "game/func_80033CC4.h",
+      "sha256": "0b1deaa4fd8ff804feca80f5f1023557cf8cf1971e7d45f1f56f94ccaa8b2502"
+    },
+    {
+      "path": "game/func_80033DB0.h",
+      "sha256": "c56bccffc0660221db0310dd1c549fddee6379ab2e2bb3c8a64a65a5b4f2192e"
+    },
+    {
+      "path": "game/func_80034830.h",
+      "sha256": "42c5ff957832b42243a7fd9ecac7237d2094f5afcd520d652b35f182e42d452e"
+    },
+    {
+      "path": "game/func_80035A64.h",
+      "sha256": "6169b52c5d4c99d3915041d81225c400e85334e53a985eed371c1127826aadf7"
+    },
+    {
+      "path": "game/func_80035E20.h",
+      "sha256": "e34707d681023e9b3e126b9e2d5f75f42b949f567f06f400288ae68ab705b32f"
+    },
+    {
+      "path": "game/func_80036C14.h",
+      "sha256": "69c430caae789a17cfc2e12d43a9a484b2f74acba70b3daeb7f6e5a2ff7c1f66"
+    },
+    {
+      "path": "game/func_80039794.h",
+      "sha256": "11ff75b0239ee071ecabd7492665ded842aa6ef7810bb8632fae1d2a8cd85efc"
+    },
+    {
+      "path": "game/func_80039AD4.h",
+      "sha256": "214764a1b0c48011ed53e2d3933eba96f446867548f0182fdfeaa9953c9263f1"
+    },
+    {
+      "path": "game/func_8003A01C.h",
+      "sha256": "19cd8089285699df505a7404bd8e0a1aa52f9cfe9da69c6cad6f83c2bb413336"
+    },
+    {
+      "path": "game/func_8003A198.h",
+      "sha256": "9722c7fe6742a4aee55995406315f90c9cb8a916486072a2bac111fa9e2c687c"
+    },
+    {
+      "path": "game/func_8003A1EC.h",
+      "sha256": "6ff57d7d1e813e0517824d9b71a02b61b0785972a7c789b820b669c8d38f38e0"
+    },
+    {
+      "path": "game/func_8003A440.h",
+      "sha256": "477d033a9f54ba3f4a1738c1912a8517f80c7c33454739cbc045894d8f177a5f"
+    },
+    {
+      "path": "game/func_8003A560.h",
+      "sha256": "051143e8be362c8a4c0d22ff3ebb6ef86cc8ca8112e0feabe87cb878fcdca130"
+    },
+    {
+      "path": "game/func_8003A990.h",
+      "sha256": "aa5f41db1414906aeac361ba5498d3af1958ed867746198a618de6581540c2e5"
+    },
+    {
+      "path": "game/func_8003AAE4.h",
+      "sha256": "b5465673785fa7b820758ad7ee40c585eab82e428ac9b4bae7e0674a8a596b2d"
+    },
+    {
+      "path": "game/func_8003AC48.h",
+      "sha256": "0b11b567d63d12778defb944e27635c134c29849d85bd8a0909178dbb82b2259"
+    },
+    {
+      "path": "game/func_8003B6AC.h",
+      "sha256": "e770bd67921d172bc32fe95f080e9b0452dbd144e963732b3a90a39643748192"
+    },
+    {
+      "path": "game/func_8003D300.h",
+      "sha256": "7b88a6c232d9d9ca9b55fe1cc73d8fc6b70e9d3777d9c1bf9085845584174dd9"
+    },
+    {
+      "path": "game/func_8003DA40.h",
+      "sha256": "a7e221b8cf686a4a057fb900a2f23498e3eec201d2e2f99a43c687be392b506a"
+    },
+    {
+      "path": "game/func_80044DC0.h",
+      "sha256": "58e3e37a1720c18a9529dac0fd23c7a0b4c2889603af0806473f8a430b3ccb56"
+    },
+    {
+      "path": "game/func_80049010.h",
+      "sha256": "61f1485804707b88b94ef1f4028d837256d1c6514c2a79fea848efe46385948b"
+    },
+    {
+      "path": "game/func_80049138.h",
+      "sha256": "b1644e663832d07afdad1104aece03c064e287ee2cbf57c4b1c48ad084a1361c"
+    },
+    {
+      "path": "game/func_80049FB4.h",
+      "sha256": "827763dde19842e44651f113dcd267ccb2550ed99ef79ceca4f5e765d7d738aa"
+    },
+    {
+      "path": "game/func_8004A6D8.h",
+      "sha256": "21e194e2b76d9d6f5f1beb87691091ba5001b07c86c0b0a81b49f6213dc05157"
+    },
+    {
+      "path": "game/func_8004A7C0.h",
+      "sha256": "fb3a2df7cecb8854d820d7f715f6d8798d06f13fd8e429f9c5f3595b91918126"
+    },
+    {
+      "path": "game/func_8004ACE4.h",
+      "sha256": "1b5fa5f7de70736447c10943e2b5b95929e8d00ca91fe1dedc59df8e04157102"
+    },
+    {
+      "path": "game/func_8004ADE8.h",
+      "sha256": "3929bf705f4024962064c6efdc8f617787be74a3a1a6acf5ed49ec671d53aa60"
+    },
+    {
+      "path": "game/func_8004D914.h",
+      "sha256": "deb7d2f59a679cc746af360b952157bf137cf826e5d50209a78694990754091b"
+    },
+    {
+      "path": "game/func_8004DC38.h",
+      "sha256": "67b37bbc18cec2c1f6f856d9d992174f9b542093dc6af02b01295fc51e9b1272"
+    },
+    {
+      "path": "game/func_8004E7B0.h",
+      "sha256": "1b5a5b10f383d3e1c23e32b9bdf648302172c498ac016ebba48624dc2290a0f9"
+    },
+    {
+      "path": "game/func_8004E9A0.h",
+      "sha256": "aa8cd45f131355da3afd5ea9d2d9e2fd891f5fe381c5218cb928870da710158e"
+    },
+    {
+      "path": "game/func_8004EB00.h",
+      "sha256": "89b25864a9dfb5a9036063da7f80ef80722c9b482a1e7a39eb19a1869caef9d5"
+    },
+    {
+      "path": "game/func_8005106C.h",
+      "sha256": "8064379b0d73830d9c94a799164ca75734feb2817edfdd78bf4430c1b50a7f01"
+    },
+    {
+      "path": "game/func_80051350.h",
+      "sha256": "0e4e5872ebe3c001370ba1e9d79250a95ebf2cbae1c3de97d8354d05f83d57ee"
+    },
+    {
+      "path": "game/func_800528AC.h",
+      "sha256": "babdb5a6bebbf850547427f0711a733823fe3942f439794ad7116ea825acf2b6"
+    },
+    {
+      "path": "game/func_80052D2C.h",
+      "sha256": "887bfd5f6c8de4f080a6643f3b473a3a16984576fac383ee0eeb941a83e11bcf"
+    },
+    {
+      "path": "game/func_800540B4.h",
+      "sha256": "070ed32ea4e4484bc74119239807fb13c0c407382795f7ea246d044c9a9b3d14"
+    },
+    {
+      "path": "game/func_800556E8.h",
+      "sha256": "aac1e63e1da0b33377189abe824988f06ccbab3397a7e9e33fabe56f881cdbb8"
+    },
+    {
+      "path": "game/func_80057E20.h",
+      "sha256": "79c43bcfeffaab3942d94e193c9030790ae7116af65734a9cf07f5022641e8d4"
+    },
+    {
+      "path": "game/func_80058434.h",
+      "sha256": "1d36ff987ff490ef8d4767bb54b541c592d8cf40e91ba0a6deaa550e7df1b43c"
+    },
+    {
+      "path": "game/func_80058938.h",
+      "sha256": "7f2d8b2c0eb88738f5281cda1e8796837a568aef7ab583418ef6613697d4b2fc"
+    },
+    {
+      "path": "game/func_80058DD8.h",
+      "sha256": "f788dd1827d9f5be294d50a44f67500cd92592276c6dade1a93708981e1d1e97"
+    },
+    {
+      "path": "game/func_80058E1C.h",
+      "sha256": "6ff67fd264e0ff2c0c957f027f629ad0a6d9874fba6c579f2f983797d96a5b47"
+    },
+    {
+      "path": "game/func_8005922C.h",
+      "sha256": "96de149ef6c4da21448a5dd0561871cdc1e6072280fe7fafe04a513f3e7fc216"
+    },
+    {
+      "path": "game/func_80059AA8.h",
+      "sha256": "fd535070e5a0dc36f3de9a8c7fe1e1d993cf830f788a8c05f60de38782373f9e"
+    },
+    {
+      "path": "game/func_8005A188.h",
+      "sha256": "fe946b2b99d40b9f3772b7852555e379539c5b6be4d313bd2126d204dbf0e6e7"
+    },
+    {
+      "path": "game/func_8005A53C.h",
+      "sha256": "b396c48f47c036fbd94a967aa4934b0b16773368298f9ba0754ef928419f78a1"
+    },
+    {
+      "path": "game/func_8005A878.h",
+      "sha256": "45b3dd90a2457520ed28d8f33d830b1287492197719d1611ddc5cb1ee9326a43"
+    },
+    {
+      "path": "game/func_8005B8A0.h",
+      "sha256": "d89ef78ba20298068363caeb7bf6eb368d856f6c7dd21afc68bccc36d69247dd"
+    },
+    {
+      "path": "game/func_8005C62C.h",
+      "sha256": "8dcbce9aad6d06b4c800f2c7f2fe837b53dd6cdce23629472c50b7bd0fe4bdb9"
+    },
+    {
+      "path": "game/func_8005C690.h",
+      "sha256": "697f5a3e50b7f8556b7e8baa3842a7e50c1dd48f8731cb9f9dd0a535e3f29e9f"
+    },
+    {
+      "path": "game/func_8005D994.h",
+      "sha256": "1132116ee2ad77a6d8275d81796d1d158b7bb285a80ee163452962adcaa92463"
+    },
+    {
+      "path": "game/func_8005EBF4.h",
+      "sha256": "c4e9a60d20e8e1eff240c21152942c3b0a3c67553713daea6b50a8d9941ccbd8"
+    },
+    {
+      "path": "game/func_8005FBC4.h",
+      "sha256": "13210e82460ff923f9bab1ebd4adcc00cfa14b3056cc4d8116c8ce0a84034c35"
+    },
+    {
+      "path": "game/func_80061008.h",
+      "sha256": "43cd871bf95260db24bf15b43e98abc11dbc089b3a4a06eeafe48d227104b8a7"
+    },
+    {
+      "path": "game/func_800610E0.h",
+      "sha256": "ff9b10473707fae0a0db519b8c3db4e93fa7ba05865c7dc437f84445b0efd020"
+    },
+    {
+      "path": "game/func_800611D0.h",
+      "sha256": "ad5fa4e7309276ff04d8ac74c3b2c5927dbe326037abd76bf3061882b77d8e11"
+    },
+    {
+      "path": "game/func_8006151C.h",
+      "sha256": "b7276ce3d7198af0c7b6a5ae51ed4c4ec1cc54c1ba3afc9ab641a4d6cb93cdfb"
+    },
+    {
+      "path": "game/func_80061A84.h",
+      "sha256": "849e72fae637e50deca5b4a7c49cb93e9152c048353802667ee50b3197712544"
+    },
+    {
+      "path": "game/game_over.h",
+      "sha256": "8954c806f342dfa9c30ffa7c6fc3c5ff36bd3b67583345ea0f090b8558313424"
+    },
+    {
+      "path": "game/gpu_packets.h",
+      "sha256": "169184e38e0e6909d1ecbfb523216479ac183c30303b80b4ae9e67fe32fd0abc"
+    },
+    {
+      "path": "game/graphics_constants.h",
+      "sha256": "0cf0fd2134ee791222f3d74818864296d7e7077afa7a4baf5714ad93bf4038de"
+    },
+    {
+      "path": "game/graphics_frame.h",
+      "sha256": "2901af8ea612aabdf79f4dea1e601df9957171622ff76b826ce92f3ae543879e"
+    },
+    {
+      "path": "game/graphics_frame_buffer.h",
+      "sha256": "4e6016a091e8116c3845659bfe6abd7c87931ea30bc3fe716026b26cfa59094b"
+    },
+    {
+      "path": "game/high_memory_addresses.h",
+      "sha256": "330292de669eeac4fe0e92ca7f4a4067e81b8970b2938b2ff7a6e99ef5bf852b"
+    },
+    {
+      "path": "game/input.h",
+      "sha256": "55fde14d3d45fe1f3550b8623b2c749576cd64b1dc8f954e49ea71a7bda09317"
+    },
+    {
+      "path": "game/input_is_pad1_confirm_pressed.h",
+      "sha256": "20a25703bc60bf942a4e58e4c1dc9c69e2d570b157b547e38f6041c45e361e63"
+    },
+    {
+      "path": "game/io_event_helpers.h",
+      "sha256": "03a734b3a86bc61fbf127a7bdc593f1343a234c96642f17ae2b3cc7ee5111fd3"
+    },
+    {
+      "path": "game/library_grid_cursor.h",
+      "sha256": "786daaa07103ac29912a62b446e80aaae90835224d8ad6aac3edbff0b21c5903"
+    },
+    {
+      "path": "game/library_runtime.h",
+      "sha256": "8dc8b8a1cfa016c77b815c60720a0cd2165d2d43614882448408e4f44843c98c"
+    },
+    {
+      "path": "game/main_debug.h",
+      "sha256": "876de3d4998baf1f87c5683fe5ba91bdce905b453bba0ba85b45f780afe0bde3"
+    },
+    {
+      "path": "game/main_frame.h",
+      "sha256": "be746c75ab1c2d7137575c8d9db184926eb4ed55948ef07b0829407e5be3b82b"
+    },
+    {
+      "path": "game/main_init_free_duel_menu.h",
+      "sha256": "a7ce789bda0fbca2fdaa433af65b40b7657a0d938ff13c23c6bb04487cbd51b4"
+    },
+    {
+      "path": "game/main_loop.h",
+      "sha256": "2168ad1478ebd4b44696ebbcc9a3c6eecb103ad5fe0d3a5f13eb6051543918a9"
+    },
+    {
+      "path": "game/main_menu_selection.h",
+      "sha256": "d42be0483bd1c93813c48e27a5dbf53503dfbc950a668ad0998db91615ae8384"
+    },
+    {
+      "path": "game/main_mode_state.h",
+      "sha256": "88db8a4853234c9be48e42001ac94370ce55f8098ee45b2ded33bbd034c0a09d"
+    },
+    {
+      "path": "game/main_modes.h",
+      "sha256": "5d6e85ef0fcd888b5e2a2ad9a0d739d48a93e47923aaab1d7b62309785221527"
+    },
+    {
+      "path": "game/main_reset_frontend_runtime.h",
+      "sha256": "f2c96a3dd3c901abce764f21d5f036eb83388607a7f12abd9d68e00d9a9ba259"
+    },
+    {
+      "path": "game/main_run_boot_sequence.h",
+      "sha256": "7081320b4c8ef01f3b6a2df8899e96470e9f3bc873cf55498225e411e42f1a62"
+    },
+    {
+      "path": "game/main_run_frontend_loop.h",
+      "sha256": "76c894164b90b2a7b8e519c930308e0c00f0f73fc25bc0ebe82cf8acc20c8cc2"
+    },
+    {
+      "path": "game/main_services.h",
+      "sha256": "a453eab151684a038a0c93bc2094ecc7a733e3fe297620ddb7a17ccfffc6462a"
+    },
+    {
+      "path": "game/mdec_sync.h",
+      "sha256": "198e9ad40ecc95df5911c85d4e94dd45d9d8c6ecded25b47a10a73ba50582653"
+    },
+    {
+      "path": "game/mem_card.h",
+      "sha256": "22462dc4d883352af5902016b6f5b5f3b3103771f4b03f3faf9f2b628ad335d1"
+    },
+    {
+      "path": "game/mem_card_begin_request.h",
+      "sha256": "a94acfd1cb5dbaf087e0b76f0559a2df1393d65df57f16c58914490a9893bea9"
+    },
+    {
+      "path": "game/mem_card_dialog_load_save.h",
+      "sha256": "a54bd8adfcbb4c160e435ecda28f04ded9789389fe5d5a3ee414b7a357ea3e9a"
+    },
+    {
+      "path": "game/mem_card_dialog_runtime.h",
+      "sha256": "6d7e0ec7dd1c5d39f969767c99ce752ed29ed42ce3461f4f757965a09cc7a295"
+    },
+    {
+      "path": "game/mem_card_dialog_steps.h",
+      "sha256": "74b7902b57ef9936c94e01890e8912df6e38540db129ee4ec4899eee16ee5e70"
+    },
+    {
+      "path": "game/mem_card_directory.h",
+      "sha256": "49cd9067e5bbad3cf86761a2cafba1ca27d8f0f50010d3686433b674fa49ed2e"
+    },
+    {
+      "path": "game/mem_card_io_result_callbacks.h",
+      "sha256": "b64b68587c952940620db27cc1c72a0b0f82682ef3dd33ea46a6e9579d2c2459"
+    },
+    {
+      "path": "game/mem_card_work.h",
+      "sha256": "37baeb76210d69322ace41e62e562110355531c656e3ec9c1a9ef9db3361f52e"
+    },
+    {
+      "path": "game/menu_record.h",
+      "sha256": "cc3f69ab578c95c9c66fe887a851c515fde408dd9d101cb7315c8e8e18e1e15e"
+    },
+    {
+      "path": "game/menu_record_reset.h",
+      "sha256": "e66335da640eaea682588d133fe754a1d8940758df93e728977233a8f3104be7"
+    },
+    {
+      "path": "game/model.h",
+      "sha256": "1800b654edbca23276e4019beb194a7d80d6cbfb43941192d12e07c12c6e864b"
+    },
+    {
+      "path": "game/model_apply_texture_tint.h",
+      "sha256": "fb9629e30431fe540ae4cd83ef923982eeb6ac7d75860edbe6498237509b2d0c"
+    },
+    {
+      "path": "game/model_background.h",
+      "sha256": "b3d00a197606567d4584140d4bc7c78f81babe85698d981fa03ea8b6f5d6b58f"
+    },
+    {
+      "path": "game/model_burst_effect.h",
+      "sha256": "abcd1a8df2cdd0796c490a4063205486ff6b38933d5a62b3b51a1451bb564ccb"
+    },
+    {
+      "path": "game/model_cleanup.h",
+      "sha256": "a32f7f28e1c94091d7c7f36f11580f596f0ab870f8559b2952e6018ce16c38ea"
+    },
+    {
+      "path": "game/model_control.h",
+      "sha256": "a735a1e9598f1e03c951d7fe56e1012b9b6cf523ea2febf3e252ee097e7e8f4b"
+    },
+    {
+      "path": "game/model_control_slot_animation.h",
+      "sha256": "156c46be2758913abde3301a99dee1ffa97433405088c97f8bece1717eb4255e"
+    },
+    {
+      "path": "game/model_copy_slot_u16_values.h",
+      "sha256": "ddcf9f433aaf516f314e944933d64e4acd1210b8a45a53a99944b84e677a3f35"
+    },
+    {
+      "path": "game/model_debug_controller.h",
+      "sha256": "f4bf7a963a84c6e46c2aee838180ee1177246342fc5a0e760295da7640d23009"
+    },
+    {
+      "path": "game/model_disc_effect.h",
+      "sha256": "118724daab0aa0de2ced9d13b2c1ed75c8e2c6fdfbe7f7276af85f598748c438"
+    },
+    {
+      "path": "game/model_distance_queries.h",
+      "sha256": "4146f788cb5cca23d5827088fda12d982b0f6756dfc46096f4d234779b4c0f19"
+    },
+    {
+      "path": "game/model_effect_coefficients.h",
+      "sha256": "0f628e21f4cc52f0d5049b4d5fb3f02b18f82d5ebd99dcb7b4dae8c8792eae7f"
+    },
+    {
+      "path": "game/model_effect_endpoints.h",
+      "sha256": "80a138b6ad7560adab53b8a75deeb4f5f32d8ac11d59d6e77abb05e5cf7a5c70"
+    },
+    {
+      "path": "game/model_effect_key.h",
+      "sha256": "8a48008a341d3c6dda004966cd3d2d76d70c9aadf847d2db66749ba112283603"
+    },
+    {
+      "path": "game/model_effect_requests.h",
+      "sha256": "c2218a6af87240423dd46c12951d6de888eb43b543b9a293fbbe44686b5bb291"
+    },
+    {
+      "path": "game/model_effect_state.h",
+      "sha256": "60b4a3094121c6fbef7c0fd1e2d6b7e7401b0c3c69dff20523c8d105acb30d20"
+    },
+    {
+      "path": "game/model_effect_wrapped_value.h",
+      "sha256": "5c74f920f38e4f8885fd0af10dba164ba0823c51d5ef7c119174f79f72b5fd15"
+    },
+    {
+      "path": "game/model_geometry_tables.h",
+      "sha256": "677c1c471c9933fb4fce5e19cdeceb55c84a65e7c8158fa456b18f2f145d58d3"
+    },
+    {
+      "path": "game/model_get_frame_step.h",
+      "sha256": "dbc9e00a7687bab21db674704beee28b275425461920fc14ab3647e5ac1187e2"
+    },
+    {
+      "path": "game/model_graphics_state.h",
+      "sha256": "e7f467ca0cea5fc304d5d2accd82c661390aa8ae2d6cf4e7152313ca53fd38e3"
+    },
+    {
+      "path": "game/model_handler_registry.h",
+      "sha256": "b004e8e5b61a45f67cae24d3bc24759754c0c358db3816d81bf926e7ce1d76ec"
+    },
+    {
+      "path": "game/model_handler_state.h",
+      "sha256": "e545280360a9b2827584788283655cf3d3f08da8664910ae43b64e6678a1e098"
+    },
+    {
+      "path": "game/model_has_insufficient_buffer_space.h",
+      "sha256": "fa1af512da8f556f9afa57b4468527c44c78ea5ee51e65512c6f5e518855dca7"
+    },
+    {
+      "path": "game/model_image_copy_frames.h",
+      "sha256": "e26cb14a32328fd8b0f4d94c2046d020fde3dd478f559896049df21532417ebf"
+    },
+    {
+      "path": "game/model_init_light_triplet.h",
+      "sha256": "8ca50eda5519075f760f326395fc5a5682285f2f78f89434d55824eb9c6cb807"
+    },
+    {
+      "path": "game/model_load_step.h",
+      "sha256": "b147bbf96b7df6aee25d593c00713bdae42d9f2f5da9da2ec76bcf1a5f0bd20e"
+    },
+    {
+      "path": "game/model_packet_handlers.h",
+      "sha256": "a690dab55af8bf6d98e2356dd6d18611103633fd9989d44966267d8e1dd4ffe2"
+    },
+    {
+      "path": "game/model_parent_search.h",
+      "sha256": "3ec4ef6742dc8abe7b18ed311ba3c08c91f7887fc57770ab476cd008f536b255"
+    },
+    {
+      "path": "game/model_primitive_handler.h",
+      "sha256": "b2746234085a1a2111a346551a62f3b320e17fa70628e5c94cf44c6b77ed4831"
+    },
+    {
+      "path": "game/model_primitive_templates.h",
+      "sha256": "1faaa989c3162e65b2e90c16aa561ad0c693c5c56241c8c19865921b8fceca69"
+    },
+    {
+      "path": "game/model_record_tables.h",
+      "sha256": "9f8b9eaf29e9b91e4218031fbd5e2b1b89690a2d551e93ade44e02572ad60203"
+    },
+    {
+      "path": "game/model_scene_imports.h",
+      "sha256": "16b55a88fad9634279184c33939bd3b8664a0957de83eef23b47e2ae633ee8c4"
+    },
+    {
+      "path": "game/model_scene_setup.h",
+      "sha256": "ad52c275f5e01db6caaf449980d4911e7ebf9ab442a59d908fd337bebcfc76ab"
+    },
+    {
+      "path": "game/model_scene_states.h",
+      "sha256": "906d720e27f3de91e2d06d23f08ca359248440c3f964ef8b6745d4c3e4c9732f"
+    },
+    {
+      "path": "game/model_slot_data.h",
+      "sha256": "195066d58851496df347a19d93429fe27f42097825896e0c405d0a3c000830f0"
+    },
+    {
+      "path": "game/model_slot_properties.h",
+      "sha256": "b20ad0b841b3e6784b9f62899383d4946fe08c6fbb5adc97b94b4a98ba30c450"
+    },
+    {
+      "path": "game/model_slot_queries.h",
+      "sha256": "92cf38721f997cb5773c97e12a81c18ccdfd2d116c00698fb225d151cc059668"
+    },
+    {
+      "path": "game/model_slot_row_tables.h",
+      "sha256": "668c8852bfa39e50772fd0a70c311befc3e84fd31efdbcae10a73a61546daddd"
+    },
+    {
+      "path": "game/model_slot_setup.h",
+      "sha256": "1ea4295b696e673ffc2930e4564eec041c32bd6fc5af07724f11cd1c264d1487"
+    },
+    {
+      "path": "game/model_slot_state_updates.h",
+      "sha256": "16716cfb00cce823b2cb05ff449f9d33fcbf75bc42018feb60daba2827e58c30"
+    },
+    {
+      "path": "game/model_slot_support.h",
+      "sha256": "495eaa21b5e0a252937bb9b01dd8157426aac6bbd1950b65e85a831c0e55d83a"
+    },
+    {
+      "path": "game/model_slot_updates.h",
+      "sha256": "c2439ddccdf1e516daa9b10bcc9c0daab3669dddd186eb061fa72591db4b0afa"
+    },
+    {
+      "path": "game/model_spark_effect.h",
+      "sha256": "e7abf47599cc7c59f4a8f7c02e77175f9ba26d0767965ae8037722666f32d005"
+    },
+    {
+      "path": "game/model_state_setters.h",
+      "sha256": "9e5187c9b3638d9e54286da8d5569e4e7d598ca8a29174c78621fcb2ea3cf188"
+    },
+    {
+      "path": "game/model_subdivided_effect.h",
+      "sha256": "fd67d232bccd3d2255ad9b5370ecbb7db5257d0dfef92f4768ba0f1b576a95d1"
+    },
+    {
+      "path": "game/model_texture_upload.h",
+      "sha256": "534601a92412591cc3c204341239daa6d87d662ca03c40a653cecb9f25c27d45"
+    },
+    {
+      "path": "game/model_transfer_flags.h",
+      "sha256": "9ab2074a9147cd5895b64f052029365ef613ebbb207528e1ea3e080d57d37226"
+    },
+    {
+      "path": "game/model_transfer_state.h",
+      "sha256": "135d62ac1c34cee72e44b7ea496f99e8831357008a977b11bb492810a2ef0e91"
+    },
+    {
+      "path": "game/model_update_view_metrics.h",
+      "sha256": "be37c8a89bf2acd01db1f05fd91442e089f405423bb058c5b86e9a2cb8127c41"
+    },
+    {
+      "path": "game/model_view_adjustments.h",
+      "sha256": "3db90ae92e91bbcf95702dfc74340a2e775bf6e202a743f546c073f8903ba67c"
+    },
+    {
+      "path": "game/model_word_memory.h",
+      "sha256": "8e0032898aba52a36f7bb53258b867d38727eb67618d6c3ce915ba8228b5dd52"
+    },
+    {
+      "path": "game/movie_frame_pipeline.h",
+      "sha256": "4c44f2f73ad7e567bdf0ac65a91ef9520d6c8f1a7e4932e55f9e6a2b0e0179db"
+    },
+    {
+      "path": "game/movie_playback_control.h",
+      "sha256": "64b95065bb1503ee2848e023be91d61d4d2928a356043f7b24045deee95e8ecf"
+    },
+    {
+      "path": "game/movie_stream_ranges.h",
+      "sha256": "8836b9184ecc38dec2e6e5a920c2b34ee12dc52545af5f0bb0b0312821977fa2"
+    },
+    {
+      "path": "game/movie_stream_requests.h",
+      "sha256": "f091dfc4dbbcafb7c77078bd87fb0581de0108c800552ecfc823139740702a4d"
+    },
+    {
+      "path": "game/name_entry_load_package_stage.h",
+      "sha256": "88e6d63a0c32f0ab3fcc449899814fb8aa324db44ae6662dfa06c90dd4bda8af"
+    },
+    {
+      "path": "game/options.h",
+      "sha256": "37a68ea6fc19f5ede37f89174dae1ef720e5ddbf3400ffd9f627e5213684eda9"
+    },
+    {
+      "path": "game/options_layout_position_data.h",
+      "sha256": "11a3132afa85c3e784e3cb0a747edeb81865bc3989083843355c450f3ee42cec"
+    },
+    {
+      "path": "game/options_screen.h",
+      "sha256": "b0b25d70e539f4465ab659573f0e77e1160ba1efb080af2737c799c953a4fb07"
+    },
+    {
+      "path": "game/ordering_tables.h",
+      "sha256": "83e7cdb9d52396237f5da43fc196faea5556c5276db852002da8b0abb79949e6"
+    },
+    {
+      "path": "game/password_load_package_stage.h",
+      "sha256": "a89a1db90037d91d65f6bad35eeca076feee54268c9b2aaf9643b44f849fde43"
+    },
+    {
+      "path": "game/positional_sound.h",
+      "sha256": "bb0ad69ea0a59133a73ce5c73bd3477a6b75340b1f628ac6d9905ba6c7706479"
+    },
+    {
+      "path": "game/rand_constants.h",
+      "sha256": "1ba468d59dc4c420d9d1bcd99c450a12075f31c62d16e546d8492f47fe6349bd"
+    },
+    {
+      "path": "game/rand_get_interval.h",
+      "sha256": "1ef7b811798782c410e3aeccad007c9004bf46a3af320b3156e1b7556e693fad"
+    },
+    {
+      "path": "game/save_data.h",
+      "sha256": "07c915548af894d534ffbed11ebde3fe4084f2efe9e60e42b81cf7277d7fc0e3"
+    },
+    {
+      "path": "game/save_data_update_load_pair.h",
+      "sha256": "dd7db26a127ccfa0e26362f016dfa74116bf45aa44a9842936d7eefda63cada9"
+    },
+    {
+      "path": "game/save_data_update_trade_load.h",
+      "sha256": "4152dbfb2bfed6d7eb999e4bdc531b8c43a78562f9ca1a6f00d149ceb9ff294a"
+    },
+    {
+      "path": "game/scene_image_overlay_tables.h",
+      "sha256": "bd8b20f04c09d3b906486c9cf54cd1c5d9a4d7a16ef867d5a41baf39cd25a3cf"
+    },
+    {
+      "path": "game/scene_script.h",
+      "sha256": "9e6beb2f59053e61d2782f5828df0819247e4cef7520054ffdec1619412340a8"
+    },
+    {
+      "path": "game/scene_script_noop_record_callback.h",
+      "sha256": "1dfa3e049a439bfa9edd2a3ce39af2619b88e6799a431b9387427c3449c39d99"
+    },
+    {
+      "path": "game/scene_script_record_callbacks.h",
+      "sha256": "954b358a7499bc3c83b64321e3d8ae97f51ad71a7cc2a2446f50516832e40d7d"
+    },
+    {
+      "path": "game/screen_projection.h",
+      "sha256": "85dd479469796b8a8b2a7ee964c2afb7e12cdb9c81743af6639547027d7d1ae9"
+    },
+    {
+      "path": "game/script_command_busy.h",
+      "sha256": "5d11f3577084f7f789c8f97ba77df19b0c3b222637827bfaf7aef3e1e7ea2603"
+    },
+    {
+      "path": "game/script_command_table.h",
+      "sha256": "66051d53d0098afba4029e14546edd74c3caf4b4c42ba9c4fb5f968fdd9e471a"
+    },
+    {
+      "path": "game/script_control_commands.h",
+      "sha256": "e8aa59aa95fc8eae849513e7e21eb069f1e05900bcc7f11759f39d4d1aa723ea"
+    },
+    {
+      "path": "game/script_flag_commands.h",
+      "sha256": "f1644c91d5e69fa25a350374e9a63541cf1820d30f5f66dc21a605eb9507173b"
+    },
+    {
+      "path": "game/script_image_commands.h",
+      "sha256": "7a89c0ba9ed40d20fccf10a59b90d27474af2417e4b22a2e1ac8a474b22bf23e"
+    },
+    {
+      "path": "game/script_image_objects.h",
+      "sha256": "9c31ca86a6c34fe46e5e56a668117199401444e57abd876723c3548a1035844c"
+    },
+    {
+      "path": "game/script_image_rebuild.h",
+      "sha256": "06256b3b40327954e230c550a0977b1afab38de3d2c9598ebcbacea840f6ac9b"
+    },
+    {
+      "path": "game/script_noop_commands.h",
+      "sha256": "f9f416a65a5c9f0e9898f76c002fad5ac5da6dc8d081b79194bc0dbcd6a70f70"
+    },
+    {
+      "path": "game/script_op_duel_result.h",
+      "sha256": "8fa7295c6256251e19242241b604f160a53f56843153e1c801d6054a5bbe7b03"
+    },
+    {
+      "path": "game/script_op_fade_out.h",
+      "sha256": "dab6a3e524ed03150e4af1699d47b02c20c3c37ff1011c7b3cc5ffac51ff19ba"
+    },
+    {
+      "path": "game/script_op_jump_if_deck_incomplete.h",
+      "sha256": "557b7eecc158b76e879ad19f70adb298e41da5068aa24f2bb0ec0f5588125cdd"
+    },
+    {
+      "path": "game/script_op_load_image_scene.h",
+      "sha256": "9e365f52fb4fc7ec990dc6f5f7b1ffc5ce6df218ddf7bae28afbb75bf004cc60"
+    },
+    {
+      "path": "game/script_op_return_to_menu.h",
+      "sha256": "d44554b473a215b8dbad5381c74ded1cd59c9412aa425c15c14edbb89f4ff020"
+    },
+    {
+      "path": "game/script_op_save_prompt.h",
+      "sha256": "d90805fc133a1d807152c0c81d3497f4e7141530a158ea0e368279b8bf2ac801"
+    },
+    {
+      "path": "game/script_op_show_dialog.h",
+      "sha256": "fc871691c2bf9f537e8ec56f5615d5d2ee0d2748213eca0b4aad34881223754c"
+    },
+    {
+      "path": "game/script_op_show_menu.h",
+      "sha256": "a5fc6790ab6a773d39d2898661473f761c62be0f89fc75852356fdba98388f67"
+    },
+    {
+      "path": "game/script_run_tick.h",
+      "sha256": "a606c0c0c9d86c0f30a18a9eed2df71980ba2eddc86726cdf68e4baf0bc354a4"
+    },
+    {
+      "path": "game/script_state.h",
+      "sha256": "c366fc78e0e43fb4900877a8c21aa0db76109b041d5d08b37831e2840b3ac15b"
+    },
+    {
+      "path": "game/script_stream_commands.h",
+      "sha256": "1ba07800dd8daed6f45d9ba95c56a52c47f6af8e712c4e3de3b7bbfadfaf0027"
+    },
+    {
+      "path": "game/sd_calc_spatial_volume_pan.h",
+      "sha256": "ed9b882a9a7b4bbdc55fbb909c5657738f1d684642252304ec0dfa658bc8b310"
+    },
+    {
+      "path": "game/sd_queue_value_link_transfer.h",
+      "sha256": "a58bccdaaa1ed86528fb11593226604c29803535858bf79546ac0bfdcbb00fd3"
+    },
+    {
+      "path": "game/sd_read_sequence_event.h",
+      "sha256": "7fe9caf1388c4e35ee5468f0eeaa12de80227f0073cf87656457d5db493a8994"
+    },
+    {
+      "path": "game/sorted_entry.h",
+      "sha256": "26dfa41bf40d73150de6ef2d7bb324ee530659716a2d0cbeb1a21084eb38aca1"
+    },
+    {
+      "path": "game/sorted_entry_compare.h",
+      "sha256": "eed861d35ed3131e220cf513a06d26615cdfedf348502ba69f7e53a5561e9bdb"
+    },
+    {
+      "path": "game/sound.h",
+      "sha256": "8f62df8761032f7bfac9780533ff994ba3767bf3c9e74711544c091751af245b"
+    },
+    {
+      "path": "game/sound_buffer_init.h",
+      "sha256": "8f418fa49693dba82dbe19b35f64a7ebda1baec7781fcb1bbd805e958eb53196"
+    },
+    {
+      "path": "game/sound_command_index.h",
+      "sha256": "5215715765008e28e06cb82f6d2f5f92fd5df1c8e5f1e61a4b1a1f79b3ed51b2"
+    },
+    {
+      "path": "game/sound_effect_request.h",
+      "sha256": "33e95537ff48e3b5abffb8083bbe5720f8bdc8a3127e95bb2e7bfe32b934f236"
+    },
+    {
+      "path": "game/sound_effect_voices.h",
+      "sha256": "31d4212a569ba32e426ebed5ccfe5b03a8201af8bf45610a896be575e4069ff0"
+    },
+    {
+      "path": "game/sound_event_runtime.h",
+      "sha256": "b9c00bc5e33415eb64e04619b25b046e6187d0dad8026156440d03fcb6ef1f0e"
+    },
+    {
+      "path": "game/sound_init.h",
+      "sha256": "41d01f2ed977ce257375659f533bb0c140d9e3bfe5776604d215a73663d14678"
+    },
+    {
+      "path": "game/sound_mix.h",
+      "sha256": "e3670ffe18bff168ccddce1044ad6da42adaf59ac220c55a0c26938e32b845e3"
+    },
+    {
+      "path": "game/sound_output.h",
+      "sha256": "802ab19bfddc405040fa8ec509e63257417e7d9ce442a30e9d269a8fe0fb5a58"
+    },
+    {
+      "path": "game/sound_output_state.h",
+      "sha256": "c7b0883efbc46f1334c62f7e48773904286c14b11313897c5f66a26fa138e8ed"
+    },
+    {
+      "path": "game/sound_output_transition.h",
+      "sha256": "cc8f2f0df294b2536f04c0c07cdd8f1f8abc3b46eac41b4e47b36a310d65c156"
+    },
+    {
+      "path": "game/sound_pending_constants.h",
+      "sha256": "21690633f08a6658a72fa3a099d163970e496f59772e3e2a269369d1f92e33e4"
+    },
+    {
+      "path": "game/sound_pending_entries.h",
+      "sha256": "5d44fdbb8ae543c8b399fcb073a8239a4164f5ad6911afc02de543779c52e2b6"
+    },
+    {
+      "path": "game/sound_secondary_commands.h",
+      "sha256": "38a7bf8d1adf7d89277742ef888678c671e36975eab3a763051299ab4466f38b"
+    },
+    {
+      "path": "game/sound_secondary_object_selection.h",
+      "sha256": "037a2e47a8115e3338a5f75f55ee6788bb8d68c826ed5c5c78674d8d6d06fc18"
+    },
+    {
+      "path": "game/sound_secondary_voice_levels.h",
+      "sha256": "e40610a384afadb168c8f6fb32e4471ecaac2ad8b228e69d04f876d1b0247734"
+    },
+    {
+      "path": "game/sound_sequence_constants.h",
+      "sha256": "e8d1e6a09b351ed333c8bc13c2d8f4ff180b17c84ee24c11c0fb439df6ef0c07"
+    },
+    {
+      "path": "game/sound_sequence_parser.h",
+      "sha256": "0ba076e7dbd09583763f8e7a70ec4b8cd2e1ddc5168a5e0fd79d6215f58dccd1"
+    },
+    {
+      "path": "game/sound_sequence_reader.h",
+      "sha256": "0eddda5a482e590c48d3124adbe53aeb2ee75efdeccc86960b310df18ecc86b4"
+    },
+    {
+      "path": "game/sound_sequence_state.h",
+      "sha256": "0628afac458cb0bc065d491033eb60fa2a19db0184bd7fb1e194c0b8beee5264"
+    },
+    {
+      "path": "game/sound_sequence_timing.h",
+      "sha256": "dbf9b2b71606bf47e153c0e62a4bb290b44996946051798737a54ab734edec61"
+    },
+    {
+      "path": "game/sound_spatialization.h",
+      "sha256": "210b1c48aa28eb49aee0619d31b8c385f6b064ff8c3e11ac51767ab5a46693fe"
+    },
+    {
+      "path": "game/sound_spatialize_object.h",
+      "sha256": "5d393471a1f6ffebe09c24a3eaeee44da264ab6c437b3968ca8419bbcfc6aa4e"
+    },
+    {
+      "path": "game/sound_state_control.h",
+      "sha256": "124bce625b3249ad9f49d6ef8a0d6fcd46f81e1febbf75c07b5bfa128a436a05"
+    },
+    {
+      "path": "game/sound_transfer_lifecycle.h",
+      "sha256": "fe075d74de93796e44e4276790900777e20bb01b912a2e6bb04afe6caf480c15"
+    },
+    {
+      "path": "game/sound_voice_allocator.h",
+      "sha256": "77c29b4bfbcdec9a5c750ed09778bd442dc573d15b8809d50736bf004e2c168d"
+    },
+    {
+      "path": "game/sound_voice_constants.h",
+      "sha256": "818ce064185b245a6302d3a95120211dd2496507d971030dd9d59f93873acb7b"
+    },
+    {
+      "path": "game/sound_voice_data.h",
+      "sha256": "09911268012929d740029553038a0d83075ebc1d6e40cd0aa472e4fbb949439a"
+    },
+    {
+      "path": "game/sound_voice_pan.h",
+      "sha256": "f444cf34f43dd5d49e3080172bd90d4d5b76ed2be20a70c5d1484359b1cea88b"
+    },
+    {
+      "path": "game/sound_voice_selection.h",
+      "sha256": "827ad9fea6a4365e33ed98b91885c85dfe067b6dfc813582956b4d25c887baf5"
+    },
+    {
+      "path": "game/sprite_primitive.h",
+      "sha256": "fa297b886c2a4ac5488040660e4efb757decd597ad141d31bd9e9916cbea48a3"
+    },
+    {
+      "path": "game/text_box_lifecycle.h",
+      "sha256": "ba6b08364f7f4e87ccd6a31c8f601c749b26390d745548e262562995e6d92b11"
+    },
+    {
+      "path": "game/text_box_runtime.h",
+      "sha256": "7ed5a1134244cb165d88e5ac0ff646effc16eb85fa4b0f55353fdd6633214104"
+    },
+    {
+      "path": "game/text_box_set_rect.h",
+      "sha256": "277addf0bacc45731de53b8393f041eb4fb7cef48264ecb461a46c5c661b05bb"
+    },
+    {
+      "path": "game/text_box_state_callbacks.h",
+      "sha256": "efc4b7647de362039e7773c548fea228a4b6982fca51bee83ea7a8d85733d9ed"
+    },
+    {
+      "path": "game/text_box_wrap_line.h",
+      "sha256": "f0ca19790c67e52c5975b6ca84b9c99828a7568ad0590c835c33beccb5eb3f9b"
+    },
+    {
+      "path": "game/text_constants.h",
+      "sha256": "1ffe361ac9434db55ae053b379c5d25a7b5f1aa9b39f21eb8cd00cd63fd1b838"
+    },
+    {
+      "path": "game/text_control_commands.h",
+      "sha256": "79d7e15b19dbe2e9e0f31259ecc9f0113aeb99c6ef714960ee7264134376d851"
+    },
+    {
+      "path": "game/text_encode_decimal_digits.h",
+      "sha256": "63629875612ebb3c07313e8bd3ec34531ba3e820c59242b41ef9a4f880719630"
+    },
+    {
+      "path": "game/text_encode_decimal_no_padding.h",
+      "sha256": "90e082e0ea9c7e9abef07994a161a63c6fe9c29ddfc31054b7e21286d643f52a"
+    },
+    {
+      "path": "game/text_init_decimal_digit_glyph_map.h",
+      "sha256": "63cc682f79324c05e932bdbe692fc103eef4faf72a51b96695adcb0d245ec662"
+    },
+    {
+      "path": "game/text_render_state.h",
+      "sha256": "ed6f8b4e8a529fe1fc501da192dda4742d1eb3ce554c586a381a60a48fbf99d5"
+    },
+    {
+      "path": "game/text_sjis_to_glyph_codes.h",
+      "sha256": "5c1ac14ee173947c1857647336a3ad1750d618baf3078e8947556b007de4de49"
+    },
+    {
+      "path": "game/text_staging.h",
+      "sha256": "548ff11c6f421f3614bd673d0cdfdb97bd653067f326986f03dbf45548f8c827"
+    },
+    {
+      "path": "game/text_start_campaign_duel.h",
+      "sha256": "bf1579d383c67a5fc02a2ba4e55feffb4d33466656655559e62f880bc99e7506"
+    },
+    {
+      "path": "game/text_stream_commands.h",
+      "sha256": "f22c76218d541f49d6ba92bae8d7e4e9a7c63ff08fe6875a9ca4b8660504459e"
+    },
+    {
+      "path": "game/text_stream_read_u16_le.h",
+      "sha256": "66144e6b990badfadef7bfee02bb38cb841ccfe2c753a179df2efaee6bc9babd"
+    },
+    {
+      "path": "game/text_stream_read_u32_le.h",
+      "sha256": "a1fcbe86ff16cf5820b836bd48c49ecac6fee06b3528e28d25c58a7d5d928013"
+    },
+    {
+      "path": "game/triangle_subdivision.h",
+      "sha256": "2d046e6a5e00fe053a878655a52c1c32dbdd5ad87a6dddcafe9ab623119e5e41"
+    },
+    {
+      "path": "game/trig_constants.h",
+      "sha256": "b0e5b89a9986b924b99cf1d4f63599176d245da287082448bd44658f7f0b4146"
+    },
+    {
+      "path": "game/two_player_save_setup.h",
+      "sha256": "effb0318bf727cbd73274f5e0cf2798ec16b57324451c8253308f4372dbb608f"
+    },
+    {
+      "path": "game/util_compare_s16.h",
+      "sha256": "6dce421045f719a13421d34758a115e6dd565fa17712b7eb7ef372363ad14ab3"
+    },
+    {
+      "path": "game/util_memory.h",
+      "sha256": "97b0d8413c2af221157e00510eaa740364521017eeb87bdd734db3e416d0b27a"
+    },
+    {
+      "path": "game/view_state.h",
+      "sha256": "51796a8f25ba9f63af332528d72b2d1513c11401b546abd5686b7bce6a5d0b6d"
+    },
+    {
+      "path": "game/view_state_orbit.h",
+      "sha256": "e87edc80626521d3519bd9bba1da85f8f282cd8ae1741d030826e049ecc93a88"
+    },
+    {
+      "path": "game/widget_update_pulse_colour.h",
+      "sha256": "9827ce8e4160cecfb040bbb26938c69ad55468e5a66b49f9184ca570e88e6b5c"
+    },
+    {
+      "path": "libc/ctype.h",
+      "sha256": "846abb09abdca72de71d3aa64671f3dc87ce57a1fb14c6ff82e6d04f48a3152f"
+    },
+    {
+      "path": "libc/math.h",
+      "sha256": "3e82a1648262cb232c3f3b5a8e591b7d8b0ca15deffe0ea3ddc82cf424e177bb"
+    },
+    {
+      "path": "libc/stdio.h",
+      "sha256": "18c161b7ae1429889a531e0aaf23c7d665ee2663d8c81d019079545825f5b6ba"
+    },
+    {
+      "path": "libc/stdlib.h",
+      "sha256": "e6f978fbe820f60425d1323720ccfba59527eba0e41d38d6e364d267cbcd3876"
+    },
+    {
+      "path": "libc/string.h",
+      "sha256": "546e0625663b34376e81a48d1c71eac3d0cdc0a882ac618e4baeda96cde900fb"
+    },
+    {
+      "path": "native_overlays/french_model_variant/variant337_entry.h",
+      "sha256": "56a25b39808b8824e15d23184bc5bb4920b0966cb06113ec12453e1d7b82259a"
+    },
+    {
+      "path": "native_overlays/model_variant/model_variant.h",
+      "sha256": "638a6f9e649929e19372ab3c82857980161ee01c656cf8c316355c8cc639b9be"
+    },
+    {
+      "path": "native_overlays/model_variant/variant418_entry.h",
+      "sha256": "12cddfa1cc3022c75847144d07fb0fddf323791346203cd8b22a54b790b10ab9"
+    },
+    {
+      "path": "native_overlays/model_variant/variant418_spiral.h",
+      "sha256": "5be060baca998887213c21b12c9175b1b6e2cd41b58572ec1ec828afe3ef2abf"
+    },
+    {
+      "path": "overlays/credits/credits.h",
+      "sha256": "32a62e7b3377016afd1565ca0f80c0b6348131a673fa790301ec3e4303d6b5bc"
+    },
+    {
+      "path": "overlays/duel_effects/color_helpers.h",
+      "sha256": "74546f8ad93987d50f4e77e6abfefb43dd07a64d864ee09254ea79106558a606"
+    },
+    {
+      "path": "overlays/duel_effects/dispatch.h",
+      "sha256": "ea4686e7996aba2e90f0614662d1d3ba64f7a8a34b6fa7491048db0188d5c642"
+    },
+    {
+      "path": "overlays/duel_effects/display_quads.h",
+      "sha256": "5922fa2a293724ae1e2646888177c79b1670045b1fb1febc81e53202dc5709a4"
+    },
+    {
+      "path": "overlays/duel_effects/drawing_helpers.h",
+      "sha256": "95e9c33abb7dd17b1311b0b28d6a5cf75fa810cd30aa3791c6f70a61100a2825"
+    },
+    {
+      "path": "overlays/duel_effects/drawing_tail.h",
+      "sha256": "28a5f6c3f8c7138b3da021e916a71a298d74910173949a703e3c83edb6eff127"
+    },
+    {
+      "path": "overlays/duel_effects/effect_0.h",
+      "sha256": "fffcb67ab830b9faf42624d1649c19d6057d484893b87ae31e346bb50d11789d"
+    },
+    {
+      "path": "overlays/duel_effects/effect_1.h",
+      "sha256": "835806bbd12e568fab8fba99e042bc673d5328e254fda0c343db4eb040c3ceb1"
+    },
+    {
+      "path": "overlays/duel_effects/effect_10.h",
+      "sha256": "9b1fb7f807fc222b4e9b0a704815dfc854f86170faadfdc154f5d4f18cd34295"
+    },
+    {
+      "path": "overlays/duel_effects/effect_11.h",
+      "sha256": "cc0c90d467b51a887fc39ed506cbc94df94a0d05bcc141bcb96a0e9d07831568"
+    },
+    {
+      "path": "overlays/duel_effects/effect_12.h",
+      "sha256": "c2be495e42cf910db4b46ed234d2667ac64319899ad2d35e6bd57c727e2733ba"
+    },
+    {
+      "path": "overlays/duel_effects/effect_13.h",
+      "sha256": "3272d11ef957bf1dcc492340d28802ccc4639be3c013b7df975256e0662b4f43"
+    },
+    {
+      "path": "overlays/duel_effects/effect_15.h",
+      "sha256": "f6bea0948af5b616978acb5b89d01835c12a2f849263e685981fd006759c1a3d"
+    },
+    {
+      "path": "overlays/duel_effects/effect_16.h",
+      "sha256": "9645cd15fff0beca8e8589675c75ad06c7ae5a50c0e77ba2d25882f655218ee8"
+    },
+    {
+      "path": "overlays/duel_effects/effect_17.h",
+      "sha256": "06fa324994a3fa32fbe9869f85ad3fab911d22163bacd17ca631c078c38ee2f0"
+    },
+    {
+      "path": "overlays/duel_effects/effect_18.h",
+      "sha256": "bb59db511eaa3621a58f67f841f9bb38e9d9234266ff655d166d153e943be358"
+    },
+    {
+      "path": "overlays/duel_effects/effect_19.h",
+      "sha256": "a293cd866c575ecf5fba5f99c3ac30f7024f9952351a4bc62eb0dffb9691e3f5"
+    },
+    {
+      "path": "overlays/duel_effects/effect_2.h",
+      "sha256": "6ac7af0fcef46dc948fef694d9bfd07a156dbecb680db3003cb0d5d19fa19538"
+    },
+    {
+      "path": "overlays/duel_effects/effect_21.h",
+      "sha256": "1278b906809171789caaa985b1ea1473159e4a2389a792496a4b0de354988d98"
+    },
+    {
+      "path": "overlays/duel_effects/effect_22.h",
+      "sha256": "f95b1eb37c80f6bc2600e93b522dc1fc1b0d5929cb10d905658ce167e28672b2"
+    },
+    {
+      "path": "overlays/duel_effects/effect_23.h",
+      "sha256": "3ddd3e4dd13628c1cc0eacc1de6c1c548ec00bac6bb15dc8ae5c7209ab0184b2"
+    },
+    {
+      "path": "overlays/duel_effects/effect_24.h",
+      "sha256": "09983a2db2335ff962214de0e48003a490eb07896c9180cb2f499a8cbef993d9"
+    },
+    {
+      "path": "overlays/duel_effects/effect_4.h",
+      "sha256": "0825124583a239bdb9642566406beda35e54013a170e8a0d2426ed2ef5f919aa"
+    },
+    {
+      "path": "overlays/duel_effects/effect_5.h",
+      "sha256": "288c27ecaf97e5f792952728f4f70680fd916d030302f43768ae0a1fb9a586ac"
+    },
+    {
+      "path": "overlays/duel_effects/effect_6.h",
+      "sha256": "839d66b90b30c239f4e597559040ca70af20c1a87591e556a88cc63c278ef2a3"
+    },
+    {
+      "path": "overlays/duel_effects/effect_7.h",
+      "sha256": "ff0fcc10b482a36909a0e51ae5d37e90ca4e4f078bbbd5ee3566c345375c9c6c"
+    },
+    {
+      "path": "overlays/duel_effects/effect_8.h",
+      "sha256": "9b333a379554feb3b32801d4776734ff3c5cfb761f0c069842fafbd51d87c4f9"
+    },
+    {
+      "path": "overlays/duel_effects/effect_9.h",
+      "sha256": "f3172bc7c5928467468f6868e56d76489d81362cb12625254eee99a6d01d4d23"
+    },
+    {
+      "path": "overlays/duel_effects/gather_effect.h",
+      "sha256": "7fd8a672b2cc9f69674076d2bf3760a42c34bbc33e3e9c856700b65fa3f7a0af"
+    },
+    {
+      "path": "overlays/duel_effects/image_inputs.h",
+      "sha256": "78dbf37f6450908b911e79c0b231fb27b7b737e7ff82b1ed17382fef2d94f2df"
+    },
+    {
+      "path": "overlays/duel_effects/layered_drawing.h",
+      "sha256": "2540aad3c924566913700998adc8b03198cc71a20356faff173da602c291fffb"
+    },
+    {
+      "path": "overlays/duel_effects/packet_helpers.h",
+      "sha256": "01cf52f6581edfa2b3eda1efd782b239b95d2552855c640b90002c10d631d2fb"
+    },
+    {
+      "path": "overlays/duel_effects/textured_quads.h",
+      "sha256": "f1126010e9b5eb3659de68c9b1e940249e87a21da802b7059b65513647b55569"
+    },
+    {
+      "path": "overlays/duel_effects/tile_effect.h",
+      "sha256": "a991e2ff1b69d03417205f66dd46e64946d1d220f3fac603fbf41cf4011bd6b6"
+    },
+    {
+      "path": "overlays/duel_effects/utility_helpers.h",
+      "sha256": "5621d1574fb36ca3548faa229c2fcc96127a15dd81ea335a7380b7714803bdaa"
+    },
+    {
+      "path": "overlays/free_duel/free_duel.h",
+      "sha256": "263c1820debb04b9180742a32cd462c8221d91eb0a9b8a648b35754793f2931b"
+    },
+    {
+      "path": "overlays/free_duel/module_header.h",
+      "sha256": "c7aa7b7a21f40f7a65514a83b1f2d18013aafa9b0b4f47657a83fa577b04168f"
+    },
+    {
+      "path": "overlays/free_duel/module_state.h",
+      "sha256": "ab9bc84e85ddc1be5a8d40909ca22f5a1224605fef13bfa8997dd30eaccfcbff"
+    },
+    {
+      "path": "overlays/main_menu/card_comparators.h",
+      "sha256": "37cecbf5acd1240f350d866ffb0d4d3be8b508e8115d2264a5ba2c5af6371244"
+    },
+    {
+      "path": "overlays/main_menu/card_tables.h",
+      "sha256": "70990205f754d13ce4840093b0729747ec8c7804a350312e1b756b1079662ce0"
+    },
+    {
+      "path": "overlays/main_menu/entrypoints.h",
+      "sha256": "6f50b3fe0ecc4788f329394ae77d52e789c8dac34d2afb3a7843c5fe52a788a9"
+    },
+    {
+      "path": "overlays/main_menu/frontend.h",
+      "sha256": "e29ad78bdd164eb1b273c7acedcfeb455e7235dbebc7111246b4263bf18f457b"
+    },
+    {
+      "path": "overlays/main_menu/module_header.h",
+      "sha256": "a2f02d3322e9ee50d9ee1bd183a6874c2ba485ebddd1eefcc406b3803fd29a52"
+    },
+    {
+      "path": "overlays/main_menu/module_rodata.h",
+      "sha256": "bff0e8bb7c0248d35f202e8079e78c861aced72627ede2d87e05ef22901b30a8"
+    },
+    {
+      "path": "overlays/main_menu/module_state.h",
+      "sha256": "009dd581e0197e11f5dfc34de1ae22b64af47425cccfc63904c71e227dedcc76"
+    },
+    {
+      "path": "overlays/main_menu/ordering_tables.h",
+      "sha256": "f4871eae1f4830052180bdaa59369530ca37d3f5a539a410da44a8ab9e79c72e"
+    },
+    {
+      "path": "overlays/main_menu/trade_helpers.h",
+      "sha256": "a7c2f0bf8461d2621b62715d50d91643072b3b2c73426715c06725782fb06afd"
+    },
+    {
+      "path": "overlays/main_menu/value_setup.h",
+      "sha256": "162ce75eaa50f23a6b67965c7f16b8b11c16373168d4a141749178b1cf5c46df"
+    },
+    {
+      "path": "overlays/overworld/alternate_location.h",
+      "sha256": "f9d69ece6af928dc826fc2f27f8f15fe3f97bfdf08c41c30a00843d122e52944"
+    },
+    {
+      "path": "overlays/overworld/camera_state.h",
+      "sha256": "1553ae222b83f6c96333a1c4c31b667e909f8714e14d491d792fc7dde5be9435"
+    },
+    {
+      "path": "overlays/overworld/camera_transition.h",
+      "sha256": "9855b5e59d110854aad4cf8cfbc2d4c5ab492026466890b80e427883636c6fda"
+    },
+    {
+      "path": "overlays/overworld/campaign_map.h",
+      "sha256": "d570e6d0d76fd259d042d756835f76c802b0742f4373102b39f9c237a3ea0698"
+    },
+    {
+      "path": "overlays/overworld/live_state.h",
+      "sha256": "aefaa2067903c0b79d4d92ac29cb01e2e9abe55d9e12cbc166a814fdbb88ede0"
+    },
+    {
+      "path": "overlays/overworld/location_marker.h",
+      "sha256": "f78b516ee20908bdf9f89fc00cce6da5ca25301748bfa86aadb6626a131afcca"
+    },
+    {
+      "path": "overlays/overworld/location_objects.h",
+      "sha256": "19d99f95f2a37a756c15ab95fc9ee1d1b095419d4ddbd52b23573767bfa2461a"
+    },
+    {
+      "path": "overlays/overworld/location_table.h",
+      "sha256": "68c5791b1354091930720c9db395de63c9b59e7a97e37c2bec35dfac24c365aa"
+    },
+    {
+      "path": "overlays/overworld/module_header.h",
+      "sha256": "329300b877d873173ac1e3cd8cba7f2b1b69efff571c894d09c3349071d8014e"
+    },
+    {
+      "path": "overlays/password/dialog_choice_ref.h",
+      "sha256": "8c68cdcd5406026d8892b70c279e8ba92f9ffbdded3bd3e8f7409b8e149b0547"
+    },
+    {
+      "path": "overlays/password/module_header.h",
+      "sha256": "e79f9a72a1cfe463434076576fb009960ce815b10cec245e9076e37610e91a4f"
+    },
+    {
+      "path": "overlays/password/module_state.h",
+      "sha256": "9c3512eab772c2d047c0b5a431f2c8d4e8064a34735854fa31aca5a94d6250a3"
+    },
+    {
+      "path": "overlays/password/name_entry_frame.h",
+      "sha256": "dbb1e108606aefe3f2cc6819c4647b6af0171ad5c0c4ff142d43508985fabe1c"
+    },
+    {
+      "path": "overlays/password/name_entry_keyboard.h",
+      "sha256": "bf629ee318aec0ff9991849c7262b67cd05cde3a8a4bc81f0130060ce36fc7df"
+    },
+    {
+      "path": "overlays/password/name_entry_starter_deck.h",
+      "sha256": "205ed00f5eec156744520494e44d2b634b6a0bfce2baa36d6c9e653263086dca"
+    },
+    {
+      "path": "overlays/password/name_entry_state.h",
+      "sha256": "9a4ec8dc35a20ebcd950a813d64e55a5a6b8f1475153858bb0e82c92fc9a5787"
+    },
+    {
+      "path": "overlays/password/name_entry_tables.h",
+      "sha256": "3c1b34dc576a4f7ebd75f6aa8a8aa5d9718c78e50ae19b95f67dba7cba512734"
+    },
+    {
+      "path": "overlays/password/shop.h",
+      "sha256": "3b8b56326759132dfa5f8d5fa17038c13e64d3c44c979403c47920a744c7e934"
+    },
+    {
+      "path": "pc/assets/ps1_controller_png.h",
+      "sha256": "7297ec94365d58594535b15fa6ae9a083092df591c6cc19ade085243761cb22f"
+    },
+    {
+      "path": "pc/audio/replace.h",
+      "sha256": "20086635267c1e33023e44058711e2304cb100c0d000e918ff3dbbf157274ed3"
+    },
+    {
+      "path": "pc/audio/spu.h",
+      "sha256": "605eef60bd134aadfefa0b68b944783690dd9bd12009010998ffd773e452194c"
+    },
+    {
+      "path": "pc/audio/spu_gauss.h",
+      "sha256": "6127c2c6c5d64a82c48b770f428956728ef61537c7ee7e307dd575e53183b4a5"
+    },
+    {
+      "path": "pc/cards/art.h",
+      "sha256": "f4b4952e3aa4e6b65ca7b45bf7de4fb90c1efe0abb7b9670f461b3b056258e06"
+    },
+    {
+      "path": "pc/cards/attributes.h",
+      "sha256": "c9d4b78936cc2ebba65a339980faffd09b8a120614152952668140d947761340"
+    },
+    {
+      "path": "pc/cards/battle_models.h",
+      "sha256": "b264dbaf0190a8bebaf691fc3db31df1b74516365d3aff1d534df0296ef79250"
+    },
+    {
+      "path": "pc/cards/card_browse.h",
+      "sha256": "c55e8e68c7d0f4766158a2950d2ebb64777544dd9c06453cc271955d0b5d885e"
+    },
+    {
+      "path": "pc/cards/card_layout.h",
+      "sha256": "a6de2b44bef9e7052260e490c9755a2a6854002034c65a5526029f7a038428fd"
+    },
+    {
+      "path": "pc/cards/card_layout_art.h",
+      "sha256": "0cc69a58d528e4950bb7d3ac4a5be634b9fd76c888bcbd419ff4e16ee81f4def"
+    },
+    {
+      "path": "pc/cards/card_notes.h",
+      "sha256": "12cf80411171ff12d02e63d54eb4bec2b6ded8f42ca5e3e44c52ddb883d74709"
+    },
+    {
+      "path": "pc/cards/card_text_colors.h",
+      "sha256": "ef0cf9a07ebe25083332cee4fcd61b5e5c69556ee3e67c1c64abd842b5f45eb4"
+    },
+    {
+      "path": "pc/cards/cards.h",
+      "sha256": "b29f2092cd86f94ea7854f4452ef090df9be6ba23dc41ec173a8d86a5ff930b1"
+    },
+    {
+      "path": "pc/cards/disc_art.h",
+      "sha256": "7a70a375c15347a60714001105fba967ecd862f7f0c65f66fcfe41b950d2a641"
+    },
+    {
+      "path": "pc/cards/drops.h",
+      "sha256": "7eea9b1f788a25e97aa3a600a035309b639bffb898ad50c3cc91be5cd595527b"
+    },
+    {
+      "path": "pc/cards/duel_ui.h",
+      "sha256": "ed7f742e23d69d880a477488cdc54b2722fda0b7b5f872f74dff155bb7c03a22"
+    },
+    {
+      "path": "pc/cards/fields.h",
+      "sha256": "d57a40c966c94fdd2b957f0595c24d081ad4c1d03a0e45dd86c6d3f89b1a5c17"
+    },
+    {
+      "path": "pc/cards/font_art.h",
+      "sha256": "229b2a134f2fd80af54ceeef16ea6aec535f217235e99a2bbf242af6899d6c40"
+    },
+    {
+      "path": "pc/cards/free_duel_progress.h",
+      "sha256": "b0a6976aa548ec94cf3084767561bc149998e617536a551a514d878b8db328d5"
+    },
+    {
+      "path": "pc/cards/fusion.h",
+      "sha256": "7438663626bf6deb73fe214565e0145d2d8192cd076ddd66da37adbdf03826db"
+    },
+    {
+      "path": "pc/cards/fusion_helper.h",
+      "sha256": "6e7c04e68e9833fa8ad31545730ed51ecd090cec31f34ae82286224d7345382c"
+    },
+    {
+      "path": "pc/cards/monster_effects.h",
+      "sha256": "20550d03f1f156a3c2f42382e94667c972c3af7284da50fed2fd595df6232f8e"
+    },
+    {
+      "path": "pc/cards/monster_effects_duel.h",
+      "sha256": "31f1d9215503e46b2f89779eee344acb25b62340d561e97230c305034ca42f78"
+    },
+    {
+      "path": "pc/cards/pack_shop.h",
+      "sha256": "2322db8e3bfdf8a4d7cf9e58440f6a9bd7bde8f5bada78dd69446400d569d4d4"
+    },
+    {
+      "path": "pc/cards/packs.h",
+      "sha256": "998961b64009cc97a00e1cb0a72e3480f577088b1a8aa31063c7b1bf4775628f"
+    },
+    {
+      "path": "pc/cards/passwords.h",
+      "sha256": "66cc7337625c9f37932be427659930add339d5b3a1b61589e14314be46d09a46"
+    },
+    {
+      "path": "pc/cards/rank.h",
+      "sha256": "e051798f43479cc8e2d4f5446701fd1df4d23cc5254212774ee02fa90dc4c918"
+    },
+    {
+      "path": "pc/cards/rank_art.h",
+      "sha256": "bcb7b3162560f01a21872e0292d6d7091d0058cfb952b0251c5a5987e2d613f5"
+    },
+    {
+      "path": "pc/cards/rank_meter.h",
+      "sha256": "997c94ef4c1cdd1747769a369256d42eb8ba05327c52be64d2d75de8dd761478"
+    },
+    {
+      "path": "pc/cards/rules.h",
+      "sha256": "9d7994c6dad0e88fcb81921c26226b017b81722117c059f909c901844cb6a035"
+    },
+    {
+      "path": "pc/cards/starchip_prize.h",
+      "sha256": "98bd7386e25a0bafeef75a7decc390f43c53d540b9a5ec4aa04be17e1675d404"
+    },
+    {
+      "path": "pc/cards/stars.h",
+      "sha256": "b281213f167cc505965937204c8f464dad9165c1d2fac65c87178563b2f4bbd8"
+    },
+    {
+      "path": "pc/cards/starter.h",
+      "sha256": "de73c52080e842d45e33cd5089f5398bc45da87f75f94b7a0fcbf6ec2b37f379"
+    },
+    {
+      "path": "pc/cards/tables.h",
+      "sha256": "61df7332af82ccf747f39cc8fc5c537726f1d91cb7b0b0ee59bc3cb42c39ddd3"
+    },
+    {
+      "path": "pc/cards/type_icons.h",
+      "sha256": "d1f33a6da0847777f786d9c07fbc48288fa12a57fb20a5df1cbd8b534d03fff9"
+    },
+    {
+      "path": "pc/compat/font.h",
+      "sha256": "ffd212df73c3f0b123b6dd8070e47123f3c725837860df14f50ac3a84ec4f5f9"
+    },
+    {
+      "path": "pc/compat/fs.h",
+      "sha256": "7ffa9c166c8c21561bbadde2f4c8ebcf8bdbb454d1f0a21ed89d8565d9d66f33"
+    },
+    {
+      "path": "pc/compat/gte.h",
+      "sha256": "7ec2d8c3a55a56e8ac4d6b126914009c8ad52f94adb2db24157968d077c2d1e7"
+    },
+    {
+      "path": "pc/compat/inline_c_native.h",
+      "sha256": "6c2fe75c75fc72f0fa89a26dcd69f6560aeff5195d0e347abed499cc82d2c9e3"
+    },
+    {
+      "path": "pc/compat/libgs_ot.h",
+      "sha256": "e3e9e0381a1618c5a941992e852ea956200e27964b5c4336559adaa81aa2b412"
+    },
+    {
+      "path": "pc/compat/mman.h",
+      "sha256": "f3c0f990eb21b8c31f5d9f7826462e1bee7ec4d52e252edda626e6c22d62ea39"
+    },
+    {
+      "path": "pc/compat/ot_chain.h",
+      "sha256": "0b4dca1c87f6688fa1eb1c6a8d84ca78930a0caf3ff40666857b1fac17ddcf28"
+    },
+    {
+      "path": "pc/compat/pgxp.h",
+      "sha256": "21be8c0b0b0ef31538ba602c1e731c63d887456d58589dbb62c14602ae195ef7"
+    },
+    {
+      "path": "pc/compat/pgxp_game.h",
+      "sha256": "c57ba412ef919de071ff945b76c9c5d2d3fdded92f54269ef85b6367f4fd73fd"
+    },
+    {
+      "path": "pc/compat/posix.h",
+      "sha256": "31b7e28bf6987ff4d1e0c4da623441773b2bf0ac50d871b7e7f2ea47bbc980d9"
+    },
+    {
+      "path": "pc/compat/ptr32.h",
+      "sha256": "d593d449c15bdfd2d55588ce4fdc246d29156ebd813c415653da96e9c132ca00"
+    },
+    {
+      "path": "pc/compat/signal.h",
+      "sha256": "06eb73a2ead99d499cdf202ec33be4b42c6836f2b026706b0f493e18ab88f058"
+    },
+    {
+      "path": "pc/debug/cheats.h",
+      "sha256": "6e3f8a3ede4e19ba3bbcb6b5acb92f3af3a7a28bc3cca19d68fdc59f989ab213"
+    },
+    {
+      "path": "pc/debug/control.h",
+      "sha256": "f2db330d719e06769da3c8af4d66b68b58a5ba47eb35fbd29e8be686cf7a6281"
+    },
+    {
+      "path": "pc/debug/control_net.h",
+      "sha256": "f6621bdfcedfc41c70bd6db2f2494fbb8313c08726bd35baf15d08074774bfb9"
+    },
+    {
+      "path": "pc/debug/control_protocol.h",
+      "sha256": "3d29e3a1f7852a7394c61f429601a985eb17c5fd58cf3a965615006a657f7a11"
+    },
+    {
+      "path": "pc/debug/crash.h",
+      "sha256": "0cd1c60d839e06ad254fb52cf81844e6ded00190d70db7518c5622c9151afbb2"
+    },
+    {
+      "path": "pc/debug/crash_test.h",
+      "sha256": "71914e09d295f98aa237342d1a09dbef1c574d5212f277d60bb4bee88a5e73c3"
+    },
+    {
+      "path": "pc/debug/hud.h",
+      "sha256": "6dbba360f6fda23d9fa84a3466373e8ac0bf88a0c05800e5d194b30b805ab64e"
+    },
+    {
+      "path": "pc/debug/log.h",
+      "sha256": "e2ddaa39d000661e7975dd1e29d3a8a696f55dc2fb1a96eec6fe05465d3dbafa"
+    },
+    {
+      "path": "pc/debug/monitor.h",
+      "sha256": "f21b9011bfa3b726c273669336e84a1b9aa4cbf9014f2c7f846024e4ba8cf080"
+    },
+    {
+      "path": "pc/debug/profile.h",
+      "sha256": "0ff6690c1894b22e057c93879abd06cad3b16c67a4170ae4ee700a9df372660e"
+    },
+    {
+      "path": "pc/debug/recorder.h",
+      "sha256": "2368c62410a07dd059e65218c505d6d2822fbccf6bd627f489d7a0b8e2c28774"
+    },
+    {
+      "path": "pc/debug/symbols.h",
+      "sha256": "bbd9eecc5dbc49109d44ae1f63db89ff9dd7f2f84a2c5907d9b2210b876b75c6"
+    },
+    {
+      "path": "pc/free_duel/busts.h",
+      "sha256": "cb406d95818e4b75bb864c158a3af840d7111d205b8253192b88f6ba54c65c82"
+    },
+    {
+      "path": "pc/free_duel/duelists.h",
+      "sha256": "43bf806dbece3cab85e9d1a0ded0113a018306ead360a7df6a0ba75410b6a9bb"
+    },
+    {
+      "path": "pc/free_duel/page_box.h",
+      "sha256": "25146a11e2a30b7c3c8d1c08ce43f2a664398fe85909f444d9b9c22ca8b3ff4d"
+    },
+    {
+      "path": "pc/guest/arm64_asm.h",
+      "sha256": "8066dfe8d24176b9d52e544b1a9518cccd025c18290087109b896bab500ecd30"
+    },
+    {
+      "path": "pc/guest/function_map.h",
+      "sha256": "2217c0526e09a049b889cbf5f4a8cc6261650c728338f6b980b3f4bc7f9f97c5"
+    },
+    {
+      "path": "pc/guest/image.h",
+      "sha256": "408add06f941618dec30de6aa1b58be44b9cac84c9f6dd2cb6a6864d0a26d7fb"
+    },
+    {
+      "path": "pc/guest/image_loader.h",
+      "sha256": "606cb194379cc42181d97df9fe5c473296bd37b6dbbe85cb240fb0ad349b095e"
+    },
+    {
+      "path": "pc/guest/low_memory.h",
+      "sha256": "1df458ed7c4d3786a6696e74c7c48c9e5995160e7080b3b38ffdd06c7190f73e"
+    },
+    {
+      "path": "pc/guest/mips.h",
+      "sha256": "549b40f0ae4079adaab359121974eb7838fd0e2d2991133a0e334e4742e83bbb"
+    },
+    {
+      "path": "pc/guest/retail_image.h",
+      "sha256": "8242a7075b46ca98dee9fd42bd89e35da6f86bfc5839c695bfa294e43828a881"
+    },
+    {
+      "path": "pc/guest/sha256.h",
+      "sha256": "45b6446c55cbcf6e5f6d3e24aa89921c8fdb5f54176265b8f4fbede4921c0605"
+    },
+    {
+      "path": "pc/guest/state.h",
+      "sha256": "9cc717f201e953f02a185f1c607fc666ae6fa7b9304c7db743a0748154b5e225"
+    },
+    {
+      "path": "pc/guest/state_arm64.h",
+      "sha256": "8f876cdff36fe1668c7ac506300c2928dbe5606a20b34d81dd0f197d2abcf05f"
+    },
+    {
+      "path": "pc/guest/state_io.h",
+      "sha256": "82b42be84fe17a6bfaf36219c73bd3465e16b46f810158ba3c6fb5f0dc4f65cc"
+    },
+    {
+      "path": "pc/guest/state_remap.h",
+      "sha256": "3dc8c3559f73c0cf392663f87117f875a071884b9f8a4ccacce9b1e6bbe94cd9"
+    },
+    {
+      "path": "pc/guest/state_requests.h",
+      "sha256": "42f5c9e25ce7286c8487b9d15c022bea814b8e66d92168958c718f3a8751d57a"
+    },
+    {
+      "path": "pc/guest/state_subsystems.h",
+      "sha256": "36a1c8b3ce7f2200193fe326025a75772c04ec0b715ec2a891286b7d78109d76"
+    },
+    {
+      "path": "pc/guest/translated_image.h",
+      "sha256": "1bb95ceab741944ef10f8c153f22a0e89fcb6c75eb1f1dde610f666f806cd80c"
+    },
+    {
+      "path": "pc/guest/translated_libc.h",
+      "sha256": "dbf80e96f72a509c437bc13866d342d894d3eaf7e12e090003b6ec53190cef35"
+    },
+    {
+      "path": "pc/guest/translated_runtime.h",
+      "sha256": "16df37ea19666cf0f2d0921712d078ff70a81e455d0ac37d3fe9a64b7f13c1c1"
+    },
+    {
+      "path": "pc/guest/translated_state_backend.h",
+      "sha256": "99598e82c96a8efc8dcf1e3cada904560a2066dcc3ceef93af7d86a7546313c8"
+    },
+    {
+      "path": "pc/guest/translated_state_memory.h",
+      "sha256": "78af6141b9d38e8a5b9f2c716002d0680d6097441088ff06968aab9ab5d3b872"
+    },
+    {
+      "path": "pc/guest/translated_state_symbols.h",
+      "sha256": "646e3cff067bc509b5dee612986282156f8221a9ff85d578d7a11be0b82bd6f7"
+    },
+    {
+      "path": "pc/memory.h",
+      "sha256": "e7b0aa0acf6b2446ceb58600e34f012faafd2fa1a371cf5390e5df8451a218b5"
+    },
+    {
+      "path": "pc/memory_endian.h",
+      "sha256": "80da1344c5eceebe6267bf54a23ab503737443ce6f34d104054f78ed892b885a"
+    },
+    {
+      "path": "pc/memory_map.h",
+      "sha256": "3f720ad12ea12471465cc7a12e41290b3d63616d346179daa7625ff09861db0d"
+    },
+    {
+      "path": "pc/memory_span.h",
+      "sha256": "4be664c00f4f65fd660c22ae6e8db7e4a0d8732dc0ce9638945c5e1834ba661a"
+    },
+    {
+      "path": "pc/mods/events.h",
+      "sha256": "2e495b447eea43d474c21d78053a261d467cefed5452f529efe97fc9d3dec57d"
+    },
+    {
+      "path": "pc/mods/exports.h",
+      "sha256": "89908c56954c20bd1884778f1c0288c03230da1a416b446b836bd7300dce1109"
+    },
+    {
+      "path": "pc/mods/hd_pack.h",
+      "sha256": "838651c64dc2305488fd02d6c8e451436c17b0aa7cc36b5ed289753128596c0a"
+    },
+    {
+      "path": "pc/mods/hooks.h",
+      "sha256": "f2d005aef70722eecc28134da81b178c7e9e83e4d6e83b19bf331667f68f0f3d"
+    },
+    {
+      "path": "pc/mods/import.h",
+      "sha256": "710038bf18ef45f0e182aad94284141dfd5e7ab3803dbc891e211eac022d762c"
+    },
+    {
+      "path": "pc/mods/import_job.h",
+      "sha256": "1a7de8412147953977233264f6f8e6b68c38e1c2ce9dde4f1f3d7819fd9c09d5"
+    },
+    {
+      "path": "pc/mods/json.h",
+      "sha256": "abf7f761970a839218eafaa483bc5d278bed004f99ff5c15c3497927b7e7b018"
+    },
+    {
+      "path": "pc/mods/manifest_code.h",
+      "sha256": "0d2ed0eb8d0cf54c6f99e3fba3a0daf34b6c83580717169ea93404275104eb81"
+    },
+    {
+      "path": "pc/mods/mod_types.h",
+      "sha256": "ce90e864e6e8baa1f26c188a98db9d1653aa764e52fb3aac743998b62c6b2242"
+    },
+    {
+      "path": "pc/mods/modapi.h",
+      "sha256": "b4226cf31f540d306d447361b528a150ba23606655819da2cb42e40afce7e23b"
+    },
+    {
+      "path": "pc/mods/mods.h",
+      "sha256": "f58ca3e6508936a6f7512ef2779129c0671733ee4bcee8b23bbc86d6b5b1262b"
+    },
+    {
+      "path": "pc/mods/object_loader.h",
+      "sha256": "1bb1ab727b89f3e9cf79f74e76a24fab84703f0146d80ff0e81f70bc096ba422"
+    },
+    {
+      "path": "pc/mods/overlap.h",
+      "sha256": "f44dd250398a1570397cab2c8c04307cc31e882616b3dec76ab924b1d51ece7f"
+    },
+    {
+      "path": "pc/mods/palette_ramps.h",
+      "sha256": "da4b385a7ceaa4cae38081475082c84dd724b00d854260f40108cc85057f2555"
+    },
+    {
+      "path": "pc/mods/prelude64.h",
+      "sha256": "70541a33c5460aa0d7ebdda0fc7c7225c427067be751ba67f2163cbbca6c4b74"
+    },
+    {
+      "path": "pc/overlays/model_gate_command.h",
+      "sha256": "725eb0c8627d45dfbe089d56e2cc80531311ef1cbb790b94a11adb5aab1b1ce0"
+    },
+    {
+      "path": "pc/platform/ai_trace.h",
+      "sha256": "1422bcd61ea39149ffb7c3e636efbbd7541490ea271e4827b2163b991647bbab"
+    },
+    {
+      "path": "pc/platform/button_layout.h",
+      "sha256": "8377e998bcbf53c9fa7cea0eb8b4c7ecd00433d6f0c2edf12efba4f98c600c43"
+    },
+    {
+      "path": "pc/platform/controls.h",
+      "sha256": "75b7670cc371339c4deea6f3fdd6753bff3e8246cfd51812b61fbcf65945f03b"
+    },
+    {
+      "path": "pc/platform/controls_art.h",
+      "sha256": "2682a0afdf46c7d4764ce010ef6ce51b06ae7081ab497a690d43dae00bb9c6b1"
+    },
+    {
+      "path": "pc/platform/controls_config.h",
+      "sha256": "ba1fedc7a0420b445e22979d58de839438b82bf5c6fcc23e825fb7c5d510c6e9"
+    },
+    {
+      "path": "pc/platform/controls_linux.h",
+      "sha256": "eccc99da72f89b128ce41c0548c854450e3bb59d3dc6bc5928369c4e1c59b1da"
+    },
+    {
+      "path": "pc/platform/controls_runtime.h",
+      "sha256": "23969e49dd7a75ec1475aa9714aae23bf61bcab450e1a8724ce847f801003096"
+    },
+    {
+      "path": "pc/platform/controls_window.h",
+      "sha256": "3d51a3e6aea8a989969c975922a57ec90fb8dd62593d6cabcf409d3d5b9ffa6a"
+    },
+    {
+      "path": "pc/platform/credits.h",
+      "sha256": "f544eec3e560502d8f3c97318e97638c4f701589b0bd51a39a2d9fbfc6b8b0c8"
+    },
+    {
+      "path": "pc/platform/darwin_image.h",
+      "sha256": "da7d40f7ea37695cd54a665eb87359459f31563ba8f148aae972e40c4b3e9e2b"
+    },
+    {
+      "path": "pc/platform/game_files.h",
+      "sha256": "f2680cc3894b872740d04333742df8d4bee2f1e5da48c93ca35861a6e5ca5e42"
+    },
+    {
+      "path": "pc/platform/host_actions.h",
+      "sha256": "4cd862f3eadede3788722e6b72aed14313ed5e32e6624023c907e0ca94add2c0"
+    },
+    {
+      "path": "pc/platform/jni_guard.h",
+      "sha256": "33b6f3c02b9c6266c14c82b0d73b1b8a2bc5c84d4fa47d37b65f8f6082a9cba5"
+    },
+    {
+      "path": "pc/platform/macos_fonts.h",
+      "sha256": "22a1a5aca07cf1b9d34627906b25d3ec277961aa5c5dd71b0c990d61bf76dc0a"
+    },
+    {
+      "path": "pc/platform/menu.h",
+      "sha256": "c542eee5cc3f91b3ba1792733cbcc358e8c8af2102f8f741762dcaabd3321901"
+    },
+    {
+      "path": "pc/platform/menu_label.h",
+      "sha256": "c7f4103379e9de3b653e67c8ad65b7212cb509da73ed6de1337e8131f12c99cc"
+    },
+    {
+      "path": "pc/platform/menu_letters.h",
+      "sha256": "0aa9e777c7e856a15cd18840191ca91e29ff5b7b15e0a99495b06780f49d1088"
+    },
+    {
+      "path": "pc/platform/mods_window.h",
+      "sha256": "1f465eb98d1bcce7a4a1d6ef2be0788596d601801f7397cc03d92a436c2273dd"
+    },
+    {
+      "path": "pc/platform/panel.h",
+      "sha256": "bca941a9935c5ddb4fc2f973be79d3677d5b646d8b4d366f3f53aed181f6beb9"
+    },
+    {
+      "path": "pc/platform/paths.h",
+      "sha256": "8c490a0a9f62e2951591c115b15dad88b31068d0960edf02c88376af23fe63bf"
+    },
+    {
+      "path": "pc/platform/platform.h",
+      "sha256": "3555390cbd78dd8681fb4b09253fef569e7196a8ce825984c834463c08ccced5"
+    },
+    {
+      "path": "pc/platform/quit_prompt.h",
+      "sha256": "bed10edda5648e86a0b8ddce01f0236a789d61b5b884d1d589594040feba5a16"
+    },
+    {
+      "path": "pc/platform/report_folder.h",
+      "sha256": "e30c9f95a8acabc82deda3be6322d6fdab3ca3012e163d608cfffa7fc8589343"
+    },
+    {
+      "path": "pc/platform/save_icon.h",
+      "sha256": "d70b7b1fa10a8129f493ec2ab97fa802942411dedf31144639feeaa069099c37"
+    },
+    {
+      "path": "pc/platform/settings.h",
+      "sha256": "5cc2ea91b61b94e16671827f0fabe421eb47f529d76fdeeb07b8683d29ade0ba"
+    },
+    {
+      "path": "pc/platform/signal_context.h",
+      "sha256": "6e767559e25f3fa565f352b0f4269935b4338c016bc0c47245bf0cefb64d4408"
+    },
+    {
+      "path": "pc/platform/title_config.h",
+      "sha256": "bbb440461e3af32a4b88789b13902056d5d76bbf85c3f3b34b77b9fffe205900"
+    },
+    {
+      "path": "pc/platform/title_images.h",
+      "sha256": "5fb6d8433842e865f70b1e5f689bc46fd12db94c8293f8b8786798bb182c515c"
+    },
+    {
+      "path": "pc/platform/title_jump.h",
+      "sha256": "908761aef66143cb7c2f5d44ad2ed8d1cad87c0634aea793ffba9ecbff9789d7"
+    },
+    {
+      "path": "pc/platform/title_menu.h",
+      "sha256": "539d7d42450cdb9b31d4eab475f6456b19ff600950dac7908320e51b590a097e"
+    },
+    {
+      "path": "pc/platform/title_screen.h",
+      "sha256": "b363c41bb5d12289b5e70ca85a737fae5ababefc2a905849c8ffad880b729f34"
+    },
+    {
+      "path": "pc/platform/touch_pad.h",
+      "sha256": "b32b8031a52c8ecaa88aabf24ff2cbb123b2c00224fab2eaa22201d1db404989"
+    },
+    {
+      "path": "pc/platform/touch_pad_art.h",
+      "sha256": "babbf0bae3d49a0e5dcf35f781b6c0466ce7e6623956594a2f9603ac40e17dac"
+    },
+    {
+      "path": "pc/platform/ui_config.h",
+      "sha256": "12b9ae2e04d30abcfde75fd545e08fc2073f4873b60264e741b013356734ddc8"
+    },
+    {
+      "path": "pc/platform/update.h",
+      "sha256": "4184a1c44393677309ce5a28b495b1ed497d92029052561ea2b2d5257e9f2bdc"
+    },
+    {
+      "path": "pc/platform/update_check.h",
+      "sha256": "f6f1c4f2ab633c3c91aa91ffe2c1e4cf401aae70a49c0b6bf5be36f343cc1117"
+    },
+    {
+      "path": "pc/platform/update_net.h",
+      "sha256": "883afab2695ee34a0528610afc3d256fcd21dff13523ed1ef2d3b71e0b5a5c09"
+    },
+    {
+      "path": "pc/platform/win32.h",
+      "sha256": "f2b3384a6597a1a1cc0a752a0a05a3ac9fa7590c50e0eff6efc3cc3b9c349da0"
+    },
+    {
+      "path": "pc/render/gl_picture.h",
+      "sha256": "7e0d0312006f105a7e8bb4bd84fa0e1f579fbc89083999862443defb37530e4e"
+    },
+    {
+      "path": "pc/render/overlay_gl.h",
+      "sha256": "e98553332dcb5cc78d58077c8fce51fcf1f96827c5415231eab3f36cc9d6fa4a"
+    },
+    {
+      "path": "pc/render/packets.h",
+      "sha256": "d76c8842e3c91bb41913c0bf9a84f4979bc1d2e5c1ce232e314ce93cd3345a63"
+    },
+    {
+      "path": "pc/render/present_pass.h",
+      "sha256": "faf1a73be4358d8e8a2e03382d2a291464055a37dafc14b80808a4aeadd464b7"
+    },
+    {
+      "path": "pc/render/psyz_gpu.h",
+      "sha256": "c79c6fbd1a2b1020443d6c80fb6a4d7aed13fed492fabf2051c8bba4f2134fbf"
+    },
+    {
+      "path": "pc/render/soft_gpu.h",
+      "sha256": "6cc9d9301628bb4ed77805037c4744b078b0e67f02a94258d11e81e222374956"
+    },
+    {
+      "path": "pc/render/texture_dump.h",
+      "sha256": "4236559eb76f997fda20ad12926eb68725d5e5d0520e13c72f6626a796895849"
+    },
+    {
+      "path": "pc/render/texture_pack.h",
+      "sha256": "adba34cf05cb28c22e815a2bcaad8779eacfa7b269e7a01cf157f0f418f8717c"
+    },
+    {
+      "path": "pc/rng.h",
+      "sha256": "2221f2b140de5e8dce9349c586c6798101ff107f34eae855d7851d84524c512e"
+    },
+    {
+      "path": "pc/saves/deck_menu.h",
+      "sha256": "16326d36ac608f55729abe23736e262c7f93f6a6d36628e6fdebba146c3fb453"
+    },
+    {
+      "path": "pc/saves/deck_slots.h",
+      "sha256": "39baf702994a1891b4b328ee4df49f9e1159f9f614606dfb4d4ee3dd07cd93d5"
+    },
+    {
+      "path": "pc/saves/flow_text.h",
+      "sha256": "906a2b74457f33915f797e339b49eed021fae57afb809d1c5e447318eb02ce67"
+    },
+    {
+      "path": "pc/saves/save_cards.h",
+      "sha256": "b290d6edbc084f819701ea7b3b9e9df1829131a83033ae5454213db2104e2c6e"
+    },
+    {
+      "path": "pc/saves/save_menu.h",
+      "sha256": "aef919db4e14cb7e5d3454d9bcc4a4f45312cd2d1c07eb9c1994878e52408517"
+    },
+    {
+      "path": "pc/saves/save_slots.h",
+      "sha256": "76d0699aa55ccc77c71f7f1c749190e752d21c753d9b640af3f3f168cefc6fbb"
+    },
+    {
+      "path": "pc/sdk/disc.h",
+      "sha256": "6658fd67b77bcf400c5827d07abc6d98c522ff8c489e896465e3b7d38644a3d8"
+    },
+    {
+      "path": "pc/sdk/display.h",
+      "sha256": "16e54471ade7e3ad05e01589876fd685e98ce358064c0a103c3341f1c4f63d50"
+    },
+    {
+      "path": "pc/sdk/krom.h",
+      "sha256": "064543382543285c2087238f53d577179d1b681a7cfc78f055321d6f1c20de97"
+    },
+    {
+      "path": "pc/text/entry_layout.h",
+      "sha256": "957fdad175d509ed2dd871e73e54b772f3223f8258c8e35d99fdfe01b7a70600"
+    },
+    {
+      "path": "pc/text/glyphs.h",
+      "sha256": "9bf768d92a79f8351e047ef85bbbd57fb09e66339167c88936bb726adabc52dc"
+    },
+    {
+      "path": "pc/text/hd_text.h",
+      "sha256": "1219e7ace98f96eca70fc77ac2db872223ba5019527925815a47cda06a3bc217"
+    },
+    {
+      "path": "pc/text/language.h",
+      "sha256": "c7a046ffcdda49b1364e2d373f5c496c999e4d9009f5a5b66253d45a413ac225"
+    },
+    {
+      "path": "pc/text/listing.h",
+      "sha256": "9ec4c75aaa9dedd3aea7327efd9549b4e11d4340752a075654c13d5ec9242336"
+    },
+    {
+      "path": "pc/text/menu_cut.h",
+      "sha256": "d75003a45de1ee43c6e945b7f57026a2d9a6111a315f181ecb06eddc756793e6"
+    },
+    {
+      "path": "pc/text/number_width.h",
+      "sha256": "12fd1639cf63af1e494546a35c22ac40ce53de19027bfa7ed2309fccd55ff829"
+    },
+    {
+      "path": "pc/text/overlay_text.h",
+      "sha256": "f114a29cafbe16201e720d78fd47a87ea71ac50cfb66f4b044f658092a48bb68"
+    },
+    {
+      "path": "pc/text/pal_text.h",
+      "sha256": "c29a00ad96614486961996e97bcdf9b8854d80613d7035ae3b06c700839a4258"
+    },
+    {
+      "path": "pc/text/serif.h",
+      "sha256": "0b1d22e93d356a5513650525c1611f8a16100208a55a5dcf3ef87aa143441f25"
+    },
+    {
+      "path": "pc/text/text.h",
+      "sha256": "2bf53a458a98bb95fc9189db90fb04e0149d9b0a45d7db1e747ee7d9dc45c27d"
+    },
+    {
+      "path": "pc/tower/tower.h",
+      "sha256": "1b15395b4cfacbc6ccc581d1455a9a1ff88697035ca322e9da904dbe4b59deb4"
+    },
+    {
+      "path": "pc/tower/tower_state.h",
+      "sha256": "d832f7c49723f370775368668a5f070594cc46b537c113d73b86aa43195ad23a"
+    },
+    {
+      "path": "port_ptr.h",
+      "sha256": "da9c34c0e0e31b8d20a1b98fa2a58df4655e7054028bcf6fbc85dd5230ebaa1e"
+    },
+    {
+      "path": "psyq/abs.h",
+      "sha256": "b922c04bdb92dfff70b9cc1a387cdedd3992f14bd7a2040d6ba22d740fe1e925"
+    },
+    {
+      "path": "psyq/asm.h",
+      "sha256": "cb053d37acede14199256ee347772842ee71e64ca0398d55a6d0a5f9c6929814"
+    },
+    {
+      "path": "psyq/assert.h",
+      "sha256": "4d81f61b62ea243ce8567ba5c366b4544033f64b58a87efd3cacea2968f6744a"
+    },
+    {
+      "path": "psyq/convert.h",
+      "sha256": "9e8f0e5fea047056e55e5f398f1cc84868c2b19d46e82ab7e330659e9dd760fa"
+    },
+    {
+      "path": "psyq/crt.h",
+      "sha256": "27a81438b937231a2646ad1404b950d487c0837ae7df2f54174aad8882bad352"
+    },
+    {
+      "path": "psyq/ctype.h",
+      "sha256": "f6c0c35bb1b6e7fb8a004a6964a378f00d0034bdd71c4d6c29a30d144d45c36d"
+    },
+    {
+      "path": "psyq/exit.h",
+      "sha256": "921bbe4b9899552b0933b3d4a352dde0a3d4cd839157f24ac4cb2a8425c1eedc"
+    },
+    {
+      "path": "psyq/fs.h",
+      "sha256": "af27f80abbf11eed5cc3d499e0c03407031f90f6d19a5d8fe97ece9f063a2f4e"
+    },
+    {
+      "path": "psyq/gtemac.h",
+      "sha256": "73af73871bc27fded97d615d746cb9e3d5da01744b3694598c3382adf6eb2ea0"
+    },
+    {
+      "path": "psyq/gtenom.h",
+      "sha256": "db2d23b9eb25b9d6393483888dc063230d614474247a0c9d983ad06c317ca3ee"
+    },
+    {
+      "path": "psyq/gtereg.h",
+      "sha256": "3aafe3e06f172dca15c40fbe1f8c06d5f2c1d9bb4d14c4239d2a700bc4d13e94"
+    },
+    {
+      "path": "psyq/gtereg_s.h",
+      "sha256": "dd00328faceb8f09588f8176a29a895d61523b97d113d3db8e2129b0311b2dfc"
+    },
+    {
+      "path": "psyq/inline_a.h",
+      "sha256": "26679a7e42c56dadd745096b9028d770a4a8daa120f64e1d1e5d0bafc555fab4"
+    },
+    {
+      "path": "psyq/inline_c.h",
+      "sha256": "e5e97488d662bf77ec854342542bacc7bf7311e6267b8848dc30a98e73ad495a"
+    },
+    {
+      "path": "psyq/inline_o.h",
+      "sha256": "acd562d0beb3c8581ca6840c286dd7f9e83db8f929321ae18f1f96569278cf37"
+    },
+    {
+      "path": "psyq/inline_s.h",
+      "sha256": "101fe8655f14352b819c45f1bc557fbb03d2d15bdca0e71ae1cfbfb27a07e331"
+    },
+    {
+      "path": "psyq/kernel.h",
+      "sha256": "0c0d2572891bab49648f896ff5da45beed4db3ff6e61c02ea832e88141194ebd"
+    },
+    {
+      "path": "psyq/libapi.h",
+      "sha256": "05f8750db942f3b84ed54e68895aa556d5831ba26e6f3e02143b89b16ad97f66"
+    },
+    {
+      "path": "psyq/libcd.h",
+      "sha256": "6988c470b2d2626efa94c70f68a5f5c5caa1c59b08f7a3f3e4bfa80900b2b975"
+    },
+    {
+      "path": "psyq/libcd_abi_variants.h",
+      "sha256": "eb51ff76f9491de98bc3d2d540c0128b36ed0392d17883ad3efdb88285f6416a"
+    },
+    {
+      "path": "psyq/libcomb.h",
+      "sha256": "c8099f2b97fa2331181bab176b3d609ebd935540bb06f814fb57616c893cfda5"
+    },
+    {
+      "path": "psyq/libds.h",
+      "sha256": "c85a8c115845d446a0695a2c7b421d5f51810ea53422805ce32da336bef7ec66"
+    },
+    {
+      "path": "psyq/libetc.h",
+      "sha256": "64acd36cc3a2bbc3d9411c9ceffe32b7335398d21eb6baecd9582eb814bd80fd"
+    },
+    {
+      "path": "psyq/libgpu.h",
+      "sha256": "67b65d200ed24b25b71920bd0b8e39b1c453dc8065397b64074a7fb0884355f2"
+    },
+    {
+      "path": "psyq/libgs.h",
+      "sha256": "997b4529f44aefcc002abf436df0eba3f836020475d7bf24ca2543cde61df8de"
+    },
+    {
+      "path": "psyq/libgte.h",
+      "sha256": "8ed5dd21e7d2296a77f95a77586869cdfa7e851b3d7685e50812904c97ce3a73"
+    },
+    {
+      "path": "psyq/libgte_abi_variants.h",
+      "sha256": "ea06c782cec39209aee442777b1cca0cdb3e8707ebfe8fe9abfc15c2eefa1523"
+    },
+    {
+      "path": "psyq/libgun.h",
+      "sha256": "b49101a4ec40a47492d572f1418e1c0ad92071212cb147af1f8a41c6b841b3de"
+    },
+    {
+      "path": "psyq/libhmd.h",
+      "sha256": "64d8fee462c4a0b473d1e9da9c6254a809e063acecc31609b32bc76cbc7ca8bb"
+    },
+    {
+      "path": "psyq/libmath.h",
+      "sha256": "a0602def6d421113de7cdc27e5c077aadfb57bfb6695ffc0d9b16d8ad46d4bc9"
+    },
+    {
+      "path": "psyq/libmcrd.h",
+      "sha256": "0cf27f55509642af2819c964be6638254554202ce255c807935b3f84d36b0dd2"
+    },
+    {
+      "path": "psyq/libmcx.h",
+      "sha256": "125fa4a5cf303cb1090d6997298a411d4ea8d2dd69c58492b93768e4b232d487"
+    },
+    {
+      "path": "psyq/libpad.h",
+      "sha256": "02e31afba417da88e8bd8f7436cdf0ff5be563eda3a6bd25fd1042136db34367"
+    },
+    {
+      "path": "psyq/libpress.h",
+      "sha256": "041c8962a79d0d23ec33821e7ab20cd61aaa23acd8bdd6f1d690cc60fa20e139"
+    },
+    {
+      "path": "psyq/libsio.h",
+      "sha256": "68c4bdd9efc893a1decfb2af0e41b3acf3ace6f9220025e91e6f83de37ca0f60"
+    },
+    {
+      "path": "psyq/libsn.h",
+      "sha256": "b0899e57d943431c983d3e897250dbb32e5f8d68019a7bf8c8963294e63ce8ba"
+    },
+    {
+      "path": "psyq/libsnd.h",
+      "sha256": "1bb9d99402e373adaa195948381f811ec555ea83e94d990ec8e2ae987e5bfb27"
+    },
+    {
+      "path": "psyq/libspu.h",
+      "sha256": "158c277c496cb896c8dd670106b7957364d1180e8bf139de10f1abe664f2c03f"
+    },
+    {
+      "path": "psyq/libspu_internal.h",
+      "sha256": "92c8e5458a4127881b95f9e5d7dca0937bb953e17dad655d17075094275b4e0b"
+    },
+    {
+      "path": "psyq/libtap.h",
+      "sha256": "187b96134986fb5203b9c81a1080a463479d7afa4e4848aa1f475dc8bbeedaf7"
+    },
+    {
+      "path": "psyq/limits.h",
+      "sha256": "f111e820858c7a74ec2c846eae476cd4ab8f1cfc6c6b5c61931f45b4b5afbf88"
+    },
+    {
+      "path": "psyq/malloc.h",
+      "sha256": "d282dc1f923bfc7f1be0c8f6a68f14108a45af87cebecf92603163f5c2d9a7fc"
+    },
+    {
+      "path": "psyq/mcgui.h",
+      "sha256": "3e5bea6c36c21120caa58c2022fc106bf3a014c6d9a22c4715f0f4c37eb8959a"
+    },
+    {
+      "path": "psyq/memory.h",
+      "sha256": "610865e3494040489c6237b8fcba9253c8c7335407dee40507bc813068fb5810"
+    },
+    {
+      "path": "psyq/qsort.h",
+      "sha256": "ab79191417ba27607ebc06635f496bd8bed1f8517a91589eb72c899d22503747"
+    },
+    {
+      "path": "psyq/r3000.h",
+      "sha256": "ddff556de9dc4e2d3b6194b20a7a7fdc4089e948224a09fc852c4fd87f1cab0d"
+    },
+    {
+      "path": "psyq/rand.h",
+      "sha256": "0ce051892af288eea0ce8f367f1bd069909ed0a5dff798ea9524793c43150265"
+    },
+    {
+      "path": "psyq/romio.h",
+      "sha256": "7097435ee0639121f846186d6e661764375faa14f72e96c8c4e338491ec1ebe6"
+    },
+    {
+      "path": "psyq/sdk_internal.h",
+      "sha256": "3caf19fcf2e3bcb75dd5a1737d01fe713484ad731c97e4acf4a129bc1bcb5f7d"
+    },
+    {
+      "path": "psyq/setjmp.h",
+      "sha256": "231af60807444ca8cc9a02bf934704a63fc36916a39be6dc0204165f208d6a19"
+    },
+    {
+      "path": "psyq/startup_data.h",
+      "sha256": "03c973236f945b1836641d6b40dc635b355361b458ca004679e51fd62b42380e"
+    },
+    {
+      "path": "psyq/stdarg.h",
+      "sha256": "835e85f225f5cc25aab6e8c666c1da585915547b43f85cf4d4c5461aaf75de4b"
+    },
+    {
+      "path": "psyq/stddef.h",
+      "sha256": "4a0d4905ccce3964354db84c1164803cfe7c5d7e95f8de6e1753a83af733fe10"
+    },
+    {
+      "path": "psyq/stdio.h",
+      "sha256": "1c52e4705446627bf251f5dfccc9d84780d7af0cc3d3d7ba9e0bad004e4818ee"
+    },
+    {
+      "path": "psyq/stdlib.h",
+      "sha256": "b6f4f3bfc323cb14ba6bd6796192e28b1c2134d51c62274e2f2e45ad7f1015a4"
+    },
+    {
+      "path": "psyq/string.h",
+      "sha256": "db9936ae8c6db8f0fafe44753cf1ee867de60884e15a1d09ab4c887ab54918ef"
+    },
+    {
+      "path": "psyq/strings.h",
+      "sha256": "59593e1aa7d7742076c444b3e42ddd4f95c3d7d93522b0320833618f36e1efde"
+    },
+    {
+      "path": "psyq/sys/errno.h",
+      "sha256": "7b5bd107671ceab88e233de6b280aca64b545e0281139cf6a55bda3cc089f1df"
+    },
+    {
+      "path": "psyq/sys/fcntl.h",
+      "sha256": "5572b555d285b1602234278b1ec3437a5dca784724535cafd63260149ce03353"
+    },
+    {
+      "path": "psyq/sys/file.h",
+      "sha256": "a20b38db4fc8c6aedf40a613ae12353c91fb9108899f03ce21d83578b9110196"
+    },
+    {
+      "path": "psyq/sys/ioctl.h",
+      "sha256": "91225671aa32268ec6334772cec9f4e558660ef5a3e1defd2c5cb308f77765b1"
+    },
+    {
+      "path": "psyq/sys/types.h",
+      "sha256": "d6ef4edf78b9690e3d1a8fdfbbca267f0bda8684b19981d4b795b28806272667"
+    },
+    {
+      "path": "types.h",
+      "sha256": "1f1f2cc1b332fa1c445a6ea73c03c7eb9ea638fb99c302d73db2680897da67f5"
+    },
+    {
+      "path": "unmatched.h",
+      "sha256": "5570fe31ba3edbeabbfeb5ea45801b92f910fce2089e6e44e7a85f923101eae0"
+    },
+    {
+      "path": "ygo_types.h",
+      "sha256": "2a3843fa0f433aeb0c4e5774dd70f0b9b9c2deae2452fb6dd48ac2e9e5d6955f"
+    }
+  ],
+  "sdk_headers_aggregate_method": "sha256(UTF8 sorted relative path + NUL + sha256 + LF)",
+  "sdk_headers_aggregate": "b56439d3c52d92012b2c1e7fa0364bb5564bcd4d3d58dde0e63ad3769afd8b84",
+  "original_manifest": {
+    "path": "/workspace/work/hal20-fusion/repo/mods/fusion-auxiliary-balance/mod.json",
+    "sha256": "e8ff14b500189b1e6bca253677756535c5f8e3c00b27d2904f3640d870fadd7a",
+    "bytes": 22067
+  },
+  "original_manifest_summary": {
+    "configurations": 43,
+    "restart": true
+  },
+  "original_sources_and_assets": "INPUTS.json (98 full-source/consumer preflight/postflight checks)",
+  "candidates": {
+    "hide": {
+      "sha256": "1236eb5408b22c5fefecea748a5b9af6f925ef4fab1409ef869b36faff7571dd",
+      "bytes": 381024,
+      "path": "artifacts/hal21/hide/fusion-auxiliary-balance.o",
+      "source_diff": [
+        "fusionist_runtime.h",
+        "mod.c",
+        "owner_f.h"
+      ]
+    },
+    "revoke": {
+      "sha256": "3d85b23482682deb012b2d32458f077da0b4cfd4a3b3ee92d79f9bdae00bdcd9",
+      "bytes": 380268,
+      "path": "artifacts/hal21/revoke/fusion-auxiliary-balance.o",
+      "source_diff": [
+        "fusionist_runtime.h",
+        "mod.c",
+        "owner_f.h"
+      ]
+    }
+  },
+  "patches": {
+    "hide": {
+      "path": "/workspace/work/hal21/repo/experiments/hal21/hide.patch",
+      "sha256": "0ee37fa44d19af3421452f66feda56bfd4f8806e0a794ceb4c3613a907c8f78d",
+      "bytes": 2186
+    },
+    "revoke": {
+      "path": "/workspace/work/hal21/repo/experiments/hal21/revoke.patch",
+      "sha256": "fdc26d3e8f85b109bf5be990289af78b49b6c7641b12898a694fda834f27fec4",
+      "bytes": 1984
+    }
+  },
+  "ABI": {
+    "public_exports": [
+      "MemoriesModInit",
+      "Png_Decode"
+    ],
+    "imports": 131,
+    "same_in_all_candidates": true
+  },
+  "permission": "Own Fusion sources provided/authorized by user; PeterIron coin permission recorded in PR12 NOTICES-HAL20.md. No new assets, private consumer sources/binaries, or Dual files published.",
+  "raw_sha256_caveat": "SDK DWARF includes temporary absolute paths. Hashes identify this build; differing build paths may change raw bytes. No claim of bit-identical arbitrary-workspace builds."
+}

@@ -1,0 +1,61 @@
+MODEL_DATA gCard_nCount
+MODEL_DATA gDuel_awSavedDefenseModifier
+REAL_HOST_EXPORTS count=214
+LIBRARY_INIT owner=ritual-card-effects-test hash=52ce4829
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER owner=ritual-card-effects-test target=Input_UpdatePads token=1
+REGISTER owner=ritual-card-effects-test target=Main_RunDuel token=2
+REGISTER owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=3
+REGISTER owner=ritual-card-effects-test target=func_800559D4 token=4
+REGISTER owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=5
+REGISTER owner=ritual-card-effects-test target=func_80017F04 token=6
+REGISTER owner=ritual-card-effects-test target=AiScript_Run token=7
+REGISTER owner=ritual-card-effects-test target=AiScript_FindWeakest token=8
+REGISTER owner=ritual-card-effects-test target=Ai_IsCardInSets token=9
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=10
+REGISTER owner=ritual-card-effects-test target=func_80037DA4 token=11
+REGISTER owner=ritual-card-effects-test target=func_80035E20 token=12
+REGISTER owner=ritual-card-effects-test target=func_80027508 token=13
+REGISTER owner=ritual-card-effects-test target=func_80024D34 token=14
+REGISTER owner=ritual-card-effects-test target=DuelScene_Update token=15
+REGISTER owner=ritual-card-effects-test target=func_80023144 token=16
+REGISTER owner=ritual-card-effects-test target=Duel_DrawFieldCards token=17
+REGISTER owner=ritual-card-effects-test target=func_80016784 token=18
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=19
+REGISTER owner=ritual-card-effects-test target=Duel_CalcCardStats token=20
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=21
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=22
+REGISTER owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=23
+REGISTER owner=ritual-card-effects-test target=func_8001EFD4 token=24
+REGISTER owner=ritual-card-effects-test target=func_8001B170 token=25
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=26
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=27
+REGISTER owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=28
+REGISTER owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=29
+REGISTER owner=ritual-card-effects-test target=Duel_ResetCardRecords token=30
+REGISTER owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=31
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=32
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=33
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=34
+REGISTER owner=ritual-card-effects-test target=func_8001BAF0 token=35
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=36
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=37
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=38
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=39
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=40
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=41
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=42
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=43
+REGISTER owner=ritual-card-effects-test target=Duel_CheckFusion token=44
+REGISTER owner=ritual-card-effects-test target=Duel_CheckRitual token=45
+REGISTER owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=46
+REGISTER owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=47
+REGISTER owner=ritual-card-effects-test target=AiScript_FindKiller token=48
+REGISTER owner=ritual-card-effects-test target=AiScript_CalcCardPower token=49
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=50
+memories-pc: mods: ritual-card-effects-test loaded its code (ritual-card-effects.o)
+memories-pc: mod ritual-card-effects-test: warning: this build has no audio replacement
+LOADED fusion-auxiliary-balance active=0 status=
+LOADED ritual-card-effects-test active=1 status=this build has no audio replacement
+RESULT restart-startup-OFF-no-providers PASS Real manager registry with Fusion absent.
+SUMMARY checks=5903 failures=0; real manager, partial engine

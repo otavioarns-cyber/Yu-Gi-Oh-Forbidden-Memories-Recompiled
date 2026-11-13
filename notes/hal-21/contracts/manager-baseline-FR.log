@@ -1,0 +1,197 @@
+MODEL_DATA gCard_nCount
+MODEL_DATA gDuel_awSavedDefenseModifier
+REAL_HOST_EXPORTS count=214
+LIBRARY_INIT owner=fusion-auxiliary-balance hash=e6f40fd4
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindBestAttack token=1
+REGISTER owner=fusion-auxiliary-balance target=AiScript_PlayFieldCard token=2
+REGISTER owner=fusion-auxiliary-balance target=AiScript_LoadGuardianStarChoice token=3
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindKiller token=4
+REGISTER owner=fusion-auxiliary-balance target=AiScript_CalcCardPower token=5
+REGISTER owner=fusion-auxiliary-balance target=Duel_CheckFusion token=6
+REGISTER owner=fusion-auxiliary-balance target=func_80023144 token=7
+REGISTER owner=fusion-auxiliary-balance target=func_80035E20 token=8
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_AppendEntry token=9
+REGISTER owner=fusion-auxiliary-balance target=Duel_CheckEquip token=10
+REGISTER owner=fusion-auxiliary-balance target=Ai_CompleteFusion token=11
+REGISTER owner=fusion-auxiliary-balance target=Duel_CalcCardStats token=12
+REGISTER owner=fusion-auxiliary-balance target=func_8001EFD4 token=13
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyLifePointRecovery token=14
+REGISTER owner=fusion-auxiliary-balance target=DuelCard_RemoveFromField token=15
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyBoardDestruction token=16
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyRaigeki token=17
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyMonsterRemoval token=18
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateBattle token=19
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateTurnSwitch token=20
+REGISTER owner=fusion-auxiliary-balance target=DuelCard_UpdateDefenseRotation token=21
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateResume token=22
+REGISTER owner=fusion-auxiliary-balance target=func_80024D34 token=23
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_Update token=24
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions token=25
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateCardPlacement token=26
+REGISTER owner=fusion-auxiliary-balance target=func_8001B170 token=27
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_UpdateCardEffect token=28
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateFieldActions token=29
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_UpdateRequests token=30
+REGISTER owner=fusion-auxiliary-balance target=Duel_GetBaseCardStat token=31
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindBestCombo token=32
+REGISTER owner=fusion-auxiliary-balance target=AiScript_EvaluateFusion token=33
+memories-pc: mods: fusion-auxiliary-balance loaded its code (fusion-auxiliary-balance.o)
+LIBRARY_INIT owner=ritual-card-effects-test hash=52ce4829
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER owner=ritual-card-effects-test target=Input_UpdatePads token=34
+REGISTER owner=ritual-card-effects-test target=Main_RunDuel token=35
+REGISTER owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=36
+REGISTER owner=ritual-card-effects-test target=func_800559D4 token=37
+REGISTER owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=38
+REGISTER owner=ritual-card-effects-test target=func_80017F04 token=39
+REGISTER owner=ritual-card-effects-test target=AiScript_Run token=40
+REGISTER owner=ritual-card-effects-test target=AiScript_FindWeakest token=41
+REGISTER owner=ritual-card-effects-test target=Ai_IsCardInSets token=42
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=43
+REGISTER owner=ritual-card-effects-test target=func_80037DA4 token=44
+REGISTER owner=ritual-card-effects-test target=func_80035E20 token=45
+REGISTER owner=ritual-card-effects-test target=func_80027508 token=46
+REGISTER owner=ritual-card-effects-test target=func_80024D34 token=47
+REGISTER owner=ritual-card-effects-test target=DuelScene_Update token=48
+REGISTER owner=ritual-card-effects-test target=func_80023144 token=49
+REGISTER owner=ritual-card-effects-test target=Duel_DrawFieldCards token=50
+REGISTER owner=ritual-card-effects-test target=func_80016784 token=51
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=52
+REGISTER owner=ritual-card-effects-test target=Duel_CalcCardStats token=53
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=54
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=55
+REGISTER owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=56
+REGISTER owner=ritual-card-effects-test target=func_8001EFD4 token=57
+REGISTER owner=ritual-card-effects-test target=func_8001B170 token=58
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=59
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=60
+REGISTER owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=61
+REGISTER owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=62
+REGISTER owner=ritual-card-effects-test target=Duel_ResetCardRecords token=63
+REGISTER owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=64
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=65
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=66
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=67
+REGISTER owner=ritual-card-effects-test target=func_8001BAF0 token=68
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=69
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=70
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=71
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=72
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=73
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=74
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=75
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=76
+REGISTER owner=ritual-card-effects-test target=Duel_CheckFusion token=77
+REGISTER owner=ritual-card-effects-test target=Duel_CheckRitual token=78
+REGISTER owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=79
+REGISTER owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=80
+REGISTER owner=ritual-card-effects-test target=AiScript_FindKiller token=81
+REGISTER owner=ritual-card-effects-test target=AiScript_CalcCardPower token=82
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=83
+memories-pc: mods: ritual-card-effects-test loaded its code (ritual-card-effects.o)
+memories-pc: mod ritual-card-effects-test: warning: this build has no audio replacement
+LOADED fusion-auxiliary-balance active=1 status=
+LOADED ritual-card-effects-test active=1 status=this build has no audio replacement
+CASE owner-ON-ABI
+RESULT ABI-versions-layout PASS Unchanged public v1/v2 layouts; raw ELF API24 init and original provider records.
+RESULT ON-public-answers PASS Original valid owner/face-up Musician and identity lease answers.
+RESULT ON-real-consumers PASS Verbatim external source consumer functions call real providers through official Mods_Find.
+CASE original-manifest-restart
+RESULT restart-defers-supported-OFF PASS Original restart:true saves OFF but retains actual ON; not a provider failure.
+CASE manager-apply-and-reload-defers-OFF
+RESULT restart-Apply-reload-keeps-actual-ON PASS Actual Mods_Apply then manager reload preserve runtime state until full restart. Owner state must not use preference host->applied.
+CASE OFF-cached-provider-F1
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+CONTRACT OFF encore0=1 encore1=0 lease=77 extended=77 forecast=0 ritualEncore=1 wizardEncore=1 borrowed=77
+RESULT Mods-Find-keeps-disabled-providers PASS Official registry leaves cached/public pointers callable while owner OFF.
+RESULT OFF-benefit-queries-neutral FAIL F1 invariant: preserve baseline FAIL; candidate answers all neutral.
+RESULT OFF-consumers-neutral FAIL Fresh Ritual/Time Wizard contract queries, not full roulette core or effects.
+RESULT OFF-provider-management-still-works PASS Registration/unregister are lifecycle management, not gameplay benefit; remain available OFF.
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+CONTRACT ON-again encore0=1 encore1=0 lease=77 extended=77 forecast=1 ritualEncore=1 wizardEncore=1 borrowed=77
+RESULT policy-valid-identity-after-ON PASS Hide retains/revalidates; revoke does not recreate old lease. Encore is current live presence, not a lease.
+CASE slot-move
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+IDENTITY case=slot-move destination=6 lease=77 expected-policy=77
+RESULT policy-identity-result PASS Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+CASE controller-transfer
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+IDENTITY case=controller-transfer destination=20 lease=77 expected-policy=77
+RESULT policy-identity-result PASS Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+RESULT control-change-follows-identity PASS Presence side changes independently of lease storage slot.
+CASE different-identity-same-ID
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+IDENTITY case=different-identity-same-ID destination=6 lease=0 expected-policy=0
+RESULT policy-identity-result PASS Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+CASE removed
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+IDENTITY case=removed destination=5 lease=77 expected-policy=77
+RESULT policy-identity-result PASS Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+CASE field-to-hand
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+IDENTITY case=field-to-hand destination=10 lease=0 expected-policy=0
+RESULT policy-identity-result PASS Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+CASE face-down
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+IDENTITY case=face-down destination=5 lease=77 expected-policy=77
+RESULT policy-identity-result PASS Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+RESULT face-down-encore-neutral PASS Face-down origin lease is distinct from live Encore eligibility.
+CASE same-pointer-leave-reenter
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+IDENTITY case=same-pointer-leave-reenter destination=6 lease=77 expected-policy=77
+RESULT policy-identity-result PASS Current identity/zone/setting revalidation; never substitute another data pointer by equal card ID.
+RESULT no-old-lease-after-unobserved-zone-roundtrip FAIL Semantic risk control: same data pointer leaves/reenters during OFF; hide has no history/generation to distinguish it.
+CASE fresh-lease-after-ON
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+RESULT new-lease-monotonic PASS Real bind callback: revoke does not reset serial or recreate old grant; a new explicit grant obtains 78.
+CASE external-producer-disabled-OFF
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+RESULT external-producer-revalidation FAIL Hide rechecks external target predicate on ON; revoke already ended grant. Baseline does not revalidate.
+CASE egotist-setting-OFF
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+RESULT setting-disabled-on-reactivation PASS Egotist option OFF suppresses lease without altering recipes/settings in either candidate.
+CASE copy-isolation-and-explicit-revoke-OFF
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+RESULT revoke-cleanup-allowed-OFF PASS Cleanup callback is permitted while OFF; another physical copy never inherits revoked identity.
+CASE owner-OFF-new-duel-reset
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+RESULT inactive-reset-does-not-revive-old-lease FAIL Official Mods_Reset skips inactive owners. Hide can preserve old memory; revoke already cleared it.
+CASE reset-and-simulated-load
+RESULT load-reset-clears-leases PASS Actual registered-state visitation and callbacks only; no BSS save format invented and no old state compatibility claim.
+CASE new-duel-scene-hook
+TRACE case=new-duel-scene-hook owner=ritual-card-effects-test kind=hook name=DuelScene_Update
+TRACE case=new-duel-scene-hook owner=fusion-auxiliary-balance kind=hook name=DuelScene_Update
+TRACE case=new-duel-scene-hook owner=engine name=DuelScene_Update
+RESULT active-new-duel-clears-leases PASS Real Fusion scene hook first phase tick, native scene body modeled.
+CASE Time-Wizard-bridge-cached-vs-fresh-attempt
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+TIME_WIZARD init=1 initially_eligible=1 retry_after_OFF=1 fresh_attempt_retry_OFF=1
+RESULT TimeWizard-bridge-ON-unchanged PASS Actual supplied bridge source; original compiled core and wheel are modeled boundaries.
+RESULT TimeWizard-new-attempt-OFF-neutral FAIL Fresh attempt queries fixed provider; baseline F1 stays visible.
+RESULT TimeWizard-cached-attempt-characterized PASS Bridge caches ON eligibility. API fix alone does not cancel an in-flight attempt; no TimeWizard workaround implemented.
+CASE real-Ritual-reconcile-borrowed-effect
+RESULT Ritual-reconcile-ON-preserved PASS Real PR11 reconcile keeps matching ON borrow; setup of borrowed origin is explicit fixture instrumentation.
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+RESULT Ritual-reconcile-OFF-retires FAIL Real PR11 reconcile retires future shield eligibility on neutral lease; baseline F1 remains FAIL. Resolved actions not rolled back.
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+CASE real-Ritual-provider-disabled-during-Fusion-OFF
+RESULT real-Ritual-enabled-contract PASS Unmodified PR11 object supplies effect catalogue, not fixture provider.
+FORCED_APPLIED on=0 actual=0; bypass restart only for callback contract experiment
+FORCED_APPLIED on=1 actual=1; bypass restart only for callback contract experiment
+RESULT ON-revalidates-unavailable-producer FAIL Hide must retire no-longer-eligible producer on reactivation; revoke already retired it. Baseline limitation retained.
+memories-pc: mod ritual-card-effects-test: warning: this build has no audio replacement
+SUMMARY checks=6050 failures=8; real manager, partial engine
