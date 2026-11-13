@@ -1,0 +1,54 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+REAL_HOST_EXPORTS count=189
+LIBRARY_INIT owner=dual-play hash=3028c68a loads=1
+REGISTER owner=dual-play target=DuelScene_UpdateHandActions token=1
+REGISTER owner=dual-play target=DuelScene_UpdateDrawPhase token=2
+REGISTER owner=dual-play target=DuelScene_UpdateFieldActions token=3
+REGISTER owner=dual-play target=func_80028220 token=4
+REGISTER owner=dual-play target=func_8001BAF0 token=5
+REGISTER owner=dual-play target=Duel_InitScene token=6
+STATE owner=dual-play size=50 version=10
+memories-pc: mods: dual-play loaded its code (dual-play.o)
+LIBRARY_INIT owner=ritual-duelists hash=57b53592 loads=1
+STATE owner=ritual-duelists size=288 version=4
+REGISTER owner=ritual-duelists target=DuelEffect_ApplyRitual token=7
+REGISTER owner=ritual-duelists target=Duel_CheckFusion token=8
+REGISTER owner=ritual-duelists target=Duel_ShuffleDeck token=9
+REGISTER owner=ritual-duelists target=Ai_GetHandSize token=10
+REGISTER owner=ritual-duelists target=func_8001BAF0 token=11
+REGISTER owner=ritual-duelists target=AiScript_Run token=12
+REGISTER owner=ritual-duelists target=NameEntry_BuildStarterDeck token=13
+REGISTER owner=ritual-duelists target=Duel_SelectCardDrop token=14
+memories-pc: mods: ritual-duelists loaded its code (ritual-duelists.o)
+LIBRARY_INIT owner=ai-hard-mode hash=3e0648cb loads=1
+REGISTER owner=ai-hard-mode target=AiScript_Init token=15
+REGISTER owner=ai-hard-mode target=AiScript_Run token=16
+REGISTER owner=ai-hard-mode target=Ai_GetHandSize token=17
+REGISTER owner=ai-hard-mode target=func_8001BAF0 token=18
+REGISTER owner=ai-hard-mode target=AiScript_FindStrongest token=19
+REGISTER owner=ai-hard-mode target=AiScript_FindWeakest token=20
+REGISTER owner=ai-hard-mode target=AiScript_FindCard token=21
+REGISTER owner=ai-hard-mode target=AiScript_MatchType token=22
+REGISTER owner=ai-hard-mode target=AiScript_FindDefenseStopper token=23
+memories-pc: mods: ai-hard-mode loaded its code (ai-hard-mode.o)
+REGISTER owner=hal23-observer target=AiScript_Run token=24
+memories-pc: mods: hal23-observer loaded its code (observer.o)
+BOOT phase=1 pid=14227 pending=0 H-want=1 H-active=1 loads=1 RD-state=288/v4
+RESULT fresh-library-has-no-pending PASS Fresh process/library BSS has no prior pending; settings do not contain this action.
+SUMMARY assertions=5877 failures=0 reboot-only

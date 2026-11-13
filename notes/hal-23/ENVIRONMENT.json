@@ -1,0 +1,22 @@
+{
+  "python": "3.12.14",
+  "toolchain": [
+    {
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "--version"
+      ],
+      "version": "gcc (Debian 14.2.0-19) 14.2.0"
+    },
+    {
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "--version"
+      ],
+      "version": "qemu-i386 version 5.2.0 (Debian 1:5.2+dfsg-11+deb11u3)"
+    }
+  ],
+  "runner": "qemu-i386-static -L /workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+  "i386_execution": "Linux host fixture, not Windows gameplay",
+  "objects": "Existing API24 rebuilds reused unchanged; only own harness/observer built"
+}
