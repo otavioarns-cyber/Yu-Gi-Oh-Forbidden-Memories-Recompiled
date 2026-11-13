@@ -4,13 +4,13 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5767,
-      "sha256": "560fe43bd59282e9c1c2a14760f525a2a0d5aa24044125d79f6f06978e4b5931"
+      "bytes": 5886,
+      "sha256": "098b4f91853df0f7251964650cbe5643fec91c22be21386f976506ecf7e6b112"
     },
     {
       "path": "notes/HAL22_LIFECYCLE_RESTART.md",
-      "bytes": 15665,
-      "sha256": "5487024b12173c0fd5c84bfddf09e70d919f0894aee7086eaa475c57a2e5a57b"
+      "bytes": 15811,
+      "sha256": "cf14e19001d22fe2e970af195698133386d3ea868244edb7c09d1af1a8ad3c68"
     },
     {
       "path": "tests/hal22-lifecycle/README.md",

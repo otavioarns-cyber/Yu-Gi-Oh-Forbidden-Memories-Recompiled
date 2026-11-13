@@ -2,7 +2,7 @@
 
 **A mitigação funciona sob um protocolo explícito de ordem segura e reinício completo. `restart: true` impede a primeira ativação tardia insegura do AI nos caminhos executados, mas não impõe uma ordem segura. O manager ainda aceita uma ordem invertida — inclusive depois de reiniciar. Nenhuma correção definitiva foi aplicada.**
 
-Branch independente `test/hal-22-lifecycle-restart`, derivada da integração oficial `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`. Núcleo oficial `aceac3782902746f35ddb0148809450933327cb3`, API 24.
+Branch independente `test/hal-22-lifecycle-restart`, derivada da integração oficial `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`. Núcleo oficial `aceac3782902746f35ddb0148809450933327cb3`, API 24. [PR #16 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/16), direcionado à integração, sem merge.
 
 Continuidade lida: `AGENTS.md`, [diagnóstico PR #15](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/15) no commit `9d21f19a8edf9c12ce5e2de419a7ef8037c6cf50`, [primeira integração PR #14](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/14), base/inventário HAL-20 e tarefas [HAL-22](https://linear.app/half-programer/issue/HAL-22), [HAL-20](https://linear.app/half-programer/issue/HAL-20), [HAL-6](https://linear.app/half-programer/issue/HAL-6), [HAL-18](https://linear.app/half-programer/issue/HAL-18). O relatório cobre apenas I2, com AI oficial e Dual local. Não incorpora outros MODs ou pendências I1/I3/F1.
 
