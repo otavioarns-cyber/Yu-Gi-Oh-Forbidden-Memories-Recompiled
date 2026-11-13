@@ -1,0 +1,148 @@
+PROFILE stage=4 hm=0 dual=1 order=1 drop-missing-cards=ON-in-profile (table execution separate)
+REGISTER hook owner=melhoria-dos-rituais target=Duel_CheckRitual token=1
+REGISTER hook owner=melhoria-dos-rituais target=Duel_RitualFieldObjects token=2
+REGISTER hook owner=melhoria-dos-rituais target=DuelCard_DeactivateRecord token=3
+REGISTER hook owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions token=4
+REGISTER hook owner=melhoria-dos-rituais target=Duel_PopulateCombinedDeckData token=5
+PROVIDER owner=melhoria-dos-rituais name=rules_v1
+REGISTER hook owner=melhoria-dos-rituais target=Duel_CheckQuitInput token=6
+REGISTER hook owner=melhoria-dos-rituais target=DuelScene_UpdateWithSideInput token=7
+LOADED owner=melhoria-dos-rituais api=4 hash=1fe34a1e enabled=1
+REGISTER hook owner=ai-hard-mode target=AiScript_Init token=8
+REGISTER hook owner=ai-hard-mode target=AiScript_Run token=9
+REGISTER hook owner=ai-hard-mode target=Ai_GetHandSize token=10
+REGISTER hook owner=ai-hard-mode target=func_8001BAF0 token=11
+REGISTER hook owner=ai-hard-mode target=AiScript_FindStrongest token=12
+REGISTER hook owner=ai-hard-mode target=AiScript_FindWeakest token=13
+REGISTER hook owner=ai-hard-mode target=AiScript_FindCard token=14
+REGISTER hook owner=ai-hard-mode target=AiScript_MatchType token=15
+REGISTER hook owner=ai-hard-mode target=AiScript_FindDefenseStopper token=16
+LOADED owner=ai-hard-mode api=4 hash=3e0648cb enabled=0
+PROVIDER owner=fusion-auxiliary-balance name=encore-v1
+PROVIDER owner=fusion-auxiliary-balance name=origin-unlock-v1
+PROVIDER owner=fusion-auxiliary-balance name=origin-effects-v1
+PROVIDER owner=fusion-auxiliary-balance name=effect_forecast_v2
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_FindBestAttack token=17
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_PlayFieldCard token=18
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_LoadGuardianStarChoice token=19
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_FindKiller token=20
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_CalcCardPower token=21
+REGISTER hook owner=fusion-auxiliary-balance target=Duel_CheckFusion token=22
+REGISTER hook owner=fusion-auxiliary-balance target=func_80023144 token=23
+REGISTER hook owner=fusion-auxiliary-balance target=func_80035E20 token=24
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_AppendEntry token=25
+REGISTER hook owner=fusion-auxiliary-balance target=Duel_CheckEquip token=26
+REGISTER hook owner=fusion-auxiliary-balance target=Ai_CompleteFusion token=27
+REGISTER hook owner=fusion-auxiliary-balance target=Duel_CalcCardStats token=28
+REGISTER hook owner=fusion-auxiliary-balance target=func_8001EFD4 token=29
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_ApplyLifePointRecovery token=30
+REGISTER hook owner=fusion-auxiliary-balance target=DuelCard_RemoveFromField token=31
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_ApplyBoardDestruction token=32
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_ApplyRaigeki token=33
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_ApplyMonsterRemoval token=34
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateBattle token=35
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateTurnSwitch token=36
+REGISTER hook owner=fusion-auxiliary-balance target=DuelCard_UpdateDefenseRotation token=37
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateResume token=38
+REGISTER hook owner=fusion-auxiliary-balance target=func_80024D34 token=39
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_Update token=40
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions token=41
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateCardPlacement token=42
+REGISTER hook owner=fusion-auxiliary-balance target=func_8001B170 token=43
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_UpdateCardEffect token=44
+REGISTER hook owner=fusion-auxiliary-balance target=DuelScene_UpdateFieldActions token=45
+REGISTER hook owner=fusion-auxiliary-balance target=DuelEffect_UpdateRequests token=46
+REGISTER hook owner=fusion-auxiliary-balance target=Duel_GetBaseCardStat token=47
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_FindBestCombo token=48
+REGISTER hook owner=fusion-auxiliary-balance target=AiScript_EvaluateFusion token=49
+LOADED owner=fusion-auxiliary-balance api=24 hash=e6f40fd4 enabled=1
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER hook owner=ritual-card-effects-test target=Input_UpdatePads token=50
+REGISTER hook owner=ritual-card-effects-test target=Main_RunDuel token=51
+REGISTER hook owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=52
+REGISTER hook owner=ritual-card-effects-test target=func_800559D4 token=53
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=54
+REGISTER hook owner=ritual-card-effects-test target=func_80017F04 token=55
+REGISTER hook owner=ritual-card-effects-test target=AiScript_Run token=56
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindWeakest token=57
+REGISTER hook owner=ritual-card-effects-test target=Ai_IsCardInSets token=58
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindBestAttack token=59
+REGISTER hook owner=ritual-card-effects-test target=func_80037DA4 token=60
+REGISTER hook owner=ritual-card-effects-test target=func_80035E20 token=61
+REGISTER hook owner=ritual-card-effects-test target=func_80027508 token=62
+REGISTER hook owner=ritual-card-effects-test target=func_80024D34 token=63
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_Update token=64
+REGISTER hook owner=ritual-card-effects-test target=func_80023144 token=65
+REGISTER hook owner=ritual-card-effects-test target=Duel_DrawFieldCards token=66
+REGISTER hook owner=ritual-card-effects-test target=func_80016784 token=67
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=68
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcCardStats token=69
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=70
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=71
+REGISTER hook owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=72
+REGISTER hook owner=ritual-card-effects-test target=func_8001EFD4 token=73
+REGISTER hook owner=ritual-card-effects-test target=func_8001B170 token=74
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=75
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=76
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=77
+REGISTER hook owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=78
+REGISTER hook owner=ritual-card-effects-test target=Duel_ResetCardRecords token=79
+REGISTER hook owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=80
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=81
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=82
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=83
+REGISTER hook owner=ritual-card-effects-test target=func_8001BAF0 token=84
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=85
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=86
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=87
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=88
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=89
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=90
+REGISTER hook owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=91
+REGISTER hook owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=92
+REGISTER hook owner=ritual-card-effects-test target=Duel_CheckFusion token=93
+REGISTER hook owner=ritual-card-effects-test target=Duel_CheckRitual token=94
+REGISTER hook owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=95
+REGISTER hook owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=96
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindKiller token=97
+REGISTER hook owner=ritual-card-effects-test target=AiScript_CalcCardPower token=98
+REGISTER hook owner=ritual-card-effects-test target=AiScript_FindBestAttack token=99
+PROVIDER owner=ritual-card-effects-test name=effect_forecast_v2
+PROVIDER owner=ritual-card-effects-test name=recipe_v1
+PROVIDER owner=ritual-card-effects-test name=effect_intelligence_v1
+PROVIDER owner=ritual-card-effects-test name=position-rules-v1
+LOADED owner=ritual-card-effects-test api=4 hash=52ce4829 enabled=1
+STATE owner=ritual-duelists bytes=288 version=4
+REGISTER hook owner=ritual-duelists target=DuelEffect_ApplyRitual token=100
+REGISTER hook owner=ritual-duelists target=Duel_CheckFusion token=101
+REGISTER hook owner=ritual-duelists target=Duel_ShuffleDeck token=102
+REGISTER hook owner=ritual-duelists target=Ai_GetHandSize token=103
+REGISTER hook owner=ritual-duelists target=func_8001BAF0 token=104
+REGISTER hook owner=ritual-duelists target=AiScript_Run token=105
+REGISTER hook owner=ritual-duelists target=NameEntry_BuildStarterDeck token=106
+REGISTER hook owner=ritual-duelists target=Duel_SelectCardDrop token=107
+LOADED owner=ritual-duelists api=12 hash=57b53592 enabled=1
+REGISTER hook owner=dual-play target=DuelScene_UpdateHandActions token=108
+REGISTER hook owner=dual-play target=DuelScene_UpdateDrawPhase token=109
+REGISTER hook owner=dual-play target=DuelScene_UpdateFieldActions token=110
+REGISTER hook owner=dual-play target=func_80028220 token=111
+REGISTER hook owner=dual-play target=func_8001BAF0 token=112
+REGISTER hook owner=dual-play target=Duel_InitScene token=113
+STATE owner=dual-play bytes=50 version=10
+LOADED owner=dual-play api=24 hash=3028c68a enabled=1
+CASE RD-own-materialization-Dual-gate
+TRACE case=RD-own-materialization-Dual-gate owner=dual-play kind=hook name=func_8001BAF0
+TRACE case=RD-own-materialization-Dual-gate owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Ai_GetHandSize
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Duelists_Named
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Duelists_Named
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Duelists_Named
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Duelists_Named
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Duelists_Named
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Duelists_Named
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Duelists_Named
+TRACE case=RD-own-materialization-Dual-gate owner=engine name=Duelists_Named
+MODLOG owner=dual-play dual-play: rejected incompatible or unplaceable CPU extra-play plan
+OBSERVED rd_materialization dest=-1 rd_pending=1 dual_callbacks=1 hm_callbacks=0 rejected=1 quota=0 selection=0
+RESULT RD-own-materialization-Dual-gate PASS pending RD action explicitly seeded; actual hook chain called at engine entry
+SUMMARY assertions=824 cases=1 failures=0 (synthetic engine; no gameplay)
