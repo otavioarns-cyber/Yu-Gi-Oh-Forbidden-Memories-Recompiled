@@ -1,0 +1,194 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+REAL_HOST_EXPORTS count=189
+LIBRARY_INIT owner=dual-play hash=3028c68a loads=1
+REGISTER owner=dual-play target=DuelScene_UpdateHandActions token=1
+REGISTER owner=dual-play target=DuelScene_UpdateDrawPhase token=2
+REGISTER owner=dual-play target=DuelScene_UpdateFieldActions token=3
+REGISTER owner=dual-play target=func_80028220 token=4
+REGISTER owner=dual-play target=func_8001BAF0 token=5
+REGISTER owner=dual-play target=Duel_InitScene token=6
+STATE owner=dual-play size=50 version=10
+memories-pc: mods: dual-play loaded its code (dual-play.o)
+LIBRARY_INIT owner=ritual-duelists hash=57b53592 loads=1
+STATE owner=ritual-duelists size=288 version=4
+REGISTER owner=ritual-duelists target=DuelEffect_ApplyRitual token=7
+REGISTER owner=ritual-duelists target=Duel_CheckFusion token=8
+REGISTER owner=ritual-duelists target=Duel_ShuffleDeck token=9
+REGISTER owner=ritual-duelists target=Ai_GetHandSize token=10
+REGISTER owner=ritual-duelists target=func_8001BAF0 token=11
+REGISTER owner=ritual-duelists target=AiScript_Run token=12
+REGISTER owner=ritual-duelists target=NameEntry_BuildStarterDeck token=13
+REGISTER owner=ritual-duelists target=Duel_SelectCardDrop token=14
+memories-pc: mods: ritual-duelists loaded its code (ritual-duelists.o)
+REGISTER owner=hal23-observer target=AiScript_Run token=15
+memories-pc: mods: hal23-observer loaded its code (observer.o)
+BOOT phase=0 pid=14245 pending=0 H-want=0 H-active=0 loads=0 RD-state=288/v4
+RESULT fresh-library-has-no-pending PASS Fresh process/library BSS has no prior pending; settings do not contain this action.
+TRACE case=init owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=init owner=engine name=Duel_InitScene
+CASE controller-pending-lifecycle
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_FindFreeGeneralSlot
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_AcquireSlot
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_ConfigureSpriteResource
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_SelectOrderingTable1
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_SetDepthOffset
+TRACE case=controller-pending-lifecycle owner=engine name=func_8001B780
+TRACE case=controller-pending-lifecycle owner=engine name=func_80023144
+STEP frame=0 phase=4 substate=0 selection=0
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=func_80028220
+TRACE case=controller-pending-lifecycle owner=engine name=func_80028220
+TRACE case=controller-pending-lifecycle owner=engine name=func_80027DF8
+TRACE case=controller-pending-lifecycle owner=engine name=func_80027DF8
+TRACE case=controller-pending-lifecycle owner=engine name=AiScript_Init
+TRACE case=controller-pending-lifecycle owner=engine name=bzero
+TRACE case=controller-pending-lifecycle owner=engine name=bzero
+TRACE case=controller-pending-lifecycle owner=engine name=bzero
+STEP frame=1 phase=4 substate=32768 selection=0
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=hal23-observer kind=hook name=AiScript_Run
+TRACE case=controller-pending-lifecycle owner=ritual-duelists kind=hook name=AiScript_Run
+TRACE case=controller-pending-lifecycle owner=engine name=AiScript_Run
+MODEL_STOCK_AI choice=12 result=1
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_Named
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_Named
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_Named
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_Named
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_Named
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_Named
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_Named
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_Named
+TRACE case=controller-pending-lifecycle owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=controller-pending-lifecycle owner=engine name=Ai_GetHandSize
+TRACE case=controller-pending-lifecycle owner=engine name=Duelists_AiRow
+TRACE case=controller-pending-lifecycle owner=engine name=HAL23_AfterPlanner
+PENDING after-planner active=1 side=1 source=16 replacement=1 card=680 mode=1 target=6 fallback=12 selection=16
+TRACE case=controller-pending-lifecycle owner=ritual-duelists kind=hook name=func_8001BAF0
+TRACE case=controller-pending-lifecycle owner=engine name=Duel_SetupCardRecord
+TRACE case=controller-pending-lifecycle owner=engine name=func_80018004
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_ReleaseIfPresent
+STEP frame=2 phase=4 substate=1 selection=12
+FRAME_BOUNDARY planner and swap already returned; substate=1 pending=0
+WINDOW first needs_restart=1 pending=1 restarts=0 status=Applying these changes restarts the game. Unsaved game progress will be lost.
+WINDOW confirmed pending=0 restarts=1 status=Changes applied.
+WINDOW_CODE 110
+CHANGE method=window H-want=1 H-active=0 H-restart=1 loads=0
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+STEP frame=3 phase=4 substate=32769 selection=12
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=SD_SEPlayFull
+TRACE case=controller-pending-lifecycle owner=engine name=func_8001B780
+TRACE case=controller-pending-lifecycle owner=engine name=func_80023144
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=func_8001B8B8
+TRACE case=controller-pending-lifecycle owner=engine name=SD_SEPlayFull
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_SetDepthOffset
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_FindAllocatedByTag
+TRACE case=controller-pending-lifecycle owner=engine name=SD_SEPlayFull
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_FindAllocatedByTag
+TRACE case=controller-pending-lifecycle owner=engine name=DisplayObject_SetDepthOffset
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=func_8001B938
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=func_80024088
+TRACE case=controller-pending-lifecycle owner=engine name=SD_SEPlayFull
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=dual-play kind=hook name=DuelScene_UpdateHandActions
+TRACE case=controller-pending-lifecycle owner=engine name=DuelScene_UpdateHandActions
+STEP frame=39 phase=7 substate=49155 selection=12
+PENDING after-commit active=0 side=1 source=16 replacement=1 card=680 mode=1 target=6 fallback=12 selection=12
+OBSERVED phase=7 pending-created=1 pending-after=0 H-before=0 H-after=0 RDswap=1 Hswap=0 swaps=1 consumed=680 hand=4 path=ritual-duelists>
+RESULT pending-consumed-by-materializer PASS Real RD planner -> actual controller/swap. Stale pending remains FAIL; no private action seed.
+RESULT controller-action-committed PASS Actual native hand controller commits one physical selection; effect/placement completion not native gameplay.
+RESULT at-most-one-offscreen-exchange PASS Actual worker exchange count and all 80 data-block identities preserved.
+RESULT restart-defers-actual-state-change PASS Candidate restart policy keeps actual AI state throughout the in-process change.
+RESULT frame-boundary-has-no-abandoned-pending PASS No manager change injected between planner return and swap in this control.
+PROFILE_SIGNATURE before=4ba84d58 after=4ba84d58 compatible=1
+CASE none
+SUMMARY assertions=6102 failures=0

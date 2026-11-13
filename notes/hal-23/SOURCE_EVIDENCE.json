@@ -1,0 +1,44 @@
+[
+  {
+    "name": "controller-planner-swap-same-call",
+    "path": "src/game/duel_scene_hand_actions.c",
+    "sha256": "1bbcd5d132ebcc4dcc77c9e5444130b857c38d32911c2af57c86357ccccacdfd",
+    "status": "PASS",
+    "evidence": "Lines 176-184: after AiScript_Run success, selection metadata and swap execute before returning. No event pump/callback invocation in this interval."
+  },
+  {
+    "name": "pending-is-separate-from-registered-save",
+    "path": "PR13:mods/ritual-duelists/mod.c",
+    "sha256": "07e3575e6d626a582d3c58a71dab30bb9954be5edfb3cc30a2226a96bd1ac95c",
+    "status": "PASS",
+    "evidence": "Private deck_pull definition line59; registered save_state is separate. Runtime chunk overlap checks provide independent evidence."
+  },
+  {
+    "name": "stale-fallback-restores-selection",
+    "path": "PR13:mods/ritual-duelists/mod.c",
+    "sha256": "07e3575e6d626a582d3c58a71dab30bb9954be5edfb3cc30a2226a96bd1ac95c",
+    "status": "PASS",
+    "evidence": "rd_materialize lines711-775 consumes active before validation; failure MAGIC/FIELD restores fallback even if it belonged to an older action."
+  },
+  {
+    "name": "reset-clears-pending",
+    "path": "PR13:mods/ritual-duelists/mod.c",
+    "sha256": "07e3575e6d626a582d3c58a71dab30bb9954be5edfb3cc30a2226a96bd1ac95c",
+    "status": "PASS",
+    "evidence": "rd_reset lines1207-1213 explicitly clears pending; no fixture write."
+  },
+  {
+    "name": "official-load-resets-mods",
+    "path": "src/pc/guest/state.c",
+    "sha256": "ea861f6a44fc9c63ea6edf5ceb92b39c87e0d8f885fa3dd90f300d4025259d4a",
+    "status": "PASS",
+    "evidence": "Line585 calls Mods_Reset after restoring state and before LOAD AFTER event."
+  },
+  {
+    "name": "profile-signature-checked-before-load",
+    "path": "src/pc/guest/state_subsystems.c",
+    "sha256": "d85fef42870e8419cbda82bdbf1f0b97e8fd968073b0448e52165d5e632a8246",
+    "status": "PASS",
+    "evidence": "StateCompatibleMods lines70-81 rejects different mod signature and registered block mismatch. Not an old-save compatibility certification."
+  }
+]
