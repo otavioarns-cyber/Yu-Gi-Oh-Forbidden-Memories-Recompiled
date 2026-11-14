@@ -23,7 +23,8 @@
   "local_only": "No Wine/Xvfb/game executable/SDL/SDK/toolchain/private Dual binary is distributed. Own helper sources/build hashes accompany the receipt.",
   "alternatives": {
     "native_wow64_PE32": "Original game and independent PE32 control exited by signal11 before main; driver CreateProcess errors1359/731. PE64 control passed.",
-    "QEMU_i386_Wine32": "Without WINELOADERNOEXEC: could not exec loader; with it: timeout25s, repeated mmap attempts before program entry; explicit guest base attempt timeout30s."
+    "QEMU_i386_Wine32": "Without WINELOADERNOEXEC: could not exec loader; with it: timeout25s, repeated mmap attempts before program entry; explicit guest base attempt timeout30s.",
+    "native_Linux32_loader": "Directly executing the provided ELF32 ld-linux.so.2 is rejected by this host: exit126, Exec format error. QEMU alternative still times out before PE entry."
   },
   "game_disc": "Absent from provided workspace. Linux official headless startup exit1 independently reports missing game disc. No copyrighted data fabricated/downloaded."
 }

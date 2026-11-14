@@ -15,7 +15,7 @@ python tests/hal25-boundary/windows/run.py \
 
 Resultado observado: prefix-init e controle PE64 PASS; controle PE32 falha antes de main (CreateProcess erro1359); jogo PE32 headless/visível falha na criação (erro731). Execuções diretas do PE32 mínimo e do jogo também terminam SIGSEGV na camada Wine. Assim os casos de jogo são AUTOMATION_UNAVAILABLE; UI/input/restart/duelo/save-load são NOT_REACHED, sem atribuir falha funcional aos MODs.
 
-Wine32 sob QEMU foi tentado separadamente: sem WINELOADERNOEXEC não executa o loader; com ele há timeout antes da entrada do programa, repetindo mmap; outra base de guest também termina em timeout. São limites das tentativas neste ambiente, não prova de impossibilidade em outros backends. Wine64 console funcional não valida UI/gameplay i386.
+O loader Linux ELF32 também foi tentado diretamente e recusado pelo host (exit126, Exec format error). Wine32 sob QEMU foi tentado separadamente: sem WINELOADERNOEXEC não executa o loader; com ele há timeout antes da entrada do programa, repetindo mmap; outra base de guest também termina em timeout. São limites das tentativas neste ambiente, não prova de impossibilidade em outros backends. Wine64 console funcional não valida UI/gameplay i386.
 
 Runtime obtido da release pública https://github.com/Kron4ek/Wine-Builds/releases/tag/10.0, arquivos `wine-10.0-amd64-wow64.tar.xz` e `wine-10.0-x86.tar.xz`, ambos conferidos com `sha256sums.txt` da mesma release. Xvfb foi extraído localmente do pacote oficial Debian `xvfb_21.1.16-1.3+deb13u4_amd64.deb`; nenhum sistema/SDK de terceiros foi alterado. Runtime, executável do jogo, SDL e toolchain não são publicados; fontes próprios e hashes permitem repetir a tentativa.
 

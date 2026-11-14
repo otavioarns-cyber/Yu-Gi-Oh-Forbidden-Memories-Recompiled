@@ -3,8 +3,8 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 6987,
-      "sha256": "3c1362bf4ae9ec45f7e09284bc9efd9560b7a12922f57195f711f5d2e2fffb80"
+      "bytes": 7093,
+      "sha256": "28a30f1ef068a74b0055d24c9cd09e538589e85b849f9cf1d9eb191029bc3cc9"
     },
     {
       "path": "experiments/hal25-boundary/controller-derived-selection.patch",
@@ -1818,8 +1818,8 @@
     },
     {
       "path": "notes/HAL25_BOUNDARY_QUALIFICATION.md",
-      "bytes": 19569,
-      "sha256": "ee415aa7dadc5d26ff98f8c5a9e606de287d4bc42d1c638bd491800bd3459589"
+      "bytes": 20511,
+      "sha256": "801a19ab10b85b59219110d180ba40fc45ee5d00523e8835070a71a558773150"
     },
     {
       "path": "notes/hal-25-boundary/ABI_R.json",
@@ -1908,8 +1908,8 @@
     },
     {
       "path": "notes/hal-25-boundary/REFS_PRESERVADAS.json",
-      "bytes": 3080,
-      "sha256": "27cef7e4004b2bfe89363e8de24124cfa1dd635eeb1622310a6d8448ed64221c"
+      "bytes": 3312,
+      "sha256": "417c8d448df35c9c7d043a56a50a9018ea9358fb5fbe5fddf1fb604d517c427c"
     },
     {
       "path": "notes/hal-25-boundary/RESULTADOS.json",
@@ -2078,8 +2078,8 @@
     },
     {
       "path": "notes/hal-25-boundary/windows/ENVIRONMENT.json",
-      "bytes": 1490,
-      "sha256": "b5a1690ed85a5392e209c661ab0fb369ea1258362a321de9ec5b6bcbab707ccf"
+      "bytes": 1678,
+      "sha256": "3a880b83b5eda37d9bce5fc8fc39f33ea9a584c29f727e24ca4edc09beb35300"
     },
     {
       "path": "notes/hal-25-boundary/windows/RESULTADOS.json",
@@ -2125,6 +2125,11 @@
       "path": "notes/hal-25-boundary/windows/linux-official-startup.log",
       "bytes": 323,
       "sha256": "025519915d866ca63835eb5b5100675ae7531b2eeb10f86fbfe537160366faab"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/native-linux32-loader.log",
+      "bytes": 137,
+      "sha256": "ad54a04f9a02737497cd383e52476925de64b8fe6bf2ac10d8eb253482a22844"
     },
     {
       "path": "notes/hal-25-boundary/windows/prefix-init.log",
@@ -2273,8 +2278,8 @@
     },
     {
       "path": "tests/hal25-boundary/windows/README.md",
-      "bytes": 2648,
-      "sha256": "054f3dfd86c10d3c129c396e40261aca92deebcafa2af607fa4dc5602be406a8"
+      "bytes": 2752,
+      "sha256": "c31324af40b35aff7e3578a82c9d7d8607275421dee1ad8a8ad784527376168f"
     },
     {
       "path": "tests/hal25-boundary/windows/driver.c",

@@ -1,6 +1,6 @@
 # HAL-25 — fronteiras restantes e integração automatizada
 
-**Experimento independente, sem merge/release.** Base `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`; branch `test/hal-25-boundary-qualification`. Pacotes próprios derivados integralmente do [PR #26](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/26), commit `dc711074732e01275fb575aabda577c497ffe6d9`. As referências [#20](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/20), [#23](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/23), [#25](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/25) e #26 foram consultadas; nenhuma foi alterada.
+**Experimento independente, sem merge/release.** Base `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`; branch `test/hal-25-boundary-qualification`. Pacotes próprios derivados integralmente do [PR #26](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/26), commit `dc711074732e01275fb575aabda577c497ffe6d9`. [PR #27 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/27). As referências [#20](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/20), [#23](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/23), [#25](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/25) e #26 foram consultadas; nenhuma foi alterada.
 
 ## Resultado e decisão
 
@@ -16,7 +16,7 @@ A orientação atual substitui o bloqueio amplo usado nos relatórios anteriores
 
 Foi preparado um backend local Wine/WoW64 10.0 e Xvfb, sem alterações de sistema. Wine é camada de compatibilidade Linux, não Windows nativo. O prefixo inicializa e o controle Win64 executa CreateProcess/Wait/Exit/GetCurrentProcessId. Entretanto, o controle PE32 independente e o jogo i386 falham antes da entrada do programa. Tentativas diretas encerram em SIGSEGV; o driver WinAPI observa falha de criação1359 no controle e731 no jogo. Portanto não se atribui a falha aos MODs.
 
-Também foi tentado Wine32 sob QEMU i386: falha de exec do loader sem a opção interna de não reexecução; com ela, timeout25s repetindo mmap antes da entrada PE; outra base de guest termina em timeout30s. Isso documenta as tentativas neste ambiente, sem afirmar impossibilidade de automação em outro backend.
+A execução direta do loader Linux ELF32 foi recusada pelo host (exit126, Exec format error). Também foi tentado Wine32 sob QEMU i386: falha de exec do loader sem a opção interna de não reexecução; com ela, timeout25s repetindo mmap antes da entrada PE; outra base de guest termina em timeout30s. Isso documenta as tentativas neste ambiente, sem afirmar impossibilidade de automação em outro backend.
 
 | Tentativa automática | Resultado |
 |---|---|
@@ -137,4 +137,9 @@ Próximo passo mínimo: revisar o patch local e essa delimitação de candidata,
 
 ## Publicação
 
-Links de PR/branch/commit e preservação das referências serão registrados depois do push. Nenhum merge automático.
+- [PR #27 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/27), base integração oficial.
+- [Branch experimental publicada](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-25-boundary-qualification), push normal sem force.
+- [Commit da implementação/evidências](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/commit/edd991aecb02e32495e59dbf575ca5bff0512e64). O commit posterior registra links e verificação da publicação.
+- [31 heads anteriores preservadas](hal-25-boundary/REFS_PRESERVADAS.json) e [índice SHA de publicação](hal-25-boundary/PUBLICACAO_SHA256.json).
+
+Nenhum merge ou release foi realizado. Master, integração e PRs anteriores permanecem preservados. Esta branch documenta o ponto de continuidade para o próximo chat.
