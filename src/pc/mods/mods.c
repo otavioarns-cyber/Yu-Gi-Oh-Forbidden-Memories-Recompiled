@@ -4691,6 +4691,7 @@ int Mods_Failed(int index) { return at(index) && (mods[index].broken || mods[ind
 int Mods_HasCode(int index) { return at(index) && Manifest_HasCode(Mods_Manifest(index)); }
 
 unsigned Mods_CodeHash(int index) { return at(index) ? mods[index].code_hash : 0; }
+int Mods_CodeResident(int index) { return at(index) && (mods[index].object.image || mods[index].object.native_handle); }
 
 unsigned Mods_Sequence(int index) { return at(index) ? mods[index].sequence : 0; }
 

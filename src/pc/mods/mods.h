@@ -387,6 +387,8 @@ int Mods_RuntimeOption(int mod, int option);
  * pack, whose parts may follow the setting, is loaded again. */
 void Mods_OptionChanged(int mod, int option);
 unsigned Mods_CodeHash(int mod);
+/* Read-only residency, including a mapped library whose init failed. */
+int Mods_CodeResident(int mod);
 /* Internal read-only guard qualification: bytes loaded and exact callback. */
 int Mods_CodeMatches(int mod,unsigned code,const char *sha256);
 int Mods_CallbackMatches(int mod,const void *callback,const char *name,size_t size);

@@ -12,6 +12,8 @@ Em 11/11/2026, o usuário pediu que as informações das entregas e mudanças se
 
 ## Ponto de partida atual
 
+- Continuação em execução: [HAL26 estado/Time Wizard](notes/HAL26_STATE_TIMEWIZARD_READINESS.md), branch `test/hal-20-state-timewizard-readiness`, referência PR29/3284ec493. Objetos da coleção intactos. Candidata B recusa owners incompletos ativos/residentes independentemente do guard; política ainda experimental, sem promoção. A não está habilitada; Time Wizard não admitido. Controle PE32 próprio em runner Windows não exige imagem/Dual e não certifica jogo.
+
 
 - Entrega atual nesta branch: [HAL-20 Field/state](notes/HAL20_FIELD_STATE_INTEGRATION.md), [PR #29 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/29), branch `test/hal-20-field-state-integration`, continuação PR28/commit414a1b7. Coleção privada8 IDs M/R/RD/F/E/H/D/DMC; M/R/RD intactos; Field owner efetivo, AI adaptador de bônus por carta e Fusion cinco escritores de terreno corrigidos experimentalmente. Guard opt-in por hashes/callbacks:7 papéis/7 alvos/19 callbacks. Não promover nem fazer merge.
 - Resultado atual: coleção1.131 processos/10.122 checks PASS (1.025 PASS/96 REFUSED/10 NOT_REACHED); variante A separada80/304 checks PASS, mas persistência integral A **FAIL de cobertura** (perde lease Fusion). Controles históricos12 processos preservam14 checks FAIL; auditoria RD mantém1 FAIL esperado. Build Windows/API24 PASS; backend PE32 Wine/QEMU11 indisponível antes de main. Gameplay/UI atual NOT_REACHED por ambiente/recursos acessíveis, não por proibição do usuário.

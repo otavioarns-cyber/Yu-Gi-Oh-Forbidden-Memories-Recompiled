@@ -304,15 +304,16 @@ int Mods_Hal2224GuardReady(char *error,size_t size)
     }
     return 1;
 }
+/* Experimental HAL26 fail-closed policy: do not tie data safety to the
+ * optional order guard. Cold, never-initialized OFF packages do not block;
+ * resident OFF libraries remain incomplete until a clean process restart. */
+#include "state_policy.h"
 int Mods_Hal20StateLoadAllowed(char *error,size_t size)
 {
-    if(!Mods_Hal2224GuardEnabled())return 1;
-    /* These mods reset volatile effect/transaction state after a load; it
-       is not registered in the state file. Decline before any overwrite. */
-    for(int r=1;r<HAL20_ROLE_COUNT;r++)if(r!=2){int mod=find(hal20_roles[r].id);
-        if(mod>=0&&Mods_Active(mod))return hal2224_error(error,size,
-            "This experimental mod collection cannot safely restore temporary duel state. Your current game was kept. Use a regular memory-card save for now.");
-    }
+    for(int mod=0;mod<Mods_Count();++mod)
+        if(Hal26_StateLoadIncomplete(Mods_Id(mod),Mods_Active(mod),Mods_CodeResident(mod)))
+            return hal2224_error(error,size,
+                "HAL-26 experimental: this active or resident MOD profile cannot fully restore temporary duel state. The current game was kept. Regular memory-card saves are unchanged. Restart with these MODs OFF for the legacy loader; old savestates are not certified.");
     return 1;
 }
 
