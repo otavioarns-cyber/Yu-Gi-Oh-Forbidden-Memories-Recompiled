@@ -1,0 +1,11 @@
+@bank descriptions
+
+[D3BD]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+On a fatal battle,
+50% to dodge all
+damage and survive.
+Each dodge sets 1
+random healing Magic
+face-down in an
+empty Spell Zone.

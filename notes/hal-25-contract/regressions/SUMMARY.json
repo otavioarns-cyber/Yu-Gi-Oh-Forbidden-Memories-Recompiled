@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Ritual",
+    "returncode": 0,
+    "counts": {
+      "PASS": 23,
+      "SKIP": 3
+    },
+    "complete": true
+  },
+  {
+    "name": "RD-real",
+    "returncode": 1,
+    "counts": {
+      "PASS": 34,
+      "FAIL": 1,
+      "SKIP": 3
+    },
+    "complete": true
+  }
+]

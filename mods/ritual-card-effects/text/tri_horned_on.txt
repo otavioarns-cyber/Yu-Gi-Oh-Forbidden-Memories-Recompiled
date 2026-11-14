@@ -1,0 +1,10 @@
+@bank descriptions
+
+[D3C1]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Sets Wasteland.
+{f8 0A 03}3{f8 0A 00} horns prevent
+battle/target loss.
+Other allied {f8 0B 0A}
+gain {f8 0A 03}+1000{f8 0A 00} ATK/DEF
+and resist Magic.

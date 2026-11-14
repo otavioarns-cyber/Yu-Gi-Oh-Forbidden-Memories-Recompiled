@@ -1,0 +1,286 @@
+--- a/mod.c
++++ b/mod.c
+@@ -843,6 +843,8 @@
+ static int ultimate_effect_active(int i);
+ static int cosmo_lock_active(int side,int *hand_slot,int *dest_col);
+ static void cosmo_force_ai_selection(void);
++static unsigned selection_epoch=1;
++static int selection_ready;
+ static unsigned female_field_count_except(int excluded);
+ static unsigned female_field_count(void);
+ static int cosmo_live(int i);
+@@ -1718,6 +1720,7 @@
+ 
+ static void clear(void)
+ {
++    ++selection_epoch;if(!selection_epoch)selection_ready=0;
+     memset(borrowed_origin,0,sizeof(borrowed_origin));
+     ultimate_trap_cinematic=0;
+     memset(&ai_position_diag,0,sizeof(ai_position_diag));
+@@ -2514,15 +2517,15 @@
+     return 0;
+ }
+ 
+-static int cosmo_ai_selection_complies(int side)
++static int cosmo_ai_selection_complies_bytes(int side,const unsigned char *selection)
+ {
+     int i,used=0;
+     /* Preserve the AI's own choice when every hand material it selected is a
+      * Female from the five physical hand slots.  This keeps free choice among
+      * multiple Females (and Female+Female chains) while still rejecting deck
+      * window/pool candidates and non-Female hand material. */
+-    for(i=0;i<HAND_SIZE && D_800EAE88[i];++i) {
+-        int slot=(int)D_800EAE88[i],hand_slot;
++    for(i=0;i<HAND_SIZE && selection[i];++i) {
++        int slot=(int)selection[i],hand_slot;
+         if(slot<AI_SLOT_OWN_HAND_FIRST || slot>=AI_SLOT_OWN_HAND_FIRST+HAND_SIZE)return 0;
+         hand_slot=slot-AI_SLOT_OWN_HAND_FIRST;
+         if(!cosmo_is_female_monster(cosmo_hand_card_id(side,hand_slot)))return 0;
+@@ -2531,25 +2534,30 @@
+     return used;
+ }
+ 
++/* Same rule and preference as the original wrapper; writes only caller output. */
++static int cosmo_constrain_selection(int side,const unsigned char *selection,
++                                   unsigned char *out)
++{
++    int hand_slot=-1,dest=-1,face;
++    memcpy(out,selection,12);
++    if(!cosmo_lock_active(side,&hand_slot,&dest))return 0;
++    if(cosmo_ai_selection_complies_bytes(side,selection))return 1;
++    face=selection[8]&1;
++    memset(out,0,12);out[0]=(u8)(AI_SLOT_OWN_HAND_FIRST+hand_slot);
++    out[6]=(u8)(dest+1);out[8]=(u8)face;
++    return 1;
++}
+ static void cosmo_force_ai_selection(void)
+ {
+-    int side=D_8009B1D5,hand_slot=-1,dest=-1,face;
+-    if(!cosmo_lock_active(side,&hand_slot,&dest))return;
+-    if(cosmo_ai_selection_complies(side))return;
+-    /* If another AI mod proposed a deck/pool candidate, a Magic/Trap, or any
+-     * non-Female real material, replace only the pending decision. The
+-     * physical five-slot hand is never rerolled or rewritten to escape Queen
+-     * Lock. */
+-    face=D_800EAE88[8]&1;
+-    memset(D_800EAE88,0,12);
+-    D_800EAE88[0]=(u8)(AI_SLOT_OWN_HAND_FIRST+hand_slot);
+-    D_800EAE88[6]=(u8)(dest+1);
+-    D_800EAE88[7]=0;
+-    D_800EAE88[8]=(u8)face;
+-}
++    unsigned char out[12];
++    cosmo_constrain_selection(D_8009B1D5,(const unsigned char*)D_800EAE88,out);
++    memcpy((void*)D_800EAE88,out,12);
++}
++#include "mandatory_hand_provider.h"
+ 
+ static void cosmo_hand_swap(void)
+ {
++    if(selection_precommit()<0)return;
+     if(D_8009B1D5<DUEL_SIDE_COUNT && D_8009B360[D_8009B1D5]>=0)
+         cosmo_force_ai_selection();
+     original_hand_swap();
+@@ -7159,7 +7167,7 @@
+     original_populate();
+ }
+ static void applied(int on)
+-{ recipe_export_active=on!=0; sync_global_settings(); refresh_settings(); clear(); }
++{ recipe_export_active=on!=0; sync_global_settings(); refresh_settings(); clear(); selection_connect(); }
+ 
+ /* Attack Traps are selected entirely by retail, including when the CPU
+  * already learned Ultimate's immunity. Learning never suppresses the
+@@ -7378,6 +7386,7 @@
+ 
+ static void shutdown(void)
+ {
++    selection_ready=0;
+     if(host&&host->unsubscribe&&ritual_damage_token){host->unsubscribe(host,ritual_damage_token);ritual_damage_token=0;}
+     if(host&&host->unsubscribe&&ritual_equip_token){host->unsubscribe(host,ritual_equip_token);ritual_equip_token=0;}
+     if (host && host->unhook)
+@@ -7469,6 +7478,9 @@
+ #include "native_actions.h"
+ static int ritual_can_defend(int slot){return !recipe_export_active || !monster_slot(slot) || !chaos_attack_only(slot);}
+ static const RitualPositionRulesV1 ritual_position_api={1,ritual_can_defend};
++
++static s32 selection_ai_run(void)
++{ selection_connect();return serpent_ai_run(); }
+ 
+ int MemoriesModInit(const MemoriesModHost *from, MemoriesMod *mod)
+ {
+@@ -7501,7 +7513,7 @@
+         !install((void *)func_800559D4,(void *)coin_model_control,(void **)&ritual_original_model_control) ||
+         !install((void *)DuelCard_UpdateDefenseRotation,(void *)chaos_defense_rotation,(void **)&original_defense_rotation) ||
+         !install((void *)func_80017F04, (void *)serpent_stage_card, (void **)&serpent_original_stage) ||
+-        !install((void *)AiScript_Run, (void *)serpent_ai_run, (void **)&serpent_original_ai_run) ||
++        !install((void *)AiScript_Run, (void *)selection_ai_run, (void **)&serpent_original_ai_run) ||
+         !install((void *)AiScript_FindWeakest, (void *)serpent_ai_find_weakest, (void **)&serpent_original_ai_weakest) ||
+         !install((void *)Ai_IsCardInSets, (void *)serpent_ai_in_sets, (void **)&serpent_original_ai_in_sets) ||
+         !install((void *)AiScript_FindBestAttack, (void *)serpent_ai_best_attack, (void **)&serpent_original_ai_best_attack) ||
+@@ -7561,5 +7573,6 @@
+     mod->frame = coin_frame;
+     mod->overlay = overlay;
+     mod->overlay_signature = overlay_signature;
++    selection_ready=1;selection_connect();
+     return 1;
+ }
+--- /dev/null
++++ b/hand_selection_snapshot.h
+@@ -0,0 +1,54 @@
++/* Local read-only adapters for ABI1; no effect IDs or private producer data. */
++#include "mandatory_hand_selection_v1.h"
++#include "game/duel_scene_state.h"
++static RhsPhysical rhs_physical(int slot,int record,int index,void*object)
++{
++ RhsPhysical p;memset(&p,0,sizeof p);p.slot=slot;p.record=record;p.index=index;
++ if(record>=0&&record<30){DuelCardRecord*c=&D_801A7AD8[record];p.id=c->card_id;
++ p.flags=(unsigned)c->flags;p.data=(uint32_t)(uintptr_t)c->data;
++ p.object=(uint32_t)(uintptr_t)object;}return p;
++}
++static int rhs_capture(RhsSnapshot*s,int side,unsigned action,unsigned generation)
++{
++ int i;memset(s,0,sizeof*s);if(side<0||side>1)return 0;
++ s->size=sizeof*s;s->side=side;s->action=action;s->generation=generation;
++ s->phase=gDuel_wSceneStateFlags&DUEL_SCENE_PHASE_MASK;
++ memcpy(s->selection,(const void*)D_800EAE88,12);
++ memcpy(s->deck,gDuel_aDeckCardRecords,sizeof s->deck);
++ memcpy(s->stats,gDuel_adwCardStats,sizeof s->stats);
++ for(i=0;i<2;i++){s->turn[i]=D_800E9FF0[i].rank.turns_taken;
++ s->draw[i]=D_800E9FF0[i].deck_draw_cursor;}
++ for(i=0;i<5;i++)s->hand[i]=rhs_physical(11+i,D_800907CC[side*5+i],
++ D_800E9FF0[side].hand[i],D_800EA030[i].object);
++ for(i=0;i<10;i++){int r=(i<5?5:20)+i%5;DuelCardRecord*c=&D_801A7AD8[r];
++ int n=-1;uintptr_t b=(uintptr_t)c->data,a=(uintptr_t)gDuel_aDeckCardRecords;
++ if(b>=a&&b<a+sizeof s->deck&&(b-a)%6==0)n=(int)((b-a)/6);
++ s->field[i]=rhs_physical(r,r,n,c->object);}
++ for(i=0;i<45;i++){s->logical_id[i]=gDuel_aActiveCards[11+i].card_id;
++ s->logical_index[i]=gDuel_aActiveCards[11+i].deck_index;}return 1;
++}
++static int rhs_live(const RhsSnapshot*s)
++{
++ RhsSnapshot live;return rhs_capture(&live,s->side,s->action,s->generation)&&
++ !memcmp(&live,s,sizeof live);
++}
++static int rhs_selected(const RhsSnapshot*s,const unsigned char*sel,RhsPhysical*out)
++{
++ int n=0,j;unsigned used=0;
++ while(n<5&&sel[n]){int h=(int)sel[n]-11,index,record;const RhsPhysical*p;
++ if(h<0||h>=5||(used&(1u<<h)))return -1;used|=1u<<h;p=&s->hand[h];
++ index=p->index;record=p->record;
++ if(index<s->side*40||index>=s->side*40+s->draw[s->side]||
++ index>=(s->side+1)*40||record<s->side*15||record>=s->side*15+5||
++ !(p->flags&DUEL_CARD_FLAG_OCCUPIED)||!p->object||
++ p->data!=(uint32_t)(uintptr_t)&gDuel_aDeckCardRecords[index]||
++ p->id!=gDuel_aDeckCardRecords[index].id||p->id!=s->logical_id[h])return -1;
++ if(out)out[n]=*p;++n;}
++ if(!n)return -1;
++ /* Selection sources are five bytes; byte5 and byte7 are non-hand domains. */
++ if(sel[5]||sel[7])return -1;
++ j=Cards_Type(s->hand[(int)sel[0]-11].id);
++ if(j<CARD_TYPE_MAGIC){if(sel[6]<1||sel[6]>5)return -1;}
++ else if(sel[6]<6||sel[6]>10)return -1;
++ return n;
++}
+--- /dev/null
++++ b/mandatory_hand_provider.h
+@@ -0,0 +1,52 @@
++#include "hand_selection_snapshot.h"
++/* Real owner implementation. Evaluation calls only original Queen predicates
++ * and writes caller-owned response bytes, never live selection/deck/records. */
++static void selection_revision(unsigned*r)
++{
++ unsigned live=0,pending=cosmo_live_mask;
++ while(pending){int i=take_mask_bit(&pending);if(cosmo_live(i))live|=1u<<i;}
++ r[0]=selection_epoch;r[1]=live;
++ r[2]=(recipe_export_active?1u:0u)|(selection_ready?2u:0u)|
++ (ritual_card_effect_enabled(COSMO_QUEEN_ID)?4u:0u)|
++ (cosmo_turn_fulfilled[0]?8u:0u)|(cosmo_turn_fulfilled[1]?16u:0u);
++}
++static int selection_evaluate(const RhsRequest*q,RhsResponse*r)
++{
++ int mandatory,n;RhsResponse out;
++ if(!q||!r||q->abi!=RHS_ABI||q->size!=sizeof*q||
++ q->state.size!=sizeof q->state||!q->state.action||!q->state.generation||
++ q->state.side!=(int)D_8009B1D5||!rhs_live(&q->state)||
++ q->state.phase!=4||D_8009B360[q->state.side]<0||q->intent>RHS_CANCEL_INTENT)return 0;
++ memset(&out,0,sizeof out);out.abi=RHS_ABI;out.size=sizeof out;
++ out.action=q->state.action;out.generation=q->state.generation;
++ out.side=q->state.side;memcpy(out.selection,q->state.selection,12);
++ selection_revision(out.revision);out.status=RHS_UNAVAILABLE;
++ if(selection_ready&&recipe_export_active){
++  if(q->intent==RHS_CANCEL_INTENT){out.status=RHS_CANCELLED;out.mandatory=1;}
++  else{
++   mandatory=cosmo_constrain_selection(q->state.side,q->state.selection,out.selection);
++   out.mandatory=mandatory;
++   out.status=memcmp(out.selection,q->state.selection,12)?RHS_REPLACED:RHS_UNCHANGED;
++   if(mandatory){n=rhs_selected(&q->state,out.selection,out.selected);
++    if(n<0)out.status=RHS_CANCELLED;else out.count=n;}
++  }
++ }
++ out.destination=out.selection[6];*r=out;return 1;
++}
++static const RhsRules selection_rules={RHS_ABI,sizeof(RhsRules),selection_evaluate};
++static const RhsRendezvous*selection_rendezvous(void)
++{
++ const RhsRendezvous*p=host&&host->find?host->find(host,RHS_RENDEZVOUS):0;
++ return p&&p->abi==RHS_ABI&&p->size==sizeof*p&&p->connect&&p->rules&&p->precommit?p:0;
++}
++static void selection_connect(void)
++{
++ const RhsRendezvous*p=selection_rendezvous();
++ if(selection_ready&&p)p->connect(&selection_rules);
++}
++static int selection_precommit(void)
++{
++ const RhsRendezvous*p=selection_rendezvous();
++ if(!p||p->rules()!=&selection_rules)return 0;
++ return p->precommit();
++}
+--- /dev/null
++++ b/mandatory_hand_selection_v1.h
+@@ -0,0 +1,45 @@
++/* HAL25 EXPERIMENTAL ABI1. Process-local synchronous hand-selection contract.
++ * No serialization, materialization, card consumption, or strategic estimates.
++ * Copies in both MODs must be byte-identical. See notes/hal-25-contract/CONTRATO.md.
++ */
++#ifndef MANDATORY_HAND_SELECTION_V1_H
++#define MANDATORY_HAND_SELECTION_V1_H
++#include <stdint.h>
++#define RHS_ABI 1u
++#define RHS_RENDEZVOUS "ritual-duelists:mandatory-hand-selection-v1"
++enum {RHS_INVALID=-1,RHS_UNAVAILABLE=0,RHS_UNCHANGED=1,RHS_REPLACED=2,RHS_CANCELLED=3};
++enum {RHS_PROPOSE=0,RHS_CANCEL_INTENT=1};
++typedef struct {
++ int32_t slot,record,index,id;
++ uint32_t data,object,flags;
++} RhsPhysical;
++typedef struct {
++ uint32_t size,action,generation;
++ int32_t side,phase,turn[2],draw[2];
++ uint8_t selection[12],deck[80*6];
++ uint32_t stats[722];
++ RhsPhysical hand[5],field[10];
++ int32_t logical_id[45],logical_index[45];
++} RhsSnapshot;
++typedef struct {uint32_t abi,size,intent;RhsSnapshot state;} RhsRequest;
++typedef struct {
++ uint32_t abi,size,action,generation,revision[3];
++ int32_t status,mandatory,side,destination,count;
++ uint8_t selection[12];RhsPhysical selected[5];
++} RhsResponse;
++typedef struct {
++ uint32_t abi,size;
++ int (*evaluate)(const RhsRequest*,RhsResponse*);
++} RhsRules;
++typedef struct {
++ uint32_t abi,size;
++ int (*connect)(const RhsRules*);
++ const RhsRules*(*rules)(void);
++ /* 0: no consumer hand transaction; 1: still valid; -1: cancelled/stale.
++  * A negative response forbids applying an override or delegating a swap. */
++ int (*precommit)(void);
++ /* Read-only transaction outcome: 2 retry scheduled; -2 quarantined;
++  * -1 vetoed before native advance; 0 idle; 1 approved. */
++ int (*outcome)(void);
++} RhsRendezvous;
++#endif

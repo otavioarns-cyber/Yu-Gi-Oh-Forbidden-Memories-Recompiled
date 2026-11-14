@@ -1,0 +1,5 @@
+--- a/tests/preview2_loader.c
++++ b/tests/preview2_loader.c
+@@ -185 +185 @@
+-  CHECK(accepted&&hooks==8&&subscriptions==6&&mod.api==12&&mod.reset&&mod.applied&&!mod.frame);
++  CHECK(accepted&&hooks==9&&subscriptions==6&&mod.api==12&&mod.reset&&mod.applied&&!mod.frame);

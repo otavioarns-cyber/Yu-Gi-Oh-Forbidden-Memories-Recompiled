@@ -1,0 +1,121 @@
+variant,source,case,order,ai,dual,condition,status
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d0-before-on-c0-controller-m0-x0,before,0,0,0,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d0-before-on-c1-controller-m0-x0,before,0,0,1,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d0-before-on-c4-controller-m0-x0,before,0,0,4,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d0-after-on-c0-controller-m0-x0,after,0,0,0,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d0-after-on-c1-controller-m0-x0,after,0,0,1,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d0-after-on-c4-controller-m0-x0,after,0,0,4,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d1-before-on-c0-controller-m0-x0,before,0,1,0,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d1-before-on-c1-controller-m0-x0,before,0,1,1,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d1-before-on-c4-controller-m0-x0,before,0,1,4,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d1-after-on-c0-controller-m0-x0,after,0,1,0,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d1-after-on-c1-controller-m0-x0,after,0,1,1,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h0-d1-after-on-c4-controller-m0-x0,after,0,1,4,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d0-before-on-c0-controller-m0-x0,before,1,0,0,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d0-before-on-c1-controller-m0-x0,before,1,0,1,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d0-before-on-c4-controller-m0-x0,before,1,0,4,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d0-after-on-c0-controller-m0-x0,after,1,0,0,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d0-after-on-c1-controller-m0-x0,after,1,0,1,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d0-after-on-c4-controller-m0-x0,after,1,0,4,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d1-before-on-c0-controller-m0-x0,before,1,1,0,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d1-before-on-c1-controller-m0-x0,before,1,1,1,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d1-before-on-c4-controller-m0-x0,before,1,1,4,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d1-after-on-c0-controller-m0-x0,after,1,1,0,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d1-after-on-c1-controller-m0-x0,after,1,1,1,FAIL
+original,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,baseline-bridge0-h1-d1-after-on-c4-controller-m0-x0,after,1,1,4,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d0-before-on-c0-controller-m0-x0,before,0,0,0,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d0-before-on-c1-controller-m0-x0,before,0,0,1,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d0-before-on-c4-controller-m0-x0,before,0,0,4,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d0-after-on-c0-controller-m0-x0,after,0,0,0,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d0-after-on-c1-controller-m0-x0,after,0,0,1,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d0-after-on-c4-controller-m0-x0,after,0,0,4,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d1-before-on-c0-controller-m0-x0,before,0,1,0,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d1-before-on-c1-controller-m0-x0,before,0,1,1,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d1-before-on-c4-controller-m0-x0,before,0,1,4,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d1-after-on-c0-controller-m0-x0,after,0,1,0,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d1-after-on-c1-controller-m0-x0,after,0,1,1,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h0-d1-after-on-c4-controller-m0-x0,after,0,1,4,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d0-before-on-c0-controller-m0-x0,before,1,0,0,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d0-before-on-c1-controller-m0-x0,before,1,0,1,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d0-before-on-c4-controller-m0-x0,before,1,0,4,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d0-after-on-c0-controller-m0-x0,after,1,0,0,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d0-after-on-c1-controller-m0-x0,after,1,0,1,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d0-after-on-c4-controller-m0-x0,after,1,0,4,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d1-before-on-c0-controller-m0-x0,before,1,1,0,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d1-before-on-c1-controller-m0-x0,before,1,1,1,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d1-before-on-c4-controller-m0-x0,before,1,1,4,FAIL
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d1-after-on-c0-controller-m0-x0,after,1,1,0,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d1-after-on-c1-controller-m0-x0,after,1,1,1,PASS
+A,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,A-bridge0-h1-d1-after-on-c4-controller-m0-x0,after,1,1,4,PASS
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d0-before-on-c0-controller-m0-x0,before,0,0,0,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d0-before-on-c1-controller-m0-x0,before,0,0,1,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d0-before-on-c4-controller-m0-x0,before,0,0,4,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d0-after-on-c0-controller-m0-x0,after,0,0,0,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d0-after-on-c1-controller-m0-x0,after,0,0,1,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d0-after-on-c4-controller-m0-x0,after,0,0,4,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d1-before-on-c0-controller-m0-x0,before,0,1,0,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d1-before-on-c1-controller-m0-x0,before,0,1,1,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d1-before-on-c4-controller-m0-x0,before,0,1,4,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d1-after-on-c0-controller-m0-x0,after,0,1,0,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d1-after-on-c1-controller-m0-x0,after,0,1,1,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h0-d1-after-on-c4-controller-m0-x0,after,0,1,4,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d0-before-on-c0-controller-m0-x0,before,1,0,0,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d0-before-on-c1-controller-m0-x0,before,1,0,1,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d0-before-on-c4-controller-m0-x0,before,1,0,4,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d0-after-on-c0-controller-m0-x0,after,1,0,0,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d0-after-on-c1-controller-m0-x0,after,1,0,1,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d0-after-on-c4-controller-m0-x0,after,1,0,4,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d1-before-on-c0-controller-m0-x0,before,1,1,0,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d1-before-on-c1-controller-m0-x0,before,1,1,1,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d1-before-on-c4-controller-m0-x0,before,1,1,4,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d1-after-on-c0-controller-m0-x0,after,1,1,0,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d1-after-on-c1-controller-m0-x0,after,1,1,1,FAIL
+B-sem-provider,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge0-h1-d1-after-on-c4-controller-m0-x0,after,1,1,4,FAIL
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d0-before-on-c0-controller-m0-x0,before,0,0,0,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d0-before-on-c1-controller-m0-x0,before,0,0,1,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d0-before-on-c4-controller-m0-x0,before,0,0,4,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d0-after-on-c0-controller-m0-x0,after,0,0,0,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d0-after-on-c1-controller-m0-x0,after,0,0,1,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d0-after-on-c4-controller-m0-x0,after,0,0,4,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d1-before-on-c0-controller-m0-x0,before,0,1,0,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d1-before-on-c1-controller-m0-x0,before,0,1,1,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d1-before-on-c4-controller-m0-x0,before,0,1,4,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d1-after-on-c0-controller-m0-x0,after,0,1,0,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d1-after-on-c1-controller-m0-x0,after,0,1,1,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h0-d1-after-on-c4-controller-m0-x0,after,0,1,4,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d0-before-on-c0-controller-m0-x0,before,1,0,0,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d0-before-on-c1-controller-m0-x0,before,1,0,1,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d0-before-on-c4-controller-m0-x0,before,1,0,4,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d0-after-on-c0-controller-m0-x0,after,1,0,0,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d0-after-on-c1-controller-m0-x0,after,1,0,1,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d0-after-on-c4-controller-m0-x0,after,1,0,4,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d1-before-on-c0-controller-m0-x0,before,1,1,0,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d1-before-on-c1-controller-m0-x0,before,1,1,1,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d1-before-on-c4-controller-m0-x0,before,1,1,4,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d1-after-on-c0-controller-m0-x0,after,1,1,0,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d1-after-on-c1-controller-m0-x0,after,1,1,1,PASS
+B-ponte,PR24 e2605687e9f71862c9fc67f8358baead5f2396cc,B-bridge1-h1-d1-after-on-c4-controller-m0-x0,after,1,1,4,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d0-rd1-before-on-c0-controller-m0-x0,before,0,0,0,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d0-rd1-before-on-c1-controller-m0-x0,before,0,0,1,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d0-rd1-before-on-c4-controller-m0-x0,before,0,0,4,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d0-rd1-after-on-c0-controller-m0-x0,after,0,0,0,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d0-rd1-after-on-c1-controller-m0-x0,after,0,0,1,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d0-rd1-after-on-c4-controller-m0-x0,after,0,0,4,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d1-rd1-before-on-c0-controller-m0-x0,before,0,1,0,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d1-rd1-before-on-c1-controller-m0-x0,before,0,1,1,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d1-rd1-before-on-c4-controller-m0-x0,before,0,1,4,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d1-rd1-after-on-c0-controller-m0-x0,after,0,1,0,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d1-rd1-after-on-c1-controller-m0-x0,after,0,1,1,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h0-d1-rd1-after-on-c4-controller-m0-x0,after,0,1,4,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d0-rd1-before-on-c0-controller-m0-x0,before,1,0,0,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d0-rd1-before-on-c1-controller-m0-x0,before,1,0,1,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d0-rd1-before-on-c4-controller-m0-x0,before,1,0,4,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d0-rd1-after-on-c0-controller-m0-x0,after,1,0,0,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d0-rd1-after-on-c1-controller-m0-x0,after,1,0,1,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d0-rd1-after-on-c4-controller-m0-x0,after,1,0,4,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d1-rd1-before-on-c0-controller-m0-x0,before,1,1,0,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d1-rd1-before-on-c1-controller-m0-x0,before,1,1,1,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d1-rd1-before-on-c4-controller-m0-x0,before,1,1,4,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d1-rd1-after-on-c0-controller-m0-x0,after,1,1,0,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d1-rd1-after-on-c1-controller-m0-x0,after,1,1,1,PASS
+B-provider-real,current experimental artifacts,real-bridge0-h1-d1-rd1-after-on-c4-controller-m0-x0,after,1,1,4,PASS

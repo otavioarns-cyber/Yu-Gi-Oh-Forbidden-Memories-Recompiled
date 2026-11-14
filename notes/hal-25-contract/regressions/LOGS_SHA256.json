@@ -1,0 +1,12 @@
+[
+  {
+    "path": "regressions/RD-real.log",
+    "bytes": 1859,
+    "sha256": "ef906d45674ed006cd5877f1af6dc54b3d47a93546c87b7350fe92931794c9cc"
+  },
+  {
+    "path": "regressions/Ritual.log",
+    "bytes": 6835,
+    "sha256": "4b813a1db1c7cc2e89a4727ef4abde6f32d0d9a2004f27e1bc495993159b212f"
+  }
+]
