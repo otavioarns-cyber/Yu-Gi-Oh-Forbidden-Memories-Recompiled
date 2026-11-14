@@ -2,7 +2,7 @@
 
 **Integração experimental implementada nos dois MODs, recompilada para Windows i386/API24 e validada no host parcial. Sem ponte privada de Queen. Não é correção definitiva nem release.** Queen Lock passou nas duas ordens; cancelamentos posteriores à aprovação não recuperaram fallback nem consumiram o cursor antigo nos casos exercitados. A proteção precisou de uma fronteira local adicional no RD, pois simplesmente zerar a seleção não cancela o controller nativo.
 
-Branch `test/hal-25-selection-contract-real-poc`, derivada diretamente de `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`; motor oficial `aceac3782902746f35ddb0148809450933327cb3`. PR independente em rascunho, sem merge/release. Master, integração e PRs anteriores não foram alterados. AI HARD MODE, Dual Play, Fusion/F1, Time Wizard e o core permanecem intactos; o guard #20 não foi incorporado.
+[PR #25 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/25). [Branch publicada](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-25-selection-contract-real-poc): `test/hal-25-selection-contract-real-poc`, derivada diretamente de `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`; motor oficial `aceac3782902746f35ddb0148809450933327cb3`. PR independente em rascunho, sem merge/release. Master, integração e PRs anteriores não foram alterados. AI HARD MODE, Dual Play, Fusion/F1, Time Wizard e o core permanecem intactos; o guard #20 não foi incorporado.
 
 ## Resultado e evidências
 
@@ -170,3 +170,5 @@ Uma matriz preliminar contou reset/limpeza como PASS mesmo sem primeira jogada. 
 [Guia de testes](../tests/hal25-contract/README.md), [patches](../experiments/hal25-contract/README.md), [hashes de publicação](hal-25-contract/PUBLICACAO_SHA256.json). Os pacotes só devem ser usados como **um par experimental de uma instalação por ID**, sem misturar objetos #11/#13 ou A/B #24 com estes fontes.
 
 As permissões anteriores da moeda de PeterIron e da arte doada do RitualStarter continuam registradas nos [créditos R](../mods/ritual-card-effects/NOTICES-HAL20.md) e [RD](../mods/ritual-duelists/NOTICES-HAL20.md). Não se inventou licença aberta nem autorização para redistribuir Dual/Droplist. Os `.bin` presentes são buffers desses assets gráficos autorizados, não ROM. Não houve adição de recurso proprietário extraído do jogo.
+
+Verificação de publicação: os29 heads remotos anteriores, incluindo master, integração e branches dos PRs anteriores, permaneceram iguais após o push. Os417 arquivos de evidência/pacotes/testes constam no índice SHA; os logs integrais foram reabertos e conferidos individualmente por hash. O PR permanece independente/em rascunho, sem merge.
