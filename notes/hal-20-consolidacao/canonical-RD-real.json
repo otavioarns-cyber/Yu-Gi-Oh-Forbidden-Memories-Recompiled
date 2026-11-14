@@ -1,0 +1,1054 @@
+[
+  {
+    "name": "packages-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_packages.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/packages"
+    ],
+    "output": ""
+  },
+  {
+    "name": "packages",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/packages"
+    ],
+    "output": "Jono Story: 0=0 1=1588 2=753 3=59 / 2400\nJono Free OFF: 0=1370 1=864 2=158 3=8 / 2400\nJono Free ON: 0=0 1=1612 2=714 3=74 / 2400\nJono 2nd Story: 0=0 1=1518 2=819 3=63 / 2400\nJono 2nd Free OFF: 0=1372 1=872 2=150 3=6 / 2400\nJono 2nd Free ON: 0=0 1=1521 2=817 3=62 / 2400\nWeevil Underwood Story: 0=0 1=1498 2=834 3=68 / 2400\nWeevil Underwood Free OFF: 0=1384 1=863 2=150 3=3 / 2400\nWeevil Underwood Free ON: 0=0 1=1505 2=845 3=50 / 2400\nShadi Story: 0=0 1=1429 2=815 3=156 / 2400\nShadi Free OFF: 0=1319 1=884 2=184 3=13 / 2400\nShadi Free ON: 0=0 1=1472 2=789 3=139 / 2400\nHeishin Story: 0=0 1=1480 2=812 3=108 / 2400\nHeishin Free OFF: 0=1356 1=903 2=138 3=3 / 2400\nHeishin Free ON: 0=0 1=1502 2=788 3=110 / 2400\nHeishin 2nd Story: 0=0 1=1467 2=783 3=150 / 2400\nHeishin 2nd Free OFF: 0=1341 1=868 2=178 3=13 / 2400\nHeishin 2nd Free ON: 0=0 1=1453 2=800 3=147 / 2400\nRex Raptor Story: 0=0 1=1351 2=875 3=174 / 2400\nRex Raptor Free OFF: 0=1246 1=900 2=218 3=36 / 2400\nRex Raptor Free ON: 0=0 1=1425 2=781 3=194 / 2400\nHigh Mage Martis Story: 0=0 1=1488 2=766 3=146 / 2400\nHigh Mage Martis Free OFF: 0=1327 1=849 2=218 3=6 / 2400\nHigh Mage Martis Free ON: 0=0 1=1440 2=805 3=155 / 2400\nDesert Mage Story: 0=0 1=1448 2=821 3=131 / 2400\nDesert Mage Free OFF: 0=1324 1=895 2=166 3=15 / 2400\nDesert Mage Free ON: 0=0 1=1457 2=835 3=108 / 2400\nYami Bakura Story: 0=0 1=1502 2=770 3=128 / 2400\nYami Bakura Free OFF: 0=1358 1=852 2=185 3=5 / 2400\nYami Bakura Free ON: 0=0 1=1499 2=796 3=105 / 2400\nPegasus Story: 0=0 1=1374 2=811 3=215 / 2400\nPegasus Free OFF: 0=1310 1=859 2=211 3=20 / 2400\nPegasus Free ON: 0=0 1=1386 2=792 3=222 / 2400\nMage Soldier Story: 0=0 1=1466 2=808 3=126 / 2400\nMage Soldier Free OFF: 0=1262 1=922 2=209 3=7 / 2400\nMage Soldier Free ON: 0=0 1=1446 2=828 3=126 / 2400\nTeana 2nd Story: 0=0 1=1636 2=696 3=68 / 2400\nTeana 2nd Free OFF: 0=1409 1=873 2=113 3=5 / 2400\nTeana 2nd Free ON: 0=0 1=1653 2=675 3=72 / 2400\nOcean Mage Story: 0=0 1=1541 2=778 3=81 / 2400\nOcean Mage Free OFF: 0=1336 1=912 2=150 3=2 / 2400\nOcean Mage Free ON: 0=0 1=1554 2=773 3=73 / 2400\nHigh Mage Secmeton Story: 0=0 1=1565 2=778 3=57 / 2400\nHigh Mage Secmeton Free OFF: 0=1385 1=879 2=136 3=0 / 2400\nHigh Mage Secmeton Free ON: 0=0 1=1573 2=775 3=52 / 2400\nForest Mage Story: 0=0 1=1535 2=802 3=63 / 2400\nForest Mage Free OFF: 0=1403 1=823 2=172 3=2 / 2400\nForest Mage Free ON: 0=0 1=1590 2=752 3=58 / 2400\nHigh Mage Anubisius Story: 0=0 1=1517 2=837 3=46 / 2400\nHigh Mage Anubisius Free OFF: 0=1367 1=860 2=171 3=2 / 2400\nHigh Mage Anubisius Free ON: 0=0 1=1521 2=823 3=56 / 2400\nMountain Mage Story: 0=0 1=1644 2=713 3=43 / 2400\nMountain Mage Free OFF: 0=1382 1=866 2=151 3=1 / 2400\nMountain Mage Free ON: 0=0 1=1655 2=693 3=52 / 2400\nPASS Ritual Package distributions, legal decks, dynamic materials, cap and IDs 721/722\n"
+  },
+  {
+    "name": "rex_ready_distribution-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_rex_ready_distribution.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/rex_ready_distribution"
+    ],
+    "output": ""
+  },
+  {
+    "name": "rex_ready_distribution",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/rex_ready_distribution"
+    ],
+    "output": "REX Tri-Horned ready-made presence: Story 3670/30000 (12.23%), Free OFF 4360/30000 (14.53%), Free ON 3748/30000 (12.49%). Package never contains #705.\n"
+  },
+  {
+    "name": "beta_profiles-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_beta_profiles.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/beta_profiles"
+    ],
+    "output": ""
+  },
+  {
+    "name": "beta_profiles",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/beta_profiles"
+    ],
+    "output": "PASS: sixteen approved real pools (2018+30=2048), exact Heishin cuts, protected ritual monsters and Forest identity\n"
+  },
+  {
+    "name": "new_profiles-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_new_profiles.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/new_profiles"
+    ],
+    "output": ""
+  },
+  {
+    "name": "new_profiles",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/new_profiles"
+    ],
+    "output": "PASS: Bakura/Pegasus/Mage Soldier exact 36 cuts; 3 ready cards and 3 virtual packages; 2018+30/40-card prerequisites\n"
+  },
+  {
+    "name": "tea_ocean_secmeton-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_tea_ocean_secmeton.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/tea_ocean_secmeton"
+    ],
+    "output": ""
+  },
+  {
+    "name": "tea_ocean_secmeton",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/tea_ocean_secmeton"
+    ],
+    "output": "PASS: three approved profiles: real totals, 69/78/90, explicit bans, weighted ready cards, package-only magic\n"
+  },
+  {
+    "name": "v3_forest_anubisius_mountain-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_v3_forest_anubisius_mountain.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/v3_forest_anubisius_mountain"
+    ],
+    "output": ""
+  },
+  {
+    "name": "v3_forest_anubisius_mountain",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/v3_forest_anubisius_mountain"
+    ],
+    "output": "PASS V3: 19 profiles, 83/162/60 cards, exact identity weights, rituals package-only\n"
+  },
+  {
+    "name": "v3_recipes-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_v3_recipes.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/v3_recipes"
+    ],
+    "output": ""
+  },
+  {
+    "name": "v3_recipes",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/v3_recipes"
+    ],
+    "output": "PASS V3 Forest Mage (exact): 3000 decks, modes Story/Free OFF/Free ON, correct materials\nPASS V3 Forest Mage (dynamic): 3000 decks, modes Story/Free OFF/Free ON, correct materials\nPASS V3 High Mage Anubisius (exact): 3000 decks, modes Story/Free OFF/Free ON, correct materials\nPASS V3 High Mage Anubisius (dynamic): 3000 decks, modes Story/Free OFF/Free ON, correct materials\nPASS V3 Mountain Mage (exact): 3000 decks, modes Story/Free OFF/Free ON, correct materials\nPASS V3 Mountain Mage (dynamic): 3000 decks, modes Story/Free OFF/Free ON, correct materials\nPASS V3 dynamic: no Time Wizard tribute, invalid recipe atomic refusal\n"
+  },
+  {
+    "name": "v3_atenza_meadow_kepura-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_v3_atenza_meadow_kepura.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/v3_atenza_meadow_kepura"
+    ],
+    "output": ""
+  },
+  {
+    "name": "v3_atenza_meadow_kepura",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/v3_atenza_meadow_kepura"
+    ],
+    "output": "PASS High Mage Atenza: 3000 40-card decks; active exact recipes; Story / Free OFF / Free ON\nPASS High Mage Atenza: 3000 40-card decks; active typed recipes; Story / Free OFF / Free ON\nPASS Meadow Mage: 3000 40-card decks; active exact recipes; Story / Free OFF / Free ON\nPASS Meadow Mage: 3000 40-card decks; active typed recipes; Story / Free OFF / Free ON\nPASS High Mage Kepura: 3000 40-card decks; active exact recipes; Story / Free OFF / Free ON\nPASS High Mage Kepura: 3000 40-card decks; active typed recipes; Story / Free OFF / Free ON\nPASS V3 Atenza/Meadow/Kepura: no nonapproved changes, 3 virtual packages\n"
+  },
+  {
+    "name": "v3_labyrinth_sebek_neku_isis-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_v3_labyrinth_sebek_neku_isis.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/v3_labyrinth_sebek_neku_isis"
+    ],
+    "output": ""
+  },
+  {
+    "name": "v3_labyrinth_sebek_neku_isis",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/v3_labyrinth_sebek_neku_isis"
+    ],
+    "output": "PASS: Labyrinth Mage complete 40-card decks, Story / Free OFF / Free ON, active mock recipe\nPASS: Guardian Sebek complete 40-card decks, Story / Free OFF / Free ON, active mock recipe\nPASS: Guardian Neku complete 40-card decks, Story / Free OFF / Free ON, active mock recipe\n"
+  },
+  {
+    "name": "v3_seto_darknite_nitemare-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_v3_seto_darknite_nitemare.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/v3_seto_darknite_nitemare"
+    ],
+    "output": ""
+  },
+  {
+    "name": "v3_seto_darknite_nitemare",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/v3_seto_darknite_nitemare"
+    ],
+    "output": "PASS: V3 Seto 3rd, DarkNite, Nitemare — Story/Free and Chakra dynamic/Vanilla, copy cap, 40 cards, package safety\n"
+  },
+  {
+    "name": "v4_round-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_v4_round.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/v4_round"
+    ],
+    "output": ""
+  },
+  {
+    "name": "v4_round",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/v4_round"
+    ],
+    "output": "PASS V4: five profiles, source weights, Story and Free Duel, 40 cards, virtual packages and active-recipe examples\n"
+  },
+  {
+    "name": "new_lot_recipes-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_new_lot_recipes.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/new_lot_recipes"
+    ],
+    "output": ""
+  },
+  {
+    "name": "new_lot_recipes",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/new_lot_recipes"
+    ],
+    "output": "PASS Teana 2nd vanilla: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF\nPASS Teana 2nd modified: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF\nPASS Ocean Mage vanilla: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF\nPASS Ocean Mage modified: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF\nPASS High Mage Secmeton vanilla: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF\nPASS High Mage Secmeton modified: 3900 decks, cap 3, 40 cards, atomic bundles, default Free OFF\nPASS: dynamic three profiles and invalid recipe\n"
+  },
+  {
+    "name": "core-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_core.c",
+      "planner.c",
+      "profiles.c",
+      "decks.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/core"
+    ],
+    "output": ""
+  },
+  {
+    "name": "core",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/core"
+    ],
+    "output": "PASS variable recipe sizes 0..10; engine-authoritative Deck tribute source; zero/no-source safety\nPASS legacy Isis planner regression, 21 skulls, ritual distinctness, protection, urgency and persistent ritual setup\n"
+  },
+  {
+    "name": "recipe_decks-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_recipe_decks.c",
+      "decks.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/recipe_decks"
+    ],
+    "output": ""
+  },
+  {
+    "name": "recipe_decks",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/recipe_decks"
+    ],
+    "output": "PASS: 3-role atomic package, Vanilla/out-of-pool materials, caps, incompatible recipe fallback\n"
+  },
+  {
+    "name": "v030_adapter-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_v030_adapter.c",
+      "recipe_adapter.c",
+      "decks.c",
+      "profiles.c",
+      "planner.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/v030_adapter"
+    ],
+    "output": ""
+  },
+  {
+    "name": "v030_adapter",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/v030_adapter"
+    ],
+    "output": "PASS v0.3 adapter: 15 official combinations, 1-5 tributes, Field/Hand/Both, \nhigh card IDs #850-854, Ritual Package rejects unsupported cardinalities, Vanilla/removal and shared matching\n"
+  },
+  {
+    "name": "provider_adapter-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_provider_adapter.c",
+      "recipe_adapter.c",
+      "decks.c",
+      "profiles.c",
+      "planner.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/provider_adapter"
+    ],
+    "output": ""
+  },
+  {
+    "name": "provider_adapter",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/provider_adapter"
+    ],
+    "output": "PASS provider priority/fallback + v0.3 adapter: 15 official combinations, 1-5 tributes, Field/Hand/Both, \nhigh card IDs #850-854, Ritual Package rejects unsupported cardinalities, Vanilla/removal and shared matching\n"
+  },
+  {
+    "name": "diagnostics-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_diagnostics.c",
+      "diagnostic_core.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/diagnostics"
+    ],
+    "output": ""
+  },
+  {
+    "name": "diagnostics",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/diagnostics"
+    ],
+    "output": "PASS: access window vs physical hand/back; no false playable status; decision labels\n"
+  },
+  {
+    "name": "ritual_strategy-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_ritual_strategy.c",
+      "planner.c",
+      "profiles.c",
+      "decks.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/ritual_strategy"
+    ],
+    "output": ""
+  },
+  {
+    "name": "ritual_strategy",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/ritual_strategy"
+    ],
+    "output": "PASS: ritual planner including Martis legal/high-power board regression\n"
+  },
+  {
+    "name": "activation_priority-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_activation_priority.c",
+      "planner.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/activation_priority"
+    ],
+    "output": ""
+  },
+  {
+    "name": "activation_priority",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/activation_priority"
+    ],
+    "output": "PASS: legal negative-value Rituals are activated across profiles; illegal, unset and lethal emergencies remain protected\n"
+  },
+  {
+    "name": "bakura_emergency-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_bakura_emergency.c",
+      "adaptive_rules.c",
+      "planner.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/bakura_emergency"
+    ],
+    "output": ""
+  },
+  {
+    "name": "bakura_emergency",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/bakura_emergency"
+    ],
+    "output": "PASS: Bakura permits face-down field tribute under nonlethal pressure, still respects lethal and engine oracle\n"
+  },
+  {
+    "name": "adaptive_rules-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_adaptive_rules.c",
+      "adaptive_rules.c",
+      "planner.c",
+      "profiles.c",
+      "decks.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/adaptive_rules"
+    ],
+    "output": ""
+  },
+  {
+    "name": "adaptive_rules",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/adaptive_rules"
+    ],
+    "output": "PASS adaptive rules: live provider, ON/OFF, ABI, 0-3 Field, Hand/Deck, result, risk and fallback\n"
+  },
+  {
+    "name": "field_guard-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_field_guard.c",
+      "field_guard.c",
+      "planner.c",
+      "profiles.c",
+      "decks.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/field_guard"
+    ],
+    "output": ""
+  },
+  {
+    "name": "field_guard",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/field_guard"
+    ],
+    "output": "PASS: protected Field Warrior and post-Ritual Dokurorider survive stock fusion placement; Equip/emergency/full-field checks\n"
+  },
+  {
+    "name": "effect_intelligence-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_effect_intelligence.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/effect_intelligence"
+    ],
+    "output": ""
+  },
+  {
+    "name": "effect_intelligence",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/effect_intelligence"
+    ],
+    "output": "PASS: optional ABI, settings off, no imaginary buffs, tribute exclusion\n"
+  },
+  {
+    "name": "ai_policy-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_ai_policy.c",
+      "ai_policy.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/ai_policy"
+    ],
+    "output": ""
+  },
+  {
+    "name": "ai_policy",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/ai_policy"
+    ],
+    "output": "PASS: real ritual instance fusion block, identity,\n"
+  },
+  {
+    "name": "hand_play-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_hand_play.c",
+      "hand_play.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/hand_play"
+    ],
+    "output": ""
+  },
+  {
+    "name": "hand_play",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/hand_play"
+    ],
+    "output": "PASS: all forced hand selections explicitly set face-down; clear stale flags\n"
+  },
+  {
+    "name": "deck_access-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_deck_access.c",
+      "deck_access.c",
+      "hand_play.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/deck_access"
+    ],
+    "output": "In file included from ./deck_access.h:4,\n                 from tests/test_deck_access.c:4:\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:21:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   21 |     DUEL_DECK_CARD_OFFSET(id) == 0 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope\n   22 | ];\n      | ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:24:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   24 |     DUEL_DECK_CARD_OFFSET(deck_index) == 2 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope\n   25 | ];\n      | ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:27:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   27 |     DUEL_DECK_CARD_OFFSET(data_block_index) == 3 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope\n   28 | ];\n      | ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:30:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   30 |     DUEL_DECK_CARD_OFFSET(flags_04) == 4 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope\n   31 | ];\n      | ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:33:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   33 |     DUEL_DECK_CARD_OFFSET(unk_05) == 5 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope\n   34 | ];\n      | ^\nIn file included from deck_access.h:4,\n                 from deck_access.c:1:\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:21:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   21 |     DUEL_DECK_CARD_OFFSET(id) == 0 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope\n   22 | ];\n      | ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:24:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   24 |     DUEL_DECK_CARD_OFFSET(deck_index) == 2 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope\n   25 | ];\n      | ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:27:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   27 |     DUEL_DECK_CARD_OFFSET(data_block_index) == 3 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope\n   28 | ];\n      | ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:30:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   30 |     DUEL_DECK_CARD_OFFSET(flags_04) == 4 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope\n   31 | ];\n      | ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:19:40: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]\n   19 | #define DUEL_DECK_CARD_OFFSET(member) ((u32)&(((DuelDeckCardRecord *)0)->member))\n      |                                        ^\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:33:5: note: in expansion of macro ‘DUEL_DECK_CARD_OFFSET’\n   33 |     DUEL_DECK_CARD_OFFSET(unk_05) == 5 ? 1 : -1\n      |     ^~~~~~~~~~~~~~~~~~~~~\n/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope\n   34 | ];\n      | ^\n"
+  },
+  {
+    "name": "deck_access",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/deck_access"
+    ],
+    "output": "PASS deck peek: real upcoming slots, safe displaced hand, set facing, bounds and already-held guards\n"
+  },
+  {
+    "name": "tribute_fetch-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_tribute_fetch.c",
+      "tribute_fetch.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/tribute_fetch"
+    ],
+    "output": ""
+  },
+  {
+    "name": "tribute_fetch",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/tribute_fetch"
+    ],
+    "output": "PASS tribute search: field/hand/deck quotas, distinct roles, real deck, emergency, protected physical hand, prior AI, result requirement, settings and legal engine\n"
+  },
+  {
+    "name": "post_ritual-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_post_ritual.c",
+      "post_ritual.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/post_ritual"
+    ],
+    "output": ""
+  },
+  {
+    "name": "post_ritual",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/post_ritual"
+    ],
+    "output": "PASS: existing Ritual, Skull Guardian +500/+500 from Summoned Skull, risk, source safety and generic Beacon callback\n"
+  },
+  {
+    "name": "drop_rewards-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_drop_rewards.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/drop_rewards"
+    ],
+    "output": ""
+  },
+  {
+    "name": "drop_rewards",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/drop_rewards"
+    ],
+    "output": "PASS: Story SPOILS, extras, independent Blue-Eyes sources, award-only consumption, slot tokens, savestate rollback, Free Duel\n"
+  },
+  {
+    "name": "starter_choice-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-DRD_TEST_PROVIDER",
+      "-O1",
+      "-g",
+      "-std=gnu11",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-Itests/mocks",
+      "-I.",
+      "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+      "tests/test_starter_choice.c",
+      "starter_rules.c",
+      "profiles.c",
+      "-o",
+      "/tmp/tmpijvxqqzt/starter_choice"
+    ],
+    "output": ""
+  },
+  {
+    "name": "starter_choice",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpijvxqqzt/starter_choice"
+    ],
+    "output": "PASS starter choice: three Vanilla disc recipes, dynamic override, force Vanilla, 40 cards, max three copies, two other Simon themes\n"
+  },
+  {
+    "name": "audit_pools",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/audit_pools.py"
+    ],
+    "output": "PASS audit: 29 pools (28 packages at 2018+30; Isis 2048 real); Rex 1041/565/412; Desert 932/283/219/584; Martis approved cuts; Weevil reconciliation; exact card counts\nCSV: Ritual-Duelists-Pools.csv\n"
+  },
+  {
+    "name": "test_external_droplist_compat",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/test_external_droplist_compat.py"
+    ],
+    "output": "SKIP: external Droplist 1.4.0 package not supplied; no live viewer/input validation\nPASS: Ritual Duelists i386 has no internal viewer; gameplay callbacks retained\n"
+  },
+  {
+    "name": "test_preview2_assets",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/test_preview2_assets.py"
+    ],
+    "output": "PASS: 38 PNG CRC/decode/dimensions, 19 binary buffers, three native arrays, 16 box layers / 333632 bounded spans\n"
+  },
+  {
+    "name": "test_preview2_package",
+    "status": "FAIL",
+    "returncode": 1,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/test_preview2_package.py"
+    ],
+    "output": "Traceback (most recent call last):\n  File \"/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/test_preview2_package.py\", line 10, in <module>\n    assert next(x['sha256'] for x in received if x['path']==name)==digest\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nStopIteration\n"
+  },
+  {
+    "name": "preview2_loader-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+      "-m32",
+      "-std=gnu11",
+      "-O1",
+      "-DMEMORIES_PC",
+      "-I/tmp/hal25-reg-lhpt39mb/src",
+      "/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/preview2_loader.c",
+      "/tmp/hal25-reg-lhpt39mb/src/pc/mods/object_loader.c",
+      "/tmp/hal25-reg-lhpt39mb/src/pc/mods/mod_libc.c",
+      "/tmp/hal25-reg-lhpt39mb/src/pc/guest/branch_thunks.c",
+      "/tmp/hal25-reg-lhpt39mb/src/pc/compat/fs.c",
+      "-lm",
+      "-o",
+      "/tmp/tmpijvxqqzt/loader"
+    ],
+    "output": "In file included from /tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/preview2_loader.c:13:\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:50:1: warning: variably modified ‘DuelCardRecord_object_offset_must_be_0x00’ at file scope\n   50 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:53:1: warning: variably modified ‘DuelCardRecord_data_offset_must_be_0x04’ at file scope\n   53 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:56:1: warning: variably modified ‘DuelCardRecord_card_id_offset_must_be_0x0C’ at file scope\n   56 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:59:1: warning: variably modified ‘DuelCardRecord_attack_offset_must_be_0x0E’ at file scope\n   59 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:62:1: warning: variably modified ‘DuelCardRecord_defense_offset_must_be_0x10’ at file scope\n   62 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:65:1: warning: variably modified ‘DuelCardRecord_stat_modifier_offset_must_be_0x12’ at file scope\n   65 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:69:1: warning: variably modified ‘DuelCardRecord_defense_modifier_offset_must_be_0x1A’ at file scope\n   69 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:73:1: warning: variably modified ‘DuelCardRecord_terrain_modifier_offset_must_be_0x14’ at file scope\n   73 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:76:1: warning: variably modified ‘DuelCardRecord_flags_offset_must_be_0x16’ at file scope\n   76 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card.h:79:1: warning: variably modified ‘DuelCardRecord_table_index_offset_must_be_0x18’ at file scope\n   79 | ];\n      | ^\nIn file included from /tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/preview2_loader.c:14:\n/tmp/hal25-reg-lhpt39mb/src/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope\n   22 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope\n   25 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope\n   28 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope\n   31 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope\n   34 | ];\n      | ^\nIn file included from /tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/preview2_loader.c:15:\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:173:1: warning: variably modified ‘AiScriptState_card_set_offset_must_be_0x3E’ at file scope\n  173 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:181:1: warning: variably modified ‘AiScriptState_type_set_offset_must_be_0x7E’ at file scope\n  181 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:185:1: warning: variably modified ‘AiScriptState_combo_offset_must_be_0x38’ at file scope\n  185 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:188:1: warning: variably modified ‘AiScriptState_field_97_offset_must_be_0x97’ at file scope\n  188 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:191:1: warning: variably modified ‘AiScriptState_attack_best_stat_offset_must_be_0x98’ at file scope\n  191 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:194:1: warning: variably modified ‘AiScriptState_attack_best_slot_offset_must_be_0x9A’ at file scope\n  194 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:197:1: warning: variably modified ‘AiScriptState_attack_best_target_offset_must_be_0x9B’ at file scope\n  197 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:201:1: warning: variably modified ‘AiScriptState_fusion_count_offset_must_be_0x9C’ at file scope\n  201 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:205:1: warning: variably modified ‘AiScriptState_fusion_limit_offset_must_be_0x9D’ at file scope\n  205 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:209:1: warning: variably modified ‘AiScriptState_fusion_set_offset_must_be_0x9E’ at file scope\n  209 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:213:1: warning: variably modified ‘AiScriptState_fusion_best_stat_offset_must_be_0xA0’ at file scope\n  213 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:217:1: warning: variably modified ‘AiScriptState_fusion_depth_offset_must_be_0xA2’ at file scope\n  217 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:221:1: warning: variably modified ‘AiScriptState_fusion_best_depth_offset_must_be_0xA3’ at file scope\n  221 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:225:1: warning: variably modified ‘AiScriptState_fusion_path_offset_must_be_0xA4’ at file scope\n  225 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:229:1: warning: variably modified ‘AiScriptState_fusion_used_offset_must_be_0xAA’ at file scope\n  229 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:235:1: warning: variably modified ‘AiSelection_value_offset_must_be_0x06’ at file scope\n  235 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:238:1: warning: variably modified ‘AiSelection_zero_offset_must_be_0x07’ at file scope\n  238 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:241:1: warning: variably modified ‘AiSelection_random_offset_must_be_0x08’ at file scope\n  241 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/ai.h:244:1: warning: variably modified ‘AiSelection_field_09_offset_must_be_0x09’ at file scope\n  244 | ];\n      | ^\nIn file included from /tmp/hal25-reg-lhpt39mb/src/game/duel_side_state.h:8,\n                 from /tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/preview2_loader.c:16:\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card_effects.h:36:1: warning: variably modified ‘DuelFieldEffectObject_callback_offset_must_be_0x24’ at file scope\n   36 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card_effects.h:39:1: warning: variably modified ‘DuelFieldEffectObject_mark_offset_must_be_0x67’ at file scope\n   39 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_card_effects.h:42:1: warning: variably modified ‘DuelFieldEffectObject_active_offset_must_be_0x6C’ at file scope\n   42 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_side_state.h:79:1: warning: variably modified ‘DuelSideState_hand_must_be_at_0x1A’ at file scope\n   79 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_side_state.h:85:1: warning: variably modified ‘DuelSideState_deck_draw_cursor_must_be_at_0x18’ at file scope\n   85 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_side_state.h:88:1: warning: variably modified ‘DuelSideState_swords_turns_remaining_must_be_at_0x19’ at file scope\n   88 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_side_state.h:91:1: warning: variably modified ‘DuelSideState_card_view_mode_must_be_at_0x1F’ at file scope\n   91 | ];\n      | ^\nIn file included from /tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/preview2_loader.c:17:\n/tmp/hal25-reg-lhpt39mb/src/game/duel_hand.h:33:1: warning: variably modified ‘DuelHandSlot_child_offset_must_be_0x04’ at file scope\n   33 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_hand.h:36:1: warning: variably modified ‘DuelHandSlot_active_09_offset_must_be_0x09’ at file scope\n   36 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_hand.h:77:1: warning: variably modified ‘DuelHandStackState_position_object_offset_must_be_0x4’ at file scope\n   77 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_hand.h:80:1: warning: variably modified ‘DuelHandStackState_slot_index_offset_must_be_0xE’ at file scope\n   80 | ];\n      | ^\n/tmp/hal25-reg-lhpt39mb/src/game/duel_hand.h:83:1: warning: variably modified ‘DuelHandStackState_count_offset_must_be_0x15’ at file scope\n   83 | ];\n      | ^\n"
+  },
+  {
+    "name": "preview2_loader",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/workspace/work/hal20-base/tools/qemu-i386-static",
+      "-L",
+      "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+      "/tmp/tmpijvxqqzt/loader",
+      "/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/ritual-duelists.o",
+      "/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists"
+    ],
+    "output": "object_hash=3d26698f declared_api=12 state_size=288 state_version=4 hooks=9 subscriptions=6\nPASS 1546 assertions; ten independent loads and two expected init refusals; synthetic host\n"
+  },
+  {
+    "name": "gameplay-Windows-save-load-render-audio-controller",
+    "status": "SKIP",
+    "reason": "No game image or Windows runtime; synthetic engine only."
+  },
+  {
+    "name": "Droplist-1.4.0-external-binary-runtime",
+    "status": "SKIP",
+    "reason": "External package not supplied; own boundary regression executed."
+  },
+  {
+    "name": "ecosystem-integration-old-savestates-other-targets",
+    "status": "SKIP",
+    "reason": "Isolated i386 scope; partners inspected statically, no historic savestate claim."
+  }
+]

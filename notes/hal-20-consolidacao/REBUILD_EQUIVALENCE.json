@@ -1,0 +1,92 @@
+[
+  {
+    "package": "ritual-card-effects",
+    "canonical_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+    "rebuild_sha256": "ab21659cce88cff0b468a830ee23272d89aaeb059255255ff91a6e9c3863b539",
+    "functions_and_relocations_identical": true,
+    "allocated_sections_identical": true,
+    "sections": {
+      ".text": {
+        "size": 183552,
+        "type": 1,
+        "sha256": "7ae69ad82b4b3cac2d8dbd4d2b019e7f97138145a4f82cd31e40c7d009dcd338"
+      },
+      ".rodata.cst4": {
+        "size": 8,
+        "type": 1,
+        "sha256": "a00e78358ecf057dc73fb24a613a358a4fc6c1bf4fc28745a3d28f8510a08c03"
+      },
+      ".bss": {
+        "size": 165101,
+        "type": 8,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      ".rodata.str1.1": {
+        "size": 7560,
+        "type": 1,
+        "sha256": "b718d5e3d629c70cf9454c014324bbf9d391e640a3d5ece9ccaeb2fb3d145c16"
+      },
+      ".rodata": {
+        "size": 21422,
+        "type": 1,
+        "sha256": "27f0ec9a26aab5430696bac119ee48987c90a92b52982f954c4ff223f401ab57"
+      },
+      ".data": {
+        "size": 60,
+        "type": 1,
+        "sha256": "39962b8a883b01dd8618871af55a4bc3a4c6bf7cf3ac028d381438a5171a6317"
+      },
+      ".rodata.str2.2": {
+        "size": 60,
+        "type": 1,
+        "sha256": "f6848ba7836133e293751c07ace048f58aeef23b6278c70d9a4a72a1c84678f1"
+      },
+      ".rodata.cst16": {
+        "size": 16,
+        "type": 1,
+        "sha256": "aa995f843ed2caf2ed8bf03517ead09bfb28648ececd93c914b46b8ced62752f"
+      }
+    },
+    "difference": "Non-allocated/debug metadata differs with absolute build path; canonical qualified objects retained."
+  },
+  {
+    "package": "ritual-duelists",
+    "canonical_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+    "rebuild_sha256": "d0bce92aa655a7db4334ed7c95eab15cbc2b8c2de9686a78f3eea5221d5fb7bc",
+    "functions_and_relocations_identical": true,
+    "allocated_sections_identical": true,
+    "sections": {
+      ".text": {
+        "size": 75870,
+        "type": 1,
+        "sha256": "e19672bbaf3ade39a7566dedf3f9f5d2411e7f17e00c5ba932be6261443caf8f"
+      },
+      ".rodata.str1.1": {
+        "size": 6742,
+        "type": 1,
+        "sha256": "fa830984b58021853daee3ebc6f8952fe687e49791832c2c2b8c82015743d0ea"
+      },
+      ".bss": {
+        "size": 510455,
+        "type": 8,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      ".rodata": {
+        "size": 4196028,
+        "type": 1,
+        "sha256": "d176b088d7d739a15c6f0d296c8811ea05f56d6dd579d26f30f3593a8d40d710"
+      },
+      ".data": {
+        "size": 32,
+        "type": 1,
+        "sha256": "496647ee47c4f722cb0b79fd95e1680ba06177cf3dd5092d9a63a1c8cbdd010b"
+      },
+      ".rodata.cst16": {
+        "size": 16,
+        "type": 1,
+        "sha256": "4781124352305efaf0004c28e6e1509d95b1303ff175791af16cf273b73f1fa1"
+      }
+    },
+    "difference": "Non-allocated/debug metadata differs with absolute build path; canonical qualified objects retained."
+  }
+]

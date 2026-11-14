@@ -25,6 +25,7 @@
 #define _DEFAULT_SOURCE   /* MAP_ANONYMOUS, MAP_FIXED_NOREPLACE */
 #include "pc/compat/fs.h"
 #include "mods.h"
+#include "pc/guest/sha256.h"
 #include "modapi.h"
 #include "exports.h"
 #include "object_loader.h"
@@ -121,6 +122,7 @@ typedef struct {
     int *runtime_options;
     unsigned sequence;
     unsigned code_hash;
+    unsigned char file_sha256[32]; /* exact library bytes, captured before init */
     LoadedObject object;         /* the mod's code, once loaded */
     MemoriesMod hooks;
     MemoriesModHost host;
@@ -3313,6 +3315,7 @@ static void *load_object(Mod *mod, const char *path)
         return NULL;
     }
     mod->code_hash = mod->object.hash;
+    Sha256(data,(size_t)size,mod->file_sha256);
     free(data);
     entry = ObjectLoader_Symbol(&mod->object, "MemoriesModInit");
     if (!entry) {
@@ -4439,6 +4442,16 @@ void Mods_Load(void)
         for (count = 0; order[count] >= 0; count++) placed[order[count]] = 1;
         for (i = 0; i < mod_count; i++) if (enabled[i] && !placed[i]) { note(&mods[i], "%s", error); enabled[i] = 0; }
     }
+    if (!Mods_Hal2224GuardValidate(enabled, NULL, error, sizeof(error))) {
+        /* Reject the entire startup transaction before data or code changes;
+         * keep requested preferences and mark the duel-entry fence explicitly. */
+        if (first) Mods_Hal2224GuardStartupRejected(error);
+        for (i = 0; i < mod_count; i++)
+            if (!strcmp(mods[i].id, "ai-hard-mode") || !strcmp(mods[i].id, "ritual-duelists") || !strcmp(mods[i].id, "dual-play"))
+                note(&mods[i], "%s", error);
+        fprintf(stderr, "memories-pc: experimental mod profile rejected: %s\n", error);
+        return;
+    }
     if (first) {
         preparing_data = 1;
         for (i = 0; i < count; i++) {
@@ -4560,6 +4573,16 @@ void Mods_SetEnabled(int mod, int enabled)
     /* Unchanged, nothing is written: the choice stored stays, even when an
      * environment variable overrides it for this run. */
     if (mods[mod].enabled == enabled) return;
+    if (Mods_Hal2224GuardEnabled()) {
+        int wanted[MODS_MAX]; char why[256];
+        for (int i = 0; i < mod_count; i++) wanted[i] = mods[i].enabled;
+        wanted[mod] = enabled;
+        if (!Mods_Hal2224GuardValidate(wanted, NULL, why, sizeof(why))) {
+            note(&mods[mod], "%s", why);
+            return; /* Direct API: no preference or active-state mutation. */
+        }
+    }
+
     if (setting_key(key, sizeof(key), mods[mod].id, NULL)) Settings_SetNamed(key, enabled);
     mods[mod].enabled = enabled;
     /* A mod that could not go in place (a replacement file missing, say) is
@@ -4687,4 +4710,22 @@ int Mods_RuntimeOption(int index, int option) {
     if (at(index) && mods[index].active && mods[index].runtime_options &&
         (mods[index].restart || Json_Bool(Json_Member(spec, "restart"), 0))) return mods[index].runtime_options[option];
     return Mods_OptionValue(index, option);
+}
+
+int Mods_CodeMatches(int mod,unsigned code,const char *sha256)
+{
+    if(mod<0||mod>=mod_count||!sha256||strlen(sha256)!=64||mods[mod].code_hash!=code)return 0;
+    static const char hex[]="0123456789abcdef";
+    for(unsigned i=0;i<32;i++)if(sha256[i*2]!=hex[mods[mod].file_sha256[i]>>4]||
+       sha256[i*2+1]!=hex[mods[mod].file_sha256[i]&15])return 0;
+    return mods[mod].object.image!=NULL;
+}
+int Mods_CallbackMatches(int mod,const void *callback,const char *name,size_t size)
+{
+    if(mod<0||mod>=mod_count||!callback||!name)return 0;
+    const LoadedObject *o=&mods[mod].object;
+    for(size_t i=0;i<o->symbol_count;i++)if(o->symbols[i].function&&
+       o->symbols[i].address==(uintptr_t)callback&&o->symbols[i].size==size&&
+       !strcmp(o->symbols[i].name,name))return 1;
+    return 0;
 }

@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B9]
+1 Six-Armed Woman +
+1 {f8 0B 03} + 1
+{f8 0B 07}.

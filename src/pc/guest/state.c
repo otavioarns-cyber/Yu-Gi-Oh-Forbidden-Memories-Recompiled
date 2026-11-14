@@ -840,6 +840,11 @@ static int load(const char *path)
         refuse("%s: %s", path, strerror(errno));
         return -1;
     }
+    /* Candidate-profile refusal is before parsing/remapping or replacing
+       any game/mod memory. Both UI and control-channel loads reach here. */
+    if(!Mods_Hal20StateLoadAllowed(why,sizeof(why))){
+        fclose(file);tower_refused=1;refuse("%s",why);return -1;
+    }
     fseek(file, 0, SEEK_END);
     length = ftell(file);
     rewind(file);
