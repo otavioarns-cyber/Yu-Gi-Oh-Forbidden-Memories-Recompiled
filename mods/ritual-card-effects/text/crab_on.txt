@@ -1,0 +1,12 @@
+@bank descriptions
+
+[D3C6]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Sets Umi. Other
+allied {f8 0B 10}/{f8 0B 0C}/{f8 0B 0D}
+gain {f8 0A 03}+200{f8 0A 00} ATK and
+{f8 0A 03}+800{f8 0A 00} DEF.
+Under Umi, only
+{f8 0B 10}/{f8 0B 0C}/{f8 0B 0D}/{f8 0B 0F}
+can destroy it
+in battle.

@@ -1,0 +1,627 @@
+{
+  "hooks": [
+    {
+      "owner": "melhoria-dos-rituais",
+      "target": "Duel_CheckRitual",
+      "token": 1
+    },
+    {
+      "owner": "melhoria-dos-rituais",
+      "target": "Duel_RitualFieldObjects",
+      "token": 2
+    },
+    {
+      "owner": "melhoria-dos-rituais",
+      "target": "DuelCard_DeactivateRecord",
+      "token": 3
+    },
+    {
+      "owner": "melhoria-dos-rituais",
+      "target": "DuelScene_UpdateHandActions",
+      "token": 4
+    },
+    {
+      "owner": "melhoria-dos-rituais",
+      "target": "Duel_PopulateCombinedDeckData",
+      "token": 5
+    },
+    {
+      "owner": "melhoria-dos-rituais",
+      "target": "Duel_CheckQuitInput",
+      "token": 6
+    },
+    {
+      "owner": "melhoria-dos-rituais",
+      "target": "DuelScene_UpdateWithSideInput",
+      "token": 7
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "AiScript_FindBestAttack",
+      "token": 8
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "AiScript_PlayFieldCard",
+      "token": 9
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "AiScript_LoadGuardianStarChoice",
+      "token": 10
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "AiScript_FindKiller",
+      "token": 11
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "AiScript_CalcCardPower",
+      "token": 12
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "Duel_CheckFusion",
+      "token": 13
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "func_80023144",
+      "token": 14
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "func_80035E20",
+      "token": 15
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelEffect_AppendEntry",
+      "token": 16
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "Duel_CheckEquip",
+      "token": 17
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "Ai_CompleteFusion",
+      "token": 18
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "Duel_CalcCardStats",
+      "token": 19
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "func_8001EFD4",
+      "token": 20
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelEffect_ApplyLifePointRecovery",
+      "token": 21
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelCard_RemoveFromField",
+      "token": 22
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelEffect_ApplyBoardDestruction",
+      "token": 23
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelEffect_ApplyRaigeki",
+      "token": 24
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelEffect_ApplyMonsterRemoval",
+      "token": 25
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelScene_UpdateBattle",
+      "token": 26
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelScene_UpdateTurnSwitch",
+      "token": 27
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelCard_UpdateDefenseRotation",
+      "token": 28
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelScene_UpdateResume",
+      "token": 29
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "func_80024D34",
+      "token": 30
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelScene_Update",
+      "token": 31
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelScene_UpdateHandActions",
+      "token": 32
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelScene_UpdateCardPlacement",
+      "token": 33
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "func_8001B170",
+      "token": 34
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelEffect_UpdateCardEffect",
+      "token": 35
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelScene_UpdateFieldActions",
+      "token": 36
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "DuelEffect_UpdateRequests",
+      "token": 37
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "Duel_GetBaseCardStat",
+      "token": 38
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "AiScript_FindBestCombo",
+      "token": 39
+    },
+    {
+      "owner": "fusion-auxiliary-balance",
+      "target": "AiScript_EvaluateFusion",
+      "token": 40
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "AiScript_Init",
+      "token": 41
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "AiScript_Run",
+      "token": 42
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "Ai_GetHandSize",
+      "token": 43
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "func_8001BAF0",
+      "token": 44
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "AiScript_FindStrongest",
+      "token": 45
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "AiScript_FindWeakest",
+      "token": 46
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "AiScript_FindCard",
+      "token": 47
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "AiScript_MatchType",
+      "token": 48
+    },
+    {
+      "owner": "ai-hard-mode",
+      "target": "AiScript_FindDefenseStopper",
+      "token": 49
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Input_UpdatePads",
+      "token": 50
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Main_RunDuel",
+      "token": 51
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Main_RunAnimatedBattle",
+      "token": 52
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_800559D4",
+      "token": 53
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelCard_UpdateDefenseRotation",
+      "token": 54
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_80017F04",
+      "token": 55
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "AiScript_Run",
+      "token": 56
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "AiScript_FindWeakest",
+      "token": 57
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Ai_IsCardInSets",
+      "token": 58
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "AiScript_FindBestAttack",
+      "token": 59
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_80037DA4",
+      "token": 60
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_80035E20",
+      "token": 61
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_80027508",
+      "token": 62
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_80024D34",
+      "token": 63
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelScene_Update",
+      "token": 64
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_80023144",
+      "token": 65
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_DrawFieldCards",
+      "token": 66
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_80016784",
+      "token": 67
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelEffect_ApplyRitual",
+      "token": 68
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_CalcCardStats",
+      "token": 69
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_CalcBattleAttack",
+      "token": 70
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_CalcBattleDefense",
+      "token": 71
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_CalcGuardianStarBonus",
+      "token": 72
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_8001EFD4",
+      "token": 73
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_8001B170",
+      "token": 74
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelEffect_ApplyStatPenalty",
+      "token": 75
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelEffect_ApplyCursebreaker",
+      "token": 76
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelCard_RemoveFromField",
+      "token": 77
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelCard_DeactivateRecord",
+      "token": 78
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_ResetCardRecords",
+      "token": 79
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_PopulateCombinedDeckData",
+      "token": 80
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelScene_UpdateFieldActions",
+      "token": 81
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelScene_UpdateCardPlacement",
+      "token": 82
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelScene_UpdateHandActions",
+      "token": 83
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "func_8001BAF0",
+      "token": 84
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelScene_UpdateBattle",
+      "token": 85
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelEffect_UpdateRequests",
+      "token": 86
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelEffect_UpdateCardEffect",
+      "token": 87
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelScene_UpdateDrawPhase",
+      "token": 88
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelEffect_ApplyBoardDestruction",
+      "token": 89
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelEffect_ApplyMonsterRemoval",
+      "token": 90
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelEffect_ApplyRaigeki",
+      "token": 91
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "DuelScene_UpdateTurnSwitch",
+      "token": 92
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_CheckFusion",
+      "token": 93
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "Duel_CheckRitual",
+      "token": 94
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "AiScript_PlayFieldCard",
+      "token": 95
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "AiScript_LoadGuardianStarChoice",
+      "token": 96
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "AiScript_FindKiller",
+      "token": 97
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "AiScript_CalcCardPower",
+      "token": 98
+    },
+    {
+      "owner": "ritual-card-effects-test",
+      "target": "AiScript_FindBestAttack",
+      "token": 99
+    },
+    {
+      "owner": "ritual-duelists",
+      "target": "DuelEffect_ApplyRitual",
+      "token": 100
+    },
+    {
+      "owner": "ritual-duelists",
+      "target": "Duel_CheckFusion",
+      "token": 101
+    },
+    {
+      "owner": "ritual-duelists",
+      "target": "Duel_ShuffleDeck",
+      "token": 102
+    },
+    {
+      "owner": "ritual-duelists",
+      "target": "Ai_GetHandSize",
+      "token": 103
+    },
+    {
+      "owner": "ritual-duelists",
+      "target": "func_8001BAF0",
+      "token": 104
+    },
+    {
+      "owner": "ritual-duelists",
+      "target": "AiScript_Run",
+      "token": 105
+    },
+    {
+      "owner": "ritual-duelists",
+      "target": "NameEntry_BuildStarterDeck",
+      "token": 106
+    },
+    {
+      "owner": "ritual-duelists",
+      "target": "Duel_SelectCardDrop",
+      "token": 107
+    },
+    {
+      "owner": "dual-play",
+      "target": "DuelScene_UpdateHandActions",
+      "token": 108
+    },
+    {
+      "owner": "dual-play",
+      "target": "DuelScene_UpdateDrawPhase",
+      "token": 109
+    },
+    {
+      "owner": "dual-play",
+      "target": "DuelScene_UpdateFieldActions",
+      "token": 110
+    },
+    {
+      "owner": "dual-play",
+      "target": "func_80028220",
+      "token": 111
+    },
+    {
+      "owner": "dual-play",
+      "target": "func_8001BAF0",
+      "token": 112
+    },
+    {
+      "owner": "dual-play",
+      "target": "Duel_InitScene",
+      "token": 113
+    },
+    {
+      "owner": "hal2224-observer",
+      "target": "AiScript_Run",
+      "token": 114
+    }
+  ],
+  "critical": {
+    "func_8001BAF0": [
+      "ai-hard-mode",
+      "dual-play",
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "DuelScene_UpdateHandActions": [
+      "dual-play",
+      "fusion-auxiliary-balance",
+      "melhoria-dos-rituais",
+      "ritual-card-effects-test"
+    ],
+    "AiScript_Run": [
+      "ai-hard-mode",
+      "hal2224-observer",
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "func_80028220": [
+      "dual-play"
+    ],
+    "Duel_CheckRitual": [
+      "melhoria-dos-rituais",
+      "ritual-card-effects-test"
+    ],
+    "DuelEffect_ApplyRitual": [
+      "ritual-card-effects-test",
+      "ritual-duelists"
+    ],
+    "Duel_PopulateCombinedDeckData": [
+      "melhoria-dos-rituais",
+      "ritual-card-effects-test"
+    ],
+    "DuelScene_UpdateFieldActions": [
+      "dual-play",
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test"
+    ],
+    "DuelScene_UpdateCardPlacement": [
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test"
+    ],
+    "DuelCard_DeactivateRecord": [
+      "melhoria-dos-rituais",
+      "ritual-card-effects-test"
+    ],
+    "DuelCard_RemoveFromField": [
+      "fusion-auxiliary-balance",
+      "ritual-card-effects-test"
+    ]
+  },
+  "scope": "Actual registration from complete guard-OFF profile; observer is test-owned, not a production dependency."
+}

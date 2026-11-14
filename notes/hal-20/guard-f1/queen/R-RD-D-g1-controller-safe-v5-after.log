@@ -1,0 +1,145 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gBuildDeck_aWorkspace
+NATIVE_BIND Main_RunDuel unit=guard_main
+NATIVE_DATA D_8009B26C size=1
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+MODEL_DATA gDuel_awSavedDefenseModifier
+REAL_HOST_EXPORTS count=335
+LIBRARY_INIT owner=ritual-duelists hash=57b53592 loads=1
+STATE owner=ritual-duelists size=288 version=4
+REGISTER owner=ritual-duelists target=DuelEffect_ApplyRitual token=1
+REGISTER owner=ritual-duelists target=Duel_CheckFusion token=2
+REGISTER owner=ritual-duelists target=Duel_ShuffleDeck token=3
+REGISTER owner=ritual-duelists target=Ai_GetHandSize token=4
+REGISTER owner=ritual-duelists target=func_8001BAF0 token=5
+REGISTER owner=ritual-duelists target=AiScript_Run token=6
+REGISTER owner=ritual-duelists target=NameEntry_BuildStarterDeck token=7
+REGISTER owner=ritual-duelists target=Duel_SelectCardDrop token=8
+memories-pc: mods: ritual-duelists loaded its code (ritual-duelists.o)
+LIBRARY_INIT owner=dual-play hash=3028c68a loads=1
+REGISTER owner=dual-play target=DuelScene_UpdateHandActions token=9
+REGISTER owner=dual-play target=DuelScene_UpdateDrawPhase token=10
+REGISTER owner=dual-play target=DuelScene_UpdateFieldActions token=11
+REGISTER owner=dual-play target=func_80028220 token=12
+REGISTER owner=dual-play target=func_8001BAF0 token=13
+REGISTER owner=dual-play target=Duel_InitScene token=14
+STATE owner=dual-play size=50 version=10
+memories-pc: mods: dual-play loaded its code (dual-play.o)
+LIBRARY_INIT owner=ritual-card-effects-test hash=52ce4829 loads=1
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER owner=ritual-card-effects-test target=Input_UpdatePads token=15
+REGISTER owner=ritual-card-effects-test target=Main_RunDuel token=16
+REGISTER owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=17
+REGISTER owner=ritual-card-effects-test target=func_800559D4 token=18
+REGISTER owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=19
+REGISTER owner=ritual-card-effects-test target=func_80017F04 token=20
+REGISTER owner=ritual-card-effects-test target=AiScript_Run token=21
+REGISTER owner=ritual-card-effects-test target=AiScript_FindWeakest token=22
+REGISTER owner=ritual-card-effects-test target=Ai_IsCardInSets token=23
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=24
+REGISTER owner=ritual-card-effects-test target=func_80037DA4 token=25
+REGISTER owner=ritual-card-effects-test target=func_80035E20 token=26
+REGISTER owner=ritual-card-effects-test target=func_80027508 token=27
+REGISTER owner=ritual-card-effects-test target=func_80024D34 token=28
+REGISTER owner=ritual-card-effects-test target=DuelScene_Update token=29
+REGISTER owner=ritual-card-effects-test target=func_80023144 token=30
+REGISTER owner=ritual-card-effects-test target=Duel_DrawFieldCards token=31
+REGISTER owner=ritual-card-effects-test target=func_80016784 token=32
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=33
+REGISTER owner=ritual-card-effects-test target=Duel_CalcCardStats token=34
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=35
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=36
+REGISTER owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=37
+REGISTER owner=ritual-card-effects-test target=func_8001EFD4 token=38
+REGISTER owner=ritual-card-effects-test target=func_8001B170 token=39
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=40
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=41
+REGISTER owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=42
+REGISTER owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=43
+REGISTER owner=ritual-card-effects-test target=Duel_ResetCardRecords token=44
+REGISTER owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=45
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=46
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=47
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=48
+REGISTER owner=ritual-card-effects-test target=func_8001BAF0 token=49
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=50
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=51
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=52
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=53
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=54
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=55
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=56
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=57
+REGISTER owner=ritual-card-effects-test target=Duel_CheckFusion token=58
+REGISTER owner=ritual-card-effects-test target=Duel_CheckRitual token=59
+REGISTER owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=60
+REGISTER owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=61
+REGISTER owner=ritual-card-effects-test target=AiScript_FindKiller token=62
+REGISTER owner=ritual-card-effects-test target=AiScript_CalcCardPower token=63
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=64
+memories-pc: mods: ritual-card-effects-test loaded its code (ritual-card-effects.o)
+memories-pc: mod ritual-card-effects-test: warning: this build has no audio replacement
+REGISTER owner=hal2224-observer target=AiScript_Run token=65
+memories-pc: mods: hal2224-observer loaded its code (observer.o)
+MANAGER id=ai-hard-mode enabled=0 active=0 status=
+MANAGER id=drop-missing-cards enabled=1 active=1 status=
+MANAGER id=dual-play enabled=1 active=1 status=
+MANAGER id=fusion-auxiliary-balance enabled=0 active=0 status=
+MANAGER id=hal2224-observer enabled=1 active=1 status=
+MANAGER id=melhoria-dos-rituais enabled=0 active=0 status=
+MANAGER id=ritual-card-effects-test enabled=1 active=1 status=this build has no audio replacement
+MANAGER id=ritual-duelists enabled=1 active=1 status=
+LIFECYCLE method=none H-want=0 H-active=0 D-want=1 D-active=1 H-restart=0 RD-want=1 RD-active=1
+RULES provider=0 abi=0 count=0 sources=0 min_field=0 min_hand=0 require=0
+CHAIN phase=initial target=func_8001BAF0 ritual-card-effects-test -> dual-play -> ritual-duelists -> engine
+CHAIN phase=initial target=DuelScene_UpdateHandActions ritual-card-effects-test -> dual-play -> engine
+CHAIN phase=initial target=AiScript_Run hal2224-observer -> ritual-card-effects-test -> ritual-duelists -> engine
+CHAIN phase=initial target=func_80028220 dual-play -> engine
+CHAIN phase=initial target=Duel_CheckRitual ritual-card-effects-test -> engine
+CHAIN phase=initial target=DuelEffect_ApplyRitual ritual-card-effects-test -> ritual-duelists -> engine
+CHAIN phase=initial target=Duel_PopulateCombinedDeckData ritual-card-effects-test -> engine
+CRITICAL index=4 owner=ritual-duelists target=func_8001BAF0 code=57b53592 phase=initial
+CRITICAL index=8 owner=dual-play target=DuelScene_UpdateHandActions code=3028c68a phase=initial
+CRITICAL index=12 owner=dual-play target=func_8001BAF0 code=3028c68a phase=initial
+CRITICAL index=47 owner=ritual-card-effects-test target=DuelScene_UpdateHandActions code=52ce4829 phase=initial
+FIRST_UNQUALIFIED owner=ritual-card-effects-test target=DuelScene_UpdateHandActions phase=initial
+CRITICAL index=48 owner=ritual-card-effects-test target=func_8001BAF0 code=52ce4829 phase=initial
+TRACE case=init owner=ritual-card-effects-test kind=hook name=Main_RunDuel
+TRACE case=init owner=engine name=Main_RunDuel
+TRACE case=init owner=engine name=Mods_Hal2224GuardReady
+TRACE case=init owner=engine name=Platform_ShowError
+VISIBLE_ERROR HAL-22/24 experimental mod profile: HAL-22/24: an unqualified wrapper intercepts materialization or the hand controller. Duel blocked; no hooks were reordered.
+ADMISSION before-controller enabled=1 ready=0 entered=0 notices=1 reason=HAL-22/24: an unqualified wrapper intercepts materialization or the hand controller. Duel blocked; no hooks were reordered.
+RESULT native-duel-entry-fence PASS Actual experimental Main_RunDuel returns before initialization/controller for unverified composition.
+RESULT explicit-profile-refusal PASS Visible platform error observed by stub, no silent disabling or action execution.
+NOT_RUN controller-suite profile refused before setup
+CHAIN phase=final target=func_8001BAF0 ritual-card-effects-test -> dual-play -> ritual-duelists -> engine
+CHAIN phase=final target=DuelScene_UpdateHandActions ritual-card-effects-test -> dual-play -> engine
+CHAIN phase=final target=AiScript_Run hal2224-observer -> ritual-card-effects-test -> ritual-duelists -> engine
+CHAIN phase=final target=func_80028220 dual-play -> engine
+CHAIN phase=final target=Duel_CheckRitual ritual-card-effects-test -> engine
+CHAIN phase=final target=DuelEffect_ApplyRitual ritual-card-effects-test -> ritual-duelists -> engine
+CHAIN phase=final target=Duel_PopulateCombinedDeckData ritual-card-effects-test -> engine
+CRITICAL index=4 owner=ritual-duelists target=func_8001BAF0 code=57b53592 phase=final
+CRITICAL index=8 owner=dual-play target=DuelScene_UpdateHandActions code=3028c68a phase=final
+CRITICAL index=12 owner=dual-play target=func_8001BAF0 code=3028c68a phase=final
+CRITICAL index=47 owner=ritual-card-effects-test target=DuelScene_UpdateHandActions code=52ce4829 phase=final
+FIRST_UNQUALIFIED owner=ritual-card-effects-test target=DuelScene_UpdateHandActions phase=final
+CRITICAL index=48 owner=ritual-card-effects-test target=func_8001BAF0 code=52ce4829 phase=final
+CALLBACK_COUNT owner=ritual-card-effects-test target=Main_RunDuel calls=1 phase=final
+SUMMARY assertions=6225 failures=0 no pending/plan/quota injection

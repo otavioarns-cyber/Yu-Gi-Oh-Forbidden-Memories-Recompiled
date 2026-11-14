@@ -1,0 +1,134 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gBuildDeck_aWorkspace
+NATIVE_BIND Main_RunDuel unit=guard_main
+NATIVE_DATA D_8009B26C size=1
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+MODEL_DATA gDuel_awSavedDefenseModifier
+REAL_HOST_EXPORTS count=335
+LIBRARY_INIT owner=fusion-auxiliary-balance hash=afb75202 loads=1
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindBestAttack token=1
+REGISTER owner=fusion-auxiliary-balance target=AiScript_PlayFieldCard token=2
+REGISTER owner=fusion-auxiliary-balance target=AiScript_LoadGuardianStarChoice token=3
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindKiller token=4
+REGISTER owner=fusion-auxiliary-balance target=AiScript_CalcCardPower token=5
+REGISTER owner=fusion-auxiliary-balance target=Duel_CheckFusion token=6
+REGISTER owner=fusion-auxiliary-balance target=func_80023144 token=7
+REGISTER owner=fusion-auxiliary-balance target=func_80035E20 token=8
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_AppendEntry token=9
+REGISTER owner=fusion-auxiliary-balance target=Duel_CheckEquip token=10
+REGISTER owner=fusion-auxiliary-balance target=Ai_CompleteFusion token=11
+REGISTER owner=fusion-auxiliary-balance target=Duel_CalcCardStats token=12
+REGISTER owner=fusion-auxiliary-balance target=func_8001EFD4 token=13
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyLifePointRecovery token=14
+REGISTER owner=fusion-auxiliary-balance target=DuelCard_RemoveFromField token=15
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyBoardDestruction token=16
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyRaigeki token=17
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyMonsterRemoval token=18
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateBattle token=19
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateTurnSwitch token=20
+REGISTER owner=fusion-auxiliary-balance target=DuelCard_UpdateDefenseRotation token=21
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateResume token=22
+REGISTER owner=fusion-auxiliary-balance target=func_80024D34 token=23
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_Update token=24
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions token=25
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateCardPlacement token=26
+REGISTER owner=fusion-auxiliary-balance target=func_8001B170 token=27
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_UpdateCardEffect token=28
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateFieldActions token=29
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_UpdateRequests token=30
+REGISTER owner=fusion-auxiliary-balance target=Duel_GetBaseCardStat token=31
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindBestCombo token=32
+REGISTER owner=fusion-auxiliary-balance target=AiScript_EvaluateFusion token=33
+memories-pc: mods: fusion-auxiliary-balance loaded its code (fusion-auxiliary-balance.o)
+LIBRARY_INIT owner=ai-hard-mode hash=3e0648cb loads=1
+REGISTER owner=ai-hard-mode target=AiScript_Init token=34
+REGISTER owner=ai-hard-mode target=AiScript_Run token=35
+REGISTER owner=ai-hard-mode target=Ai_GetHandSize token=36
+REGISTER owner=ai-hard-mode target=func_8001BAF0 token=37
+REGISTER owner=ai-hard-mode target=AiScript_FindStrongest token=38
+REGISTER owner=ai-hard-mode target=AiScript_FindWeakest token=39
+REGISTER owner=ai-hard-mode target=AiScript_FindCard token=40
+REGISTER owner=ai-hard-mode target=AiScript_MatchType token=41
+REGISTER owner=ai-hard-mode target=AiScript_FindDefenseStopper token=42
+memories-pc: mods: ai-hard-mode loaded its code (ai-hard-mode.o)
+LIBRARY_INIT owner=dual-play hash=3028c68a loads=1
+REGISTER owner=dual-play target=DuelScene_UpdateHandActions token=43
+REGISTER owner=dual-play target=DuelScene_UpdateDrawPhase token=44
+REGISTER owner=dual-play target=DuelScene_UpdateFieldActions token=45
+REGISTER owner=dual-play target=func_80028220 token=46
+REGISTER owner=dual-play target=func_8001BAF0 token=47
+REGISTER owner=dual-play target=Duel_InitScene token=48
+STATE owner=dual-play size=50 version=10
+memories-pc: mods: dual-play loaded its code (dual-play.o)
+REGISTER owner=hal2224-observer target=AiScript_Run token=49
+memories-pc: mods: hal2224-observer loaded its code (observer.o)
+MANAGER id=ai-hard-mode enabled=1 active=1 status=
+MANAGER id=drop-missing-cards enabled=1 active=1 status=
+MANAGER id=dual-play enabled=1 active=1 status=
+MANAGER id=fusion-auxiliary-balance enabled=1 active=1 status=
+MANAGER id=hal2224-observer enabled=1 active=1 status=
+MANAGER id=melhoria-dos-rituais enabled=0 active=0 status=
+MANAGER id=ritual-card-effects-test enabled=0 active=0 status=
+MANAGER id=ritual-duelists enabled=0 active=0 status=
+LIFECYCLE method=none H-want=1 H-active=1 D-want=1 D-active=1 H-restart=0 RD-want=0 RD-active=0
+RULES provider=0 abi=0 count=0 sources=0 min_field=0 min_hand=0 require=0
+CHAIN phase=initial target=func_8001BAF0 dual-play -> ai-hard-mode -> engine
+CHAIN phase=initial target=DuelScene_UpdateHandActions dual-play -> fusion-auxiliary-balance -> engine
+CHAIN phase=initial target=AiScript_Run hal2224-observer -> ai-hard-mode -> engine
+CHAIN phase=initial target=func_80028220 dual-play -> engine
+CHAIN phase=initial target=Duel_CheckRitual engine
+CHAIN phase=initial target=DuelEffect_ApplyRitual engine
+CHAIN phase=initial target=Duel_PopulateCombinedDeckData engine
+CRITICAL index=24 owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions code=afb75202 phase=initial
+FIRST_UNQUALIFIED owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions phase=initial
+CRITICAL index=36 owner=ai-hard-mode target=func_8001BAF0 code=3e0648cb phase=initial
+CRITICAL index=42 owner=dual-play target=DuelScene_UpdateHandActions code=3028c68a phase=initial
+CRITICAL index=46 owner=dual-play target=func_8001BAF0 code=3028c68a phase=initial
+TRACE case=init owner=engine name=Main_RunDuel
+TRACE case=init owner=engine name=Mods_Hal2224GuardReady
+ADMISSION before-controller enabled=0 ready=1 entered=1 notices=0 reason=none
+RESULT native-duel-entry-fence PASS Actual experimental Main_RunDuel returns before initialization/controller for unverified composition.
+TRACE case=init owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=init owner=engine name=Duel_InitScene
+CASE providers-integrated
+RESULT F1-ON-contracts PASS Exact PR22 loaded code and explicitly seeded physical lease77; four real contracts.
+RESULT F1-restart-pending-stays-ON PASS Original restart:true preserved: saved preference differs from effective callback state.
+FORCED_APPLIED owner=fusion-auxiliary-balance actual=0 callback experiment bypasses restart only after admission
+F1 OFF encore=0 lease=0 extended=0 forecast=0
+RESULT F1-effective-OFF-neutral PASS Owner OFF neutral with unchanged serial; no registry teardown.
+RESULT F1-disabled-provider-still-findable PASS Real Mods_Find keeps owner records resident OFF.
+FORCED_APPLIED owner=fusion-auxiliary-balance actual=1 callback experiment bypasses restart only after admission
+RESULT F1-reactivation-no-old-lease PASS Encore current presence resumes; old grant never recreated.
+RESULT F1-new-grant-new-serial PASS Real private bind callback with qualified compiler fastcall; new grant explicitly requested ON.
+TRACE case=providers-integrated owner=engine name=CardRules_Fusion
+TRACE case=providers-integrated owner=engine name=Tower_Refuses
+RESULT Metalmorph-forecast-unchanged PASS Existing approved 61+658 recipe in modeled native oracle; real Fusion forecast.
+RESULT reset-clears-Fusion-lease PASS Actual manager Reset; no artificial BSS save format.
+CHAIN phase=final target=func_8001BAF0 dual-play -> ai-hard-mode -> engine
+CHAIN phase=final target=DuelScene_UpdateHandActions dual-play -> fusion-auxiliary-balance -> engine
+CHAIN phase=final target=AiScript_Run hal2224-observer -> ai-hard-mode -> engine
+CHAIN phase=final target=func_80028220 dual-play -> engine
+CHAIN phase=final target=Duel_CheckRitual engine
+CHAIN phase=final target=DuelEffect_ApplyRitual engine
+CHAIN phase=final target=Duel_PopulateCombinedDeckData engine
+CRITICAL index=24 owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions code=afb75202 phase=final
+FIRST_UNQUALIFIED owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions phase=final
+CRITICAL index=36 owner=ai-hard-mode target=func_8001BAF0 code=3e0648cb phase=final
+CRITICAL index=42 owner=dual-play target=DuelScene_UpdateHandActions code=3028c68a phase=final
+CRITICAL index=46 owner=dual-play target=func_8001BAF0 code=3028c68a phase=final
+SUMMARY assertions=6194 failures=0 no pending/plan/quota injection

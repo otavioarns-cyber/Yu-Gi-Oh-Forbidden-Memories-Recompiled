@@ -1,0 +1,143 @@
+{
+  "archive_sha256": "95e55028d45aac01027ca6b90fe335c8ce09a6cdbbe105977f6582985c96e085",
+  "logs": [
+    {
+      "path": "M-R-F-H-RD-D-g0-controller-safe-v5-after.log",
+      "bytes": 976742,
+      "sha256": "7502ae0011bb4b6bba7218ae7e452b117ba23962633deaea6705e25149cda8cd",
+      "plain_published": true
+    },
+    {
+      "path": "M-R-F-H-RD-D-g0-controller-safe-v5-before.log",
+      "bytes": 950789,
+      "sha256": "d738f173b2703876c3dab87a03d1d62f11f31a66e219af0da9f8c712de2e787f",
+      "plain_published": true
+    },
+    {
+      "path": "M-R-F-H-RD-D-g1-controller-safe-v5-after.log",
+      "bytes": 15674,
+      "sha256": "efc74f1e2005df653a145c426a3dab5deaaabf3c1cf0f62c2fecb3270630655a",
+      "plain_published": true
+    },
+    {
+      "path": "M-R-F-H-RD-D-g1-controller-safe-v5-before.log",
+      "bytes": 15678,
+      "sha256": "b18f17bdda61712ace511c58994ce07624c4e219438282602acf9b631b946d51",
+      "plain_published": true
+    },
+    {
+      "path": "R-H-D-g0-controller-safe-v5-after.log",
+      "bytes": 409464,
+      "sha256": "45b5c6b6e7b913c01f358d0b903637222b36aa30fe8b71b6e3b41a4d4e8eb2b3",
+      "plain_published": true
+    },
+    {
+      "path": "R-H-D-g0-controller-safe-v5-before.log",
+      "bytes": 409466,
+      "sha256": "dc1ded9305cd57bec991e6ee86c0afb9d4640d063c61f35d233a51053423395e",
+      "plain_published": true
+    },
+    {
+      "path": "R-H-D-g1-controller-safe-v5-after.log",
+      "bytes": 10480,
+      "sha256": "7967bbaf223a8712da79df2acde04caf10939151e8f8f2016f519b7fd632793b",
+      "plain_published": true
+    },
+    {
+      "path": "R-H-D-g1-controller-safe-v5-before.log",
+      "bytes": 10482,
+      "sha256": "760915d01f81432d7a6873a5e032ff5bb1ffe99c91418396bbbc7a7ab34484b4",
+      "plain_published": true
+    },
+    {
+      "path": "R-H-g0-controller-safe-v5-after.log",
+      "bytes": 364880,
+      "sha256": "5d388540aca9425ca788ef4c9a431249512b7b43f63b37a887c19eaa835f41fa",
+      "plain_published": false
+    },
+    {
+      "path": "R-H-g0-controller-safe-v5-before.log",
+      "bytes": 364880,
+      "sha256": "5d388540aca9425ca788ef4c9a431249512b7b43f63b37a887c19eaa835f41fa",
+      "plain_published": false
+    },
+    {
+      "path": "R-H-g1-controller-safe-v5-after.log",
+      "bytes": 364880,
+      "sha256": "021521430d603722cb5f40decdf43205b9a100854c555d13bbeaee73ba9f2cab",
+      "plain_published": false
+    },
+    {
+      "path": "R-H-g1-controller-safe-v5-before.log",
+      "bytes": 364880,
+      "sha256": "021521430d603722cb5f40decdf43205b9a100854c555d13bbeaee73ba9f2cab",
+      "plain_published": false
+    },
+    {
+      "path": "R-RD-D-g0-controller-safe-v5-after.log",
+      "bytes": 65966,
+      "sha256": "197bbe0ecb0ec4f4358b389c13b716137bda6dcbd4da0eee3f4941da1e7d9483",
+      "plain_published": true
+    },
+    {
+      "path": "R-RD-D-g0-controller-safe-v5-before.log",
+      "bytes": 55681,
+      "sha256": "229b621d283053e14d8e2f2ba34f1c536217cbd77258af722d2062b8fd0b7d8f",
+      "plain_published": true
+    },
+    {
+      "path": "R-RD-D-g1-controller-safe-v5-after.log",
+      "bytes": 10553,
+      "sha256": "9c612a35738871057df51c7e11099040d27d9b996ad517f61a19733c2ea34b9b",
+      "plain_published": true
+    },
+    {
+      "path": "R-RD-D-g1-controller-safe-v5-before.log",
+      "bytes": 10557,
+      "sha256": "65d5b89848899d9fd514b19df023e078ed3664ce9be1edf9022797d5919a356a",
+      "plain_published": true
+    },
+    {
+      "path": "R-RD-g0-controller-safe-v5-after.log",
+      "bytes": 18976,
+      "sha256": "0780e0024b3cec6396a17b6fa0fd70b4d37f5ba36d15c61761637aa05d382bda",
+      "plain_published": true
+    },
+    {
+      "path": "R-RD-g0-controller-safe-v5-before.log",
+      "bytes": 25164,
+      "sha256": "42aef8be7e1ac962c6132c7bfa01d61d4826b4cf1b9b61c353cbd601db685b68",
+      "plain_published": true
+    },
+    {
+      "path": "R-RD-g1-controller-safe-v5-after.log",
+      "bytes": 18976,
+      "sha256": "c3cc57aff88bb4731d05d854f7fc2583be9be902744bdc23019df3b2ba04fe7a",
+      "plain_published": true
+    },
+    {
+      "path": "R-RD-g1-controller-safe-v5-before.log",
+      "bytes": 25164,
+      "sha256": "7318696f24dfa513786add9e931c1695cc7d4029eaba58076fef782e00c7b96f",
+      "plain_published": true
+    },
+    {
+      "path": "build-duel-entry.log",
+      "bytes": 35691,
+      "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+      "plain_published": true
+    },
+    {
+      "path": "build-harness.log",
+      "bytes": 11461,
+      "sha256": "43fa3e0ec49fb6f56a63b619106b24d84e905ca24c318639d7da706c4f8c00ae",
+      "plain_published": true
+    },
+    {
+      "path": "build-observer.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "plain_published": true
+    }
+  ]
+}
