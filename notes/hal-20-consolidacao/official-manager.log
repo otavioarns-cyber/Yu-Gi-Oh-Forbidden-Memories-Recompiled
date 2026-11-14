@@ -1,0 +1,20 @@
+memories-pc: mod bad-assets: "assets" is not an object or the name of a directory
+memories-pc: mod dup: warning: /tmp/memories-manager-p44108-G2KsDq/mods/dup-b was left out: same id as /tmp/memories-manager-p44108-G2KsDq/mods/dup-a
+memories-pc: mod escaping: "assets": ../elsewhere is outside the mod
+memories-pc: mod typo: warning: unknown key 'libary' (did you mean 'library'?)
+memories-pc: mod typo: warning: unknown key 'Name' (did you mean 'name'?)
+memories-pc: mod typo: warning: unknown key 'zzzzzz'
+memories-pc: mod typo: warning: "enabled" should be true or false
+memories-pc: mod typo: warning: "restart" should be true or false
+memories-pc: mod invalid-schema: Invalid setting schema: oops
+memories-pc: mod invalid-data: a data entry needs a string "replace" or an array "patch"
+memories-pc: mod partial: "bytes": ZZ is not hexadecimal
+memories-pc: mod pack-b: warning: texture pack: 1 image could not be read
+memories-pc: mod pack-b: warning: texture pack: 1 image could not be read
+memories-pc: mod pack-b: warning: texture pack: 1 image could not be read
+memories-pc: mod named: texture pack could not load: this build has no named asset replacements
+memories-pc: mod missing: cannot read late.bin
+memories-pc: mod missing: late.bin exceeds the raw sector region capacity; replacement rejected
+memories-pc: mod needs-later: waits for a restart: later, which it requires, is applied at the next launch
+memories-pc: mod needs-later: waits for a restart: later, which it requires, is applied at the next launch
+memories-pc: Could not save settings to /dev/null/settings: Not a directory.

@@ -1,0 +1,5 @@
+@bank descriptions
+
+[D3BB]
+Temple of Skulls +
+2 {f8 0B 02} monsters

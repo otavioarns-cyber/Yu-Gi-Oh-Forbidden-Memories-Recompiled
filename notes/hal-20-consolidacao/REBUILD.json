@@ -1,0 +1,26 @@
+[
+  {
+    "package": "ritual-card-effects",
+    "command": [
+      "python",
+      "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/tools/build_mod.py",
+      "/workspace/work/hal20-consolidacao/local/rebuild/ritual-card-effects",
+      "--target",
+      "i386"
+    ],
+    "bytes": 736776,
+    "sha256": "ab21659cce88cff0b468a830ee23272d89aaeb059255255ff91a6e9c3863b539"
+  },
+  {
+    "package": "ritual-duelists",
+    "command": [
+      "python",
+      "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/tools/build_mod.py",
+      "/workspace/work/hal20-consolidacao/local/rebuild/ritual-duelists",
+      "--target",
+      "i386"
+    ],
+    "bytes": 4568060,
+    "sha256": "d0bce92aa655a7db4334ed7c95eab15cbc2b8c2de9686a78f3eea5221d5fb7bc"
+  }
+]

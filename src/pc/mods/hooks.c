@@ -406,3 +406,17 @@ int Hooks_IsHooked(const void *function)
         if (targets[i].entry == function) return targets[i].patched;
     return 0;
 }
+
+/* Experimental qualification reads the chain actually installed. */
+int Hooks_Inspect(int index,int *owner,const void **target,const void **replacement,
+                  const void **previous,const void **body)
+{
+    if(index<0||index>=hook_count)return 0;
+    const Hook *h=&hooks[index];
+    if(owner)*owner=h->owner;
+    if(target)*target=targets[h->target].entry;
+    if(replacement)*replacement=h->replacement;
+    if(previous)*previous=h->original?__atomic_load_n(h->original,__ATOMIC_SEQ_CST):NULL;
+    if(body)*body=original_body(&targets[h->target]);
+    return 1;
+}

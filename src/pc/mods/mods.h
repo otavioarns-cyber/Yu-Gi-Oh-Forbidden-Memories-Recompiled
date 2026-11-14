@@ -349,6 +349,15 @@ int Mods_WaitsForRestart(int mod, const int *enabled);
 int Mods_ProfileValue(const char *name, const char *key, int fallback);
 int Mods_Validate(const int *enabled, char *error, size_t size);
 int Mods_Apply(const int *enabled, char *error, size_t size);
+/* HAL-22/24 experimental opt-in. Default off; no hook ordering is changed.
+ * The named setting experimental.hal2224_order_guard must be 1 in this profile.
+ * Validate accepts staged ranks (NULL means saved ranks). Ready inspects the
+ * actual registered composition, not activation sequence or UI preferences. */
+int Mods_Hal2224GuardEnabled(void);
+int Mods_Hal2224GuardValidate(const int *enabled, const int *ranks, char *error, size_t size);
+void Mods_Hal2224GuardStartupRejected(const char *reason);
+int Mods_Hal2224GuardReady(char *error, size_t size);
+
 int Mods_ProfileSave(const char *name);
 /* Why the last Mods_ProfileSave could not write its file ("<path>: <reason>.",
  * Paths_WriteError), or "" when it failed on the name or succeeded. */
@@ -378,6 +387,10 @@ int Mods_RuntimeOption(int mod, int option);
  * pack, whose parts may follow the setting, is loaded again. */
 void Mods_OptionChanged(int mod, int option);
 unsigned Mods_CodeHash(int mod);
+/* Internal read-only guard qualification: bytes loaded and exact callback. */
+int Mods_CodeMatches(int mod,unsigned code,const char *sha256);
+int Mods_CallbackMatches(int mod,const void *callback,const char *name,size_t size);
+int Mods_Hal20StateLoadAllowed(char *error,size_t size);
 unsigned Mods_Signature(void);
 int Mods_DamageLife(int side, int life, int damage, int kind);
 /* The mods' "limits" by name (pc/cards/tables.h, Tables_Limit), which the

@@ -1,0 +1,290 @@
+{
+  "REBUILD_EQUIVALENCE.json": {
+    "bytes": 3107,
+    "sha256": "d4bc6f36b72a48584a6a3b951aad10dea180bdca12d32191873962482736adaa"
+  },
+  "reg-boundary.logs.tar.gz": {
+    "bytes": 1199379,
+    "sha256": "108f4786f5ba1bdc31bed58c05acca508bec08e3ead4610b753c30445e4ed98d"
+  },
+  "providers.logs.tar.gz": {
+    "bytes": 76755,
+    "sha256": "c08cf56db2ddb5c453050cd2e9e325af6bb89d23f405fbc1b946b26303b92e33"
+  },
+  "BUILD_WINDOWS.json": {
+    "bytes": 506,
+    "sha256": "25085bbe78dc97af67d20b0ec0f7f262dc13bf8c5434b540685b8af8cdb01e22"
+  },
+  "preview-panels.log": {
+    "bytes": 1156,
+    "sha256": "7a82ba4a286c7a5c35b2996cef5b253187e78a7549e299be992d5757b51166c4"
+  },
+  "MATRIZ.csv": {
+    "bytes": 1644762,
+    "sha256": "c2a181f97eee6c7971b6016b7be117be35f7db3ff3bb16e42d764ec809552dde"
+  },
+  "manager.logs.tar.gz": {
+    "bytes": 255895,
+    "sha256": "337b7fd6ce0d8f29789f3e6817bae834a2f5234e48fa7d5dfb79b6ac335b6275"
+  },
+  "rebuild-ritual-card-effects.log": {
+    "bytes": 180,
+    "sha256": "e6ae7dfc43b57e6ad1707d18ecc5c83bcde3e1372234a9967624de3b4f76936b"
+  },
+  "spoof.logs.tar.gz": {
+    "bytes": 17394,
+    "sha256": "4fda1eb12bccbc9f7d89ae500427e8c306a18ca3d8fd8a0dc132e83407e44514"
+  },
+  "reg-recovery.logs.tar.gz": {
+    "bytes": 493861,
+    "sha256": "12219169011f08169e6bbdd297a74c92579380ae561c255081433ca512011242"
+  },
+  "REFS_ANTES.json": {
+    "bytes": 3798,
+    "sha256": "7415d2c8135f66321da19e032862819158bfe394a8aeea9eef735baf9480fdc6"
+  },
+  "ABI-ritual-card-effects.json": {
+    "bytes": 11003,
+    "sha256": "c067619ed02c7e60c9a010f478e930d9e7a7e1ffc45442d68ec8d779470667c8"
+  },
+  "PUBLICATION_AUDIT.json": {
+    "bytes": 305,
+    "sha256": "570c0a4b392bcdc01c3ad07ba0900de459eed8ad17e59ae0b62c0fa634163bcf"
+  },
+  "CONTROLES_PR26.json": {
+    "bytes": 95166,
+    "sha256": "a7456c7c4b6ff0e2417afab1f740ed2be78801160dae83eaaafda10fd5004e8f"
+  },
+  "build-windows.log": {
+    "bytes": 20194,
+    "sha256": "3a269add1517fa1dcc07145446c5f6d43c3f7351348587646d2a4af2571e896b"
+  },
+  "field-inspection-build.log": {
+    "bytes": 159,
+    "sha256": "072a82de0df3f4ccdfbd00ea5e7fbb0261a5a5e6d6e9e5f8ba337dbc6fdae68a"
+  },
+  "AUDIT.json": {
+    "bytes": 1318,
+    "sha256": "400955d3c25daa8d6906e5b2872f4308ffe843be6696ae0331548fa3e9441371"
+  },
+  "PR26_PACKAGE_TREE.json": {
+    "bytes": 36816,
+    "sha256": "e86fa4900bff9f512eb3d971152ca1efeb3af20b1caea79b480e76545d31ecfe"
+  },
+  "REBUILD.json": {
+    "bytes": 746,
+    "sha256": "e84f980803eea2372cf02d65086fb34a2e7225aaf8befcebc2b86f378991531d"
+  },
+  "canonical-RD-real.json": {
+    "bytes": 48164,
+    "sha256": "b0763b07354586d31c93192867693417d0714faebc42681d4230d049603a4080"
+  },
+  "canonical-RD-real.log": {
+    "bytes": 1933,
+    "sha256": "375f95ddb18bc4e3796e3a8c095243e0102ef381fbc91aa9ea7f259d60bf441b"
+  },
+  "M-reference.log": {
+    "bytes": 739,
+    "sha256": "4717f9db8f126e9b7b3143ea837ab7aa8d517b5da873b6dd06bd4c63dc964349"
+  },
+  "RESULTADOS.json": {
+    "bytes": 5590,
+    "sha256": "06c3c89d827b145c6fc23452f7d763ae52394f43ae9856fec9e8aaf4ff417008"
+  },
+  "Fusion-reference.json": {
+    "bytes": 16354,
+    "sha256": "d8b19dc3fef02e9064ed412b7ea9bde4f1956c686b0aee8f6ff0381923796c88"
+  },
+  "official-manager-build.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "RISCOS.json": {
+    "bytes": 3886,
+    "sha256": "3b536e308dce51572374383cd95159eae12af548bd515f1554438048268ca871"
+  },
+  "PR26_INPUTS.json": {
+    "bytes": 61124,
+    "sha256": "425221901fe3f4553c21462263f0891d91e1bfbb9433eccc6af46d1ca9c9647e"
+  },
+  "COMPATIBILIDADE.csv": {
+    "bytes": 1517,
+    "sha256": "463def29d821cabe75cc70759a64f2ff41ce441ebc5e6f93a6681b5999ef80d7"
+  },
+  "ABI-ritual-duelists.json": {
+    "bytes": 8445,
+    "sha256": "d88cbdb4a21e50de7f60a3f253bc7487f350e61c3266f463b2beb4def8452914"
+  },
+  "official-manager.log": {
+    "bytes": 1599,
+    "sha256": "576643713c30d108b6dfb0f103c231a6e7bad3dcfbbfb40e172905a0bcc06b2f"
+  },
+  "subsets-final.logs.tar.gz": {
+    "bytes": 431018,
+    "sha256": "a5e829cc390a4bdf64341fd6f3ae197b1c07844c4a0b63658142263a4d6a48bb"
+  },
+  "fence-final.logs.tar.gz": {
+    "bytes": 524984,
+    "sha256": "a411e173171c9f8da275bf82019494d97bfae8bf1ed6fbeadafdb7637d7c3b9c"
+  },
+  "reg-restrictions.logs.tar.gz": {
+    "bytes": 15537,
+    "sha256": "d7da6bcbf13973dc312110258c855b59aecc377ed10de0f0553f751111b2a262"
+  },
+  "INPUTS.json": {
+    "bytes": 77115,
+    "sha256": "64b27061c95cf1519e6c191891523b9f6bd2ccd49d12578039e568617c7376f9"
+  },
+  "reg-reset-recovery.logs.tar.gz": {
+    "bytes": 153204,
+    "sha256": "f59e02802ffe70c324ae58d7598b98f6c7ec5d387d87dfd952cbfb89184599c9"
+  },
+  "consolidation.logs.tar.gz": {
+    "bytes": 187910,
+    "sha256": "08f90b560ba58126a5e7a966e45b8f6b9eb516130ee8637f55d6b60b4d713e6b"
+  },
+  "canonical-SUMMARY.json": {
+    "bytes": 281,
+    "sha256": "216fa68ce129fee7b89195167985361dc690b9f29b1556d87a458a7f4495893f"
+  },
+  "ADICIONAIS.json": {
+    "bytes": 3003,
+    "sha256": "395863f0cfa542a16be585b7cec9ddc8220a1ea36723f072cdb8344987c93338"
+  },
+  "PR13_INSUMOS_SHA256.json": {
+    "bytes": 21901,
+    "sha256": "11f5950315dbf1636e5ca28c6586772111be71cb6bdaa61b2f57be15ffd01dc5"
+  },
+  "Fusion-reference.log": {
+    "bytes": 7877,
+    "sha256": "792215b17c3bbc490fcd089707a6c51d9f6e40bc7ddd5214a303a41f5b2e6b4a"
+  },
+  "canonical-Ritual.json": {
+    "bytes": 16569,
+    "sha256": "ec20d24a3d0f8eac1a86d955186a8330a82e404937d643299e59080dd4b3e954"
+  },
+  "OWNED_TREES.json": {
+    "bytes": 48844,
+    "sha256": "1733a4408e9f595649c2fe4161796b729e1541c125a10063673d7c672bd4665e"
+  },
+  "rebuild-ritual-duelists.log": {
+    "bytes": 169,
+    "sha256": "c68d92aa1429e1e464d11c6eb9a2e2d6bb101276c515d4c1406b61318d5a8887"
+  },
+  "canonical-Ritual.log": {
+    "bytes": 6835,
+    "sha256": "cdc6fa8a791180ae6d93c31f133ea6fa5091a70494f6a5bda69eeed2ea45161b"
+  },
+  "PR25_INPUTS.json": {
+    "bytes": 53539,
+    "sha256": "dce86d09b6a02383d1f5c0278734e7073c0b988937149dff39469733a3c82d80"
+  },
+  "reg-default-final.logs.tar.gz": {
+    "bytes": 945312,
+    "sha256": "1b5e972fef42184fb8520af6e2741d15720d28a9820a0c1fa090cd7cbb9c792e"
+  },
+  "QUALIFIED_ARTIFACTS.json": {
+    "bytes": 5850,
+    "sha256": "99184f195f9c7d6d546cb7845f59a95db931409235ef5ee292c71f9bc9d396d9"
+  },
+  "reg-hardening-final.logs.tar.gz": {
+    "bytes": 361067,
+    "sha256": "d583aa4ba864a2b504fb8b5fe2a095f19c3f0e88b0491ad4493474d239387c09"
+  },
+  "reference26.logs.tar.gz": {
+    "bytes": 20188,
+    "sha256": "be106412aab915424210301add8aff42cf8f5bdeda68dea48af799addf7e52b4"
+  },
+  "official-hooks.log": {
+    "bytes": 14,
+    "sha256": "f322f06a86c055bb80ed9dc894545933fdf4b1fd59e01eb4cb3fe7dd852e1f92"
+  },
+  "composition-guard-initial.logs.tar.gz": {
+    "bytes": 1488717,
+    "sha256": "6a5980db9e719bbf388085f2afc39f5623b7fece3822025b381644555973da5b"
+  },
+  "wrappers/WRAPPERS.json": {
+    "bytes": 4674442,
+    "sha256": "c80f2b0e97a08791e9a8910433e7c3712b17007f210e112f8aa2c40c1bc06222"
+  },
+  "wrappers/WRAPPERS.csv": {
+    "bytes": 42981,
+    "sha256": "ffc990ecce47930208b9cd9789d5e6c502fbca33de5090935b6c713614b0b5c7"
+  },
+  "windows/control64.exe-build.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "windows/prefix-init.log": {
+    "bytes": 1062,
+    "sha256": "9cefe2ce2621931947c65714ca06c4e67d8675b71340ecf86db8ebe3e4980f1e"
+  },
+  "windows/wine11-release-sha256sums.txt": {
+    "bytes": 873,
+    "sha256": "473b1e0f3ccfe55f3c5f57085fec77a3e50d0773ba4ca1028f0225faf35e0aa6"
+  },
+  "windows/RESULTADOS.json": {
+    "bytes": 2981,
+    "sha256": "62b9896c0331d64bf415dd348f151ac1634437660de48116304b09f76da67dc3"
+  },
+  "windows/driver64.exe-build.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "windows/control32.exe-build.log": {
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "windows/control32.log": {
+    "bytes": 408,
+    "sha256": "d76fd21cc15904eb3c6229b79fb144f67f6abcfe8d81a428a6b8218e4a181c45"
+  },
+  "windows/xvfb.log": {
+    "bytes": 64,
+    "sha256": "87e9572cf030493a1f7ba83d385129046b224374ca1414911674b30fc44276d7"
+  },
+  "windows/DIRECT.json": {
+    "bytes": 287,
+    "sha256": "08e58cd5404e1c220d1d81da069c4eea57d60a906706ff7eab4e09573c74f929"
+  },
+  "windows/control64.log": {
+    "bytes": 498,
+    "sha256": "384783ba645f2e11974f73553a8d4db538442337253ce85ecbfe9575df95413a"
+  },
+  "windows/game-visible.log": {
+    "bytes": 408,
+    "sha256": "d76fd21cc15904eb3c6229b79fb144f67f6abcfe8d81a428a6b8218e4a181c45"
+  },
+  "windows/control64.exe-direct.log": {
+    "bytes": 39,
+    "sha256": "2478aa6ecaab6ab1973d432a0dda1834462c44f96ec850f75ed65c8fc8b1d0f1"
+  },
+  "windows/qemu-x64-control64-debug.log": {
+    "bytes": 16931,
+    "sha256": "145352288e3ba37dbd2cd4c8c546c6e985964a9b9320223ec51b6b55daadf090"
+  },
+  "windows/direct-xvfb.log": {
+    "bytes": 64,
+    "sha256": "87e9572cf030493a1f7ba83d385129046b224374ca1414911674b30fc44276d7"
+  },
+  "windows/memories-pc.exe-direct.log": {
+    "bytes": 111,
+    "sha256": "9aea4e3ff46c0b88ed3ea06ec5f92b711dc24f7831d9d2d2a7c011a42eeddf23"
+  },
+  "windows/qemu-x64-control32-debug.log": {
+    "bytes": 1753,
+    "sha256": "81523cdf263749bc59d3eee3f919303e677028a9f3a368dd44fb06eeab31ee2a"
+  },
+  "windows/control32.exe-direct.log": {
+    "bytes": 128,
+    "sha256": "9b3b6abd14e0632e2a4c6784e954e5f84de49e8e45517da09e68dcb59d30351a"
+  },
+  "windows/qemu-x64-wine-control32.log": {
+    "bytes": 495,
+    "sha256": "da8b57ac158c307150dda9c80f1c3ed800c954d59d30cdefb3514c0d441b6adf"
+  },
+  "windows/game-headless.log": {
+    "bytes": 408,
+    "sha256": "d76fd21cc15904eb3c6229b79fb144f67f6abcfe8d81a428a6b8218e4a181c45"
+  }
+}

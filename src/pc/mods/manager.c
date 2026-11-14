@@ -6,6 +6,8 @@
 #include "overlap.h"
 #include "hooks.h"
 #include "events.h"
+#include "hal20_qualified.h"
+#include "exports.h"
 #include "pc/debug/log.h"
 #include "pc/platform/paths.h"
 #include "pc/platform/settings.h"
@@ -148,6 +150,172 @@ static int order_ranked(const int *enabled, const int *ranks, int *order, char *
     }
     return total;
 }
+/* Experimental joint profile, default OFF. The existing orderer and hook
+ * linker are queried, never rewritten. Only qualified object versions and
+ * known swap/controller owners are admitted for a Dual/materializer pair. */
+static char hal2224_startup_error[256];
+int Mods_Hal2224GuardEnabled(void)
+{
+    return Settings_GetNamed("experimental.hal2224_order_guard", 0) == 1;
+}
+static int hal2224_error(char *out, size_t size, const char *why)
+{
+    if (out && size) snprintf(out, size, "%s", why);
+    return 0;
+}
+static void hal2224_ids(int ids[3])
+{
+    ids[0] = find("ai-hard-mode");
+    ids[1] = find("ritual-duelists");
+    ids[2] = find("dual-play");
+}
+static int hal2224_joint(const int ids[3], const int *active)
+{
+    return ids[2] >= 0 && active[ids[2]] &&
+        ((ids[0] >= 0 && active[ids[0]]) || (ids[1] >= 0 && active[ids[1]]));
+}
+static int hal20_role_of(int owner)
+{
+    for(int r=0;r<6;r++)if(owner==find(hal20_roles[r].id))return r;
+    return -1;
+}
+static int hal20_version(int role,int owner)
+{return role>=0&&Mods_CodeMatches(owner,hal20_roles[role].code,hal20_roles[role].sha);}
+static int hal2224_chain(const int ids[3],const int *active,
+                         const int *order,int count,int projected,
+                         char *error,size_t size)
+{
+    const char *names[]={"func_8001BAF0","DuelScene_UpdateHandActions","AiScript_Run"};
+    const void *targets[3],*last[3]={0,0,0};int hits[6][3]={{0}},position[3]={-1,-1,-1},tail=0;
+    for(int t=0;t<3;t++)if(!(targets[t]=Mods_Lookup(names[t])))
+        return hal2224_error(error,size,"HAL-20: required hook target unavailable; duel blocked.");
+    for(int i=0;;i++){
+        int owner;const void *target,*replacement,*previous,*body;
+        if(!Hooks_Inspect(i,&owner,&target,&replacement,&previous,&body))break;
+        tail=i+1;
+        if(owner<0||owner>=Mods_Count()||!active[owner])continue;
+        int t=-1,role=hal20_role_of(owner),matched=0;
+        for(int j=0;j<3;j++)if(target==targets[j])t=j;
+        if(t<0)continue;
+        if(!hal20_version(role,owner))return hal2224_error(error,size,
+            "HAL-20: unqualified object intercepts a protected controller. Preferences kept; duel blocked.");
+        for(size_t c=0;c<sizeof(hal20_callbacks)/sizeof(hal20_callbacks[0]);c++){
+            const Hal20Callback *cb=&hal20_callbacks[c];
+            if(cb->role==role&&!strcmp(cb->target,names[t])&&
+               Mods_CallbackMatches(owner,replacement,cb->function,cb->bytes))matched=1;
+        }
+        if(!matched)return hal2224_error(error,size,
+            "HAL-20: callback does not match the qualified artifact/target; duel blocked.");
+        if(!projected&&previous!=(last[t]?last[t]:body))return hal2224_error(error,size,
+            "HAL-20: delegated callback chain differs from the qualified order; duel blocked.");
+        last[t]=replacement;++hits[role][t];
+        if(t==0)for(int j=0;j<3;j++)if(owner==ids[j])position[j]=i;
+    }
+    for(int role=0;role<6;role++){
+        int owner=find(hal20_roles[role].id);if(owner<0||!active[owner])continue;
+        if(projected&&!Mods_CodeHash(owner)){
+            for(int i=0;i<count;i++)if(order[i]==owner)for(int j=0;j<3;j++)
+                if(owner==ids[j]&&position[j]<0)position[j]=tail+i;
+            continue; /* Ready verifies the actual library after init, before controller. */
+        }
+        if(!hal20_version(role,owner))return hal2224_error(error,size,
+            "HAL-20: object bytes/version are not qualified for this candidate profile; duel blocked.");
+        for(int t=0;t<3;t++){
+            int expected=0;for(size_t c=0;c<sizeof(hal20_callbacks)/sizeof(hal20_callbacks[0]);c++)
+                expected+=hal20_callbacks[c].role==role&&!strcmp(hal20_callbacks[c].target,names[t]);
+            if(hits[role][t]!=expected)return hal2224_error(error,size,
+                "HAL-20: missing or duplicate protected callback; duel blocked.");
+        }
+    }
+    if((ids[0]>=0&&ids[1]>=0&&active[ids[0]]&&active[ids[1]]&&position[0]>=position[1])||
+       (ids[2]>=0&&active[ids[2]]&&((ids[0]>=0&&active[ids[0]]&&position[0]>=position[2])||
+        (ids[1]>=0&&active[ids[1]]&&position[1]>=position[2]))))
+        return hal2224_error(error,size,
+            "HAL-20: unsafe materializer order. Load AI, Ritual Duelists, then Dual when present; restart.");
+    return 1;
+}
+
+int Mods_Hal2224GuardValidate(const int *enabled, const int *ranks, char *error, size_t size)
+{
+    int ids[3], order[MODS_MAX], count, position[3] = {-1,-1,-1};
+    int future[MODS_MAX], same = 1;
+    if (!Mods_Hal2224GuardEnabled()) return 1;
+    hal2224_ids(ids);
+    count = order_ranked(enabled, ranks, order, error, size);
+    if (count < 0) return 0;
+    if (hal2224_joint(ids, enabled)) {
+        for (int i = 0; i < count; i++) for (int j = 0; j < 3; j++)
+            if (order[i] == ids[j]) position[j] = i;
+        if ((ids[0] >= 0 && enabled[ids[0]] && position[0] >= position[2]) ||
+            (ids[1] >= 0 && enabled[ids[1]] && position[1] >= position[2]) ||
+            (ids[0] >= 0 && ids[1] >= 0 && enabled[ids[0]] && enabled[ids[1]] && position[0] >= position[1]))
+            return hal2224_error(error, size, "HAL-22/24: requested order rejected. Load AI, then Ritual Duelists, then Dual Play when present. Preferences were kept.");
+    }
+    if(ids[0]>=0&&ids[1]>=0&&enabled[ids[0]]&&enabled[ids[1]]){
+        int h=-1,r=-1;for(int i=0;i<count;i++){if(order[i]==ids[0])h=i;if(order[i]==ids[1])r=i;}
+        if(h>=r)return hal2224_error(error,size,"HAL-20: load AI before Ritual Duelists; requested order refused, preferences kept.");
+    }
+    for (int i = 0; i < Mods_Count(); i++) {
+        future[i] = Mods_RequiresRestart(i) ? Mods_Active(i) : enabled[i];
+        if (future[i] != Mods_Active(i)) same = 0;
+    }
+    int current[MODS_MAX];
+    for (int i = 0; i < Mods_Count(); i++) current[i] = Mods_Active(i);
+    if (hal2224_joint(ids, current)) for (int i = 0; i < Mods_Count(); i++) {
+        if (i == ids[0] || i == ids[1] || i == ids[2] || !future[i] || current[i] || Mods_CodeHash(i)) continue;
+        if (Json_Member(Mods_Manifest(i), "library") || Json_Member(Mods_Manifest(i), "libraries"))
+            return hal2224_error(error, size, "HAL-22/24: first live load of unqualified code requires a relaunch. Activation refused before initialization; preferences were kept.");
+    }
+    /* A legacy unsafe chain may save a repair; Ready still blocks it until
+     * relaunch. Validate every newly activated composition, including actual
+     * restart-deferred members whose saved preference is already OFF. */
+    if (!same && hal2224_joint(ids, future))
+        return hal2224_chain(ids, future, order, count, 1, error, size);
+    return 1;
+}
+void Mods_Hal2224GuardStartupRejected(const char *reason)
+{
+    snprintf(hal2224_startup_error, sizeof(hal2224_startup_error), "%s", reason);
+}
+int Mods_Hal2224GuardReady(char *error,size_t size)
+{
+    int ids[3],active[MODS_MAX];
+    if(*hal2224_startup_error)return hal2224_error(error,size,
+        "HAL-20: startup transaction refused. Repair the profile and relaunch; preferences kept.");
+    if(!Mods_Hal2224GuardEnabled())return 1;
+    hal2224_ids(ids);int protected=0;
+    for(int i=0;i<Mods_Count();i++){active[i]=Mods_Active(i);protected|=active[i]&&hal20_role_of(i)>=0;}
+    if(!protected)return 1;
+    if(!hal2224_chain(ids,active,NULL,0,0,error,size))return 0;
+    /* Optional ABI1 rendezvous. A missing connection is valid before the
+       producer's first planner call; an existing foreign table is not. */
+    typedef struct{unsigned abi,size;void *connect;const void*(*rules)(void);void *precommit,*outcome;} Rendezvous;
+    typedef struct{unsigned abi,size;int(*evaluate)(const void*,void*);} Rules;
+    const Rendezvous *rv=Mods_Find("ritual-duelists:mandatory-hand-selection-v1");
+    if(rv){
+        if(rv->abi!=1||rv->size!=sizeof(*rv)||!rv->rules)return hal2224_error(error,size,
+            "HAL-20: incompatible mandatory-selection contract; duel blocked.");
+        const Rules *rules=rv->rules();
+        if(rules){int owner=find(hal20_roles[3].id);
+            if(rules->abi!=1||rules->size!=sizeof(*rules)||!hal20_version(3,owner)||
+               !Mods_CallbackMatches(owner,(const void*)rules->evaluate,"selection_evaluate",hal20_producer_bytes))
+                return hal2224_error(error,size,"HAL-20: unqualified mandatory-selection producer; duel blocked.");
+        }
+    }
+    return 1;
+}
+int Mods_Hal20StateLoadAllowed(char *error,size_t size)
+{
+    if(!Mods_Hal2224GuardEnabled())return 1;
+    /* These mods reset volatile effect/transaction state after a load; it
+       is not registered in the state file. Decline before any overwrite. */
+    for(int r=1;r<6;r++)if(r!=2){int mod=find(hal20_roles[r].id);
+        if(mod>=0&&Mods_Active(mod))return hal2224_error(error,size,
+            "This experimental mod collection cannot safely restore temporary duel state. Your current game was kept. Use a regular memory-card save for now.");
+    }
+    return 1;
+}
+
 int Mods_Validate(const int *enabled, char *error, size_t size)
 {
     int i, order[MODS_MAX];
@@ -177,7 +345,8 @@ static int newest_first(int *out)
 int Mods_Apply(const int *enabled, char *error, size_t size)
 {
     int old[MODS_MAX], stored[MODS_MAX], order[MODS_MAX], newest[MODS_MAX], i, n;
-    if (!Mods_Validate(enabled, error, size))
+    if (!Mods_Validate(enabled, error, size) ||
+        !Mods_Hal2224GuardValidate(enabled, NULL, error, size))
         return 0;
     /* Only what the player changed is written: a mod MEMORIES_MODS=0 or
      * MEMORIES_MOD_<ID> turned on or off for this run keeps its choice. */
