@@ -1,6 +1,6 @@
 # HAL-20 — Consolidação das correções e qualificação da coleção
 
-**Entrega experimental, sem merge/release.** Branch `test/hal-20-consolidacao-candidatos`, derivada de `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`. Engine oficial `aceac3782902746f35ddb0148809450933327cb3`, v0.3.1-preview.2 / SDK API24 / alvo Windows i386. Registro de 14/11/2026.
+**Entrega experimental, sem merge/release. [PR #28 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/28).** Branch `test/hal-20-consolidacao-candidatos`, derivada de `integration/hal-20-v0.3.1-preview.2` em `d649647c159c91d615c07d6960928a37e270b461`. Engine oficial `aceac3782902746f35ddb0148809450933327cb3`, v0.3.1-preview.2 / SDK API24 / alvo Windows i386. Registro de 14/11/2026.
 
 ## Resultado e respostas principais
 
@@ -147,3 +147,5 @@ Pacotes próprios:477 arquivos originais de referência, sem mudanças funcionai
 Core experimental alterado: `src/pc/mods/manager.c`, `mods.c`, `mods.h`, novo `hal20_qualified.h`; consulta somente leitura em `hooks.c/.h`; fence `src/game/main_run_duel.c`; pré-validação `src/pc/platform/mods_window.c`; recusa de load `src/pc/guest/state.c`. Helpers de build `tools/pc/test_mods_lifecycle.py`, `preview_mods.sh` e `preview_panels.sh` recebem o SHA256 já existente como dependência de link. Público `modapi.h`, código AI/DMC e implementação anterior de ordenação/relink permanecem inalterados.
 
 Testes próprios em `tests/hal20-consolidacao`, relatórios, matrizes, hashes e logs em `notes/hal-20-consolidacao`. Nenhum código, manifest ou binário Dual, imagem/ROM, save pessoal, Wine/runtime ou binário do jogo é publicado. A branch e o PR são experimentais; não houve merge, release ou promoção automática de ABI/guard/política de load.
+
+Publicação: [recibo e verificação das32 refs anteriores](hal-20-consolidacao/PUBLICACAO.json). Commit de implementação `2b916bf86270e0797f0ce01f773558304aba6bda`; push sem force, branch remota acessível e PR direcionado à integração.

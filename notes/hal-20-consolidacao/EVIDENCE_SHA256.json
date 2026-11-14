@@ -48,8 +48,8 @@
     "sha256": "c067619ed02c7e60c9a010f478e930d9e7a7e1ffc45442d68ec8d779470667c8"
   },
   "PUBLICATION_AUDIT.json": {
-    "bytes": 305,
-    "sha256": "570c0a4b392bcdc01c3ad07ba0900de459eed8ad17e59ae0b62c0fa634163bcf"
+    "bytes": 315,
+    "sha256": "35a5cdf524038ac451e017dbb1f5ca482410f97f46cd23a8d47170302f04c964"
   },
   "CONTROLES_PR26.json": {
     "bytes": 95166,
@@ -182,6 +182,10 @@
   "reg-default-final.logs.tar.gz": {
     "bytes": 945312,
     "sha256": "1b5e972fef42184fb8520af6e2741d15720d28a9820a0c1fa090cd7cbb9c792e"
+  },
+  "PUBLICACAO.json": {
+    "bytes": 645,
+    "sha256": "d895438e0255c49d1708d0bb0e8a74b64db22a06817f5334b8e23686e05cc661"
   },
   "QUALIFIED_ARTIFACTS.json": {
     "bytes": 5850,
