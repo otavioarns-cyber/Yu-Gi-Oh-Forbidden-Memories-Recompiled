@@ -215,12 +215,17 @@ static int stays(int id)
            id == 364 || id == 1 || id == 392;
 }
 
+static int card_terrain(const HmRules *r, HmCard c, int field)
+{
+    return r->terrain_card ? r->terrain_card(c.id,c.type,field) : r->terrain(c.type,field);
+}
+
 static int terrain_delta(const HmBoard *b, const HmRules *r, int terrain)
 {
     int i, score = 0;
     for (i = 0; i < 5; i++) {
-        if (monster(b->own[i])) score += r->terrain(b->own[i].type, terrain) - r->terrain(b->own[i].type, b->terrain);
-        if (b->enemy[i].id > 0) score -= r->terrain(b->enemy[i].type, terrain) - r->terrain(b->enemy[i].type, b->terrain);
+        if (monster(b->own[i])) score += card_terrain(r,b->own[i],terrain) - card_terrain(r,b->own[i],b->terrain);
+        if (b->enemy[i].id > 0) score -= card_terrain(r,b->enemy[i],terrain) - card_terrain(r,b->enemy[i],b->terrain);
     }
     return score;
 }
@@ -457,7 +462,7 @@ static HmCard combine(HandSearch *s, HmCard a, HmCard b)
     if (id) {
         out = s->r->card(id);
         if (s->o->effective) {
-            int bonus = s->r->terrain(out.type, s->b->terrain);
+            int bonus = card_terrain(s->r,out,s->b->terrain);
             out.attack = clamp(out.attack + bonus); out.defense = clamp(out.defense + bonus);
         }
     } else if (monster(a) && b.type == 23 && s->r->equip(b.id, a.id)) {
@@ -493,7 +498,7 @@ HmDecision Hm_PlanHand(const HmBoard *b, const HmOptions *o, const HmRules *r)
         if (!c.id) continue;
         if (monster(c)) {
             if (o->effective) {
-                int bonus = r->terrain(c.type, b->terrain);
+                int bonus = card_terrain(r,c,b->terrain);
                 c.attack = clamp(c.attack + bonus); c.defense = clamp(c.defense + bonus);
             }
             s.path[0] = i;
@@ -542,7 +547,7 @@ HmDecision Hm_PlanHand(const HmBoard *b, const HmOptions *o, const HmRules *r)
                 HmCard c = b->hand[i];
                 if (!monster(c)) continue;
                 if (o->effective) {
-                    int bonus = r->terrain(c.type, b->terrain);
+                    int bonus = card_terrain(r,c,b->terrain);
                     c.attack = clamp(c.attack + bonus); c.defense = clamp(c.defense + bonus);
                 }
                 s.path[0] = i;

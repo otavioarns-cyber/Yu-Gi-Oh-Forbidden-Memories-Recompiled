@@ -1,0 +1,8 @@
+PASS Melhoria read-only rules_v1 production callback: defaults, live changes, 0-3, result, disabled and ABI size
+PASS: 9 surrender cases (exact production hook bodies)
+PASS: 128 source/side combinations; distinct Deck entrances; single-Deck preserved
+PASS: extended flight uses 3 selected tributes; B. Skull excluded; native fallback preserved
+PASS: 15 provider integration scenarios (compiled exact production function)
+PASS production selector/consumption: mixed sources, Vanilla placement, duplicate identity, minima, reset OFF/ON
+PASS rebuilt ELF: 20 load/init/reset/OFF/ON cycles, seven hook registrations; simulated host, no duel hooks executed
+PASS isolated preview2 suite; gameplay and actual Dual Play integration remain untested

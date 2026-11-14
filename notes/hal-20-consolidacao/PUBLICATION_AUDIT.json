@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "owned_staged_files": 477,
+  "private_dual_files": 0,
+  "game_images": 0,
+  "game_runtime_binaries": 0,
+  "notes": "Original package CRLF/trailing-whitespace warnings intentionally preserved for exact hashes; new source/tests/main report pass diff-check.",
+  "delivery_changed_files": 597
+}

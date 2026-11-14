@@ -28,6 +28,8 @@ typedef struct {
     int (*equip)(int equipment, int monster);
     int (*terrain)(int type, int terrain);
     int (*ritual)(int card);
+    /* Optional per-card terrain total; absent keeps the original planner. */
+    int (*terrain_card)(int card, int type, int terrain);
 } HmRules;
 typedef struct {
     /* Byte-for-byte contract with the game's twelve-byte pending selection. */

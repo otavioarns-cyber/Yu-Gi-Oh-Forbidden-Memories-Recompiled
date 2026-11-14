@@ -1,0 +1,21 @@
+decisions: Giltia / DARK 2200: baseline no attack; forecast attack, margin +250
+Tank / DEF 3000: attacks at 4000 LP; declines at 499 or 500 LP
+PASS contextual forecasts, two-sided auras, no duplicate stats, pure snapshots and unchanged RNG
+hard-baseline: AI hard mode: tactical, spell, fusion and 500 bounded fixtures passed
+test_battle_stat_tween: PASS native-pace battle stat tween; increases/decreases/dual stats; no permanent changes
+test_effect_title_instance: PASS: per-instance hand/field selection and off-duel isolation
+test_effect_title_visual: PASS: active silver/lilac/orange, inactive white, restore, untouched body
+test_round2_runtime: PASS: all 16 runtime effects, scopes, actual origin/lease, LP boundaries, restoration and recipes
+test_round3_runtime: PASS: 22 Round03 Fusion Effects incl Flower Wolf and Kaminari entry/turn isolation
+test_round3_recipes: PASS: 17 symmetric recipes; Skelgon/Rare Fish narrow override, no Fusionist+Mermaid
+test_forecast_parity: PASS: 88 forecast/executor comparisons, both sides, ATK/DEF, fusion/direct copies
+test_effect_intelligence: PASS: effect owner live Settings/activation, stats, tribute selection, strategy (pure)
+test_yamadron_ai_policy: Yamadron mandatory burn policy and both field layouts: PASS
+mask_equip_staging_test: PASS: 14 source-backed Mask Equip cases (staging, both sides, OFF, source removal, self, types)
+test_attribute_icons.py: PASS: six HD custom attribute assets, F8 logical 16x16 layout, description width, renderer hook, Mavelus fire
+run_fusionist.py: PASS: runtime chains, field identity, actual metal, finalization, equip triggers, AI scope, ranking and uniform distinct ties
+test_psycho_cpu_symmetry.py: PASS: CPU/human Puppet target routing, instance isolation and Deck identity after move
+test_zera_ultimate_debuff.py: PASS: Zera affects ordinary Ultimate, excludes only live Ritual Ultimate, respects settings/identity/staging
+test_egotist_bridge.py: PASS: all 24 Ritual families, one-shot arming, revocation, true Ritual preservation, settings and face-down gate
+Original assets, texts, recipes, stats and effect execution headers identical: BalanceamentoFusoesEfeitosAuxiliares
+Original assets, texts, recipes, stats and effect execution headers identical: zzz Efeitos Rituais

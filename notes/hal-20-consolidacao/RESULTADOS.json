@@ -1,0 +1,264 @@
+{
+  "scope": "Partial host/controller, no gameplay Windows certification. PASS checks can establish an expected refusal or reproduce a known defect; see check details.",
+  "candidate_suites": [
+    {
+      "suite": "composition-guard-initial",
+      "processes": 144,
+      "checks": {
+        "PASS": 1172
+      },
+      "execution": {
+        "PASS": 120,
+        "REFUSED": 24
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "providers",
+      "processes": 63,
+      "checks": {
+        "PASS": 382
+      },
+      "execution": {
+        "PASS": 63
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "subsets-final",
+      "processes": 63,
+      "checks": {
+        "PASS": 519
+      },
+      "execution": {
+        "NOT_REACHED": 7,
+        "PASS": 56
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "consolidation",
+      "processes": 20,
+      "checks": {
+        "PASS": 92
+      },
+      "execution": {
+        "PASS": 20
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "manager",
+      "processes": 24,
+      "checks": {
+        "PASS": 96
+      },
+      "execution": {
+        "PASS": 24
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "spoof",
+      "processes": 4,
+      "checks": {
+        "PASS": 8
+      },
+      "execution": {
+        "REFUSED": 4
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "fence-final",
+      "processes": 72,
+      "checks": {
+        "PASS": 592
+      },
+      "execution": {
+        "PASS": 48,
+        "REFUSED": 24
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "reg-default-final",
+      "processes": 174,
+      "checks": {
+        "PASS": 1240
+      },
+      "execution": {
+        "PASS": 174
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "reg-hardening-final",
+      "processes": 72,
+      "checks": {
+        "PASS": 346
+      },
+      "execution": {
+        "REFUSED": 12,
+        "PASS": 50,
+        "NOT_REACHED": 10
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "reg-boundary",
+      "processes": 128,
+      "checks": {
+        "PASS": 776
+      },
+      "execution": {
+        "PASS": 80,
+        "REFUSED": 48
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "reg-recovery",
+      "processes": 64,
+      "checks": {
+        "PASS": 464
+      },
+      "execution": {
+        "PASS": 64
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "reg-reset-recovery",
+      "processes": 16,
+      "checks": {
+        "PASS": 128
+      },
+      "execution": {
+        "PASS": 16
+      },
+      "incomplete": 0
+    },
+    {
+      "suite": "reg-restrictions",
+      "processes": 2,
+      "checks": {
+        "PASS": 14
+      },
+      "execution": {
+        "PASS": 2
+      },
+      "incomplete": 0
+    }
+  ],
+  "total": {
+    "processes": 846,
+    "execution": {
+      "PASS": 717,
+      "REFUSED": 112,
+      "NOT_REACHED": 17
+    },
+    "checks": {
+      "PASS": 5829
+    }
+  },
+  "historical_controls": {
+    "processes": 4,
+    "checks": {
+      "PASS": 12,
+      "FAIL": 8
+    },
+    "execution": {
+      "FAIL": 4
+    },
+    "incomplete": 0
+  },
+  "canonical": [
+    {
+      "name": "Ritual",
+      "returncode": 0,
+      "counts": {
+        "PASS": 23,
+        "SKIP": 3
+      },
+      "complete": true
+    },
+    {
+      "name": "RD-real",
+      "returncode": 1,
+      "counts": {
+        "PASS": 34,
+        "FAIL": 1,
+        "SKIP": 3
+      },
+      "complete": true
+    }
+  ],
+  "archive_hashes": [
+    {
+      "file": "composition-guard-initial.logs.tar.gz",
+      "bytes": 1488717,
+      "sha256": "6a5980db9e719bbf388085f2afc39f5623b7fece3822025b381644555973da5b"
+    },
+    {
+      "file": "providers.logs.tar.gz",
+      "bytes": 76755,
+      "sha256": "c08cf56db2ddb5c453050cd2e9e325af6bb89d23f405fbc1b946b26303b92e33"
+    },
+    {
+      "file": "subsets-final.logs.tar.gz",
+      "bytes": 431018,
+      "sha256": "a5e829cc390a4bdf64341fd6f3ae197b1c07844c4a0b63658142263a4d6a48bb"
+    },
+    {
+      "file": "consolidation.logs.tar.gz",
+      "bytes": 187910,
+      "sha256": "08f90b560ba58126a5e7a966e45b8f6b9eb516130ee8637f55d6b60b4d713e6b"
+    },
+    {
+      "file": "manager.logs.tar.gz",
+      "bytes": 255895,
+      "sha256": "337b7fd6ce0d8f29789f3e6817bae834a2f5234e48fa7d5dfb79b6ac335b6275"
+    },
+    {
+      "file": "spoof.logs.tar.gz",
+      "bytes": 17394,
+      "sha256": "4fda1eb12bccbc9f7d89ae500427e8c306a18ca3d8fd8a0dc132e83407e44514"
+    },
+    {
+      "file": "fence-final.logs.tar.gz",
+      "bytes": 524984,
+      "sha256": "a411e173171c9f8da275bf82019494d97bfae8bf1ed6fbeadafdb7637d7c3b9c"
+    },
+    {
+      "file": "reg-default-final.logs.tar.gz",
+      "bytes": 945312,
+      "sha256": "1b5e972fef42184fb8520af6e2741d15720d28a9820a0c1fa090cd7cbb9c792e"
+    },
+    {
+      "file": "reg-hardening-final.logs.tar.gz",
+      "bytes": 361067,
+      "sha256": "d583aa4ba864a2b504fb8b5fe2a095f19c3f0e88b0491ad4493474d239387c09"
+    },
+    {
+      "file": "reg-boundary.logs.tar.gz",
+      "bytes": 1199379,
+      "sha256": "108f4786f5ba1bdc31bed58c05acca508bec08e3ead4610b753c30445e4ed98d"
+    },
+    {
+      "file": "reg-recovery.logs.tar.gz",
+      "bytes": 493861,
+      "sha256": "12219169011f08169e6bbdd297a74c92579380ae561c255081433ca512011242"
+    },
+    {
+      "file": "reg-reset-recovery.logs.tar.gz",
+      "bytes": 153204,
+      "sha256": "f59e02802ffe70c324ae58d7598b98f6c7ec5d387d87dfd952cbfb89184599c9"
+    },
+    {
+      "file": "reg-restrictions.logs.tar.gz",
+      "bytes": 15537,
+      "sha256": "d7da6bcbf13973dc312110258c855b59aecc377ed10de0f0553f751111b2a262"
+    }
+  ]
+}

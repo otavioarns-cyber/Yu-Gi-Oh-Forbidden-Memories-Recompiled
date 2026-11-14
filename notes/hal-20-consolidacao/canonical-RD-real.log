@@ -1,0 +1,73 @@
+packages-build PASS
+packages PASS
+rex_ready_distribution-build PASS
+rex_ready_distribution PASS
+beta_profiles-build PASS
+beta_profiles PASS
+new_profiles-build PASS
+new_profiles PASS
+tea_ocean_secmeton-build PASS
+tea_ocean_secmeton PASS
+v3_forest_anubisius_mountain-build PASS
+v3_forest_anubisius_mountain PASS
+v3_recipes-build PASS
+v3_recipes PASS
+v3_atenza_meadow_kepura-build PASS
+v3_atenza_meadow_kepura PASS
+v3_labyrinth_sebek_neku_isis-build PASS
+v3_labyrinth_sebek_neku_isis PASS
+v3_seto_darknite_nitemare-build PASS
+v3_seto_darknite_nitemare PASS
+v4_round-build PASS
+v4_round PASS
+new_lot_recipes-build PASS
+new_lot_recipes PASS
+core-build PASS
+core PASS
+recipe_decks-build PASS
+recipe_decks PASS
+v030_adapter-build PASS
+v030_adapter PASS
+provider_adapter-build PASS
+provider_adapter PASS
+diagnostics-build PASS
+diagnostics PASS
+ritual_strategy-build PASS
+ritual_strategy PASS
+activation_priority-build PASS
+activation_priority PASS
+bakura_emergency-build PASS
+bakura_emergency PASS
+adaptive_rules-build PASS
+adaptive_rules PASS
+field_guard-build PASS
+field_guard PASS
+effect_intelligence-build PASS
+effect_intelligence PASS
+ai_policy-build PASS
+ai_policy PASS
+hand_play-build PASS
+hand_play PASS
+deck_access-build PASS
+deck_access PASS
+tribute_fetch-build PASS
+tribute_fetch PASS
+post_ritual-build PASS
+post_ritual PASS
+drop_rewards-build PASS
+drop_rewards PASS
+starter_choice-build PASS
+starter_choice PASS
+audit_pools PASS
+test_external_droplist_compat PASS
+test_preview2_assets PASS
+test_preview2_package FAIL
+Traceback (most recent call last):
+  File "/tmp/hal25-reg-lhpt39mb/mods/ritual-duelists/tests/test_preview2_package.py", line 10, in <module>
+    assert next(x['sha256'] for x in received if x['path']==name)==digest
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+StopIteration
+
+preview2_loader-build PASS
+preview2_loader PASS
+SUMMARY (build steps separate): {'PASS': 34, 'FAIL': 1, 'SKIP': 3}

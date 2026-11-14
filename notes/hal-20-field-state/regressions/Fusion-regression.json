@@ -1,0 +1,337 @@
+[
+  {
+    "name": "test_attribute_icons",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_attribute_icons.py"
+    ],
+    "output": "PASS: six HD custom attribute assets, F8 logical 16x16 layout, description width, renderer hook, Mavelus fire\n"
+  },
+  {
+    "name": "test_manifest",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_manifest.py"
+    ],
+    "output": "FM Editor manifest + forbidden retail fusions + old text: PASS\nBeta.9 Square routing and Vanilla fallback: PASS\nBeta11: seven metal transforms, six exact recipes, title markup: PASS\nBeta12: Fusion Effects + Seiyaryu + settings OFF: PASS\nBeta13: concise descriptions, protected-card sprite repair, Direct LP Damage: PASS\nBeta21: current card owners, whitelist, runtime hooks and test coverage: PASS\nBeta25: independent lilac fusion heading and white inactive titles: PASS\n"
+  },
+  {
+    "name": "test_preview2_assets",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_preview2_assets.py"
+    ],
+    "output": "PASS production PNG decoder: 28 coin frames, ASan/UBSan\nPASS assets: 34 PNGs, 28 runtime coin frames, six custom icons, 59 card entries\n"
+  },
+  {
+    "name": "test_round2_manifest",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_round2_manifest.py"
+    ],
+    "output": "PASS: 16 Round02 effects + 22 Round03 effects, older cards/settings/recipes intact\n"
+  },
+  {
+    "name": "test_visual_dispatch",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_visual_dispatch.py"
+    ],
+    "output": "PASS: titles only; Labyrinth Tank description is five lines\nPASS: Labyrinth Tank fits four short body lines\n"
+  },
+  {
+    "name": "run_fusionist",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/run_fusionist.py"
+    ],
+    "output": "PASS: runtime chains, field identity, actual metal, finalization, equip triggers, AI scope, ranking and uniform distinct ties\n"
+  },
+  {
+    "name": "test_battle_stat_tween-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-std=gnu11",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_battle_stat_tween.c",
+      "-o",
+      "/tmp/tmpfhmgpz9m/test_battle_stat_tween"
+    ],
+    "output": ""
+  },
+  {
+    "name": "test_battle_stat_tween",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpfhmgpz9m/test_battle_stat_tween"
+    ],
+    "output": "PASS native-pace battle stat tween; increases/decreases/dual stats; no permanent changes\n"
+  },
+  {
+    "name": "test_effect_title_instance-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-std=gnu11",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_effect_title_instance.c",
+      "-o",
+      "/tmp/tmpfhmgpz9m/test_effect_title_instance"
+    ],
+    "output": ""
+  },
+  {
+    "name": "test_effect_title_instance",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpfhmgpz9m/test_effect_title_instance"
+    ],
+    "output": "PASS: per-instance hand/field selection and off-duel isolation\n"
+  },
+  {
+    "name": "test_effect_title_visual-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-std=gnu11",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_effect_title_visual.c",
+      "-o",
+      "/tmp/tmpfhmgpz9m/test_effect_title_visual"
+    ],
+    "output": ""
+  },
+  {
+    "name": "test_effect_title_visual",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpfhmgpz9m/test_effect_title_visual"
+    ],
+    "output": "PASS: active silver/lilac/orange, inactive white, restore, untouched body\n"
+  },
+  {
+    "name": "test_forecast_parity-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-std=gnu11",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_forecast_parity.c",
+      "-o",
+      "/tmp/tmpfhmgpz9m/test_forecast_parity"
+    ],
+    "output": ""
+  },
+  {
+    "name": "test_forecast_parity",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpfhmgpz9m/test_forecast_parity"
+    ],
+    "output": "PASS: 88 forecast/executor comparisons, both sides, ATK/DEF, fusion/direct copies\n"
+  },
+  {
+    "name": "test_round2_runtime-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-std=gnu11",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_round2_runtime.c",
+      "-o",
+      "/tmp/tmpfhmgpz9m/test_round2_runtime"
+    ],
+    "output": ""
+  },
+  {
+    "name": "test_round2_runtime",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpfhmgpz9m/test_round2_runtime"
+    ],
+    "output": "PASS: all 16 runtime effects, scopes, actual origin/lease, LP boundaries, restoration and recipes\n"
+  },
+  {
+    "name": "test_round3_recipes-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-std=gnu11",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_round3_recipes.c",
+      "-o",
+      "/tmp/tmpfhmgpz9m/test_round3_recipes"
+    ],
+    "output": ""
+  },
+  {
+    "name": "test_round3_recipes",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpfhmgpz9m/test_round3_recipes"
+    ],
+    "output": "PASS: 17 symmetric recipes; Skelgon/Rare Fish narrow override, no Fusionist+Mermaid\n"
+  },
+  {
+    "name": "test_round3_runtime-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-std=gnu11",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_round3_runtime.c",
+      "-o",
+      "/tmp/tmpfhmgpz9m/test_round3_runtime"
+    ],
+    "output": ""
+  },
+  {
+    "name": "test_round3_runtime",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpfhmgpz9m/test_round3_runtime"
+    ],
+    "output": "PASS: 22 Round03 Fusion Effects incl Flower Wolf and Kaminari entry/turn isolation\n"
+  },
+  {
+    "name": "test_rules-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "gcc",
+      "-std=gnu11",
+      "-O1",
+      "-g",
+      "-fsanitize=address,undefined",
+      "-fno-omit-frame-pointer",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_rules.c",
+      "-o",
+      "/tmp/tmpfhmgpz9m/test_rules"
+    ],
+    "output": ""
+  },
+  {
+    "name": "test_rules",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/tmp/tmpfhmgpz9m/test_rules"
+    ],
+    "output": "Beta13: Direct LP Damage registration, fusion & metal effects, default strict conditions: PASS\n"
+  },
+  {
+    "name": "preview2_loader-build",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+      "-m32",
+      "-std=gnu11",
+      "-O1",
+      "-DMEMORIES_PC",
+      "-I/workspace/work/hal20-field-state/repo/src",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c",
+      "/workspace/work/hal20-field-state/repo/src/pc/mods/object_loader.c",
+      "/workspace/work/hal20-field-state/repo/src/pc/mods/mod_libc.c",
+      "/workspace/work/hal20-field-state/repo/src/pc/guest/branch_thunks.c",
+      "/workspace/work/hal20-field-state/repo/src/pc/compat/fs.c",
+      "-lm",
+      "-o",
+      "/tmp/tmpfhmgpz9m/loader"
+    ],
+    "output": "In file included from /workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:13:\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:50:1: warning: variably modified ‘DuelCardRecord_object_offset_must_be_0x00’ at file scope\n   50 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:53:1: warning: variably modified ‘DuelCardRecord_data_offset_must_be_0x04’ at file scope\n   53 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:56:1: warning: variably modified ‘DuelCardRecord_card_id_offset_must_be_0x0C’ at file scope\n   56 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:59:1: warning: variably modified ‘DuelCardRecord_attack_offset_must_be_0x0E’ at file scope\n   59 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:62:1: warning: variably modified ‘DuelCardRecord_defense_offset_must_be_0x10’ at file scope\n   62 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:65:1: warning: variably modified ‘DuelCardRecord_stat_modifier_offset_must_be_0x12’ at file scope\n   65 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:69:1: warning: variably modified ‘DuelCardRecord_defense_modifier_offset_must_be_0x1A’ at file scope\n   69 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:73:1: warning: variably modified ‘DuelCardRecord_terrain_modifier_offset_must_be_0x14’ at file scope\n   73 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:76:1: warning: variably modified ‘DuelCardRecord_flags_offset_must_be_0x16’ at file scope\n   76 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:79:1: warning: variably modified ‘DuelCardRecord_table_index_offset_must_be_0x18’ at file scope\n   79 | ];\n      | ^\nIn file included from /workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:14:\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope\n   22 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope\n   25 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope\n   28 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope\n   31 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope\n   34 | ];\n      | ^\nIn file included from /workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:16:\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:438:1: warning: variably modified ‘DisplayObject_field_22_must_be_at_0x22’ at file scope\n  438 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:441:1: warning: variably modified ‘DisplayObject_update_must_be_at_0x24’ at file scope\n  441 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:444:1: warning: variably modified ‘DisplayObject_position_must_be_at_0x28’ at file scope\n  444 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:447:1: warning: variably modified ‘DisplayObject_field_3E_must_be_at_0x3E’ at file scope\n  447 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:450:1: warning: variably modified ‘DisplayObject_field_42_must_be_at_0x42’ at file scope\n  450 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:453:1: warning: variably modified ‘DisplayObject_field_4A_must_be_at_0x4A’ at file scope\n  453 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:456:1: warning: variably modified ‘DisplayObject_field_3A_must_be_at_0x3A’ at file scope\n  456 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:459:1: warning: variably modified ‘DisplayObject_field_52_must_be_at_0x52’ at file scope\n  459 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:462:1: warning: variably modified ‘DisplayObject_field_58_must_be_at_0x58’ at file scope\n  462 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:465:1: warning: variably modified ‘DisplayObject_field_64_must_be_at_0x64’ at file scope\n  465 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:468:1: warning: variably modified ‘DisplayObject_field_65_must_be_at_0x65’ at file scope\n  468 | ];\n      | ^\n"
+  },
+  {
+    "name": "preview2_loader",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/workspace/work/hal20-base/tools/qemu-i386-static",
+      "-L",
+      "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+      "/tmp/tmpfhmgpz9m/loader",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/fusion-auxiliary-balance.o",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance"
+    ],
+    "output": "object_hash=69a6af85 declared_api=24 hooks=33 subscriptions=4 providers=4\nPASS 2652 characterization assertions (synthetic host, no duel)\n"
+  },
+  {
+    "name": "preview2_contract_off",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "/workspace/work/hal20-base/tools/qemu-i386-static",
+      "-L",
+      "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+      "/tmp/tmpfhmgpz9m/loader",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/fusion-auxiliary-balance.o",
+      "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance",
+      "--strict-off"
+    ],
+    "output": "object_hash=69a6af85 declared_api=24 hooks=33 subscriptions=4 providers=4\nOFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=0 lease=0 extended=0 forecast=0\nPASS 214 characterization assertions (synthetic host, no duel)\n"
+  }
+]
