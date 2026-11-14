@@ -1,0 +1,22 @@
+[
+  {
+    "path": "regressions/RD-A.log",
+    "bytes": 2607,
+    "sha256": "a34d07a5089109455e290c9866a12c3e0a815343d29c30a9fca8e481edfe2d90"
+  },
+  {
+    "path": "regressions/RD-B.log",
+    "bytes": 2607,
+    "sha256": "f2efa5498266c25e406187a616a02293957028d985db17f7fbdfdba8d0fdcf25"
+  },
+  {
+    "path": "regressions/RD-baseline.log",
+    "bytes": 2607,
+    "sha256": "19fb3e0194ea82cbe98fdb96fb51ec3e7003fd9be5cb5168293d5e279a7307e4"
+  },
+  {
+    "path": "regressions/Ritual.log",
+    "bytes": 6835,
+    "sha256": "2c37eb9c8f4464392fa056abad55350c1b4e5c09c9d423af6859be8e3e51abce"
+  }
+]

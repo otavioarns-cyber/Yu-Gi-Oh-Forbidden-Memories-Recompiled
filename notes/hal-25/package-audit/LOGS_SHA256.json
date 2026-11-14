@@ -1,0 +1,17 @@
+[
+  {
+    "path": "package-audit/RD-A.log",
+    "bytes": 222,
+    "sha256": "4dc3f3b1f8533f445cb0754d37a9ffa9900901eefc976c44dc36039871e23f6a"
+  },
+  {
+    "path": "package-audit/RD-B.log",
+    "bytes": 222,
+    "sha256": "010eced5b4cd1287a3cab0187c80fabd50aab3fae19784448d4da6eb854f0963"
+  },
+  {
+    "path": "package-audit/RD-baseline.log",
+    "bytes": 142,
+    "sha256": "b66982554b311046911e1186b6de9ac99761870a1e5cccc11c6b7ffddcdec6da"
+  }
+]

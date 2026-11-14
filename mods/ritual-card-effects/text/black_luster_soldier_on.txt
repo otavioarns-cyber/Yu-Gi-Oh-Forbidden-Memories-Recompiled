@@ -1,0 +1,10 @@
+@bank descriptions
+
+[D26C]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Sets Meadow.
+Each Ritual BLS
+boosts other allied
+{f8 0B 03} monsters by
+{f8 0A 03}+1000{f8 0A 00} ATK/DEF.
+No self-buff.
