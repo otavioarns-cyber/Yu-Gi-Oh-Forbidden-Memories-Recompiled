@@ -1,6 +1,6 @@
 # HAL-20 — Field Effects e recuperação de estado na coleção candidata
 
-Entrega experimental de 14/11/2026. Branch `test/hal-20-field-state-integration`, derivada da consolidação PR #28 (`414a1b7cd149582d674792dd66b375ca46a7fcd2`), cuja base é a integração oficial `d649647c159c91d615c07d6960928a37e270b461`. Sem merge/release. Preservar os PRs anteriores; esta composição ainda requer revisão.
+Entrega experimental de 14/11/2026. [PR #29 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/29). Branch `test/hal-20-field-state-integration`, derivada da consolidação PR #28 (`414a1b7cd149582d674792dd66b375ca46a7fcd2`), cuja base é a integração oficial `d649647c159c91d615c07d6960928a37e270b461`. Sem merge/release. Preservar os PRs anteriores; esta composição ainda requer revisão.
 
 ## Resultado e respostas
 
@@ -104,3 +104,7 @@ Os controles finais corrigem erros das primeiras fixtures: setup do oracle prim�
 [Inventário atualizado](hal-20-field-state/ADICIONAIS.json). Time Wizard0.24.0-test continua com núcleo compilado0.23.1 e fontes parciais/offsets fixos; precisa fonte/proveniência e qualificação ABI/runtime/assinaturas. Não presumir que novos objetos AI/Fusion preservem o que sua ponte espera. Droplist1.4.0 externo não está disponível; visualizador interno RD continua removido. Adapter AI0.1.1 externo não foi fornecido e não é o adaptador de dados Field implementado aqui. 3d-monsters/hand-camera/yamyi e composição visual completa não estão admitidos por nome. Dual mantém restrição de redistribuição e staging privado.
 
 Próximo passo mínimo: revisar estas três correções e o alcance do guard, completar inventário versionado de estado de R/F antes de qualificar A, e executar o loader real com contexto restaurado em backend funcional. Até lá, conservar B como recusa experimental explícita, sem promover política, contrato ou coleção à integração. Renderização composta e gameplay Windows permanecem pendentes; todas as outras regressões automatizadas possíveis continuam autorizadas.
+
+## Publicação
+
+Implementação e evidências no commit `23cf4a4bf464a0a474d0b0608f170a174a834261`; [recibo](hal-20-field-state/PUBLICATION.json) confirma os33 heads remotos anteriores inalterados e criação somente da nova branch, sem force. Commit documental posterior vincula o PR. PR em rascunho, destino integração oficial; sem merge/release.
