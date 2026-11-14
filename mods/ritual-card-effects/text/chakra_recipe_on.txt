@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B6]
+Wall Shadow +
+2 {f8 0B 07} monsters Lv. 7+
+(except Chakra)

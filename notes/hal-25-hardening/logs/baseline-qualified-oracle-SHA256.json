@@ -1,0 +1,267 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 39416,
+    "sha256": "f0324882b8706b683889951579e7ff354a3b5a17cbd4ed254b885a5965429a11"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 149895,
+    "sha256": "944740b7fb6284a2edf3d9eef9bc2000eb8e9e4a2b3f3994cb0a0150bac2002c"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11469,
+    "sha256": "d849ab3daadd2b316272914bbdf6d479ea417be62ba9f954e5770ba79010536f"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-absent-c0-hardening-m1-x0.log",
+    "bytes": 258233,
+    "sha256": "c8a0225620c859b121703ab1cff49dfab0e0f3fbea7ab38fbc2d88e0cedc94e8"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-absent-c0-hardening-m10-x0.log",
+    "bytes": 258267,
+    "sha256": "47c10a0954d191108eb17b587f95568635475f4f0bab6a9d4f7ec64c1d0e5c7a"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-absent-c0-hardening-m14-x0.log",
+    "bytes": 200691,
+    "sha256": "9019287227ce8ffceff0c78eaaa02d4a1d14cd8fb7cbccdcf1d172cfc71d702c"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-absent-c0-hardening-m15-x0.log",
+    "bytes": 18336,
+    "sha256": "c82798c4b4773574cd1372d3fdf612c2c4336a7fc71957b1e09a0f9355b371f9"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-absent-c0-hardening-m6-x0.log",
+    "bytes": 15550,
+    "sha256": "3b2902000f6016deb1583869d195409ac86532cadfd32eb72f80ed67217ab8d8"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-absent-c0-hardening-m7-x0.log",
+    "bytes": 14216,
+    "sha256": "0e1f1a85a4a349bf5f787815e46504540635e04b3b7b19de3e986ee184f2be17"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-absent-c0-hardening-m8-x0.log",
+    "bytes": 7911,
+    "sha256": "c80677f3177af8649685d55996437acb2131b62b96139cec2b9d6dc3fcd67899"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-absent-c0-hardening-m9-x0.log",
+    "bytes": 258289,
+    "sha256": "9d3ad15887e3bb057172f399857022d9874048b2984390600918ef326902045c"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-on-c0-hardening-m2-x0.log",
+    "bytes": 25117,
+    "sha256": "d2ea3a12feb7322fbbc107f6cf5a3438e722a010b9470837cc730cf7d30f2a6b"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-on-c0-hardening-m3-x0.log",
+    "bytes": 25117,
+    "sha256": "7e473f87c203f0cb897a6aa4e527a7a61ffaee39b96a2a8b575751f071434f0e"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-on-c0-hardening-m4-x0.log",
+    "bytes": 25117,
+    "sha256": "8d4935d56d326856f95fa3636c58cf862ea6cf95a619a0414eb0bc0bd43bfc1e"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-on-c0-hardening-m5-x0.log",
+    "bytes": 27770,
+    "sha256": "b9c3e187ef6abd4cd9140ff367da0cc16932cc1773b4724ccbbb4c2b45a50667"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-absent-c0-hardening-m1-x0.log",
+    "bytes": 258233,
+    "sha256": "c8a0225620c859b121703ab1cff49dfab0e0f3fbea7ab38fbc2d88e0cedc94e8"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-absent-c0-hardening-m10-x0.log",
+    "bytes": 258267,
+    "sha256": "47c10a0954d191108eb17b587f95568635475f4f0bab6a9d4f7ec64c1d0e5c7a"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-absent-c0-hardening-m14-x0.log",
+    "bytes": 200691,
+    "sha256": "9019287227ce8ffceff0c78eaaa02d4a1d14cd8fb7cbccdcf1d172cfc71d702c"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-absent-c0-hardening-m15-x0.log",
+    "bytes": 18336,
+    "sha256": "c82798c4b4773574cd1372d3fdf612c2c4336a7fc71957b1e09a0f9355b371f9"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-absent-c0-hardening-m6-x0.log",
+    "bytes": 15550,
+    "sha256": "3b2902000f6016deb1583869d195409ac86532cadfd32eb72f80ed67217ab8d8"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-absent-c0-hardening-m7-x0.log",
+    "bytes": 14216,
+    "sha256": "0e1f1a85a4a349bf5f787815e46504540635e04b3b7b19de3e986ee184f2be17"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-absent-c0-hardening-m8-x0.log",
+    "bytes": 7911,
+    "sha256": "c80677f3177af8649685d55996437acb2131b62b96139cec2b9d6dc3fcd67899"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-absent-c0-hardening-m9-x0.log",
+    "bytes": 258289,
+    "sha256": "9d3ad15887e3bb057172f399857022d9874048b2984390600918ef326902045c"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-on-c0-hardening-m2-x0.log",
+    "bytes": 13423,
+    "sha256": "a1114b5799b2bd140f0fcbe6b09dab794188d1d9af3f74bbf80cb475e453f4e5"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-on-c0-hardening-m3-x0.log",
+    "bytes": 25118,
+    "sha256": "ce6d76a926b40a62eef065938156ee886b732fc1bcfdd53b14b1b3af50a658d3"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-on-c0-hardening-m4-x0.log",
+    "bytes": 25118,
+    "sha256": "b27a39871682a853714a5c06de73d943d9d73789a7ea69657e281fdb88eab146"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-on-c0-hardening-m5-x0.log",
+    "bytes": 27770,
+    "sha256": "8d8d4262773b84f7442811b3bf72f708872a5d7b5ec79fe900172ba875e53f01"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-after-on-c0-hardening-m2-x0.log",
+    "bytes": 29270,
+    "sha256": "b41e993cdedf0b5214dcc9c4079c14daac418515e931f956dbd9497e417be528"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-after-on-c0-hardening-m3-x0.log",
+    "bytes": 29270,
+    "sha256": "90ec447482efe6b9017e01e2e3950245384a1262894b074d85255a10eb2e0cb8"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-after-on-c0-hardening-m4-x0.log",
+    "bytes": 29270,
+    "sha256": "47ff54fe981623acfde9af6f101a4b82b57ccf30feb2792f5d00376434864fc0"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-after-on-c0-hardening-m5-x0.log",
+    "bytes": 28551,
+    "sha256": "a3aea755d67e13316cb7eeedd882985b5fa69ae1166b266612b9b3abeda621ab"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-before-on-c0-hardening-m2-x0.log",
+    "bytes": 15001,
+    "sha256": "70bdd22bfb399fc407249de405067a0b7f9e86f397200376835821d1fc6acf2b"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-before-on-c0-hardening-m3-x0.log",
+    "bytes": 29271,
+    "sha256": "8dfe71096cc0f58ddd69d2034bd1e158e8606fb701fed91422a34b7b8d61b60a"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-before-on-c0-hardening-m4-x0.log",
+    "bytes": 29271,
+    "sha256": "c4029b2b852e89a6102af61e8684fce15a4494e8c39e10007e1b2ca576c71635"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-before-on-c0-hardening-m5-x0.log",
+    "bytes": 28551,
+    "sha256": "1a0683b6899753a9a02f61423b89e9f6c8d0d3350fbd96ff74e8ef543295f087"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-after-on-c0-hardening-m2-x0.log",
+    "bytes": 563312,
+    "sha256": "3b43a12e570d1f43868aa22d1af34d482d5ac8cb2576c4528dec952597b9abf6"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-after-on-c0-hardening-m3-x0.log",
+    "bytes": 563315,
+    "sha256": "ebb010c2deded916640919a51becccb9404db59d1a9d3663107c1eb7c8bb4e90"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-after-on-c0-hardening-m4-x0.log",
+    "bytes": 563315,
+    "sha256": "f24655664c25487e8f6fbf49f138a4a1baa7da3aaef649c83bd22d5e434ea344"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-after-on-c0-hardening-m5-x0.log",
+    "bytes": 28563,
+    "sha256": "03ec5f4cb575ef0b94586509d5a35649167e624f85d8cc2e5a096427e655d1e2"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-before-on-c0-hardening-m2-x0.log",
+    "bytes": 551541,
+    "sha256": "ac299a6b039f0594bfb5f4f45679dad49c6dd223e827457c5c40ef073466c34a"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-before-on-c0-hardening-m3-x0.log",
+    "bytes": 563315,
+    "sha256": "4653901fb37d3bf5c2773f5ce42d029c76ecad12cbaf849a411ed5412635fdb9"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-before-on-c0-hardening-m4-x0.log",
+    "bytes": 563315,
+    "sha256": "a71e626769f2b0a3def231c36d1fa3831fdf3ae0fc8377fcc5ee98fc290cfe50"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-before-on-c0-hardening-m5-x0.log",
+    "bytes": 28563,
+    "sha256": "1c879d6b7f4d2ed5767fe1b5e9c8cb07cb00a66da4923c6851c92538a58002b6"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-after-on-c0-hardening-m2-x0.log",
+    "bytes": 567558,
+    "sha256": "18352f6a2b7a5c3b573f78144a6f76937ee612a7a42089608709509ee85150c7"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-after-on-c0-hardening-m3-x0.log",
+    "bytes": 567561,
+    "sha256": "58039a863839c02048e76e1624e428503e6c950385accada325f66e4015164a7"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-after-on-c0-hardening-m4-x0.log",
+    "bytes": 567561,
+    "sha256": "86195bf02cf70142d786a7f2b7c576a999240c5486c1c23b13d68a3636503e01"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-after-on-c0-hardening-m5-x0.log",
+    "bytes": 29344,
+    "sha256": "a8cf620d4c06c23e9096bc39ad8e9875f6ae61ef2da362655332eb55a88e65fd"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-before-on-c0-hardening-m2-x0.log",
+    "bytes": 553212,
+    "sha256": "7f1e64c83d2d07557c7303e7143a6333aeb767ce1a5e2fa4a18cfcde5723fb50"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-before-on-c0-hardening-m3-x0.log",
+    "bytes": 567561,
+    "sha256": "83f7b7f5042c0c9234e9842afba9f8573559cc7a344ac04c008186fc05a91a5e"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-before-on-c0-hardening-m4-x0.log",
+    "bytes": 567561,
+    "sha256": "f39e40e3482a879214fddc2ccf995f655e20ca52b37f0a8e1140f6fb2ada2aab"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-before-on-c0-hardening-m5-x0.log",
+    "bytes": 29344,
+    "sha256": "95f7238c4b99698fd7f95a0ee73b65a336c66647988a22e414378aebacdaf896"
+  }
+]

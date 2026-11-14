@@ -1,0 +1,14 @@
+[
+  {
+    "package": "ritual-card-effects",
+    "source_and_manifest_files": 36,
+    "copied_build_inputs_match_published_sources": true,
+    "artifact_matches_exact_build_output": true
+  },
+  {
+    "package": "ritual-duelists",
+    "source_and_manifest_files": 43,
+    "copied_build_inputs_match_published_sources": true,
+    "artifact_matches_exact_build_output": true
+  }
+]

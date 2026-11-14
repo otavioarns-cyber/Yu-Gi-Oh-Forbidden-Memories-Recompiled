@@ -1,0 +1,42 @@
+[
+  {
+    "package": "ritual-card-effects",
+    "status": "PASS",
+    "changed": [
+      "README-PREVIEW2.md",
+      "SDK-PROVENANCE.json",
+      "mandatory_hand_provider.h",
+      "mod.c",
+      "ritual-card-effects.o"
+    ],
+    "added": [
+      "mandatory_hand_lifecycle_v1.h"
+    ],
+    "unchanged": 197,
+    "manifest_settings_assets_tests": "byte-identical to PR25",
+    "native_exports": 2,
+    "imports": 182
+  },
+  {
+    "package": "ritual-duelists",
+    "status": "PASS",
+    "changed": [
+      "README-PREVIEW2.md",
+      "SDK-PROVENANCE.json",
+      "mandatory_hand_consumer.h",
+      "mod.c",
+      "ritual-duelists.o"
+    ],
+    "added": [
+      "mandatory_hand_lifecycle_v1.h"
+    ],
+    "unchanged": 152,
+    "manifest_settings_assets_tests": "byte-identical to PR25",
+    "native_exports": 44,
+    "imports": 89
+  },
+  {
+    "check": "frozen-selection-ABI-snapshot-identical-new-companion-identical-core-and-strategy-unchanged-no-private-Queen-bridge",
+    "status": "PASS"
+  }
+]

@@ -1,0 +1,387 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 158056,
+    "sha256": "0b441d9061fa9709285d70deca5fa18fce6d4ba56f7c9c554e8a59f4fdcdb0d9"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 314070,
+    "sha256": "2a6a219a67caf339f119f4d360537cde05311655391494f3f1131ff6ce6ee603"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11469,
+    "sha256": "d849ab3daadd2b316272914bbdf6d479ea417be62ba9f954e5770ba79010536f"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-after-on-c0-controller-m-30-x0-a0.log",
+    "bytes": 148048,
+    "sha256": "268a270d5f43f90487bf8aa5f144e8320af3e33b2847bece21b2a3d0ae2e1b5b"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-after-on-c0-controller-m30-x0-a0.log",
+    "bytes": 148044,
+    "sha256": "e0d6e19033b5899d25236cb5e5e0ea5f49731a35d7d776d016ea9a2bcf49dd2d"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-after-on-c4-controller-m-30-x0-a0.log",
+    "bytes": 136087,
+    "sha256": "5dcd009ab35e057420fa26b68ab311038be1dd0ccb4d2f6a14921b82105749d0"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-after-on-c4-controller-m30-x0-a0.log",
+    "bytes": 136083,
+    "sha256": "3aa542cda95a10df1188c278836c6b3f7b6f0e4527d2406aced3e0e580e915a2"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-after-on-c5-controller-m-30-x0-a0.log",
+    "bytes": 110018,
+    "sha256": "f62c28547b62929ed0d7cc7904851f06617da570d67e7107588a0312064478f9"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-after-on-c5-controller-m30-x0-a0.log",
+    "bytes": 110018,
+    "sha256": "74bf6880431d36c3adf3802e2a03559d5179ecbfaba07bcea2d73ac3e6f19cb4"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-before-on-c0-controller-m-30-x0-a0.log",
+    "bytes": 148049,
+    "sha256": "226629a72cec9c5151dfc6ec6bc9efa33ce8093f4d5b86a37b4e68f5cd27bd6a"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-before-on-c0-controller-m30-x0-a0.log",
+    "bytes": 148049,
+    "sha256": "bd0c7988fe140d2f1266d72613abb69da37fd8c6a01fb83fa6d3df35c7520d56"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-before-on-c4-controller-m-30-x0-a0.log",
+    "bytes": 136088,
+    "sha256": "c46b7bbed40e04e5b04ce8bf7495c9115aaab590aeadadc4b261d91fad797cd6"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-before-on-c4-controller-m30-x0-a0.log",
+    "bytes": 136088,
+    "sha256": "b9c63e668e06f7852dcfced81b991d9fdd3d836a9594c085d02c1f87b74cb546"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-before-on-c5-controller-m-30-x0-a0.log",
+    "bytes": 109542,
+    "sha256": "83ae6036a7c1e96170b9c0414bf757624e2d46e62a28caa3280285b7a681a31a"
+  },
+  {
+    "path": "collection-bridge0-h0-d0-rd1-before-on-c5-controller-m30-x0-a0.log",
+    "bytes": 109542,
+    "sha256": "f9170594ecfab26df6754e7ef99bcd5cc8bbbc4ec6bdca844c1c8bcf91cfa8f7"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-after-on-c0-controller-m-30-x0-a0.log",
+    "bytes": 314573,
+    "sha256": "cf524c1ae6d2f90ecd0a4d8611cfaf77f7042eb0b1ef1c5c3bc5cf384f477aca"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-after-on-c0-controller-m30-x0-a0.log",
+    "bytes": 382892,
+    "sha256": "c74f2115eb17b4a38129a0ceaf87193b0e24431d29f81d0cca6464a001a213de"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-after-on-c4-controller-m-30-x0-a0.log",
+    "bytes": 300278,
+    "sha256": "54536b74f4b7f3ca8810574f4d14ac18a447aa4cc7186555cd64e26eac1ed1aa"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-after-on-c4-controller-m30-x0-a0.log",
+    "bytes": 368597,
+    "sha256": "cdfe01b039cf97863a1b95afe29c20c77509b163809c1d7def366fe19a8cf3b0"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-after-on-c5-controller-m-30-x0-a0.log",
+    "bytes": 239428,
+    "sha256": "08fb3f09926bbaa931e8629f0b041031b795c1c668ac898d41c7bf3b031c727a"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-after-on-c5-controller-m30-x0-a0.log",
+    "bytes": 239428,
+    "sha256": "598a1efc40a70249c793ad53b2aa4bf54ea7e6e2ed4cee051d08ea047ae105fc"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-before-on-c0-controller-m-30-x0-a0.log",
+    "bytes": 245829,
+    "sha256": "9072ea5e7a8f2e4ba0ced9a25b4f138d67588244361f98b84c5b0571fdf01f19"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-before-on-c0-controller-m30-x0-a0.log",
+    "bytes": 314144,
+    "sha256": "87abe0d682cf6952f49d96deda35939b02c99fd857dd29b9e753167970ba4aea"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-before-on-c4-controller-m-30-x0-a0.log",
+    "bytes": 231534,
+    "sha256": "763f268311f61cdd516772a92ccb1ef8b271d451121a3f6108eee2681b460025"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-before-on-c4-controller-m30-x0-a0.log",
+    "bytes": 299849,
+    "sha256": "2f45f9f026cec4c7906c6382a5d73a956a94a14770c7917d0c72125f6332b4ed"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-before-on-c5-controller-m-30-x0-a0.log",
+    "bytes": 238527,
+    "sha256": "756b63bb68de1c3dfcaa46ac7d035334fe6fa8868ab5e2bfc81f74482ce891aa"
+  },
+  {
+    "path": "collection-bridge0-h0-d1-rd1-before-on-c5-controller-m30-x0-a0.log",
+    "bytes": 238519,
+    "sha256": "9d0254e00e8bada4705ac71be6bf4cec283353ae9745c51a53347a2d58a39935"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c0-controller-m-30-x0-a0.log",
+    "bytes": 995391,
+    "sha256": "3b316ad34201d217fcf333679f65d2b0e5b00be8f240909c4ac27ab144d9fd48"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c0-controller-m-30-x0-a50.log",
+    "bytes": 2831509,
+    "sha256": "ff6f7ca660286e73bea67150111ac07408e88eb84cc58ee12cc43871b9159e6b"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c0-controller-m30-x0-a0.log",
+    "bytes": 995388,
+    "sha256": "2ab3c48adb978ff7852e1b3fec27800fc1d25e5af5e7792815a5e37515b6df73"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c0-controller-m30-x0-a50.log",
+    "bytes": 2831505,
+    "sha256": "2f8ea1c87c407b18e7b1629497767f4acd59e065486683537db743c2ff4cc0a4"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c4-controller-m-30-x0-a0.log",
+    "bytes": 983430,
+    "sha256": "6a1500fa049c2650ba1ac37efd6f94ee1feaaaa7295a68b5f350583f36651091"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c4-controller-m-30-x0-a50.log",
+    "bytes": 2819548,
+    "sha256": "4f2bf29d8bfb34ca94fb33f4cb03a68b46c5d1e768e034af0f87f8c82cd0984e"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c4-controller-m30-x0-a0.log",
+    "bytes": 983427,
+    "sha256": "88989eb8af035e74bbf41ece9285730d24b3306ec9f5f7c8ea79604799d7923c"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c4-controller-m30-x0-a50.log",
+    "bytes": 2819544,
+    "sha256": "d63a0ae01c4e2af8318d63480d13bf3864d6f8cc763d6efc75a1981aa66a4399"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c5-controller-m-30-x0-a0.log",
+    "bytes": 957279,
+    "sha256": "231143c0723b15dfc0c2b8373cbdbba84217d79ab97e05b496d0abf2553eb3a3"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c5-controller-m-30-x0-a50.log",
+    "bytes": 2781594,
+    "sha256": "b7cd62b24ee8dd92530327b9c432bbc351bad64157f410456fce8557b882787e"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c5-controller-m30-x0-a0.log",
+    "bytes": 957276,
+    "sha256": "4127431ebadeb270d465e484aad462814e11ab683f3677866f2c899fab003a99"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-after-on-c5-controller-m30-x0-a50.log",
+    "bytes": 2781594,
+    "sha256": "e189a665d58a64bd462d7a4644471e0e7af71d2f3bdbaa53a855a12f95204fdd"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c0-controller-m-30-x0-a0.log",
+    "bytes": 995573,
+    "sha256": "b21b76ddb57eedc20efb8af2d15ee0ef50e346f029db08fedb0a11d00d80295f"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c0-controller-m-30-x0-a50.log",
+    "bytes": 2831509,
+    "sha256": "ff6f7ca660286e73bea67150111ac07408e88eb84cc58ee12cc43871b9159e6b"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c0-controller-m30-x0-a0.log",
+    "bytes": 995388,
+    "sha256": "1036232e62ecf30d89ee0e1f652e1aec0586d45e8cf35a9377804ce217880d7e"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c0-controller-m30-x0-a50.log",
+    "bytes": 2831505,
+    "sha256": "2f8ea1c87c407b18e7b1629497767f4acd59e065486683537db743c2ff4cc0a4"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c4-controller-m-30-x0-a0.log",
+    "bytes": 983594,
+    "sha256": "800f0120513011005bdb4bdbbfe2c2b0d6dec216f0a360438c23da5b39624eb3"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c4-controller-m-30-x0-a50.log",
+    "bytes": 2819548,
+    "sha256": "4f2bf29d8bfb34ca94fb33f4cb03a68b46c5d1e768e034af0f87f8c82cd0984e"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c4-controller-m30-x0-a0.log",
+    "bytes": 983427,
+    "sha256": "63a06ffdc8f0723c61eabe1f6ff177a19ea877fca8d7f3d1aa74f3b3bfc5df9b"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c4-controller-m30-x0-a50.log",
+    "bytes": 2819544,
+    "sha256": "d63a0ae01c4e2af8318d63480d13bf3864d6f8cc763d6efc75a1981aa66a4399"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c5-controller-m-30-x0-a0.log",
+    "bytes": 956930,
+    "sha256": "d58596e42d67e1b07af53a45b68911d74c72e082733c5b4208c6a005ea5e034e"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c5-controller-m-30-x0-a50.log",
+    "bytes": 2781594,
+    "sha256": "b7cd62b24ee8dd92530327b9c432bbc351bad64157f410456fce8557b882787e"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c5-controller-m30-x0-a0.log",
+    "bytes": 956800,
+    "sha256": "a769aa96b045959b9d5fe8ef44ce2854dc77b81aa8cb9ea135dac7a5e606cc8a"
+  },
+  {
+    "path": "collection-bridge0-h1-d0-rd1-before-on-c5-controller-m30-x0-a50.log",
+    "bytes": 2781594,
+    "sha256": "e189a665d58a64bd462d7a4644471e0e7af71d2f3bdbaa53a855a12f95204fdd"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c0-controller-m-30-x0-a0.log",
+    "bytes": 1095360,
+    "sha256": "4b35299e89d1065eee0852ed9e997c88be68377bccee58d754a6366659e883cd"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c0-controller-m-30-x0-a50.log",
+    "bytes": 2928827,
+    "sha256": "e165b43e9e29ed431f6613baa23bbb310ef34df64a4d8dceea1ae5c59cdbf673"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c0-controller-m30-x0-a0.log",
+    "bytes": 1093986,
+    "sha256": "94bb507540497cc395aa72a743b12c495bae24118f5f9d29701cf9a081e74a25"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c0-controller-m30-x0-a50.log",
+    "bytes": 2927455,
+    "sha256": "17673b7d4cc139e8050524c93f1cb0b9e9c9382ef6f9ff81cfd042b9f620a1a7"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c4-controller-m-30-x0-a0.log",
+    "bytes": 1081065,
+    "sha256": "8b4b2560f02df97ebd85f9d0aaecc0b5067f78a40d54571546e4824a1ef56935"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c4-controller-m-30-x0-a50.log",
+    "bytes": 2914532,
+    "sha256": "ff8c838b92a1e01f8bf8150baa0a5010f2331c5c8b3ec10f1014b5abbb45aff8"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c4-controller-m30-x0-a0.log",
+    "bytes": 1079691,
+    "sha256": "5a390eb1575a026ad185fcdbf2cb2d7e5ecb8c294acebc3e08bd49e122a1c288"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c4-controller-m30-x0-a50.log",
+    "bytes": 2913160,
+    "sha256": "6f8ca704a5600bcead5edc109b030b0a1a7341a067067bb01c0685ff110beb08"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c5-controller-m-30-x0-a0.log",
+    "bytes": 1104604,
+    "sha256": "921e75d89709c855ad41e56e722b50202329863f8dd7d619ea8fdd3448d6fd1f"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c5-controller-m-30-x0-a50.log",
+    "bytes": 2855661,
+    "sha256": "27e91d1e0a57ff3191e41a341def69973d6d77495d3acc1c3b871b162201a855"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c5-controller-m30-x0-a0.log",
+    "bytes": 1102546,
+    "sha256": "975bef3a3de75f5b507ae71154a1ca3acd9f255cfc2d44cbdd8a9e576ad0205f"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-after-on-c5-controller-m30-x0-a50.log",
+    "bytes": 2854293,
+    "sha256": "836e38bdee263bbb7208b204754937018e39f0b6424daa5835da2daa32c58dc2"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c0-controller-m-30-x0-a0.log",
+    "bytes": 1095979,
+    "sha256": "49c44153987c52792a8e1e6a53cf85cb63a95979b15d2a8f124cbab56f87cc8e"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c0-controller-m-30-x0-a50.log",
+    "bytes": 2928827,
+    "sha256": "e165b43e9e29ed431f6613baa23bbb310ef34df64a4d8dceea1ae5c59cdbf673"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c0-controller-m30-x0-a0.log",
+    "bytes": 1092711,
+    "sha256": "2ca22ad3af20ab950087e02b27ccd400742293cbed9515a4e74ec7d76cadd7a4"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c0-controller-m30-x0-a50.log",
+    "bytes": 2927455,
+    "sha256": "17673b7d4cc139e8050524c93f1cb0b9e9c9382ef6f9ff81cfd042b9f620a1a7"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c4-controller-m-30-x0-a0.log",
+    "bytes": 1081642,
+    "sha256": "ce7e3be115f2af16989f3e1fc4f3eb781ced9cf96151af763fca1b9f812a8125"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c4-controller-m-30-x0-a50.log",
+    "bytes": 2914532,
+    "sha256": "ff8c838b92a1e01f8bf8150baa0a5010f2331c5c8b3ec10f1014b5abbb45aff8"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c4-controller-m30-x0-a0.log",
+    "bytes": 1078398,
+    "sha256": "19d787c0257154c24032a5fde2154baf0481ea3c267865686b9d8cde0ef1b9a9"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c4-controller-m30-x0-a50.log",
+    "bytes": 2913160,
+    "sha256": "6f8ca704a5600bcead5edc109b030b0a1a7341a067067bb01c0685ff110beb08"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c5-controller-m-30-x0-a0.log",
+    "bytes": 1104319,
+    "sha256": "5efacb10c2fd5b76fe29b2b2fde4dd989089edcd7e762b8a5f04f3a2235026cf"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c5-controller-m-30-x0-a50.log",
+    "bytes": 2855661,
+    "sha256": "27e91d1e0a57ff3191e41a341def69973d6d77495d3acc1c3b871b162201a855"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c5-controller-m30-x0-a0.log",
+    "bytes": 1099600,
+    "sha256": "e3a7b214f193ea05e98ece82b151bf9b51f58997bad3e11707c948dc236fe313"
+  },
+  {
+    "path": "collection-bridge0-h1-d1-rd1-before-on-c5-controller-m30-x0-a50.log",
+    "bytes": 2854293,
+    "sha256": "836e38bdee263bbb7208b204754937018e39f0b6424daa5835da2daa32c58dc2"
+  }
+]

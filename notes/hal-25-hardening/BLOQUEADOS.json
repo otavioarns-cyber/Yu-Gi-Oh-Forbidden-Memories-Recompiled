@@ -1,0 +1,37 @@
+[
+  {
+    "scenario": "Windows-gameplay-UI-controller-render-audio-process-restart",
+    "status": "BLOCKED",
+    "reason": "Manual Windows only in final project phase, per explicit user instruction; not requested now."
+  },
+  {
+    "scenario": "old-savestate-compatibility",
+    "status": "BLOCKED",
+    "reason": "Only registered buffers/reset and model new duel tested. No old game/save image and no compatibility presumption."
+  },
+  {
+    "scenario": "full-retail-VM-duel-and-all-multi-tribute-consumptions",
+    "status": "BLOCKED",
+    "reason": "Partial i386 host, VM completion/catalogue/post-placement modeled; monitor qualification ends at first native consumption."
+  },
+  {
+    "scenario": "external-Droplist-1.4.0-runtime",
+    "status": "BLOCKED",
+    "reason": "External binary not incorporated; preserved package regression records this skip."
+  },
+  {
+    "scenario": "uncooperative-callback-unload-or-foreign-consumption-before-owned-boundary",
+    "status": "UNQUALIFIED",
+    "reason": "Same-process native ABI requires live table/code until acknowledged disconnect; no core-wide commit/unload barrier."
+  },
+  {
+    "scenario": "guard20-full-collection-admission",
+    "status": "REFUSED",
+    "reason": "New RD loader code is unqualified by unchanged reference guard; no whitelist expansion."
+  },
+  {
+    "scenario": "Time-Wizard-adapter-and-other-strategic-conflicts",
+    "status": "OUT_OF_SCOPE",
+    "reason": "No source changes/integration; historical HAL20/22/24 restrictions remain."
+  }
+]
