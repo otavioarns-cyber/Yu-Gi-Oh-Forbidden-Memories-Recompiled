@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5973,
-      "sha256": "88e265c988e210a7ca9ca54208cbdd8e22449b8ee0a0f3bedda99ab8ee8f9858"
+      "bytes": 6079,
+      "sha256": "cd5ccd2d02a0f7a8d0162b6934e53cecbec0017e4c718f307eafa7d8a645f107"
     },
     {
       "path": "experiments/hal25-hardening/hardening-vs-pr25.patch",
@@ -1819,8 +1819,8 @@
     },
     {
       "path": "notes/HAL25_CONTRACT_HARDENING.md",
-      "bytes": 13264,
-      "sha256": "1c3157530a5c79c6a9c2e671992816510bb9a3b3a32a3261a72ff2e292a83173"
+      "bytes": 14076,
+      "sha256": "88ff3a05428383e8a39daf1d05b590aa9b5608690393aa378b2c1c279a8da9a0"
     },
     {
       "path": "notes/hal-25-hardening/ABI_E_RECUPERACAO.md",
@@ -1851,6 +1851,11 @@
       "path": "notes/hal-25-hardening/BUILD.json",
       "bytes": 9637,
       "sha256": "39fe94c9c4ce6d68f9e8eeaf0035fa7e20925124f2a59e64be2765e5442b60b1"
+    },
+    {
+      "path": "notes/hal-25-hardening/BUILD_INPUT_VERIFICATION.json",
+      "bytes": 377,
+      "sha256": "1b0e002526e3c6e3a13871f3b60fd390ead91530f750e7a9ed30b590780a2316"
     },
     {
       "path": "notes/hal-25-hardening/CANCELAMENTOS.csv",
@@ -1914,8 +1919,8 @@
     },
     {
       "path": "notes/hal-25-hardening/PRESERVACAO_REFS.json",
-      "bytes": 2957,
-      "sha256": "4370fa8a3e6ea30baa695d6bc030fb6fffaff1c7b12c3d9bc9032bcc85d6a2b1"
+      "bytes": 3228,
+      "sha256": "10b9fe243320597e749372073f0614d2611ab9b194d0e26cc090e545400bb271"
     },
     {
       "path": "notes/hal-25-hardening/RESULTADOS.json",

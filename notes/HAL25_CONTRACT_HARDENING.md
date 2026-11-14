@@ -1,6 +1,6 @@
 # HAL-25 — revisão de segurança, ABI e recuperação
 
-**Entrega experimental para revisão. Sem merge, release ou promoção do ABI1.** Branch `test/hal-25-contract-hardening`, baseada em `integration/hal-20-v0.3.1-preview.2` (`d649647c159c91d615c07d6960928a37e270b461`). [Linear HAL-25](https://linear.app/half-programer/issue/HAL-25). Links de publicação serão registrados no fim deste documento.
+**Entrega experimental para revisão. Sem merge, release ou promoção do ABI1.** Branch `test/hal-25-contract-hardening`, baseada em `integration/hal-20-v0.3.1-preview.2` (`d649647c159c91d615c07d6960928a37e270b461`). [Linear HAL-25](https://linear.app/half-programer/issue/HAL-25). [PR #26 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/26).
 
 ## Resultado e prontidão
 
@@ -96,4 +96,9 @@ O próximo passo mínimo é revisar o diff e esses contratos de fronteira e auto
 
 ## Publicação
 
-Branch/PR/commit e verificação de preservação das referências: a completar após push sem force. Nenhum merge autorizado.
+- [PR #26 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/26), direcionado à integração oficial.
+- [Branch experimental](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-25-contract-hardening), publicada sem force.
+- [Commit da implementação e evidências](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/commit/0b430f8136112b2e9503ca0e10f1194bf750913a). O commit posterior registra somente links/verificações de publicação.
+- [Preservação das 30 referências anteriores](hal-25-hardening/PRESERVACAO_REFS.json) e [conferência dos fontes versus cópias efetivamente compiladas](hal-25-hardening/BUILD_INPUT_VERIFICATION.json).
+
+Nenhum merge, release ou alteração das outras branches foi realizado. A documentação desta branch é o ponto de continuidade para outro chat.

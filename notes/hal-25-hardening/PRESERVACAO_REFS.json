@@ -32,5 +32,9 @@
     "refs/heads/upstream-v0.2.0": "0185f58df7928cc6338ceb221d169e2b42feca6d"
   },
   "all_30_prior_heads_unchanged": true,
-  "scope": "This task creates only test/hal-25-contract-hardening; never force/merge/rewrite other branches."
+  "scope": "This task creates only test/hal-25-contract-hardening; never force/merge/rewrite other branches.",
+  "after_first_push_unchanged": true,
+  "new_ref": "refs/heads/test/hal-25-contract-hardening",
+  "published_implementation_commit": "0b430f8136112b2e9503ca0e10f1194bf750913a",
+  "pr": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/26"
 }
