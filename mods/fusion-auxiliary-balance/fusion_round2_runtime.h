@@ -1,3 +1,6 @@
+#ifndef AUX_CARD_TERRAIN
+#define AUX_CARD_TERRAIN(id) Duel_GetTerrainBoost(Cards_Type(id))
+#endif
 /* Round 02. Eligibility always belongs to a physical card instance.
  * Temporary arithmetic is derived, never written into lasting modifiers. */
 typedef struct {
@@ -234,7 +237,7 @@ static void r2_summon_zombie(int side)
         r2_zombie_data[pool].data_block_index=(u8)i;
         memset(c,0,sizeof(*c));c->data=&r2_zombie_data[pool];c->card_id=30;c->table_index=(u8)i;
         c->attack=(s16)r2_original_atk(30);c->defense=(s16)r2_original_def(30);
-        c->terrain_modifier=(s16)Duel_GetTerrainBoost(Cards_Type(30));
+        c->terrain_modifier=(s16)AUX_CARD_TERRAIN(30);
         c->flags=DUEL_CARD_FLAG_OCCUPIED;
         obj=func_80024C1C(30,D_800908A0[i].x,D_800908A0[i].y);c->object=obj;if(obj)obj->card_index=(u8)i;
         r2_zombie_lease[i]=c->data;
@@ -271,7 +274,7 @@ static void r2_reconcile_zombies(int refresh_turn)
             c->defense=(s16)r2_original_def(30);
             c->stat_modifier=0;
             c->defense_modifier=0;
-            c->terrain_modifier=(s16)Duel_GetTerrainBoost(Cards_Type(30));
+            c->terrain_modifier=(s16)AUX_CARD_TERRAIN(30);
         }
         if(!redraw)continue;
         if(c->object)DisplayObject_ReleaseIfPresent(c->object);

@@ -237,6 +237,18 @@ static int wall_attack_resolved;
 static int wall_attack_negated;
 static void aux_wall_return_to_defense(void);
 static const MemoriesModHost *aux_host;
+/* Card identity is required for the optional secondary-type delta. Native
+ * generation bypasses Duel_SetupCardRecord, so ask the same public provider. */
+#define AUX_CARD_TERRAIN(id) aux_terrain_bonus(id)
+static int aux_terrain_bonus(int id)
+{
+    typedef int(*Delta)(int,int,int);
+    int type=Cards_Type(id);
+    Delta delta=aux_host&&aux_host->find?(Delta)aux_host->find(aux_host,
+        "field-effects-secondary-types:terrain-card-delta-v1"):0;
+    return Duel_GetTerrainBoost(type)+(delta?delta(id,type,gDuel_bTerrain[0]):0);
+}
+
 static int aux_owner_applied(void);
 /* Self-contained normal Battle Warrior coin, including the original artwork. */
 #include "battle_coin.h"

@@ -1,0 +1,178 @@
+{
+  "nodes": 130,
+  "unresolved": [],
+  "field": [
+    {
+      "artifact_sha256": "729ff106787d477def41feb42a1a5d168f5bb050af870a25738c977e02c1cd21",
+      "loader_code": "cfd0dcf3",
+      "owner": "field-effects-secondary-types",
+      "target": "Duel_SetupCardRecord",
+      "function": "setup_hook",
+      "bytes": 49,
+      "section": 1,
+      "offset": 624,
+      "body_sha256": "e81c07cdb4a04ae6c18c48967fed1cc8b7b07d9c7095c5c7f30118c64bf7718a",
+      "relocations_sha256": "d552680c3d83bfc1f79878517db85351a41deb69205511f3d88f5c7ebcdf0ee4",
+      "registration_profiles": 24,
+      "registration_occurrences": 24,
+      "trace_calls": 96,
+      "critical_returns": 96,
+      "children": {
+        "MODEL_OR_UNBOUND:-32": 96
+      },
+      "inclusive": {
+        "selection_changed": {
+          "0": 96
+        },
+        "deck_changed": {
+          "0": 96
+        },
+        "consumed": {
+          "0": 96
+        },
+        "materializations": {
+          "1": 96
+        }
+      },
+      "self": {
+        "selection_changed": {
+          "0": 96
+        },
+        "deck_changed": {
+          "0": 96
+        },
+        "consumed": {
+          "0": 96
+        },
+        "materializations": {
+          "0": 96
+        },
+        "phase_changed": {
+          "0": 96
+        },
+        "substate_changed": {
+          "0": 96
+        },
+        "empty_exit": {
+          "1": 96
+        },
+        "identity_mask": {
+          "0": 96
+        },
+        "terrain_mask": {
+          "0": 56,
+          "32": 16,
+          "64": 8,
+          "128": 8,
+          "256": 8
+        }
+      },
+      "qualification": "EXACT_ARTIFACT_AND_RUNTIME_POINTER"
+    },
+    {
+      "artifact_sha256": "729ff106787d477def41feb42a1a5d168f5bb050af870a25738c977e02c1cd21",
+      "loader_code": "cfd0dcf3",
+      "owner": "field-effects-secondary-types",
+      "target": "DuelEffect_ApplyTerrain",
+      "function": "apply_terrain_hook",
+      "bytes": 323,
+      "section": 1,
+      "offset": 688,
+      "body_sha256": "43d493347f4f993d4c38f1a18a8919b3c7631c5b2cb21e36f7a7dc537b39686d",
+      "relocations_sha256": "6984ff9480f6f344dafea04443ce93d3b9b6068ca462dd70ea158951c4fc43e1",
+      "registration_profiles": 24,
+      "registration_occurrences": 24,
+      "trace_calls": 96,
+      "critical_returns": 96,
+      "children": {
+        "898ad6e58a014bdcacb7016bd36361ac8552b0e004ea243a96828f59948fb8c9:1:6:DuelEffect_ApplyTerrain": 96
+      },
+      "inclusive": {
+        "selection_changed": {
+          "0": 96
+        },
+        "deck_changed": {
+          "0": 96
+        },
+        "consumed": {
+          "0": 96
+        },
+        "materializations": {
+          "0": 96
+        }
+      },
+      "self": {
+        "selection_changed": {
+          "0": 96
+        },
+        "deck_changed": {
+          "0": 96
+        },
+        "consumed": {
+          "0": 96
+        },
+        "materializations": {
+          "0": 96
+        },
+        "phase_changed": {
+          "0": 96
+        },
+        "substate_changed": {
+          "0": 96
+        },
+        "empty_exit": {
+          "1": 96
+        },
+        "identity_mask": {
+          "0": 96
+        },
+        "terrain_mask": {
+          "0": 64,
+          "224": 16,
+          "288": 16
+        }
+      },
+      "qualification": "EXACT_ARTIFACT_AND_RUNTIME_POINTER"
+    },
+    {
+      "artifact_sha256": "729ff106787d477def41feb42a1a5d168f5bb050af870a25738c977e02c1cd21",
+      "loader_code": "cfd0dcf3",
+      "owner": "field-effects-secondary-types",
+      "target": "func_80037DA4",
+      "function": "text_command_hook",
+      "bytes": 137,
+      "section": 1,
+      "offset": 1024,
+      "body_sha256": "64ca9321489969bbfe88b91ff59436e85023925c46d2cce6df36b19f39cd7757",
+      "relocations_sha256": "1433fd3431862b90f6d86584c10f35c34516dde633cc34e15f269b99f88254ca",
+      "registration_profiles": 24,
+      "registration_occurrences": 24,
+      "trace_calls": 0,
+      "critical_returns": 0,
+      "children": {},
+      "inclusive": {},
+      "self": {},
+      "qualification": "EXACT_ARTIFACT_AND_RUNTIME_POINTER"
+    },
+    {
+      "artifact_sha256": "729ff106787d477def41feb42a1a5d168f5bb050af870a25738c977e02c1cd21",
+      "loader_code": "cfd0dcf3",
+      "owner": "field-effects-secondary-types",
+      "target": "func_80035E20",
+      "function": "text_draw_hook",
+      "bytes": 4659,
+      "section": 1,
+      "offset": 1168,
+      "body_sha256": "a3b70fe27a6701be8c3ebd146b126cc333c09fbec918e4ed08d5b02c0242a05e",
+      "relocations_sha256": "7ac42ee0ee6a4b0eb7f06debb716575a6c90958b4b39c72f399a1ffe46d87874",
+      "registration_profiles": 24,
+      "registration_occurrences": 48,
+      "trace_calls": 0,
+      "critical_returns": 0,
+      "children": {},
+      "inclusive": {},
+      "self": {},
+      "qualification": "EXACT_ARTIFACT_AND_RUNTIME_POINTER"
+    }
+  ]
+}

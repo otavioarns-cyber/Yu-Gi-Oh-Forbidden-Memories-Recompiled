@@ -176,7 +176,7 @@ static int hal2224_joint(const int ids[3], const int *active)
 }
 static int hal20_role_of(int owner)
 {
-    for(int r=0;r<6;r++)if(owner==find(hal20_roles[r].id))return r;
+    for(int r=0;r<HAL20_ROLE_COUNT;r++)if(owner==find(hal20_roles[r].id))return r;
     return -1;
 }
 static int hal20_version(int role,int owner)
@@ -185,9 +185,9 @@ static int hal2224_chain(const int ids[3],const int *active,
                          const int *order,int count,int projected,
                          char *error,size_t size)
 {
-    const char *names[]={"func_8001BAF0","DuelScene_UpdateHandActions","AiScript_Run"};
-    const void *targets[3],*last[3]={0,0,0};int hits[6][3]={{0}},position[3]={-1,-1,-1},tail=0;
-    for(int t=0;t<3;t++)if(!(targets[t]=Mods_Lookup(names[t])))
+    const char *const *names=hal20_targets;
+    const void *targets[HAL20_TARGET_COUNT],*last[HAL20_TARGET_COUNT]={0};int hits[HAL20_ROLE_COUNT][HAL20_TARGET_COUNT]={{0}},position[3]={-1,-1,-1},tail=0;
+    for(int t=0;t<HAL20_TARGET_COUNT;t++)if(!(targets[t]=Mods_Lookup(names[t])))
         return hal2224_error(error,size,"HAL-20: required hook target unavailable; duel blocked.");
     for(int i=0;;i++){
         int owner;const void *target,*replacement,*previous,*body;
@@ -195,7 +195,7 @@ static int hal2224_chain(const int ids[3],const int *active,
         tail=i+1;
         if(owner<0||owner>=Mods_Count()||!active[owner])continue;
         int t=-1,role=hal20_role_of(owner),matched=0;
-        for(int j=0;j<3;j++)if(target==targets[j])t=j;
+        for(int j=0;j<HAL20_TARGET_COUNT;j++)if(target==targets[j])t=j;
         if(t<0)continue;
         if(!hal20_version(role,owner))return hal2224_error(error,size,
             "HAL-20: unqualified object intercepts a protected controller. Preferences kept; duel blocked.");
@@ -211,7 +211,7 @@ static int hal2224_chain(const int ids[3],const int *active,
         last[t]=replacement;++hits[role][t];
         if(t==0)for(int j=0;j<3;j++)if(owner==ids[j])position[j]=i;
     }
-    for(int role=0;role<6;role++){
+    for(int role=0;role<HAL20_ROLE_COUNT;role++){
         int owner=find(hal20_roles[role].id);if(owner<0||!active[owner])continue;
         if(projected&&!Mods_CodeHash(owner)){
             for(int i=0;i<count;i++)if(order[i]==owner)for(int j=0;j<3;j++)
@@ -220,7 +220,7 @@ static int hal2224_chain(const int ids[3],const int *active,
         }
         if(!hal20_version(role,owner))return hal2224_error(error,size,
             "HAL-20: object bytes/version are not qualified for this candidate profile; duel blocked.");
-        for(int t=0;t<3;t++){
+        for(int t=0;t<HAL20_TARGET_COUNT;t++){
             int expected=0;for(size_t c=0;c<sizeof(hal20_callbacks)/sizeof(hal20_callbacks[0]);c++)
                 expected+=hal20_callbacks[c].role==role&&!strcmp(hal20_callbacks[c].target,names[t]);
             if(hits[role][t]!=expected)return hal2224_error(error,size,
@@ -309,7 +309,7 @@ int Mods_Hal20StateLoadAllowed(char *error,size_t size)
     if(!Mods_Hal2224GuardEnabled())return 1;
     /* These mods reset volatile effect/transaction state after a load; it
        is not registered in the state file. Decline before any overwrite. */
-    for(int r=1;r<6;r++)if(r!=2){int mod=find(hal20_roles[r].id);
+    for(int r=1;r<HAL20_ROLE_COUNT;r++)if(r!=2){int mod=find(hal20_roles[r].id);
         if(mod>=0&&Mods_Active(mod))return hal2224_error(error,size,
             "This experimental mod collection cannot safely restore temporary duel state. Your current game was kept. Use a regular memory-card save for now.");
     }

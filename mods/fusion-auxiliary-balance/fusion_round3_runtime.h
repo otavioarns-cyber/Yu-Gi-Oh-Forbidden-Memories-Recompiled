@@ -1,3 +1,6 @@
+#ifndef AUX_CARD_TERRAIN
+#define AUX_CARD_TERRAIN(id) Duel_GetTerrainBoost(Cards_Type(id))
+#endif
 #ifndef FUSION_ROUND3_RUNTIME_H
 #define FUSION_ROUND3_RUNTIME_H
 /* All runtime bonuses are derived from the original packed stats, never written
@@ -303,7 +306,7 @@ static int r3_effect_summon(int side,int id){
    r3_summon_data[pool].data_block_index=(u8)i;
    memset(c,0,sizeof(*c));c->data=&r3_summon_data[pool];c->card_id=id;c->table_index=(u8)i;
    c->attack=(s16)r2_original_atk(id);c->defense=(s16)r2_original_def(id);
-   c->terrain_modifier=(s16)Duel_GetTerrainBoost(Cards_Type(id));
+   c->terrain_modifier=(s16)AUX_CARD_TERRAIN(id);
    c->flags=DUEL_CARD_FLAG_OCCUPIED;
    obj=func_80024C1C(id,D_800908A0[i].x,D_800908A0[i].y);
    c->object=obj;if(obj)obj->card_index=(u8)i;
@@ -347,7 +350,7 @@ static void r3_reconcile_summons(int refresh_turn){
       c->card_id=(s16)id;data->id=(s16)id;
       c->attack=(s16)r2_original_atk(id);
       c->defense=(s16)r2_original_def(id);
-      c->terrain_modifier=(s16)Duel_GetTerrainBoost(Cards_Type(id));
+      c->terrain_modifier=(s16)AUX_CARD_TERRAIN(id);
    }
    if(!redraw)continue;
    if(c->object)DisplayObject_ReleaseIfPresent(c->object);

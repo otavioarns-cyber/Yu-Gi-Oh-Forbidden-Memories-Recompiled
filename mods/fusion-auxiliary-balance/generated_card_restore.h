@@ -1,3 +1,6 @@
+#ifndef AUX_CARD_TERRAIN
+#define AUX_CARD_TERRAIN(id) Duel_GetTerrainBoost(Cards_Type(id))
+#endif
 #ifndef FUSION_AUX_GENERATED_CARD_RESTORE_H
 #define FUSION_AUX_GENERATED_CARD_RESTORE_H
 
@@ -44,7 +47,7 @@ static void aux_restore_generated_card(s32 tagged_slot,s32 deck_index)
     c->defense=(s16)r2_original_def(id);
     c->stat_modifier=modifier;
     c->defense_modifier=defense_modifier;
-    c->terrain_modifier=(s16)Duel_GetTerrainBoost(Cards_Type(id));
+    c->terrain_modifier=(s16)AUX_CARD_TERRAIN(id);
     c->flags=(u16)(DUEL_CARD_FLAG_OCCUPIED|
                    (old_flags&(DUEL_CARD_FLAG_DEFENSE_POSITION|
                                DUEL_CARD_FLAG_FACE_DOWN|
