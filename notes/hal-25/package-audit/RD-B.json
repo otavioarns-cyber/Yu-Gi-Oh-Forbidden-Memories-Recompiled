@@ -1,0 +1,12 @@
+[
+  {
+    "name": "test_preview2_package",
+    "status": "FAIL",
+    "returncode": 1,
+    "command": [
+      "python",
+      "/tmp/hal25-reg-weeonj45/mods/ritual-duelists/tests/test_preview2_package.py"
+    ],
+    "output": "Traceback (most recent call last):\n  File \"/tmp/hal25-reg-weeonj45/mods/ritual-duelists/tests/test_preview2_package.py\", line 9, in <module>\n    assert sha(mod/name)==digest\n           ^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+  }
+]

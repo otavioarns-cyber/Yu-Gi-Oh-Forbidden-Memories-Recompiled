@@ -1,0 +1,309 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+REAL_HOST_EXPORTS count=309
+LIBRARY_INIT owner=ritual-duelists hash=22756a40 loads=1
+STATE owner=ritual-duelists size=288 version=4
+REGISTER owner=ritual-duelists target=DuelEffect_ApplyRitual token=1
+REGISTER owner=ritual-duelists target=Duel_CheckFusion token=2
+REGISTER owner=ritual-duelists target=Duel_ShuffleDeck token=3
+REGISTER owner=ritual-duelists target=Ai_GetHandSize token=4
+REGISTER owner=ritual-duelists target=func_8001BAF0 token=5
+REGISTER owner=ritual-duelists target=AiScript_Run token=6
+REGISTER owner=ritual-duelists target=NameEntry_BuildStarterDeck token=7
+REGISTER owner=ritual-duelists target=Duel_SelectCardDrop token=8
+memories-pc: mods: ritual-duelists loaded its code (ritual-duelists.o)
+LIBRARY_INIT owner=ritual-card-effects-test hash=52ce4829 loads=1
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER owner=ritual-card-effects-test target=Input_UpdatePads token=9
+REGISTER owner=ritual-card-effects-test target=Main_RunDuel token=10
+REGISTER owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=11
+REGISTER owner=ritual-card-effects-test target=func_800559D4 token=12
+REGISTER owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=13
+REGISTER owner=ritual-card-effects-test target=func_80017F04 token=14
+REGISTER owner=ritual-card-effects-test target=AiScript_Run token=15
+REGISTER owner=ritual-card-effects-test target=AiScript_FindWeakest token=16
+REGISTER owner=ritual-card-effects-test target=Ai_IsCardInSets token=17
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=18
+REGISTER owner=ritual-card-effects-test target=func_80037DA4 token=19
+REGISTER owner=ritual-card-effects-test target=func_80035E20 token=20
+REGISTER owner=ritual-card-effects-test target=func_80027508 token=21
+REGISTER owner=ritual-card-effects-test target=func_80024D34 token=22
+REGISTER owner=ritual-card-effects-test target=DuelScene_Update token=23
+REGISTER owner=ritual-card-effects-test target=func_80023144 token=24
+REGISTER owner=ritual-card-effects-test target=Duel_DrawFieldCards token=25
+REGISTER owner=ritual-card-effects-test target=func_80016784 token=26
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=27
+REGISTER owner=ritual-card-effects-test target=Duel_CalcCardStats token=28
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=29
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=30
+REGISTER owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=31
+REGISTER owner=ritual-card-effects-test target=func_8001EFD4 token=32
+REGISTER owner=ritual-card-effects-test target=func_8001B170 token=33
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=34
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=35
+REGISTER owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=36
+REGISTER owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=37
+REGISTER owner=ritual-card-effects-test target=Duel_ResetCardRecords token=38
+REGISTER owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=39
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=40
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=41
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=42
+REGISTER owner=ritual-card-effects-test target=func_8001BAF0 token=43
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=44
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=45
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=46
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=47
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=48
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=49
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=50
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=51
+REGISTER owner=ritual-card-effects-test target=Duel_CheckFusion token=52
+REGISTER owner=ritual-card-effects-test target=Duel_CheckRitual token=53
+REGISTER owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=54
+REGISTER owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=55
+REGISTER owner=ritual-card-effects-test target=AiScript_FindKiller token=56
+REGISTER owner=ritual-card-effects-test target=AiScript_CalcCardPower token=57
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=58
+memories-pc: mods: ritual-card-effects-test loaded its code (ritual-card-effects.o)
+memories-pc: mod ritual-card-effects-test: warning: this build has no audio replacement
+REGISTER owner=hal2224-observer target=AiScript_Run token=59
+memories-pc: mods: hal2224-observer loaded its code (observer.o)
+LOADED ai-hard-mode active=0 code=00000000 status=
+LOADED drop-missing-cards active=1 code=00000000 status=
+LOADED dual-play active=0 code=00000000 status=
+LOADED hal2224-observer active=1 code=c6f2e63b status=
+LOADED melhoria-dos-rituais active=0 code=00000000 status=
+LOADED ritual-card-effects-test active=1 code=52ce4829 status=this build has no audio replacement
+LOADED ritual-duelists active=1 code=22756a40 status=
+TRACE case=init owner=engine name=Duel_InitScene
+TRACE case=init owner=ritual-card-effects-test kind=hook name=DuelEffect_ApplyRitual
+TRACE case=init owner=ritual-duelists kind=hook name=DuelEffect_ApplyRitual
+TRACE case=init owner=engine name=DuelEffect_ApplyRitual
+QUEEN condition=0 effect_ON=1 actual_commit=1 legal_Female=1 identities=43,44; no private mark/pending/plan/quota written
+CASE real-controller-first-action
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_FindFreeGeneralSlot
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_AcquireSlot
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_ConfigureSpriteResource
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_SelectOrderingTable1
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_SetDepthOffset
+TRACE case=real-controller-first-action owner=engine name=func_8001B780
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=func_80023144
+TRACE case=real-controller-first-action owner=engine name=func_80023144
+STEP frame=0 phase=4 substate=0 selection=0
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=func_80028220
+TRACE case=real-controller-first-action owner=engine name=func_80027DF8
+TRACE case=real-controller-first-action owner=engine name=func_80027DF8
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=Duel_CalcCardStats
+TRACE case=real-controller-first-action owner=engine name=Duel_CalcCardStats
+TRACE case=real-controller-first-action owner=engine name=AiScript_Init
+TRACE case=real-controller-first-action owner=engine name=bzero
+TRACE case=real-controller-first-action owner=engine name=bzero
+TRACE case=real-controller-first-action owner=engine name=bzero
+TRACE case=real-controller-first-action owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=real-controller-first-action owner=engine name=Ai_GetHandSize
+TRACE case=real-controller-first-action owner=engine name=Duelists_AiRow
+TRACE case=real-controller-first-action owner=engine name=Duelists_Named
+TRACE case=real-controller-first-action owner=engine name=Duelists_Named
+TRACE case=real-controller-first-action owner=engine name=Duelists_Named
+TRACE case=real-controller-first-action owner=engine name=Duelists_Named
+TRACE case=real-controller-first-action owner=engine name=Duelists_Named
+TRACE case=real-controller-first-action owner=engine name=Duelists_Named
+TRACE case=real-controller-first-action owner=engine name=Duelists_Named
+TRACE case=real-controller-first-action owner=engine name=Duelists_Named
+SNAPSHOT bonus=0 used=0 window=20 ids=535,99,344,111,395,680,571,99,99,99,99,99,99,99,99,99,99,99,99,99
+STEP frame=1 phase=4 substate=32768 selection=0
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=hal2224-observer kind=hook name=AiScript_Run
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=AiScript_Run
+TRACE case=real-controller-first-action owner=ritual-duelists kind=hook name=AiScript_Run
+TRACE case=real-controller-first-action owner=engine name=AiScript_Run
+MODEL_VM_COMPLETION status=1; no plan/selection/pending/quota written
+TRACE case=real-controller-first-action owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=real-controller-first-action owner=engine name=Ai_GetHandSize
+TRACE case=real-controller-first-action owner=engine name=Duelists_AiRow
+TRACE case=real-controller-first-action owner=engine name=HAL2224_AfterPlanner
+PENDING after-real-planners active=1 side=1 source=16 replacement=1 card=680 mode=1 target=6 fallback=0 selection=15
+PLAN pending=1 selection=15 id=395 type=0 bonus=0 used=0
+GATE_INPUT owner=ritual-card-effects-test selection=15 card=395 category=1
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=func_8001BAF0
+GATE_INPUT owner=ritual-duelists selection=15 card=395 category=1
+TRACE case=real-controller-first-action owner=ritual-duelists kind=hook name=func_8001BAF0
+TRACE case=real-controller-first-action owner=engine name=func_8001BAF0
+STEP frame=2 phase=4 substate=1 selection=15
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=engine name=func_8001B780
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=func_80023144
+TRACE case=real-controller-first-action owner=engine name=func_80023144
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=engine name=func_8001B780
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=func_80023144
+TRACE case=real-controller-first-action owner=engine name=func_80023144
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=engine name=func_8001B780
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=func_80023144
+TRACE case=real-controller-first-action owner=engine name=func_80023144
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=engine name=func_8001B780
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=func_80023144
+TRACE case=real-controller-first-action owner=engine name=func_80023144
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=func_8001B8B8
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=MonsterEffects_PlayFaceUp
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_SetDepthOffset
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_FindAllocatedByTag
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_FindAllocatedByTag
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_SetDepthOffset
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=func_8001B938
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=func_80024088
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+STEP frame=57 phase=7 substate=49155 selection=15
+LEDGER after-first Dual not initialized
+ACTION_INSTANCE first record=19 id=395 deck_index=44 data_block=44 pointer_matches=1
+ACTION first id=395 category=1 phase=7 hand=4 planned_pending=1 pending_after=0 gate=0 rd=1 ai=0 exchanges=0 bridge_calls=0 path=ritual-card-effects-test>ritual-duelists>engine>
+RESULT Queen-mandatory-physical-choice PASS Real producer rule is legally applicable in modeled board. No pending/plan/quota injection in primary scenarios.
+RESULT one-physical-consumption PASS Native controller consumed one instance.
+RESULT identity-conservation PASS Unique real deck-data identities and at most one exchange.
+RESULT unselected-deck-intact PASS Unselected deck records unchanged.
+RESULT pending-completed PASS Completed/withdrawn before any next action; not reset to pass.
+STATE registered owner=ritual-duelists size=288 version=4
+RESULT reset-simulated-load-no-pending PASS Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks.
+TRACE case=real-controller-first-action owner=engine name=Duel_InitScene
+RESULT new-duel-no-stale-pending PASS Native duel-init and prior real reset, not gameplay/save certification.
+STATE pending_before_reset=0 after=0
+CALLBACK owner=ritual-duelists target=func_8001BAF0 calls=1
+CALLBACK owner=ritual-duelists target=AiScript_Run calls=1
+CALLBACK owner=ritual-card-effects-test target=AiScript_Run calls=1
+CALLBACK owner=ritual-card-effects-test target=func_8001BAF0 calls=1
+CALLBACK owner=hal2224-observer target=AiScript_Run calls=1
+SUMMARY assertions=6905 failures=0 no pending/plan/quota injection in primary cases

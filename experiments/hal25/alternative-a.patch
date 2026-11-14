@@ -1,0 +1,53 @@
+--- a/mod.c
++++ b/mod.c
+@@ -708,12 +708,50 @@
+     }
+     return 1;
+ }
++/* HAL25 alternative A: accept a changed, live physical single-card choice.
++ * This validates representation/identity, NOT the authority of an effect.
++ * It cannot discover a validator hidden below our materializer. */
++static int rd_external_hand_selection_live(void)
++{
++    int side=(int)D_8009B1D5,slot=(int)D_800EAE88[0]-11,index,record,target;
++    DuelCardRecord *c;
++    if(side<0||side>=DUEL_SIDE_COUNT||D_8009B360[side]<0||slot<0||slot>=5||
++       D_800EAE88[1]!=0||D_800EAE88[7]!=0)return 0;
++    index=D_800E9FF0[side].hand[slot];
++    if(index<side*RD_DECK_SIZE || index>=side*RD_DECK_SIZE+
++       (int)D_800E9FF0[side].deck_draw_cursor)return 0;
++    record=D_800907CC[slot+side*5];
++    if(record<side*15||record>=side*15+5||!D_800EA030[slot].object)return 0;
++    c=&D_801A7AD8[record];
++    if(!(c->flags&DUEL_CARD_FLAG_OCCUPIED)||
++       c->data!=&gDuel_aDeckCardRecords[index]||
++       c->card_id!=gDuel_aDeckCardRecords[index].id||
++       gDuel_aActiveCards[11+slot].card_id!=c->card_id)return 0;
++    target=(int)D_800EAE88[6];
++    if(Cards_Type(c->card_id)<CARD_TYPE_MAGIC){
++        int field;if(target<1||target>5)return 0;
++        field=side*15+4+target;
++        if((D_801A7AD8[field].flags&DUEL_CARD_FLAG_OCCUPIED)&&
++           !Duel_CheckFusion(c->card_id,D_801A7AD8[field].card_id))return 0;
++    }else if(target<6||target>10)return 0;
++    return 1;
++}
++
+ static void rd_materialize(void)
+ {
+     int side,src,replace,index,held_index,record_id,mode,card,target;
+     DuelDeckCardRecord *a,*other;
+     DuelCardDisplayObject *old;
+     if(!deck_pull.active){((void (*)(void))previous_swap)();return;}
++    if((deck_pull.mode==RD_PULL_MAGIC||deck_pull.mode==RD_PULL_FIELD)&&
++       (int)D_800EAE88[0]!=deck_pull.source&&rd_external_hand_selection_live()){
++        /* The incompatible pending has not materialized. Retire it before
++         * forwarding the current physical choice once; never restore the
++         * previous AI fallback over this newer, live selection. */
++        deck_pull.active=0;
++        ((void (*)(void))previous_swap)();
++        return;
++    }
+     side=deck_pull.side;src=deck_pull.source;replace=deck_pull.replace;
+     mode=deck_pull.mode;card=deck_pull.card;target=deck_pull.target;
+     deck_pull.active=0; /* exactly once, even on failures */

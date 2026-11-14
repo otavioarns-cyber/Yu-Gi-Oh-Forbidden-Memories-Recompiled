@@ -1,0 +1,64 @@
+{
+  "base_commit": "d649647c159c91d615c07d6960928a37e270b461",
+  "SDK": "v0.3.1-preview.2 / API24",
+  "compiler": "Clang 23.1.2 / llvm-mingw 20260922",
+  "compiler_sha256": "bab7f174d7e136ae093ad232d5a894ee00f0a8f9051bcff4eb6a70c132898248",
+  "builder_sha256": "181ba2e2d5363b90bae87e5a0c531b1ba3640e74d4d17f6f026d1db055a609b9",
+  "sdk_exports_sha256": "7aae333e2548e5b884bfcc8ea65ccc8ff753fbad72ed98bd2c7acbff334e5da0",
+  "sdk_include_digest": "12a683c57ebb419ebc43493647ca54fbaee403ccc08e957371b1ce66677bfcab",
+  "source_compilation_units": 16,
+  "target": "i386",
+  "source_min_api": 12,
+  "manifest_preserved": true,
+  "canonical_packages_modified": false,
+  "builds": [
+    {
+      "variant": "a",
+      "path": "artifacts/hal25/ritual-duelists-alternative-a.o",
+      "bytes": 4523592,
+      "sha256": "833278805c4daaf0e83990d2095c5ab39c57de1eda2e708eefcaae793df3a176",
+      "loader_code_hash": "22756a40",
+      "patch": "experiments/hal25/alternative-a.patch",
+      "patch_sha256": "9b07926d347d0614f8b3f6719011556c42dc3360efbe524d4594aa0129c48c09",
+      "source_inputs": "PROVENIENCIA.json",
+      "command": [
+        "python",
+        "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/tools/build_mod.py",
+        "/workspace/work/hal25/local/alternative-a",
+        "--target",
+        "i386"
+      ],
+      "environment": {
+        "MEMORIES_MOD_CC": "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang"
+      },
+      "log": "logs/build-alternative-a.log"
+    },
+    {
+      "variant": "b",
+      "path": "artifacts/hal25/ritual-duelists-alternative-b.o",
+      "bytes": 4525608,
+      "sha256": "36fd7cf3b303afcaa4a74302cb3ba92211f63f6a81c08175a9edb2ca068278a0",
+      "loader_code_hash": "2a32ba9b",
+      "patch": "experiments/hal25/alternative-b.patch",
+      "patch_sha256": "5aa2b17282b8d5912ad49cc8756ab5f1e6a9b8200b6770e4c4b37a056723f9c4",
+      "source_inputs": "PROVENIENCIA.json",
+      "command": [
+        "python",
+        "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/tools/build_mod.py",
+        "/workspace/work/hal25/local/alternative-b",
+        "--target",
+        "i386"
+      ],
+      "environment": {
+        "MEMORIES_MOD_CC": "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang"
+      },
+      "log": "logs/build-alternative-b.log"
+    }
+  ],
+  "notes": [
+    "Full 16-C source builds; received objects not used as link inputs.",
+    "API12 declared by original init preserved; official SDK/host24.",
+    "Absolute build paths/DWARF can alter full object SHA on rebuild; compare executable sections and ABI separately.",
+    "Variant B requires a proposed public provider that PR11 does not supply. Test bridge uses a qualified private symbol only in the harness."
+  ]
+}

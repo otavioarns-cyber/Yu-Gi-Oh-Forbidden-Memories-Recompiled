@@ -1,0 +1,26 @@
+[
+  {
+    "name": "RD-baseline",
+    "returncode": 0,
+    "counts": {
+      "PASS": 1
+    },
+    "complete": true
+  },
+  {
+    "name": "RD-A",
+    "returncode": 1,
+    "counts": {
+      "FAIL": 1
+    },
+    "complete": true
+  },
+  {
+    "name": "RD-B",
+    "returncode": 1,
+    "counts": {
+      "FAIL": 1
+    },
+    "complete": true
+  }
+]

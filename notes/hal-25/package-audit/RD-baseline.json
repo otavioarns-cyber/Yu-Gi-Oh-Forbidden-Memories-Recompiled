@@ -1,0 +1,12 @@
+[
+  {
+    "name": "test_preview2_package",
+    "status": "PASS",
+    "returncode": 0,
+    "command": [
+      "python",
+      "/tmp/hal25-reg-3pwom65o/mods/ritual-duelists/tests/test_preview2_package.py"
+    ],
+    "output": "PASS: all 38 production C/H, manifest, 57 assets unchanged; new object hash; six settings; after only; no old x64 or internal droplist option\n"
+  }
+]

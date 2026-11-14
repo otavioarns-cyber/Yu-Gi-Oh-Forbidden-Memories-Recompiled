@@ -1,0 +1,3721 @@
+{
+  "scope": "HAL25 original sources + A/B experimental objects; no guard. No private dependencies published.\nEngine/controller boundaries are modeled; not gameplay Windows certification.\n",
+  "preflight": [
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_duel_field_layout.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_ai_opponent_data.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_duel_scene_hand_actions.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_func_8001B938.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_duel_card_state_helpers.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_func_80027DF8.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_ai_script_vm.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_ai_get_hand_size.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_func_8001B7AC.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_duel_state_init.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/config/pc/guest_addresses.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ai-hard-mode/ai_hard_mode.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ai-hard-mode/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ai-hard-mode/planner.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ai-hard-mode/planner.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/ai_get_hand_size.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/ai_opponent_data.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/ai_script_vm.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/duel_card_state_helpers.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/duel_field_layout.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/duel_scene_hand_actions.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/duel_state_init.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/func_8001B7AC.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/func_8001B938.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/func_80027DF8.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/hooks.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/platform/settings.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/platform/paths.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/events.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/object_loader.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/overlap.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/manager.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/mods.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/platform/mods_window.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/sdk/exports.i386.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/mods/ai-hard-mode/ai-hard-mode.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/mods/ai-hard-mode/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-dual/package/dual-play.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-dual/package/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual-duelists.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/melhoria-dos-rituais/rituals.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/melhoria-dos-rituais/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/AUDITORIA-OFICIAL.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/CHECKPOINT-CONTINUACAO.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/LEIA-ME.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/NOTICES-HAL20.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/README-PREVIEW2.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/RELATORIO-DESEMPENHO.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/SDK-PROVENANCE.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/SDK-PROVENANCE.preview1.recebido.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/chakra_green_atlas.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/00.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/01.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/02.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/03.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/04.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/05.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/06.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/07.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/08.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/09.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/10.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/11.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/12.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/13.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/14.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/15.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/16.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/17.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/18.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/19.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/20.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/21.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/22.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/23.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/coin.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/00.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/01.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/02.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/03.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/04.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/05.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/06.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/07.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/08.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/09.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/10.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/11.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/12.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/13.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/14.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/15.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/16.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/17.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/18.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/19.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/20.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/21.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/22.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/23.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/24.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/25.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/26.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/27.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/coin.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/dokurorider_escape.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/garma_sword_spend.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/hungry_bite.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/hungry_plus500.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/javelin_shell.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/javelin_shell_counter.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/tri_horn_break.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/unicorn_horn.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/chakra_green_atlas.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/effect_title_instance.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/effect_title_visual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/egotist_bridge.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/garma_visual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/hungry_plus500_sprite.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/javelin_shell_sprite.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/mask_effect.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/mod.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/model.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/native.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/native_actions.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/native_vfx_textures.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/owner_r.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/performance_chaos.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/png.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/png.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual-card-effects.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_ai_burn_policy.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_ai_effect_source.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_coin.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_effect_intelligence_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_recipe_compat.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_recipe_data.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_recipe_export.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_recipe_provider_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_viewer_description_fit.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/serpent_fear.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/skull_monster.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/snapshot.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/mask_equip_staging_test.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/preview2_loader.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/run_preview2.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_automatic_field_gate.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_battle_marker_retention.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_effect_intelligence.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_effect_title_instance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_effect_title_visual.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_egotist_bridge.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_hungry_cpu_battle.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_logic_performance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_logic_performance.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_mirror_defense.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_mirror_direct_lp.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_mirror_lp_commit.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_preview2_assets.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_provider_generated.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_psycho_cpu_symmetry.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_psycho_permanent.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_puppet_rebuild_identity.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_recipe_performance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_recipe_performance.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_render_performance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_render_performance.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_tea_cosmo_whale.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_tri_horned_beacon.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_v4_rules.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_whale_crab_v07855.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_yamadron_ai_policy.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_zera_ultimate_debuff.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/black_chaos_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/black_chaos_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/black_luster_soldier_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/black_luster_soldier_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/chakra_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/chakra_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/chakra_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/cosmo_queen_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/cosmo_queen_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/crab_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/crab_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/crab_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/dokurorider_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/dokurorider_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/dokurorider_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fiends_mirror_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fiends_mirror_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fiends_mirror_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fortress_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fortress_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fortress_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/garma_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/garma_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/garma_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/gate_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/gate_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/gate_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/hungry_burger_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/hungry_burger_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/hungry_burger_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/javelin_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/javelin_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/javelin_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/mask_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/mask_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/mask_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/millennium_shield_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/millennium_shield_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/millennium_shield_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/novox_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/performance_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/performance_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/performance_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/psycho_puppet_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/psycho_puppet_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/psycho_puppet_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/sengenjin_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/sengenjin_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/sengenjin_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/serpent_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/serpent_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/serpent_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/skull_guardian_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/super_war_lion_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/super_war_lion_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/super_war_lion_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/tri_horned_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/tri_horned_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/ultimate_dragon_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/ultimate_dragon_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/yamadron_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/yamadron_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/yamadron_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/zera_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/zera_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tri_horn_sprite.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tri_horned.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ARQUITETURA.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/HISTORICO.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/NOTICES-HAL20.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/README-PREVIEW2.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/README.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/SDK-PROVENANCE.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/TESTES.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/adaptive_rules.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/adaptive_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ai_policy.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ai_policy.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-00-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-00.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-00.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-01-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-01.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-01.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-02-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-02.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-02.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-03-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-03.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-03.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-04-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-04.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-04.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-05-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-05.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-05.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-06-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-06.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-06.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-07-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-07.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-07.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-08-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-08.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-08.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-09-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-09.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-09.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-10-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-10.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-10.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-11-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-11.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-11.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-12-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-12.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-12.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-13-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-13.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-13.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-14-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-14.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-14.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-15-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-15.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-15.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-16-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-16.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-16.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-17-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-17.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-17.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-18-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-18.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-18.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/audit_drops_02.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/audit_drops_03.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/audit_story_rewards_03.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/box_art.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/deck_access.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/deck_access.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/decks.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/decks.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/decks_original.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/diagnostic_core.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/diagnostic_core.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/field_guard.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/field_guard.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/hand_play.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/hand_play.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/mod.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/native_assets.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/planner.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/planner.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/post_ritual.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/post_ritual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/profile_data.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/profiles.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/rd_drop_rewards.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/rd_drop_rewards.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/recipe_adapter.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/recipe_adapter.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual-duelists.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual_duelists.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual_effect_intelligence_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual_recipe_provider_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual_rules_provider_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Isis_MOD_Mestre_Especificacao.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Isis_Pool_83_Cartas_Pesos.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Prompt_Chat_Programador_Isis_MOD_Mestre.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Prompt_Programador_Ritual_Duelists_Jonos_Weevil_Shadi.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Ritual-Duelists-Pools.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Weevil_Pool_71_Cartas_Proposta.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/starter_bridge.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/starter_choice_ui.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/starter_rules.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/starter_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/audit_pools.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/historical_planner_fixture.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/mock_effect_provider.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/mocks/game/duel_check_ritual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/mocks/unmatched.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/preview2_loader.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/run_all_beta.sh",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/run_preview2.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_activation_priority.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_adaptive_rules.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_ai_policy.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_bakura_emergency.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_beta_profiles.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_core.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_deck_access.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_diagnostics.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_drop_rewards.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_effect_intelligence.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_external_droplist_compat.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_field_guard.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_hand_play.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_new_lot_recipes.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_new_profiles.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_packages.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_post_ritual.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_preview2_assets.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_preview2_package.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_provider_adapter.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_recipe_decks.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_rex_ready_distribution.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_ritual_strategy.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_starter_choice.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_tea_ocean_secmeton.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_tribute_fetch.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v030_adapter.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_atenza_meadow_kepura.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_forest_anubisius_mountain.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_labyrinth_sebek_neku_isis.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_recipes.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_seto_darknite_nitemare.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v4_round.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tribute_fetch.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tribute_fetch.h",
+      "status": "PASS"
+    }
+  ],
+  "builds": [
+    {
+      "returncode": 0,
+      "seconds": 2.83,
+      "log": "build-harness.log"
+    },
+    {
+      "returncode": 0,
+      "seconds": 0.083,
+      "log": "build-observer.log"
+    }
+  ],
+  "profiles": [
+    {
+      "variant": "baseline",
+      "bridge": 0,
+      "ai": 1,
+      "dual": 1,
+      "where": "before",
+      "effects": "on",
+      "condition": 5,
+      "scenario": "other-restrictions",
+      "mode": 0,
+      "cancel": 0,
+      "active": [
+        "R",
+        "H",
+        "RD",
+        "D"
+      ],
+      "composition": "R+H+RD+D",
+      "guard": 0,
+      "name": "baseline-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0",
+      "returncode": 0,
+      "seconds": 0.308,
+      "log": "baseline-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0.log",
+      "classification": "PASS",
+      "complete": true,
+      "checks": [
+        {
+          "name": "other-restriction-Black-Chaos-instance",
+          "status": "PASS",
+          "details": "Real ritual commit activates attack-only for that identity, not an ordinary equal-ID copy. No mark injection."
+        },
+        {
+          "name": "other-restriction-distinct-identity",
+          "status": "PASS",
+          "details": "Explicit identity-replacement probe; equal card ID does not inherit the ritual restriction."
+        },
+        {
+          "name": "other-restriction-OFF-neutral",
+          "status": "PASS",
+          "details": "Resident public provider consults effective state."
+        },
+        {
+          "name": "other-restriction-new-commit-ON",
+          "status": "PASS",
+          "details": "New genuine ritual commit after ON; no assumption of persistence across OFF."
+        },
+        {
+          "name": "reset-simulated-load-no-pending",
+          "status": "PASS",
+          "details": "Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks."
+        },
+        {
+          "name": "new-duel-no-stale-pending",
+          "status": "PASS",
+          "details": "Native duel-init and prior real reset, not gameplay/save certification."
+        }
+      ],
+      "observations": [
+        "STATE owner=ritual-duelists size=288 version=4",
+        "STATE owner=dual-play size=50 version=10",
+        "STATE registered owner=dual-play size=50 version=10",
+        "STATE registered owner=ritual-duelists size=288 version=4",
+        "STATE pending_before_reset=0 after=0"
+      ]
+    },
+    {
+      "variant": "baseline",
+      "bridge": 0,
+      "ai": 1,
+      "dual": 1,
+      "where": "after",
+      "effects": "on",
+      "condition": 5,
+      "scenario": "other-restrictions",
+      "mode": 0,
+      "cancel": 0,
+      "active": [
+        "R",
+        "H",
+        "RD",
+        "D"
+      ],
+      "composition": "R+H+RD+D",
+      "guard": 0,
+      "name": "baseline-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0",
+      "returncode": 0,
+      "seconds": 0.292,
+      "log": "baseline-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0.log",
+      "classification": "PASS",
+      "complete": true,
+      "checks": [
+        {
+          "name": "other-restriction-Black-Chaos-instance",
+          "status": "PASS",
+          "details": "Real ritual commit activates attack-only for that identity, not an ordinary equal-ID copy. No mark injection."
+        },
+        {
+          "name": "other-restriction-distinct-identity",
+          "status": "PASS",
+          "details": "Explicit identity-replacement probe; equal card ID does not inherit the ritual restriction."
+        },
+        {
+          "name": "other-restriction-OFF-neutral",
+          "status": "PASS",
+          "details": "Resident public provider consults effective state."
+        },
+        {
+          "name": "other-restriction-new-commit-ON",
+          "status": "PASS",
+          "details": "New genuine ritual commit after ON; no assumption of persistence across OFF."
+        },
+        {
+          "name": "reset-simulated-load-no-pending",
+          "status": "PASS",
+          "details": "Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks."
+        },
+        {
+          "name": "new-duel-no-stale-pending",
+          "status": "PASS",
+          "details": "Native duel-init and prior real reset, not gameplay/save certification."
+        }
+      ],
+      "observations": [
+        "STATE owner=ritual-duelists size=288 version=4",
+        "STATE owner=dual-play size=50 version=10",
+        "STATE registered owner=dual-play size=50 version=10",
+        "STATE registered owner=ritual-duelists size=288 version=4",
+        "STATE pending_before_reset=0 after=0"
+      ]
+    },
+    {
+      "variant": "A",
+      "bridge": 0,
+      "ai": 1,
+      "dual": 1,
+      "where": "before",
+      "effects": "on",
+      "condition": 5,
+      "scenario": "other-restrictions",
+      "mode": 0,
+      "cancel": 0,
+      "active": [
+        "R",
+        "H",
+        "RD",
+        "D"
+      ],
+      "composition": "R+H+RD+D",
+      "guard": 0,
+      "name": "A-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0",
+      "returncode": 0,
+      "seconds": 0.3,
+      "log": "A-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0.log",
+      "classification": "PASS",
+      "complete": true,
+      "checks": [
+        {
+          "name": "other-restriction-Black-Chaos-instance",
+          "status": "PASS",
+          "details": "Real ritual commit activates attack-only for that identity, not an ordinary equal-ID copy. No mark injection."
+        },
+        {
+          "name": "other-restriction-distinct-identity",
+          "status": "PASS",
+          "details": "Explicit identity-replacement probe; equal card ID does not inherit the ritual restriction."
+        },
+        {
+          "name": "other-restriction-OFF-neutral",
+          "status": "PASS",
+          "details": "Resident public provider consults effective state."
+        },
+        {
+          "name": "other-restriction-new-commit-ON",
+          "status": "PASS",
+          "details": "New genuine ritual commit after ON; no assumption of persistence across OFF."
+        },
+        {
+          "name": "reset-simulated-load-no-pending",
+          "status": "PASS",
+          "details": "Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks."
+        },
+        {
+          "name": "new-duel-no-stale-pending",
+          "status": "PASS",
+          "details": "Native duel-init and prior real reset, not gameplay/save certification."
+        }
+      ],
+      "observations": [
+        "STATE owner=ritual-duelists size=288 version=4",
+        "STATE owner=dual-play size=50 version=10",
+        "STATE registered owner=dual-play size=50 version=10",
+        "STATE registered owner=ritual-duelists size=288 version=4",
+        "STATE pending_before_reset=0 after=0"
+      ]
+    },
+    {
+      "variant": "A",
+      "bridge": 0,
+      "ai": 1,
+      "dual": 1,
+      "where": "after",
+      "effects": "on",
+      "condition": 5,
+      "scenario": "other-restrictions",
+      "mode": 0,
+      "cancel": 0,
+      "active": [
+        "R",
+        "H",
+        "RD",
+        "D"
+      ],
+      "composition": "R+H+RD+D",
+      "guard": 0,
+      "name": "A-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0",
+      "returncode": 0,
+      "seconds": 0.3,
+      "log": "A-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0.log",
+      "classification": "PASS",
+      "complete": true,
+      "checks": [
+        {
+          "name": "other-restriction-Black-Chaos-instance",
+          "status": "PASS",
+          "details": "Real ritual commit activates attack-only for that identity, not an ordinary equal-ID copy. No mark injection."
+        },
+        {
+          "name": "other-restriction-distinct-identity",
+          "status": "PASS",
+          "details": "Explicit identity-replacement probe; equal card ID does not inherit the ritual restriction."
+        },
+        {
+          "name": "other-restriction-OFF-neutral",
+          "status": "PASS",
+          "details": "Resident public provider consults effective state."
+        },
+        {
+          "name": "other-restriction-new-commit-ON",
+          "status": "PASS",
+          "details": "New genuine ritual commit after ON; no assumption of persistence across OFF."
+        },
+        {
+          "name": "reset-simulated-load-no-pending",
+          "status": "PASS",
+          "details": "Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks."
+        },
+        {
+          "name": "new-duel-no-stale-pending",
+          "status": "PASS",
+          "details": "Native duel-init and prior real reset, not gameplay/save certification."
+        }
+      ],
+      "observations": [
+        "STATE owner=ritual-duelists size=288 version=4",
+        "STATE owner=dual-play size=50 version=10",
+        "STATE registered owner=dual-play size=50 version=10",
+        "STATE registered owner=ritual-duelists size=288 version=4",
+        "STATE pending_before_reset=0 after=0"
+      ]
+    },
+    {
+      "variant": "B",
+      "bridge": 0,
+      "ai": 1,
+      "dual": 1,
+      "where": "before",
+      "effects": "on",
+      "condition": 5,
+      "scenario": "other-restrictions",
+      "mode": 0,
+      "cancel": 0,
+      "active": [
+        "R",
+        "H",
+        "RD",
+        "D"
+      ],
+      "composition": "R+H+RD+D",
+      "guard": 0,
+      "name": "B-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0",
+      "returncode": 0,
+      "seconds": 0.281,
+      "log": "B-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0.log",
+      "classification": "PASS",
+      "complete": true,
+      "checks": [
+        {
+          "name": "other-restriction-Black-Chaos-instance",
+          "status": "PASS",
+          "details": "Real ritual commit activates attack-only for that identity, not an ordinary equal-ID copy. No mark injection."
+        },
+        {
+          "name": "other-restriction-distinct-identity",
+          "status": "PASS",
+          "details": "Explicit identity-replacement probe; equal card ID does not inherit the ritual restriction."
+        },
+        {
+          "name": "other-restriction-OFF-neutral",
+          "status": "PASS",
+          "details": "Resident public provider consults effective state."
+        },
+        {
+          "name": "other-restriction-new-commit-ON",
+          "status": "PASS",
+          "details": "New genuine ritual commit after ON; no assumption of persistence across OFF."
+        },
+        {
+          "name": "reset-simulated-load-no-pending",
+          "status": "PASS",
+          "details": "Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks."
+        },
+        {
+          "name": "new-duel-no-stale-pending",
+          "status": "PASS",
+          "details": "Native duel-init and prior real reset, not gameplay/save certification."
+        }
+      ],
+      "observations": [
+        "STATE owner=ritual-duelists size=288 version=4",
+        "STATE owner=dual-play size=50 version=10",
+        "STATE registered owner=dual-play size=50 version=10",
+        "STATE registered owner=ritual-duelists size=288 version=4",
+        "STATE pending_before_reset=0 after=0"
+      ]
+    },
+    {
+      "variant": "B",
+      "bridge": 0,
+      "ai": 1,
+      "dual": 1,
+      "where": "after",
+      "effects": "on",
+      "condition": 5,
+      "scenario": "other-restrictions",
+      "mode": 0,
+      "cancel": 0,
+      "active": [
+        "R",
+        "H",
+        "RD",
+        "D"
+      ],
+      "composition": "R+H+RD+D",
+      "guard": 0,
+      "name": "B-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0",
+      "returncode": 0,
+      "seconds": 0.308,
+      "log": "B-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0.log",
+      "classification": "PASS",
+      "complete": true,
+      "checks": [
+        {
+          "name": "other-restriction-Black-Chaos-instance",
+          "status": "PASS",
+          "details": "Real ritual commit activates attack-only for that identity, not an ordinary equal-ID copy. No mark injection."
+        },
+        {
+          "name": "other-restriction-distinct-identity",
+          "status": "PASS",
+          "details": "Explicit identity-replacement probe; equal card ID does not inherit the ritual restriction."
+        },
+        {
+          "name": "other-restriction-OFF-neutral",
+          "status": "PASS",
+          "details": "Resident public provider consults effective state."
+        },
+        {
+          "name": "other-restriction-new-commit-ON",
+          "status": "PASS",
+          "details": "New genuine ritual commit after ON; no assumption of persistence across OFF."
+        },
+        {
+          "name": "reset-simulated-load-no-pending",
+          "status": "PASS",
+          "details": "Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks."
+        },
+        {
+          "name": "new-duel-no-stale-pending",
+          "status": "PASS",
+          "details": "Native duel-init and prior real reset, not gameplay/save certification."
+        }
+      ],
+      "observations": [
+        "STATE owner=ritual-duelists size=288 version=4",
+        "STATE owner=dual-play size=50 version=10",
+        "STATE registered owner=dual-play size=50 version=10",
+        "STATE registered owner=ritual-duelists size=288 version=4",
+        "STATE pending_before_reset=0 after=0"
+      ]
+    },
+    {
+      "variant": "B",
+      "bridge": 1,
+      "ai": 1,
+      "dual": 1,
+      "where": "before",
+      "effects": "on",
+      "condition": 5,
+      "scenario": "other-restrictions",
+      "mode": 0,
+      "cancel": 0,
+      "active": [
+        "R",
+        "H",
+        "RD",
+        "D"
+      ],
+      "composition": "R+H+RD+D",
+      "guard": 0,
+      "name": "B-bridge1-h1-d1-before-on-c5-other-restrictions-m0-x0",
+      "returncode": 0,
+      "seconds": 0.316,
+      "log": "B-bridge1-h1-d1-before-on-c5-other-restrictions-m0-x0.log",
+      "classification": "PASS",
+      "complete": true,
+      "checks": [
+        {
+          "name": "other-restriction-Black-Chaos-instance",
+          "status": "PASS",
+          "details": "Real ritual commit activates attack-only for that identity, not an ordinary equal-ID copy. No mark injection."
+        },
+        {
+          "name": "other-restriction-distinct-identity",
+          "status": "PASS",
+          "details": "Explicit identity-replacement probe; equal card ID does not inherit the ritual restriction."
+        },
+        {
+          "name": "other-restriction-OFF-neutral",
+          "status": "PASS",
+          "details": "Resident public provider consults effective state."
+        },
+        {
+          "name": "other-restriction-new-commit-ON",
+          "status": "PASS",
+          "details": "New genuine ritual commit after ON; no assumption of persistence across OFF."
+        },
+        {
+          "name": "reset-simulated-load-no-pending",
+          "status": "PASS",
+          "details": "Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks."
+        },
+        {
+          "name": "new-duel-no-stale-pending",
+          "status": "PASS",
+          "details": "Native duel-init and prior real reset, not gameplay/save certification."
+        }
+      ],
+      "observations": [
+        "STATE owner=ritual-duelists size=288 version=4",
+        "STATE owner=dual-play size=50 version=10",
+        "TEST_ONLY proposed selection-rules-v1 registration; real PR11 binary has NO such provider",
+        "STATE registered owner=dual-play size=50 version=10",
+        "STATE registered owner=ritual-duelists size=288 version=4",
+        "STATE pending_before_reset=0 after=0"
+      ]
+    },
+    {
+      "variant": "B",
+      "bridge": 1,
+      "ai": 1,
+      "dual": 1,
+      "where": "after",
+      "effects": "on",
+      "condition": 5,
+      "scenario": "other-restrictions",
+      "mode": 0,
+      "cancel": 0,
+      "active": [
+        "R",
+        "H",
+        "RD",
+        "D"
+      ],
+      "composition": "R+H+RD+D",
+      "guard": 0,
+      "name": "B-bridge1-h1-d1-after-on-c5-other-restrictions-m0-x0",
+      "returncode": 0,
+      "seconds": 0.312,
+      "log": "B-bridge1-h1-d1-after-on-c5-other-restrictions-m0-x0.log",
+      "classification": "PASS",
+      "complete": true,
+      "checks": [
+        {
+          "name": "other-restriction-Black-Chaos-instance",
+          "status": "PASS",
+          "details": "Real ritual commit activates attack-only for that identity, not an ordinary equal-ID copy. No mark injection."
+        },
+        {
+          "name": "other-restriction-distinct-identity",
+          "status": "PASS",
+          "details": "Explicit identity-replacement probe; equal card ID does not inherit the ritual restriction."
+        },
+        {
+          "name": "other-restriction-OFF-neutral",
+          "status": "PASS",
+          "details": "Resident public provider consults effective state."
+        },
+        {
+          "name": "other-restriction-new-commit-ON",
+          "status": "PASS",
+          "details": "New genuine ritual commit after ON; no assumption of persistence across OFF."
+        },
+        {
+          "name": "reset-simulated-load-no-pending",
+          "status": "PASS",
+          "details": "Registered buffers only; pending BSS not invented as savestate. Real reset/LOAD callbacks."
+        },
+        {
+          "name": "new-duel-no-stale-pending",
+          "status": "PASS",
+          "details": "Native duel-init and prior real reset, not gameplay/save certification."
+        }
+      ],
+      "observations": [
+        "STATE owner=ritual-duelists size=288 version=4",
+        "STATE owner=dual-play size=50 version=10",
+        "TEST_ONLY proposed selection-rules-v1 registration; real PR11 binary has NO such provider",
+        "STATE registered owner=dual-play size=50 version=10",
+        "STATE registered owner=ritual-duelists size=288 version=4",
+        "STATE pending_before_reset=0 after=0"
+      ]
+    }
+  ],
+  "postflight": [
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_duel_field_layout.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_ai_opponent_data.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_duel_scene_hand_actions.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_func_8001B938.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_duel_card_state_helpers.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_func_80027DF8.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_ai_script_vm.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_ai_get_hand_size.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_func_8001B7AC.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/obj/src_game_duel_state_init.c.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/config/pc/guest_addresses.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ai-hard-mode/ai_hard_mode.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ai-hard-mode/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ai-hard-mode/planner.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ai-hard-mode/planner.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/ai_get_hand_size.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/ai_opponent_data.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/ai_script_vm.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/duel_card_state_helpers.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/duel_field_layout.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/duel_scene_hand_actions.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/duel_state_init.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/func_8001B7AC.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/func_8001B938.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/game/func_80027DF8.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/hooks.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/platform/settings.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/platform/paths.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/events.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/object_loader.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/overlap.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/manager.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/mods/mods.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/src/pc/platform/mods_window.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/sdk/exports.i386.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/mods/ai-hard-mode/ai-hard-mode.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-base/repo/tmp/pc/game32/mods/ai-hard-mode/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-dual/package/dual-play.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-dual/package/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual-duelists.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/melhoria-dos-rituais/rituals.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal20-integration/repo/mods/melhoria-dos-rituais/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/AUDITORIA-OFICIAL.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/CHECKPOINT-CONTINUACAO.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/LEIA-ME.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/NOTICES-HAL20.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/README-PREVIEW2.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/RELATORIO-DESEMPENHO.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/SDK-PROVENANCE.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/SDK-PROVENANCE.preview1.recebido.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/chakra_green_atlas.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/00.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/01.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/02.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/03.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/04.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/05.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/06.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/07.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/08.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/09.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/10.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/11.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/12.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/13.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/14.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/15.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/16.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/17.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/18.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/19.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/20.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/21.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/22.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/23.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-atem/coin.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/00.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/01.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/02.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/03.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/04.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/05.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/06.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/07.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/08.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/09.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/10.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/11.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/12.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/13.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/14.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/15.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/16.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/17.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/18.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/19.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/20.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/21.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/22.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/23.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/24.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/25.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/26.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/27.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/coin-normal/coin.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/dokurorider_escape.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/garma_sword_spend.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/hungry_bite.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/hungry_plus500.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/javelin_shell.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/javelin_shell_counter.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/tri_horn_break.wav",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/assets/unicorn_horn.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/chakra_green_atlas.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/effect_title_instance.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/effect_title_visual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/egotist_bridge.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/garma_visual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/hungry_plus500_sprite.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/javelin_shell_sprite.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/mask_effect.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/mod.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/model.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/native.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/native_actions.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/native_vfx_textures.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/owner_r.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/performance_chaos.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/png.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/png.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual-card-effects.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_ai_burn_policy.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_ai_effect_source.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_coin.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_effect_intelligence_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_recipe_compat.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_recipe_data.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_recipe_export.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_recipe_provider_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/ritual_viewer_description_fit.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/serpent_fear.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/skull_monster.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/snapshot.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/mask_equip_staging_test.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/preview2_loader.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/run_preview2.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_automatic_field_gate.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_battle_marker_retention.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_effect_intelligence.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_effect_title_instance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_effect_title_visual.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_egotist_bridge.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_hungry_cpu_battle.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_logic_performance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_logic_performance.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_mirror_defense.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_mirror_direct_lp.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_mirror_lp_commit.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_preview2_assets.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_provider_generated.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_psycho_cpu_symmetry.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_psycho_permanent.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_puppet_rebuild_identity.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_recipe_performance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_recipe_performance.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_render_performance.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_render_performance.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_tea_cosmo_whale.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_tri_horned_beacon.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_v4_rules.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_whale_crab_v07855.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_yamadron_ai_policy.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tests/test_zera_ultimate_debuff.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/black_chaos_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/black_chaos_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/black_luster_soldier_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/black_luster_soldier_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/chakra_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/chakra_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/chakra_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/cosmo_queen_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/cosmo_queen_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/crab_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/crab_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/crab_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/dokurorider_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/dokurorider_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/dokurorider_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fiends_mirror_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fiends_mirror_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fiends_mirror_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fortress_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fortress_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/fortress_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/garma_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/garma_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/garma_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/gate_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/gate_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/gate_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/hungry_burger_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/hungry_burger_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/hungry_burger_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/javelin_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/javelin_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/javelin_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/mask_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/mask_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/mask_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/millennium_shield_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/millennium_shield_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/millennium_shield_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/novox_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/performance_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/performance_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/performance_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/psycho_puppet_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/psycho_puppet_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/psycho_puppet_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/sengenjin_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/sengenjin_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/sengenjin_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/serpent_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/serpent_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/serpent_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/skull_guardian_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/super_war_lion_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/super_war_lion_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/super_war_lion_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/tri_horned_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/tri_horned_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/ultimate_dragon_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/ultimate_dragon_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/yamadron_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/yamadron_recipe_off.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/yamadron_recipe_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/zera_on.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/text/zera_recipe.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tri_horn_sprite.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-card-effects/tri_horned.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ARQUITETURA.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/HISTORICO.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/NOTICES-HAL20.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/README-PREVIEW2.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/README.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/SDK-PROVENANCE.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/TESTES.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/adaptive_rules.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/adaptive_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ai_policy.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ai_policy.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-00-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-00.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-00.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-01-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-01.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-01.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-02-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-02.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-02.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-03-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-03.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-03.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-04-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-04.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-04.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-05-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-05.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-05.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-06-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-06.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-06.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-07-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-07.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-07.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-08-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-08.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-08.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-09-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-09.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-09.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-10-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-10.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-10.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-11-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-11.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-11.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-12-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-12.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-12.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-13-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-13.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-13.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-14-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-14.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-14.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-15-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-15.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-15.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-16-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-16.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-16.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-17-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-17.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-17.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-18-2x.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-18.bin",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/assets/hd-layer-18.png",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/audit_drops_02.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/audit_drops_03.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/audit_story_rewards_03.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/box_art.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/deck_access.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/deck_access.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/decks.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/decks.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/decks_original.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/diagnostic_core.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/diagnostic_core.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/field_guard.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/field_guard.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/hand_play.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/hand_play.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/mod.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/mod.json",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/native_assets.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/planner.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/planner.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/post_ritual.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/post_ritual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/profile_data.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/profiles.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/rd_drop_rewards.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/rd_drop_rewards.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/recipe_adapter.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/recipe_adapter.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual-duelists.o",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual_duelists.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual_effect_intelligence_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual_recipe_provider_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/ritual_rules_provider_v1.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Isis_MOD_Mestre_Especificacao.md",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Isis_Pool_83_Cartas_Pesos.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Prompt_Chat_Programador_Isis_MOD_Mestre.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Prompt_Programador_Ritual_Duelists_Jonos_Weevil_Shadi.txt",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Ritual-Duelists-Pools.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/spec/Weevil_Pool_71_Cartas_Proposta.csv",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/starter_bridge.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/starter_choice_ui.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/starter_rules.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/starter_rules.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/audit_pools.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/historical_planner_fixture.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/mock_effect_provider.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/mocks/game/duel_check_ritual.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/mocks/unmatched.h",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/preview2_loader.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/run_all_beta.sh",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/run_preview2.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_activation_priority.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_adaptive_rules.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_ai_policy.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_bakura_emergency.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_beta_profiles.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_core.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_deck_access.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_diagnostics.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_drop_rewards.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_effect_intelligence.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_external_droplist_compat.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_field_guard.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_hand_play.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_new_lot_recipes.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_new_profiles.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_packages.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_post_ritual.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_preview2_assets.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_preview2_package.py",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_provider_adapter.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_recipe_decks.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_rex_ready_distribution.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_ritual_strategy.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_starter_choice.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_tea_ocean_secmeton.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_tribute_fetch.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v030_adapter.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_atenza_meadow_kepura.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_forest_anubisius_mountain.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_labyrinth_sebek_neku_isis.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_recipes.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v3_seto_darknite_nitemare.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tests/test_v4_round.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tribute_fetch.c",
+      "status": "PASS"
+    },
+    {
+      "path": "/workspace/work/hal25/repo/mods/ritual-duelists/tribute_fetch.h",
+      "status": "PASS"
+    }
+  ],
+  "summary": {
+    "processes": 8,
+    "checks": {
+      "PASS": 48
+    },
+    "execution": {
+      "PASS": 8
+    },
+    "incomplete": 0
+  }
+}

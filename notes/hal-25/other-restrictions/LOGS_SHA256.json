@@ -1,0 +1,52 @@
+[
+  {
+    "path": "other-restrictions/A-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9870,
+    "sha256": "80fe8c0073a1cf32a66146e79e08ba7c3df584fad3e01cb257e683c6eda99cb2"
+  },
+  {
+    "path": "other-restrictions/A-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9870,
+    "sha256": "ad09d7270f2afc016975c0dc53226650e19a1d82ef8a2a8f261a0772402b1f8d"
+  },
+  {
+    "path": "other-restrictions/B-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9870,
+    "sha256": "59c4563ecf74e4f8d3f1436cc0ad47011898c607bf64c1fad7dc3faf468e9172"
+  },
+  {
+    "path": "other-restrictions/B-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9870,
+    "sha256": "bd336434c3343edc0fcbf6b60faf5135a93d8fc8d17ccd99b967cdcc6c10600a"
+  },
+  {
+    "path": "other-restrictions/B-bridge1-h1-d1-after-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9960,
+    "sha256": "52154e47ebd790b6debea50d14d00741c030f793ccbff33b4e17ebe56b600ee3"
+  },
+  {
+    "path": "other-restrictions/B-bridge1-h1-d1-before-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9960,
+    "sha256": "6d0c7b7e7da497ea028e9dd9b2bd020b7e7f9300cf8cdc705efeb8ead2cdbfc7"
+  },
+  {
+    "path": "other-restrictions/baseline-bridge0-h1-d1-after-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9870,
+    "sha256": "e684420b34c201837c4a910de3f8728532781d66eb85df42094967b2bd858e26"
+  },
+  {
+    "path": "other-restrictions/baseline-bridge0-h1-d1-before-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9870,
+    "sha256": "54744cd0270c491bd25a3bce3e9d9247acdf801c95a096a16695b3b205e2d8ab"
+  },
+  {
+    "path": "other-restrictions/build-harness.log",
+    "bytes": 11389,
+    "sha256": "221ed0e7e26629c0e34815b73eb0efa6116dbe9ec73657cfc409e55f0c620708"
+  },
+  {
+    "path": "other-restrictions/build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
