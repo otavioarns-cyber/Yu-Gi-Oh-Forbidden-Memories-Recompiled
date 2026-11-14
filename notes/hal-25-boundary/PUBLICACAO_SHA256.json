@@ -1,0 +1,2295 @@
+{
+  "scope": "Only authorized own R/RD packages, test sources and evidence. .bin files are unchanged authorized RitualStarter graphics buffers, not disc data. No private Dual source/manifest/object, game executable, SDL/Wine/toolchain or saves.",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 6987,
+      "sha256": "3c1362bf4ae9ec45f7e09284bc9efd9560b7a12922f57195f711f5d2e2fffb80"
+    },
+    {
+      "path": "experiments/hal25-boundary/controller-derived-selection.patch",
+      "bytes": 2267,
+      "sha256": "949b8f5657c45ccf2d6e6a892b4441761b3f53975bac3976882a027fa52a6cba"
+    },
+    {
+      "path": "mods/ritual-card-effects/AUDITORIA-OFICIAL.md",
+      "bytes": 15316,
+      "sha256": "562debb46a7a698c9ffa4149317360fc5112419866884d47ffc4420c4864880a"
+    },
+    {
+      "path": "mods/ritual-card-effects/CHECKPOINT-CONTINUACAO.md",
+      "bytes": 77200,
+      "sha256": "4165192fbcde801b078409b914b4eee66a05dff7091caf964eb6f255644e7f9d"
+    },
+    {
+      "path": "mods/ritual-card-effects/LEIA-ME.txt",
+      "bytes": 79207,
+      "sha256": "ee8d76fd45202b294cc7085fd1cc9f711a4d946cba0cc9a5e98488c379dac165"
+    },
+    {
+      "path": "mods/ritual-card-effects/NOTICES-HAL20.md",
+      "bytes": 1161,
+      "sha256": "f6e2bc6cd4987fbeea38a94c21617fe6fe8e854fbc7dd983c6e19ea387ff6fd8"
+    },
+    {
+      "path": "mods/ritual-card-effects/README-PREVIEW2.md",
+      "bytes": 4024,
+      "sha256": "dc8b84910723a316d5c2eaa6649263543851cb60ca716089e52e34ff326d2cca"
+    },
+    {
+      "path": "mods/ritual-card-effects/RELATORIO-DESEMPENHO.md",
+      "bytes": 9736,
+      "sha256": "7814088efc388d2270d197ad81fd080a27d15df55698f017b05189cf047110e3"
+    },
+    {
+      "path": "mods/ritual-card-effects/SDK-PROVENANCE.json",
+      "bytes": 10063,
+      "sha256": "bc50417f62335e69a83c02f3fbf2b0a9d59eaafb0016b4c1e9151f3b201bd865"
+    },
+    {
+      "path": "mods/ritual-card-effects/SDK-PROVENANCE.preview1.recebido.json",
+      "bytes": 766,
+      "sha256": "250d738c0255722014991ecbcbab5e9148d5adc52b49940b8ae8f01acd4992a5"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/chakra_green_atlas.png",
+      "bytes": 4460,
+      "sha256": "ceeb1dbca65a1db6af7c736fe8c421871a49b2d94648282de5afd556bd0d2457"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/00.png",
+      "bytes": 33846,
+      "sha256": "1c2ced1b04dcb67ad89e242a861ae0cf9aeb779e325555e986745fa2bae06416"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/01.png",
+      "bytes": 32781,
+      "sha256": "b9d3134f5a3eeaa94e351c4bebf992ef4915ca3dc174af3ed27a0775ae602c1e"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/02.png",
+      "bytes": 29895,
+      "sha256": "3d839cfc0be55e7c2f00a5b3559813a2d32971935d7f1ba92633b682bcf9088f"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/03.png",
+      "bytes": 24767,
+      "sha256": "1b7119ae2b76962f119730d3972e61e6b25b3eb7dbfba11ab50158481a5545ca"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/04.png",
+      "bytes": 18170,
+      "sha256": "3a671b6f849e52102db52389dece4ea660604eea8167b51172f774999968aa5b"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/05.png",
+      "bytes": 9700,
+      "sha256": "2c1785c3c074fc11672cf4aa0209f5f2849c5224039a6ae02fab86c1c1ac0ca1"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/06.png",
+      "bytes": 3559,
+      "sha256": "3301b0585c936cd90d3557c2d09d08d630540953ac0a511faa18fa5ff98da607"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/07.png",
+      "bytes": 9573,
+      "sha256": "453bb326f4780d9222f8cf3dc9427f1750fba4c7f3ed202c494180d6587374b0"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/08.png",
+      "bytes": 17422,
+      "sha256": "365be3f2a2e4e7c28d90c357d609a0096bea730dedb4c37ae146c6dcbfa92e64"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/09.png",
+      "bytes": 23636,
+      "sha256": "cd9d8c081d869336b9fbda52467034d8ac3637a65ab6f18dc931f566bc47efa4"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/10.png",
+      "bytes": 28481,
+      "sha256": "c15326a25398bafe7411df9d5cadb1092e05c01b58551a1eb0e5ac78ae119e28"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/11.png",
+      "bytes": 31260,
+      "sha256": "064f497e1a2e95efa9421bd7e424fd1c7641fb38f352b107e704f4e4bbc4b3dc"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/12.png",
+      "bytes": 32222,
+      "sha256": "a806389de945744cf415405373c6c0d8900a86b8a76cd021eecfb752bff1fe3b"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/13.png",
+      "bytes": 31260,
+      "sha256": "064f497e1a2e95efa9421bd7e424fd1c7641fb38f352b107e704f4e4bbc4b3dc"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/14.png",
+      "bytes": 28481,
+      "sha256": "c15326a25398bafe7411df9d5cadb1092e05c01b58551a1eb0e5ac78ae119e28"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/15.png",
+      "bytes": 23636,
+      "sha256": "cd9d8c081d869336b9fbda52467034d8ac3637a65ab6f18dc931f566bc47efa4"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/16.png",
+      "bytes": 17422,
+      "sha256": "365be3f2a2e4e7c28d90c357d609a0096bea730dedb4c37ae146c6dcbfa92e64"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/17.png",
+      "bytes": 9573,
+      "sha256": "453bb326f4780d9222f8cf3dc9427f1750fba4c7f3ed202c494180d6587374b0"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/18.png",
+      "bytes": 3559,
+      "sha256": "3301b0585c936cd90d3557c2d09d08d630540953ac0a511faa18fa5ff98da607"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/19.png",
+      "bytes": 9700,
+      "sha256": "2c1785c3c074fc11672cf4aa0209f5f2849c5224039a6ae02fab86c1c1ac0ca1"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/20.png",
+      "bytes": 18170,
+      "sha256": "3a671b6f849e52102db52389dece4ea660604eea8167b51172f774999968aa5b"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/21.png",
+      "bytes": 24767,
+      "sha256": "1b7119ae2b76962f119730d3972e61e6b25b3eb7dbfba11ab50158481a5545ca"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/22.png",
+      "bytes": 29895,
+      "sha256": "3d839cfc0be55e7c2f00a5b3559813a2d32971935d7f1ba92633b682bcf9088f"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/23.png",
+      "bytes": 32781,
+      "sha256": "b9d3134f5a3eeaa94e351c4bebf992ef4915ca3dc174af3ed27a0775ae602c1e"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-atem/coin.txt",
+      "bytes": 19,
+      "sha256": "0bbd6c3c169181a27b19b9544d6ec869ffdc211ebb11ba9d706c9dec404cd25e"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/00.png",
+      "bytes": 31712,
+      "sha256": "497efdabc6ade9bd12dd92f2a479ac86a9564632c4ae04f33029c1c1a5f060df"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/01.png",
+      "bytes": 30524,
+      "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/02.png",
+      "bytes": 27114,
+      "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/03.png",
+      "bytes": 22635,
+      "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/04.png",
+      "bytes": 20041,
+      "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/05.png",
+      "bytes": 17136,
+      "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/06.png",
+      "bytes": 11145,
+      "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/07.png",
+      "bytes": 5867,
+      "sha256": "c0ccf63d06a13a6c38721c98aafb49a7a400e881e4e559bde4d9e5ee615719cf"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/08.png",
+      "bytes": 12004,
+      "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/09.png",
+      "bytes": 16379,
+      "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/10.png",
+      "bytes": 19341,
+      "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/11.png",
+      "bytes": 20385,
+      "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/12.png",
+      "bytes": 26475,
+      "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/13.png",
+      "bytes": 31413,
+      "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/14.png",
+      "bytes": 32512,
+      "sha256": "37291c8f07f327254b5531bb8142a457aad056806cb0b75662675710cddd699e"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/15.png",
+      "bytes": 31413,
+      "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/16.png",
+      "bytes": 26475,
+      "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/17.png",
+      "bytes": 20385,
+      "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/18.png",
+      "bytes": 19341,
+      "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/19.png",
+      "bytes": 16379,
+      "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/20.png",
+      "bytes": 12004,
+      "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/21.png",
+      "bytes": 6150,
+      "sha256": "a2ccc08933af7dd06db84a379382ad6f7e47687991b1c934a9935f180faef131"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/22.png",
+      "bytes": 11145,
+      "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/23.png",
+      "bytes": 17136,
+      "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/24.png",
+      "bytes": 20041,
+      "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/25.png",
+      "bytes": 22635,
+      "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/26.png",
+      "bytes": 27114,
+      "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/27.png",
+      "bytes": 30524,
+      "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/coin-normal/coin.txt",
+      "bytes": 19,
+      "sha256": "6a79338a43aa97ff3506d5fb93f9685769555abb1b6c9cdf9c8a85a649b95d22"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/dokurorider_escape.wav",
+      "bytes": 541944,
+      "sha256": "05f94b9fd2bf5b51e2643b6fb96d82e9953e09ef249fb0f15fc9331d696dc338"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/garma_sword_spend.wav",
+      "bytes": 387116,
+      "sha256": "95fced6c229ab4c4ba6dfd9a306a8335fa0e2228aba88dd2fb44b18481561e9f"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/hungry_bite.wav",
+      "bytes": 106236,
+      "sha256": "e5ad4052b87d04b0ab99da4d6a979dc341985cf19a8f964201844139f05dbc0d"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/hungry_plus500.png",
+      "bytes": 943951,
+      "sha256": "99af80e5081b5042d559b2de39b7f96fe4867a8656e3bbb0356f21ec8092293c"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/javelin_shell.wav",
+      "bytes": 188972,
+      "sha256": "741d4dfaf9869a937d08fa882921136cf41f0da1348d7ba1f2383be46b272bd9"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/javelin_shell_counter.png",
+      "bytes": 1266,
+      "sha256": "8c0c7bd4580f01800960d85c33b74c64b3bf70de7f291c58dbfab31c0f676d0f"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/tri_horn_break.wav",
+      "bytes": 57374,
+      "sha256": "324e75ab13d8cc3a41f243056aa44f1de1396373359c3b0dfba80d7c5e9a716a"
+    },
+    {
+      "path": "mods/ritual-card-effects/assets/unicorn_horn.png",
+      "bytes": 244,
+      "sha256": "891fa1ab9c7e57256c4500c055b9db4bf7daa80beed3aca3aa082a3e2df60015"
+    },
+    {
+      "path": "mods/ritual-card-effects/chakra_green_atlas.h",
+      "bytes": 34299,
+      "sha256": "00d47913d906f596f0afc489a15b53be928d067d3b533d3cdbb82185e0647694"
+    },
+    {
+      "path": "mods/ritual-card-effects/effect_title_instance.h",
+      "bytes": 2437,
+      "sha256": "484b37201af8c606cdb9dde8d8885d5f1affde80acbecc6a9884ccf0cda258b8"
+    },
+    {
+      "path": "mods/ritual-card-effects/effect_title_visual.h",
+      "bytes": 8296,
+      "sha256": "5504d473eece2f76a60b668cfbabe1769442ef7a1aff19b8a44af9d8c99eec33"
+    },
+    {
+      "path": "mods/ritual-card-effects/egotist_bridge.h",
+      "bytes": 5456,
+      "sha256": "0d9f06b48c4d8dc7c04e97395e3b2c00022938a1c1fc6a12410673a70a670c4d"
+    },
+    {
+      "path": "mods/ritual-card-effects/garma_visual.h",
+      "bytes": 6413,
+      "sha256": "f5fb91adf1044512f691ffece612198a9df0b700c9bb45826b6d84f51160e999"
+    },
+    {
+      "path": "mods/ritual-card-effects/hand_selection_snapshot.h",
+      "bytes": 2625,
+      "sha256": "1d4ffa28c3ba217d5a741c5bebfeb2ce19a0935a522a3948e464b45c3a23805c"
+    },
+    {
+      "path": "mods/ritual-card-effects/hungry_plus500_sprite.h",
+      "bytes": 18033,
+      "sha256": "f8eb45b53994c2e72781ac07aae690c2341f7684b54613bcbf4b79f320bd40a8"
+    },
+    {
+      "path": "mods/ritual-card-effects/javelin_shell_sprite.h",
+      "bytes": 12459,
+      "sha256": "3514f82e1b8b5bcea79b8e9e7d50dd308e72dc0c16a7ebbc4f263652a01641cb"
+    },
+    {
+      "path": "mods/ritual-card-effects/mandatory_hand_lifecycle_v1.h",
+      "bytes": 1750,
+      "sha256": "1e20dc9ee29984eec1097baea2a2e497fbf6c2f9ee39c91d185d4ce170b69fc5"
+    },
+    {
+      "path": "mods/ritual-card-effects/mandatory_hand_provider.h",
+      "bytes": 3145,
+      "sha256": "b4b67c669e91a4c2ce0b252988b1fdf7f1f9b93b65ad998118b4338e13b779e2"
+    },
+    {
+      "path": "mods/ritual-card-effects/mandatory_hand_selection_v1.h",
+      "bytes": 1699,
+      "sha256": "ac1a5385c4441ee0f14e41b68a4dc293c111197b6fe961ff89265025f32df49d"
+    },
+    {
+      "path": "mods/ritual-card-effects/mask_effect.h",
+      "bytes": 18744,
+      "sha256": "50e724dacbcd2d02189fe690e89d7a467d88bd25a6a808b9f602539b5e1adec9"
+    },
+    {
+      "path": "mods/ritual-card-effects/mod.c",
+      "bytes": 368236,
+      "sha256": "ea6f79ae3476d263243ef8b661e6b97a3953f2f4f8081138108cc2c6cff7d24b"
+    },
+    {
+      "path": "mods/ritual-card-effects/mod.json",
+      "bytes": 20549,
+      "sha256": "c334e2cb1d6b1b85a321498f9cf25286e7a887aaadaf4425c10b2102832af056"
+    },
+    {
+      "path": "mods/ritual-card-effects/model.h",
+      "bytes": 8222,
+      "sha256": "9646f4c50c51dea2470400d7f01521bebf9e9d047e9356885b3a9536b2f376eb"
+    },
+    {
+      "path": "mods/ritual-card-effects/native.h",
+      "bytes": 2817,
+      "sha256": "5890a4e33435d6515b571ca14ca6dbd483c765dcc0027d86c33dffde08b9d2d9"
+    },
+    {
+      "path": "mods/ritual-card-effects/native_actions.h",
+      "bytes": 2504,
+      "sha256": "70749174b4208864f3c062b81c90f338f64421b4c801c30b289b8001787326e0"
+    },
+    {
+      "path": "mods/ritual-card-effects/native_vfx_textures.h",
+      "bytes": 13003,
+      "sha256": "8e5f872f5b4b59230f5df1faf8b4e99d839fce6085662c9ebc85eb23fbbd22ec"
+    },
+    {
+      "path": "mods/ritual-card-effects/owner_r.h",
+      "bytes": 1605,
+      "sha256": "9b6da48f3b533ce7953f34a79cf05e86520cc8e7aceb913f9ada208e4f2d5583"
+    },
+    {
+      "path": "mods/ritual-card-effects/performance_chaos.h",
+      "bytes": 22011,
+      "sha256": "5aa5ad4f9a0ed696296b37d57f5712c0042226754b59247b38fc0bba87c0ad10"
+    },
+    {
+      "path": "mods/ritual-card-effects/png.c",
+      "bytes": 11193,
+      "sha256": "a5a55b3b349046813fd8c8e26d347527acda6de856858e9aacb7028b95935d06"
+    },
+    {
+      "path": "mods/ritual-card-effects/png.h",
+      "bytes": 353,
+      "sha256": "26a5ef08cf76239964ea952185c7f9428cd2aaed4e087f5d6feafc37b4a2272d"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual-card-effects.o",
+      "bytes": 737280,
+      "sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_ai_burn_policy.h",
+      "bytes": 2033,
+      "sha256": "aa5cb5216dfd318a17e1ac36117f9eba346d136142a1269f8ea428729068efa7"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_ai_effect_source.h",
+      "bytes": 2449,
+      "sha256": "1ace81ded172e34bd0b18bdfdba3df56670b6488985c17011eaf809bbc6b9cdd"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_coin.h",
+      "bytes": 8014,
+      "sha256": "c4bb5c4fe4b1ec738f0445215fe4cdba69a3de94abacd9608de30b1f239dafc4"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_effect_intelligence_v1.h",
+      "bytes": 1476,
+      "sha256": "dc46868090ad84a2b4ece1dc40e4a6fe2898bfd2fd5b8f79c28bbca8f3a0e579"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_recipe_compat.h",
+      "bytes": 15561,
+      "sha256": "3666e77b78652d90e5779ef36114a02a1209f48b0bdab7832ca79f63fcb6df10"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_recipe_data.h",
+      "bytes": 10583,
+      "sha256": "b6a14f67d405bb51ac820734fc0a0ee7bbea63e7e278aa781e2562db8a85c9cf"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_recipe_export.h",
+      "bytes": 3769,
+      "sha256": "1fdc2237a01e4b1f82379df95389e13dc68f31a328f1b685d7136da762ee903a"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_recipe_provider_v1.h",
+      "bytes": 1245,
+      "sha256": "138ed4699e54bd5c0e54b5d0ef53020b5cce81da897984e526702fde59c23f7c"
+    },
+    {
+      "path": "mods/ritual-card-effects/ritual_viewer_description_fit.h",
+      "bytes": 7403,
+      "sha256": "bd614f848ea9a27741a3283644b87f70b10c5b4ccae244642fcf437c6d5b9987"
+    },
+    {
+      "path": "mods/ritual-card-effects/serpent_fear.h",
+      "bytes": 38263,
+      "sha256": "34ad1663d0412d97e9bcf532150ca7125e703e7efa07fb638bd2fd55b78bce2c"
+    },
+    {
+      "path": "mods/ritual-card-effects/skull_monster.h",
+      "bytes": 642,
+      "sha256": "3a8c889df2b8801fe2cc2c5965253fa138ebf2af13780c82b8f38d21c7aa478e"
+    },
+    {
+      "path": "mods/ritual-card-effects/snapshot.h",
+      "bytes": 1974,
+      "sha256": "33b45eff6855d6da800367a35a6fd1f165b970fd800124a388be8b2d436a9982"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/mask_equip_staging_test.c",
+      "bytes": 5377,
+      "sha256": "324f98846065816a7d0a389fbdcbc80e615b29c7fb4b1e9ba77f2a0a72a6dbe5"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/preview2_loader.c",
+      "bytes": 12828,
+      "sha256": "ece4666d542479cf7fab5e6645d38c6b48f33092a2164443faa868d0cb40373b"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/run_preview2.py",
+      "bytes": 3622,
+      "sha256": "ff66e432e4b24f794275f2f0f60449779fdc4259a50070b682a61825fc4aecd1"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_automatic_field_gate.py",
+      "bytes": 3229,
+      "sha256": "42f45de54f2821dcc476fad1977572ed30cebba2d95279dd8c65c5931c7bdad8"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_battle_marker_retention.py",
+      "bytes": 3605,
+      "sha256": "7bd8f37acf1a9189ea255b786c71a59065e8d38f5754f1a1f40d6601e08478a9"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_effect_intelligence.c",
+      "bytes": 1944,
+      "sha256": "183111972afee54ca5d01e6357f872ce4546b2c41a315a9a52c0561068a57f4e"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_effect_title_instance.c",
+      "bytes": 3417,
+      "sha256": "0d02c207134db14c400e4cf0eb743647d2bffeb4b9d7a4b05a7cddd8a0a3f319"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_effect_title_visual.c",
+      "bytes": 11332,
+      "sha256": "39b780364d2181654910f9a75add7add8cac0ee7d92f2a43bdac343deefb239c"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_egotist_bridge.py",
+      "bytes": 6003,
+      "sha256": "9bbecb3cd09941de05df19a59e47a2468adc69bbe9bd65873fa5b42dd1f1bdda"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_hungry_cpu_battle.py",
+      "bytes": 9720,
+      "sha256": "a8a44ab2009eddfd5bc1b3624c4d49270f5bb4988a1fbf6e932867b55d04aab3"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_logic_performance.c",
+      "bytes": 19533,
+      "sha256": "ed542c6664d9496925f60c64816b057562f12fbbdb470499aec481cfab7e9ae2"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_logic_performance.py",
+      "bytes": 6754,
+      "sha256": "43132092c2630f45f2a793b3dd6916034d34aca3a4edd5f6ca7d379c630c0816"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_mirror_defense.py",
+      "bytes": 3779,
+      "sha256": "d158f36c4e7c2f1efa67efd665cc85d33e94b443d738bede033debd1d3a0897d"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_mirror_direct_lp.py",
+      "bytes": 2898,
+      "sha256": "8a841c3e7070f6a15bac1c68dc844d344761fad29c114994f23512a00092bda8"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_mirror_lp_commit.py",
+      "bytes": 3210,
+      "sha256": "b3ba7973ad2b4191a6cf1b8f57a237eb54131ba592eb668f2180fa64163fa4fa"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_preview2_assets.py",
+      "bytes": 3635,
+      "sha256": "f654671b4c492046fb61e5ce5b6106945446c547d831aac85017280e737dac05"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_provider_generated.c",
+      "bytes": 12920,
+      "sha256": "18981c81d53ae801ad58fb4a7ced43344cd76e8f15c7f9601a399d2897480ca2"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_psycho_cpu_symmetry.py",
+      "bytes": 11334,
+      "sha256": "49dce9599a4f1c3c89b2035f9fdcf9e3f64177f7bbfae2da62c8739541a98cca"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_psycho_permanent.py",
+      "bytes": 4047,
+      "sha256": "227c07ee66f29a34926ff1eba2d6a9f731835a7cb17c267b3ebc2b0e6bbfc2c0"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_puppet_rebuild_identity.py",
+      "bytes": 2729,
+      "sha256": "72b5150f426feae8f4fda630b318569536f42b1d0a8205d20df120bba43c297c"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_recipe_performance.c",
+      "bytes": 3796,
+      "sha256": "9a949cb02d1f53ae9f9e41f96b6e93eff6d6e2cfc1a3cf11b3e91fea4cc95484"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_recipe_performance.py",
+      "bytes": 3906,
+      "sha256": "638b19986545ba9af5a776f77bfb2eece7e19261a46922b48d682928235779c7"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_render_performance.c",
+      "bytes": 20764,
+      "sha256": "11eb6535825f6b42b2a5cc4892a88b628a4c3944cd364d55d9691a8e2d37cc00"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_render_performance.py",
+      "bytes": 5647,
+      "sha256": "f5eb5fd9169713cd080700d32c10fb90c5d13d878337fdada554bc0f05e891b4"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_tea_cosmo_whale.py",
+      "bytes": 3007,
+      "sha256": "3d4c3a66c9ea6c06291cdebb7716a2900b712fdd2e822d68a15efb3bd1836824"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_tri_horned_beacon.py",
+      "bytes": 3403,
+      "sha256": "f15b96137726b0db7cff46520463b486e533d23dadd3108ff5f4203db56899fd"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_v4_rules.py",
+      "bytes": 2070,
+      "sha256": "adf01db0339243c36204060825dc297cdc11e967372a231ae9ea336fa4188e1f"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_whale_crab_v07855.py",
+      "bytes": 5270,
+      "sha256": "94c3c97e555df23631a022513a57e6e747e58e573677fc14c01682605c0061cb"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_yamadron_ai_policy.c",
+      "bytes": 1947,
+      "sha256": "28f5e636fbc55f0dc392bc387b07c8795c5759cefd7e682aca2622c992605421"
+    },
+    {
+      "path": "mods/ritual-card-effects/tests/test_zera_ultimate_debuff.py",
+      "bytes": 4788,
+      "sha256": "5bf81267d2dc0bb4603e550119fffcbdd9e02d95e48a4c9878b148b702347a8d"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/black_chaos_on.txt",
+      "bytes": 178,
+      "sha256": "4982bd02c954150312c4ec710914178d3bb46ef41077ddb44630e454c909cc08"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/black_chaos_recipe.txt",
+      "bytes": 76,
+      "sha256": "62b6093eb24b98e72a341feef664d0dccc2d0e76f7feddd226f7646015f9c09c"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/black_luster_soldier_on.txt",
+      "bytes": 184,
+      "sha256": "0191626f7eb3d402fd24a7b16b5b68c794feecb5d6b6f8b95257ededbde2f948"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/black_luster_soldier_recipe.txt",
+      "bytes": 77,
+      "sha256": "a2c12047490c55399ecc0527f5481c065d53094cf4d6733f82529e9176eaa62f"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/chakra_on.txt",
+      "bytes": 116,
+      "sha256": "80081eab20ab6d067847adde2757cb5ae945fc506efec456d2af894d0731f896"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/chakra_recipe_off.txt",
+      "bytes": 78,
+      "sha256": "302a15d325feb197d3a339ba00a0ac76c77142d50e19ca8a13920b59328d9817"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/chakra_recipe_on.txt",
+      "bytes": 86,
+      "sha256": "7c5da9f7aaa596f24eb966665c85e6541b6dd2270ce490557b4380bc48d184a9"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/cosmo_queen_on.txt",
+      "bytes": 175,
+      "sha256": "34f49f95e913a439e2a4e4edcc74226aa991c9dcc820281d299a7afe4c3afabf"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/cosmo_queen_recipe.txt",
+      "bytes": 89,
+      "sha256": "63aa523ba56a15a313870bab7acf1b6e90cfbadc1157488201713385ce472aac"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/crab_on.txt",
+      "bytes": 273,
+      "sha256": "cb68b949a2a41f8db4364cca51f700b0b945a3bddcb985e00d0db70a77d8a1e8"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/crab_recipe_off.txt",
+      "bytes": 83,
+      "sha256": "cecb1ce4ab4cd3a293dc22d1d9c798b6f59c1d2ef94d517fd1a485c066bcaee9"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/crab_recipe_on.txt",
+      "bytes": 72,
+      "sha256": "d0e870187a578185f7e009698560f02b03ac429431049543aac6810a2f8aa3c7"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/dokurorider_on.txt",
+      "bytes": 182,
+      "sha256": "90359126e2991606bb78f3ccd7ecd3220ca63b50912985dd6fcbdcd64b963343"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/dokurorider_recipe_off.txt",
+      "bytes": 75,
+      "sha256": "4fbc28643a0670a2cd32d8eca5a1a00b17fe0a9112fafd5f89132026242e0dbe"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/dokurorider_recipe_on.txt",
+      "bytes": 68,
+      "sha256": "b7d7a91a1c88d3b91cdeed8cb64ee6c7c1b3cf7de4827ccc399b30533ebb225d"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/fiends_mirror_on.txt",
+      "bytes": 191,
+      "sha256": "d06d6cdb6573bbcc341698723c0773bc10e0bdd6928d5ebe9d3eb8d38df26901"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/fiends_mirror_recipe_off.txt",
+      "bytes": 87,
+      "sha256": "50c5ea2cae691c046a06d96bf21d682260f4a8554bdccde8624a41430be0ac45"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/fiends_mirror_recipe_on.txt",
+      "bytes": 85,
+      "sha256": "958d076c7fa3ef96fcc4724a3338d6937f7d129e644312d19adc46695640ef83"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/fortress_on.txt",
+      "bytes": 268,
+      "sha256": "a4ba822f2a3a814d989c5d06437d0418561e8c6056a31608f900ef9c53954063"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/fortress_recipe_off.txt",
+      "bytes": 67,
+      "sha256": "365912213cd658875a09a185ce9147fa9bc99d317c0ca2c219a90577b7960011"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/fortress_recipe_on.txt",
+      "bytes": 52,
+      "sha256": "82441dfce47b49ecc1d96e86912b6d0fa24c8bd28d83bb633b10e5622ea9cecf"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/garma_on.txt",
+      "bytes": 204,
+      "sha256": "7a9cbccf6c395ba98cda71c6a678f406112322797d4a9973507f62ec2cf1637c"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/garma_recipe_off.txt",
+      "bytes": 74,
+      "sha256": "8b6dceb1dc73c875b9146089741e132a886afc3ac18feca7c373cc4d436f4c7e"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/garma_recipe_on.txt",
+      "bytes": 76,
+      "sha256": "7645f22c9a643f8963e7b7bcb8b0ebe01eb52766a9b7df7bb0f96c3173829fa9"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/gate_on.txt",
+      "bytes": 118,
+      "sha256": "91f27535859d8a3426dfaf4e93c8166117d3e79c5b3faef66f273436ac6cb871"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/gate_recipe_off.txt",
+      "bytes": 67,
+      "sha256": "76b8438a521e3e52853c3d26253e9dcf7aef4267845282e2f00cffe4d840de07"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/gate_recipe_on.txt",
+      "bytes": 67,
+      "sha256": "76b8438a521e3e52853c3d26253e9dcf7aef4267845282e2f00cffe4d840de07"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/hungry_burger_on.txt",
+      "bytes": 120,
+      "sha256": "715d883be7580910dd4e3240587a8cf4b224134c181cb5077d65f253aff193a7"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/hungry_burger_recipe_off.txt",
+      "bytes": 61,
+      "sha256": "ec57bf455b6d93e7cc9fe58de3b719d393ea252d2a0a3a6d5d1e471d04ec56cc"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/hungry_burger_recipe_on.txt",
+      "bytes": 70,
+      "sha256": "7b3c2e3545989ce94d1e09c0f8b5c7bbaaaa9af08ffa4a5490d5326d56b9f7fb"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/javelin_on.txt",
+      "bytes": 183,
+      "sha256": "bde4c8b8f06be4328194bff3589a2a944e2be2e29f9cf1a4311c6f3d545cc6d1"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/javelin_recipe_off.txt",
+      "bytes": 78,
+      "sha256": "3fce4a8193e21d1ab1a69c93573425192b9a0eb08a5da19b6b4a3da25ee558dc"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/javelin_recipe_on.txt",
+      "bytes": 76,
+      "sha256": "07f7bae564b4bb17069f6158e7c0762144cfd81700f48035e12ce74aed6e8e71"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/mask_on.txt",
+      "bytes": 167,
+      "sha256": "57b0ba7f6839a149f2f50cc9685b7f59f6dbacd1dba5a595182a8b65cb53e1fb"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/mask_recipe_off.txt",
+      "bytes": 77,
+      "sha256": "9e73c3080d579582b9b3e6c972b9acb5f6f37d50fe8409e3faac2202b43b2890"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/mask_recipe_on.txt",
+      "bytes": 73,
+      "sha256": "e4d777968056def53bd2e829a701346d05c193d6d0987480792e71fde25ede3e"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/millennium_shield_on.txt",
+      "bytes": 160,
+      "sha256": "48293e7feabc513d882fd75e547ba433aa1fd496538d8b1fb8dc5d845a41cd28"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/millennium_shield_recipe_off.txt",
+      "bytes": 78,
+      "sha256": "6c3ed8158f921e8300fc68715bfd2dcc293f790c064edd34a5ed9ba6fcad69a7"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/millennium_shield_recipe_on.txt",
+      "bytes": 73,
+      "sha256": "fb0a3c7d24d674c86945fd0ea3ae06de23c7d3041076b2d79197a63281ac8be3"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/novox_recipe.txt",
+      "bytes": 83,
+      "sha256": "5ce1875d7834c894d2592f7b76a3a53d3f9864b85d3599436fce46ed3ce0d006"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/performance_on.txt",
+      "bytes": 192,
+      "sha256": "074b6a0b8fe7ab01231b54d155ea7045f757bd829d84cacad6fbf1c771ab08e6"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/performance_recipe_off.txt",
+      "bytes": 70,
+      "sha256": "826085a74da25565ef7f7e004b212583a40a30c3786a2d7a788a5e04f371bd2c"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/performance_recipe_on.txt",
+      "bytes": 66,
+      "sha256": "205c470ec12c5c47fc31c9571dda0ca157c68fb951a8038592df63837c3d2b9d"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/psycho_puppet_on.txt",
+      "bytes": 180,
+      "sha256": "6f395737661c6ef4aa67a126b36cab91178eb547df95a48e209cba4feedcfd9d"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/psycho_puppet_recipe_off.txt",
+      "bytes": 74,
+      "sha256": "2cef2f01ddb87e7bad367a59f105cc6f3a7c3537b8dba0638ffd95419c79356e"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/psycho_puppet_recipe_on.txt",
+      "bytes": 78,
+      "sha256": "c410d8b53f86e3207d7d8bc24c4ff978db23a19ee6d19672d22e63f95d8ed1c3"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/sengenjin_on.txt",
+      "bytes": 153,
+      "sha256": "af2ad34c0536624aeff0fbe20716e43b24d385262a4fec43b34cd92d667637ee"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/sengenjin_recipe_off.txt",
+      "bytes": 75,
+      "sha256": "1ce05f3f19c88e3e3f532df7bd8151962d261e13fcb02b76aab51a81a180cae9"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/sengenjin_recipe_on.txt",
+      "bytes": 98,
+      "sha256": "dde4dc1f95d9e59a1e315d7829517064565f33190658a110baea5703f276f1ef"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/serpent_on.txt",
+      "bytes": 147,
+      "sha256": "ab230f5f89b268b5e3f734e46518e26afad24097b52370a0bdfae5145b47b3e8"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/serpent_recipe_off.txt",
+      "bytes": 105,
+      "sha256": "34e3175135e1b3478796335831b681569533866f9d5ad45907b0227b44151e95"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/serpent_recipe_on.txt",
+      "bytes": 86,
+      "sha256": "56480532ba36ac751acef165043c1f8f064c01e98cae715cb520166569b8057b"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/skull_guardian_on.txt",
+      "bytes": 218,
+      "sha256": "70a2300a0ab5ca3f86221b8991d38978f0d2113aa2d1487e6c22c877b3fb7b3e"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/super_war_lion_on.txt",
+      "bytes": 180,
+      "sha256": "922dda3344fc6ffa4a6911c613dac588bedc39921435f128c9f5ed8b74afef8a"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/super_war_lion_recipe_off.txt",
+      "bytes": 60,
+      "sha256": "49352e0d5f1c9c985a5c4de6b29e9ea44a3d71ec94c1b6234599977f965fd51d"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/super_war_lion_recipe_on.txt",
+      "bytes": 58,
+      "sha256": "62c1b1bd24af3417ec7e4a3af57d5a8ea4e4a74b3172f075945a18c1e6048496"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/tri_horned_on.txt",
+      "bytes": 216,
+      "sha256": "c6f062ff154ff777b183132a9ad1e009a4b5490caa4662be69aa06859a591497"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/tri_horned_recipe.txt",
+      "bytes": 70,
+      "sha256": "66730dbca55be0bcaeefae0d58f4a16f843aa64d65267882a5d36767871137b2"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/ultimate_dragon_on.txt",
+      "bytes": 119,
+      "sha256": "7dae8942e5e27e2c9c36cb99708cccdbcf2e8659d64aff51337b0d749c63a6b9"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/ultimate_dragon_recipe.txt",
+      "bytes": 100,
+      "sha256": "6e71cd243de8452f1fa9c0f40b1b80bb1d8c99ffd2f325298dbf597b207a0023"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/yamadron_on.txt",
+      "bytes": 129,
+      "sha256": "8a9e4248fe87cee2b9dd40a97849e9d2660a9ffe384a1aa09e9ed718fcebe803"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/yamadron_recipe_off.txt",
+      "bytes": 85,
+      "sha256": "31f5cc0574213291c68fa1b6f081f41e4a7d2f22dbc2ec99265a4baab14d412b"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/yamadron_recipe_on.txt",
+      "bytes": 64,
+      "sha256": "7190f42166c014d8e281bc32bdd859d8841b069a48cb131d6531c7853d294eb1"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/zera_on.txt",
+      "bytes": 200,
+      "sha256": "3c19909348c52193de8d7169ddd3d0f88f83fa3f447bed117825360a5cc16f60"
+    },
+    {
+      "path": "mods/ritual-card-effects/text/zera_recipe.txt",
+      "bytes": 114,
+      "sha256": "e35b57638d6cc9404b492bc26ec26256976110754fc0a46d0345c23e843bcbb8"
+    },
+    {
+      "path": "mods/ritual-card-effects/tri_horn_sprite.h",
+      "bytes": 12442,
+      "sha256": "326ada40620bb5fcee4e9eba01d6bd368b5e083ea07eb6d938b88a146e4af6a5"
+    },
+    {
+      "path": "mods/ritual-card-effects/tri_horned.h",
+      "bytes": 7057,
+      "sha256": "97304ace30b78def04a15c33606c497cf297c4e89b012079cf78fc5a01246d0d"
+    },
+    {
+      "path": "mods/ritual-duelists/ARQUITETURA.md",
+      "bytes": 8535,
+      "sha256": "64a389dc24fc246792b33022eb5c1f17a83a5212d91c217155035b29b40dd299"
+    },
+    {
+      "path": "mods/ritual-duelists/HISTORICO.md",
+      "bytes": 72938,
+      "sha256": "6878a7a44b81ca94ab9021db0d6afa16e1909013c98e8da34e4fc7b30c1ef279"
+    },
+    {
+      "path": "mods/ritual-duelists/NOTICES-HAL20.md",
+      "bytes": 1454,
+      "sha256": "1c6ad8283bd501694474a78f1af3a928476c194cdedd706de26f11af752e8887"
+    },
+    {
+      "path": "mods/ritual-duelists/README-PREVIEW2.md",
+      "bytes": 3882,
+      "sha256": "d52bb9a431fc832f6a2daa6626227e95d01229fe52f014aebc5ff4f9a1c58a10"
+    },
+    {
+      "path": "mods/ritual-duelists/README.md",
+      "bytes": 29355,
+      "sha256": "b597b3e4ea8ed2307994a103573bf30439d7b3fdd63f1de67cbe9eb04cc2fbac"
+    },
+    {
+      "path": "mods/ritual-duelists/SDK-PROVENANCE.json",
+      "bytes": 9427,
+      "sha256": "f0df6a246e9648370213f24a44100e6e3325e3923f45e0af860af5cbfb25152b"
+    },
+    {
+      "path": "mods/ritual-duelists/TESTES.md",
+      "bytes": 19082,
+      "sha256": "78105de3d00235529383077693b5f64a576d335fa0fc978a1b8a2a62ff9918a4"
+    },
+    {
+      "path": "mods/ritual-duelists/adaptive_rules.c",
+      "bytes": 9961,
+      "sha256": "aa592678281bbd39b999d387995a0d9a25aba852a53bf93c27c230e701e338f5"
+    },
+    {
+      "path": "mods/ritual-duelists/adaptive_rules.h",
+      "bytes": 947,
+      "sha256": "a626e5ecbb63bd599561ba0f341eeb186112e5e67e34b4223899cff94b5e55ec"
+    },
+    {
+      "path": "mods/ritual-duelists/ai_policy.c",
+      "bytes": 1361,
+      "sha256": "e4ddabe06bfdbf6e64cce0c15a7903383cb73a1f49ec81b55a6d537b93908218"
+    },
+    {
+      "path": "mods/ritual-duelists/ai_policy.h",
+      "bytes": 1171,
+      "sha256": "1efd7465919aa431383c8f8e4f1f5a9b731585fceebc672b8a1b0e57146a066e"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-00-2x.png",
+      "bytes": 106531,
+      "sha256": "d87c777c9b3c8465c888c344476cd602a970dce82aef9afc6dcd2edee5ecb0bc"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-00.bin",
+      "bytes": 20480,
+      "sha256": "3c481c92c354c3b18c3d94d4c97b7e1e2446068300247b56f58d52b7096a38f0"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-00.png",
+      "bytes": 336855,
+      "sha256": "7bde6b92a8cdc38e75fba12eb11857c4b55f71a9b7c1e73d5429a6d966bdd832"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-01-2x.png",
+      "bytes": 140903,
+      "sha256": "290362d7512a8b1bf3a4b51129e9cce4741317b3ad575dbf4dbcf2e0eeacd53e"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-01.bin",
+      "bytes": 20480,
+      "sha256": "fedeba75b4e6c2edf8d172b7e00af00a6f48e80df389baaf6b79196eef5161a7"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-01.png",
+      "bytes": 482621,
+      "sha256": "cfcab3e0e17bfc0e90da499dcf23a9c2a44919988b4c11bbb786c773e8ce5eee"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-02-2x.png",
+      "bytes": 38227,
+      "sha256": "449745ea6c15eca292b9159817888fab32af800ec8025fab6a8c6db4c65928d7"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-02.bin",
+      "bytes": 20480,
+      "sha256": "e80fef04c4fa5c336aacd1e6ceec86beecca6cb4bccfa2a2812902897e3008bb"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-02.png",
+      "bytes": 127280,
+      "sha256": "efd7de5933ca87f304c2cab2fa780cea3009ef7ea5886e39cce79834faf801e2"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-03-2x.png",
+      "bytes": 95153,
+      "sha256": "2f755a6e76dbb954d25d64b43d0de51cde4d906ddce5d61f7c7274e3721eb22a"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-03.bin",
+      "bytes": 20480,
+      "sha256": "231b1e6bbf9216fc1f7758e2081ef98b111980e4cae9f56b59c4d14450eb8c45"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-03.png",
+      "bytes": 481144,
+      "sha256": "791e32068742649a0463109878e8e2bb4f42c4a95449f6b9112398f8085850ac"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-04-2x.png",
+      "bytes": 89519,
+      "sha256": "7d8d2fc69d44c6374921023b2515235bacb713b2ad343906e200cc61460dd3cd"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-04.bin",
+      "bytes": 20480,
+      "sha256": "835e80afe08f2020b2a2e298d2b649fb677bcec4ccf038b4ebc3b106519fa630"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-04.png",
+      "bytes": 281621,
+      "sha256": "908f5f0a78e9718c5649485f698ed5ab321cac53488681746fef684dd9c2a1fb"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-05-2x.png",
+      "bytes": 126849,
+      "sha256": "1555120facb6ddc970ea3d91b2693700b48d8eb47baad6ff8e0e479dabd9afbb"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-05.bin",
+      "bytes": 20480,
+      "sha256": "ffb70af8c248b62c111a9a57d51afb4ff8aca8168bbe45dc0ed4b6b752e54a45"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-05.png",
+      "bytes": 434897,
+      "sha256": "37a1b0239b1390fb1d8b673bd5c02baf7aae1e43729657667fa5fa8952f9f139"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-06-2x.png",
+      "bytes": 38085,
+      "sha256": "17007050996d122051f78764862ad957680583dca0e42db6057cca78dc4ab2ae"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-06.bin",
+      "bytes": 20480,
+      "sha256": "046c43b054b447fc80cbd7bc3a470568202ed154ebbb91e93b7d8c902818bbce"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-06.png",
+      "bytes": 132361,
+      "sha256": "59492f015dbffcc6866826da0245da3859c2c3dbf9303d578c686efe544a5690"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-07-2x.png",
+      "bytes": 84788,
+      "sha256": "68bf871a266d02a4acedbd89139bf21875c2446344199b107d0b74993aad64f7"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-07.bin",
+      "bytes": 20480,
+      "sha256": "0a85d5f4cf1ac9c15b5d172c7b7d56c1e5220d40c0c566869637f7f81f5b5893"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-07.png",
+      "bytes": 434619,
+      "sha256": "613d1d8d8e2da0212c4facdd4473d6f52a6918522cf87249605a72597a4f5671"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-08-2x.png",
+      "bytes": 80048,
+      "sha256": "a690713fdace251340270208adc0978998be83c963fc2940cb212767832d9e33"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-08.bin",
+      "bytes": 20480,
+      "sha256": "8507f882718413dbffc9a89136d398132af9be609f4ca370d8e494a7d054fa4e"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-08.png",
+      "bytes": 272343,
+      "sha256": "64d8486baba7d83c66fb6e795b0919c50021ba88d68347fa8b58b843823c4b78"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-09-2x.png",
+      "bytes": 142144,
+      "sha256": "44c7f0c0cd06b571a05091307f0a5fdb1dac9fa56086c66a5d29fce4ca60921e"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-09.bin",
+      "bytes": 20480,
+      "sha256": "09b3c5557d143e417ad5757a2d56add675fa874a67b1077da33c16bac14b8384"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-09.png",
+      "bytes": 426788,
+      "sha256": "c2957d84e5c6ef56704cc6374fdd8ab8cb4c62bf16a9ce9f24111373e826946c"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-10-2x.png",
+      "bytes": 38071,
+      "sha256": "46298a15156ea62183a9703be61d05d24e9e725821b065c26c294695c2e63227"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-10.bin",
+      "bytes": 20480,
+      "sha256": "7548b9d846e5cd84bf21c6f220a7571d510befdd8b6081095e9ceb1212bb1287"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-10.png",
+      "bytes": 127485,
+      "sha256": "4be05f57202368a10ad1f299f9ea0906d5a38204fc221809980eb5e4043830fa"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-11-2x.png",
+      "bytes": 81575,
+      "sha256": "0afc8b7db7e6944c02d502bcd38c0f84822cb876bc28825fa0ef7823bead3001"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-11.bin",
+      "bytes": 20480,
+      "sha256": "4757d4c45269d0ea50bcbff8f820f3687557f97f589ff098566596ff6f76d8b2"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-11.png",
+      "bytes": 426553,
+      "sha256": "2619f2a0092080f38ccd2fb3c3c4d446a05ed4ce137d8c19f7b490cfef0523d2"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-12-2x.png",
+      "bytes": 151988,
+      "sha256": "2d87918815627a8b85078e9cfa580009baef04c3cfa52b96d96f032174c318f3"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-12.bin",
+      "bytes": 20480,
+      "sha256": "617bffc73b41cd4f832559bd9cd945b181928d7641eaaad62f1a078846a09dbe"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-12.png",
+      "bytes": 553107,
+      "sha256": "5e784f9bbef2265b58295f364ddbb98b8bbccc000421926db29f2a325e83e2a2"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-13-2x.png",
+      "bytes": 163653,
+      "sha256": "d8dc2527e88064a2e6142980527ea3379a74f9b8848f2fbf61e49477bded6ea4"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-13.bin",
+      "bytes": 20480,
+      "sha256": "81c4b4e91040d1d798e27a4cb626b1db03f9b2ef1865dda5a2d5d9b9bc02fa6b"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-13.png",
+      "bytes": 579198,
+      "sha256": "ae4ea5f60c67d8cad8dbfb42aad929248f583cd0fbd5a4da1460460026d8d89e"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-14-2x.png",
+      "bytes": 55643,
+      "sha256": "335333cdefcf47c9ce65baaaca899bd9b9c110df4d3ea0d86abe8d29f579525b"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-14.bin",
+      "bytes": 20480,
+      "sha256": "e68e23b3dc3cd4cd675f2e3cac18d44586badb7d75a1fe749085eaa50c99889b"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-14.png",
+      "bytes": 171477,
+      "sha256": "e1d2e738bdc7d119dd07e4bd04e14307ebe59c261b8aa2c7aa22471749e0947c"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-15-2x.png",
+      "bytes": 107505,
+      "sha256": "62c00c981d3b5e056cf5bd56cb9627447b4c11883b63f78d74d409ce48965bfb"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-15.bin",
+      "bytes": 20480,
+      "sha256": "aadc10e93d39e9818107ec23efe6ddf3465659a1477361fde15c7b67b1b927f6"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-15.png",
+      "bytes": 375101,
+      "sha256": "5fd13e2184c0b940335e7033c43dad92a5430a8811aec4b3d3b3509fce4a254f"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-16-2x.png",
+      "bytes": 264684,
+      "sha256": "64cf95eaa128643e6ec36ea3266145721adbd4d646e975050e27f36045f63895"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-16.bin",
+      "bytes": 76800,
+      "sha256": "0351e61b149811177e4757bc8fcaa567f1e9d68050facfa51c9c1d56ced0a24e"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-16.png",
+      "bytes": 902897,
+      "sha256": "db218b9690f45c615a8f03dc45bfe827e7cbb3ff2d124d5a088bfe6a7ab95b11"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-17-2x.png",
+      "bytes": 263536,
+      "sha256": "6935ad88a4460c58fe8bbd8a1912aac1fc5e4759fefac859a9f6be1b68486208"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-17.bin",
+      "bytes": 76800,
+      "sha256": "87d1ed9d34bde277c7ff2f7d60c44b59056b62cb0636e9f200d897625b07143e"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-17.png",
+      "bytes": 902393,
+      "sha256": "80cd8121c5dd13bc04c5a43143368075a0f45bfade945971c11f7b273db71b71"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-18-2x.png",
+      "bytes": 30720,
+      "sha256": "74b56ad3c16031a15fcd63c39b1a31442079a8d522772883521dee3c32c3d16e"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-18.bin",
+      "bytes": 64000,
+      "sha256": "9e79c3895a720fd5ac2819e99f1a0197f810d5af2066d5850087a273d6421265"
+    },
+    {
+      "path": "mods/ritual-duelists/assets/hd-layer-18.png",
+      "bytes": 20256,
+      "sha256": "ae1f4cda20a9ca59f07abb569c3e4cc7defa35cd380e9a369a149d7385ba9c1a"
+    },
+    {
+      "path": "mods/ritual-duelists/audit_drops_02.csv",
+      "bytes": 620406,
+      "sha256": "fc85a828d048f8aaea78bf84e338115aa65c2545523d377198deb9ff9b539e18"
+    },
+    {
+      "path": "mods/ritual-duelists/audit_drops_03.csv",
+      "bytes": 154855,
+      "sha256": "1991275a832190af5a1d767a84ae04338b04170f71730cab3ff7bfd90f639019"
+    },
+    {
+      "path": "mods/ritual-duelists/audit_story_rewards_03.csv",
+      "bytes": 760,
+      "sha256": "fbbab5974af23856b579795088a8e3dea39deaa388ebdf8b67a5120265ddf5b5"
+    },
+    {
+      "path": "mods/ritual-duelists/box_art.h",
+      "bytes": 8702741,
+      "sha256": "d3f40d2712ab265bc52c1a0e0573b9dd79d2d6dbb62a59e12b374f3700923764"
+    },
+    {
+      "path": "mods/ritual-duelists/deck_access.c",
+      "bytes": 2457,
+      "sha256": "10df863c633bbb79d13a64e544806b7f5ad191b02327c01f490ffd184177b18e"
+    },
+    {
+      "path": "mods/ritual-duelists/deck_access.h",
+      "bytes": 1047,
+      "sha256": "6b48c1934a8f46536c3a82495f6a3f84a9884c28b48f5637fc849d5935cae63e"
+    },
+    {
+      "path": "mods/ritual-duelists/decks.c",
+      "bytes": 6819,
+      "sha256": "b62a41e984b05a8ff2cff0935deeb20c6418f59384ca6887ebd60a6aadc661ab"
+    },
+    {
+      "path": "mods/ritual-duelists/decks.h",
+      "bytes": 28,
+      "sha256": "a24eb4952d52812bd84df4f327a000af6f775a2058f00fa3aeb2819ed912ebf2"
+    },
+    {
+      "path": "mods/ritual-duelists/decks_original.h",
+      "bytes": 1052,
+      "sha256": "7fa9c5332a01438ebe08b05bdf684179233f0deecbeaf4c67c25d342920e35ba"
+    },
+    {
+      "path": "mods/ritual-duelists/diagnostic_core.c",
+      "bytes": 2694,
+      "sha256": "1b3fe6c4b4e91bdf337cabf47e29a8a90b6c43704412f1f2560600b241c06110"
+    },
+    {
+      "path": "mods/ritual-duelists/diagnostic_core.h",
+      "bytes": 1266,
+      "sha256": "fc7dde466ce3ebe8f6f03581a3033c75742dad5e8db3505bcef61f07acf443b3"
+    },
+    {
+      "path": "mods/ritual-duelists/field_guard.c",
+      "bytes": 2090,
+      "sha256": "c47cecfb57a396bad952664fc538c2517544f3af3ce81e3e167d0af5496ad13d"
+    },
+    {
+      "path": "mods/ritual-duelists/field_guard.h",
+      "bytes": 731,
+      "sha256": "c898873173cafde03d8caf22c5d2e52bd32bc60c937d02500493c2a4378faadf"
+    },
+    {
+      "path": "mods/ritual-duelists/hand_play.c",
+      "bytes": 392,
+      "sha256": "e98deae89d0b868f9cdb7e4dc2dea9c2c4c2a6d4e2c62092aab86e6a44bfed19"
+    },
+    {
+      "path": "mods/ritual-duelists/hand_play.h",
+      "bytes": 385,
+      "sha256": "2ae288c263faf6958ce30dc94abd4f402746ba975bc45af0679770a4ebaae23e"
+    },
+    {
+      "path": "mods/ritual-duelists/hand_selection_snapshot.h",
+      "bytes": 2625,
+      "sha256": "1d4ffa28c3ba217d5a741c5bebfeb2ce19a0935a522a3948e464b45c3a23805c"
+    },
+    {
+      "path": "mods/ritual-duelists/mandatory_hand_consumer.h",
+      "bytes": 16580,
+      "sha256": "560097a4cd6f510087ac2aaab3a4dcffef3f5d8df637ae982393f3c168a07a54"
+    },
+    {
+      "path": "mods/ritual-duelists/mandatory_hand_lifecycle_v1.h",
+      "bytes": 1750,
+      "sha256": "1e20dc9ee29984eec1097baea2a2e497fbf6c2f9ee39c91d185d4ce170b69fc5"
+    },
+    {
+      "path": "mods/ritual-duelists/mandatory_hand_selection_v1.h",
+      "bytes": 1699,
+      "sha256": "ac1a5385c4441ee0f14e41b68a4dc293c111197b6fe961ff89265025f32df49d"
+    },
+    {
+      "path": "mods/ritual-duelists/mod.c",
+      "bytes": 67863,
+      "sha256": "cba183557ebf795b2e7b1d5e058ae38d110256c6827c390c2671a908d8cc1952"
+    },
+    {
+      "path": "mods/ritual-duelists/mod.json",
+      "bytes": 9223,
+      "sha256": "6875e76bfd5e81dfcac635199f8f159e730624e5142185c99e385cb8cdcccdb5"
+    },
+    {
+      "path": "mods/ritual-duelists/native_assets.h",
+      "bytes": 401930,
+      "sha256": "5d4f1bb7c0b9959bc10ea3b9a09ba104c6499ff6695bcb6865889e9dbba65184"
+    },
+    {
+      "path": "mods/ritual-duelists/planner.c",
+      "bytes": 16711,
+      "sha256": "809a77a8b0ec3fb5f8b48e3e36ee65d4771841d59b0673a145d7f6c81b3be3fb"
+    },
+    {
+      "path": "mods/ritual-duelists/planner.h",
+      "bytes": 1890,
+      "sha256": "67854c5ca87eea70c0721f1432e7e1b9484afb31ed146020b00718ffb43dcb07"
+    },
+    {
+      "path": "mods/ritual-duelists/post_ritual.c",
+      "bytes": 4608,
+      "sha256": "b632349f6aa4951592cb2a1f8b0bb7e39a0a6f7e04ab61f4ecdc24d26b331e61"
+    },
+    {
+      "path": "mods/ritual-duelists/post_ritual.h",
+      "bytes": 1260,
+      "sha256": "324056b26564bfc12f868b1a2991d7a596567df8f6bee4ea57bae8508feecd9f"
+    },
+    {
+      "path": "mods/ritual-duelists/profile_data.h",
+      "bytes": 42140,
+      "sha256": "109912c4ae2942dd079fae40dd7c5e38fe16b5b4cef4518ae90042bbe99fe144"
+    },
+    {
+      "path": "mods/ritual-duelists/profiles.c",
+      "bytes": 9416,
+      "sha256": "dadf828aae03e157ced94f9b7c26f20ce1b317fc1dec6bc51146b3848600e7c7"
+    },
+    {
+      "path": "mods/ritual-duelists/rd_drop_rewards.c",
+      "bytes": 10555,
+      "sha256": "8798e28c02e4c16ae576aa198e5a8456a0496dd61769abcdcce125e4fafc2154"
+    },
+    {
+      "path": "mods/ritual-duelists/rd_drop_rewards.h",
+      "bytes": 501,
+      "sha256": "e6aeec1d16dd38762e1a5ce32e3b9f5e0bdbb85a78fcbd8562202b09ebb167bd"
+    },
+    {
+      "path": "mods/ritual-duelists/recipe_adapter.c",
+      "bytes": 7673,
+      "sha256": "f579611b3025b1e872a6de77c8b5461482a8dac499ec78ac82f771dd2c3edf69"
+    },
+    {
+      "path": "mods/ritual-duelists/recipe_adapter.h",
+      "bytes": 1424,
+      "sha256": "f1c61b6f07ab259d741fa8b518a962d3cd7e8be988612846031458d8e788d9be"
+    },
+    {
+      "path": "mods/ritual-duelists/ritual-duelists.o",
+      "bytes": 4568940,
+      "sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34"
+    },
+    {
+      "path": "mods/ritual-duelists/ritual_duelists.h",
+      "bytes": 4382,
+      "sha256": "c01474dd60bc2bae078d29f39a1772d47c14be30ae142ec2e506a52fa461dd7b"
+    },
+    {
+      "path": "mods/ritual-duelists/ritual_effect_intelligence_v1.h",
+      "bytes": 1476,
+      "sha256": "dc46868090ad84a2b4ece1dc40e4a6fe2898bfd2fd5b8f79c28bbca8f3a0e579"
+    },
+    {
+      "path": "mods/ritual-duelists/ritual_recipe_provider_v1.h",
+      "bytes": 1245,
+      "sha256": "138ed4699e54bd5c0e54b5d0ef53020b5cce81da897984e526702fde59c23f7c"
+    },
+    {
+      "path": "mods/ritual-duelists/ritual_rules_provider_v1.h",
+      "bytes": 983,
+      "sha256": "5684308a9c1ca94464bd08eca79d8b7b516565fe8efc0d72430b92af329c6500"
+    },
+    {
+      "path": "mods/ritual-duelists/spec/Isis_MOD_Mestre_Especificacao.md",
+      "bytes": 8583,
+      "sha256": "64ee00b762af967dda080a9d33cd30bdc80cc3cd0ba737aca4633780119b41ce"
+    },
+    {
+      "path": "mods/ritual-duelists/spec/Isis_Pool_83_Cartas_Pesos.csv",
+      "bytes": 2633,
+      "sha256": "0efe61b2f1b171abe27b5b911fdd1875861cad022619d7f761bbac1490a3ea4f"
+    },
+    {
+      "path": "mods/ritual-duelists/spec/Prompt_Chat_Programador_Isis_MOD_Mestre.txt",
+      "bytes": 10228,
+      "sha256": "13cffd61a528ba3e5fd8d493602e5ebad0bd3cddcb7204471c5f0f4a18e16507"
+    },
+    {
+      "path": "mods/ritual-duelists/spec/Prompt_Programador_Ritual_Duelists_Jonos_Weevil_Shadi.txt",
+      "bytes": 17548,
+      "sha256": "29460b0323a128a2128377e56a6bf779f26b1826b92df595be5c84b31bf0805a"
+    },
+    {
+      "path": "mods/ritual-duelists/spec/Ritual-Duelists-Pools.csv",
+      "bytes": 89571,
+      "sha256": "e6d9fd5f6194f9e2f788a3237c25ca86040cb8f189727c758a23d31e732e89cd"
+    },
+    {
+      "path": "mods/ritual-duelists/spec/Weevil_Pool_71_Cartas_Proposta.csv",
+      "bytes": 4411,
+      "sha256": "ac3c134f64f8da2fb11378cd419f5955e6356d9d02e9091cdfc08de206f230a3"
+    },
+    {
+      "path": "mods/ritual-duelists/starter_bridge.h",
+      "bytes": 582,
+      "sha256": "8fb9def07b0e4401f13ff518d4af599cd26880e1eece1e165870cee08def1b26"
+    },
+    {
+      "path": "mods/ritual-duelists/starter_choice_ui.c",
+      "bytes": 21304,
+      "sha256": "38fe2a1f383fb70dadb3bbf80578d6568689bc66c7721def42a662b09242035e"
+    },
+    {
+      "path": "mods/ritual-duelists/starter_rules.c",
+      "bytes": 5932,
+      "sha256": "5bf33a02d76a052bb606178e9eee6da79541cac789b2a78ca73cd54e949c967f"
+    },
+    {
+      "path": "mods/ritual-duelists/starter_rules.h",
+      "bytes": 425,
+      "sha256": "d8d861f62f5288616334205088060f2effd813cb7260eb853116e4c8421a88ff"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/audit_pools.py",
+      "bytes": 8956,
+      "sha256": "7801883825369d44ba77f6ca30f0d68ea787af762c52f2b1f14d1c32352c3165"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/historical_planner_fixture.h",
+      "bytes": 1202,
+      "sha256": "a0f214cb879541dbf7cc3ad95e6b9f9ee71bc5edaa5f868040b38aad0aec91dc"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/mock_effect_provider.h",
+      "bytes": 1280,
+      "sha256": "b4454e8e36a18e09c1dc1cbfe2f5f8b09a653649e1ba1e6fa950d154f2c91024"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/mocks/game/duel_check_ritual.h",
+      "bytes": 129,
+      "sha256": "e97d72151e152aebb30b04b46515511174a11eb5b0a69fb317f58ae78ba5ac22"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/mocks/unmatched.h",
+      "bytes": 125,
+      "sha256": "656072a9dad34b69f383eba6db5e2c6f69023e7fcbadbd312af664beb5972632"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/preview2_loader.c",
+      "bytes": 13025,
+      "sha256": "9cd8ea2b1fc495e5e4e3ef86981edf9e607e3fe2f7e687f178852f2cb5e57981"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/run_all_beta.sh",
+      "bytes": 1930,
+      "sha256": "55df9a49ed3ce0520e5eba83afc4f4d6dce75f205a360ca04bb867ec3ca2609d"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/run_preview2.py",
+      "bytes": 2994,
+      "sha256": "60eb464d2c84a33c46943a8ff6325ab87ed64404e843aa499c7d0934bbb25f44"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_activation_priority.c",
+      "bytes": 2671,
+      "sha256": "e4add1443dad256e363ea912a01c4dccd49040ae74c779df1c131a276a213407"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_adaptive_rules.c",
+      "bytes": 7971,
+      "sha256": "b743afcf6c12c9ece8cf017e14bc9ab95aab5dab0abbab84247ac682a1fa315b"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_ai_policy.c",
+      "bytes": 996,
+      "sha256": "32fd77bff107cb9ad7caed72b3416830d529f9ff1f8ccb87173c118984a8bdce"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_bakura_emergency.c",
+      "bytes": 1804,
+      "sha256": "550c42612a100927ef9c6a7fa3ac4750792f3209f6e3eae10f62309d4d76c1be"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_beta_profiles.c",
+      "bytes": 2767,
+      "sha256": "9d0cba31fed534d81da417d05884dc42fb200454abc359c5b2ff0af74ebe2616"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_core.c",
+      "bytes": 8177,
+      "sha256": "45ef38a45159a4068c524fc16e02657fdd8f8b7c56c82ff639921687a4b4b901"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_deck_access.c",
+      "bytes": 2903,
+      "sha256": "8591ea10760bd80b68e2ef01dc8dfbc41de44ee4285505c0dce786ad10c56bbb"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_diagnostics.c",
+      "bytes": 1625,
+      "sha256": "1ba892dff65520810d00dd7a86c4d981cc7ad3c17cd980abf870970be086bcc0"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_drop_rewards.c",
+      "bytes": 5946,
+      "sha256": "171d5108267f173882b05427c4ed6c2e62704e53c035774af9e2bd4c04cca275"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_effect_intelligence.c",
+      "bytes": 1913,
+      "sha256": "b80bcd0a29878e730c19f05e021893adeda9bf6e09820a51b3a4db6971628737"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_external_droplist_compat.py",
+      "bytes": 2322,
+      "sha256": "f2f92772120527a4cd1104cf53e59332129a1802a24f0e3cc00d4ed4a9c7d1d7"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_field_guard.c",
+      "bytes": 3787,
+      "sha256": "70d1e841beb497b311f66c25b15a3cd0cc3b5d4b798fbfa3b22eb1f711535ad8"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_hand_play.c",
+      "bytes": 988,
+      "sha256": "729e1067d9eea45e54862faf783902bd361db7165c1f795196c1775381685bef"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_new_lot_recipes.c",
+      "bytes": 3337,
+      "sha256": "a9e353c826ed10f99470fe94729fc50ce191dffbbbb27f0f017592b74b5a5100"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_new_profiles.c",
+      "bytes": 2323,
+      "sha256": "4caa9f556765756964df84ee7d14bf3e00b5f7265c01e6d008793a320e7af204"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_packages.c",
+      "bytes": 8583,
+      "sha256": "05fedd88cb1b59319ff6764322958029cc50c0807d84950e9280ed52df3e9b4a"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_post_ritual.c",
+      "bytes": 3832,
+      "sha256": "7219c86aa71bf19619b26c577f620ea7470d3d042c647f17769d2454f0fcaada"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_preview2_assets.py",
+      "bytes": 1985,
+      "sha256": "61fb49a29d768af4142b4ecba4b85ad925756bca584ef481f0a288acd49616d5"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_preview2_package.py",
+      "bytes": 1338,
+      "sha256": "81cc5395ba61e0736510f0631e2ce5dc6b2e27becf286562a83674910be0824d"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_provider_adapter.c",
+      "bytes": 7294,
+      "sha256": "210c3f0848eea861567405587a2c517b1100679e5ecdaacc852e712f1a8c6167"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_recipe_decks.c",
+      "bytes": 1652,
+      "sha256": "9d4b378e984e624994bc37bda434187d3d8147d3435eaf6cc60ebd037a5fd393"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_rex_ready_distribution.c",
+      "bytes": 2192,
+      "sha256": "84824ae77221168a724f89a446df550cf13895d54912dcc961e100b95ed75fc3"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_ritual_strategy.c",
+      "bytes": 4260,
+      "sha256": "bcbe0d41493d2c7962eef9e22138be29fc1b78ba391d73b3bfecfbfa480f45f2"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_starter_choice.c",
+      "bytes": 2565,
+      "sha256": "8177e947aa2d3a20b810f94920df7732c7988802a139eb3431c8ed9066101961"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_tea_ocean_secmeton.c",
+      "bytes": 2342,
+      "sha256": "70305884ccf8889bd1fb40ec032ff7807fadb487d858287bb68807017107fe53"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_tribute_fetch.c",
+      "bytes": 7237,
+      "sha256": "97eb598d6e58e0bb91ded17d5c2b847361b918f41b88f7ae731ec15cdc0f4085"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_v030_adapter.c",
+      "bytes": 5391,
+      "sha256": "e2c518dd167674486dce7f8f2a6f65e4639afbc0b133466599615a2c7991d4a8"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_v3_atenza_meadow_kepura.c",
+      "bytes": 4968,
+      "sha256": "30efac032381ad5758e3338fdb2dc43bc67b7f6a2ab186e622e6b28df91628ff"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_v3_forest_anubisius_mountain.c",
+      "bytes": 2255,
+      "sha256": "4c9d5a7b0e171a3dea2cccd36bf28bf346184c909ed2c63907195535c08eae72"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_v3_labyrinth_sebek_neku_isis.c",
+      "bytes": 3652,
+      "sha256": "8726a3b7a48c3716984b30110507619aa80252753b605ed1a6709f2b32be5eec"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_v3_recipes.c",
+      "bytes": 3090,
+      "sha256": "c39e2a7f103766dd025b79f474da202ea38f3a9304462b6ffdb6f2d9983e257f"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_v3_seto_darknite_nitemare.c",
+      "bytes": 5820,
+      "sha256": "6efe884f1b0ae0c4d2c8c2bde3581f3301481a77f9b94041bd78db48cdbed778"
+    },
+    {
+      "path": "mods/ritual-duelists/tests/test_v4_round.c",
+      "bytes": 3055,
+      "sha256": "765b4303f845cd1be73a1cbb8b6ee56457ac02335e8ad391fcdb90c2cdd02e68"
+    },
+    {
+      "path": "mods/ritual-duelists/tribute_fetch.c",
+      "bytes": 9507,
+      "sha256": "4fa4fb462f507c17c0961622e6ba0ee47559e2ae4506bd79fed919325f5dd12d"
+    },
+    {
+      "path": "mods/ritual-duelists/tribute_fetch.h",
+      "bytes": 1293,
+      "sha256": "fc171341fa636656d428363600d414e80c04826b23ff383259905d044255fa76"
+    },
+    {
+      "path": "notes/HAL25_BOUNDARY_QUALIFICATION.md",
+      "bytes": 19569,
+      "sha256": "ee415aa7dadc5d26ff98f8c5a9e606de287d4bc42d1c638bd491800bd3459589"
+    },
+    {
+      "path": "notes/hal-25-boundary/ABI_R.json",
+      "bytes": 10996,
+      "sha256": "9911dfb885adf9a8ae61c4a0b49a71ff4ca4cd397ffcba6d7e548fc3023c0e84"
+    },
+    {
+      "path": "notes/hal-25-boundary/ABI_RD.json",
+      "bytes": 8447,
+      "sha256": "73d4b4d2195b15ac7dd1366fc0de97615dc28077ecb6ae66bf714f2731d78f13"
+    },
+    {
+      "path": "notes/hal-25-boundary/AUDIT_FINAL.json",
+      "bytes": 786,
+      "sha256": "682ffb5dfe3bf73b521f1e4359afcc074ed60c8742061b284e07ea319b0d34ec"
+    },
+    {
+      "path": "notes/hal-25-boundary/BUILD.json",
+      "bytes": 19816,
+      "sha256": "e14d8b2b3721f5200fd44ddddf7b6aaa5d13fe15a7d0acad91bc7a0f715d3338"
+    },
+    {
+      "path": "notes/hal-25-boundary/CODE_DIFF.json",
+      "bytes": 1069,
+      "sha256": "bc6fa01ae741080c1f4a5793d0e88053819a2fd6682090df3b6deb93f00c4864"
+    },
+    {
+      "path": "notes/hal-25-boundary/FRONTEIRAS.csv",
+      "bytes": 615983,
+      "sha256": "99a440b3ab33912369460ceeea4a7f4aed6f2d16161d583a04709402444eeb4d"
+    },
+    {
+      "path": "notes/hal-25-boundary/Fusion-reference.json",
+      "bytes": 15805,
+      "sha256": "1f2ad67ff3786c947ca33caaa7e9682e3a4ce7fa1f0f1151e8c223f242f1bec2"
+    },
+    {
+      "path": "notes/hal-25-boundary/Fusion-reference.log",
+      "bytes": 7616,
+      "sha256": "99f84e7979a75653ba2661b292c1e56f280a1d24d890f1c3158bea5387bf9843"
+    },
+    {
+      "path": "notes/hal-25-boundary/INPUTS.json",
+      "bytes": 62605,
+      "sha256": "738c6ddf6913f3bff1213cefbef787cb2046230b9d853290be472da82ce0c4bd"
+    },
+    {
+      "path": "notes/hal-25-boundary/MATRIZ.csv",
+      "bytes": 1133290,
+      "sha256": "023d081db0be49282f088758a3dc426e207859f62fa0a46df991152ad494265f"
+    },
+    {
+      "path": "notes/hal-25-boundary/PR13_INSUMOS_SHA256.json",
+      "bytes": 21901,
+      "sha256": "11f5950315dbf1636e5ca28c6586772111be71cb6bdaa61b2f57be15ffd01dc5"
+    },
+    {
+      "path": "notes/hal-25-boundary/PR26_INPUTS.json",
+      "bytes": 61124,
+      "sha256": "425221901fe3f4553c21462263f0891d91e1bfbb9433eccc6af46d1ca9c9647e"
+    },
+    {
+      "path": "notes/hal-25-boundary/PR26_PACKAGE_TREE.json",
+      "bytes": 36816,
+      "sha256": "e86fa4900bff9f512eb3d971152ca1efeb3af20b1caea79b480e76545d31ecfe"
+    },
+    {
+      "path": "notes/hal-25-boundary/PR26_RD_SDK_PROVENANCE.json",
+      "bytes": 9248,
+      "sha256": "4e53827af3bdf478a20e779e4f32a64e0daa51cc565a7dd3bab8b828b3539a31"
+    },
+    {
+      "path": "notes/hal-25-boundary/PR26_REBUILD_ABI_R.json",
+      "bytes": 11004,
+      "sha256": "0352df95b2d65e5b1433152f1b35d3811747a449066986ece063cc715c2394dd"
+    },
+    {
+      "path": "notes/hal-25-boundary/PR26_REBUILD_ABI_RD.json",
+      "bytes": 8402,
+      "sha256": "4b98d69c648eaf4351037e847d515a0583f3f91648cbac6c8e9f4242bb36adc3"
+    },
+    {
+      "path": "notes/hal-25-boundary/PR26_R_SDK_PROVENANCE.json",
+      "bytes": 9904,
+      "sha256": "72619671561de5d02f70849dcaccf52c2dac52faa035806b5c2031693665bf0c"
+    },
+    {
+      "path": "notes/hal-25-boundary/REFS_PRESERVADAS.json",
+      "bytes": 3080,
+      "sha256": "27cef7e4004b2bfe89363e8de24124cfa1dd635eeb1622310a6d8448ed64221c"
+    },
+    {
+      "path": "notes/hal-25-boundary/RESULTADOS.json",
+      "bytes": 1240896,
+      "sha256": "6fd67440ea98c8dc96e75c2c6694a411648cc5220a3fdace615ac67d81cd428d"
+    },
+    {
+      "path": "notes/hal-25-boundary/RISCOS.json",
+      "bytes": 3158,
+      "sha256": "9c672f866f7ac2bc4fd57ff4be60a9bfe1c3aa456640865b7d54c4bb42f95004"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/PR26-derived-native-negative-SHA256.json",
+      "bytes": 1508,
+      "sha256": "ffb71d84d0c419c435ef32dd94226b75980343a3c8e64797e1ec059dbaa3fc04"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/PR26-derived-native-negative.tar.gz",
+      "bytes": 28001,
+      "sha256": "6ee2e7f898f1b3dc3c713228a8cba64f2c879fe83bbf23af8a76b0f18ac77594"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/boundary-initial-SHA256.json",
+      "bytes": 22731,
+      "sha256": "ea0271575c0fa313215772051a2255e5cf4b15095971b106d8313ace4d8852e5"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/boundary-initial.tar.gz",
+      "bytes": 1141353,
+      "sha256": "b715d457234918c37f7bdf4978925d674abd2ff6d343e4682237bdd79a330f5c"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-boundary-128-SHA256.json",
+      "bytes": 25943,
+      "sha256": "339746e81026ce1fc2a30b2cb4322503e6dbc075452f66ce72615443b0b2f400"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-boundary-128.tar.gz",
+      "bytes": 1211656,
+      "sha256": "ebde3b8a919cb7540249ad3d27fde298b8e7f1b8dc0438bdbb0c9c90718a4630"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-canonical-R-RD-SHA256.json",
+      "bytes": 685,
+      "sha256": "0f19360de460a02dcea19d760c5f410b7c490d6296ee51bff8d8ec7e47a6bea6"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-canonical-R-RD.tar.gz",
+      "bytes": 10117,
+      "sha256": "025cafd4258190c969bcd88cd159c43aa4b091b7e0afdbf014b0d7651600f15f"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-composition-72-SHA256.json",
+      "bytes": 14663,
+      "sha256": "3499413d0959e4fd57908ab9973e5f250ddb38310ca83ce3191195f372d180f3"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-composition-72.tar.gz",
+      "bytes": 992164,
+      "sha256": "9315577d662e31162605b9dcc8e6b3c5de12921d171075337e1727a12c374d5d"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-derived-quota-16-SHA256.json",
+      "bytes": 3930,
+      "sha256": "3a9b3806f376d42b9bd1991ee9b9b8cd7a0695d3adc6921ca406d11c178e5111"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-derived-quota-16.tar.gz",
+      "bytes": 133915,
+      "sha256": "5c829d0c9b198f950391e8b8e624ff51729d6742b0d0e9730aaca11fffcd4148"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-guard-reference-SHA256.json",
+      "bytes": 409,
+      "sha256": "d85c74f527faebe71a979ef0a0454f750cff805681d30b44181284fad61e12a2"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-guard-reference.tar.gz",
+      "bytes": 705,
+      "sha256": "9547fbcc67ef427abdf75059bf0bf8a70750b3a6909871d486a363c03405ef7b"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-hardening-72-SHA256.json",
+      "bytes": 14220,
+      "sha256": "aa9dde354c864fce83fa266a685d48b071060a60fdcaed6ae9edd105ee7e2372"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-hardening-72.tar.gz",
+      "bytes": 280469,
+      "sha256": "aeb8139d74e97738c6f47832f6326402c6d851ded6875fefa072064e47dd870b"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-recovery-64-SHA256.json",
+      "bytes": 12410,
+      "sha256": "95c11e229b13c1c219246d944fd9aec74a2cd76205a19495f505108d0afa06a0"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-recovery-64.tar.gz",
+      "bytes": 431479,
+      "sha256": "de707c6aebbe2241a5c9c0c505c8cea8c3edd62a214404eb20837db6ddc2aac7"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-regression-174-SHA256.json",
+      "bytes": 32550,
+      "sha256": "344763224794520abf150e850c27d3d33d6aa64d0adc3f8999a79f6fba4d27a3"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-regression-174.tar.gz",
+      "bytes": 808117,
+      "sha256": "a736d974bd27bf23119d1d155a2725464709dff11e0bbb8a632e24e050236c08"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-reset-16-SHA256.json",
+      "bytes": 3626,
+      "sha256": "94eb3a45861d1de4aae3ae2dac3002fcb8624febb101f29d39b2ce6ad9e56c56"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-reset-16.tar.gz",
+      "bytes": 134282,
+      "sha256": "4ee496061322de77b0b652de5b2913f9f989d52dcb64ac3702b16a69b2406549"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-restrictions-2-SHA256.json",
+      "bytes": 1083,
+      "sha256": "09f124c19d984f371a760181df1950f361c63e67b47a1417a2e23685af51e5ba"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/final-restrictions-2.tar.gz",
+      "bytes": 14398,
+      "sha256": "f19e3101af62502950294de430d96d0d617ab79e41732a26be1342281e9e368d"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/native-Both-diagnostic-SHA256.json",
+      "bytes": 1093,
+      "sha256": "4af62ad3b99840a4ad78b7f74a384b749c2b103af8b104e2e22b53a5fe59fdf7"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/native-Both-diagnostic.tar.gz",
+      "bytes": 20143,
+      "sha256": "7f82c60dc641cd60991825af80dfcb29c14bafbe3bba0a4f1313ddaa6d30f15a"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/pr26-derived-selection-negative-SHA256.json",
+      "bytes": 1508,
+      "sha256": "03580ef1c6d15fa47a09cc2558ed094867de4a45b5c3dc5d7b9f3137e918292e"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/pr26-derived-selection-negative.tar.gz",
+      "bytes": 27962,
+      "sha256": "60158181bbcd76649f9d0c3ef12ed6af8a4eb2d8bc7932a8e73aecbab7f0acaa"
+    },
+    {
+      "path": "notes/hal-25-boundary/logs/rejected-prototype-build.tar.gz",
+      "bytes": 3937,
+      "sha256": "7f94c860b7725ea6454f9e511c3a181754efc0d1d1362a72bc0d2ed3bd82da78"
+    },
+    {
+      "path": "notes/hal-25-boundary/ritual-card-effects-build.log",
+      "bytes": 190,
+      "sha256": "a2b24c24662184631b4a6c24a7e7ad6a2b3bbf6012e4edeae8cf2010510d47e7"
+    },
+    {
+      "path": "notes/hal-25-boundary/ritual-duelists-build.log",
+      "bytes": 179,
+      "sha256": "7892e0c48e5597b82f3496bf9e467ebc8ceecc49bac73e335a1b5802185edc97"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/ENVIRONMENT.json",
+      "bytes": 1490,
+      "sha256": "b5a1690ed85a5392e209c661ab0fb369ea1258362a321de9ec5b6bcbab707ccf"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/RESULTADOS.json",
+      "bytes": 2957,
+      "sha256": "11c9579467736c5a6d30ef66b6473158c663d8c66c2e1a8e3e14e698759e31a3"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/control32.exe-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/control32.log",
+      "bytes": 409,
+      "sha256": "bc293cb007ba404b814b953fbd022fc2af83218b559a79754b1a5659b895a445"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/control64.exe-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/control64.log",
+      "bytes": 498,
+      "sha256": "84d0da639e72d93219b3fb268448ccf694d957358af830313eacfc6358e919aa"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/driver64.exe-build.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/game-headless.log",
+      "bytes": 408,
+      "sha256": "d76fd21cc15904eb3c6229b79fb144f67f6abcfe8d81a428a6b8218e4a181c45"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/game-visible.log",
+      "bytes": 408,
+      "sha256": "d76fd21cc15904eb3c6229b79fb144f67f6abcfe8d81a428a6b8218e4a181c45"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/linux-official-startup.log",
+      "bytes": 323,
+      "sha256": "025519915d866ca63835eb5b5100675ae7531b2eeb10f86fbfe537160366faab"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/prefix-init.log",
+      "bytes": 1062,
+      "sha256": "ef3c854aa07433879534131a730eda6f0c6e6138be3ba49ff10a99e3ebc7f648"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/runtime-alternatives.tar.gz",
+      "bytes": 129932,
+      "sha256": "812f98aa6f0a2856614b52ee8abece28b3d8c585569584626e0587917d843a29"
+    },
+    {
+      "path": "notes/hal-25-boundary/windows/xvfb.log",
+      "bytes": 64,
+      "sha256": "87e9572cf030493a1f7ba83d385129046b224374ca1414911674b30fc44276d7"
+    },
+    {
+      "path": "notes/hal-25-boundary/wrappers-boundary/WRAPPERS.csv",
+      "bytes": 48634,
+      "sha256": "b0bdb889e91ee56281dcd3c09eb2b0dec71c8b798574f5f5f12877e64b9cb084"
+    },
+    {
+      "path": "notes/hal-25-boundary/wrappers-boundary/WRAPPERS.json",
+      "bytes": 9273787,
+      "sha256": "e1a21977063a2476ca22b39da6dd2318f3e62d70c3a26abf2bb0166bc7783240"
+    },
+    {
+      "path": "notes/hal-25-boundary/wrappers-composition/WRAPPERS.csv",
+      "bytes": 43306,
+      "sha256": "fc1f43ccbe625942c3402e25cece67796ccfff5442f3a03f9a10d9129b56f98d"
+    },
+    {
+      "path": "notes/hal-25-boundary/wrappers-composition/WRAPPERS.json",
+      "bytes": 6684039,
+      "sha256": "603a6ee7194ea7f7a99345879d7aaef86e30f1c6fb9cc02d4e4b3dd6d4615c68"
+    },
+    {
+      "path": "tests/hal25-boundary/README.md",
+      "bytes": 5775,
+      "sha256": "ab74383e925dfbd8a94494900268057fc93cc0e49b97e10188ce225b67ed0774"
+    },
+    {
+      "path": "tests/hal25-boundary/abi.py",
+      "bytes": 2116,
+      "sha256": "4f63fa919d90164c75041c98ffb81c937ce39f12fc984ffb549ae43e9c84a27e"
+    },
+    {
+      "path": "tests/hal25-boundary/audit.py",
+      "bytes": 2736,
+      "sha256": "eade9e82bc6fb0287055904d9188a3aad88ecf567b1950e6b9384a2112ec727e"
+    },
+    {
+      "path": "tests/hal25-boundary/boundary.inc",
+      "bytes": 11503,
+      "sha256": "5d4aa63ab5b088dacec862ed33793a559d1bff5f90d9183cdd9990d1ddd25e8b"
+    },
+    {
+      "path": "tests/hal25-boundary/build.py",
+      "bytes": 1092,
+      "sha256": "9fa93ebc6a2b686a785c92fac6a4e8516c1c9a4be72dfcfa460a9d95e1d3c180"
+    },
+    {
+      "path": "tests/hal25-boundary/cases.inc",
+      "bytes": 5180,
+      "sha256": "c6268a74204218a6d2c6732207132194fa3559d6e38fd6e940b8cafe9a9be8b8"
+    },
+    {
+      "path": "tests/hal25-boundary/elf_inventory.py",
+      "bytes": 1703,
+      "sha256": "208475b62dfa56a11a8b6bff6df39d7e13691d14641ed1bd04fb770d743abe06"
+    },
+    {
+      "path": "tests/hal25-boundary/guard_probe.c",
+      "bytes": 1425,
+      "sha256": "708a9a6c54b2c84823dbd41f4a7c0cce1921e05ca0816629fe1af554b2d7f74b"
+    },
+    {
+      "path": "tests/hal25-boundary/guard_reference.py",
+      "bytes": 2054,
+      "sha256": "d33cee0ce3071dbae4851c95eacf1ddfb462440b33f6e1c4b8af0c7e0f0117d0"
+    },
+    {
+      "path": "tests/hal25-boundary/hardening.inc",
+      "bytes": 4149,
+      "sha256": "9282b3533a9e23a043d0d23105a7eef657cb642e486ba8b714fff822d152d0d9"
+    },
+    {
+      "path": "tests/hal25-boundary/harness.c",
+      "bytes": 37623,
+      "sha256": "37c9c6dd3c2a1b9c4acd9fb94a1b96e6a1ea5a2742609862cef641e0ea312bde"
+    },
+    {
+      "path": "tests/hal25-boundary/interposer.c",
+      "bytes": 1042,
+      "sha256": "37c2e8653e4ea49439019f4735d910cc15a9a690516c722a6195bbbedf3b2327"
+    },
+    {
+      "path": "tests/hal25-boundary/inventory.py",
+      "bytes": 5244,
+      "sha256": "4ab8500c402cc975b5409a8f7e7a8b510861e055dddf9fa149bc418ff3097e87"
+    },
+    {
+      "path": "tests/hal25-boundary/lifecycle.inc",
+      "bytes": 7518,
+      "sha256": "ad79b4d4544e898c50a19cad50e46ee2d1dcd69c11e630995d3dbe833a10ada2"
+    },
+    {
+      "path": "tests/hal25-boundary/manager_bridge.c",
+      "bytes": 341,
+      "sha256": "4d74d645667a5a465cb7b8854892772b0a23f9242f2a086c1e6d15b1fa2cb4d8"
+    },
+    {
+      "path": "tests/hal25-boundary/observer.c",
+      "bytes": 477,
+      "sha256": "c031d30995267a93580e483fb8369d9cc10a34884530bf7417d200aaa41f2dee"
+    },
+    {
+      "path": "tests/hal25-boundary/public_contract.inc",
+      "bytes": 4702,
+      "sha256": "049a2cd96d78bb02a7502f314b05da656c5326637b1dcb18ff3bbd492b244a40"
+    },
+    {
+      "path": "tests/hal25-boundary/regressions.py",
+      "bytes": 2539,
+      "sha256": "c3f6e2c516d49047f7a24610981b884adf022f50840654a9f992be6ce11a6e93"
+    },
+    {
+      "path": "tests/hal25-boundary/return_trace.inc",
+      "bytes": 4977,
+      "sha256": "7cf96f92498d77c10d6f6002aadbbe19a92469b079d545e0471ce2d6b922af3f"
+    },
+    {
+      "path": "tests/hal25-boundary/ritual.inc",
+      "bytes": 2641,
+      "sha256": "f443b528ea50d67364ffc5a0037f6d4fa7dd665f117d2511f4f4f4de4bc557f6"
+    },
+    {
+      "path": "tests/hal25-boundary/run.py",
+      "bytes": 15798,
+      "sha256": "668b648883876b29f445cc07d32887185926ea4df5cbdc3c55ef226c8aa6ff24"
+    },
+    {
+      "path": "tests/hal25-boundary/summarize.py",
+      "bytes": 3424,
+      "sha256": "96a375aa7934eeed408ff4c402d176f0af72f074ddbbdaeaea2952e4f44cbe44"
+    },
+    {
+      "path": "tests/hal25-boundary/windows/README.md",
+      "bytes": 2648,
+      "sha256": "054f3dfd86c10d3c129c396e40261aca92deebcafa2af607fa4dc5602be406a8"
+    },
+    {
+      "path": "tests/hal25-boundary/windows/driver.c",
+      "bytes": 1749,
+      "sha256": "d3a3d954fe6cddddfd4fa7526606d14a9cbcfa998f96ce9bd838868cc4d52712"
+    },
+    {
+      "path": "tests/hal25-boundary/windows/hello.c",
+      "bytes": 165,
+      "sha256": "94e51ca17227af36c2c2e56716f5ecd15a1da53ef519c8469eacee9065274b88"
+    },
+    {
+      "path": "tests/hal25-boundary/windows/run.py",
+      "bytes": 3256,
+      "sha256": "8510a50180870c8b03cbb55c5b65ab88c4f8c304ded98cedc618cc316110ae97"
+    }
+  ]
+}

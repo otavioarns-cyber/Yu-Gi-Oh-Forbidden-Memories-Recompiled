@@ -1,0 +1,7 @@
+memories-pc: The game's disc image was not found.
+
+This port needs your own copy of Yu-Gi-Oh! Forbidden Memories (USA, SLUS-01411) as a raw .bin image (the .bin of a .bin/.cue pair). Put it in the "game" folder next to the program:
+
+/workspace/work/hal20-base/repo/tmp/pc/game32/game
+
+Any file name ending in .bin will do.

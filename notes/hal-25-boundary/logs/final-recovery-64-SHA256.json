@@ -1,0 +1,347 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 99912,
+    "sha256": "3b9ea94573ea4c2c598e6c3b7ea154da671999623fa92b60b34beec79397fff6"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 247146,
+    "sha256": "699c729e758cf66f2c023a7b2584579412a34414f9bcc9a2df1752ead42e3bd5"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11461,
+    "sha256": "f04e634f93e4c6e33d49640f991cec421b42e9e907a9954f2b6633326394e6a8"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-after-late-on-c0-controller-m0-x7.log",
+    "bytes": 35844,
+    "sha256": "d34da02e012ee360a81e9ca9995b66208abadf0e95111e430ce2f4bcfa53b372"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-after-on-c0-controller-m0-x1.log",
+    "bytes": 42833,
+    "sha256": "e055407c721047b06b1aca017fb05e2d53e4af7468ea69e2c4b23d7684252051"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-after-on-c0-controller-m0-x2.log",
+    "bytes": 42841,
+    "sha256": "8d8b195c9166bd38b943861ecef1abe56f118cb5c9667e160006d230b9831ed2"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-after-on-c0-controller-m0-x3.log",
+    "bytes": 22170,
+    "sha256": "d483168e2030b29c59a00b0d3cef8bfaa77f8f341194a10bd593187eb78cbfa6"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-after-on-c0-controller-m0-x5.log",
+    "bytes": 31840,
+    "sha256": "0f2b7facc212c85b86a9aae532326b25b35f6a4c21fc402438d78eab38122844"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-after-on-c0-controller-m0-x6.log",
+    "bytes": 36620,
+    "sha256": "b78d3e39138deeb1c9ce6b3d37812ba2e6e996d8c50dcaac111b4deb129b693e"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-after-on-c0-controller-m0-x8.log",
+    "bytes": 42840,
+    "sha256": "8069943a5caf55fb9d63993434362cf98b698f4eebb036223d51d97d9335cb9d"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-after-on-c4-controller-m0-x4.log",
+    "bytes": 22170,
+    "sha256": "de899a8cd98c7c17c8b222510b4898f1b1135c28ec28fdb5c859cf1cc060d4a9"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-before-late-on-c0-controller-m0-x7.log",
+    "bytes": 35646,
+    "sha256": "7bf09c56cadfadab2786f5f84bf62ba0090377552eb4ec916daaa21e4ff95996"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-before-on-c0-controller-m0-x1.log",
+    "bytes": 42808,
+    "sha256": "7f311da66698c15d0bb6e5108e3f7dbe361f6b001bca380cbe50250b8d17247e"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-before-on-c0-controller-m0-x2.log",
+    "bytes": 42816,
+    "sha256": "aa538514dc8b91d9fd8489f7b567fee841ebd5b7d269792fd7eac9d1fa8d89cf"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-before-on-c0-controller-m0-x3.log",
+    "bytes": 21802,
+    "sha256": "0a925cf2799799da56dc41871486d3205307fde95a934ed4c42cedbca974a161"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-before-on-c0-controller-m0-x5.log",
+    "bytes": 31841,
+    "sha256": "0804ad6d7f1c48fcdf7281041714e4aa3d216900cf93b1ccdfa0376ccd8c067b"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-before-on-c0-controller-m0-x6.log",
+    "bytes": 36423,
+    "sha256": "6cdcd4e742f378e4eadf0c911f37bf01da2d69364fabe7db0e3c8b17ce2422db"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-before-on-c0-controller-m0-x8.log",
+    "bytes": 42815,
+    "sha256": "fa4292ec570c3fcbf2f8e8c5d8ea2acde19f08006beb537a48f82580ef4b0d51"
+  },
+  {
+    "path": "real-bridge0-h0-d0-rd1-before-on-c4-controller-m0-x4.log",
+    "bytes": 21802,
+    "sha256": "f9f2fe479f499d3b6a381a712969132a13b9a2c432ab0f7b4ca983122c3fbb64"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-after-late-on-c0-controller-m0-x7.log",
+    "bytes": 42072,
+    "sha256": "ad5948dde5d13d88a8bca3f56314a2b9f50e049dfd273ff97891d8b159180c20"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-after-on-c0-controller-m0-x1.log",
+    "bytes": 50771,
+    "sha256": "690ea8e8219b6b1caec824f911dd0107aa798c1b268ac1c2d1b606ec4d2f9250"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-after-on-c0-controller-m0-x2.log",
+    "bytes": 50779,
+    "sha256": "afb6af2806dde6db5d70ee6595034ae8a83340a8f38433213c327e1ba3e2aeb4"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-after-on-c0-controller-m0-x3.log",
+    "bytes": 24449,
+    "sha256": "032142cb751bb0ecc56e40b5102e746c3f9833db3d38b1b1b60a05957bdde16d"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-after-on-c0-controller-m0-x5.log",
+    "bytes": 38220,
+    "sha256": "a6ca5870cb5dfddb941968e6fc6505f04237bfcef4226202a884c77bf11c51a2"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-after-on-c0-controller-m0-x6.log",
+    "bytes": 42848,
+    "sha256": "4287316aba22716cdf49c9daebb33854e96ff6040a623f50926dc3c60dc9fe69"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-after-on-c0-controller-m0-x8.log",
+    "bytes": 50778,
+    "sha256": "f35d5659c59da1b27ccbf92cf7be81d47c85173bfb4b961d9876f75d8fad2136"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-after-on-c4-controller-m0-x4.log",
+    "bytes": 24449,
+    "sha256": "e8f907ee3bc83a7d13ccc819e43756c5bb00c900de463c0b65c90fac718bd1be"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-before-late-on-c0-controller-m0-x7.log",
+    "bytes": 42026,
+    "sha256": "ad13e9cabfa4d9f98a510d40ddd2341df4a7fcdf4dc9d4c75035fa1dec1dc500"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-before-on-c0-controller-m0-x1.log",
+    "bytes": 50898,
+    "sha256": "b4fe4bf1467ec5800ae06565431baf6c7d461f8d8b84a37bfe3516fa83ef0d76"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-before-on-c0-controller-m0-x2.log",
+    "bytes": 51147,
+    "sha256": "454158a10bfcb28b8e6718145b4761544389e12c574715a988d3c33bfca0ad0f"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-before-on-c0-controller-m0-x3.log",
+    "bytes": 24474,
+    "sha256": "ea023d2e45ccf6c2743a0ce32358acd8e07f3be9efac151c06ec4b32f33ebc0f"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-before-on-c0-controller-m0-x5.log",
+    "bytes": 38221,
+    "sha256": "d09f080502dfe6f667356b6acc2cbbc3a0c893b6e78a9dac6c6f7e0e6a8a3a21"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-before-on-c0-controller-m0-x6.log",
+    "bytes": 42803,
+    "sha256": "9c009418c4d983173d7d8ed01fc37b5f3e32536a3c56039927358e6fa33fefa2"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-before-on-c0-controller-m0-x8.log",
+    "bytes": 51146,
+    "sha256": "63d6ddcc2db272c8ee6ec26d10bf2cebf595ba632573cfffd7648bd88dca99a1"
+  },
+  {
+    "path": "real-bridge0-h0-d1-rd1-before-on-c4-controller-m0-x4.log",
+    "bytes": 24474,
+    "sha256": "87a8c5c4d7136ab56ce847ff284c49c9742784cff9e335fe10ff905b08d8a409"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-after-late-on-c0-controller-m0-x7.log",
+    "bytes": 849373,
+    "sha256": "2861cbd77f4b04221ec3b74653472481eb23fe16d8083483526a5a53906a3c76"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-after-on-c0-controller-m0-x1.log",
+    "bytes": 1051214,
+    "sha256": "cd3f80b076571840bdc800f7d877da4771cda1a1cdc8045a738436eca8452e82"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-after-on-c0-controller-m0-x2.log",
+    "bytes": 1051222,
+    "sha256": "ba8e9f8716a88f39d2f3c4991c330c810b4363c431be15c94efe8a75195fb84a"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-after-on-c0-controller-m0-x3.log",
+    "bytes": 538563,
+    "sha256": "eeb57378df43a6fa899ec0696a8ff0ed9643da87e86bf24917c16ba04b9777f5"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-after-on-c0-controller-m0-x5.log",
+    "bytes": 852933,
+    "sha256": "eb88e9849af94fc694a741a84d53d7b0e91d94d712d85027582c28ac3947bcbc"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-after-on-c0-controller-m0-x6.log",
+    "bytes": 1044922,
+    "sha256": "bf2456adf84685dc2084eb8dfdc029c4d6920344c4198dd533861cc0b4520fde"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-after-on-c0-controller-m0-x8.log",
+    "bytes": 1051221,
+    "sha256": "1a3c4a27cdfdfceb7e23939f23d0e7bcd670f08d8b1a05d27e6a8fe9a50f5453"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-after-on-c4-controller-m0-x4.log",
+    "bytes": 538563,
+    "sha256": "4baf933b56eefc85affbcc36b20709b3719290eac14e76449be05594d80f438f"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-before-late-on-c0-controller-m0-x7.log",
+    "bytes": 849175,
+    "sha256": "33763756b05148836b05a9f75decf29122a66b86d006215c2b6adc44498f7c81"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-before-on-c0-controller-m0-x1.log",
+    "bytes": 1051187,
+    "sha256": "abf24e4e59922b97a21ef9ff3ddbd6e1a19ac99e43953d8509d64c8c53a5d7cb"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-before-on-c0-controller-m0-x2.log",
+    "bytes": 1051195,
+    "sha256": "8d18c9d5b29eb8f8c4f791e94e8d8e9df532cf07687e54700783dabdfd44c95a"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-before-on-c0-controller-m0-x3.log",
+    "bytes": 538194,
+    "sha256": "c32d5172fb01c59ea4d9c5ec4183f81173fec066a118de9a37542d4fbbf595a0"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-before-on-c0-controller-m0-x5.log",
+    "bytes": 852933,
+    "sha256": "70106aeae57a6f6660d61bfbf0911aac398d8c6692ce29fe2763d07d24d0c3a8"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-before-on-c0-controller-m0-x6.log",
+    "bytes": 1044724,
+    "sha256": "35d49cfb59b27e230bd28bb9124d4449808fbabc2ea04564f01d8a050604f5b4"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-before-on-c0-controller-m0-x8.log",
+    "bytes": 1051194,
+    "sha256": "62b7e1fb21e793398a867588678e443327ff48b5c455ddfd0c296f62a76c5c41"
+  },
+  {
+    "path": "real-bridge0-h1-d0-rd1-before-on-c4-controller-m0-x4.log",
+    "bytes": 538194,
+    "sha256": "0681f91b7aece7fc0274f05aca9981766e516d52ffa4bc3e02c24a8764427258"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-late-on-c0-controller-m0-x7.log",
+    "bytes": 855686,
+    "sha256": "c0a2a64155b9c94c3a97c0df156f1efb6747703546a2448bb9335cfbad6c1413"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-on-c0-controller-m0-x1.log",
+    "bytes": 1059237,
+    "sha256": "d6008440fe0b5f53e3f6cac1f6559f5e56a059a10429e1b480216a5cefe64f99"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-on-c0-controller-m0-x2.log",
+    "bytes": 1059245,
+    "sha256": "833a4c8edf21c0acd422cc4d0aeb062c347a7903c56a2ddd7413bc611429f081"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-on-c0-controller-m0-x3.log",
+    "bytes": 540842,
+    "sha256": "b7633cc1e2cba7ff428445c94800dd2de0f4ebaf06fbd9a5ba3d3def541132ad"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-on-c0-controller-m0-x5.log",
+    "bytes": 859398,
+    "sha256": "a7c6829e2ac1cb7c1d93051643374496bec33f61489d019a94af80cb1b668d69"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-on-c0-controller-m0-x6.log",
+    "bytes": 1051235,
+    "sha256": "3c969d4e86e5bd6aaf27dcc0b53dbacc58d768b380a4f108b198d5c7c814d2c1"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-on-c0-controller-m0-x8.log",
+    "bytes": 1059244,
+    "sha256": "cf22f626fc6a0ef74cd64e21f1b3c8237962bbf4f0970952f3fadba57a17084f"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-on-c4-controller-m0-x4.log",
+    "bytes": 540842,
+    "sha256": "501fa6ce027bd3619a84c84bad3c6212faab49eafab09b9cf052196e59cd696c"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-late-on-c0-controller-m0-x7.log",
+    "bytes": 855640,
+    "sha256": "8c0c6d3989630df4dea363737977649bb92bc60e1bb6b9d53421c1ffaa3f128d"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-on-c0-controller-m0-x1.log",
+    "bytes": 1059362,
+    "sha256": "c365134ea00d8d43c4cc88a5dbaa6e14696430690d9540edd2d193f38a6154e9"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-on-c0-controller-m0-x2.log",
+    "bytes": 1059700,
+    "sha256": "1e4c976774246d1aaff78791deecee219a4acf2a51f717ff730c077bbec928ec"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-on-c0-controller-m0-x3.log",
+    "bytes": 540955,
+    "sha256": "42d08393904527537ebfa117db99bc9d66743624f2e1b19844a43175cfae39db"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-on-c0-controller-m0-x5.log",
+    "bytes": 859398,
+    "sha256": "c81ab80079c2b7b76d7618f4098145b0771f84677f7dc8cad8680bfbe51419db"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-on-c0-controller-m0-x6.log",
+    "bytes": 1051189,
+    "sha256": "5dfd1c910eee18dea59b2313ada878b5f7a6a451e3257591f827ea052ada3159"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-on-c0-controller-m0-x8.log",
+    "bytes": 1059699,
+    "sha256": "0882c8a81b7f4aa6273832e25452db9e0cd2270747367a14efcca44d171e18d7"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-on-c4-controller-m0-x4.log",
+    "bytes": 540955,
+    "sha256": "b453364c849b5f368030dfc005aa0ddf0788d933ec0a96ae4b742b63a20ce617"
+  }
+]

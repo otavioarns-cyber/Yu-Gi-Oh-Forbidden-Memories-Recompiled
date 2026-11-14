@@ -1,0 +1,33 @@
+[
+  {
+    "package": "ritual-card-effects",
+    "old_sha256": "3c47222002283db726dfb5a82bcfad57d39deff85c9fd454c0566b4a7927038a",
+    "new_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+    "old_bytes": 736908,
+    "new_bytes": 737280,
+    "changed_functions": [],
+    "added_functions": [],
+    "removed_functions": [],
+    "all_function_bodies_and_relocations_equal": true
+  },
+  {
+    "package": "ritual-duelists",
+    "old_sha256": "92664e4a83bb4f0bcc0307e9cb8e980ae8b707f316631d1c976ac84c97ed2ca3",
+    "new_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+    "old_bytes": 4564172,
+    "new_bytes": 4568940,
+    "changed_functions": [
+      "rd_selection_connect",
+      "Rd_DropRewardsInit",
+      "rd_selection_invalidate",
+      "rd_selection_disconnect",
+      "rd_selection_handoff_live",
+      "Rd_StarterUIInit",
+      "rd_selection_hand_tick",
+      "rd_selection_recover"
+    ],
+    "added_functions": [],
+    "removed_functions": [],
+    "all_function_bodies_and_relocations_equal": false
+  }
+]

@@ -1,0 +1,1153 @@
+ESTADO VIGENTE — v0.78.73-puppet-description-fit (05/11/2026)
+
+Corrigida a descrição do Ritual Effect de Psycho-Puppet (carta #715), agora com
+7 linhas incluindo o título, para não extrapolar a caixa de texto.
+Não houve alterações em captura, devolução, IA, animações ou receitas.
+Preservados todos os ícones de tipos da versão v0.78.72.
+Builds Windows i386 e x86_64 recompiladas pelo SDK v0.3.1-preview.1.
+Confirmar o encaixe visual no jogo.
+
+--- HISTÓRICO ANTERIOR ---
+
+ESTADO VIGENTE — v0.78.72-type-symbol-descriptions (05/11/2026)
+
+Base: pacote "zzz Efeitos Rituais(20261106-014308).zip" enviado pelo usuário. Esta atualização modifica somente as descrições de Ritual Effects e receitas de Rituais, substituindo os nomes genéricos de tipos de monstro pelos ícones nativos de Forbidden Memories ({f8 0B XX}), usados também pelo rodapé do MOD Vanilla Field Effects. As palavras que integram NOMES DE CARTAS não são convertidas (ex.: Winged Dragon #1). Categorias que não são tipos de monstros (Female, Skull etc.) continuam escritas.
+
+Foram reformatados trechos de Crab Turtle, Fortress Whale, Black Luster Soldier, Zera e outros para acomodar os ícones sem mudar os efeitos, materiais, custos, gatilhos, alcance ou IA. O código executável do Ritual Effects não sofreu alterações de lógica; os objetos i386/x86_64-windows foram recompilados pelo SDK oficial v0.3.1-preview.1. Este MOD não depende do MOD Vanilla Field Effects estar ligado para mostrar os ícones. Confirmação final da apresentação das caixas no jogo ainda necessária.
+
+INSTALAÇÃO: Substituir apenas a pasta "zzz Efeitos Rituais" pelo conteúdo do pacote de Rituais. A atualização Beta.39 do MOD de Fusões é um pacote separado.
+
+--- HISTÓRICO ---
+
+RODADA 02 — CONSULTA OPCIONAL DE POSIÇÃO
+Base preservada: beta31 / 0.78.71-preduel-colors.
+Esta versão acrescenta somente position-rules-v1 (leitura de chaos_attack_only)
+para Aqua Dragon excluir alvos que não podem entrar em DEF. Não muda efeitos,
+textos, receitas ou regras dos rituais. Use com Balanceamento beta32.
+Documentação consolidada: README.md da pasta BalanceamentoFusoesEfeitosAuxiliares.
+
+v0.78.71-preduel-colors — correção de cores na organização pré-duelo (29/10/2026)
+- Main_RunDuel usa modo 3 tanto na etapa 0 (editor do deck, 0x80) quanto na etapa 1 (duelo real, 0x81). Só a etapa 1 consulta a condição do Ritual Effect.
+- Etapa de organização pré-duelo, Build Deck e Library exibem Ritual Effect sempre azul.
+- Mesma lógica por instância da Beta.30 dentro do duelo, sem alterações em rituais.
+
+v0.78.68-native-title-channel — correção do título de Ritual Effect (29/10/2026)
+- Seleção do canal de texto pelo índice de fato usado pelo jogo: obj->field_67.
+- Reconhecimento dos aliases Shift-JIS dos colchetes angulares.
+- Fora do duelo sempre azul; durante o duelo, azul apenas se ativo.
+- Mecânicas, animações e conteúdo da versão anterior inalterados.
+
+v0.78.67-field-title-conditions — visualizador de campo (29/10/2026)
+O título <Ritual Effect> agora acompanha o canal nativo de texto que efetivamente é desenhado. Condições de Ritual Effect são avaliadas somente dentro do duelo; em Build Deck e Library os títulos permanecem azuis. Nenhuma regra de invocação ou efeito de jogo foi alterada.
+
+v0.78.66-deck-title-colors — correção Build Deck (29/10/2026)
+O título `<Ritual Effect>` é reconhecido pelos seus caracteres (não só por já estar azul). Fora de um duelo, volta a ser azul mesmo se o renderer o fornecer inicialmente branco. Apenas durante o duelo a cor poderá ficar branca se a condição for inválida ou o efeito já tiver sido consumido. Texto explicativo e regras de ritual intactos.
+
+ESTADO VIGENTE — v0.78.65-effect-title-white (29/10/2026)
+
+Alteração coordenada à Beta.25 do Balanceamento: `<Ritual Effect>` ativo permanece azul; inativo ou consumido passa a BRANCO como a descrição (em vez de cinza). Somente o título recebe o ajuste. Os 24 controladores e todas as regras do MOD permanecem inalterados.
+
+ESTADO VIGENTE — v0.78.64-effect-title-equip (29/10/2026)
+
+Esta seção prevalece sobre o histórico. Atualização coordenada com Balanceamento de Fusões beta.24.
+- O título <Ritual Effect> aparece destacado fora dos duelos, e durante o duelo apenas quando o efeito estiver habilitado pela instância correta e com sua condição de invocação satisfeita. Títulos usados/consumidos são apresentados opacos conforme contadores já implementados. Somente o título é recolorido, nunca o texto da descrição.
+- A checagem de Mask of Shine and Dark não trata transformações cujo material REAL seja Metalmorph ou Elegant Egotist como fusões. Elas são tratadas como equipagem para bloqueios; as fusões reais seguem bloqueadas normalmente quando aplicável. Não muda receitas nem animações.
+- Inclui objetos Windows i386 e x86_64 e fontes para Recompiled v0.3.1-preview.1. Substituir ambas as pastas do pacote. Execução visual dentro do jogo ainda pendente.
+
+ATUALIZAÇÃO v0.78.63-egotist-bridge — 22/10/2026
+Base: v0.78.62-encore-clean, sem alteração dos poderes/receitas existentes.
+Ponte opcional para o Elegant Egotist do Balanceamento beta.22: libera os Ritual
+Effects já existentes por instância, dispara a inicialização uma vez e revoga
+somente a elegibilidade emprestada. Não simula uma invocação Ritual no motor.
+Inclui binários i386 e Windows x64 do SDK v0.3.1-preview.1.
+Detalhes, testes, limitações e checklist consolidados no README.md do Balanceamento.
+Não testado dentro do executável Windows nesta entrega.
+
+--- HISTÓRICO ---
+ATUALIZAÇÃO v0.78.60 — CORREÇÃO DA REFLEXÃO DE FIEND'S MIRROR
+[2026-10-18] Investigação após relato de reflexão inesperada próximo a Spellbinding Circle.
+- O cálculo defensivo exigia somente a marca antiga de Ritual no slot, sem conferir ID e identidade da carta. Agora rejeita slots reutilizados, tanto no comparador quanto no snapshot de batalha e na retenção temporária da marca.
+- Dano especial aos dois jogadores em DEF não é aplicado se a batalha foi interceptada por Trap.
+- Evento DAMAGE/AFTER produz o novo valor de LP antes de o jogo gravá-lo; o monitor de LP aguardará essa gravação para não enfileirar o mesmo hit duas vezes. Reflexões verdadeiras por outras perdas de LP continuam habilitadas.
+- Preservados: Mask Equip v0.78.59, Performance, Garma, demais rituais, texto e Settings. Nenhuma mudança em Ritual Duelists ou outros MODs.
+- Compilação SDK Windows v0.3.0 e testes isolados; reprodução completa em gameplay ainda não realizada. Teste especial recomendado: Mirror + Spellbinding Circle sem dano inicial, defesa do Mirror contra ataque, batalhas com Trap e perda verdadeira de LP.
+
+--- HISTÓRICO ---
+ATUALIZAÇÃO v0.78.59 — CORREÇÃO DE EQUIP DA MASK
+[2026-10-17] v0.78.59 - Mascara: corrigida permissao de Equip para alvos em staging, sem exigir record ocupado; valida tipo Equip e monstro, preserva exclusao da propria Mascara, Settings e demais efeitos.
+
+--- HISTÓRICO ---
+ATUALIZAÇÃO v0.78.58 — RODADA V4: PERFORMANCE, MASK E GARMA
+===========================================================
+- Performance of Sword #701 ritualizada: após cada esquiva HEADS bem-sucedida, reservar uma vaga livre da própria Magic/Trap Zone e sortear independentemente uma cura: Goblin's Secret Remedy #340 (50%), Soul of the Pure #341 (35%), Dian Keto #342 (15%). Criar a carta virada para baixo após a fase de batalha, via criador existente; nenhuma ativação automática e nenhuma carta se a zona estiver cheia. Esquiva e dano originais preservados.
+- Mask of Shine & Dark #720 ritualizada: evento gerenciado MEMORIES_EVENT_EQUIP concede compatibilidade universal de Equip a outros monstros aliados presentes no campo enquanto existir Mask ritualizada; bloqueio de fusões anterior preservado. Equip já efetivado não é revertido ao remover a Mask. Restrição conservadora: a API fornece ID, não instância alvo; outro Mask de mesmo ID também mantém checagem Vanilla para impossibilitar benefício a si mesma.
+- Garma Sword #716 ritualizado: +200 ATK por destruição válida realizada como atacante na sequência de ataques extras. É bônus temporário independente do ATK base; preserva +1000 até terminar completamente a sexta batalha e então zera. Bônus também é cancelado no encerramento da sequência/turno. Não afeta Garma pronto.
+- Três descrições curtas atualizadas com comandos de cor positivos verdes. A descrição de Crab Turtle fica inalterada nesta rodada.
+- Independência: o MOD Ritual Duelists apenas fornece pools/receitas; não implementa estes efeitos. Nenhuma fusão especial, drop ou outro MOD foi modificado.
+- Validação: compilações Windows SDK v0.3.0 i386/x86_64; falta confirmar no jogo a criação das Magics, uso de Equips e o timing completo do sexto ataque.
+
+ATUALIZAÇÃO v0.78.57 — ZERA: DEBUFF EM ULTIMATE SEM EFEITO RITUAL
+====================================================================
+- Erro confirmado por vídeo: Blue-Eyes Ultimate Dragon invocado normalmente
+  não recebia a aura de -1500 ATK/DEF de Zera the Mant ritualizado.
+- Causa: exclusão incondicional por ID do Ultimate em Duel_CalcCardStats.
+- Correção: verificar ultimate_effect_active(index) em vez de excluir pelo ID.
+  Um Ultimate normal, invocado por fusão ou com Ritual Effect desligado recebe
+  o debuff; um Ultimate efetivamente ritualizado com efeito ativo mantém
+  a imunidade anterior. Não muda bônus de Yami nem outros monstros.
+- Somente Efeitos de Rituais foi alterado. Outros MODs e descrição do Crab
+  Turtle continuam como na v0.78.56 (ajuste final do texto segue pendente).
+- Validação: testes com código real de stat/identidade para Ultimate normal,
+  ritual, efeito OFF, fonte ausente, marcador obsoleto e participantes em batalha
+  aprovados; regressões de fluxo de batalha, campo automático, Tri-Horned e
+  marionete aprovadas; builds Windows i386 e x86_64 concluídas.
+- Limitação: teste antigo test_whale_crab_v07855.py usa nome de função da
+  versão 0.78.55 que foi refatorado na 0.78.56; não foi homologado nesta rodada.
+  Gameplay real no Windows ainda pendente.
+
+ATUALIZAÇÃO v0.78.54 — LEI DE PRIORIDADE ABSOLUTA DAS MÁGICAS DO YAMADRON
+=============================================================================
+REGRA: A IA deve SEMPRE ativar cada Final Flame, Ookazi ou Tremendous Fire
+realmente gerada pelo efeito do Yamadron assim que a carta estiver apta a
+ser ativada. Isso vale independentemente do LP restante do oponente, das
+outras jogadas planejadas, da presença atual de Yamadron em campo e do
+MOD Ritual Duelists. Usar as três, uma de cada vez, enquanto forem legais.
+- CAUSA CORRIGIDA: a busca anterior percorria as posições 10..14 do grid,
+  que representam MONSTROS. A linha de Magias/Armadilhas é 15..19 no grid
+  de cada lado. Isso fazia a IA encontrar zero cartas elegíveis.
+- GARANTIA: antes de executar AiScript_Run ou qualquer planner, o controlador
+  do campo escolhe a primeira Magic gerada disponível usando o comando nativo
+  de ativação. Não altera o dano em LP nem permite cartas já usadas/bloqueadas.
+- IDENTIDADE: a Magic é reconhecida pelo registro privado de criação do
+  próprio Yamadron, evitando confundi-la com cartas comuns do deck ou de
+  outros MODs. Permanece elegível depois que Yamadron deixa o campo.
+- LOG: `[Ritual Card Effects] Yamadron CPU LAW` indica seleção da ação.
+- VALIDAÇÃO: compilação i386/Windows x64 com SDK v0.3.0, testes de mapeamento
+  dos dois lados e seleção nativa; comportamento completo em jogo a confirmar.
+- Compatibilidade: Ritual Duelists e Balanceamento não precisam ser trocados;
+  esta atualização altera exclusivamente Efeitos de Rituais.
+
+ATUALIZAÇÃO v0.78.53 — Inteligência opcional para planejamento de Ritual Duelists
+- `effect_intelligence_v1` fornece disponibilidade em tempo de execução, previsão de ATK/DEF do Skull Guardian e bônus táticos apenas quando o respectivo efeito está ligado.
+- A ativação das mágicas do Yamadron continua pertencendo a este MOD, funcionando sem Ritual Duelists.
+- Os MODs não dependem um do outro para iniciar; a interface é somente leitura.
+
+MOD Efeitos de Cartas Rituais v0.78.53 — Inteligência opcional dos efeitos
+==================================================================
+
+ATUALIZAÇÃO — v0.78.52: IA das mágicas do Yamadron (independente)
+==================================================================
+- Prioridade das magias Final Flame/Ookazi/Tremendous Fire geradas pelo Yamadron ritualizado saiu do Ritual Duelists e agora pertence a este MOD. Usa o hook AiScript_Run que Efeitos de Rituais já possuía.
+- Identifica apenas magias geradas de verdade (deck_index = -1), face-down, presentes, não usadas, na M/T do lado da CPU. Exige Yamadron de Ritual verdadeiro, com efeito ligado e ainda face-up.
+- Pode substituir ordem de ataque ou fim de turno da IA para jogar a magia, inclusive se o dano puder encerrar o duelo. Não altera o cálculo do dano aos LP ou cartas comuns do Deck.
+- Testar uma partida nova com o Ritual Duelists ligado e outra somente com este MOD. Se falhar no golpe final, registrar o log `[Ritual Card Effects] Yamadron CPU`.
+- Compilado i386/x86_64-windows; x64 ainda depende de validação em jogo.
+
+ATUALIZAÇÃO — 2026-10-16
+- Cosmo Queen #708 efetivamente invocada por Ritual: bônus de +500 ATK e DEF para CADA Female presente em ambos campos, incluindo ela própria e Mystical Sand #531. A detecção segue o grupo Female Vanilla, mais as duas exceções autorizadas; não extrapola para outros resultados de fusão. Tipos principais e fusões Vanilla não mudam. Cosmo Queen pronta não recebe efeito ritual.
+- Fortress Whale #718 ritualizado: DEF +500 por Fish na mão real e no restante ainda NÃO comprado do Deck de seu controlador; monstros presentes no campo não contam. O cursor nativo do Deck identifica a parte não comprada. No Umi, proteção contra Magic/Trap para Fish/Aqua/Sea Serpent aliados, inclusive a própria Whale ritualizada (não contra batalha nem Monster Effects).
+- Mantidas integralmente as regras Puppet permanente/devolução na passagem do turno, proteção defensiva Fiend's Mirror e demais efeitos. A atualização do deck/IA Teana/Ocean/Secmeton pertence ao Ritual Duelists v0.3.4-beta.1 (ZIP independente).
+- Validação: dez testes Python/C de funções reais com mocks e compilação ELF32/i386 validada pelo SDK v0.3.0 e ELF64/Windows compilada (exports x64 indisponíveis). Ainda sem teste real em jogo Windows.
+
+HISTÓRICO ANTERIOR — preservado abaixo
+
+MOD Efeitos de Cartas Rituais v0.78.49 — Marionete permanente e Mirror DEF
+=======================================================================
+
+ATUALIZAÇÃO — 2026-10-16
+- Psycho-Puppet ritualizado: captura permanente enquanto vivo; ataques
+  contra o Puppet são redirecionados à marionete. Se perder a marionete,
+  pode capturar outra no início de seu próximo turno.
+- Quando Puppet morrer, a devolução da marionete sobrevivente é adiada
+  para a passagem de turno. Raigeki (ou outra destruição conjunta no mesmo
+  turno) não ressuscita nem devolve monstros que já foram destruídos.
+- Se a zona original da vítima estiver ocupada, usar outra zona livre;
+  se nenhuma estiver disponível, conservar o vínculo e tentar novamente.
+- Correção específica da identidade do monstro roubado nas reconstruções
+  nativas de batalha: preservar o índice absoluto do Deck original (inclusive
+  para CPU) e os dados da criatura capturada, em vez de criar carta diferente.
+- Mantidas as proteções contra descarte, fusões e uso como tributo no MOD.
+- Fiend's Mirror ritualizado em DEF: qualquer ataque causa dano ao controlador
+  igual ao ATK completo do atacante, ignorando a DEF; o Mirror sobrevive e
+  o mesmo dano é refletido ao atacante. Os dois danos são registrados uma
+  única vez, inclusive em confronto letal.
+- Cartas normalmente invocadas, outros efeitos/receitas e MODs externos
+  não foram modificados.
+- Compilações ELF32 i386 e ELF64 Windows pelo SDK oficial v0.3.0;
+  validação de símbolos i386 pelo SDK. Testes de funções reais extraídas
+  passaram. Ainda é necessário testar no jogo Windows com CPU e jogador.
+
+HISTÓRICO ANTERIOR — preservado abaixo
+
+MOD Efeitos de Cartas Rituais v0.78.47 — Campo automático antes do ataque
+============================================================================
+
+ATUALIZAÇÃO — 2026-10-14
+- Bloqueio temporário das ações de campo durante a sequência automática de
+  Field Spell de Tri-Horned/Wasteland, BLS/Sogen, Zera/Yami, Crab Turtle/Umi.
+- O jogo continua atualizando o dispatcher dos efeitos, carregamento da carta,
+  animação e aplicação do terreno; somente o avanço da ação da fase de campo
+  aguarda a conclusão. Depois, a IA escolhe ataques com os atributos atualizados.
+- Nenhuma alteração de bônus, probabilidades, receitas, IA, efeitos individuais
+  nem controle manual dos campos comuns. O bloqueio não é ativado se o efeito
+  automático correspondente estiver desligado.
+- Teste unitário do gate e compilações SDK são validação técnica, não teste
+  real em jogo: é necessária a confirmação do usuário no Windows.
+
+MOD Efeitos de Cartas Rituais v0.78.46 — Tri-Horned: bônus entre instâncias
+==============================================================================
+
+ATUALIZAÇÃO — 2026-10-14
+- Corrigida uma exclusão excessiva no Beacon de Tri-Horned Dragon #705: a regra
+  "outros Dinosaurs aliados" exclui apenas a PRÓPRIA INSTÂNCIA emissora, não
+  todas as cartas com o mesmo ID.
+- Um Tri-Horned invocado por Ritual fornece +1000 ATK/DEF e proteção de magias
+  a OUTRO Tri-Horned aliado classificado como Dinosaur, mesmo se ele foi obtido
+  pronto no Deck. Um Ritual Tri-Horned sozinho NÃO recebe seu próprio bônus.
+- Mesma regra aplicada à avaliação normal, à prévia de atributos e à proteção
+  de magias; os três chifres de sobrevivência por batalha permanecem intactos.
+- Nenhum outro Ritual, receita, arte, som ou controle do jogador foi alterado.
+- Teste de funções C extraídas da implementação (CPU/jogador/lado oposto,
+  proteção e autocontagem) aprovado; builds ELF32 i386 e ELF64 Windows geradas.
+- Falta teste dentro do jogo para confirmar o resultado visual e funcional.
+
+MOD Efeitos de Cartas Rituais v0.78.45 — Hungry Burger: correção só CPU
+===========================================================================
+
+ATUALIZAÇÃO — 2026-10-13
+- Pedido de compatibilidade: restringir o novo ganho imediato do Hungry Burger
+  à CPU; preservar a mecânica anteriormente utilizada pelo jogador.
+- CPU: ao destruir um monstro de fato em batalha, ganha +500 ATK/DEF cumulativos
+  imediatamente no resultado. Mantém mastigação, SEM popup +500 verde.
+- Jogador humano (em qualquer lado controlado por humano): mantém o fluxo da
+  v0.78.43: som de mordida, +500 verde e aplicação dos pontos no início da
+  animação. Não antecipamos o ganho de atributos do jogador.
+- Detecção de controle pelo estado real de CPU do motor; não pressupor que
+  o campo direito é sempre CPU (compatibilidade com duelo entre humanos).
+- Sem alterações de receitas, demais efeitos, lógica de combate, outros MODs
+  ou controles do usuário.
+- Compilação/validações de código NÃO são confirmação de runtime. Testar no jogo.
+
+HISTÓRICO ANTERIOR — preservado abaixo
+
+MOD Efeitos de Cartas Rituais v0.78.44 — Hungry Burger bônus funcional
+======================================================================
+
+ATUALIZAÇÃO — 2026-10-13
+- O teste em jogo do Jono confirmou o áudio de mastigação, mas Hungry Burger
+  permanecia com os atributos base 2000 ATK / 1850 DEF depois da vitória.
+- CAUSA NO CÓDIGO: a vitória apenas enfileirava uma recompensa; os 500 ATK/DEF
+  eram aplicados SOMENTE quando o +500 verde começava a animar. Atrasos ou
+  bloqueios visuais deixavam o bônus funcional pendente indefinidamente.
+- CORREÇÃO: cada destruição válida em batalha agora incrementa imediatamente
+  os stacks de combate. Duel_CalcCardStats usa esses stacks para aumentar
+  ATK e DEF em +500 cumulativos, em qualquer lado do campo.
+- O som da mastigação continua. O popup +500 verde permanece disponível para
+  Hungry Burger do jogador, mas NÃO é exibido para o Hungry Burger da CPU.
+  Animação/áudio são acessórios; não controlam mais o ganho de atributos.
+- Mantidos filtros para ataques diretos, armadilhas, derrota do Hungry Burger,
+  proteção contra destruição e cartas não invocadas por Ritual.
+- Testes de lógica com os blocos reais de C confirmam 2000/1850 -> 2500/2350
+  após uma vitória, tanto para jogador quanto CPU, sem depender de popup.
+- Objeto recompilado via SDK OFICIAL v0.3.0 em ELF32 i386; o jogo Windows
+  ainda precisa confirmar visualmente o resultado desta nova versão.
+- MODs Ritual Duelists e Melhoria dos Rituais não foram modificados.
+- Os testes antigos de desempenho exigem fixtures/caminhos que não estão
+  presentes nesta base e NÃO foram homologados nesta correção.
+
+HISTÓRICO ANTERIOR — preservado abaixo
+
+MOD Efeitos de Cartas Rituais v0.78.43 — Correção do objeto ELF
+=============================================================
+
+ATUALIZAÇÃO — 2026-10-13
+- Corrigida a compilação da biblioteca ritual-card-effects.o: v0.78.41 e
+  v0.78.42 foram acidentalmente distribuídas como objetos COFF, e o
+  carregador de MODs do jogo rejeita esse formato com a mensagem
+  "is not an ELF object file", desativando o MOD.
+- Recompilado pelo build_mod.py OFICIAL do SDK v0.3.0, alvo i386,
+  produzindo ELF32 relocável (Intel 80386), compatível com o Windows 32 bits.
+- Código C, receitas, efeitos, animações, opções e lógica de combate são os
+  mesmos da v0.78.42. Esta versão corrige a INSTALAÇÃO, não uma regra de jogo.
+- 160 símbolos externos checados: todos presentes no exports.txt do SDK.
+- Verificados formato ELF, tabela de símbolos e relocações R_386_32/PC32.
+- A confirmação do bônus +500/efeitos do Hungry Burger na CPU ainda depende
+  de novo teste DENTRO DO JOGO; não afirmar que o problema foi resolvido.
+- Para instalar: substituir toda a pasta antiga do MOD (não manter cópias
+  duplicadas). Ao abrir Mods, o status deve ficar sem erro de objeto ELF.
+
+HISTÓRICO ANTERIOR — preservado integralmente abaixo
+
+MOD Efeitos de Cartas Rituais v0.78.42 — Retenção em batalha / Hungry Burger
+============================================================================
+
+ATUALIZAÇÃO — 2026-10-13
+- Continuação da v0.78.41 após vídeo demonstrar Hungry Burger ainda sem +500.
+- A desativação temporária de participantes DURANTE a cena nativa de combate
+  (fase 9) não apaga mais a identidade Ritual quando o controlador do campo
+  já devolveu o controle. A limpeza normal permanece para cartas realmente
+  removidas e é reconciliada após o combate.
+- A recompensa do Hungry Burger consulta tanto os sobreviventes visuais como
+  o resultado lógico da batalha salvo pelo motor Vanilla; proteções de
+  Javelin, Tri-Horned, Crab Turtle e Coin continuam impedindo falsos abates.
+- Revisão dos demais efeitos encontrou o mesmo risco de desativação em
+  Javelin Beetle, Millennium Shield e Yamadron; a preservação foi ajustada
+  nesses três, sem modificar seus valores, receitas ou animações.
+- Acrescentado rastreamento no log do host: linha "Hungry battle" no momento
+  da decisão, informando estado Ritual, resultado e sobreviventes. Não há
+  tela de diagnóstico adicional nem nova opção de Settings.
+- Sem alterações ao Ritual Duelists, Melhoria dos Rituais ou à decomp original.
+
+VALIDAÇÃO REALIZADA
+- Simulações extraídas do código-fonte: Hungry Burger jogador/CPU,
+  vitórias/perdas, ataque direto, armadilha e fontes não ritualizadas.
+- Teste de conservação dos quatro marcadores na desativação em batalha,
+  fora da batalha e na saída da fase de campo.
+- Teste diferencial de receitas: PASS; comportamento igual à v0.78.41.
+- Clang cross-compile Windows i386 pelo SDK v0.3.0: PASS, objeto COFF;
+  158 imports iguais ao objeto da v0.78.41.
+- Testes históricos de desempenho de lógica e render não foram homologados
+  nesta rodada: suas expectativas são de uma base anterior.
+- RUNTIME no jogo Windows: PENDENTE. A correção precisa do teste do usuário.
+
+HISTÓRICO ANTERIOR — preservado integralmente abaixo
+
+MOD Efeitos de Cartas Rituais v0.78.41 — Hungry Burger (ambos os lados)
+======================================================================
+
+ATUALIZAÇÃO ATUAL — 2026-10-13
+- Corrige a preservação da identidade Ritual do Hungry Burger na passagem
+  temporária do campo para a cena de batalha, tanto para o jogador como para a CPU.
+- Mantém a detecção de vitória de batalha ativa mesmo quando a dica interna
+  de otimização de atributos é temporariamente zerada.
+- Som duplo de mordida, espera de 74 frames, sprite +500 e incremento de
+  +500 ATK/DEF continuam usando o mesmo fluxo já aprovado; sem mudar valores.
+- Sem alteração de receitas, cartas, Settings ou do MOD Ritual Duelists.
+- Teste de integração isolado: ambos os lados, batalha válida, ataque direto,
+  armadilha, derrota e monstro não ritualizado. Validação em runtime pendente.
+- Compilação alvo: Windows 32 bits, SDK v0.3.0; imports conferidos contra
+  a lista de exports oficial. Colocar esta pasta em mods, sem duplicar cópias.
+
+HISTÓRICO ANTERIOR — documentação preservada abaixo
+
+MOD Efeitos de Cartas Rituais v0.78.40 — Otimização
+=================================================
+
+ATUALIZAÇÃO ATUAL — 2026-10-11
+- Base funcional preservada: pacote v0.78.39; alvo informado: jogo v0.3.0.
+- Biblioteca Windows 32 bits recompilada com o SDK publicado da v0.3.0
+  e llvm-mingw/Clang oficial; API mínima 4 mantida, host atual API 12.
+- Menos trabalho repetido nas auras BLS/Dokurorider, prévia Sengenjin,
+  contadores nativos, popup Chakra e consultas opcionais recipe_v1.
+- Receitas, regras, valores, câmera, modelos 3D, sons e Settings preservados.
+- Relatório, medições e limites: RELATORIO-DESEMPENHO.md e AUDITORIA-OFICIAL.md.
+- Alvo: pacote oficial yfm-redecomp-v0.3.0-windows.zip (32 bits).
+  Este objeto i386 não é uma biblioteca para builds Windows x64 próprios.
+
+INSTALAÇÃO / RETORNO À VERSÃO ANTERIOR
+1. Feche o jogo e guarde a pasta atual deste MOD fora da pasta mods.
+2. Substitua somente "zzz Efeitos Rituais" pela pasta do ZIP novo.
+3. Evite duas cópias ativas do mesmo MOD. As configurações usam o mesmo ID.
+4. Para voltar, feche o jogo e restaure a pasta antiga guardada.
+
+Compilação, imports e testes diferenciais passaram. FPS, gameplay Windows e
+combinações reais de MODs ainda precisam de validação no jogo. O BIN enviado
+excedeu o limite de transferência do ambiente; ele não está incluído no pacote.
+
+HISTÓRICO DA DOCUMENTAÇÃO — texto anterior preservado abaixo
+
+MOD Efeitos de Cartas Rituais v0.78.32-test
+============================================
+
+BASE
+- Yu-Gi-Oh! Forbidden Memories Recompiled v0.2.1-preview.1.
+- API de MOD: 4.
+- Continuação direta da arquitetura otimizada da v0.76/v0.77.
+- Base funcional desta rodada: v0.77.3-test.
+- Super War-Lion, Black Luster Soldier e Sengenjin aprovados na rodada anterior
+  foram preservados, exceto pela nova aprendizagem de IA solicitada para
+  War-Lion/Sengenjin e pelas interações explícitas com Blue-Eyes Ultimate.
+- TEST settings continuam OFF por padrão e não fazem parte da regra normal.
+
+============================================================
+============================================================
+NOVIDADES v0.78.32-test (carta adversária durante Raigeki do Chakra)
+- Câmera da v0.78.31 preservada SEM mudança de ângulo, distância ou ponto de mira.
+- Durante a tomada do Raigeki, cartas adversárias viradas para baixo são desenhadas
+  como polígonos 3D normais do tabuleiro, não como sprites 2D de transição que
+  parecem estar em pé. A orientação respeita face-down e modo de defesa.
+- Os flags e ângulos do registro/objeto são restaurados no MESMO quadro após
+  desenhar o campo. Fora do Raigeki o renderizador Vanilla não muda.
+- Cartas próprias, monstros 3D, raios, som, destruições, retorno e buff intactos.
+- Compilado via SDK 0.2.1-preview.1, 56 cenários de regressão do wrapper
+  passaram; aparência final no Windows ainda requer teste do usuário.
+
+HISTÓRICO v0.78.31-test (câmera Chakra)
+- Durante os raios do Raigeki, a câmera mira a metade do campo adversário, dos dois lados do duelo.
+- Raios, duração, destruições, retorno exato da câmera e bônus de ATK permanecem intactos.
+- Todos os rituais e efeitos aprovados permanecem sem alterações.
+
+HISTÓRICO v0.78.30-test (Chakra + diagnóstico de Deck)
+- Chakra: câmera levemente mais próxima do campo inimigo no início da animação Raigeki. NÃO ALTERADOS: raios, sons, duração, destruições, retorno ao Chakra e buff.
+- Skull Guardian: consulta temporária dos três candidatos por Melhoria dos Rituais não depende mais de campos gráficos efêmeros (`flags`, `update`, `position`), mantendo a exclusão estrita dos objetos reais da pool Vanilla.
+- Diagnóstico opcional: exibe quantidade de trios temporários, identificações, os três IDs propostos e a máscara de requisitos satisfeitos por candidato. Teste decisivo em runtime Windows ainda necessário; não interpretar compilação como correção aprovada.
+- Isolamento: Efeitos de Rituais só decide requisitos. Campo/Mão/Deck e consumo continuam 100% com o MOD de sourcing, se instalado. Sem ele, só tributos no Campo.
+
+NOVIDADES v0.78.28-test (Skull Guardian: validador externo / Deck)
+- A consulta de tres cartas temporarias do MOD independente de fontes agora e
+  validada diretamente ANTES de qualquer mutacao da receita Vanilla.
+- Sem essa consulta, o seletor continua restrito as cinco Monster Zones do
+  campo; este MOD nao procura ou consome materiais da Mao ou do Deck.
+- Diagnostico expandido: materiais validos ainda presentes no Deck e contadores
+  ORACLE (consultas, aprovacoes e recusas). Visivel so com o TEST ligado.
+- O subgrupo Skull Monster permanece privado, sem alterar Fusion e tipos.
+- ATENCAO: a correcao compilou e passou em simulacoes, mas o erro relatado
+  anteriormente ainda exige validacao no Windows com o outro MOD.
+
+NOVIDADES v0.78.27-test (Chakra / compatibilidade independente)
+- Chakra: substituida a animacao 0x0B isolada pelo ciclo REAL da
+  animacao Vanilla Raigeki 0x10, utilizando o andamento original do raio
+  e os sprites de destruicao 0x0B nos marcos da varredura. Efeitos sonoros
+  e intervalos da varredura dependem do mesmo controlador Vanilla.
+- A camera inicia na visao geral, mostra o Raigeki ate seus efeitos 0x0B
+  terminarem, retorna ao Chakra e so depois libera popup verde +N ATK.
+- Ultimate imune nao e destruido nem soma ATK; a formula de buff, arredondamento
+  e os efeitos ja aprovados sao preservados. Raigeki ainda aparece sem vitimas,
+  mas nao ha popup +0. Timeout defensivo evita softlock caso uma request falhe.
+- Independencia: sem Melhoria dos Rituais, tres tributos continuam exigidos no
+  CAMPO. Com um seletor de fontes externo, nosso MOD valida a receita via
+  Duel_CheckRitual, mas nao escolhe nem consome tributos na Mao/Deck.
+- Confirmacao em jogo Windows continua pendente para camera, raios, audio,
+  duracao e tributos somente no Deck. A compilacao e simulacoes passaram.
+
+NOVIDADES v0.78.26-test (correcoes locais no MOD Efeitos de Rituais)
+- Wood Remains (#228) agora pertence ao subgrupo privado Skull Monster.
+- Receitas condicionais impedem que tributos tenham ATK OU DEF impressos
+  iguais/superiores aos respectivos atributos positivos do monstro Ritual
+  resultante. A verificacao vale para Campo/Mao/Deck via comparador publico;
+  atributos zero do resultado mantem os limites especificos existentes.
+- Skull Guardian: conta apenas OUTRAS instancias fisicas Skull no campo;
+  proxies do proprio material nao acrescentam +1000 indevidos.
+- Ultimate x Crush Card: durante o scan de Monster Removal, a instancia
+  invulneravel fica temporariamente invisivel SOMENTE ao varredor Vanilla;
+  assim a Magic avanca para o proximo monstro e termina, sem loops de
+  animacao/destruicao. A mesma familia cobre outras removals por Magic.
+- Regressao simulada para Ultimate de ambos os jogadores e outros alvos,
+  sem substituir o MOD Melhoria dos Rituais nem alterar o jogo base.
+- Importante: esses novos casos ainda exigem confirmacao no jogo Windows.
+
+NOVIDADES v0.78.25-test
+- Skull Guardian: validacao suplementar do subgrupo Skull Monster na
+  interface publica Duel_CheckRitual, inclusive nos trios temporarios que o
+  Melhoria dos Rituais usa para verificar candidatos de Campo/Mao/Deck.
+- O fallback so atende ao contexto de verificacao temporaria e NAO ignora
+  as regras do Melhoria dos Rituais (minimos de material, requisito da carta
+  do monstro Ritual, zonas livres, retirada real e animacao).
+- TEST - Skull Ritual Diagnostic: tela opcional OFF por padrao; estado da
+  receita, materiais publicados, contagem de candidatos e retorno do hook.
+- Beacon: Crab Turtle agora usa a mesma regra de identidade de carta fisica
+  para excluir apenas o proprio emissor, preservando outros emissores validos.
+- Preservados: camera Chakra da copia de trabalho, ajuste de descricao Skull,
+  contagem Whale/War-Lion, Zera/Ultimate/BLS e demais efeitos aprovados.
+- Compilacao e testes tecnicos passam; falta teste REAL no Windows.
+- Arquivo CHECKLIST-TESTE-v0.78.25.txt com as configuracoes e testes.
+
+NOVIDADES v0.78.24-test
+- Skull Guardian #704: categoria Skull Monster interna (20 IDs), sem mudar
+  tipo principal, Fields, Fusions ou descricoes automaticas.
+- Novox's Prayer #679: Kamakiriman #535 + Skull Monster + Warrior;
+  tres materiais distintos via seletor original de Ritual campo + mao.
+- Skull Guardian realmente invocado por Ritual: +1000 ATK/DEF por outro Skull
+  no campo (ambos os lados) e +500 por Skull na propria mao logica de 5 slots.
+  Multiplas copias calculam independentemente; aumento tem popup positivo
+  e reducao e silenciosa. Efeito e receita independentes no Settings.
+- Chakra: rollback cirurgico da sequencia/camera v0.78.22/23 que provocou
+  softlock no jogo; manteve o fluxo de destruicao v0.78.21 e a supressao +0.
+  Camera especial continua pendente, nao tratar como aprovada.
+- Zera: removeu a dependencia de bit visual OCCUPIED para cartao que
+  ainda consta dos 5 slots logicos da mao durante mudanca de tela.
+  Os dois bugs antigos continuam aguardando confirmacao in-game.
+- Ultimate x Widespread Ruin: aprovado no jogo e preservado.
+- Build compila; Skull e alteracoes desta rodada pendem de teste no jogo.
+
+NOVIDADES v0.78.23-test
+- Chakra: usa a animacao de destruicao do Raigeki ja aprovada na v0.78.21;
+  camera faz a visao geral do campo do lado invocador, volta ao Chakra
+  para o popup do buff e restaura a visao original.
+- Chakra: correcao de softlock da v0.78.22 (animacao de popup continuara
+  atualizando enquanto o efeito aguarda); timeout preventivo das esperas.
+- Auras nas cartas da mao: a previsao de ATK/DEF e agora apresentada
+  pelo mesmo calculo de atributos nativo tanto no desenho da carta
+  como no painel de informacoes, inclusive em mudancas de tela.
+  Nao grava buff/debuff real nos monstros da mao.
+- Chakra: flavor text curto APROVADO; Zera: coloracao vermelha do 1500
+  APROVADA. Os respectivos arquivos de texto permanecem inalterados.
+- Zera: efeito de Ritual aprovado. AI Position Photo Diagnostic segue
+  opcional e desligado; sem mudancas nas decisoes da CPU.
+- Validacao: SDK; correcao de camera e estabilidade da previa ainda
+  exigem teste real em jogo.
+
+NOVIDADES v0.78.22-test
+- Chakra: câmera nativa enquadra o campo adversário para a sequência
+  Raigeki da esquerda para a direita; volta ao Chakra para atribuir o buff
+  e mostrar o popup aprovado; depois restaura a câmera original.
+  Caso não destrua nenhum monstro, não mostra +0 ATK.
+- Chakra: descrição encurtada ao flavor text aprovado.
+- Zera: efeito aprovado em gameplay. 1500 vermelho na descrição.
+- Prévia da mão: atributos incluem auras contínuas de Zera, BLS,
+  Javelin, Crab Turtle, Tri-Horned e Dokurorider, sem modificar a carta.
+- TEST - AI Position Photo Diagnostic: OFF por padrão. Quando ON,
+  registra na própria tela a última entrada suspeita de CPU em Ataque,
+  com IDs, ATK/DEF e diferença. A foto pode ser tirada após a jogada.
+  Diagnóstico não muda a IA; desative após registrar uma ocorrência.
+- Compilação via SDK confirmada. Câmara/popup e diagnóstico precisam
+  de confirmação dentro do jogo Windows.
+
+NOVIDADES v0.78.20-test
+- Ultimate + Attack Traps/Fake Trap: separada a apresentacao da Trap do
+  combate real. Primeiro a Trap aparece e e consumida SEM dano; depois
+  uma segunda tela mostra Ultimate contra o monstro originalmente alvo.
+- Widespread Ruin: o fogo da etapa visual da Trap ocorre na previa
+  direita da Trap, nao na carta do Ultimate.
+- Garma Sword: animacao da espada mantida, removida a requisicao
+  visual nativa de brilho/flash. Som e mecanica mantidos.
+- Desempenho: atalho no renderizador de cartas quando nao existem
+  contadores/efeitos graficos especificos desse hook para desenhar.
+- Esta versao compilou via SDK, mas essas mudancas ainda precisam de
+  confirmacao em jogo. Nunca foram testadas em um Windows executando o duelo.
+
+============================================================
+NOVIDADES v0.78.19-test
+- Attack Traps e Fake Trap: ativam/revelam normalmente contra Ultimate com efeito Ritual, mas nao cancelam a batalha nem destroem o Ultimate. Mesmo que a CPU tenha aprendido sua imunidade, a Trap armada continua sendo acionada.
+- Widespread Ruin: protecao adicional para impedir a animacao de queimar o Ultimate.
+- Garma Sword: contadores de espadas desenhados no mesmo sistema nativo e posicionamento de Javelin/Tri-Horned.
+- Descricoes: primeira linha alinhada a esquerda apos <Ritual Effect> (sem recuo).
+
+HISTORICO v0.78.18-test
+============================================================
+
+- Javelin Beetle e Tri-Horned Dragon: a protecao impede tambem a
+  apresentacao nativa de fogo/destruicao da carta em 2D (estado 10),
+  mantendo as regras de consumo de carapaca/chifres e de dano.
+- Blue-Eyes Ultimate + Swords, CPU: a escolha de um ataque legal agora
+  ocorre na primeira decisao de campo da IA (incluindo resultado 2),
+  sem esperar exclusivamente o comando de fim de turno (resultado 3).
+  Os outros monstros permanecem sujeitos ao bloqueio das Swords.
+- Diagnostico temporario apenas nesse caso: "Ult/Swd AI X/Y RZ FW".
+  X = decisoes da IA observadas; Y = ataques do Ultimate emitidos;
+  R = ultimo retorno do script; F = subestado da tela de campo.
+  Pode-se enviar uma captura se o Ultimate continuar sem atacar.
+- IA aprende a imunidade total do Ultimate apenas depois de uma Magia
+  adversaria realmente utilizada falhar sobre ele; nao recebe esse
+  conhecimento antecipadamente.
+- Magician of Black Chaos com efeito Ritual ativo nao pode ficar em
+  modo Defesa. Copies normais ou efeito OFF permanecem inalterados.
+  A descricao explicita a desvantagem e o flavor text.
+- As 21 descricoes de Ritual Effects usam o texto na linha seguinte ao
+  titulo, sem a antiga linha em branco.
+- Rodape do campo: atualiza ATK/DEF da carta selecionada quando seus
+  valores efetivos mudam, incluindo o bonus de terreno automatico.
+- Correcoes previamente aprovadas do Fiend's Mirror e da interacao
+  Chaos + Ultimate + Dark Hole foram mantidas.
+
+ESTADO DOS TESTES
+- Compilacao com o SDK Windows v0.2.1-preview.1: validada.
+- Testes em jogo desta versao: ainda pendentes, especialmente a IA do
+  Ultimate e as animacoes de protecao de Javelin/Tri-Horned.
+
+============================================================
+HISTORICO v0.78.17-test
+============================================================
+
+- CPU: Blue-Eyes Ultimate Dragon com efeito ativo recebe um comando de ataque
+  nativo quando Swords of Revealing Light bloquearia o restante do campo.
+- Fiend's Mirror: a perda de LP de batalha é capturada no evento DAMAGE, antes
+  do registro destruído desaparecer, preservando a reflexão da batalha fatal ao
+  próprio Mirror quando o controlador sobrevive.
+- Javelin Beetle / Tri-Horned Dragon: proteção de batalha também substitui a
+  reação nativa de morte/incêndio do modelo 3D por uma reação de sobrevivência.
+- Magician of Black Chaos + Ultimate: Dark Hole não agenda uma segunda
+  apresentação de ativação do Ultimate enquanto o request nativo 0x11 resolve.
+
+
+============================================================
+NOVIDADES v0.78.2
+============================================================
+
+1) BLUE-EYES ULTIMATE DRAGON
+----------------------------
+Carta: Blue-Eyes Ultimate Dragon (380)
+Ritual Magic: Ultimate Dragon (675)
+Receita Vanilla preservada: 3x Blue-eyes White Dragon.
+
+Ritual Effect:
+- A instância efetivamente Ritual Summoned é imune a efeitos adversários de
+  Magic, Trap e monster effects.
+- A regra é centralizada por identidade da instância e lado de origem do efeito.
+- Um efeito global continua resolvendo nos demais alvos; Ultimate é apenas
+  preservado/ignorado como alvo afetado.
+- Dark Hole/Black Hole não remove Ultimate mesmo quando ativado pelo próprio
+  lado do Ultimate; os demais alvos continuam resolvendo normalmente.
+- Dragon Capture Jar e Crush Card preservam também a posição/objeto visual
+  nativo após a imunidade, inclusive quando Ultimate está face-down.
+- O início de um novo duelo limpa qualquer snapshot de imunidade ainda pendente,
+  evitando estado do Ultimate atravessar Game > Restart game.
+- Field Effects continuam funcionando normalmente.
+- Guardian Stars continuam funcionando normalmente.
+- Efeitos que modificam o próprio emissor, outra carta, LP/battle damage ou
+  outra entidade não são cancelados só porque Ultimate está na interação.
+
+Integrações explícitas desta build:
+- Psycho-Puppet: se o sorteio escolher Ultimate, falha naquele alvo e não
+  rerrola outro monstro.
+- Magic/Trap destrutivas ou de alteração de registro: snapshot/restauração da
+  instância imune; Black Hole e Dragon Capture Jar entram nesse caminho.
+- Attack Traps: Ultimate é restaurado/preservado.
+- Reverse Trap: não altera Ultimate.
+- Sengenjin: não pode remover/ignorar buffs positivos do Ultimate, inclusive
+  no preview ATK/DEF da batalha.
+- Serpent Night Dragon: não restringe o alvo escolhido por Ultimate.
+- Super War-Lion: não redireciona o alvo escolhido por Ultimate.
+- Crab Turtle: a proteção de batalha não bloqueia uma vitória de Ultimate.
+- Dokurorider: não evade ataque de Ultimate.
+- Swords of Revealing Light: não impede Ultimate de iniciar ataque.
+- Monster effects que alterem/removam diretamente o registro durante
+  FieldActions são restaurados quando hostis.
+- Attack Traps e Fake Trap podem fazer apresentação/consumo normal, mas não
+  cancelam nem destroem o ataque de Ultimate; a batalha prossegue.
+- Aprendizado da CPU por categoria:
+  * primeira Magic hostil que falha contra Ultimate ensina a imunidade a Magics;
+  * a CPU generaliza isso para Dragon Capture Jar, Raigeki, Crush Card, Swords
+    e demais Magics hostis equivalentes, sem desperdiçá-las quando Ultimate é
+    o único alvo que seria afetado;
+  * Traps têm memória separada: só a primeira Trap que realmente falha ensina
+    a imunidade a Traps;
+  * depois disso, Attack Traps permanecem setadas em vez de serem gastas contra
+    um ataque de Ultimate;
+  * o conhecimento é zerado no próximo duelo.
+
+Compatibilidade de ordem:
+- O manifest pede carregamento depois de AI Hard Mode e depois de
+  Time Wizard - Time Magic quando esses MODs também estiverem ativos.
+- Isso é apenas uma ordem opcional; nenhum deles vira dependência obrigatória.
+- A referência mais recente de Time Wizard fornecida para esta auditoria foi
+  v0.19.0-test-performance.
+
+Observação:
+- Zera, Chakra e Skull Guardian implementados. Dragon Piper ainda não está implementado.
+  implementados neste pacote. A infraestrutura de imunidade foi preparada
+  para a regra centralizada, mas não é correto declarar teste runtime dessas
+  interações antes de os efeitos correspondentes existirem/serem executados.
+
+2) COSMO QUEEN
+--------------
+Carta: Cosmo Queen (708)
+Ritual Magic: Cosmo Queen's Prayer (698)
+
+Receita ORIGINAL confirmada nos dados USA de Forbidden Memories:
+  Princess of Tsurugi + Queen's Double + Queen of Autumn Leaves
+
+A descrição da Ritual Magic mostra esses três materiais explicitamente.
+
+Efeito 1 - Female aura:
+- Cosmo Queen recebe +500 ATK / +500 DEF para CADA OUTRA Female no campo.
+- Conta ambos os lados, mas não conta a própria instância de Cosmo Queen.
+- Bônus dinâmico; não é gravado nos stats base e é recalculado sempre que uma
+  Female entra ou sai do campo.
+- Para este efeito, também contam como Female todos os resultados das famílias
+  genéricas que exigem [Female]: Nekogal #2, Dark Witch, Ice Water,
+  Enchanting Mermaid, Amazon of the Seas, Queen of Autumn Leaves e Mystical Sand.
+- Entrada de Female pode apresentar apenas o delta positivo; perda de fonte
+  recalcula silenciosamente.
+
+Efeito 2 - Queen Lock:
+- Durante o turno do adversário de uma Cosmo Queen Ritual válida, consulta
+  SOMENTE os 5 slots reais/convecionais da mão.
+- Deck, pools virtuais, candidatos externos e a janela ampliada do AI Hard
+  não ativam o lock.
+- Se existir Female real legalmente jogável, a jogada da mão precisa usar uma
+  Female real.
+- Monstro não-Female, Magic/Trap/Ritual da mão e material não-Female adicional
+  da mão não podem ser usados para contornar a obrigação.
+- Várias Females continuam sendo escolhas válidas; posição permanece livre.
+- Female da mão + monstro já existente no campo pode Fusionar se a Fusion for
+  legal; o resultado não precisa ser Female.
+- Se nenhuma Female real puder legalmente cumprir a jogada, não cria soft lock.
+- Efeitos que colocam cartas automaticamente no campo não são bloqueados.
+
+Compatibilidade AI Hard:
+- O MOD não desliga nem reduz a mão ampliada da IA quando não há Queen Lock.
+- Com Queen Lock ativo, a seleção pendente é substituída por uma Female dos
+  cinco slots reais antes da materialização; AI Hard não pode trocar aquela
+  obrigação por candidato externo.
+- Queen Lock é uma obrigação uma vez por turno: depois que uma Female real é
+  efetivamente usada na jogada, o restante daquele turno volta ao comportamento
+  normal mesmo que outras Females continuem na mão.
+
+3) DOKURORIDER
+--------------
+Carta: Dokurorider (719)
+Ritual Magic: Revival of Skeleton Rider (699)
+
+Receita modificada ON:
+  Temple of Skulls + 2 Zombies
+
+Receita Vanilla OFF preservada:
+  Temple of Skulls + Cockroach Knight + Korogashi
+
+A descrição da Ritual Magic muda junto com o setting.
+
+Aura:
+- Cada Dokurorider Ritual válido dá +1200 ATK para TODOS OS OUTROS Zombies
+  aliados.
+- Não dá DEF.
+- Não recebe a própria aura.
+- Dois Dokuroriders buffam um ao outro; fontes múltiplas empilham.
+- Nova fonte/Zombie recebe o total correto; perda de fonte é silenciosa.
+
+Evasão:
+- Atacantes Level 1-5 batalham normalmente.
+- Contra atacante Level 6+, calcula os valores efetivos reais da batalha,
+  incluindo Field, Equip, buffs, debuffs, auras e Guardian Star.
+- Se o atacante venceria OU empataria, Dokurorider evade: nenhuma destruição,
+  nenhum battle damage e o ataque já consumido não é repetido.
+- Se Dokurorider venceria, a batalha acontece normalmente.
+- Blue-Eyes Ultimate Ritual imune ignora essa evasão e batalha normalmente.
+
+4) APRENDIZAGEM DA CPU - WAR-LION, SENGENJIN E DOKURORIDER
+------------------------------------------------------------
+Pedido desta rodada: a CPU não deve continuar repetindo uma jogada ruim
+como se o efeito desconhecido fosse produzir resultado diferente.
+
+Super War-Lion:
+- Com vários War-Lions válidos, o redirecionamento escolhe o de maior ATK atual.
+  Se houver empate no maior ATK, a escolha é aleatória apenas entre os empatados.
+  A escolha é feita uma vez por ataque e não pode pingar entre dois War-Lions.
+- A IA não recebe conhecimento antecipado.
+- Depois de uma tentativa REAL em que o alvo é redirecionado para War-Lion e
+  o atacante não consegue vencer o War-Lion, aquela instância passa a ser
+  conhecida por aquele lado da CPU.
+- Nas decisões seguintes, a IA avalia o alvo efetivo (War-Lion) e evita repetir
+  a linha quando ela continua não vencedora.
+- Se o atacante ainda vence War-Lion mesmo após o redirecionamento, isso não é
+  tratado como revés e não ensina uma falsa aversão.
+
+Sengenjin:
+- A IA também não conhece o anti-buff antes de sofrer sua primeira consequência.
+- Aprende quando uma batalha REAL da CPU parecia vitória ou empate sem o
+  anti-buff, mas o filtro de Sengenjin piora o resultado para empate/derrota.
+- Depois disso, o planejamento de alvo usa o resultado real contra aquela
+  instância em vez de continuar sacrificando monstros pela mesma suposição.
+
+Dokurorider:
+- A IA não conhece a evasão antecipadamente.
+- Aprende somente depois que um atacante REAL Level 6+ da CPU, que venceria ou
+  empataria pelos valores efetivos, tem a batalha cancelada pela evasão.
+- Depois disso, a IA evita repetir contra aquela instância ataques Level 6+
+  que ainda acionariam a evasão. Atacantes Level 1-5 continuam livres para
+  batalhar normalmente.
+
+A memória é por instância/lado e é apagada quando surge uma nova instância
+Ritual, evitando conhecimento herdado de uma carta antiga já removida.
+
+5) SETTINGS
+-----------
+Novos/confirmados nesta rodada:
+- Blue-Eyes Ultimate Dragon - Ritual Effect
+- Cosmo Queen - Ritual Effect
+- Dokurorider - Modified Recipe
+- Dokurorider - Ritual Effect
+
+Todos os três efeitos participam de EFFECTS - Bulk command.
+Dokurorider - Modified Recipe participa de RECIPES - Bulk command.
+Apply/restart/cache seguem a infraestrutura já existente.
+
+6) TEXTOS DAS RITUAL MAGICS
+---------------------------
+Nova regra do projeto preservada:
+- Ritual Magics trabalhadas mostram explicitamente os materiais usados,
+  mesmo quando a receita é Vanilla.
+- Exceção aprovada nesta rodada: Ultimate Dragon pode manter a descrição já
+  existente da receita conhecida de 3 Blue-eyes White Dragon.
+- Cosmo Queen mostra explicitamente a receita Vanilla real confirmada.
+- Dokurorider mostra ON/OFF conforme a receita configurada.
+- Todos os arquivos de descrição ativos foram verificados mecanicamente e
+  nenhuma linha útil ultrapassa 20 caracteres nesta build.
+
+7) LIMIT TEST E DIAGNOSTICO
+---------------------------
+Setting permanente:
+  TEST - Ignore Ritual Summon condition
+
+OFF (padrão): somente instâncias Ritual Summoned recebem os efeitos.
+ON: todos os Ritual Effects habilitados podem ser armados pela presença da
+carta em Monster Zone para stress/limit test. Não é regra normal do MOD.
+
+Também permanecem:
+- TEST - CPU prioritizes Traps
+- O painel/overlay de diagnostico foi removido da tela nesta build.
+  Os TEST settings continuam disponiveis, mas sem poluir a coleta visual de outros MODs.
+
+8) VALIDACAO LOCAL REALIZADA
+----------------------------
+- Compilação com build_mod.py do SDK oficial v0.2.0.
+- ritual-card-effects.o gerado como ELF i386 relocável.
+- 145 símbolos externos do objeto comparados com exports.txt do SDK: 145/145 encontrados.
+- mod.json parseado e settings checados por chave duplicada.
+- arquivos de texto do manifest conferidos por existência e largura.
+- pares ON/OFF das descrições de receita checados por banco/setting.
+- receita Vanilla de Cosmo Queen lida diretamente do WA_MRG.MRG do BIN USA enviado:
+  as 7 cópias da tabela Ritual concordam em 266 + 635 + 638 -> 708
+  (Princess of Tsurugi + Queen's Double + Queen of Autumn Leaves -> Cosmo Queen).
+- Verificações/simulações estáticas cobrem source/target, bypass do Ultimate,
+  aura/evasão do Dokurorider, Queen Lock, aprendizado Magic/Trap e múltiplos
+  War-Lions.
+- receita condicional do Dokurorider e cobertura dos Bulk Commands conferidas.
+
+IMPORTANTE: COMPILAR / SIMULAR NÃO É TESTAR GAMEPLAY.
+Esta build não foi executada por mim dentro do jogo. Interações de runtime,
+apresentação e comportamento da IA precisam da sua rodada de teste.
+
+9) INSTALACAO
+-------------
+1. Feche o jogo.
+2. Remova/guarde a pasta da versão anterior de Efeitos de Rituais.
+3. Copie "zzz Efeitos Rituais" do ZIP para a pasta mods.
+4. Não mantenha duas versões do MOD ativas ao mesmo tempo.
+5. TEST settings devem ficar OFF para gameplay normal.
+
+============================================================
+CHECKLIST DE TESTE v0.78.2
+============================================================
+
+BLUE-EYES ULTIMATE DRAGON
+- Magic direcionada não altera Ultimate.
+- Trap não altera Ultimate.
+- Black Hole/Dark Hole pula Ultimate e afeta os demais, inclusive se o próprio lado ativar.
+- Dragon Capture Jar não remove/força Ultimate e a carta volta à posição visual correta.
+- Crush Card contra Ultimate face-down preserva lógica/visual; Restart game depois não carrega estado antigo.
+- Psycho-Puppet falha sem reroll se sortear Ultimate.
+- Sengenjin não ignora buffs de Ultimate; números visuais também permanecem.
+- Serpent e War-Lion não alteram alvo escolhido por Ultimate.
+- Crab Turtle não bloqueia vitória de Ultimate.
+- Dokurorider não evade Ultimate.
+- Swords não impede Ultimate de atacar.
+- Attack Trap/Fake Trap apresenta e é consumida, mas NÃO cancela o ataque;
+  depois disso a CPU não gasta outra Attack Trap em Ultimate.
+- Depois que uma Magic da CPU falha contra Ultimate, testar outra Magic hostil:
+  se Ultimate for o único alvo útil, a CPU não deve desperdiçá-la.
+- O aprendizado de Magic NÃO deve ensinar Traps; a primeira Trap ainda precisa
+  falhar separadamente para ensinar sua categoria.
+- Field positivo/negativo continua funcionando.
+- Guardian Star positivo/negativo continua funcionando.
+- Tri-Horned e outras proteções que modificam a própria carta continuam válidas.
+
+COSMO QUEEN
+- Sozinha recebe +0/+0 do próprio efeito; a Queen não conta a si própria.
+- Cada OUTRA Female de ambos os lados aumenta o bônus em +500/+500.
+- Mystical Sand e os demais resultados de receitas genéricas com [Female] contam como Female.
+- Remoção de Female reduz silenciosamente.
+- Sem Female nos 5 slots reais, IA ampliada funciona normalmente.
+- Female apenas fora dos 5 slots não ativa Queen Lock.
+- Female real legal ativa lock.
+- Não permite usar monstro não-Female/Magic/Trap/Ritual da mão para escapar.
+- Permite escolher entre várias Females e usar face-down.
+- Female da mão + não-Female da mão não completa Fusion durante o lock.
+- Female da mão + monstro já no campo pode Fusionar quando legal.
+- Resultado da Fusion não precisa ser Female.
+- Nenhuma Female legal não cria soft lock.
+- Após cumprir a jogada da Female, IA recupera comportamento normal.
+
+DOKURORIDER
+- Outros Zombies recebem +1200 ATK e 0 DEF.
+- Dokurorider sozinho não se buffa.
+- Dois Dokuroriders buffam um ao outro.
+- Level 1-5 batalha normalmente.
+- Level 6+ que perderia para Dokurorider batalha normalmente.
+- Level 6+ que empataria/ganharia é evitado.
+- Evasão não causa destruição nem battle damage e consome o ataque.
+- Field/Guardian Star/Equip/buffs/debuffs mudam corretamente a decisão.
+- Blue-Eyes Ultimate ignora a evasão.
+- Primeira evasão real contra atacante CPU Level 6+ ensina aquela instância.
+- Depois do aprendizado, a CPU evita ataques Level 6+ que ainda acionariam a evasão.
+
+APRENDIZAGEM DA CPU
+- Com dois War-Lions: alvo Beast é redirecionado ao War-Lion de maior ATK atual.
+- Com War-Lions empatados no maior ATK: repetir cenários deve permitir qualquer
+  um dos empatados como destino, sem loop de A->B->A.
+- Primeira tentativa ruim contra War-Lion pode sofrer o redirecionamento.
+- Depois do revés, a CPU não repete o mesmo ataque suicida se ele ainda perde.
+- Primeira batalha em que Sengenjin vira uma vitória buffada em empate/derrota
+  ensina a CPU.
+- Depois do aprendizado, a CPU evita repetir o ataque quando o resultado real
+  continua não vencedor.
+- Primeira evasão real do Dokurorider ensina a CPU sem conhecimento antecipado.
+- Uma nova instância de War-Lion/Sengenjin/Dokurorider começa sem conhecimento herdado.
+
+
+9) AJUSTES v0.78.5-TEST
+
+- Sengenjin: a cor da Guardian Star continua Vanilla, mas o +500 favoravel ao oponente nao gera mais animacao/valor falso durante a batalha.
+- Sengenjin: a CPU aprende na primeira batalha real em que qualquer bonus positivo dela e suprimido, incluindo o +500 de Guardian Star.
+- Sengenjin: o flash de ativacao deixou de bloquear o controller da batalha; removida a pausa artificial antes do combate.
+------------------------
+Sengenjin:
+- Guardian Star continua mostrando a cor Vanilla de vantagem/desvantagem.
+- O anti-buff continua valendo no resultado real da batalha, sem alterar a cor informativa.
+- Depois de descobrir o efeito, a CPU reavalia Sengenjin com a mesma regra real de batalha, inclusive quando a primeira tentativa foi induzida pelo +500 de Guardian Star.
+
+Imunidade visual:
+- Durante Black/Dark Hole e Dragon Capture Jar, monstros realmente imunes deixam de entrar na animacao nativa de succao.
+- Cartas afetadas continuam usando a animacao Vanilla normalmente.
+
+Dokurorider:
+- A fuga bem-sucedida nao dispara mais a requisicao de ativacao de carta dentro do controller de batalha.
+- Isso evita deixar o modelo 3D/atualizacao da batalha em estado intermediario apos a evasao.
+- A fuga bem-sucedida toca o som de motocicleta enviado pelo usuario, convertido para WAV 44,1 kHz stereo/16-bit.
+- O audio usa o ID privado 0xFFFE e e disparado diretamente pelo MOD, sem substituir nenhum SFX Vanilla.
+
+Base de compilacao:
+- SDK oficial v0.2.1-preview.1.
+
+
+10) AJUSTES v0.78.6-TEST
+- Tri-Horned: Chifre_limpo_v2 toca exatamente quando um dos 3 chifres/contadores e consumido.
+- Garma Sword: Espada toca exatamente quando uma das 5 espadas/contadores e consumida pelo ataque extra.
+- Javelin Beetle: Carapaca toca a cada uso real da protecao renovavel; o contador visual aprovado reaparece quando a protecao renova no turno seguinte.
+- Hungry Burger: o stack de +500 fica pendente apos a destruicao em batalha; primeiro toca a mordida dupla, depois surge +500 verde sobre a propria carta e somente nesse frame o +500 ATK/DEF passa a valer.
+
+AJUSTE v0.78.7-TEST
+- Tri-Horned Dragon nao recebe +1000 ATK/DEF nem resistencia a Magic de outro Tri-Horned Dragon.
+- Os chifres continuam sendo consumidos exclusivamente para impedir destruicao em batalha.
+- Raigeki, Dark Hole e outras destruicoes por efeito destroem o proprio Tri-Horned normalmente; nao gastam chifre.
+
+
+AJUSTES v0.78.8-TEST
+- Tri-Horned: chifres permanecem exclusivamente como vidas de batalha; efeitos de Magic nao os consomem.
+- Javelin Beetle: carapaca agora existe somente no caminho de sobrevivencia por batalha.
+- Dokurorider: apos uma evasao real, o tick do modelo de campo e rearmado quando a camera retorna ao campo.
+- Hungry Burger: o som das duas mordidas termina antes do plim +500 aprovado; ATK/DEF sobem no primeiro frame do plim.
+- Contadores de Tri-Horned, Garma Sword e Javelin aparecem tambem ao navegar as cartas do campo antes de confirmar uma carta da mao.
+- Se dano letal encerra o duelo no mesmo combate em que Tri-Horned gasta chifre, sua pequena carta de campo nao e recriada atras da tela de Results.
+
+
+============================================================
+AJUSTES v0.78.9-TEST
+============================================================
+- Diagnosticos visuais removidos da tela; overlays de gameplay permanecem.
+- Dokurorider: removida a interceptacao global de func_800556E8 que congelava o modelo 3D desde o inicio.
+- AI + Swords: a IA ignora o bloqueio somente ao considerar/selecionar uma instancia de Blue-Eyes Ultimate com efeito Ritual realmente ativo. Ultimate comum continua bloqueado.
+- Swords nao ensina a categoria de imunidade a Magic; sao regras independentes.
+- Cosmo Queen: Queen Lock valida/substitui a escolha FINAL da IA, inclusive depois de AI Hard, e so aceita Female dos 5 slots reais enquanto a obrigacao estiver ativa.
+- Hungry Burger: apos o som das mordidas, o +500 espera uma captura fresca da posicao final da carta pelo renderer nativo; o plim e o ganho real de ATK/DEF acontecem no mesmo frame.
+- Mantidas as correcoes de v0.78.8 para Tri-Horned/Javelin somente em batalha, Raigeki por alvo, contadores na navegacao pre-jogada e limpeza da cartinha do Tri-Horned em derrota por LP.
+
+
+============================================================
+AJUSTES v0.78.10-TEST
+============================================================
+- Aprendizado da IA e por EFEITO COMPLETO, mas com conhecimento assimetrico: se a CPU coloca a propria carta com efeito ativo, ela conhece o pacote inteiro imediatamente. Se o jogador coloca primeiro, apenas ver a carta NAO ensina o efeito.
+- O conhecimento nunca ativa efeito em uma copia comum: cada decisao ainda testa se a instancia atual realmente possui o efeito Ritual ativo.
+- Quando uma carta do jogador ainda desconhecida causa o primeiro reves real na CPU, a CPU aprende de uma vez o efeito completo daquela carta para o resto do duelo. Se depois a CPU jogar sua propria copia ativa antes de sofrer um reves, ela tambem aprende imediatamente.
+- Ultimate: Magic/Trap/Effect/Swords fazem parte do mesmo pacote aprendido; Swords so pode ser atravessada por uma instancia com efeito ativo.
+- Conhecer uma carta nunca ativa o efeito em copia comum/inativa. Cada decisao ainda valida a instancia atual. Dokurorider e Sengenjin promovem o primeiro reves real para conhecimento completo da carta.
+- Contadores Tri-Horned/Garma/Javelin: corrigido o modo de visualizar o campo enquanto ainda se esta na mao. Esse modo usa outro cursor e cards temporarios; os contadores agora seguem o cursor realmente ativo e a posicao real desenhada.
+- Mantidas as correcoes v0.78.9: sem diagnosticos visuais, Dokurorider 3D, Cosmo Queen, Hungry Burger +500, Javelin/Tri battle-only e imunidade por alvo.
+
+
+============================================================
+CORRECAO DE APRENDIZAGEM v0.78.10 (REVISAO)
+============================================================
+- REGRA ATUAL (substitui descricoes antigas por categoria/mera observacao):
+  1. CPU joga/invoca a propria carta com efeito ativo -> conhece imediatamente TODO o efeito daquela carta.
+  2. Jogador joga/invoca primeiro uma carta com efeito ativo -> a CPU ainda NAO conhece o efeito apenas por ve-la.
+  3. Primeiro reves real sofrido pela CPU por causa desse efeito desconhecido -> aprende TODO o efeito da carta para o resto do duelo.
+  4. Se antes do primeiro reves a CPU colocar sua propria copia com efeito ativo -> aprende TODO o efeito naquele momento.
+  5. Conhecimento e por carta/efeito, mas a aplicacao continua por instancia: copia sem efeito ativo nao ganha imunidades, bypasses ou outras propriedades.
+
+
+=== v0.78.11-test ===
+- Piloto de renderizacao nativa: chifres do Tri-Horned, carapaca do Javelin e +500 do Hungry Burger agora usam a ordering table 320x240 do proprio duelo, sem coordenadas da janela do PC.
+- Hungry Burger: +500 prolongado (~1 s), pop/overshoot, fade, brilho curto na carta e SFX nativo 0x2F sincronizado com a aplicacao dos stats.
+- Blue-Eyes Ultimate: CPU que controla uma instancia com efeito ativo conhece o pacote completo e pode planejar ataque durante Swords; durante esse passe, apenas Ultimates ativos sao tratados como atacantes liberados.
+- Dokurorider: a fuga agora funciona contra Ultimate, pois o efeito atua no proprio Dokurorider.
+- Dokurorider 3D: reparo adaptativo e estritamente local tenta rearmar a animacao somente se o tick nativo ficar comprovadamente parado por varios frames no campo.
+- IA dos demais monstros permanece fora desta rodada de validacao, conforme solicitado.
+
+=== v0.78.12-test ===
+- Ultimate + Swords: removida a abordagem v0.78.11 que alterava temporariamente o estado global visto pelo planejador da IA. A excecao agora e local ao atacante: se o CPU encerraria a fase por Swords mas possui um Blue-Eyes Ultimate Ritual com efeito ativo e pronto para atacar, o MOD produz apenas o comando legal daquele Ultimate. Outros monstros continuam bloqueados.
+- Jogador + Swords: a excecao do Ultimate e aplicada somente no frame exato da confirmacao manual do ataque, sem expor um estado falso ao planejador da IA.
+- Tri-Horned/Javelin: contadores nativos movidos para baixo da carta, evitando sobreposicao com a caixa FIELD.
+- Dokurorider 3D: esta tentativa foi posteriormente REMOVIDA. O congelamento pertence ao MOD 3D Monsters; Efeitos de Rituais nao interfere mais na animacao 3D do Dokurorider.
+
+
+=== v0.78.13-test ===
+- Gate Guardian + Swords: o primeiro ataque usa o estado Vanilla. O MOD so limpa USED_THIS_TURN depois de uma batalha realmente concluida e somente uma vez, liberando o segundo/terceiro ataque sem loop da IA.
+- Gate Guardian: estado 11 da batalha possui latch por instancia; os varios frames do encerramento contam como UMA batalha, nunca tres.
+- Tri-Horned/Javelin/Hungry: o piloto visual mantem coordenadas nativas 320x240, mas troca os retangulos aproximados por sprites texturizados direct-colour em texture bank dedicado. A arte original e preservada sem voltar ao overlay da janela.
+- Tri-Horned/Javelin: contadores continuam abaixo da carta.
+- Hungry Burger: timing aprovado do +500 e mantido; somente o caminho de desenho da arte foi trocado.
+- Dokurorider 3D: removidas todas as tentativas deste MOD de corrigir a animacao. Esse comportamento fica integralmente a cargo do MOD 3D Monsters.
+
+============================================================
+=== v0.78.14-test ===
+============================================================
+- Super War-Lion/Fortress Whale: efeitos que contam cartas na mao agora usam a mao LOGICA real; registros fisicos que ficaram OCCUPIED depois de descarte/Fusion/Ritual nao continuam dando bonus. O helper e generico para futuros efeitos de mao/campo.
+- Hungry Burger: +500 somente quando um monstro adversario realmente e destruido em batalha; ataque direto nao concede stack e protecoes de batalha nao sao interpretadas como kill.
+- Fiend's Mirror: a grace da batalha agora mantem o ultimo reflexo de LP mesmo se o proprio Mirror for destruido pela batalha que causou o dano.
+- Serpent Night Dragon: a primeira redirecao real sofrida pela CPU promove o efeito para o conhecimento completo da carta pelo resto do duelo. O mesmo caminho desconectado de War-Lion foi alinhado com a regra de aprendizagem ja documentada.
+- Tri-Horned/Javelin: no field viewer da fase da mao (antes de jogar a carta), os contadores aparecem ACIMA da carta; na navegacao normal do campo continuam abaixo.
+- Tri-Horned/Javelin: gastar chifre/carapaça sem destruir o monstro nao dispara mais a animacao generica de fogo/ativacao; ficam o SFX proprio e a mudanca do contador.
+- Textos de Ritual Effect: cabecalho azul nativo `{f8 0A 02}<Ritual Effect>{f8 0A 00}`, linha em branco antes do corpo, numeros beneficos em verde (`03`) e numeros danosos ao adversario em vermelho (`06`) quando aplicavel.
+- Ultimate + Swords: preservada a excecao local da v0.78.12/13 para jogador e CPU; deve ser validada no checklist desta build.
+- Magician of Black Chaos: preservadas as duas imunidades ja presentes (destruicao por batalha e Dark Hole) sem impedir alvo nem battle damage normal ao controlador em Attack Position.
+
+
+
+============================================================
+NOVIDADES v0.78.15-test
+============================================================
+
+- Blue-Eyes Ultimate Dragon: descricao nao repete a imunidade a Dark Hole,
+  pois ela ja esta coberta pela imunidade a Magic.
+- Magician of Black Chaos: descricao usa "Cannot be destroy in battle." e
+  deixa de repetir a imunidade a Black Hole.
+- Magician of Black Chaos / Dark Hole: removido o rebuild visual redundante
+  dos sobreviventes Chaos/Ultimate depois da apresentacao nativa de Dark Hole.
+  O request 0x11 ja os omite da animacao de destruicao; manter o mesmo objeto
+  de campo evita invalidar estado visual quando varios Ritual Monsters sao
+  removidos no mesmo sweep.
+
+
+============================================================
+NOVIDADES v0.78.16-test
+============================================================
+- Blue-Eyes Ultimate + Swords (CPU): corrigido o comando sintetizado de ataque direto. Quando o campo de monstros adversario esta vazio, a IA agora usa a codificacao nativa 0x3A em vez de 0; 0 era interpretado pelo FieldActions como comando sem ataque/virada de carta. Outros monstros continuam bloqueados por Swords.
+- Fiend's Mirror: a marca Ritual agora sobrevive apenas ao staging temporario do proprio participante de batalha em phase 9, ate mirror_battle_grace ser capturada. Assim, se o Mirror for destruido pela batalha que causa dano ao seu controlador, essa perda de LP continua elegivel para reflexo.
+- Nenhuma outra regra de efeito foi alterada nesta rodada.
+
+[Chakra / WIP] Ritual Summon: destruicao dos monstros adversarios da esquerda para direita, usando apenas ATK efetivo dos realmente destruidos. Total/2, unidades 0..5 para baixo, 6..9 para cima; bonus ATK permanente na instancia, DEF intacta. Popup unico verde +N ATK com sprites gerados das artes fornecidas. Ultimate imune, Tri-Horned alvo normal, Sengenjin ignora bonus somente em batalha. Sem comprovacao de runtime.
+
+[v0.78.21-test] Chakra + Zera the Mant
+- Chakra: Ritual Summon destrói alvos adversários da esquerda para a direita, soma ATK efetivo destruído e concede metade arredondada como ATK permanente; popup verde.
+- Zera: invocação por Ritual ativa Yami pela sequência nativa. Cada instância presente aplica -1500 ATK/DEF dinâmicos a monstros não-Fiend dos dois lados (Ultimate imune), removido quando Zera sai de campo.
+- Zera Ritual (#671) mantém materiais originais #85, #298, #377; descrição explicita os nomes.
+- Novos efeitos exigem teste real no jogo; SDK apenas valida compilação.
+
+
+v0.78.34-test: Chakra - oculta temporariamente a carta grande face-down do campo inimigo no desenho 3D, preservando a camera v0.78.31, monstros 3D, Raigeki, retorno e bonus. Restauracao no mesmo quadro. Validacao visual pendente.
+
+
+v0.78.35-test: O Raigeki do Chakra oculta SOMENTE as bases das cartas GIGANTES nas Monster Zones adversarias. Monstros 3D continuam visiveis. Câmera, destruições, retorno, buff e demais Rituais mantidos.
+
+
+v0.78.36-test: Chakra oculta cartas-base gigantes de TODAS as zonas adversarias durante o Raigeki, incluindo Magic/Trap/Ritual, sem ocultar FIGURAS 3D. Camera igual v0.78.31, demais efeitos intactos. Auditoria de performance do checkpoint: aura BLS/Dokurorider so varre Monster Zones (10 em vez de 30). Conferir checklist e checkpoint.
+
+
+v0.78.37-test - Settings limpo para amigos/jogadores:
+- Removidos do Settings os tres TESTs de diagnostico (CPU Trap, Skull e AI Position);
+  as flags antigas tambem ficam inativas mesmo com preferencia antiga salva.
+- Legenda de diagnóstico "Ult/Swd AI" tambem desativada (IA e Swords intactos).
+- A opcao "EFFECTS - Ignore Ritual Summon" continua disponivel,
+  mas OFF por padrao: somente monstros invocados de verdade por Ritual
+  disparam os efeitos. O novo identificador evita herdar ON salvo dos testes.
+- Recipes e Ritual Effects individuais mantidos ON por padrao; Bulk mantido.
+- Nenhum efeito, receita ou parametro de camera mudou desde v0.78.36.
+- Depois de instalar/atualizar, reiniciar o jogo; conferir a aba Settings.
+
+
+============================================================
+RELEASE PUBLICA — NOVA RECEITA DO CHAKRA (v0.78.38 interno)
+============================================================
+- Resurrection of Chakra (694): Wall Shadow (369) + 2 Fiends de Level 7+.
+- Chakra (709) NAO pode ser tributado; tres cartas fisicas distintas;
+  a mesma especie de Fiend pode ser usada duas vezes se forem copias diferentes.
+- Excecao: NENHUM dos tres tributos precisa ter ATK/DEF menor que Chakra.
+- Settings: Chakra - Modified Recipe = ON por padrao. OFF = Vanilla.
+- EFFECTS - Ignore Ritual Summon continua OFF por padrao.
+- Com MelhoriaDosRituais opcional: tributos de Campo/Mao/Deck conforme o
+  outro MOD. Sem ele: tres tributos no Campo.
+- Todos os efeitos, camera Chakra, raios, monstros 3D, outras receitas,
+  otimizações e seus ajustes anteriores foram preservados.
+- ATENCAO: compilacao e testes de codigo concluidos; confirmar nova receita
+  em jogo antes de afirmar que houve teste de gameplay.
+- Instalar: substituir apenas a pasta "zzz Efeitos Rituais" e reiniciar.
+
+
+=== ATUALIZAÇÃO v0.78.39 — INTEGRAÇÃO SOMENTE LEITURA ===
+O MOD publica opcionalmente `ritual-card-effects-test:recipe_v1` para o Ritual Duelists v0.2.1+.
+A interface expõe as 18 receitas modificáveis já existentes, incluindo condições privadas,
+sem mudar seus efeitos, sorteios, animações ou regras de invocação. As configurações
+individuais de receita e o estado ON/OFF do MOD são respeitados.
+Para usar: instale ambas as novas versões, habilite os MODs, deixe `Deck ritual recipe source`
+em Auto no Ritual Duelists, reinicie o jogo e inicie um novo duelo contra Isis.
+O provider nunca consome tributos ou verifica a legalidade do Ritual; isso continua
+sob responsabilidade do motor de jogo e dos MODs de invocação.
+Testes de runtime Windows com a combinação ainda são necessários.
+
+
+## v0.78.48 — Psycho-Puppet / Fiend's Mirror (15/10/2026)
+- Reconstrucao de monstros emprestados preserva field_6B = deck_index real; impede identificacao errada da carta apos a batalha.
+- Nao apaga controle temporario durante desativacao de participantes de batalha; devolucao so encerra controle apos transferir realmente o registro.
+- Ataques contra o Puppet ritualizado com monstro controlado sao redirecionados no momento de selecionar o alvo (CPU e jogador), antes do staging de batalha.
+- Fiend's Mirror invocado por Ritual em DEF nao e destruido por batalha; cartas normais continuam sem protecao.
+- Efeito humano preservado; validacao real de gameplay continua necessaria.
+
+### v0.78.50 — Fiend's Mirror em DEF: etapa real do comparador (16/10/2026)
+- Corrigido o guard da comparacao de batalha: o controller Vanilla entra no tick em estado 3, mas altera o subestado para 4 ANTES de chamar func_8001EFD4. O hook de v0.78.49 erroneamente exigia estado 3, portanto nunca bloqueava a destruicao nem gerava o dano direto.
+- O hook de comparacao agora exige subestado 4; a rotina de efetivar a perda de LP continua no wrapper do tick de entrada 3, depois do callback nativo.
+- Em DEF, apenas Fiend's Mirror ritualizado resiste a ataques e causa dano igual ao ATK integral do atacante a ambos os jogadores; Mirror normal / posicao de ataque permanecem Vanilla (com os efeitos preexistentes aplicaveis).
+- Acrescentado teste de regressao reproduzindo a mudanca real de subestado 3 -> 4 e dano 500 / 4000; preservada toda a implementacao aprovada do Psycho-Puppet v0.78.49.
+- Compilacao/validacao automatizada realizadas localmente; teste dentro do jogo continua pendente.
+
+
+MOD Efeitos de Cartas Rituais v0.78.55 — Crab Turtle / Fortress Whale
+- Fortress Whale: +500 DEF por outro Fish aliado na mao logica e campo aliado; deck nao participa. Tributos consumidos e o proprio Whale nao sao contados.
+- Crab Turtle: sob Umi, a protecao propria de destruicao em batalha ignora a imunidade do atacante Ultimate; somente Aqua, Fish, Sea Serpent ou Thunder podem destruí-lo.
+- Crab: no 2D, previne a queima visual da carta; no 3D, previne a animacao de morte, usando a mesma politica. O dano de LP permanece calculado pelo jogo.
+- Crab: descricao em ingles com efeitos separados por sujeito, +200 ATK / +800 DEF para outros aliados Aqua, Fish e Sea Serpent; sem linha vazia ou excecao textual para Ultimate.
+- Performance of Sword: esquiva por cara em batalha ja pertence a propria carta e nao e barrada por Ultimate; nenhum codigo foi alterado.
+- Regra obrigatoria de magicas geradas por Yamadron e todos demais efeitos preservados.
+- Teste real em Windows ainda necessario para validacao de animacoes.
+
+
+Efeitos de Rituais v0.78.56
+- Fortress Whale: para cada outro Fish aliado na mao logica +500 DEF; para cada outro Fish aliado em Monster Zone +1000 DEF. Deck nao conta.
+- Crab Turtle: descricao condensada mantendo ambos os efeitos; +200 e +800 escritos em verde, sem quebra de palavras.
+- Escala de fonte propria SOMENTE para a descricao do Crab Turtle se o texto ultrapassar a area azul. Nao depende de Vanilla Field Effects; cabecalho de card/type/Guardian Stars intactos.
+- A protecao do Crab, Yamadron, Gaia/Balanceamento e os demais efeitos nao foram alterados.
+- Verificacao no jogo Windows ainda necessaria para confirmar a aparencia visual.
+
+
+====================================================================
+v0.78.61-encore-compat — integracao opcional Musician King
+====================================================================
+- Preserva as habilidades, receitas, artes, duelistas e configuracoes de
+  v0.78.60. Nao altera as regras basicas dos rituais.
+- Performance of Sword: apos Tails, se o seu lado tem Musician King face-up,
+  executa uma segunda moeda ANTES de resolver a falha. No maximo uma nova
+  tentativa por ativacao, mesmo com varios Musician Kings.
+- Magician of Black Chaos: mesma regra para a Atem Coin no inicio do turno.
+- Sem MOD Balanceamento, o jogo preserva o comportamento anterior (uma moeda).
+- Arquivos compilados para i386 e x86_64-windows. Necessita teste dentro
+  do jogo com todos os MODs ativos para validar a ordem das animacoes.
+====================================================================
+
+====================================================================
+v0.78.62-encore-clean — remocao da ponte Battle Warrior
+====================================================================
+- Remove a interface publica `coin-flip-v1`, que era exclusiva do Battle
+  Warrior e nao e mais utilizada pelo Balanceamento Beta 15.
+- Remove o tipo e callback desta ponte do codigo-fonte dos Rituais.
+- Mantem intactas as animacoes de moeda usadas por Performance of Sword e
+  Magician of Black Chaos e o Encore do Musician King nesses dois efeitos.
+- Mantem assets de moeda porque os proprios rituais ainda precisam deles.
+- Nenhuma alteracao foi feita no Balanceamento nem no Time Wizard.
+====================================================================
+
+Beta.30 do pacote Fusionist / Elegant Egotist (MOD Ritual 0.78.70):
+A visualização dos títulos de Ritual Effect agora confere exclusivamente a
+instância concreta selecionada no campo; não procura cartas iguais por ID.
+Uma cópia na mão nunca herda a liberação da cópia equipada no campo.
+Build Deck/Library continuam com títulos coloridos, sem checar ativação.
+A opção DEBUG da Beta.29 foi preservada. Não altera nenhuma regra ritual.
