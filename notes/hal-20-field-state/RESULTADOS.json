@@ -1,0 +1,749 @@
+{
+  "scope": "Partial engine/controller and simulated state roundtrip, not Windows gameplay. A is a limited non-admitted probe, not complete persistence. Expected historical FAIL preserved. Counts are processes/checks, not unique gameplay scenarios.",
+  "groups": {
+    "collection": {
+      "suites": [
+        {
+          "suite": "field-unguarded",
+          "processes": 112,
+          "checks": {
+            "PASS": 1436
+          },
+          "execution": {
+            "PASS": 112
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "field-guarded-final",
+          "processes": 112,
+          "checks": {
+            "PASS": 1604
+          },
+          "execution": {
+            "PASS": 112
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "field-bonus",
+          "processes": 112,
+          "checks": {
+            "PASS": 1036
+          },
+          "execution": {
+            "PASS": 112
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "field-negatives",
+          "processes": 28,
+          "checks": {
+            "PASS": 380
+          },
+          "execution": {
+            "PASS": 28
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "field-old-object-refused",
+          "processes": 4,
+          "checks": {
+            "PASS": 8
+          },
+          "execution": {
+            "REFUSED": 4
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "field-return-trace",
+          "processes": 48,
+          "checks": {
+            "PASS": 692
+          },
+          "execution": {
+            "PASS": 48
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "field-native-ritual",
+          "processes": 32,
+          "checks": {
+            "PASS": 184
+          },
+          "execution": {
+            "PASS": 24,
+            "REFUSED": 8
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "state-policy-B",
+          "processes": 20,
+          "checks": {
+            "PASS": 92
+          },
+          "execution": {
+            "PASS": 20
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "reg-default",
+          "processes": 174,
+          "checks": {
+            "PASS": 1240
+          },
+          "execution": {
+            "PASS": 174
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "reg-hardening",
+          "processes": 72,
+          "checks": {
+            "PASS": 346
+          },
+          "execution": {
+            "REFUSED": 12,
+            "PASS": 50,
+            "NOT_REACHED": 10
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "reg-boundary",
+          "processes": 128,
+          "checks": {
+            "PASS": 776
+          },
+          "execution": {
+            "PASS": 80,
+            "REFUSED": 48
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "reg-recovery",
+          "processes": 64,
+          "checks": {
+            "PASS": 464
+          },
+          "execution": {
+            "PASS": 64
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "reg-reset-recovery",
+          "processes": 16,
+          "checks": {
+            "PASS": 128
+          },
+          "execution": {
+            "PASS": 16
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "reg-restrictions",
+          "processes": 2,
+          "checks": {
+            "PASS": 14
+          },
+          "execution": {
+            "PASS": 2
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "composition",
+          "processes": 144,
+          "checks": {
+            "PASS": 1340
+          },
+          "execution": {
+            "PASS": 120,
+            "REFUSED": 24
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "providers",
+          "processes": 63,
+          "checks": {
+            "PASS": 382
+          },
+          "execution": {
+            "PASS": 63
+          },
+          "incomplete": 0
+        }
+      ],
+      "processes": 1131,
+      "execution": {
+        "PASS": 1025,
+        "REFUSED": 96,
+        "NOT_REACHED": 10
+      },
+      "checks": {
+        "PASS": 10122
+      }
+    },
+    "A_NOT_ADMITTED": {
+      "suites": [
+        {
+          "suite": "state-preview-complete",
+          "processes": 64,
+          "checks": {
+            "PASS": 272
+          },
+          "execution": {
+            "PASS": 64
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "state-preview-guard-refused",
+          "processes": 16,
+          "checks": {
+            "PASS": 32
+          },
+          "execution": {
+            "REFUSED": 16
+          },
+          "incomplete": 0
+        }
+      ],
+      "processes": 80,
+      "execution": {
+        "PASS": 64,
+        "REFUSED": 16
+      },
+      "checks": {
+        "PASS": 304
+      }
+    },
+    "historical_expected_FAILURE": {
+      "suites": [
+        {
+          "suite": "fusion-original-control-final",
+          "processes": 4,
+          "checks": {
+            "PASS": 48,
+            "FAIL": 2
+          },
+          "execution": {
+            "PASS": 2,
+            "FAIL": 2
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "field-original-control-final",
+          "processes": 4,
+          "checks": {
+            "PASS": 46,
+            "FAIL": 4
+          },
+          "execution": {
+            "PASS": 2,
+            "FAIL": 2
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "reference26",
+          "processes": 4,
+          "checks": {
+            "PASS": 12,
+            "FAIL": 8
+          },
+          "execution": {
+            "FAIL": 4
+          },
+          "incomplete": 0
+        }
+      ],
+      "processes": 12,
+      "execution": {
+        "PASS": 4,
+        "FAIL": 8
+      },
+      "checks": {
+        "PASS": 106,
+        "FAIL": 14
+      }
+    }
+  },
+  "archives": [
+    {
+      "file": "field-unguarded.logs.tar.gz",
+      "bytes": 962474,
+      "sha256": "416dbe1eb639f0843b287dc1d3d11d8928e6b1e0bae78c517c9648184413c768"
+    },
+    {
+      "file": "field-guarded-final.logs.tar.gz",
+      "bytes": 1113372,
+      "sha256": "9dfdd9b5609d1fc594aa17049bac075ab850679b493aa6d9bad7fafc4fc8092b"
+    },
+    {
+      "file": "field-bonus.logs.tar.gz",
+      "bytes": 1173735,
+      "sha256": "28bd272f61e17bc56611ac1394fbbadde46110721101d148411b4c367d931d6b"
+    },
+    {
+      "file": "field-negatives.logs.tar.gz",
+      "bytes": 209207,
+      "sha256": "31846c001b5ac6e632bfb08d8c8049e14f38ba6e75f7c8b5940e0b7d18d270cb"
+    },
+    {
+      "file": "field-old-object-refused.logs.tar.gz",
+      "bytes": 18380,
+      "sha256": "28c0d24c51e814f5801a0e61c38f15dc6579e6695f392813920b2347b6a5b449"
+    },
+    {
+      "file": "field-return-trace.logs.tar.gz",
+      "bytes": 507055,
+      "sha256": "c1d17c120aeb7044f5ec6c673c421fa42be20d515cdfe98878f3628a8a4dc6c4"
+    },
+    {
+      "file": "field-native-ritual.logs.tar.gz",
+      "bytes": 156204,
+      "sha256": "4cea887c218b257e17f62cc7f8339230c1b9da01b998af75b1c6522b8a6aedeb"
+    },
+    {
+      "file": "state-policy-B.logs.tar.gz",
+      "bytes": 188980,
+      "sha256": "6a6ea24c403cd134930b836e4d4ef83457ffa14b6f1c573597938af5c9b27943"
+    },
+    {
+      "file": "reg-default.logs.tar.gz",
+      "bytes": 947074,
+      "sha256": "773576971185bbad98aaefc70e16bc0c2ec04cba8bda46714443f981be923bd5"
+    },
+    {
+      "file": "reg-hardening.logs.tar.gz",
+      "bytes": 362922,
+      "sha256": "0920eb6325f42633013db6b84a73ed3a5df073884528c9fb822749d2fef1a771"
+    },
+    {
+      "file": "reg-boundary.logs.tar.gz",
+      "bytes": 1201834,
+      "sha256": "6bb74fa9690bc7b23345257abaeb6b3ac79c08b1222ca1dde2da5bc221ef8cf9"
+    },
+    {
+      "file": "reg-recovery.logs.tar.gz",
+      "bytes": 495477,
+      "sha256": "27eb7953f038160aee855dd0066f1a29eea8bfd145eee5323060344049af6c1c"
+    },
+    {
+      "file": "reg-reset-recovery.logs.tar.gz",
+      "bytes": 154102,
+      "sha256": "b65103dc5b1c1d768f9e9ae9bc9ce3843f64d8672fb2902781cb6b3bfde87342"
+    },
+    {
+      "file": "reg-restrictions.logs.tar.gz",
+      "bytes": 16236,
+      "sha256": "8a927cda9bb5fefe74986e64b5f6304fd6aca25c93216940116f533fdf7e041e"
+    },
+    {
+      "file": "composition.logs.tar.gz",
+      "bytes": 1407633,
+      "sha256": "894d79daf22f3aa7e8447ee3abcdec39d60074c6b4998b5b1d4a72fae3b9c089"
+    },
+    {
+      "file": "providers.logs.tar.gz",
+      "bytes": 77580,
+      "sha256": "9170071e5fcbb2421d042f40c289b3b0334d245a65b3995e914bb5e4dfea3efa"
+    },
+    {
+      "file": "state-preview-complete.logs.tar.gz",
+      "bytes": 559897,
+      "sha256": "7821578d85c13edb1f16c629945bcfdbab32371aeaff08061cbe329a30196fe0"
+    },
+    {
+      "file": "state-preview-guard-refused.logs.tar.gz",
+      "bytes": 21967,
+      "sha256": "e56f213837df0548de944ee619af667efed2e051362f53a127f31214f5255837"
+    },
+    {
+      "file": "fusion-original-control-final.logs.tar.gz",
+      "bytes": 35567,
+      "sha256": "3d56cad674865b0b380bbed2ea4651d3f1296b71ee54c1296f84011cd6c58b98"
+    },
+    {
+      "file": "field-original-control-final.logs.tar.gz",
+      "bytes": 35762,
+      "sha256": "2baa76e409b29909e4289e96e6ec7770f1a0a43a9a9a06f09d032e6219d98579"
+    },
+    {
+      "file": "reference26.logs.tar.gz",
+      "bytes": 28664,
+      "sha256": "de2bad7aed76934220731c6e136934ad99ca561b4de3bb7acd37c242b4e0a7dc"
+    }
+  ],
+  "canonical_R_RD": [
+    {
+      "name": "Ritual",
+      "returncode": 0,
+      "counts": {
+        "PASS": 23,
+        "SKIP": 3
+      },
+      "complete": true
+    },
+    {
+      "name": "RD-real",
+      "returncode": 1,
+      "counts": {
+        "PASS": 34,
+        "FAIL": 1,
+        "SKIP": 3
+      },
+      "complete": true
+    }
+  ],
+  "canonical_Fusion": [
+    {
+      "name": "test_attribute_icons",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_attribute_icons.py"
+      ],
+      "output": "PASS: six HD custom attribute assets, F8 logical 16x16 layout, description width, renderer hook, Mavelus fire\n"
+    },
+    {
+      "name": "test_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_manifest.py"
+      ],
+      "output": "FM Editor manifest + forbidden retail fusions + old text: PASS\nBeta.9 Square routing and Vanilla fallback: PASS\nBeta11: seven metal transforms, six exact recipes, title markup: PASS\nBeta12: Fusion Effects + Seiyaryu + settings OFF: PASS\nBeta13: concise descriptions, protected-card sprite repair, Direct LP Damage: PASS\nBeta21: current card owners, whitelist, runtime hooks and test coverage: PASS\nBeta25: independent lilac fusion heading and white inactive titles: PASS\n"
+    },
+    {
+      "name": "test_preview2_assets",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_preview2_assets.py"
+      ],
+      "output": "PASS production PNG decoder: 28 coin frames, ASan/UBSan\nPASS assets: 34 PNGs, 28 runtime coin frames, six custom icons, 59 card entries\n"
+    },
+    {
+      "name": "test_round2_manifest",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_round2_manifest.py"
+      ],
+      "output": "PASS: 16 Round02 effects + 22 Round03 effects, older cards/settings/recipes intact\n"
+    },
+    {
+      "name": "test_visual_dispatch",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_visual_dispatch.py"
+      ],
+      "output": "PASS: titles only; Labyrinth Tank description is five lines\nPASS: Labyrinth Tank fits four short body lines\n"
+    },
+    {
+      "name": "run_fusionist",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/run_fusionist.py"
+      ],
+      "output": "PASS: runtime chains, field identity, actual metal, finalization, equip triggers, AI scope, ranking and uniform distinct ties\n"
+    },
+    {
+      "name": "test_battle_stat_tween-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_battle_stat_tween.c",
+        "-o",
+        "/tmp/tmpfhmgpz9m/test_battle_stat_tween"
+      ],
+      "output": ""
+    },
+    {
+      "name": "test_battle_stat_tween",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/tmp/tmpfhmgpz9m/test_battle_stat_tween"
+      ],
+      "output": "PASS native-pace battle stat tween; increases/decreases/dual stats; no permanent changes\n"
+    },
+    {
+      "name": "test_effect_title_instance-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_effect_title_instance.c",
+        "-o",
+        "/tmp/tmpfhmgpz9m/test_effect_title_instance"
+      ],
+      "output": ""
+    },
+    {
+      "name": "test_effect_title_instance",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/tmp/tmpfhmgpz9m/test_effect_title_instance"
+      ],
+      "output": "PASS: per-instance hand/field selection and off-duel isolation\n"
+    },
+    {
+      "name": "test_effect_title_visual-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_effect_title_visual.c",
+        "-o",
+        "/tmp/tmpfhmgpz9m/test_effect_title_visual"
+      ],
+      "output": ""
+    },
+    {
+      "name": "test_effect_title_visual",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/tmp/tmpfhmgpz9m/test_effect_title_visual"
+      ],
+      "output": "PASS: active silver/lilac/orange, inactive white, restore, untouched body\n"
+    },
+    {
+      "name": "test_forecast_parity-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_forecast_parity.c",
+        "-o",
+        "/tmp/tmpfhmgpz9m/test_forecast_parity"
+      ],
+      "output": ""
+    },
+    {
+      "name": "test_forecast_parity",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/tmp/tmpfhmgpz9m/test_forecast_parity"
+      ],
+      "output": "PASS: 88 forecast/executor comparisons, both sides, ATK/DEF, fusion/direct copies\n"
+    },
+    {
+      "name": "test_round2_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_round2_runtime.c",
+        "-o",
+        "/tmp/tmpfhmgpz9m/test_round2_runtime"
+      ],
+      "output": ""
+    },
+    {
+      "name": "test_round2_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/tmp/tmpfhmgpz9m/test_round2_runtime"
+      ],
+      "output": "PASS: all 16 runtime effects, scopes, actual origin/lease, LP boundaries, restoration and recipes\n"
+    },
+    {
+      "name": "test_round3_recipes-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_round3_recipes.c",
+        "-o",
+        "/tmp/tmpfhmgpz9m/test_round3_recipes"
+      ],
+      "output": ""
+    },
+    {
+      "name": "test_round3_recipes",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/tmp/tmpfhmgpz9m/test_round3_recipes"
+      ],
+      "output": "PASS: 17 symmetric recipes; Skelgon/Rare Fish narrow override, no Fusionist+Mermaid\n"
+    },
+    {
+      "name": "test_round3_runtime-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_round3_runtime.c",
+        "-o",
+        "/tmp/tmpfhmgpz9m/test_round3_runtime"
+      ],
+      "output": ""
+    },
+    {
+      "name": "test_round3_runtime",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/tmp/tmpfhmgpz9m/test_round3_runtime"
+      ],
+      "output": "PASS: 22 Round03 Fusion Effects incl Flower Wolf and Kaminari entry/turn isolation\n"
+    },
+    {
+      "name": "test_rules-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "gcc",
+        "-std=gnu11",
+        "-O1",
+        "-g",
+        "-fsanitize=address,undefined",
+        "-fno-omit-frame-pointer",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/test_rules.c",
+        "-o",
+        "/tmp/tmpfhmgpz9m/test_rules"
+      ],
+      "output": ""
+    },
+    {
+      "name": "test_rules",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/tmp/tmpfhmgpz9m/test_rules"
+      ],
+      "output": "Beta13: Direct LP Damage registration, fusion & metal effects, default strict conditions: PASS\n"
+    },
+    {
+      "name": "preview2_loader-build",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-field-state/repo/src",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c",
+        "/workspace/work/hal20-field-state/repo/src/pc/mods/object_loader.c",
+        "/workspace/work/hal20-field-state/repo/src/pc/mods/mod_libc.c",
+        "/workspace/work/hal20-field-state/repo/src/pc/guest/branch_thunks.c",
+        "/workspace/work/hal20-field-state/repo/src/pc/compat/fs.c",
+        "-lm",
+        "-o",
+        "/tmp/tmpfhmgpz9m/loader"
+      ],
+      "output": "In file included from /workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:13:\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:50:1: warning: variably modified \u2018DuelCardRecord_object_offset_must_be_0x00\u2019 at file scope\n   50 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:53:1: warning: variably modified \u2018DuelCardRecord_data_offset_must_be_0x04\u2019 at file scope\n   53 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:56:1: warning: variably modified \u2018DuelCardRecord_card_id_offset_must_be_0x0C\u2019 at file scope\n   56 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:59:1: warning: variably modified \u2018DuelCardRecord_attack_offset_must_be_0x0E\u2019 at file scope\n   59 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:62:1: warning: variably modified \u2018DuelCardRecord_defense_offset_must_be_0x10\u2019 at file scope\n   62 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:65:1: warning: variably modified \u2018DuelCardRecord_stat_modifier_offset_must_be_0x12\u2019 at file scope\n   65 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:69:1: warning: variably modified \u2018DuelCardRecord_defense_modifier_offset_must_be_0x1A\u2019 at file scope\n   69 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:73:1: warning: variably modified \u2018DuelCardRecord_terrain_modifier_offset_must_be_0x14\u2019 at file scope\n   73 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:76:1: warning: variably modified \u2018DuelCardRecord_flags_offset_must_be_0x16\u2019 at file scope\n   76 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_card.h:79:1: warning: variably modified \u2018DuelCardRecord_table_index_offset_must_be_0x18\u2019 at file scope\n   79 | ];\n      | ^\nIn file included from /workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:14:\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:22:1: warning: variably modified \u2018DuelDeckCardRecord_id_offset_must_be_0\u2019 at file scope\n   22 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:25:1: warning: variably modified \u2018DuelDeckCardRecord_index_offset_must_be_2\u2019 at file scope\n   25 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:28:1: warning: variably modified \u2018DuelDeckCardRecord_data_block_offset_must_be_3\u2019 at file scope\n   28 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:31:1: warning: variably modified \u2018DuelDeckCardRecord_flags_offset_must_be_4\u2019 at file scope\n   31 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/duel_deck_card.h:34:1: warning: variably modified \u2018DuelDeckCardRecord_unknown_offset_must_be_5\u2019 at file scope\n   34 | ];\n      | ^\nIn file included from /workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:16:\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:438:1: warning: variably modified \u2018DisplayObject_field_22_must_be_at_0x22\u2019 at file scope\n  438 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:441:1: warning: variably modified \u2018DisplayObject_update_must_be_at_0x24\u2019 at file scope\n  441 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:444:1: warning: variably modified \u2018DisplayObject_position_must_be_at_0x28\u2019 at file scope\n  444 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:447:1: warning: variably modified \u2018DisplayObject_field_3E_must_be_at_0x3E\u2019 at file scope\n  447 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:450:1: warning: variably modified \u2018DisplayObject_field_42_must_be_at_0x42\u2019 at file scope\n  450 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:453:1: warning: variably modified \u2018DisplayObject_field_4A_must_be_at_0x4A\u2019 at file scope\n  453 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:456:1: warning: variably modified \u2018DisplayObject_field_3A_must_be_at_0x3A\u2019 at file scope\n  456 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:459:1: warning: variably modified \u2018DisplayObject_field_52_must_be_at_0x52\u2019 at file scope\n  459 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:462:1: warning: variably modified \u2018DisplayObject_field_58_must_be_at_0x58\u2019 at file scope\n  462 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:465:1: warning: variably modified \u2018DisplayObject_field_64_must_be_at_0x64\u2019 at file scope\n  465 | ];\n      | ^\n/workspace/work/hal20-field-state/repo/src/game/display_object.h:468:1: warning: variably modified \u2018DisplayObject_field_65_must_be_at_0x65\u2019 at file scope\n  468 | ];\n      | ^\n"
+    },
+    {
+      "name": "preview2_loader",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/tmp/tmpfhmgpz9m/loader",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/fusion-auxiliary-balance.o",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance"
+      ],
+      "output": "object_hash=69a6af85 declared_api=24 hooks=33 subscriptions=4 providers=4\nPASS 2652 characterization assertions (synthetic host, no duel)\n"
+    },
+    {
+      "name": "preview2_contract_off",
+      "status": "PASS",
+      "returncode": 0,
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/tmp/tmpfhmgpz9m/loader",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance/fusion-auxiliary-balance.o",
+        "/workspace/work/hal20-field-state/repo/mods/fusion-auxiliary-balance",
+        "--strict-off"
+      ],
+      "output": "object_hash=69a6af85 declared_api=24 hooks=33 subscriptions=4 providers=4\nOFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=0 lease=0 extended=0 forecast=0\nPASS 214 characterization assertions (synthetic host, no duel)\n"
+    }
+  ]
+}

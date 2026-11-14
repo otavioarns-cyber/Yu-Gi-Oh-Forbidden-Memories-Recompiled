@@ -1,0 +1,79 @@
+[
+  {
+    "id": "STATE",
+    "status": "FAIL",
+    "priority": "P1",
+    "evidence": "Real Queen evaluator loses mandatory after modeled native restore/chunks/reset/LOAD order even at quiet boundary.",
+    "mitigation": "REFUSED before any parsing/overwrite under opt-in guard with own mods effectively ON; regular memory-card saves untouched.",
+    "next": "Review refusal as candidate policy or implement explicit versioned state/identity/effect serialization and native roundtrip tests; do not invent BSS persistence."
+  },
+  {
+    "id": "PE32",
+    "status": "AUTOMATION_UNAVAILABLE",
+    "priority": "P1",
+    "evidence": "Wine11 driver error731 for minimum PE32 and game; direct PE32 exit1; PE64 controls PASS. Wine10/QEMU-x86_64 also fails PE32.",
+    "next": "Functional isolated Windows/PE32 backend plus legitimate private game image; automated startup, UI, restart, duel/input, effects and save/load are already authorized."
+  },
+  {
+    "id": "FULL_GAMEPLAY",
+    "status": "NOT_REACHED",
+    "priority": "P1",
+    "evidence": "Partial host only; retail VM/catalogue/render/phase completion modeled. Full controls including Surrender Select vs Dual/human modes not exercised in Windows.",
+    "next": "Run automated full controller/gameplay sequences when backend/resources exist; user personal play only in final phase."
+  },
+  {
+    "id": "FOREIGN_MATERIALIZER",
+    "status": "REFUSED",
+    "priority": "P1",
+    "evidence": "Unknown protected-target hooks and bad predecessor/callback rejected; PR26 controlled late cursor/stack errors still reproduce8 FAIL.",
+    "remaining": "Monitor does not guard arbitrary foreign consumption after final validation. Noncritical extra libraries are outside qualification, not necessarily denied by guard.",
+    "next": "Keep pinned staging; qualify each additional callback/branch by object and behavior, no name-only allowance."
+  },
+  {
+    "id": "RECOVERY_UI",
+    "status": "NOT_REACHED",
+    "priority": "P2",
+    "evidence": "Companion observability and explicit automated recovery tested; no final UI.",
+    "next": "Review observable state/cause/sequence/recovery presentation; no automatic old-pending resurrection or restore by card ID."
+  },
+  {
+    "id": "TIME_WIZARD",
+    "status": "NOT_REACHED",
+    "priority": "P1",
+    "evidence": "Partial source plus compiled core/offsets and Dual instruction-signature bridge; started-attempt cache not covered by Fusion revoke.",
+    "next": "Obtain full legitimate source/authorization or resolve safe adapter contract; no blind API18 object reuse."
+  },
+  {
+    "id": "FIELD_EFFECTS",
+    "status": "NOT_REACHED",
+    "priority": "P2",
+    "evidence": "Source on historical branch compiled SDK24/i386 PASS; functional integration not tested.",
+    "next": "Qualify setup/terrain/text hooks, card identity/stats/AI/provider with current collection."
+  },
+  {
+    "id": "DROPLIST_ADAPTER",
+    "status": "NOT_REACHED",
+    "priority": "P2",
+    "evidence": "External Droplist1.4.0 and separate AI adapter0.1.1 not provided.",
+    "next": "Identify authorized package/source/version; preserve removed internal drop viewer."
+  },
+  {
+    "id": "DUAL_PUBLICATION",
+    "status": "REFUSED",
+    "priority": "P1 for public complete package",
+    "evidence": "No verifiable redistribution permission.",
+    "next": "Keep source/manifest/object private; continue local automated testing with exact hash."
+  },
+  {
+    "id": "PR26_CONTROL",
+    "status": "FAIL",
+    "priority": "historical control only",
+    "evidence": "Four old-object processes/eight functional FAIL preserved. Current boundary matrix refuses before consumption."
+  },
+  {
+    "id": "RD_IMMUTABILITY_AUDIT",
+    "status": "FAIL",
+    "priority": "expected audit only",
+    "evidence": "Original PR13 package audit intentionally detects authorized HAL25 candidate differences; functional asserts preserved."
+  }
+]

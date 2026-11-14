@@ -1,0 +1,12 @@
+{
+  "target": "Windows PE32/i386",
+  "sdk_api": 24,
+  "status": "PASS",
+  "command": "python tools/pc/build_game32.py --target windows --release",
+  "game_units": 628,
+  "exe_bytes": 5214720,
+  "exe_sha256": "9e1f6553357a6a61c3622f25a3c10b88576ef460e591860ca08e3afbe6dbbf66",
+  "SDL3_sha256": "a11c7db83cb704b634c97c979fd4b9ffadbcf2eb3d058d3407a155f11fd4ec0b",
+  "binaries_published": false,
+  "mod_objects": "Canonical four owned objects retained; fresh R/RD builds compared, not silently substituted."
+}

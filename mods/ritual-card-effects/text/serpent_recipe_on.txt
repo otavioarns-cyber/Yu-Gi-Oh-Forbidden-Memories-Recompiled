@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B3]
+Dragoness the
+Wicked Knight + 1
+{f8 0B 07} + 1 {f8 0B 00}.

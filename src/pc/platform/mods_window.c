@@ -1017,6 +1017,12 @@ static void apply(void)
         snprintf(status, sizeof(status), "No pending changes");
         return;
     }
+    /* POC: validate staged ranks before saving them or asking to restart.
+     * With opt-in off this check is a no-op; the normal manager is unchanged. */
+    if (!Mods_Hal2224GuardValidate(wanted, ranks, status, sizeof(status))) {
+        pending = 0;
+        return;
+    }
     if (restart && pending != 1) {
         pending = 1;
         snprintf(status, sizeof(status),
