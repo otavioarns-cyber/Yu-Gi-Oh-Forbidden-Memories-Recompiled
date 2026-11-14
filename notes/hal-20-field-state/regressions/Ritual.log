@@ -1,0 +1,115 @@
+test_automatic_field_gate PASS
+PASS automatic terrain action gate: Tri, BLS, Zera, Crab; complete visual before attack; disabled/normal unaffected
+test_battle_marker_retention PASS
+Shield/Yamadron/Hungry/Javelin native battle staging: OK
+test_egotist_bridge PASS
+PASS: all 24 Ritual families, one-shot arming, revocation, true Ritual preservation, settings and face-down gate
+test_hungry_cpu_battle PASS
+Hungry Burger player/CPU battle lifecycle: OK
+test_logic_performance SKIP historical baseline absent
+test_mirror_defense PASS
+PASS: ritual Mirror defensive direct damage ignores DEF; stale marks rejected
+test_mirror_direct_lp PASS
+PASS: Mirror defensive damage, lethal reflection, no repeat or trap-aborted damage
+test_mirror_lp_commit PASS
+PASS: no duplicated battle LP event or phantom Spellbinding reflection; other real losses preserved
+test_preview2_assets PASS
+PASS production PNG decoder: 52 images (ASan/UBSan, no rendering)
+PASS asset integrity: 56 PNGs, 5 WAVs, 65 texts, both coin sequences
+WAV (name, channels, bytes/sample, Hz, frames): [('dokurorider_escape.wav', 2, 2, 44100, 135475), ('garma_sword_spend.wav', 2, 2, 44100, 96768), ('hungry_bite.wav', 1, 2, 44100, 53096), ('javelin_shell.wav', 2, 2, 44100, 47232), ('tri_horn_break.wav', 1, 2, 44100, 28665)]
+test_psycho_cpu_symmetry PASS
+PASS: CPU/human Puppet target routing, instance isolation and Deck identity after move
+test_psycho_permanent PASS
+PASS: Puppet permanent control, delayed death return, Raigeki, occupied zone and retry
+test_puppet_rebuild_identity PASS
+PASS: CPU borrowed-card reconstruction uses original combined Deck index and original identity
+test_recipe_performance SKIP historical baseline absent
+test_render_performance SKIP historical baseline absent
+test_tea_cosmo_whale PASS
+PASS Cosmo: Female group + exact 531/708, self-inclusive +500 logic; Whale regression delegated to test_whale_crab_v07855
+test_tri_horned_beacon PASS
+PASS: Tri-Horned same-ID allied Dinosaur aura, source self-exclusion, opponent exclusion and magic protection
+test_v4_rules PASS
+PASS V4 static contracts: dodge rewards and 50/35/15; face-down; Mask Equip aura; Garma sixth combat; descriptions
+test_whale_crab_v07855 PASS
+PASS Fortress hand +500/field +1000 only, Crab Umi/type/Ultimate/provenance, Performance preserved
+PASS source wiring + compact description
+test_zera_ultimate_debuff PASS
+PASS: Zera affects ordinary Ultimate, excludes only live Ritual Ultimate, respects settings/identity/staging
+test_provider_generated-build PASS
+test_provider_generated PASS
+PASS producer: 18 recipes, Skull Monster, Chakra exclusion, 3 specials, toggles, disabled mod
+test_effect_intelligence-build PASS
+test_effect_intelligence PASS
+PASS: effect owner live Settings/activation, stats, tribute selection, strategy (pure)
+test_effect_title_instance-build PASS
+test_effect_title_instance PASS
+PASS: per-instance hand/field selection and off-duel isolation
+test_effect_title_visual-build PASS
+test_effect_title_visual PASS
+PASS: active silver/lilac/orange, inactive white, restore, untouched body
+test_yamadron_ai_policy-build PASS
+test_yamadron_ai_policy PASS
+Yamadron mandatory burn policy and both field layouts: PASS
+mask_equip_staging_test-build PASS
+mask_equip_staging_test PASS
+PASS: 14 source-backed Mask Equip cases (staging, both sides, OFF, source removal, self, types)
+preview2_loader-build PASS
+In file included from /tmp/hal25-reg-sw_xuxtn/mods/ritual-card-effects/tests/preview2_loader.c:12:
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:50:1: warning: variably modified ‘DuelCardRecord_object_offset_must_be_0x00’ at file scope
+   50 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:53:1: warning: variably modified ‘DuelCardRecord_data_offset_must_be_0x04’ at file scope
+   53 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:56:1: warning: variably modified ‘DuelCardRecord_card_id_offset_must_be_0x0C’ at file scope
+   56 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:59:1: warning: variably modified ‘DuelCardRecord_attack_offset_must_be_0x0E’ at file scope
+   59 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:62:1: warning: variably modified ‘DuelCardRecord_defense_offset_must_be_0x10’ at file scope
+   62 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:65:1: warning: variably modified ‘DuelCardRecord_stat_modifier_offset_must_be_0x12’ at file scope
+   65 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:69:1: warning: variably modified ‘DuelCardRecord_defense_modifier_offset_must_be_0x1A’ at file scope
+   69 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:73:1: warning: variably modified ‘DuelCardRecord_terrain_modifier_offset_must_be_0x14’ at file scope
+   73 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:76:1: warning: variably modified ‘DuelCardRecord_flags_offset_must_be_0x16’ at file scope
+   76 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card.h:79:1: warning: variably modified ‘DuelCardRecord_table_index_offset_must_be_0x18’ at file scope
+   79 | ];
+      | ^
+In file included from /tmp/hal25-reg-sw_xuxtn/src/game/duel_side_state.h:8,
+                 from /tmp/hal25-reg-sw_xuxtn/mods/ritual-card-effects/tests/preview2_loader.c:13:
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card_effects.h:36:1: warning: variably modified ‘DuelFieldEffectObject_callback_offset_must_be_0x24’ at file scope
+   36 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card_effects.h:39:1: warning: variably modified ‘DuelFieldEffectObject_mark_offset_must_be_0x67’ at file scope
+   39 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_card_effects.h:42:1: warning: variably modified ‘DuelFieldEffectObject_active_offset_must_be_0x6C’ at file scope
+   42 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_side_state.h:79:1: warning: variably modified ‘DuelSideState_hand_must_be_at_0x1A’ at file scope
+   79 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_side_state.h:85:1: warning: variably modified ‘DuelSideState_deck_draw_cursor_must_be_at_0x18’ at file scope
+   85 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_side_state.h:88:1: warning: variably modified ‘DuelSideState_swords_turns_remaining_must_be_at_0x19’ at file scope
+   88 | ];
+      | ^
+/tmp/hal25-reg-sw_xuxtn/src/game/duel_side_state.h:91:1: warning: variably modified ‘DuelSideState_card_view_mode_must_be_at_0x1F’ at file scope
+   91 | ];
+      | ^
+preview2_loader PASS
+object_hash=1e478c68 hooks=50 provider_count=4 api=4; PNG coin assets decoded by production code
+PASS 7427 assertions; 10 full provider/lifecycle cycles, publication-absent init, assets-absent rejection; synthetic host, no duel
+SUMMARY (test groups; build steps listed separately): {'PASS': 23, 'FAIL': 0, 'SKIP': 3}

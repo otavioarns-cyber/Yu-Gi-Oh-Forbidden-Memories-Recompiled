@@ -1,0 +1,67 @@
+[
+  {
+    "capability": "A complete collection persistence",
+    "status": "FAIL",
+    "scope": "Coverage incomplete; full preflight always INCOMPLETE"
+  },
+  {
+    "capability": "A generated backing",
+    "status": "REFUSED",
+    "scope": "Real Fusion generator uses pool outside combined deck,8 profiles refuse"
+  },
+  {
+    "capability": "A artifact admission",
+    "status": "REFUSED",
+    "scope": "Exact-object guard rejects variants,8 profiles"
+  },
+  {
+    "capability": "B order guard OFF",
+    "status": "REFUSED",
+    "scope": "Expected prewrite refusal with active or resident known owners"
+  },
+  {
+    "capability": "B after all effective OFF/resident",
+    "status": "REFUSED",
+    "scope": "Real manager/object residency; original restart UI bypassed only in explicit test seam"
+  },
+  {
+    "capability": "Legacy cold OFF loader",
+    "status": "NOT_REACHED",
+    "scope": "Corrupt input reaches legacy validation; no successful old/current full state certified"
+  },
+  {
+    "capability": "TimeWizard source AI predicate",
+    "status": "FAIL",
+    "scope": "24 mismatches with real R/RD callbacks under guard1;24 more with observer instrumented guard0"
+  },
+  {
+    "capability": "TimeWizard direct Dual bridge",
+    "status": "REFUSED",
+    "scope": "24 signature observations cannot see D through real wrapper; not proved gameplay quota violation"
+  },
+  {
+    "capability": "TimeWizard complete API24 source rebuild",
+    "status": "NOT_REACHED",
+    "scope": "Opaque0.23.1 core source absent; only partial relink"
+  },
+  {
+    "capability": "Current Windows game/UI/save-load",
+    "status": "NOT_REACHED",
+    "scope": "PE32 runtime control never executed; game image not accessible"
+  },
+  {
+    "capability": "Native Windows PE32 control",
+    "status": "AUTOMATION_UNAVAILABLE",
+    "scope": "Fork Actions suspended by GitHub scale-of-use policy"
+  },
+  {
+    "capability": "Optimized GCC storage build -O1/Werror",
+    "status": "FAIL",
+    "scope": "Preexisting format-truncation, reproduced on identical baseline/candidate source; default strict build passes"
+  },
+  {
+    "capability": "Translated ARM64 state path",
+    "status": "NOT_REACHED",
+    "scope": "Different backend, collection not ported or qualified there"
+  }
+]

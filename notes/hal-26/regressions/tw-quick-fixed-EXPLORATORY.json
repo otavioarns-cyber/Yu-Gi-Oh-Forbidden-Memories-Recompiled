@@ -1,0 +1,76 @@
+{
+  "scope": "Superseded fixture/scope error, retained rather than counted as positive final validation.",
+  "summary": {
+    "processes": 4,
+    "checks": {
+      "PASS": 60,
+      "FAIL": 8
+    },
+    "execution": {
+      "FAIL": 4
+    },
+    "incomplete": 0
+  },
+  "failed_checks": [
+    {
+      "case": "field-bonus-g1-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+      "checks": [
+        {
+          "name": "TW-cached-attempt-after-Fusion-OFF-reproduced",
+          "status": "FAIL",
+          "details": "Known consumer cache survives effective OFF for an already-started attempt. No probability/rule change implemented."
+        },
+        {
+          "name": "TW-wrong-ID-cancel-reset-safe",
+          "status": "FAIL",
+          "details": "Wrong spin ID/cancelled callback does not rearm an abandoned attempt."
+        }
+      ]
+    },
+    {
+      "case": "field-bonus-g1-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+      "checks": [
+        {
+          "name": "TW-cached-attempt-after-Fusion-OFF-reproduced",
+          "status": "FAIL",
+          "details": "Known consumer cache survives effective OFF for an already-started attempt. No probability/rule change implemented."
+        },
+        {
+          "name": "TW-wrong-ID-cancel-reset-safe",
+          "status": "FAIL",
+          "details": "Wrong spin ID/cancelled callback does not rearm an abandoned attempt."
+        }
+      ]
+    },
+    {
+      "case": "field-bonus-g1-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+      "checks": [
+        {
+          "name": "TW-cached-attempt-after-Fusion-OFF-reproduced",
+          "status": "FAIL",
+          "details": "Known consumer cache survives effective OFF for an already-started attempt. No probability/rule change implemented."
+        },
+        {
+          "name": "TW-wrong-ID-cancel-reset-safe",
+          "status": "FAIL",
+          "details": "Wrong spin ID/cancelled callback does not rearm an abandoned attempt."
+        }
+      ]
+    },
+    {
+      "case": "field-bonus-g1-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+      "checks": [
+        {
+          "name": "TW-cached-attempt-after-Fusion-OFF-reproduced",
+          "status": "FAIL",
+          "details": "Known consumer cache survives effective OFF for an already-started attempt. No probability/rule change implemented."
+        },
+        {
+          "name": "TW-wrong-ID-cancel-reset-safe",
+          "status": "FAIL",
+          "details": "Wrong spin ID/cancelled callback does not rearm an abandoned attempt."
+        }
+      ]
+    }
+  ]
+}

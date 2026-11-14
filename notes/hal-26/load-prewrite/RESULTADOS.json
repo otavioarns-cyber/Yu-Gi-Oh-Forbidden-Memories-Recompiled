@@ -1,0 +1,37 @@
+{
+  "scope": "Actual load body, manager; post-preflight traps, no successful restore. Both UI/control use this common load.",
+  "load_body_sha256": "134cc5c4da4ac5aab0385318ba57f420c5a396a038defa46e2db32956e3e42ea",
+  "state_source_sha256": "a558e2cbdea95ea31c99ec2d13a40d30922016a1d002458852c4c0854ed157dd",
+  "steps": [
+    {
+      "test": "build",
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-DMEMORIES_PC",
+        "-Isrc",
+        "/workspace/work/hal20-state-timewizard/logs/load-prewrite/load.c",
+        "src/pc/mods/manager.c",
+        "-Wl,--gc-sections",
+        "-o",
+        "/workspace/work/hal20-state-timewizard/logs/load-prewrite/test"
+      ],
+      "returncode": 0
+    },
+    {
+      "test": "run",
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/workspace/work/hal20-state-timewizard/logs/load-prewrite/test",
+        "/workspace/work/hal20-state-timewizard/logs/load-prewrite"
+      ],
+      "returncode": 0
+    }
+  ]
+}

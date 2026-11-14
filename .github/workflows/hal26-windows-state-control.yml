@@ -1,0 +1,34 @@
+name: HAL26 native Windows PE32 state control
+on:
+  push:
+    branches: [test/hal-20-state-timewizard-readiness]
+    paths:
+      - .github/workflows/hal26-windows-state-control.yml
+      - tests/hal26-state-timewizard/state_policy_control.c
+      - src/pc/mods/state_policy.h
+  pull_request:
+    branches: [integration/hal-20-v0.3.1-preview.2]
+    paths:
+      - .github/workflows/hal26-windows-state-control.yml
+      - tests/hal26-state-timewizard/state_policy_control.c
+      - src/pc/mods/state_policy.h
+permissions:
+  contents: read
+jobs:
+  independent-pe32:
+    runs-on: windows-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compile and execute independent x86 control
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $vswhere = "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe"
+          $vs = & $vswhere -latest -products '*' -requires Microsoft.VisualStudio.Component.VC.Tools.x86.x64 -property installationPath
+          if (-not $vs) { throw 'MSVC x86 toolchain not present on runner' }
+          $vcvars = Join-Path $vs 'VC\Auxiliary\Build\vcvarsall.bat'
+          New-Item -ItemType Directory -Force tmp/hal26 | Out-Null
+          $command = '""{0}" x86 && cl /nologo /W4 /TC /Isrc tests\hal26-state-timewizard\state_policy_control.c /Fe:tmp\hal26\state-policy-pe32.exe /Fo:tmp\hal26\state-policy-pe32.obj && tmp\hal26\state-policy-pe32.exe"' -f $vcvars
+          & cmd.exe /d /s /c $command
+          if ($LASTEXITCODE -ne 0) { throw "PE32 control failed with exit $LASTEXITCODE" }

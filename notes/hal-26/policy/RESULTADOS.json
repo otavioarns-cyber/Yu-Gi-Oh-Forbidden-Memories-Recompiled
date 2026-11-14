@@ -1,0 +1,81 @@
+{
+  "steps": [
+    {
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-DMEMORIES_PC",
+        "-Isrc",
+        "-c",
+        "src/pc/mods/manager.c",
+        "-o",
+        "/workspace/work/hal20-state-timewizard/logs/policy-residency/manager.o"
+      ],
+      "returncode": 0,
+      "log": "step0.log"
+    },
+    {
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-ffunction-sections",
+        "-fdata-sections",
+        "-DMEMORIES_PC",
+        "-Isrc",
+        "tests/hal26-state-timewizard/manager_policy_test.c",
+        "/workspace/work/hal20-state-timewizard/logs/policy-residency/manager.o",
+        "-Wl,--gc-sections",
+        "-o",
+        "/workspace/work/hal20-state-timewizard/logs/policy-residency/manager"
+      ],
+      "returncode": 0,
+      "log": "step1.log"
+    },
+    {
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/workspace/work/hal20-state-timewizard/logs/policy-residency/manager"
+      ],
+      "returncode": 0,
+      "log": "step2.log"
+    },
+    {
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-Isrc",
+        "tests/hal26-state-timewizard/state_policy_control.c",
+        "-o",
+        "/workspace/work/hal20-state-timewizard/logs/policy-residency/control"
+      ],
+      "returncode": 0,
+      "log": "step3.log"
+    },
+    {
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/workspace/work/hal20-state-timewizard/logs/policy-residency/control"
+      ],
+      "returncode": 0,
+      "log": "step4.log"
+    }
+  ],
+  "source_hashes": {
+    "src/pc/mods/manager.c": "0cc4900f5ff747e83d8eb931be1497f06eb3e6347baf96ce144f6ec55279eb4b",
+    "src/pc/mods/state_policy.h": "c507bd1966427212c55d2ce62fa401d204e31884257a7b802c43c0c7197b6ddc",
+    "tests/hal26-state-timewizard/state_policy_control.c": "5b02b5607f64768830710b7a2cbe14719786a2b94bfc3b1d255b0a287a8c0971",
+    "tests/hal26-state-timewizard/manager_policy_test.c": "46f7c6b889ea04583073b2a619de48d22e4ada47de27dace1768a3d0c6d7363f"
+  }
+}

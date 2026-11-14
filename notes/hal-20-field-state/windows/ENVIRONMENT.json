@@ -1,0 +1,27 @@
+{
+  "qemu_version": "11.1.2 Debian 1:11.1.2+ds-3~bpo13+4",
+  "source": "https://deb.debian.org/debian/pool/main/q/qemu/qemu-user_11.1.2+ds-3~bpo13+4_amd64.deb",
+  "deb_sha256": "8272c7d09b5244a34d4c29736de4ed3ec5e3cf99027649897b4bf6786142d2cf",
+  "qemu_i386_sha256": "cd8d523c9fdd1938b2f1b1f10a9e9d8c899dbf89c587147afddbd9354baf2201",
+  "qemu_x86_64_sha256": "a6ed54a3051dc93b477cfb3ce9b3a62f99821a4ea202580ef409ece0a6054f81",
+  "attempts": [
+    {
+      "backend": "QEMU11 x86_64 + Wine11 WOW64",
+      "control64": "PASS",
+      "control32": "AUTOMATION_UNAVAILABLE: ShellExecuteEx exit1, no entry marker",
+      "game_PR28": "AUTOMATION_UNAVAILABLE before main"
+    },
+    {
+      "backend": "QEMU11 i386 + Wine10 x86",
+      "control32": "AUTOMATION_UNAVAILABLE: hard-coded ELF32 wineserver exec errno8, exit127"
+    },
+    {
+      "backend": "QEMU11 i386 + privately routed Wine bin",
+      "control32": "AUTOMATION_UNAVAILABLE: Wine bootstrap faults with illegal instruction at0x00403a00; CPU max does not resolve; no control entry marker"
+    }
+  ],
+  "current_collection_game": "NOT_REACHED: backend control cannot start; source build PASS separately",
+  "resource_inventory": "Accessible attachments contain prompts and mods ZIPs. No ISO/CUE/CHD found;418 .bin files scanned, largest76800B, graphics rather than game image. A game resource provided in another context is not assumed accessible here.",
+  "authorized_future_route": "A legitimate image at a private accessible workspace/mount or current-task file reference can be used privately; never add it or private Dual to Git.",
+  "native_windows": "No native Windows VM/image available in selected Linux environment; only personal gameplay is deferred by user policy."
+}

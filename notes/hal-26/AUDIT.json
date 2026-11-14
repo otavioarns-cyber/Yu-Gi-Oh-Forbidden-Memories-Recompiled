@@ -1,0 +1,33 @@
+[
+  {
+    "check": "All inherited MOD files unchanged",
+    "status": "PASS",
+    "files": 507,
+    "scope": "M/R/RD/F/Field/H/DMC and optional official packages; no canonical .o rebuilt/replaced. Private Dual not in Git."
+  },
+  {
+    "check": "Residency query",
+    "status": "PASS",
+    "scope": "Only read-only accessor in mods.c/.h; host ABI unchanged, no load/unload/relink/ordering behavior changed."
+  },
+  {
+    "check": "Core scope",
+    "status": "PASS",
+    "scope": "Manager delta limited to load refusal. Actual common load placement, hook order/relink, qualified artifacts, controller and UI unchanged from PR29."
+  },
+  {
+    "check": "Memory-card/storage implementation",
+    "status": "PASS",
+    "scope": "All src/pc/saves files unchanged; official default strict storage tests separate from Windows gameplay."
+  },
+  {
+    "check": "Windows control isolation",
+    "status": "PASS",
+    "scope": "Own portable x86 control only, scoped experimental workflow, read-only token, no image/private MOD artifacts. Runner disabled by fork policy; no Windows runtime PASS claim."
+  },
+  {
+    "check": "A partial isolation",
+    "status": "PASS",
+    "scope": "Only source schemas/probes in experiments; canonical R/F untouched. Whole-collection preflight always INCOMPLETE; guard rejects variant SHA."
+  }
+]

@@ -1,0 +1,5 @@
+@bank descriptions
+
+[D3A5]
+Battle Steer +
+Bioplant + Griggle

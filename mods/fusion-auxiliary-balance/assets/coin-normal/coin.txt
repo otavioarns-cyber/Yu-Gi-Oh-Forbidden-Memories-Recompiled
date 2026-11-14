@@ -1,0 +1,2 @@
+frames=28
+tails=14

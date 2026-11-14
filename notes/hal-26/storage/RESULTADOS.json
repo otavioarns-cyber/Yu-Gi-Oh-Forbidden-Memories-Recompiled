@@ -1,0 +1,98 @@
+{
+  "scope": "Official storage unit file/menu state machine tests; not gameplay/UI Windows. Default strict build PASS; unchanged baseline and candidate both fail extra optimized GCC Werror compile.",
+  "steps": [
+    {
+      "test": "save_slots-build",
+      "command": [
+        "cc",
+        "-std=gnu11",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-Isrc",
+        "-Itests/pc",
+        "tests/pc/save_slots_test.c",
+        "src/pc/saves/save_slots.c",
+        "src/pc/platform/paths.c",
+        "-o",
+        "/workspace/work/hal20-state-timewizard/logs/storage/save_slots"
+      ],
+      "returncode": 0
+    },
+    {
+      "test": "save_slots-run",
+      "command": [
+        "/workspace/work/hal20-state-timewizard/logs/storage/save_slots"
+      ],
+      "returncode": 0
+    },
+    {
+      "test": "save_menu-build",
+      "command": [
+        "cc",
+        "-std=gnu11",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-Isrc",
+        "-Itests/pc",
+        "tests/pc/save_menu_test.c",
+        "src/pc/saves/save_slots.c",
+        "src/pc/platform/paths.c",
+        "src/pc/saves/save_menu.c",
+        "-o",
+        "/workspace/work/hal20-state-timewizard/logs/storage/save_menu"
+      ],
+      "returncode": 0
+    },
+    {
+      "test": "save_menu-run",
+      "command": [
+        "/workspace/work/hal20-state-timewizard/logs/storage/save_menu"
+      ],
+      "returncode": 0
+    },
+    {
+      "test": "baseline-O1-Werror",
+      "returncode": 1,
+      "status": "PREEXISTING_BUILD_FAIL",
+      "command": [
+        "cc",
+        "-std=gnu11",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-Isrc",
+        "-Isrc/pc/saves",
+        "-c",
+        "/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c",
+        "-o",
+        "/workspace/work/hal20-state-timewizard/logs/storage/baseline.o"
+      ]
+    },
+    {
+      "test": "candidate-O1-Werror",
+      "returncode": 1,
+      "status": "PREEXISTING_BUILD_FAIL",
+      "command": [
+        "cc",
+        "-std=gnu11",
+        "-O1",
+        "-Wall",
+        "-Wextra",
+        "-Wpedantic",
+        "-Werror",
+        "-Isrc",
+        "-Isrc/pc/saves",
+        "-c",
+        "src/pc/saves/save_slots.c",
+        "-o",
+        "/workspace/work/hal20-state-timewizard/logs/storage/candidate.o"
+      ]
+    }
+  ]
+}

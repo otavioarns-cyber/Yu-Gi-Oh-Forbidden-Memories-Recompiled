@@ -1,0 +1,80 @@
+diff --git a/src/pc/mods/manager.c b/src/pc/mods/manager.c
+index 652b0c5e3..5c5c3aff6 100644
+--- a/src/pc/mods/manager.c
++++ b/src/pc/mods/manager.c
+@@ -304,15 +304,16 @@ int Mods_Hal2224GuardReady(char *error,size_t size)
+     }
+     return 1;
+ }
++/* Experimental HAL26 fail-closed policy: do not tie data safety to the
++ * optional order guard. Cold, never-initialized OFF packages do not block;
++ * resident OFF libraries remain incomplete until a clean process restart. */
++#include "state_policy.h"
+ int Mods_Hal20StateLoadAllowed(char *error,size_t size)
+ {
+-    if(!Mods_Hal2224GuardEnabled())return 1;
+-    /* These mods reset volatile effect/transaction state after a load; it
+-       is not registered in the state file. Decline before any overwrite. */
+-    for(int r=1;r<HAL20_ROLE_COUNT;r++)if(r!=2){int mod=find(hal20_roles[r].id);
+-        if(mod>=0&&Mods_Active(mod))return hal2224_error(error,size,
+-            "This experimental mod collection cannot safely restore temporary duel state. Your current game was kept. Use a regular memory-card save for now.");
+-    }
++    for(int mod=0;mod<Mods_Count();++mod)
++        if(Hal26_StateLoadIncomplete(Mods_Id(mod),Mods_Active(mod),Mods_CodeResident(mod)))
++            return hal2224_error(error,size,
++                "HAL-26 experimental: this active or resident MOD profile cannot fully restore temporary duel state. The current game was kept. Regular memory-card saves are unchanged. Restart with these MODs OFF for the legacy loader; old savestates are not certified.");
+     return 1;
+ }
+ 
+diff --git a/src/pc/mods/mods.c b/src/pc/mods/mods.c
+index 15e80ba86..0adc417aa 100644
+--- a/src/pc/mods/mods.c
++++ b/src/pc/mods/mods.c
+@@ -4691,6 +4691,7 @@ int Mods_Failed(int index) { return at(index) && (mods[index].broken || mods[ind
+ int Mods_HasCode(int index) { return at(index) && Manifest_HasCode(Mods_Manifest(index)); }
+ 
+ unsigned Mods_CodeHash(int index) { return at(index) ? mods[index].code_hash : 0; }
++int Mods_CodeResident(int index) { return at(index) && (mods[index].object.image || mods[index].object.native_handle); }
+ 
+ unsigned Mods_Sequence(int index) { return at(index) ? mods[index].sequence : 0; }
+ 
+diff --git a/src/pc/mods/mods.h b/src/pc/mods/mods.h
+index dab94fde3..a10a01715 100644
+--- a/src/pc/mods/mods.h
++++ b/src/pc/mods/mods.h
+@@ -387,6 +387,8 @@ int Mods_RuntimeOption(int mod, int option);
+  * pack, whose parts may follow the setting, is loaded again. */
+ void Mods_OptionChanged(int mod, int option);
+ unsigned Mods_CodeHash(int mod);
++/* Read-only residency, including a mapped library whose init failed. */
++int Mods_CodeResident(int mod);
+ /* Internal read-only guard qualification: bytes loaded and exact callback. */
+ int Mods_CodeMatches(int mod,unsigned code,const char *sha256);
+ int Mods_CallbackMatches(int mod,const void *callback,const char *name,size_t size);
+diff --git a/src/pc/mods/state_policy.h b/src/pc/mods/state_policy.h
+new file mode 100644
+index 000000000..1db8e5968
+--- /dev/null
++++ b/src/pc/mods/state_policy.h
+@@ -0,0 +1,21 @@
++#ifndef MEMORIES_EXPERIMENTAL_HAL26_STATE_POLICY_H
++#define MEMORIES_EXPERIMENTAL_HAL26_STATE_POLICY_H
++#include <string.h>
++/* HAL26 candidate only. Refusal is independent of the hook-order opt-in.
++ * Resident libraries can retain effect state after OFF; resetting them is
++ * not proof of complete restoration. These IDs mark missing coverage, never
++ * qualify a library or grant permission to load a state. */
++static int Hal26_StateLoadIncomplete(const char *id, int active, int resident)
++{
++    static const char *const owners[] = {
++        "melhoria-dos-rituais", "ritual-card-effects-test", "ritual-duelists",
++        "fusion-auxiliary-balance", "field-effects-secondary-types",
++        "ai-hard-mode", "dual-play", "time-wizard-time-magic"
++    };
++    unsigned i;
++    if (!id || (!active && !resident)) return 0;
++    for (i = 0; i < sizeof(owners) / sizeof(owners[0]); ++i)
++        if (!strcmp(id, owners[i])) return 1;
++    return 0;
++}
++#endif
