@@ -1,0 +1,102 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gBuildDeck_aWorkspace
+NATIVE_BIND Main_RunDuel unit=guard_main
+NATIVE_DATA D_8009B26C size=1
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+MODEL_DATA gDuel_awSavedDefenseModifier
+REAL_HOST_EXPORTS count=335
+LIBRARY_INIT owner=ai-hard-mode hash=3e0648cb loads=1
+REGISTER owner=ai-hard-mode target=AiScript_Init token=1
+REGISTER owner=ai-hard-mode target=AiScript_Run token=2
+REGISTER owner=ai-hard-mode target=Ai_GetHandSize token=3
+REGISTER owner=ai-hard-mode target=func_8001BAF0 token=4
+REGISTER owner=ai-hard-mode target=AiScript_FindStrongest token=5
+REGISTER owner=ai-hard-mode target=AiScript_FindWeakest token=6
+REGISTER owner=ai-hard-mode target=AiScript_FindCard token=7
+REGISTER owner=ai-hard-mode target=AiScript_MatchType token=8
+REGISTER owner=ai-hard-mode target=AiScript_FindDefenseStopper token=9
+memories-pc: mods: ai-hard-mode loaded its code (ai-hard-mode.o)
+LIBRARY_INIT owner=ritual-duelists hash=57b53592 loads=1
+STATE owner=ritual-duelists size=288 version=4
+REGISTER owner=ritual-duelists target=DuelEffect_ApplyRitual token=10
+REGISTER owner=ritual-duelists target=Duel_CheckFusion token=11
+REGISTER owner=ritual-duelists target=Duel_ShuffleDeck token=12
+REGISTER owner=ritual-duelists target=Ai_GetHandSize token=13
+REGISTER owner=ritual-duelists target=func_8001BAF0 token=14
+REGISTER owner=ritual-duelists target=AiScript_Run token=15
+REGISTER owner=ritual-duelists target=NameEntry_BuildStarterDeck token=16
+REGISTER owner=ritual-duelists target=Duel_SelectCardDrop token=17
+memories-pc: mods: ritual-duelists loaded its code (ritual-duelists.o)
+LIBRARY_INIT owner=dual-play hash=3028c68a loads=1
+REGISTER owner=dual-play target=DuelScene_UpdateHandActions token=18
+REGISTER owner=dual-play target=DuelScene_UpdateDrawPhase token=19
+REGISTER owner=dual-play target=DuelScene_UpdateFieldActions token=20
+REGISTER owner=dual-play target=func_80028220 token=21
+REGISTER owner=dual-play target=func_8001BAF0 token=22
+REGISTER owner=dual-play target=Duel_InitScene token=23
+STATE owner=dual-play size=50 version=10
+memories-pc: mods: dual-play loaded its code (dual-play.o)
+REGISTER owner=hal2224-observer target=AiScript_Run token=24
+memories-pc: mods: hal2224-observer loaded its code (observer.o)
+MANAGER id=ai-hard-mode enabled=1 active=1 status=
+MANAGER id=drop-missing-cards enabled=1 active=1 status=
+MANAGER id=dual-play enabled=1 active=1 status=
+MANAGER id=fusion-auxiliary-balance enabled=0 active=0 status=
+MANAGER id=hal2224-observer enabled=1 active=1 status=
+MANAGER id=melhoria-dos-rituais enabled=0 active=0 status=
+MANAGER id=ritual-card-effects-test enabled=0 active=0 status=
+MANAGER id=ritual-duelists enabled=1 active=1 status=
+LIFECYCLE method=none H-want=1 H-active=1 D-want=1 D-active=1 H-restart=0 RD-want=1 RD-active=1
+RULES provider=0 abi=0 count=0 sources=0 min_field=0 min_hand=0 require=0
+CHAIN phase=initial target=func_8001BAF0 dual-play -> ritual-duelists -> ai-hard-mode -> engine
+CHAIN phase=initial target=DuelScene_UpdateHandActions dual-play -> engine
+CHAIN phase=initial target=AiScript_Run hal2224-observer -> ritual-duelists -> ai-hard-mode -> engine
+CHAIN phase=initial target=func_80028220 dual-play -> engine
+CHAIN phase=initial target=Duel_CheckRitual engine
+CHAIN phase=initial target=DuelEffect_ApplyRitual ritual-duelists -> engine
+CHAIN phase=initial target=Duel_PopulateCombinedDeckData engine
+CRITICAL index=3 owner=ai-hard-mode target=func_8001BAF0 code=3e0648cb phase=initial
+CRITICAL index=13 owner=ritual-duelists target=func_8001BAF0 code=57b53592 phase=initial
+CRITICAL index=17 owner=dual-play target=DuelScene_UpdateHandActions code=3028c68a phase=initial
+CRITICAL index=21 owner=dual-play target=func_8001BAF0 code=3028c68a phase=initial
+TRACE case=init owner=engine name=Main_RunDuel
+TRACE case=init owner=engine name=Mods_Hal2224GuardReady
+ADMISSION before-controller enabled=1 ready=1 entered=1 notices=0 reason=none
+RESULT native-duel-entry-fence PASS Actual experimental Main_RunDuel returns before initialization/controller for unverified composition.
+TRACE case=init owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=init owner=engine name=Duel_InitScene
+CASE save-reset-load-new-duel
+STATE_CHUNK owner=dual-play size=50 version=10
+STATE_CHUNK owner=ritual-duelists size=288 version=4
+RESULT save-load-registered-blocks-only PASS Actual VisitState/SAVE/LOAD/reset; registered buffers only, no serializing unregistered BSS.
+TRACE case=save-reset-load-new-duel owner=dual-play kind=hook name=Duel_InitScene
+TRACE case=save-reset-load-new-duel owner=engine name=Duel_InitScene
+RESULT new-duel-and-reset-no-stale-pending PASS Actual reset/native-init entry, not complete duel/save compatibility.
+CHAIN phase=final target=func_8001BAF0 dual-play -> ritual-duelists -> ai-hard-mode -> engine
+CHAIN phase=final target=DuelScene_UpdateHandActions dual-play -> engine
+CHAIN phase=final target=AiScript_Run hal2224-observer -> ritual-duelists -> ai-hard-mode -> engine
+CHAIN phase=final target=func_80028220 dual-play -> engine
+CHAIN phase=final target=Duel_CheckRitual engine
+CHAIN phase=final target=DuelEffect_ApplyRitual ritual-duelists -> engine
+CHAIN phase=final target=Duel_PopulateCombinedDeckData engine
+CRITICAL index=3 owner=ai-hard-mode target=func_8001BAF0 code=3e0648cb phase=final
+CRITICAL index=13 owner=ritual-duelists target=func_8001BAF0 code=57b53592 phase=final
+CRITICAL index=17 owner=dual-play target=DuelScene_UpdateHandActions code=3028c68a phase=final
+CRITICAL index=21 owner=dual-play target=func_8001BAF0 code=3028c68a phase=final
+CALLBACK_COUNT owner=dual-play target=Duel_InitScene calls=1 phase=final
+SUMMARY assertions=6117 failures=0 no pending/plan/quota injection

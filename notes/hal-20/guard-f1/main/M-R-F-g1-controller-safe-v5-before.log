@@ -1,0 +1,270 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+MODEL_DATA gBuildDeck_aWorkspace
+NATIVE_BIND Main_RunDuel unit=guard_main
+NATIVE_DATA D_8009B26C size=1
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+MODEL_DATA gDuel_awSavedDefenseModifier
+REAL_HOST_EXPORTS count=335
+LIBRARY_INIT owner=melhoria-dos-rituais hash=1fe34a1e loads=1
+REGISTER owner=melhoria-dos-rituais target=Duel_CheckRitual token=1
+REGISTER owner=melhoria-dos-rituais target=Duel_RitualFieldObjects token=2
+REGISTER owner=melhoria-dos-rituais target=DuelCard_DeactivateRecord token=3
+REGISTER owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions token=4
+REGISTER owner=melhoria-dos-rituais target=Duel_PopulateCombinedDeckData token=5
+REGISTER owner=melhoria-dos-rituais target=Duel_CheckQuitInput token=6
+REGISTER owner=melhoria-dos-rituais target=DuelScene_UpdateWithSideInput token=7
+memories-pc: mods: melhoria-dos-rituais loaded its code (rituals.o)
+LIBRARY_INIT owner=ritual-card-effects-test hash=52ce4829 loads=1
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER owner=ritual-card-effects-test target=Input_UpdatePads token=8
+REGISTER owner=ritual-card-effects-test target=Main_RunDuel token=9
+REGISTER owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=10
+REGISTER owner=ritual-card-effects-test target=func_800559D4 token=11
+REGISTER owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=12
+REGISTER owner=ritual-card-effects-test target=func_80017F04 token=13
+REGISTER owner=ritual-card-effects-test target=AiScript_Run token=14
+REGISTER owner=ritual-card-effects-test target=AiScript_FindWeakest token=15
+REGISTER owner=ritual-card-effects-test target=Ai_IsCardInSets token=16
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=17
+REGISTER owner=ritual-card-effects-test target=func_80037DA4 token=18
+REGISTER owner=ritual-card-effects-test target=func_80035E20 token=19
+REGISTER owner=ritual-card-effects-test target=func_80027508 token=20
+REGISTER owner=ritual-card-effects-test target=func_80024D34 token=21
+REGISTER owner=ritual-card-effects-test target=DuelScene_Update token=22
+REGISTER owner=ritual-card-effects-test target=func_80023144 token=23
+REGISTER owner=ritual-card-effects-test target=Duel_DrawFieldCards token=24
+REGISTER owner=ritual-card-effects-test target=func_80016784 token=25
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=26
+REGISTER owner=ritual-card-effects-test target=Duel_CalcCardStats token=27
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=28
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=29
+REGISTER owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=30
+REGISTER owner=ritual-card-effects-test target=func_8001EFD4 token=31
+REGISTER owner=ritual-card-effects-test target=func_8001B170 token=32
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=33
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=34
+REGISTER owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=35
+REGISTER owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=36
+REGISTER owner=ritual-card-effects-test target=Duel_ResetCardRecords token=37
+REGISTER owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=38
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=39
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=40
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=41
+REGISTER owner=ritual-card-effects-test target=func_8001BAF0 token=42
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=43
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=44
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=45
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=46
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=47
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=48
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=49
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=50
+REGISTER owner=ritual-card-effects-test target=Duel_CheckFusion token=51
+REGISTER owner=ritual-card-effects-test target=Duel_CheckRitual token=52
+REGISTER owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=53
+REGISTER owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=54
+REGISTER owner=ritual-card-effects-test target=AiScript_FindKiller token=55
+REGISTER owner=ritual-card-effects-test target=AiScript_CalcCardPower token=56
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=57
+memories-pc: mods: ritual-card-effects-test loaded its code (ritual-card-effects.o)
+memories-pc: mod ritual-card-effects-test: warning: this build has no audio replacement
+LIBRARY_INIT owner=fusion-auxiliary-balance hash=afb75202 loads=1
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindBestAttack token=58
+REGISTER owner=fusion-auxiliary-balance target=AiScript_PlayFieldCard token=59
+REGISTER owner=fusion-auxiliary-balance target=AiScript_LoadGuardianStarChoice token=60
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindKiller token=61
+REGISTER owner=fusion-auxiliary-balance target=AiScript_CalcCardPower token=62
+REGISTER owner=fusion-auxiliary-balance target=Duel_CheckFusion token=63
+REGISTER owner=fusion-auxiliary-balance target=func_80023144 token=64
+REGISTER owner=fusion-auxiliary-balance target=func_80035E20 token=65
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_AppendEntry token=66
+REGISTER owner=fusion-auxiliary-balance target=Duel_CheckEquip token=67
+REGISTER owner=fusion-auxiliary-balance target=Ai_CompleteFusion token=68
+REGISTER owner=fusion-auxiliary-balance target=Duel_CalcCardStats token=69
+REGISTER owner=fusion-auxiliary-balance target=func_8001EFD4 token=70
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyLifePointRecovery token=71
+REGISTER owner=fusion-auxiliary-balance target=DuelCard_RemoveFromField token=72
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyBoardDestruction token=73
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyRaigeki token=74
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyMonsterRemoval token=75
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateBattle token=76
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateTurnSwitch token=77
+REGISTER owner=fusion-auxiliary-balance target=DuelCard_UpdateDefenseRotation token=78
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateResume token=79
+REGISTER owner=fusion-auxiliary-balance target=func_80024D34 token=80
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_Update token=81
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions token=82
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateCardPlacement token=83
+REGISTER owner=fusion-auxiliary-balance target=func_8001B170 token=84
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_UpdateCardEffect token=85
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateFieldActions token=86
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_UpdateRequests token=87
+REGISTER owner=fusion-auxiliary-balance target=Duel_GetBaseCardStat token=88
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindBestCombo token=89
+REGISTER owner=fusion-auxiliary-balance target=AiScript_EvaluateFusion token=90
+memories-pc: mods: fusion-auxiliary-balance loaded its code (fusion-auxiliary-balance.o)
+REGISTER owner=hal2224-observer target=AiScript_Run token=91
+memories-pc: mods: hal2224-observer loaded its code (observer.o)
+MANAGER id=ai-hard-mode enabled=0 active=0 status=
+MANAGER id=drop-missing-cards enabled=1 active=1 status=
+MANAGER id=dual-play enabled=0 active=0 status=
+MANAGER id=fusion-auxiliary-balance enabled=1 active=1 status=
+MANAGER id=hal2224-observer enabled=1 active=1 status=
+MANAGER id=melhoria-dos-rituais enabled=1 active=1 status=
+MANAGER id=ritual-card-effects-test enabled=1 active=1 status=this build has no audio replacement
+MANAGER id=ritual-duelists enabled=0 active=0 status=
+LIFECYCLE method=none H-want=0 H-active=0 D-want=0 D-active=0 H-restart=0 RD-want=0 RD-active=0
+RULES provider=1 abi=1 count=3 sources=3 min_field=1 min_hand=0 require=0
+RESULT actual-optional-rules-provider PASS Existing PR9 provider; no synthetic provider, rules or tribute selection injected.
+CHAIN phase=initial target=func_8001BAF0 ritual-card-effects-test -> engine
+CHAIN phase=initial target=DuelScene_UpdateHandActions fusion-auxiliary-balance -> ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CHAIN phase=initial target=AiScript_Run hal2224-observer -> ritual-card-effects-test -> engine
+CHAIN phase=initial target=func_80028220 engine
+CHAIN phase=initial target=Duel_CheckRitual ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CHAIN phase=initial target=DuelEffect_ApplyRitual ritual-card-effects-test -> engine
+CHAIN phase=initial target=Duel_PopulateCombinedDeckData ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CRITICAL index=3 owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions code=1fe34a1e phase=initial
+FIRST_UNQUALIFIED owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions phase=initial
+CRITICAL index=40 owner=ritual-card-effects-test target=DuelScene_UpdateHandActions code=52ce4829 phase=initial
+CRITICAL index=41 owner=ritual-card-effects-test target=func_8001BAF0 code=52ce4829 phase=initial
+CRITICAL index=81 owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions code=afb75202 phase=initial
+TRACE case=init owner=ritual-card-effects-test kind=hook name=Main_RunDuel
+TRACE case=init owner=engine name=Main_RunDuel
+TRACE case=init owner=engine name=Mods_Hal2224GuardReady
+ADMISSION before-controller enabled=1 ready=1 entered=1 notices=0 reason=none
+RESULT native-duel-entry-fence PASS Actual experimental Main_RunDuel returns before initialization/controller for unverified composition.
+TRACE case=init owner=engine name=Duel_InitScene
+CASE real-controller-first-action
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_FindFreeGeneralSlot
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_AcquireSlot
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_ConfigureSpriteResource
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_SelectOrderingTable1
+TRACE case=real-controller-first-action owner=engine name=DisplayObject_SetDepthOffset
+TRACE case=real-controller-first-action owner=engine name=func_8001B780
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=func_80023144
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=func_80023144
+TRACE case=real-controller-first-action owner=engine name=func_80023144
+STEP frame=0 phase=4 substate=0 selection=0
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=func_80028220
+TRACE case=real-controller-first-action owner=engine name=func_80027DF8
+TRACE case=real-controller-first-action owner=engine name=func_80027DF8
+TRACE case=real-controller-first-action owner=engine name=AiScript_Init
+TRACE case=real-controller-first-action owner=engine name=bzero
+TRACE case=real-controller-first-action owner=engine name=bzero
+TRACE case=real-controller-first-action owner=engine name=bzero
+TRACE case=real-controller-first-action owner=engine name=Ai_GetHandSize
+TRACE case=real-controller-first-action owner=engine name=Duelists_AiRow
+SNAPSHOT bonus=0 used=0 window=8 ids=535,99,344,111,112,680,571,99
+STEP frame=1 phase=4 substate=32768 selection=0
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=hal2224-observer kind=hook name=AiScript_Run
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=AiScript_Run
+TRACE case=real-controller-first-action owner=engine name=AiScript_Run
+MODEL_VM_COMPLETION status=1; no plan/selection/pending/quota written
+TRACE case=real-controller-first-action owner=engine name=HAL2224_AfterPlanner
+PENDING after-real-planners active=0 side=0 source=0 replacement=0 card=0 mode=0 target=0 fallback=0 selection=0
+PLAN pending=0 selection=0 id=0 type=0 bonus=0 used=0
+GATE_INPUT owner=ritual-card-effects-test selection=0 card=0 category=0
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=func_8001BAF0
+TRACE case=real-controller-first-action owner=engine name=func_8001BAF0
+STEP frame=2 phase=4 substate=1 selection=0
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=func_8001B8B8
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=MonsterEffects_PlayFaceUp
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=func_8001B938
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=func_80024088
+TRACE case=real-controller-first-action owner=engine name=SD_SEPlayFull
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+TRACE case=real-controller-first-action owner=engine name=DuelScene_UpdateHandActions
+STEP frame=8 phase=7 substate=49155 selection=0
+LEDGER after-first Dual not initialized
+ACTION_INSTANCE first record=15 id=535 deck_index=40 data_block=40 pointer_matches=1
+ACTION first id=535 category=1 phase=7 hand=4 staged=0 pending_after=0 gate=0 rd=0 ai=0 exchanges=0 path=ritual-card-effects-test>engine>
+RESULT first-controller-consumes-one PASS Native hand controller consumed a single existing physical instance.
+RESULT first-instance-conservation PASS At most one offscreen exchange; unique deck record identities conserved.
+RESULT unselected-deck-records-intact PASS Only two actual exchanged records differ; nonselected material/deck records unchanged.
+RESULT first-pending-consumed PASS No forced AI toggle between planner and swap in HAL24.
+NOT_RUN Dual-OFF positive planner control; no quota authority active
+CHAIN phase=final target=func_8001BAF0 ritual-card-effects-test -> engine
+CHAIN phase=final target=DuelScene_UpdateHandActions fusion-auxiliary-balance -> ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CHAIN phase=final target=AiScript_Run hal2224-observer -> ritual-card-effects-test -> engine
+CHAIN phase=final target=func_80028220 engine
+CHAIN phase=final target=Duel_CheckRitual ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CHAIN phase=final target=DuelEffect_ApplyRitual ritual-card-effects-test -> engine
+CHAIN phase=final target=Duel_PopulateCombinedDeckData ritual-card-effects-test -> melhoria-dos-rituais -> engine
+CRITICAL index=3 owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions code=1fe34a1e phase=final
+FIRST_UNQUALIFIED owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions phase=final
+CRITICAL index=40 owner=ritual-card-effects-test target=DuelScene_UpdateHandActions code=52ce4829 phase=final
+CRITICAL index=41 owner=ritual-card-effects-test target=func_8001BAF0 code=52ce4829 phase=final
+CRITICAL index=81 owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions code=afb75202 phase=final
+CALLBACK_COUNT owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions calls=9 phase=final
+CALLBACK_COUNT owner=ritual-card-effects-test target=AiScript_Run calls=1 phase=final
+CALLBACK_COUNT owner=ritual-card-effects-test target=func_80023144 calls=1 phase=final
+CALLBACK_COUNT owner=ritual-card-effects-test target=DuelScene_UpdateHandActions calls=9 phase=final
+CALLBACK_COUNT owner=ritual-card-effects-test target=func_8001BAF0 calls=1 phase=final
+CALLBACK_COUNT owner=fusion-auxiliary-balance target=func_80023144 calls=1 phase=final
+CALLBACK_COUNT owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions calls=9 phase=final
+CALLBACK_COUNT owner=hal2224-observer target=AiScript_Run calls=1 phase=final
+HAL23 boundary=after-complete-controller pending=0; no manager call from planner/observer
+LIBRARY_INIT owner=ai-hard-mode hash=3e0648cb loads=1
+REGISTER owner=ai-hard-mode target=AiScript_Init token=92
+REGISTER owner=ai-hard-mode target=AiScript_Run token=93
+REGISTER owner=ai-hard-mode target=Ai_GetHandSize token=94
+REGISTER owner=ai-hard-mode target=func_8001BAF0 token=95
+REGISTER owner=ai-hard-mode target=AiScript_FindStrongest token=96
+REGISTER owner=ai-hard-mode target=AiScript_FindWeakest token=97
+REGISTER owner=ai-hard-mode target=AiScript_FindCard token=98
+REGISTER owner=ai-hard-mode target=AiScript_MatchType token=99
+REGISTER owner=ai-hard-mode target=AiScript_FindDefenseStopper token=100
+memories-pc: mods: ai-hard-mode loaded its code (ai-hard-mode.o)
+LIFECYCLE between-controller-calls oldH=0 wantH=1 actualH=1 ready=1 pending=0 reason=none
+RESULT HAL23-no-pending-created-by-manager-change PASS Preference/activation request strictly after controller returns; no pending injected/cleared to pass.
+SUMMARY assertions=6410 failures=0 no pending/plan/quota injection

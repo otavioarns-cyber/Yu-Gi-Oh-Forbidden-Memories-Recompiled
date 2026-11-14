@@ -1,0 +1,92 @@
+{
+  "command": "python tools/pc/build.py --target windows --release --build <local>/win32",
+  "exit_code": 0,
+  "gameplay_executed": false,
+  "source_guard_commit": "936c3513c9e6f8131b1eb4a5410d9c21c3c2c592",
+  "executable_sha256": "b250fa14996fc712b1816166891481f5cd8127dae9aaa63b96e2121669a44bda",
+  "PDB_sha256": "4573d972941026b3fc575633c8b2a141a5ef8bae0d9bd5d6974b67217770fefc",
+  "buildid": "7381aaa6",
+  "baseline_link_report": {
+    "game_units": 628,
+    "pinned_data_symbols": 773,
+    "stubbed": {
+      "outside_resident_image": [
+        "Psx_close",
+        "Psx_exit",
+        "Psx_lseek",
+        "Psx_open",
+        "Psx_read",
+        "Psx_write",
+        "func_800158C8",
+        "func_80021EA4",
+        "func_8004EB9C",
+        "func_80065B24",
+        "func_80065BFC",
+        "func_80066574"
+      ],
+      "sdk_asm": [
+        "GsGetTimInfo",
+        "InitCARD",
+        "PCclose",
+        "PClseek",
+        "PCopen",
+        "PCread",
+        "StartCARD",
+        "_bu_init",
+        "_card_clear",
+        "_card_info",
+        "_card_load",
+        "_card_read",
+        "_card_status",
+        "_card_wait",
+        "_card_write",
+        "_new_card",
+        "firstfile",
+        "nextfile"
+      ]
+    }
+  },
+  "experimental_link_report": {
+    "game_units": 628,
+    "pinned_data_symbols": 773,
+    "stubbed": {
+      "outside_resident_image": [
+        "Psx_close",
+        "Psx_exit",
+        "Psx_lseek",
+        "Psx_open",
+        "Psx_read",
+        "Psx_write",
+        "func_800158C8",
+        "func_80021EA4",
+        "func_8004EB9C",
+        "func_80065B24",
+        "func_80065BFC",
+        "func_80066574"
+      ],
+      "sdk_asm": [
+        "GsGetTimInfo",
+        "InitCARD",
+        "PCclose",
+        "PClseek",
+        "PCopen",
+        "PCread",
+        "StartCARD",
+        "_bu_init",
+        "_card_clear",
+        "_card_info",
+        "_card_load",
+        "_card_read",
+        "_card_status",
+        "_card_wait",
+        "_card_write",
+        "_new_card",
+        "firstfile",
+        "nextfile"
+      ]
+    }
+  },
+  "link_reports_identical": true,
+  "build_uses_only_existing_open_dependencies": true,
+  "ROM_used": false
+}
