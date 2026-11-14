@@ -4,7 +4,7 @@
 
 ## Proveniência e escopo preservado
 
-Base única `integration/hal-20-v0.3.1-preview.2`, commit `d649647c159c91d615c07d6960928a37e270b461`, oficial `aceac3782902746f35ddb0148809450933327cb3` / SDK API24. Branch independente [`test/hal-20-integracao-guard-f1`](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-20-integracao-guard-f1), PR em rascunho a registrar. Lidos AGENTS.md e relatórios dos PRs9/10/11/13/14/18/19/20/22. Nenhum desses PRs foi alterado ou mesclado.
+Base única `integration/hal-20-v0.3.1-preview.2`, commit `d649647c159c91d615c07d6960928a37e270b461`, oficial `aceac3782902746f35ddb0148809450933327cb3` / SDK API24. Branch independente [`test/hal-20-integracao-guard-f1`](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-20-integracao-guard-f1), [PR #23 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/23). Lidos AGENTS.md e relatórios dos PRs9/10/11/13/14/18/19/20/22. Nenhum desses PRs foi alterado ou mesclado.
 
 | Componente próprio | PR / commit | Objeto SHA-256 preservado |
 |---|---|---|
@@ -120,4 +120,4 @@ Foi gerado/verificado **somente localmente** um ZIP experimental de23.963.156 by
 
 Para iniciar gameplay real: obter imagem legítima local e ambiente Windows i386, criar dados de teste novos, possuir o Dual API24 qualificado para seus perfis, validar primeiros subconjuntos e mensagens. Para jogar a coleção completa protegida, **antes** será necessário resolver o conflito Queen/RD e qualificar rigorosamente os wrappers M/R/F, com autorização específica para eventuais correções. Logs Windows atuais não fornecem a mesma contagem de cada callback da fixture; essa observabilidade também deve ser planejada sem registrar wrappers críticos novos.
 
-**Decisão desta entrega:** manter a coleção em diagnóstico; F1 preservada, guard inalterado, novo bloqueio próprio documentado. Sem alteração em master/integração/PRs anteriores, sem merge, release ou declaração de gameplay aprovado. Índice de publicação e heads preservadas serão registrados na pasta de resultados.
+**Decisão desta entrega:** manter a coleção em diagnóstico; F1 preservada, guard inalterado, novo bloqueio próprio documentado. Sem alteração em master/integração/PRs anteriores, sem merge, release ou declaração de gameplay aprovado. [Índice de publicação](hal-20/guard-f1/PUBLICACAO.json) e [27 heads anteriores preservadas](hal-20/guard-f1/REFS_PRESERVADAS.json). Push normal, sem force; PR23 permanece em rascunho.

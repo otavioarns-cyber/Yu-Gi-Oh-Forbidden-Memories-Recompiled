@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "AGENTS.md",
-      "bytes": 5547,
-      "sha256": "b41931a897cf8d3e0d32f4115e4bd71993f1d736af101b9d29d56ad6bac70877"
+      "bytes": 5625,
+      "sha256": "ede6d35a53c08185c7035f3e549ab3439ce3b7c7179897ea80f236dd8e59df04"
     },
     {
       "path": "mods/fusion-auxiliary-balance/AUDITORIA-RECEITAS-RODADA2.md",
@@ -2354,8 +2354,8 @@
     },
     {
       "path": "notes/HAL20_INTEGRACAO_GUARD_F1.md",
-      "bytes": 19266,
-      "sha256": "61ef73707cb07d41762665148d1171e9e694ab3f3b8fe1883e98234397c28562"
+      "bytes": 19444,
+      "sha256": "5c11317b353ff4fd5ad938ca37bcd31df3062684f2b8c8655018297340fd682d"
     },
     {
       "path": "notes/hal-20/guard-f1/FUSION_REGRESSION.json",
@@ -2379,8 +2379,8 @@
     },
     {
       "path": "notes/hal-20/guard-f1/REFS_PRESERVADAS.json",
-      "bytes": 3562,
-      "sha256": "f6156e5b3f4b45b8c733a45415eaa385ec68214ce05804c4b65f43049107e4e2"
+      "bytes": 3720,
+      "sha256": "015d41f87c009a733c38a0f1e5725198820bbd8d34b0d59a473ebff06f7f1e17"
     },
     {
       "path": "notes/hal-20/guard-f1/SUMMARY.json",
@@ -2877,5 +2877,6 @@
   "own_packages_unchanged": true,
   "guard_exactly_PR20": true,
   "private_Dual_or_TimeWizard_published": false,
-  "local_Windows_zip_published": false
+  "local_Windows_zip_published": false,
+  "draft_PR": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/23"
 }

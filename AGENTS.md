@@ -12,7 +12,7 @@ Em 11/11/2026, o usuário pediu que as informações das entregas e mudanças se
 
 ## Ponto de partida atual
 
-- Integração experimental atual: [HAL20 guard+F1](notes/HAL20_INTEGRACAO_GUARD_F1.md), branch `test/hal-20-integracao-guard-f1`, PR em rascunho a registrar. Base oficial preservada; pacotes9/11/13/22 e cinco fontes do guard20 exatos. Nenhuma alteração nova de mecânica ou whitelist.
+- Integração experimental atual: [HAL20 guard+F1](notes/HAL20_INTEGRACAO_GUARD_F1.md), branch `test/hal-20-integracao-guard-f1`, [PR #23 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/23). Base oficial preservada; pacotes9/11/13/22 e cinco fontes do guard20 exatos. Nenhuma alteração nova de mecânica ou whitelist.
 - Principal:280 processos,2404 PASS/8 FAIL conhecidos com guard OFF,51 recusas guard ON. Queen adicional:20 processos,152 PASS/8 FAIL/6 recusas. A composição completa é recusada: primeiro Melhoria no controller da mão, também Ritual e Fusion não qualificados. Não liberar pelo nome.
 - Novo bloqueio: RD × Queen Lock, inclusive sem AI/Dual; materialização própria contorna a seleção Female ou fallback restaura outra carta. Reproduzido com objetos/planner/controller reais e tabuleiro parcial sintético; Windows não comprovado. Não corrigir automaticamente nem confundir com F1/HAL23.
 - F1 PR22 segue corrigida nos52 perfis de providers admitidos. Build/empacotamento Windows local passou sem Dual/ROM/saves, mas não há gameplay Windows. Roteiro em tests/hal20-guard-f1/WINDOWS.md; coleção completa não pronta para promoção. Preservar PRs anteriores e manter guard opt-in experimental.
