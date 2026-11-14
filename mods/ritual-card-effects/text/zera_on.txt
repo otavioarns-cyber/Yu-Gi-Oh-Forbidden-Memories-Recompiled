@@ -1,0 +1,10 @@
+@bank descriptions
+
+[D268]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+On Ritual Summon,
+changes Field to
+Yami. While it
+stays on the field,
+all non-{f8 0B 07} monsters
+lose {f8 0A 06}1500{f8 0A 00} ATK/DEF.

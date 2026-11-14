@@ -1,0 +1,32 @@
+[
+  {
+    "scenario": "Windows duel gameplay and controller/UI reachability",
+    "status": "BLOCKED",
+    "reason": "Manual Windows gameplay deferred by explicit user instruction to the final project phase; no intermediate request."
+  },
+  {
+    "scenario": "Real Windows cancellation/menus/restart recovery",
+    "status": "BLOCKED",
+    "reason": "Manual Windows gameplay deferred by explicit user instruction to the final project phase; no intermediate request."
+  },
+  {
+    "scenario": "Windows graphics/audio/animations",
+    "status": "BLOCKED",
+    "reason": "Manual Windows gameplay deferred by explicit user instruction to the final project phase; no intermediate request."
+  },
+  {
+    "scenario": "Real game save/load and old savestate qualification",
+    "status": "BLOCKED",
+    "reason": "Manual Windows gameplay deferred by explicit user instruction to the final project phase; no intermediate request."
+  },
+  {
+    "scenario": "Full retail VM/catalogue/duel turn flow",
+    "status": "BLOCKED",
+    "reason": "Manual Windows gameplay deferred by explicit user instruction to the final project phase; no intermediate request."
+  },
+  {
+    "scenario": "Native two-human controllers and full ecosystem qualification",
+    "status": "BLOCKED",
+    "reason": "Manual Windows gameplay deferred by explicit user instruction to the final project phase; no intermediate request."
+  }
+]

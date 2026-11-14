@@ -1,0 +1,22 @@
+[
+  {
+    "path": "other-restrictions/build-harness.log",
+    "bytes": 11461,
+    "sha256": "ceebb84a2f71e481b5a17410c3a85f7573225862bb9db72cb9a8468dc06d55a4"
+  },
+  {
+    "path": "other-restrictions/build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "other-restrictions/real-bridge0-h1-d1-rd1-after-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9945,
+    "sha256": "1685bdd3605ca6a2f4dd551c3d9ebb69032bb8a8cc6ebe21421babc0206ea797"
+  },
+  {
+    "path": "other-restrictions/real-bridge0-h1-d1-rd1-before-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 9945,
+    "sha256": "d4a5ac4eb35034b921a980309699d62f4b7fe4186d897f40d2c0830f683ff489"
+  }
+]

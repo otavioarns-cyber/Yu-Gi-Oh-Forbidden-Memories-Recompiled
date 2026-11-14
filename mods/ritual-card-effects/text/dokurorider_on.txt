@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D3CF]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Other {f8 0B 02} monsters
+get {f8 0A 03}+1200{f8 0A 00} ATK.
+Evades attacks from
+Level 6+ monsters
+that would win/tie.

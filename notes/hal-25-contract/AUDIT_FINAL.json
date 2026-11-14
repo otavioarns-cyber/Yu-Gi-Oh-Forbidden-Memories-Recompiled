@@ -1,0 +1,38 @@
+[
+  {
+    "component": "R",
+    "status": "PASS",
+    "changed": [
+      "README-PREVIEW2.md",
+      "SDK-PROVENANCE.json",
+      "mod.c",
+      "ritual-card-effects.o"
+    ],
+    "added": [
+      "hand_selection_snapshot.h",
+      "mandatory_hand_provider.h",
+      "mandatory_hand_selection_v1.h"
+    ],
+    "other_original_files_unchanged": 195
+  },
+  {
+    "component": "RD",
+    "status": "PASS",
+    "changed": [
+      "README-PREVIEW2.md",
+      "SDK-PROVENANCE.json",
+      "mod.c",
+      "ritual-duelists.o"
+    ],
+    "added": [
+      "hand_selection_snapshot.h",
+      "mandatory_hand_consumer.h",
+      "mandatory_hand_selection_v1.h"
+    ],
+    "other_original_files_unchanged": 150
+  },
+  {
+    "check": "core-other-official-mods-unchanged-shared-headers-and-no-private-bridge",
+    "status": "PASS"
+  }
+]

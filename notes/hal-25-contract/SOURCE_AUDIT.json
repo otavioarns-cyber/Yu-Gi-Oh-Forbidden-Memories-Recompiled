@@ -1,0 +1,50 @@
+[
+  {
+    "component": "R",
+    "status": "PASS",
+    "changed": [
+      "README-PREVIEW2.md",
+      "SDK-PROVENANCE.json",
+      "mod.c",
+      "ritual-card-effects.o"
+    ],
+    "added": [
+      "hand_selection_snapshot.h",
+      "mandatory_hand_provider.h",
+      "mandatory_hand_selection_v1.h"
+    ],
+    "unchanged": 195,
+    "assets_unchanged": true,
+    "manifest_unchanged": true,
+    "production_changed": [
+      "mod.c",
+      "hand_selection_snapshot.h",
+      "mandatory_hand_provider.h",
+      "mandatory_hand_selection_v1.h"
+    ]
+  },
+  {
+    "component": "RD",
+    "status": "PASS",
+    "changed": [
+      "README-PREVIEW2.md",
+      "SDK-PROVENANCE.json",
+      "mod.c",
+      "ritual-duelists.o"
+    ],
+    "added": [
+      "hand_selection_snapshot.h",
+      "mandatory_hand_selection_v1.h",
+      "mandatory_hand_consumer.h"
+    ],
+    "unchanged": 150,
+    "assets_unchanged": true,
+    "manifest_unchanged": true,
+    "production_changed": [
+      "mod.c",
+      "hand_selection_snapshot.h",
+      "mandatory_hand_consumer.h",
+      "mandatory_hand_selection_v1.h"
+    ]
+  }
+]

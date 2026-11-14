@@ -1,0 +1,20 @@
+{
+  "sdk": "yfm-redecomp-v0.3.1-preview.1",
+  "engine_commit": "10ee7e5ecf",
+  "targets": [
+    "i386",
+    "x86_64-windows"
+  ],
+  "build_date": "2026-11-05",
+  "game_runtime_tested": false,
+  "compilers": {
+    "i386": "SDK tools/build_mod.py --target i386",
+    "x86_64-windows": "SDK tools/build_mod.py --target x86_64-windows"
+  },
+  "objects": {
+    "ritual-card-effects.o": "c501c5c5fe5406a2606651f8df9f5ba98f895242e10c50f116778c9ecc3361e6",
+    "ritual-card-effects.x86_64-windows.o": "b07075974d99a815c1cd4ae33916ca972c9f92021196f654aff0a4fa2365cc56"
+  },
+  "unit_runtime_tested": true,
+  "validation_note": "v0.78.73: SDK compilou 32/64 bits Windows; descricao Psycho-Puppet mais curta e regressao de controle reconstruido. In-game Windows nao testado."
+}

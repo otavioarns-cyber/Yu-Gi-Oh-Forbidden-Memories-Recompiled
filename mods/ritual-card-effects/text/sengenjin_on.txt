@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D3BF]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Immune to Traps.
+In battle, ignores
+positive ATK/DEF
+mods on the foe.
+Negative mods stay.
