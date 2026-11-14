@@ -192,3 +192,7 @@ O controle próprio foi compilado em PE32/i386 e verifica ponteiro4 bytes e cabe
 Revisar B como prevenção na candidata e manter load recusado nos perfis incompletos, sem promover a política automaticamente. Para A, fechar os esquemas de efeitos/pools e o preflight de arquivo/lifecycle antes de permitir qualquer overwrite. Para Time Wizard, recuperar/qualificar o núcleo exato, resolver os dois contratos identificados e então exercitar controller/quotas/Queen/transformações/render com os atuais providers, em composição privada e por hashes.
 
 DLC/Sanctuary seguem fora do escopo como recursos futuros. Droplist1.4.0 externo permanece separado/ausente; viewer interno RD continua removido. Adapter AI0.1.1 externo e outros opcionais continuam não qualificados. A coleção atual está preservada e sua prevenção de perda de estado ficou mais forte; persistência completa e integração Time Wizard ainda não estão autorizadas como versão final.
+
+## Publicação
+
+Implementação/testes/relatório no commit `28e5f6cdce23b62ce27649d9eb6c3e6bcbd5ec9d`; [recibo](hal-26/PUBLICATION.json) confirma os34 heads remotos anteriores preservados. Push sem force, PR30 em rascunho direcionado à integração; sem merge/release. Commit documental posterior registra esta conferência.
