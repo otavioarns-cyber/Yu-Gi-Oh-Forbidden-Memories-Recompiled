@@ -1,0 +1,37 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 3040,
+    "sha256": "debd41885384ed05c0d63f0506256504a82abb38327f6f83c1bef9ac26c5938c"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 77717,
+    "sha256": "798b53733f7f32191e68e64fb0fc24d29ae4e04af4debe3f97e5c5d51bf6c162"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11469,
+    "sha256": "d849ab3daadd2b316272914bbdf6d479ea417be62ba9f954e5770ba79010536f"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-on-c0-hardening-m13-x0.log",
+    "bytes": 41930,
+    "sha256": "caedfd2ed0d2e8066fd08d5d7c0e5def618c8c028b131e6126e9acbf193dd1fe"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-on-c0-hardening-m13-x0.log",
+    "bytes": 41931,
+    "sha256": "338dfde1cb67be31025fcc5b41e70fc7e4fbce743c872e24964b08b12b5f2cac"
+  }
+]

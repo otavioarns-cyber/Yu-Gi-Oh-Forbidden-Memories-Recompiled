@@ -1,0 +1,37 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 3494,
+    "sha256": "2e5f113e128503cd90d322f4c63504f4799459f65c2c194f2b3486a9d22b87d4"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 77550,
+    "sha256": "4a49a3000764300f70054a665b60c77d88dad8818c2cd23a1f14cfe993fee957"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11469,
+    "sha256": "d849ab3daadd2b316272914bbdf6d479ea417be62ba9f954e5770ba79010536f"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-after-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 20548,
+    "sha256": "1490569a09aaed69af41245d7e885e00b3059f95982e56f1d5496cdbd8918727"
+  },
+  {
+    "path": "real-bridge0-h1-d1-rd1-before-on-c5-other-restrictions-m0-x0.log",
+    "bytes": 20548,
+    "sha256": "b802e5e85eaad5aeed462d4100f0cee5cee70af8083b09270638f739fc591348"
+  }
+]

@@ -1,0 +1,10 @@
+@bank descriptions
+
+[D3CC]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+5 bonus attacks after
+battle kills. Gains
+{f8 0A 03}+200{f8 0A 00} ATK per kill
+when attacking; the
+bonus lasts through
+the 6th battle only.

@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B5]
+1 Mask monster + 1
+{f8 0B 07} + 1
+{f8 0B 01}.

@@ -1,0 +1,67 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 6584,
+    "sha256": "0bc4ac64c860087bac002982c2e117f945f501bf64079983c3ff89269dd6730d"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 79884,
+    "sha256": "55698f5eaed36478149561834d3b3143a15c81c55a8be73a119ac3f10f17e810"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11469,
+    "sha256": "d849ab3daadd2b316272914bbdf6d479ea417be62ba9f954e5770ba79010536f"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-after-on-c4-hardening-m22-x0.log",
+    "bytes": 44318,
+    "sha256": "21cb35c9e906678306b841efb64440b2b54cae39c6a493f5eaf48e68e7b66fde"
+  },
+  {
+    "path": "hardening-bridge0-h0-d0-rd1-before-on-c4-hardening-m22-x0.log",
+    "bytes": 44319,
+    "sha256": "9d6275dc74543ef32f8f287b71239bc5fb86d9d30b2fbbb32d1df2bb4a5049d7"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-after-on-c4-hardening-m22-x0.log",
+    "bytes": 51634,
+    "sha256": "36cf9fde521c556d12dae4dcf0bef896889108097e6af2d37dde65d0a5af2b17"
+  },
+  {
+    "path": "hardening-bridge0-h0-d1-rd1-before-on-c4-hardening-m22-x0.log",
+    "bytes": 51635,
+    "sha256": "df86d385e365258a93a8cc9d2d3a5803e2515206f89e195f035d1cf7d1bc5a39"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-after-on-c4-hardening-m22-x0.log",
+    "bytes": 583498,
+    "sha256": "d38ae7ee4fda6f0c4ded05995890f660f83d9dd385c8c960d5f898b1face78fc"
+  },
+  {
+    "path": "hardening-bridge0-h1-d0-rd1-before-on-c4-hardening-m22-x0.log",
+    "bytes": 583498,
+    "sha256": "fc947f8849e3f0a1bcc7c31fc19cdf156fddecec946200680bec8c5a44ac8bf2"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-after-on-c4-hardening-m22-x0.log",
+    "bytes": 590907,
+    "sha256": "6334a45940a12c7fb4604d0f1cb87008358bc3da57ed34a9437bbdd417067b05"
+  },
+  {
+    "path": "hardening-bridge0-h1-d1-rd1-before-on-c4-hardening-m22-x0.log",
+    "bytes": 590907,
+    "sha256": "5af601e835c3dff40189c3f9393ee22b257d3a9141825fb7a771b0fadc31d428"
+  }
+]

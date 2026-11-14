@@ -1,0 +1,27 @@
+[
+  {
+    "path": "RD-real.json",
+    "bytes": 48164,
+    "sha256": "3b19a56393b98ef6c8f8248420393b9d848864f157a16a49d2e02bae6df21863"
+  },
+  {
+    "path": "RD-real.log",
+    "bytes": 1933,
+    "sha256": "9d6c0c183711b1230f341ea838bca04baec270d7dfc3dc52b204ad23af039373"
+  },
+  {
+    "path": "Ritual.json",
+    "bytes": 16569,
+    "sha256": "7476c83158b8ca695e530252e848a11bd0b9fa785a39d8558bb386a5b864f0d8"
+  },
+  {
+    "path": "Ritual.log",
+    "bytes": 6835,
+    "sha256": "bb8e9421e0b9314e3d4d37beeb48c23ef3bed506288a2a8d5f8fcadf6bb1fd29"
+  },
+  {
+    "path": "SUMMARY.json",
+    "bytes": 281,
+    "sha256": "216fa68ce129fee7b89195167985361dc690b9f29b1556d87a458a7f4495893f"
+  }
+]
