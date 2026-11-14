@@ -1,0 +1,33 @@
+[
+  {
+    "package": "ritual-card-effects",
+    "status": "PASS",
+    "changed": [
+      "README-PREVIEW2.md",
+      "SDK-PROVENANCE.json",
+      "ritual-card-effects.o"
+    ],
+    "unchanged": 200,
+    "manifest_settings_assets_tests": "byte-identical to PR26",
+    "public_exports": 2,
+    "imports": 182
+  },
+  {
+    "package": "ritual-duelists",
+    "status": "PASS",
+    "changed": [
+      "README-PREVIEW2.md",
+      "SDK-PROVENANCE.json",
+      "mandatory_hand_consumer.h",
+      "ritual-duelists.o"
+    ],
+    "unchanged": 154,
+    "manifest_settings_assets_tests": "byte-identical to PR26",
+    "public_exports": 44,
+    "imports": 90
+  },
+  {
+    "check": "Frozen ABI1 and companion, original strategy/core/hooks and other official mods unchanged",
+    "status": "PASS"
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "runtime": "Wine 10.0 third-party builds (compatibility layer, not native Windows)",
+  "source_release": "https://github.com/Kron4ek/Wine-Builds/releases/tag/10.0",
+  "checksums_matched_upstream": true,
+  "files": {
+    "wine-10.0-amd64-wow64.tar.xz": {
+      "bytes": 65074156,
+      "sha256": "aeebbbf239e548f0136f1cd72a2e109dd9a572a8f703da3c09fa40d74d5c255f"
+    },
+    "wine-10.0-x86.tar.xz": {
+      "bytes": 33430268,
+      "sha256": "c5be273749f5c513b3edf7ad79d8214be558b80c67c6ca343d2f17fdcc30c2d2"
+    },
+    "wine-sha256sums.txt": {
+      "bytes": 873,
+      "sha256": "34ab1b7b7abb67ff5d0c5121be270ed5fa3655cca82db74f498be309e71aea50"
+    },
+    "xvfb.deb": {
+      "bytes": 3198660,
+      "sha256": "893d87bf159b6de077a929fc796a73c39f837d45310b2076e3eeebebb80552b6"
+    }
+  },
+  "local_only": "No Wine/Xvfb/game executable/SDL/SDK/toolchain/private Dual binary is distributed. Own helper sources/build hashes accompany the receipt.",
+  "alternatives": {
+    "native_wow64_PE32": "Original game and independent PE32 control exited by signal11 before main; driver CreateProcess errors1359/731. PE64 control passed.",
+    "QEMU_i386_Wine32": "Without WINELOADERNOEXEC: could not exec loader; with it: timeout25s, repeated mmap attempts before program entry; explicit guest base attempt timeout30s.",
+    "native_Linux32_loader": "Directly executing the provided ELF32 ld-linux.so.2 is rejected by this host: exit126, Exec format error. QEMU alternative still times out before PE entry."
+  },
+  "game_disc": "Absent from provided workspace. Linux official headless startup exit1 independently reports missing game disc. No copyrighted data fabricated/downloaded."
+}

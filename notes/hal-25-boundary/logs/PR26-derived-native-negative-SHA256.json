@@ -1,0 +1,47 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 5120,
+    "sha256": "25fc5e696b0eb46621ada64c5b5344454779445cb9dee1df1d6c9a19732d29d5"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 93026,
+    "sha256": "7442fa06001d8b654598a78275a145c7a27f87e67d55d5d5db09731b73c967a1"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-after-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 49597,
+    "sha256": "5ea8149d012556144db27a356019d354b423496c2eb9281e9c6a3cabca659b77"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-after-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 108387,
+    "sha256": "46d49412147aa92236f06e2e6e7fdbd98e2f9a96726462f431f98d65c8f3ae4e"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-before-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 49597,
+    "sha256": "5ea8149d012556144db27a356019d354b423496c2eb9281e9c6a3cabca659b77"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-before-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 108387,
+    "sha256": "46d49412147aa92236f06e2e6e7fdbd98e2f9a96726462f431f98d65c8f3ae4e"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11461,
+    "sha256": "f04e634f93e4c6e33d49640f991cec421b42e9e907a9954f2b6633326394e6a8"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

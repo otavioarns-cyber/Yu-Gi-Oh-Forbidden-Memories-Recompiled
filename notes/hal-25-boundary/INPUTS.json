@@ -1,0 +1,1706 @@
+{
+  "base_commit": "d649647c159c91d615c07d6960928a37e270b461",
+  "official_commit": "aceac3782902746f35ddb0148809450933327cb3",
+  "local_dependencies": [
+    {
+      "id": "ai-hard-mode",
+      "path": "ai-hard-mode.o",
+      "bytes": 119672,
+      "sha256": "9171b85bf3f1e99d560c0d4b7820960d1310168036b0437f31bdc4161b41b5bc",
+      "published": false,
+      "provenance": "Official base PR #8"
+    },
+    {
+      "id": "ai-hard-mode",
+      "path": "mod.json",
+      "bytes": 4102,
+      "sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "published": false,
+      "provenance": "Official base PR #8"
+    },
+    {
+      "id": "dual-play",
+      "path": "dual-play.o",
+      "bytes": 68196,
+      "sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+      "published": false,
+      "provenance": "Private API 24 i386 rebuild identified in PR #10; no redistribution permission"
+    },
+    {
+      "id": "dual-play",
+      "path": "mod.json",
+      "bytes": 341,
+      "sha256": "c3244ab680764a0d930c12929c5adf8ae3128e4d6b981f5e06ff3eb624839563",
+      "published": false,
+      "provenance": "Private API 24 i386 rebuild identified in PR #10; no redistribution permission"
+    },
+    {
+      "id": "melhoria-dos-rituais",
+      "path": "rituals.o",
+      "bytes": 89024,
+      "sha256": "c36d033fb1dd2e9cbe38aec85409cc4f7bb849e9fdb350d1f1f737d4a8d9efc0",
+      "published": false,
+      "provenance": "Unchanged PR9 own module, optional real rules provider for Field/Hand/Both fixture layouts"
+    },
+    {
+      "id": "melhoria-dos-rituais",
+      "path": "mod.json",
+      "bytes": 2031,
+      "sha256": "9971f476b1bc44ff5f368194c6e5dcaf1fd05275fe0eb53f04c9d8a1438d3b8e",
+      "published": false,
+      "provenance": "Unchanged PR9 own module, optional real rules provider for Field/Hand/Both fixture layouts"
+    }
+  ],
+  "native_engine_objects": [
+    {
+      "path": "src_game_duel_field_layout.c.o",
+      "source": "src/game/duel_field_layout.c",
+      "bytes": 3052,
+      "sha256": "c04da09c11ccdf055a0624397ae1978bfcb71a2cf38d27132dc14087d652822f",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_ai_opponent_data.c.o",
+      "source": "src/game/ai_opponent_data.c",
+      "bytes": 12696,
+      "sha256": "726f21ba102b4edff7532cc6d139da42119fadeb32bb1729e4b03beb18cae0ef",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_duel_scene_hand_actions.c.o",
+      "source": "src/game/duel_scene_hand_actions.c",
+      "bytes": 29020,
+      "sha256": "182befc7d0ca6a01e5b2ee96522232166a483e05a3c42ba202ed704339ea6e10",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_func_8001B938.c.o",
+      "source": "src/game/func_8001B938.c",
+      "bytes": 13632,
+      "sha256": "34e71b86826935833ffb20adc513c24ad9ce1b886af833cb525031c887451722",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_duel_card_state_helpers.c.o",
+      "source": "src/game/duel_card_state_helpers.c",
+      "bytes": 3948,
+      "sha256": "82b1166941d46b966529351b7cefdb7a658008bcd1d71508d386f99cfac8e52c",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_func_80027DF8.c.o",
+      "source": "src/game/func_80027DF8.c",
+      "bytes": 8780,
+      "sha256": "a93bb53a28fe29ed3cf5c6e42bb8855c5e0924cd98ade8669ebe14eb50243659",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_ai_script_vm.c.o",
+      "source": "src/game/ai_script_vm.c",
+      "bytes": 6736,
+      "sha256": "1bda927aa90bd78a1bdd8f75e2cf4dedf3b6cbaee235757a64cf4d23b1cc6490",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_ai_get_hand_size.c.o",
+      "source": "src/game/ai_get_hand_size.c",
+      "bytes": 2992,
+      "sha256": "3874c01d095ddce9be48aefba59ecd1011fbe948ccb208cb1ba78f08eb03eb4b",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_func_8001B7AC.c.o",
+      "source": "src/game/func_8001B7AC.c",
+      "bytes": 8936,
+      "sha256": "926fb96b1f1d5b4bf94937be58f6430d733b856770b24880af1c0c07c75109aa",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_duel_state_init.c.o",
+      "source": "src/game/duel_state_init.c",
+      "bytes": 9368,
+      "sha256": "b9388b5fc7fd780fe0682c1afd2ee8981c41c5ab849212a12eb7f5504d623814",
+      "published": false,
+      "provenance": "Existing official-base native i386 build from HAL-20; reused unchanged, not rebuilt for HAL-24"
+    },
+    {
+      "path": "src_game_duel_action_lock.c.o",
+      "source": "src/game/duel_action_lock.c",
+      "bytes": 3228,
+      "sha256": "4dc6d26fef27f4bc6dbd03acb8b10b1cd612973e4408c7d7c7c3a4c99a23cc9f",
+      "published": false,
+      "provenance": "Unmodified official API24 base native i386 build, newly bound in boundary-ritual scenarios."
+    },
+    {
+      "path": "src_game_duel_check_ritual.c.o",
+      "source": "src/game/duel_check_ritual.c",
+      "bytes": 39748,
+      "sha256": "714d0dc074c6adfa0df431876b0716db7b68d318b6a1cb4474df22835b5d82fb",
+      "published": false,
+      "provenance": "Unmodified official API24 base native i386 build, newly bound in boundary-ritual scenarios."
+    },
+    {
+      "path": "src_game_duel_card_record_lifecycle.c.o",
+      "source": "src/game/duel_card_record_lifecycle.c",
+      "bytes": 13016,
+      "sha256": "52ce0961a54cfd28140c48143783b8f5b9cbbcde247aae57d6d5209c41f55b32",
+      "published": false,
+      "provenance": "Unmodified official API24 base native i386 build, newly bound in boundary-ritual scenarios."
+    },
+    {
+      "path": "src_game_duel_ritual_effect.c.o",
+      "source": "src/game/duel_ritual_effect.c",
+      "bytes": 24336,
+      "sha256": "ea8acb3c4bba8094cb420d4e3ababd1de38beb887a9dac9c44f0b98fd523e28f",
+      "published": false,
+      "provenance": "Unmodified official API24 base native i386 build, newly bound in boundary-ritual scenarios."
+    }
+  ],
+  "public_source_files": [
+    {
+      "path": "config/pc/guest_addresses.txt",
+      "sha256": "23f27b2021300b502b65527dbe907a39014e18f922d3336039f689bab8fd0458",
+      "base_sha256": "23f27b2021300b502b65527dbe907a39014e18f922d3336039f689bab8fd0458",
+      "experimental": false
+    },
+    {
+      "path": "mods/ai-hard-mode/ai_hard_mode.c",
+      "sha256": "a3b20e76dfe2184d4be225f176e30b99afbc03710e2619efe1063e61cf02cd85",
+      "base_sha256": "a3b20e76dfe2184d4be225f176e30b99afbc03710e2619efe1063e61cf02cd85",
+      "experimental": false
+    },
+    {
+      "path": "mods/ai-hard-mode/mod.json",
+      "sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "base_sha256": "e1fb7bc7ddcc4d7cd57b56818cc3cc4a71dc03b07c13d5abfefeb6a08c79e90f",
+      "experimental": false
+    },
+    {
+      "path": "mods/ai-hard-mode/planner.c",
+      "sha256": "698ebc20263721dfc8e5d73b2febf4841dfa99ab45ca68a9c7f5372673dd056e",
+      "base_sha256": "698ebc20263721dfc8e5d73b2febf4841dfa99ab45ca68a9c7f5372673dd056e",
+      "experimental": false
+    },
+    {
+      "path": "mods/ai-hard-mode/planner.h",
+      "sha256": "7139473406208aef58badc935a4a07ec8b80fdec57b02cc038b26f0723674032",
+      "base_sha256": "7139473406208aef58badc935a4a07ec8b80fdec57b02cc038b26f0723674032",
+      "experimental": false
+    },
+    {
+      "path": "src/game/ai_get_hand_size.c",
+      "sha256": "bcfcca3ac8126712de81e94e9141b5c18c93af1771c8335fcd3f6d43a2ee4e4c",
+      "base_sha256": "bcfcca3ac8126712de81e94e9141b5c18c93af1771c8335fcd3f6d43a2ee4e4c",
+      "experimental": false
+    },
+    {
+      "path": "src/game/ai_opponent_data.c",
+      "sha256": "a622a4614243327d85ad115cb9ccbf06028eb943e9892335975c47a9b2ba4759",
+      "base_sha256": "a622a4614243327d85ad115cb9ccbf06028eb943e9892335975c47a9b2ba4759",
+      "experimental": false
+    },
+    {
+      "path": "src/game/ai_script_vm.c",
+      "sha256": "40bc48cd5eedb2bc40856bd8c2d31801caa7f3af15945cffd08b8ea9074ed663",
+      "base_sha256": "40bc48cd5eedb2bc40856bd8c2d31801caa7f3af15945cffd08b8ea9074ed663",
+      "experimental": false
+    },
+    {
+      "path": "src/game/duel_card_state_helpers.c",
+      "sha256": "4b1ba223edb8acc3300d9c0592052fe53213a16b69f5c2fb90f3a03da048e1fe",
+      "base_sha256": "4b1ba223edb8acc3300d9c0592052fe53213a16b69f5c2fb90f3a03da048e1fe",
+      "experimental": false
+    },
+    {
+      "path": "src/game/duel_field_layout.c",
+      "sha256": "a9ce8c0a2b52a3e0a0b39baaf3ad328aedb3f731aeff6b71a9f57b6c2cf8bc50",
+      "base_sha256": "a9ce8c0a2b52a3e0a0b39baaf3ad328aedb3f731aeff6b71a9f57b6c2cf8bc50",
+      "experimental": false
+    },
+    {
+      "path": "src/game/duel_scene_hand_actions.c",
+      "sha256": "1bbcd5d132ebcc4dcc77c9e5444130b857c38d32911c2af57c86357ccccacdfd",
+      "base_sha256": "1bbcd5d132ebcc4dcc77c9e5444130b857c38d32911c2af57c86357ccccacdfd",
+      "experimental": false
+    },
+    {
+      "path": "src/game/duel_state_init.c",
+      "sha256": "e21cab77a2e85ae6656ed11ee26676fc6f1ece40972b07eea0b2fedb3af374f0",
+      "base_sha256": "e21cab77a2e85ae6656ed11ee26676fc6f1ece40972b07eea0b2fedb3af374f0",
+      "experimental": false
+    },
+    {
+      "path": "src/game/func_8001B7AC.c",
+      "sha256": "450277f47992e6d3289e64659b546f3ec802b4d642ada57862d496d971a7e610",
+      "base_sha256": "450277f47992e6d3289e64659b546f3ec802b4d642ada57862d496d971a7e610",
+      "experimental": false
+    },
+    {
+      "path": "src/game/func_8001B938.c",
+      "sha256": "89632c300dd5e82a762143d9289a9adcecdd6d6ae6b1fe8fe8f1a24602110f9d",
+      "base_sha256": "89632c300dd5e82a762143d9289a9adcecdd6d6ae6b1fe8fe8f1a24602110f9d",
+      "experimental": false
+    },
+    {
+      "path": "src/game/func_80027DF8.c",
+      "sha256": "65bd6323f7bd62228d9ef0a50b06fa89fbe15421ddcbedba9e89a5c23aed6b74",
+      "base_sha256": "65bd6323f7bd62228d9ef0a50b06fa89fbe15421ddcbedba9e89a5c23aed6b74",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/hooks.c",
+      "sha256": "87f512876556972b168fba3b53a86256e1b68c72fa81ff559a12bb17bdc79c95",
+      "base_sha256": "87f512876556972b168fba3b53a86256e1b68c72fa81ff559a12bb17bdc79c95",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/platform/settings.c",
+      "sha256": "06a9fe5d5307bb45df06b5a4cdbeea09c0ec9a24f3a86397aed80612cc19e53f",
+      "base_sha256": "06a9fe5d5307bb45df06b5a4cdbeea09c0ec9a24f3a86397aed80612cc19e53f",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/platform/paths.c",
+      "sha256": "5ebd7f27a0fa2250994b800fcca010a7d77427bd3607c83dce97d92836298b14",
+      "base_sha256": "5ebd7f27a0fa2250994b800fcca010a7d77427bd3607c83dce97d92836298b14",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/events.c",
+      "sha256": "f7068a45a4d5f35b535bdd507cf5a92d9d6973d0ddd5bfbc3b81c28b80b3489f",
+      "base_sha256": "f7068a45a4d5f35b535bdd507cf5a92d9d6973d0ddd5bfbc3b81c28b80b3489f",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/object_loader.c",
+      "sha256": "c5455d6ecb00f0bae375cc54c94d97b74f92bc20e3814ee5157ab409bf9ccf64",
+      "base_sha256": "c5455d6ecb00f0bae375cc54c94d97b74f92bc20e3814ee5157ab409bf9ccf64",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/overlap.c",
+      "sha256": "27a764905eef9834e858ef42a8c29c1a2e2103bedf6ad683d576588cb69957d0",
+      "base_sha256": "27a764905eef9834e858ef42a8c29c1a2e2103bedf6ad683d576588cb69957d0",
+      "experimental": false
+    },
+    {
+      "path": "src/pc/mods/manager.c",
+      "sha256": "ec8136925fb1b8b6b2cf89491568c3e20aeb8960008b036d35509cd5b36a1fb0"
+    },
+    {
+      "path": "src/pc/mods/mods.c",
+      "sha256": "4abb0990dada4c2c17f2d147ee7bdaf984dde1756cec1d7c28ff70ee60d2ff4d"
+    },
+    {
+      "path": "src/pc/platform/mods_window.c",
+      "sha256": "9c7cdc112e2fe07ddfc5c94af38ea4d3dd047af8944fcd6a09d40d489b7a7095"
+    }
+  ],
+  "reused_pr14_evidence": [
+    {
+      "path": "notes/HAL20_INTEGRACAO_INICIAL.md",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "a0312eac5a59093ed22f22a4d31513ce771dfe17b451c904579de115e7ac5658"
+    },
+    {
+      "path": "notes/hal-20/integracao-inicial/MATRIZ.md",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "02e3ebfe69e1b55bc7c1ebec3ca9b5c97cfa7f20c4c9bcfac972325272943ae2"
+    },
+    {
+      "path": "tests/hal20-integration/harness.c",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "efe752fe7832d40ea69c969ad93c9ac677e6b7711f96740a0b8ae088260dfb50"
+    },
+    {
+      "path": "tests/hal20-integration/order.c",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "321b24189fd3503a15938e8c313cf8ba770adee1477e08a51019399faab30ce9"
+    },
+    {
+      "path": "tests/hal20-integration/run.py",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "de81f3917ecbcf2621f29840f21f4b1bd3a1b9f7411976bd17bc3b9e776cd63d"
+    },
+    {
+      "path": "notes/hal-20/integracao-inicial/s1-h1-d1-o2.log",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "6fd4302f58acfe15dc678ba83bbaf3cc97a5522fd5e7cf734ab870b7db85b340"
+    }
+  ],
+  "sdk_exports": {
+    "path": "exports.i386.txt",
+    "sha256": "4ced636164387bf0b0d2714bc15bbb560c8df54d02aed4a0764775e0cfab4184"
+  },
+  "reused_pr15": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "24b7b426cd301b7b7dbe634c99d0c7c710e0dd18a21eceb1d2d1c92454f46809"
+    },
+    {
+      "path": "notes/HAL22_AI_HARD_MODE_DUAL_PLAY.md",
+      "sha256": "26bfa2a6824fa0cbf308df5f1d75516fc1b81eb5252003ad9daa8830adccacd9"
+    },
+    {
+      "path": "tests/hal22/harness.c",
+      "sha256": "b63d1f13930114a1860c4ff9220d258b9234edb961a24cd765a073406b50b3ef"
+    },
+    {
+      "path": "tests/hal22/run.py",
+      "sha256": "ea9254b26bcd3efeacd647bb5bff1c2dde5969b97a9fa2df06cd2c1772436f8a"
+    },
+    {
+      "path": "notes/hal-22/resultados/RESULTADOS.json",
+      "sha256": "f2a5fd266b91fde9d74a4cb6db1f813c9aa3a2c6f89b0419650a191b7ef1efca"
+    }
+  ],
+  "references": [
+    {
+      "pr": 14,
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "path": "notes/HAL20_INTEGRACAO_INICIAL.md",
+      "sha256": "a0312eac5a59093ed22f22a4d31513ce771dfe17b451c904579de115e7ac5658"
+    },
+    {
+      "pr": 14,
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "path": "notes/hal-20/integracao-inicial/MATRIZ.md",
+      "sha256": "02e3ebfe69e1b55bc7c1ebec3ca9b5c97cfa7f20c4c9bcfac972325272943ae2"
+    },
+    {
+      "pr": 15,
+      "commit": "9d21f19a8edf9c12ce5e2de419a7ef8037c6cf50",
+      "path": "notes/HAL22_AI_HARD_MODE_DUAL_PLAY.md",
+      "sha256": "26bfa2a6824fa0cbf308df5f1d75516fc1b81eb5252003ad9daa8830adccacd9"
+    },
+    {
+      "pr": 16,
+      "commit": "927760384813cde811c865b28cedf6e443a3d541",
+      "path": "notes/HAL22_LIFECYCLE_RESTART.md",
+      "sha256": "cf14e19001d22fe2e970af195698133386d3ea868244edb7c09d1af1a8ad3c68"
+    },
+    {
+      "pr": 16,
+      "commit": "927760384813cde811c865b28cedf6e443a3d541",
+      "path": "tests/hal22-lifecycle/harness.c",
+      "sha256": "081917715436300590bc79cb57d90d5e0c9329c63aacc8b1d53712ae86ea047e"
+    },
+    {
+      "pr": 16,
+      "commit": "927760384813cde811c865b28cedf6e443a3d541",
+      "path": "tests/hal22-lifecycle/window_bridge.c",
+      "sha256": "9d38fc5c8f72ece90ca11afe157c65b2bf9df2d21d64942ecca7c11b93309b47"
+    },
+    {
+      "pr": 17,
+      "commit": "28721162904f70db27a74175118bb45c41d5176c",
+      "path": "AGENTS.md",
+      "sha256": "826306c695184c33564def8d0d4ff0d53bde0cf505ffa272692f5cc685c2355b"
+    },
+    {
+      "pr": 17,
+      "commit": "28721162904f70db27a74175118bb45c41d5176c",
+      "path": "notes/HAL22_ORDER_GUARD_POC.md",
+      "sha256": "0c3bce77b0c4393e1602e295375bc67cbe2474fd2d6fb8c37ffec2f8f6144476"
+    },
+    {
+      "pr": 17,
+      "commit": "28721162904f70db27a74175118bb45c41d5176c",
+      "path": "notes/hal-22-order-guard/MATRIZ.md",
+      "sha256": "a3e5e613057a58b0c3e4ed4c2f38310d27b5e46882d6f6e907c61b3a42dd68f1"
+    },
+    {
+      "pr": 18,
+      "commit": "39e6ac97a0724bc310bd91595bac71543aa738e5",
+      "path": "notes/HAL23_PENDING_LIFECYCLE.md",
+      "sha256": "484454612da71863ed048b28fb6a50a0b3ff3faf5d76f20108c184d32db983ac"
+    }
+  ],
+  "linear": {
+    "issue": "HAL-24",
+    "url": "https://linear.app/half-programer/issue/HAL-24",
+    "status_at_read": "Backlog"
+  },
+  "rd_source_evidence": [
+    {
+      "path": "mods/ritual-duelists/mod.c",
+      "commit": "9a363f28f6dbfe779b1b901ddecab74ab1be57e9",
+      "sha256": "07e3575e6d626a582d3c58a71dab30bb9954be5edfb3cc30a2226a96bd1ac95c",
+      "published_in_this_branch": false
+    },
+    {
+      "path": "mods/ritual-duelists/mod.json",
+      "commit": "9a363f28f6dbfe779b1b901ddecab74ab1be57e9",
+      "sha256": "6875e76bfd5e81dfcac635199f8f159e730624e5142185c99e385cb8cdcccdb5",
+      "published_in_this_branch": false
+    }
+  ],
+  "source_inspection_files": [
+    {
+      "path": "src/pc/guest/state.c",
+      "sha256": "ea861f6a44fc9c63ea6edf5ceb92b39c87e0d8f885fa3dd90f300d4025259d4a"
+    },
+    {
+      "path": "src/pc/guest/state_subsystems.c",
+      "sha256": "d85fef42870e8419cbda82bdbf1f0b97e8fd968073b0448e52165d5e632a8246"
+    },
+    {
+      "path": "src/pc/platform/sdl.c",
+      "sha256": "411de05eac6bc45ce77a5598946e2b46e550b719c836e1b57a077e347e9d32fe"
+    },
+    {
+      "path": "src/pc/platform/menu.c",
+      "sha256": "8fc45faee65c60218b7bff1585f4933d649daad994f42c0f9bfb50a5adff950d"
+    }
+  ],
+  "previous_hal23_commit": "39e6ac97a0724bc310bd91595bac71543aa738e5",
+  "diagnostic_scope": "HAL24 I1 diagnosis; I2 traces classified separately. No production patch.",
+  "reused_fixture_sources": [
+    {
+      "path": "tests/hal20-integration/cases.inc",
+      "commit": "ae43436e0e23437642ab45eb4da2b4a9374c2e39",
+      "sha256": "d977ac8b7fdf7bde07630314a9f97abfac73a18cbd6db111692b66bf1fbb6a4a"
+    },
+    {
+      "path": "tests/hal23/harness.c",
+      "commit": "39e6ac97a0724bc310bd91595bac71543aa738e5",
+      "sha256": "0e5cd3b92694f927c811db4b6f994e657c4bb4de2592700b6c963abe1879b188"
+    }
+  ],
+  "pr14_control_execution": "Unmodified runner at PR14 commit, --stage 4 --dual 1 --scenario rd-materialize; six profiles; artificial pending and bonus flags. Not primary no-injection results.",
+  "scope": "Frozen runtime source/object/manifest/assets; publication docs/provenance excluded.",
+  "components": [
+    {
+      "symbol": "R",
+      "directory": "mods/ritual-card-effects",
+      "commit": "2cf0de31e88e9f1c058b3747b2b2add3db0e347c",
+      "pr": 11,
+      "files": [
+        {
+          "path": "assets/chakra_green_atlas.png",
+          "bytes": 4460,
+          "sha256": "ceeb1dbca65a1db6af7c736fe8c421871a49b2d94648282de5afd556bd0d2457"
+        },
+        {
+          "path": "assets/coin-atem/00.png",
+          "bytes": 33846,
+          "sha256": "1c2ced1b04dcb67ad89e242a861ae0cf9aeb779e325555e986745fa2bae06416"
+        },
+        {
+          "path": "assets/coin-atem/01.png",
+          "bytes": 32781,
+          "sha256": "b9d3134f5a3eeaa94e351c4bebf992ef4915ca3dc174af3ed27a0775ae602c1e"
+        },
+        {
+          "path": "assets/coin-atem/02.png",
+          "bytes": 29895,
+          "sha256": "3d839cfc0be55e7c2f00a5b3559813a2d32971935d7f1ba92633b682bcf9088f"
+        },
+        {
+          "path": "assets/coin-atem/03.png",
+          "bytes": 24767,
+          "sha256": "1b7119ae2b76962f119730d3972e61e6b25b3eb7dbfba11ab50158481a5545ca"
+        },
+        {
+          "path": "assets/coin-atem/04.png",
+          "bytes": 18170,
+          "sha256": "3a671b6f849e52102db52389dece4ea660604eea8167b51172f774999968aa5b"
+        },
+        {
+          "path": "assets/coin-atem/05.png",
+          "bytes": 9700,
+          "sha256": "2c1785c3c074fc11672cf4aa0209f5f2849c5224039a6ae02fab86c1c1ac0ca1"
+        },
+        {
+          "path": "assets/coin-atem/06.png",
+          "bytes": 3559,
+          "sha256": "3301b0585c936cd90d3557c2d09d08d630540953ac0a511faa18fa5ff98da607"
+        },
+        {
+          "path": "assets/coin-atem/07.png",
+          "bytes": 9573,
+          "sha256": "453bb326f4780d9222f8cf3dc9427f1750fba4c7f3ed202c494180d6587374b0"
+        },
+        {
+          "path": "assets/coin-atem/08.png",
+          "bytes": 17422,
+          "sha256": "365be3f2a2e4e7c28d90c357d609a0096bea730dedb4c37ae146c6dcbfa92e64"
+        },
+        {
+          "path": "assets/coin-atem/09.png",
+          "bytes": 23636,
+          "sha256": "cd9d8c081d869336b9fbda52467034d8ac3637a65ab6f18dc931f566bc47efa4"
+        },
+        {
+          "path": "assets/coin-atem/10.png",
+          "bytes": 28481,
+          "sha256": "c15326a25398bafe7411df9d5cadb1092e05c01b58551a1eb0e5ac78ae119e28"
+        },
+        {
+          "path": "assets/coin-atem/11.png",
+          "bytes": 31260,
+          "sha256": "064f497e1a2e95efa9421bd7e424fd1c7641fb38f352b107e704f4e4bbc4b3dc"
+        },
+        {
+          "path": "assets/coin-atem/12.png",
+          "bytes": 32222,
+          "sha256": "a806389de945744cf415405373c6c0d8900a86b8a76cd021eecfb752bff1fe3b"
+        },
+        {
+          "path": "assets/coin-atem/13.png",
+          "bytes": 31260,
+          "sha256": "064f497e1a2e95efa9421bd7e424fd1c7641fb38f352b107e704f4e4bbc4b3dc"
+        },
+        {
+          "path": "assets/coin-atem/14.png",
+          "bytes": 28481,
+          "sha256": "c15326a25398bafe7411df9d5cadb1092e05c01b58551a1eb0e5ac78ae119e28"
+        },
+        {
+          "path": "assets/coin-atem/15.png",
+          "bytes": 23636,
+          "sha256": "cd9d8c081d869336b9fbda52467034d8ac3637a65ab6f18dc931f566bc47efa4"
+        },
+        {
+          "path": "assets/coin-atem/16.png",
+          "bytes": 17422,
+          "sha256": "365be3f2a2e4e7c28d90c357d609a0096bea730dedb4c37ae146c6dcbfa92e64"
+        },
+        {
+          "path": "assets/coin-atem/17.png",
+          "bytes": 9573,
+          "sha256": "453bb326f4780d9222f8cf3dc9427f1750fba4c7f3ed202c494180d6587374b0"
+        },
+        {
+          "path": "assets/coin-atem/18.png",
+          "bytes": 3559,
+          "sha256": "3301b0585c936cd90d3557c2d09d08d630540953ac0a511faa18fa5ff98da607"
+        },
+        {
+          "path": "assets/coin-atem/19.png",
+          "bytes": 9700,
+          "sha256": "2c1785c3c074fc11672cf4aa0209f5f2849c5224039a6ae02fab86c1c1ac0ca1"
+        },
+        {
+          "path": "assets/coin-atem/20.png",
+          "bytes": 18170,
+          "sha256": "3a671b6f849e52102db52389dece4ea660604eea8167b51172f774999968aa5b"
+        },
+        {
+          "path": "assets/coin-atem/21.png",
+          "bytes": 24767,
+          "sha256": "1b7119ae2b76962f119730d3972e61e6b25b3eb7dbfba11ab50158481a5545ca"
+        },
+        {
+          "path": "assets/coin-atem/22.png",
+          "bytes": 29895,
+          "sha256": "3d839cfc0be55e7c2f00a5b3559813a2d32971935d7f1ba92633b682bcf9088f"
+        },
+        {
+          "path": "assets/coin-atem/23.png",
+          "bytes": 32781,
+          "sha256": "b9d3134f5a3eeaa94e351c4bebf992ef4915ca3dc174af3ed27a0775ae602c1e"
+        },
+        {
+          "path": "assets/coin-atem/coin.txt",
+          "bytes": 19,
+          "sha256": "0bbd6c3c169181a27b19b9544d6ec869ffdc211ebb11ba9d706c9dec404cd25e"
+        },
+        {
+          "path": "assets/coin-normal/00.png",
+          "bytes": 31712,
+          "sha256": "497efdabc6ade9bd12dd92f2a479ac86a9564632c4ae04f33029c1c1a5f060df"
+        },
+        {
+          "path": "assets/coin-normal/01.png",
+          "bytes": 30524,
+          "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+        },
+        {
+          "path": "assets/coin-normal/02.png",
+          "bytes": 27114,
+          "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+        },
+        {
+          "path": "assets/coin-normal/03.png",
+          "bytes": 22635,
+          "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+        },
+        {
+          "path": "assets/coin-normal/04.png",
+          "bytes": 20041,
+          "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+        },
+        {
+          "path": "assets/coin-normal/05.png",
+          "bytes": 17136,
+          "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+        },
+        {
+          "path": "assets/coin-normal/06.png",
+          "bytes": 11145,
+          "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+        },
+        {
+          "path": "assets/coin-normal/07.png",
+          "bytes": 5867,
+          "sha256": "c0ccf63d06a13a6c38721c98aafb49a7a400e881e4e559bde4d9e5ee615719cf"
+        },
+        {
+          "path": "assets/coin-normal/08.png",
+          "bytes": 12004,
+          "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+        },
+        {
+          "path": "assets/coin-normal/09.png",
+          "bytes": 16379,
+          "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+        },
+        {
+          "path": "assets/coin-normal/10.png",
+          "bytes": 19341,
+          "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+        },
+        {
+          "path": "assets/coin-normal/11.png",
+          "bytes": 20385,
+          "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+        },
+        {
+          "path": "assets/coin-normal/12.png",
+          "bytes": 26475,
+          "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+        },
+        {
+          "path": "assets/coin-normal/13.png",
+          "bytes": 31413,
+          "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+        },
+        {
+          "path": "assets/coin-normal/14.png",
+          "bytes": 32512,
+          "sha256": "37291c8f07f327254b5531bb8142a457aad056806cb0b75662675710cddd699e"
+        },
+        {
+          "path": "assets/coin-normal/15.png",
+          "bytes": 31413,
+          "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+        },
+        {
+          "path": "assets/coin-normal/16.png",
+          "bytes": 26475,
+          "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+        },
+        {
+          "path": "assets/coin-normal/17.png",
+          "bytes": 20385,
+          "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+        },
+        {
+          "path": "assets/coin-normal/18.png",
+          "bytes": 19341,
+          "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+        },
+        {
+          "path": "assets/coin-normal/19.png",
+          "bytes": 16379,
+          "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+        },
+        {
+          "path": "assets/coin-normal/20.png",
+          "bytes": 12004,
+          "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+        },
+        {
+          "path": "assets/coin-normal/21.png",
+          "bytes": 6150,
+          "sha256": "a2ccc08933af7dd06db84a379382ad6f7e47687991b1c934a9935f180faef131"
+        },
+        {
+          "path": "assets/coin-normal/22.png",
+          "bytes": 11145,
+          "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+        },
+        {
+          "path": "assets/coin-normal/23.png",
+          "bytes": 17136,
+          "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+        },
+        {
+          "path": "assets/coin-normal/24.png",
+          "bytes": 20041,
+          "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+        },
+        {
+          "path": "assets/coin-normal/25.png",
+          "bytes": 22635,
+          "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+        },
+        {
+          "path": "assets/coin-normal/26.png",
+          "bytes": 27114,
+          "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+        },
+        {
+          "path": "assets/coin-normal/27.png",
+          "bytes": 30524,
+          "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+        },
+        {
+          "path": "assets/coin-normal/coin.txt",
+          "bytes": 19,
+          "sha256": "6a79338a43aa97ff3506d5fb93f9685769555abb1b6c9cdf9c8a85a649b95d22"
+        },
+        {
+          "path": "assets/dokurorider_escape.wav",
+          "bytes": 541944,
+          "sha256": "05f94b9fd2bf5b51e2643b6fb96d82e9953e09ef249fb0f15fc9331d696dc338"
+        },
+        {
+          "path": "assets/garma_sword_spend.wav",
+          "bytes": 387116,
+          "sha256": "95fced6c229ab4c4ba6dfd9a306a8335fa0e2228aba88dd2fb44b18481561e9f"
+        },
+        {
+          "path": "assets/hungry_bite.wav",
+          "bytes": 106236,
+          "sha256": "e5ad4052b87d04b0ab99da4d6a979dc341985cf19a8f964201844139f05dbc0d"
+        },
+        {
+          "path": "assets/hungry_plus500.png",
+          "bytes": 943951,
+          "sha256": "99af80e5081b5042d559b2de39b7f96fe4867a8656e3bbb0356f21ec8092293c"
+        },
+        {
+          "path": "assets/javelin_shell.wav",
+          "bytes": 188972,
+          "sha256": "741d4dfaf9869a937d08fa882921136cf41f0da1348d7ba1f2383be46b272bd9"
+        },
+        {
+          "path": "assets/javelin_shell_counter.png",
+          "bytes": 1266,
+          "sha256": "8c0c7bd4580f01800960d85c33b74c64b3bf70de7f291c58dbfab31c0f676d0f"
+        },
+        {
+          "path": "assets/tri_horn_break.wav",
+          "bytes": 57374,
+          "sha256": "324e75ab13d8cc3a41f243056aa44f1de1396373359c3b0dfba80d7c5e9a716a"
+        },
+        {
+          "path": "assets/unicorn_horn.png",
+          "bytes": 244,
+          "sha256": "891fa1ab9c7e57256c4500c055b9db4bf7daa80beed3aca3aa082a3e2df60015"
+        },
+        {
+          "path": "chakra_green_atlas.h",
+          "bytes": 34299,
+          "sha256": "00d47913d906f596f0afc489a15b53be928d067d3b533d3cdbb82185e0647694"
+        },
+        {
+          "path": "effect_title_instance.h",
+          "bytes": 2437,
+          "sha256": "484b37201af8c606cdb9dde8d8885d5f1affde80acbecc6a9884ccf0cda258b8"
+        },
+        {
+          "path": "effect_title_visual.h",
+          "bytes": 8296,
+          "sha256": "5504d473eece2f76a60b668cfbabe1769442ef7a1aff19b8a44af9d8c99eec33"
+        },
+        {
+          "path": "egotist_bridge.h",
+          "bytes": 5456,
+          "sha256": "0d9f06b48c4d8dc7c04e97395e3b2c00022938a1c1fc6a12410673a70a670c4d"
+        },
+        {
+          "path": "garma_visual.h",
+          "bytes": 6413,
+          "sha256": "f5fb91adf1044512f691ffece612198a9df0b700c9bb45826b6d84f51160e999"
+        },
+        {
+          "path": "hand_selection_snapshot.h",
+          "bytes": 2625,
+          "sha256": "1d4ffa28c3ba217d5a741c5bebfeb2ce19a0935a522a3948e464b45c3a23805c"
+        },
+        {
+          "path": "hungry_plus500_sprite.h",
+          "bytes": 18033,
+          "sha256": "f8eb45b53994c2e72781ac07aae690c2341f7684b54613bcbf4b79f320bd40a8"
+        },
+        {
+          "path": "javelin_shell_sprite.h",
+          "bytes": 12459,
+          "sha256": "3514f82e1b8b5bcea79b8e9e7d50dd308e72dc0c16a7ebbc4f263652a01641cb"
+        },
+        {
+          "path": "mandatory_hand_lifecycle_v1.h",
+          "bytes": 1750,
+          "sha256": "1e20dc9ee29984eec1097baea2a2e497fbf6c2f9ee39c91d185d4ce170b69fc5"
+        },
+        {
+          "path": "mandatory_hand_provider.h",
+          "bytes": 3145,
+          "sha256": "b4b67c669e91a4c2ce0b252988b1fdf7f1f9b93b65ad998118b4338e13b779e2"
+        },
+        {
+          "path": "mandatory_hand_selection_v1.h",
+          "bytes": 1699,
+          "sha256": "ac1a5385c4441ee0f14e41b68a4dc293c111197b6fe961ff89265025f32df49d"
+        },
+        {
+          "path": "mask_effect.h",
+          "bytes": 18744,
+          "sha256": "50e724dacbcd2d02189fe690e89d7a467d88bd25a6a808b9f602539b5e1adec9"
+        },
+        {
+          "path": "mod.c",
+          "bytes": 368236,
+          "sha256": "ea6f79ae3476d263243ef8b661e6b97a3953f2f4f8081138108cc2c6cff7d24b"
+        },
+        {
+          "path": "mod.json",
+          "bytes": 20549,
+          "sha256": "c334e2cb1d6b1b85a321498f9cf25286e7a887aaadaf4425c10b2102832af056"
+        },
+        {
+          "path": "model.h",
+          "bytes": 8222,
+          "sha256": "9646f4c50c51dea2470400d7f01521bebf9e9d047e9356885b3a9536b2f376eb"
+        },
+        {
+          "path": "native.h",
+          "bytes": 2817,
+          "sha256": "5890a4e33435d6515b571ca14ca6dbd483c765dcc0027d86c33dffde08b9d2d9"
+        },
+        {
+          "path": "native_actions.h",
+          "bytes": 2504,
+          "sha256": "70749174b4208864f3c062b81c90f338f64421b4c801c30b289b8001787326e0"
+        },
+        {
+          "path": "native_vfx_textures.h",
+          "bytes": 13003,
+          "sha256": "8e5f872f5b4b59230f5df1faf8b4e99d839fce6085662c9ebc85eb23fbbd22ec"
+        },
+        {
+          "path": "owner_r.h",
+          "bytes": 1605,
+          "sha256": "9b6da48f3b533ce7953f34a79cf05e86520cc8e7aceb913f9ada208e4f2d5583"
+        },
+        {
+          "path": "performance_chaos.h",
+          "bytes": 22011,
+          "sha256": "5aa5ad4f9a0ed696296b37d57f5712c0042226754b59247b38fc0bba87c0ad10"
+        },
+        {
+          "path": "png.c",
+          "bytes": 11193,
+          "sha256": "a5a55b3b349046813fd8c8e26d347527acda6de856858e9aacb7028b95935d06"
+        },
+        {
+          "path": "png.h",
+          "bytes": 353,
+          "sha256": "26a5ef08cf76239964ea952185c7f9428cd2aaed4e087f5d6feafc37b4a2272d"
+        },
+        {
+          "path": "ritual-card-effects.o",
+          "bytes": 737280,
+          "sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45"
+        },
+        {
+          "path": "ritual_ai_burn_policy.h",
+          "bytes": 2033,
+          "sha256": "aa5cb5216dfd318a17e1ac36117f9eba346d136142a1269f8ea428729068efa7"
+        },
+        {
+          "path": "ritual_ai_effect_source.h",
+          "bytes": 2449,
+          "sha256": "1ace81ded172e34bd0b18bdfdba3df56670b6488985c17011eaf809bbc6b9cdd"
+        },
+        {
+          "path": "ritual_coin.h",
+          "bytes": 8014,
+          "sha256": "c4bb5c4fe4b1ec738f0445215fe4cdba69a3de94abacd9608de30b1f239dafc4"
+        },
+        {
+          "path": "ritual_effect_intelligence_v1.h",
+          "bytes": 1476,
+          "sha256": "dc46868090ad84a2b4ece1dc40e4a6fe2898bfd2fd5b8f79c28bbca8f3a0e579"
+        },
+        {
+          "path": "ritual_recipe_compat.h",
+          "bytes": 15561,
+          "sha256": "3666e77b78652d90e5779ef36114a02a1209f48b0bdab7832ca79f63fcb6df10"
+        },
+        {
+          "path": "ritual_recipe_data.h",
+          "bytes": 10583,
+          "sha256": "b6a14f67d405bb51ac820734fc0a0ee7bbea63e7e278aa781e2562db8a85c9cf"
+        },
+        {
+          "path": "ritual_recipe_export.h",
+          "bytes": 3769,
+          "sha256": "1fdc2237a01e4b1f82379df95389e13dc68f31a328f1b685d7136da762ee903a"
+        },
+        {
+          "path": "ritual_recipe_provider_v1.h",
+          "bytes": 1245,
+          "sha256": "138ed4699e54bd5c0e54b5d0ef53020b5cce81da897984e526702fde59c23f7c"
+        },
+        {
+          "path": "ritual_viewer_description_fit.h",
+          "bytes": 7403,
+          "sha256": "bd614f848ea9a27741a3283644b87f70b10c5b4ccae244642fcf437c6d5b9987"
+        },
+        {
+          "path": "serpent_fear.h",
+          "bytes": 38263,
+          "sha256": "34ad1663d0412d97e9bcf532150ca7125e703e7efa07fb638bd2fd55b78bce2c"
+        },
+        {
+          "path": "skull_monster.h",
+          "bytes": 642,
+          "sha256": "3a8c889df2b8801fe2cc2c5965253fa138ebf2af13780c82b8f38d21c7aa478e"
+        },
+        {
+          "path": "snapshot.h",
+          "bytes": 1974,
+          "sha256": "33b45eff6855d6da800367a35a6fd1f165b970fd800124a388be8b2d436a9982"
+        },
+        {
+          "path": "tri_horn_sprite.h",
+          "bytes": 12442,
+          "sha256": "326ada40620bb5fcee4e9eba01d6bd368b5e083ea07eb6d938b88a146e4af6a5"
+        },
+        {
+          "path": "tri_horned.h",
+          "bytes": 7057,
+          "sha256": "97304ace30b78def04a15c33606c497cf297c4e89b012079cf78fc5a01246d0d"
+        }
+      ],
+      "original_source_commit": "2cf0de31e88e9f1c058b3747b2b2add3db0e347c",
+      "experimental_parent_commit": "f6cea112db8d14be34ab2f28694b0121a94842c2",
+      "current_artifact_provenance": "SDK-PROVENANCE.json in this package; files list pins executed runtime inputs"
+    },
+    {
+      "symbol": "RD",
+      "directory": "mods/ritual-duelists",
+      "commit": "9a363f28f6dbfe779b1b901ddecab74ab1be57e9",
+      "pr": 13,
+      "files": [
+        {
+          "path": "adaptive_rules.c",
+          "bytes": 9961,
+          "sha256": "aa592678281bbd39b999d387995a0d9a25aba852a53bf93c27c230e701e338f5"
+        },
+        {
+          "path": "adaptive_rules.h",
+          "bytes": 947,
+          "sha256": "a626e5ecbb63bd599561ba0f341eeb186112e5e67e34b4223899cff94b5e55ec"
+        },
+        {
+          "path": "ai_policy.c",
+          "bytes": 1361,
+          "sha256": "e4ddabe06bfdbf6e64cce0c15a7903383cb73a1f49ec81b55a6d537b93908218"
+        },
+        {
+          "path": "ai_policy.h",
+          "bytes": 1171,
+          "sha256": "1efd7465919aa431383c8f8e4f1f5a9b731585fceebc672b8a1b0e57146a066e"
+        },
+        {
+          "path": "assets/hd-layer-00-2x.png",
+          "bytes": 106531,
+          "sha256": "d87c777c9b3c8465c888c344476cd602a970dce82aef9afc6dcd2edee5ecb0bc"
+        },
+        {
+          "path": "assets/hd-layer-00.bin",
+          "bytes": 20480,
+          "sha256": "3c481c92c354c3b18c3d94d4c97b7e1e2446068300247b56f58d52b7096a38f0"
+        },
+        {
+          "path": "assets/hd-layer-00.png",
+          "bytes": 336855,
+          "sha256": "7bde6b92a8cdc38e75fba12eb11857c4b55f71a9b7c1e73d5429a6d966bdd832"
+        },
+        {
+          "path": "assets/hd-layer-01-2x.png",
+          "bytes": 140903,
+          "sha256": "290362d7512a8b1bf3a4b51129e9cce4741317b3ad575dbf4dbcf2e0eeacd53e"
+        },
+        {
+          "path": "assets/hd-layer-01.bin",
+          "bytes": 20480,
+          "sha256": "fedeba75b4e6c2edf8d172b7e00af00a6f48e80df389baaf6b79196eef5161a7"
+        },
+        {
+          "path": "assets/hd-layer-01.png",
+          "bytes": 482621,
+          "sha256": "cfcab3e0e17bfc0e90da499dcf23a9c2a44919988b4c11bbb786c773e8ce5eee"
+        },
+        {
+          "path": "assets/hd-layer-02-2x.png",
+          "bytes": 38227,
+          "sha256": "449745ea6c15eca292b9159817888fab32af800ec8025fab6a8c6db4c65928d7"
+        },
+        {
+          "path": "assets/hd-layer-02.bin",
+          "bytes": 20480,
+          "sha256": "e80fef04c4fa5c336aacd1e6ceec86beecca6cb4bccfa2a2812902897e3008bb"
+        },
+        {
+          "path": "assets/hd-layer-02.png",
+          "bytes": 127280,
+          "sha256": "efd7de5933ca87f304c2cab2fa780cea3009ef7ea5886e39cce79834faf801e2"
+        },
+        {
+          "path": "assets/hd-layer-03-2x.png",
+          "bytes": 95153,
+          "sha256": "2f755a6e76dbb954d25d64b43d0de51cde4d906ddce5d61f7c7274e3721eb22a"
+        },
+        {
+          "path": "assets/hd-layer-03.bin",
+          "bytes": 20480,
+          "sha256": "231b1e6bbf9216fc1f7758e2081ef98b111980e4cae9f56b59c4d14450eb8c45"
+        },
+        {
+          "path": "assets/hd-layer-03.png",
+          "bytes": 481144,
+          "sha256": "791e32068742649a0463109878e8e2bb4f42c4a95449f6b9112398f8085850ac"
+        },
+        {
+          "path": "assets/hd-layer-04-2x.png",
+          "bytes": 89519,
+          "sha256": "7d8d2fc69d44c6374921023b2515235bacb713b2ad343906e200cc61460dd3cd"
+        },
+        {
+          "path": "assets/hd-layer-04.bin",
+          "bytes": 20480,
+          "sha256": "835e80afe08f2020b2a2e298d2b649fb677bcec4ccf038b4ebc3b106519fa630"
+        },
+        {
+          "path": "assets/hd-layer-04.png",
+          "bytes": 281621,
+          "sha256": "908f5f0a78e9718c5649485f698ed5ab321cac53488681746fef684dd9c2a1fb"
+        },
+        {
+          "path": "assets/hd-layer-05-2x.png",
+          "bytes": 126849,
+          "sha256": "1555120facb6ddc970ea3d91b2693700b48d8eb47baad6ff8e0e479dabd9afbb"
+        },
+        {
+          "path": "assets/hd-layer-05.bin",
+          "bytes": 20480,
+          "sha256": "ffb70af8c248b62c111a9a57d51afb4ff8aca8168bbe45dc0ed4b6b752e54a45"
+        },
+        {
+          "path": "assets/hd-layer-05.png",
+          "bytes": 434897,
+          "sha256": "37a1b0239b1390fb1d8b673bd5c02baf7aae1e43729657667fa5fa8952f9f139"
+        },
+        {
+          "path": "assets/hd-layer-06-2x.png",
+          "bytes": 38085,
+          "sha256": "17007050996d122051f78764862ad957680583dca0e42db6057cca78dc4ab2ae"
+        },
+        {
+          "path": "assets/hd-layer-06.bin",
+          "bytes": 20480,
+          "sha256": "046c43b054b447fc80cbd7bc3a470568202ed154ebbb91e93b7d8c902818bbce"
+        },
+        {
+          "path": "assets/hd-layer-06.png",
+          "bytes": 132361,
+          "sha256": "59492f015dbffcc6866826da0245da3859c2c3dbf9303d578c686efe544a5690"
+        },
+        {
+          "path": "assets/hd-layer-07-2x.png",
+          "bytes": 84788,
+          "sha256": "68bf871a266d02a4acedbd89139bf21875c2446344199b107d0b74993aad64f7"
+        },
+        {
+          "path": "assets/hd-layer-07.bin",
+          "bytes": 20480,
+          "sha256": "0a85d5f4cf1ac9c15b5d172c7b7d56c1e5220d40c0c566869637f7f81f5b5893"
+        },
+        {
+          "path": "assets/hd-layer-07.png",
+          "bytes": 434619,
+          "sha256": "613d1d8d8e2da0212c4facdd4473d6f52a6918522cf87249605a72597a4f5671"
+        },
+        {
+          "path": "assets/hd-layer-08-2x.png",
+          "bytes": 80048,
+          "sha256": "a690713fdace251340270208adc0978998be83c963fc2940cb212767832d9e33"
+        },
+        {
+          "path": "assets/hd-layer-08.bin",
+          "bytes": 20480,
+          "sha256": "8507f882718413dbffc9a89136d398132af9be609f4ca370d8e494a7d054fa4e"
+        },
+        {
+          "path": "assets/hd-layer-08.png",
+          "bytes": 272343,
+          "sha256": "64d8486baba7d83c66fb6e795b0919c50021ba88d68347fa8b58b843823c4b78"
+        },
+        {
+          "path": "assets/hd-layer-09-2x.png",
+          "bytes": 142144,
+          "sha256": "44c7f0c0cd06b571a05091307f0a5fdb1dac9fa56086c66a5d29fce4ca60921e"
+        },
+        {
+          "path": "assets/hd-layer-09.bin",
+          "bytes": 20480,
+          "sha256": "09b3c5557d143e417ad5757a2d56add675fa874a67b1077da33c16bac14b8384"
+        },
+        {
+          "path": "assets/hd-layer-09.png",
+          "bytes": 426788,
+          "sha256": "c2957d84e5c6ef56704cc6374fdd8ab8cb4c62bf16a9ce9f24111373e826946c"
+        },
+        {
+          "path": "assets/hd-layer-10-2x.png",
+          "bytes": 38071,
+          "sha256": "46298a15156ea62183a9703be61d05d24e9e725821b065c26c294695c2e63227"
+        },
+        {
+          "path": "assets/hd-layer-10.bin",
+          "bytes": 20480,
+          "sha256": "7548b9d846e5cd84bf21c6f220a7571d510befdd8b6081095e9ceb1212bb1287"
+        },
+        {
+          "path": "assets/hd-layer-10.png",
+          "bytes": 127485,
+          "sha256": "4be05f57202368a10ad1f299f9ea0906d5a38204fc221809980eb5e4043830fa"
+        },
+        {
+          "path": "assets/hd-layer-11-2x.png",
+          "bytes": 81575,
+          "sha256": "0afc8b7db7e6944c02d502bcd38c0f84822cb876bc28825fa0ef7823bead3001"
+        },
+        {
+          "path": "assets/hd-layer-11.bin",
+          "bytes": 20480,
+          "sha256": "4757d4c45269d0ea50bcbff8f820f3687557f97f589ff098566596ff6f76d8b2"
+        },
+        {
+          "path": "assets/hd-layer-11.png",
+          "bytes": 426553,
+          "sha256": "2619f2a0092080f38ccd2fb3c3c4d446a05ed4ce137d8c19f7b490cfef0523d2"
+        },
+        {
+          "path": "assets/hd-layer-12-2x.png",
+          "bytes": 151988,
+          "sha256": "2d87918815627a8b85078e9cfa580009baef04c3cfa52b96d96f032174c318f3"
+        },
+        {
+          "path": "assets/hd-layer-12.bin",
+          "bytes": 20480,
+          "sha256": "617bffc73b41cd4f832559bd9cd945b181928d7641eaaad62f1a078846a09dbe"
+        },
+        {
+          "path": "assets/hd-layer-12.png",
+          "bytes": 553107,
+          "sha256": "5e784f9bbef2265b58295f364ddbb98b8bbccc000421926db29f2a325e83e2a2"
+        },
+        {
+          "path": "assets/hd-layer-13-2x.png",
+          "bytes": 163653,
+          "sha256": "d8dc2527e88064a2e6142980527ea3379a74f9b8848f2fbf61e49477bded6ea4"
+        },
+        {
+          "path": "assets/hd-layer-13.bin",
+          "bytes": 20480,
+          "sha256": "81c4b4e91040d1d798e27a4cb626b1db03f9b2ef1865dda5a2d5d9b9bc02fa6b"
+        },
+        {
+          "path": "assets/hd-layer-13.png",
+          "bytes": 579198,
+          "sha256": "ae4ea5f60c67d8cad8dbfb42aad929248f583cd0fbd5a4da1460460026d8d89e"
+        },
+        {
+          "path": "assets/hd-layer-14-2x.png",
+          "bytes": 55643,
+          "sha256": "335333cdefcf47c9ce65baaaca899bd9b9c110df4d3ea0d86abe8d29f579525b"
+        },
+        {
+          "path": "assets/hd-layer-14.bin",
+          "bytes": 20480,
+          "sha256": "e68e23b3dc3cd4cd675f2e3cac18d44586badb7d75a1fe749085eaa50c99889b"
+        },
+        {
+          "path": "assets/hd-layer-14.png",
+          "bytes": 171477,
+          "sha256": "e1d2e738bdc7d119dd07e4bd04e14307ebe59c261b8aa2c7aa22471749e0947c"
+        },
+        {
+          "path": "assets/hd-layer-15-2x.png",
+          "bytes": 107505,
+          "sha256": "62c00c981d3b5e056cf5bd56cb9627447b4c11883b63f78d74d409ce48965bfb"
+        },
+        {
+          "path": "assets/hd-layer-15.bin",
+          "bytes": 20480,
+          "sha256": "aadc10e93d39e9818107ec23efe6ddf3465659a1477361fde15c7b67b1b927f6"
+        },
+        {
+          "path": "assets/hd-layer-15.png",
+          "bytes": 375101,
+          "sha256": "5fd13e2184c0b940335e7033c43dad92a5430a8811aec4b3d3b3509fce4a254f"
+        },
+        {
+          "path": "assets/hd-layer-16-2x.png",
+          "bytes": 264684,
+          "sha256": "64cf95eaa128643e6ec36ea3266145721adbd4d646e975050e27f36045f63895"
+        },
+        {
+          "path": "assets/hd-layer-16.bin",
+          "bytes": 76800,
+          "sha256": "0351e61b149811177e4757bc8fcaa567f1e9d68050facfa51c9c1d56ced0a24e"
+        },
+        {
+          "path": "assets/hd-layer-16.png",
+          "bytes": 902897,
+          "sha256": "db218b9690f45c615a8f03dc45bfe827e7cbb3ff2d124d5a088bfe6a7ab95b11"
+        },
+        {
+          "path": "assets/hd-layer-17-2x.png",
+          "bytes": 263536,
+          "sha256": "6935ad88a4460c58fe8bbd8a1912aac1fc5e4759fefac859a9f6be1b68486208"
+        },
+        {
+          "path": "assets/hd-layer-17.bin",
+          "bytes": 76800,
+          "sha256": "87d1ed9d34bde277c7ff2f7d60c44b59056b62cb0636e9f200d897625b07143e"
+        },
+        {
+          "path": "assets/hd-layer-17.png",
+          "bytes": 902393,
+          "sha256": "80cd8121c5dd13bc04c5a43143368075a0f45bfade945971c11f7b273db71b71"
+        },
+        {
+          "path": "assets/hd-layer-18-2x.png",
+          "bytes": 30720,
+          "sha256": "74b56ad3c16031a15fcd63c39b1a31442079a8d522772883521dee3c32c3d16e"
+        },
+        {
+          "path": "assets/hd-layer-18.bin",
+          "bytes": 64000,
+          "sha256": "9e79c3895a720fd5ac2819e99f1a0197f810d5af2066d5850087a273d6421265"
+        },
+        {
+          "path": "assets/hd-layer-18.png",
+          "bytes": 20256,
+          "sha256": "ae1f4cda20a9ca59f07abb569c3e4cc7defa35cd380e9a369a149d7385ba9c1a"
+        },
+        {
+          "path": "box_art.h",
+          "bytes": 8702741,
+          "sha256": "d3f40d2712ab265bc52c1a0e0573b9dd79d2d6dbb62a59e12b374f3700923764"
+        },
+        {
+          "path": "deck_access.c",
+          "bytes": 2457,
+          "sha256": "10df863c633bbb79d13a64e544806b7f5ad191b02327c01f490ffd184177b18e"
+        },
+        {
+          "path": "deck_access.h",
+          "bytes": 1047,
+          "sha256": "6b48c1934a8f46536c3a82495f6a3f84a9884c28b48f5637fc849d5935cae63e"
+        },
+        {
+          "path": "decks.c",
+          "bytes": 6819,
+          "sha256": "b62a41e984b05a8ff2cff0935deeb20c6418f59384ca6887ebd60a6aadc661ab"
+        },
+        {
+          "path": "decks.h",
+          "bytes": 28,
+          "sha256": "a24eb4952d52812bd84df4f327a000af6f775a2058f00fa3aeb2819ed912ebf2"
+        },
+        {
+          "path": "decks_original.h",
+          "bytes": 1052,
+          "sha256": "7fa9c5332a01438ebe08b05bdf684179233f0deecbeaf4c67c25d342920e35ba"
+        },
+        {
+          "path": "diagnostic_core.c",
+          "bytes": 2694,
+          "sha256": "1b3fe6c4b4e91bdf337cabf47e29a8a90b6c43704412f1f2560600b241c06110"
+        },
+        {
+          "path": "diagnostic_core.h",
+          "bytes": 1266,
+          "sha256": "fc7dde466ce3ebe8f6f03581a3033c75742dad5e8db3505bcef61f07acf443b3"
+        },
+        {
+          "path": "field_guard.c",
+          "bytes": 2090,
+          "sha256": "c47cecfb57a396bad952664fc538c2517544f3af3ce81e3e167d0af5496ad13d"
+        },
+        {
+          "path": "field_guard.h",
+          "bytes": 731,
+          "sha256": "c898873173cafde03d8caf22c5d2e52bd32bc60c937d02500493c2a4378faadf"
+        },
+        {
+          "path": "hand_play.c",
+          "bytes": 392,
+          "sha256": "e98deae89d0b868f9cdb7e4dc2dea9c2c4c2a6d4e2c62092aab86e6a44bfed19"
+        },
+        {
+          "path": "hand_play.h",
+          "bytes": 385,
+          "sha256": "2ae288c263faf6958ce30dc94abd4f402746ba975bc45af0679770a4ebaae23e"
+        },
+        {
+          "path": "hand_selection_snapshot.h",
+          "bytes": 2625,
+          "sha256": "1d4ffa28c3ba217d5a741c5bebfeb2ce19a0935a522a3948e464b45c3a23805c"
+        },
+        {
+          "path": "mandatory_hand_consumer.h",
+          "bytes": 16580,
+          "sha256": "560097a4cd6f510087ac2aaab3a4dcffef3f5d8df637ae982393f3c168a07a54"
+        },
+        {
+          "path": "mandatory_hand_lifecycle_v1.h",
+          "bytes": 1750,
+          "sha256": "1e20dc9ee29984eec1097baea2a2e497fbf6c2f9ee39c91d185d4ce170b69fc5"
+        },
+        {
+          "path": "mandatory_hand_selection_v1.h",
+          "bytes": 1699,
+          "sha256": "ac1a5385c4441ee0f14e41b68a4dc293c111197b6fe961ff89265025f32df49d"
+        },
+        {
+          "path": "mod.c",
+          "bytes": 67863,
+          "sha256": "cba183557ebf795b2e7b1d5e058ae38d110256c6827c390c2671a908d8cc1952"
+        },
+        {
+          "path": "mod.json",
+          "bytes": 9223,
+          "sha256": "6875e76bfd5e81dfcac635199f8f159e730624e5142185c99e385cb8cdcccdb5"
+        },
+        {
+          "path": "native_assets.h",
+          "bytes": 401930,
+          "sha256": "5d4f1bb7c0b9959bc10ea3b9a09ba104c6499ff6695bcb6865889e9dbba65184"
+        },
+        {
+          "path": "planner.c",
+          "bytes": 16711,
+          "sha256": "809a77a8b0ec3fb5f8b48e3e36ee65d4771841d59b0673a145d7f6c81b3be3fb"
+        },
+        {
+          "path": "planner.h",
+          "bytes": 1890,
+          "sha256": "67854c5ca87eea70c0721f1432e7e1b9484afb31ed146020b00718ffb43dcb07"
+        },
+        {
+          "path": "post_ritual.c",
+          "bytes": 4608,
+          "sha256": "b632349f6aa4951592cb2a1f8b0bb7e39a0a6f7e04ab61f4ecdc24d26b331e61"
+        },
+        {
+          "path": "post_ritual.h",
+          "bytes": 1260,
+          "sha256": "324056b26564bfc12f868b1a2991d7a596567df8f6bee4ea57bae8508feecd9f"
+        },
+        {
+          "path": "profile_data.h",
+          "bytes": 42140,
+          "sha256": "109912c4ae2942dd079fae40dd7c5e38fe16b5b4cef4518ae90042bbe99fe144"
+        },
+        {
+          "path": "profiles.c",
+          "bytes": 9416,
+          "sha256": "dadf828aae03e157ced94f9b7c26f20ce1b317fc1dec6bc51146b3848600e7c7"
+        },
+        {
+          "path": "rd_drop_rewards.c",
+          "bytes": 10555,
+          "sha256": "8798e28c02e4c16ae576aa198e5a8456a0496dd61769abcdcce125e4fafc2154"
+        },
+        {
+          "path": "rd_drop_rewards.h",
+          "bytes": 501,
+          "sha256": "e6aeec1d16dd38762e1a5ce32e3b9f5e0bdbb85a78fcbd8562202b09ebb167bd"
+        },
+        {
+          "path": "recipe_adapter.c",
+          "bytes": 7673,
+          "sha256": "f579611b3025b1e872a6de77c8b5461482a8dac499ec78ac82f771dd2c3edf69"
+        },
+        {
+          "path": "recipe_adapter.h",
+          "bytes": 1424,
+          "sha256": "f1c61b6f07ab259d741fa8b518a962d3cd7e8be988612846031458d8e788d9be"
+        },
+        {
+          "path": "ritual-duelists.o",
+          "bytes": 4568940,
+          "sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34"
+        },
+        {
+          "path": "ritual_duelists.h",
+          "bytes": 4382,
+          "sha256": "c01474dd60bc2bae078d29f39a1772d47c14be30ae142ec2e506a52fa461dd7b"
+        },
+        {
+          "path": "ritual_effect_intelligence_v1.h",
+          "bytes": 1476,
+          "sha256": "dc46868090ad84a2b4ece1dc40e4a6fe2898bfd2fd5b8f79c28bbca8f3a0e579"
+        },
+        {
+          "path": "ritual_recipe_provider_v1.h",
+          "bytes": 1245,
+          "sha256": "138ed4699e54bd5c0e54b5d0ef53020b5cce81da897984e526702fde59c23f7c"
+        },
+        {
+          "path": "ritual_rules_provider_v1.h",
+          "bytes": 983,
+          "sha256": "5684308a9c1ca94464bd08eca79d8b7b516565fe8efc0d72430b92af329c6500"
+        },
+        {
+          "path": "starter_bridge.h",
+          "bytes": 582,
+          "sha256": "8fb9def07b0e4401f13ff518d4af599cd26880e1eece1e165870cee08def1b26"
+        },
+        {
+          "path": "starter_choice_ui.c",
+          "bytes": 21304,
+          "sha256": "38fe2a1f383fb70dadb3bbf80578d6568689bc66c7721def42a662b09242035e"
+        },
+        {
+          "path": "starter_rules.c",
+          "bytes": 5932,
+          "sha256": "5bf33a02d76a052bb606178e9eee6da79541cac789b2a78ca73cd54e949c967f"
+        },
+        {
+          "path": "starter_rules.h",
+          "bytes": 425,
+          "sha256": "d8d861f62f5288616334205088060f2effd813cb7260eb853116e4c8421a88ff"
+        },
+        {
+          "path": "tribute_fetch.c",
+          "bytes": 9507,
+          "sha256": "4fa4fb462f507c17c0961622e6ba0ee47559e2ae4506bd79fed919325f5dd12d"
+        },
+        {
+          "path": "tribute_fetch.h",
+          "bytes": 1293,
+          "sha256": "fc171341fa636656d428363600d414e80c04826b23ff383259905d044255fa76"
+        }
+      ],
+      "original_source_commit": "9a363f28f6dbfe779b1b901ddecab74ab1be57e9",
+      "experimental_parent_commit": "f6cea112db8d14be34ab2f28694b0121a94842c2",
+      "current_artifact_provenance": "SDK-PROVENANCE.json in this package; files list pins executed runtime inputs"
+    }
+  ],
+  "guard_commit": "936c3513c9e6f8131b1eb4a5410d9c21c3c2c592",
+  "guard_files": [],
+  "original_inputs_reference": "PR24 commit e2605687e9f71862c9fc67f8358baead5f2396cc",
+  "fusion_reference": {
+    "commit": "e089a10b6fccbfebf756438407b87657062914d9",
+    "pr": 22,
+    "sha256": "384e11eeeae32412e23afbbbd9ebc308761674b8a2181238fd60e17e315b865c",
+    "files": [
+      {
+        "path": "assets/attribute-icons/dark.png",
+        "bytes": 46855,
+        "sha256": "68b4040e699a0170d1566ae9e18154b81d303642e713059c285ab76c40c4ed77"
+      },
+      {
+        "path": "assets/attribute-icons/earth.png",
+        "bytes": 49137,
+        "sha256": "0364465929cd6423c0cc06fcf69c97b727eba93082f4d455efe746f57de571b6"
+      },
+      {
+        "path": "assets/attribute-icons/fire.png",
+        "bytes": 45376,
+        "sha256": "3772c109d379805c7642c79e9505251113ebfb1e464037987533409785331b04"
+      },
+      {
+        "path": "assets/attribute-icons/light.png",
+        "bytes": 50677,
+        "sha256": "be624f2f650ff0bcb4084f6b0c6aed2ed29edff64b3c69e20659399d5f5e8b78"
+      },
+      {
+        "path": "assets/attribute-icons/water.png",
+        "bytes": 45109,
+        "sha256": "83463915b2cc8081d89fe5c348488ae7000fe9de0ece080d98626965a33372e7"
+      },
+      {
+        "path": "assets/attribute-icons/wind.png",
+        "bytes": 45397,
+        "sha256": "08d5daae18679053df710622d53a12c303ac9aeb4ddf74d1c7a629b2909968ee"
+      },
+      {
+        "path": "assets/coin-normal/00.png",
+        "bytes": 31712,
+        "sha256": "497efdabc6ade9bd12dd92f2a479ac86a9564632c4ae04f33029c1c1a5f060df"
+      },
+      {
+        "path": "assets/coin-normal/01.png",
+        "bytes": 30524,
+        "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+      },
+      {
+        "path": "assets/coin-normal/02.png",
+        "bytes": 27114,
+        "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+      },
+      {
+        "path": "assets/coin-normal/03.png",
+        "bytes": 22635,
+        "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+      },
+      {
+        "path": "assets/coin-normal/04.png",
+        "bytes": 20041,
+        "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+      },
+      {
+        "path": "assets/coin-normal/05.png",
+        "bytes": 17136,
+        "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+      },
+      {
+        "path": "assets/coin-normal/06.png",
+        "bytes": 11145,
+        "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+      },
+      {
+        "path": "assets/coin-normal/07.png",
+        "bytes": 5867,
+        "sha256": "c0ccf63d06a13a6c38721c98aafb49a7a400e881e4e559bde4d9e5ee615719cf"
+      },
+      {
+        "path": "assets/coin-normal/08.png",
+        "bytes": 12004,
+        "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+      },
+      {
+        "path": "assets/coin-normal/09.png",
+        "bytes": 16379,
+        "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+      },
+      {
+        "path": "assets/coin-normal/10.png",
+        "bytes": 19341,
+        "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+      },
+      {
+        "path": "assets/coin-normal/11.png",
+        "bytes": 20385,
+        "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+      },
+      {
+        "path": "assets/coin-normal/12.png",
+        "bytes": 26475,
+        "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+      },
+      {
+        "path": "assets/coin-normal/13.png",
+        "bytes": 31413,
+        "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+      },
+      {
+        "path": "assets/coin-normal/14.png",
+        "bytes": 32512,
+        "sha256": "37291c8f07f327254b5531bb8142a457aad056806cb0b75662675710cddd699e"
+      },
+      {
+        "path": "assets/coin-normal/15.png",
+        "bytes": 31413,
+        "sha256": "1817dadedc65e5ec4aeb43709a6df60a0a5ac2e5a810d06c761fbb7b0fc712d9"
+      },
+      {
+        "path": "assets/coin-normal/16.png",
+        "bytes": 26475,
+        "sha256": "d84fb96bfb0a5f38a3e7d4c231e1c36f60e52569f418b87e310631056dfb8a26"
+      },
+      {
+        "path": "assets/coin-normal/17.png",
+        "bytes": 20385,
+        "sha256": "7eb7821a79b080d660f9f816a400787445c8bb741d43aa0b91a5b55a5e53a4d2"
+      },
+      {
+        "path": "assets/coin-normal/18.png",
+        "bytes": 19341,
+        "sha256": "125d6f82f6e722c50bf828c944371ceb05b6021179c49e61867d5dda281633c2"
+      },
+      {
+        "path": "assets/coin-normal/19.png",
+        "bytes": 16379,
+        "sha256": "5d21f5dc31e51d0d625ced432b60d7a7e0d70c76f8bbfdd8eeb7e08e54021ccf"
+      },
+      {
+        "path": "assets/coin-normal/20.png",
+        "bytes": 12004,
+        "sha256": "b5791082a2266892b8c8da0440b1a0ffea7223bd801fd2a1e60c1ab3378935c6"
+      },
+      {
+        "path": "assets/coin-normal/21.png",
+        "bytes": 6150,
+        "sha256": "a2ccc08933af7dd06db84a379382ad6f7e47687991b1c934a9935f180faef131"
+      },
+      {
+        "path": "assets/coin-normal/22.png",
+        "bytes": 11145,
+        "sha256": "c97f438ed700671f0b33eaa0743eb90819777bef1d75e42fbcc0c39c97aee7d2"
+      },
+      {
+        "path": "assets/coin-normal/23.png",
+        "bytes": 17136,
+        "sha256": "1758e64d056cb1ba0131978e5e81a69ffbeecfdd06788def231d5a83c93c703d"
+      },
+      {
+        "path": "assets/coin-normal/24.png",
+        "bytes": 20041,
+        "sha256": "2c69804f31229f622b5f504630b4b0b0ecb3fcd889a983680c6bee9e59bbf47c"
+      },
+      {
+        "path": "assets/coin-normal/25.png",
+        "bytes": 22635,
+        "sha256": "ecddd31bfd2944643a220f729496354032a26b3b331eea0acb6635f6a10ae5a4"
+      },
+      {
+        "path": "assets/coin-normal/26.png",
+        "bytes": 27114,
+        "sha256": "fcfd9721e9a855f7a80ab96505a09766da20af868f420f02a79bbaf5ec44587e"
+      },
+      {
+        "path": "assets/coin-normal/27.png",
+        "bytes": 30524,
+        "sha256": "31a3959eca966ff97c8392a943a0bc5665701ede56552806d29277e35a92b5b9"
+      },
+      {
+        "path": "assets/coin-normal/coin.txt",
+        "bytes": 19,
+        "sha256": "6a79338a43aa97ff3506d5fb93f9685769555abb1b6c9cdf9c8a85a649b95d22"
+      },
+      {
+        "path": "fusion-auxiliary-balance.o",
+        "bytes": 380288,
+        "sha256": "384e11eeeae32412e23afbbbd9ebc308761674b8a2181238fd60e17e315b865c"
+      },
+      {
+        "path": "mod.json",
+        "bytes": 22067,
+        "sha256": "e8ff14b500189b1e6bca253677756535c5f8e3c00b27d2904f3640d870fadd7a"
+      }
+    ]
+  },
+  "stage": "HAL25 boundary qualification, experimental local RD controller-derived selection validation; PR26 dc711074732e01275fb575aabda577c497ffe6d9 preserved"
+}

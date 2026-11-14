@@ -1,0 +1,107 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 22984,
+    "sha256": "bbc80bb5b5065db2c79bf62255ac07ee78e44a09cd8018688a6e2c4672a40813"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 120043,
+    "sha256": "1dc74e9aa747b339c61fc952f73a3ad4ee1ac95f36b7b99fde971c4578c1a737"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-after-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 169518,
+    "sha256": "de01d352a6d05150e0cf0dc3cb7e5da8aa4a4574ab8f030a8df71412355abb68"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-after-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 206355,
+    "sha256": "cd028aca530e2156ba77f30d81d550976cd5d82966ec0512e060d811cd424dd1"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-before-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 169518,
+    "sha256": "de01d352a6d05150e0cf0dc3cb7e5da8aa4a4574ab8f030a8df71412355abb68"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-before-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 206355,
+    "sha256": "cd028aca530e2156ba77f30d81d550976cd5d82966ec0512e060d811cd424dd1"
+  },
+  {
+    "path": "boundary-bridge0-h0-d1-rd1-after-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 241872,
+    "sha256": "4689ed033b85fd9a0ef878a324bb827ed22c301f76c6eaef68ac63c5ab8aaa3c"
+  },
+  {
+    "path": "boundary-bridge0-h0-d1-rd1-after-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 278709,
+    "sha256": "fa7ddec392903d9f2943f9d5a9930483570fb9e2f06695e7bca94e9870602d54"
+  },
+  {
+    "path": "boundary-bridge0-h0-d1-rd1-before-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 241872,
+    "sha256": "4689ed033b85fd9a0ef878a324bb827ed22c301f76c6eaef68ac63c5ab8aaa3c"
+  },
+  {
+    "path": "boundary-bridge0-h0-d1-rd1-before-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 278709,
+    "sha256": "fa7ddec392903d9f2943f9d5a9930483570fb9e2f06695e7bca94e9870602d54"
+  },
+  {
+    "path": "boundary-bridge0-h1-d0-rd1-after-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 822060,
+    "sha256": "c24a34040a8d15eec0a4f432375f35bc2338d76748aab8c244adb4ebac046c9b"
+  },
+  {
+    "path": "boundary-bridge0-h1-d0-rd1-after-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 858897,
+    "sha256": "9776cde850455fdbc53ca99338c5f2e6aa792179642c2573b5ab17d5209c5e61"
+  },
+  {
+    "path": "boundary-bridge0-h1-d0-rd1-before-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 822060,
+    "sha256": "c24a34040a8d15eec0a4f432375f35bc2338d76748aab8c244adb4ebac046c9b"
+  },
+  {
+    "path": "boundary-bridge0-h1-d0-rd1-before-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 858897,
+    "sha256": "9776cde850455fdbc53ca99338c5f2e6aa792179642c2573b5ab17d5209c5e61"
+  },
+  {
+    "path": "boundary-bridge0-h1-d1-rd1-after-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 894503,
+    "sha256": "1f95a8c30a56416b68b227185c3c126e90d83c9d5331a03368478100d76b4032"
+  },
+  {
+    "path": "boundary-bridge0-h1-d1-rd1-after-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 931340,
+    "sha256": "7ee1b9ae3a658c73012180feda99c6b0fd82dbae72ec60e165467bedca75222d"
+  },
+  {
+    "path": "boundary-bridge0-h1-d1-rd1-before-absent-c5-boundary-combined-m12-x0-a0.log",
+    "bytes": 894503,
+    "sha256": "1f95a8c30a56416b68b227185c3c126e90d83c9d5331a03368478100d76b4032"
+  },
+  {
+    "path": "boundary-bridge0-h1-d1-rd1-before-absent-c5-boundary-combined-m13-x0-a0.log",
+    "bytes": 931340,
+    "sha256": "7ee1b9ae3a658c73012180feda99c6b0fd82dbae72ec60e165467bedca75222d"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11461,
+    "sha256": "f04e634f93e4c6e33d49640f991cec421b42e9e907a9954f2b6633326394e6a8"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "WIN32",
+    "classification": "AUTOMATION_UNAVAILABLE",
+    "priority": "P1",
+    "evidence": "windows/RESULTADOS.json; independent PE32 control fails before main, PE64 control passes",
+    "remaining": "Backend PE32/WoW64 or native Windows capable of passing the control. No intermediate user gameplay requested."
+  },
+  {
+    "id": "DISC",
+    "classification": "AUTOMATION_UNAVAILABLE",
+    "priority": "P1",
+    "evidence": "windows/linux-official-startup.log: official Linux app exit1 missing disc",
+    "remaining": "Legitimate private game image, absent from supplied workspace. No data fabricated/downloaded."
+  },
+  {
+    "id": "GAMEPLAY-UI-RESTART-SAVE",
+    "classification": "NOT_REACHED",
+    "priority": "P1",
+    "evidence": "Backend PE32 does not create a usable game process/window",
+    "remaining": "Automated full app/duel/UI/controls/restart/save-load can run once backend and legitimate resources exist."
+  },
+  {
+    "id": "INFLIGHT-LOAD",
+    "classification": "NOT_REACHED",
+    "priority": "P1",
+    "evidence": "Registered-buffer/reset/LOAD simulations only; no full game-state restoration during collection",
+    "remaining": "Explicit policy and actual runtime regression of load while handoff/consumption is in flight. Do not infer old savestate compatibility."
+  },
+  {
+    "id": "ADMISSION",
+    "classification": "REFUSED",
+    "priority": "P1",
+    "evidence": "Unchanged PR20 version gate rejects new RD with Dual active",
+    "remaining": "Separate review/qualification of stable hook order and unexecuted M/R/F branches. No whitelist relaxation by ID."
+  },
+  {
+    "id": "EXTERNAL-MATERIALIZERS",
+    "classification": "NOT_REACHED",
+    "priority": "P1",
+    "evidence": "Own pre-collection/identity guards and all-three native ritual consumptions observed; no global transaction barrier",
+    "remaining": "Cooperative validator/ownership boundary for foreign consumption after last check. No fake rollback."
+  },
+  {
+    "id": "CALLBACK-UNLOAD",
+    "classification": "NOT_REACHED",
+    "priority": "P2",
+    "evidence": "ACK then PROT_NONE table passes; busy disconnect rejected; normal manager serialized shutdown examined",
+    "remaining": "No support promised for arbitrary concurrent native code unload/invalid pointers. Must retain table/context/code until ACK."
+  },
+  {
+    "id": "UI-RECOVERY",
+    "classification": "NOT_REACHED",
+    "priority": "P2",
+    "evidence": "Public status records and explicit recovery tested, real GUI not reached",
+    "remaining": "Review UI presentation and retry budget3; no silent periodic recover."
+  },
+  {
+    "id": "PERSONAL-GAMEPLAY",
+    "classification": "DEFERRED_USER_PERSONAL",
+    "priority": "FINAL_PHASE",
+    "evidence": "Latest explicit user directive",
+    "remaining": "Only user-personal playing is deferred. Automated Windows checks are authorized now."
+  },
+  {
+    "id": "TW-ADAPTER-DROPLIST",
+    "classification": "NOT_REACHED",
+    "priority": "SEPARATE",
+    "evidence": "No Time Wizard/AI adapter/Droplist binary integrated",
+    "remaining": "Prior dependencies remain separate; no workaround or third-party modification."
+  }
+]

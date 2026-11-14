@@ -1,0 +1,37 @@
+[
+  {
+    "path": "MATRIZ.csv",
+    "bytes": 3110,
+    "sha256": "ac36df10f60869965457a82b7921daccbd8296feb491fd16b23d013bddca50a5"
+  },
+  {
+    "path": "RESULTADOS.json",
+    "bytes": 88447,
+    "sha256": "884c5a7667f5bc793d02fd059b79200936e804d178a66c6cf04bcd39ade1ed76"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-after-on-c5-boundary-ritual-m21-x0-a0.log",
+    "bytes": 37036,
+    "sha256": "a4ca33e0529084ea6534f709809a8cbacfe88f041feb128fab2c536689148829"
+  },
+  {
+    "path": "boundary-bridge0-h0-d0-rd1-before-on-c5-boundary-ritual-m21-x0-a0.log",
+    "bytes": 37036,
+    "sha256": "2ce77fe04ec05a68165abf49f5d86e12bdfffefd5dc14cb4fa3feebd517d0fe1"
+  },
+  {
+    "path": "build-harness.log",
+    "bytes": 11461,
+    "sha256": "f04e634f93e4c6e33d49640f991cec421b42e9e907a9954f2b6633326394e6a8"
+  },
+  {
+    "path": "build-interposer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "build-observer.log",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+]
