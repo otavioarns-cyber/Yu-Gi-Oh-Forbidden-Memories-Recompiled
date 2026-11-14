@@ -1,0 +1,3 @@
+memories-pc: state: no chunk 'fixture' (6 bytes in this build); that part keeps its current state
+memories-pc: state: layout changed for 'fixture' (5 bytes in the state, 6 in this build); that part keeps its current state
+State chunks: round trip, field ordering, truncation, layout mismatch and overflow passed

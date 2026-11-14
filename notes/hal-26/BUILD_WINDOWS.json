@@ -1,0 +1,16 @@
+{
+  "game": {
+    "status": "PASS",
+    "target": "Windows i386/API24",
+    "bytes": 5215744,
+    "sha256": "ffbf8d99b9017c2c52a0d8bdcb3d3def46b96fe21926a194b4f234ba9543e9de",
+    "command": "python tools/pc/build_game32.py --target windows --release",
+    "gameplay": "NOT_REACHED"
+  },
+  "independent_control": {
+    "format": "PE32 I386",
+    "bytes": 60928,
+    "sha256": "c9153444ee6bf331364e03f88dd23a07cf9e379e9ae04d248b58ddaeacedbb39",
+    "runtime": "AUTOMATION_UNAVAILABLE: fork Actions suspended; not executed under Wine again."
+  }
+}

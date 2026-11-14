@@ -1,0 +1,18 @@
+capability,status,scope
+Collection current M/R/RD/F/E/H/D/DMC,PASS,"188 targeted processes,2228 checks; partial host/native selected controllers, not full Windows gameplay"
+Queen +Fusion lease typed subset,PASS,24 positive scope-only modeled roundtrips; not full collection restoration
+A complete collection persistence,FAIL,Coverage incomplete; full preflight always INCOMPLETE
+A generated backing,REFUSED,"Real Fusion generator uses pool outside combined deck,8 profiles refuse"
+A artifact admission,REFUSED,"Exact-object guard rejects variants,8 profiles"
+B order guard OFF,REFUSED,Expected prewrite refusal with active or resident known owners
+B after all effective OFF/resident,REFUSED,Real manager/object residency; original restart UI bypassed only in explicit test seam
+Legacy cold OFF loader,NOT_REACHED,Corrupt input reaches legacy validation; no successful old/current full state certified
+TimeWizard source AI predicate,FAIL,24 mismatches with real R/RD callbacks under guard1;24 more with observer instrumented guard0
+TimeWizard direct Dual bridge,REFUSED,24 signature observations cannot see D through real wrapper; not proved gameplay quota violation
+TimeWizard already-started Encore retry after F OFF,PASS,"Existing cached behavior reproduced; fresh OFF neutral, no policy change"
+TimeWizard complete API24 source rebuild,NOT_REACHED,Opaque0.23.1 core source absent; only partial relink
+Current Windows game/UI/save-load,NOT_REACHED,PE32 runtime control never executed; game image not accessible
+Native Windows PE32 control,AUTOMATION_UNAVAILABLE,Fork Actions suspended by GitHub scale-of-use policy
+Official storage and chunk tests,PASS,"4 groups, synthetic temporary saves/chunks, host file I/O and menu state machine"
+Optimized GCC storage build -O1/Werror,FAIL,"Preexisting format-truncation, reproduced on identical baseline/candidate source; default strict build passes"
+Translated ARM64 state path,NOT_REACHED,"Different backend, collection not ported or qualified there"

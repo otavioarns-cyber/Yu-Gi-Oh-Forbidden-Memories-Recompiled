@@ -1,0 +1,36 @@
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c: In function ‘SaveSlots_ImportFolder’:
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:521:42: error: ‘%s’ directive output may be truncated writing up to 8191 bytes into a region of size between 276 and 1299 [-Werror=format-truncation=]
+  521 |         snprintf(path, sizeof(path), "%s/%s", directory, names[i]);
+      |                                          ^~
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:521:9: note: ‘snprintf’ output between 2 and 9216 bytes into a destination of size 1300
+  521 |         snprintf(path, sizeof(path), "%s/%s", directory, names[i]);
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:435:48: error: ‘%s’ directive output may be truncated writing up to 1299 bytes into a region of size 1200 [-Werror=format-truncation=]
+  435 |         else snprintf(target, sizeof(target), "%s.%d.imported", path, n);
+      |                                                ^~
+......
+  528 |         found = import_file(path, names[i], check, &done);
+      |                             ~~~~                
+In function ‘mark_imported’,
+    inlined from ‘import_file’ at /workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:497:29,
+    inlined from ‘SaveSlots_ImportFolder’ at /workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:528:17:
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:435:47: note: directive argument in the range [2, 99]
+  435 |         else snprintf(target, sizeof(target), "%s.%d.imported", path, n);
+      |                                               ^~~~~~~~~~~~~~~~
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:435:14: note: ‘snprintf’ output between 12 and 1312 bytes into a destination of size 1200
+  435 |         else snprintf(target, sizeof(target), "%s.%d.imported", path, n);
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c: In function ‘SaveSlots_ImportFolder’:
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:434:55: error: ‘%s’ directive output may be truncated writing up to 1299 bytes into a region of size 1200 [-Werror=format-truncation=]
+  434 |         if (n == 1) snprintf(target, sizeof(target), "%s.imported", path);
+      |                                                       ^~
+......
+  528 |         found = import_file(path, names[i], check, &done);
+      |                             ~~~~                       
+In function ‘mark_imported’,
+    inlined from ‘import_file’ at /workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:497:29,
+    inlined from ‘SaveSlots_ImportFolder’ at /workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:528:17:
+/workspace/work/hal20-state-timewizard/logs/storage/save_slots-baseline.c:434:21: note: ‘snprintf’ output between 10 and 1309 bytes into a destination of size 1200
+  434 |         if (n == 1) snprintf(target, sizeof(target), "%s.imported", path);
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors

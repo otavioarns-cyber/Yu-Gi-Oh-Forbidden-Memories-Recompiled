@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "groups": [
+    {
+      "name": "mods_state_test",
+      "build": "cc -std=gnu11 -O1 -DMEMORIES_PC -ffunction-sections -fdata-sections -Isrc tests/pc/mods_state_test.c -Wl,--gc-sections",
+      "run": "mods-state temporary-mods.state",
+      "exit_code": 0
+    },
+    {
+      "name": "state_io_test",
+      "build": "cc -std=gnu11 -O1 -Isrc tests/pc/state_io_test.c src/pc/guest/state_io.c",
+      "run": "state-io temporary-io.state",
+      "exit_code": 0
+    }
+  ],
+  "scope": "Actual unchanged native chunk/version/signature code, synthetic payloads; no successful game state restore."
+}

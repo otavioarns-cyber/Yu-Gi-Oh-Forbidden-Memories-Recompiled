@@ -352,6 +352,8 @@ static int deck_changes(const DuelDeckCardRecord*before){int n=0;DuelDeckCardRec
 #include "consolidation.inc"
 #include "field.inc"
 #include "state_preview.inc"
+#include "../hal26-state-timewizard/state_pair.inc"
+#include "../hal26-state-timewizard/timewizard_cases.inc"
 int main(int argc,char**argv){
  CHECK(argc==7);setvbuf(stdout,NULL,_IOLBF,0);CHECK(mkdtemp(data_directory));memory_init(argv[1]);trace_memory=mmap(NULL,65536,PROT_READ|PROT_WRITE|PROT_EXEC,MAP_PRIVATE|MAP_ANONYMOUS,-1,0);CHECK(trace_memory!=MAP_FAILED);
  native_load(argv[2],"duel_field_layout","");native_load(argv[2],"ai_opponent_data","");native_load(argv[2],"duel_scene_hand_actions","DuelScene_UpdateHandActions");native_load(argv[2],"func_8001B938","func_8001B938,func_8001BAF0");native_load(argv[2],"duel_card_state_helpers","func_80028220");native_load(argv[2],"func_80027DF8","func_80027DF8");native_load(argv[2],"ai_script_vm","AiScript_Init");native_load(argv[2],"ai_get_hand_size","Ai_GetHandSize");native_load(argv[2],"func_8001B7AC","func_8001B780,func_8001B7AC");native_load(argv[2],"duel_state_init","Duel_ClearHandSlots");
@@ -378,7 +380,7 @@ int main(int argc,char**argv){
  for(int i=0;i<Mods_Count();i++)CHECK(!Mods_Failed(i));
  if(Settings_GetNamed("test.effects-off",0)&&mi(RE)>=0&&Mods_Active(mi(RE)))Hal25_ForceApplied(mi(RE),0);
 
- if(!strcmp(argv[4],"state-preview")){state_preview_cases(Settings_GetNamed("test.state-mode",0));goto done;}
+ if(!strcmp(argv[4],"state-preview")){if(Settings_GetNamed("test.state-pair",0))state_pair_cases(Settings_GetNamed("test.state-mode",0));else state_preview_cases(Settings_GetNamed("test.state-mode",0));goto done;}
  if(!strcmp(argv[4],"field")){field_cases();goto done;}
  if(!strcmp(argv[4],"consolidation")){consolidation_cases(Settings_GetNamed("test.consolidation",0));goto done;}
  if(!strcmp(argv[4],"providers")){provider_cases();goto done;}
@@ -429,5 +431,9 @@ int main(int argc,char**argv){
  if(Settings_GetNamed("test.copies",0))result("distinct-equal-ID-copy-preserved",hand_count()==4&&((DuelSideState*)datum("D_800E9FF0"))[1].hand[4]==44,"The earlier physical395 at slot3 was selected; distinct same-ID copy44 remains.");
  if(Mods_Active(mi(D))){result("quota-definitive-category",ds()[1]==cat,"Actual Dual ledger matches physical category; known structural I1/I2 remains separate.");resolve_model(phase);int awarded=award_bonus();printf("BONUS awarded=%d used=%u\n",awarded,ds()[1]);if(awarded){begin("real-bonus");int count=hand_count(),p2=hand_action(),id2=action_card(),cat2=action_category();printf("ACTION bonus id=%d category=%d phase=%d used=%u hand=%d\n",id2,cat2,p2,ds()[1],hand_count());if(p2==6||p2==7){result("bonus-authorized-category",cat2&&!(cat&cat2)&&card_type(id2)!=22,"No second same-category action; actual filtered hand and planners.");result("bonus-one-instance",hand_count()==count-1&&conserved(),"Exactly one bonus physical consumption and conservation.");}else puts("NOT_REACHED bonus no legal commit");}}
  state:state_cases();
- done:critical_audit();CHECK(Settings_Save());Mods_Shutdown();printf("SUMMARY assertions=%u failures=%u no pending/plan/quota injection in primary cases\n",assertions,failures);return failures?1:0;
+ done:
+#ifdef HAL26_TW_PROBE
+ timewizard_contract_cases();
+#endif
+ critical_audit();CHECK(Settings_Save());Mods_Shutdown();printf("SUMMARY assertions=%u failures=%u no pending/plan/quota injection in primary cases\n",assertions,failures);return failures?1:0;
 }
