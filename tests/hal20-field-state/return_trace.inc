@@ -9,7 +9,7 @@ typedef struct{TraceIdentity records[30],last_records[30];int16_t terrain[30],la
 static CallFrame return_frames[256];static unsigned return_depth;
 static int trace_hand_count(int side){int n=0;if(side<0||side>1)return -1;DuelSideState*s=datum("D_800E9FF0");for(int i=0;i<5;i++)n+=s[side].hand[i]>=0;return n;}
 static const char*trace_target(int index){return index>=0?registrations[index].name:engine[-index-1].name;}
-static int trace_critical(int index){const char*n=trace_target(index);return !strcmp(n,"AiScript_Run")||!strcmp(n,"func_8001BAF0")||!strcmp(n,"DuelScene_UpdateHandActions")||!strcmp(n,"DuelEffect_ApplyRitual")||!strcmp(n,"DuelCard_DeactivateRecord")||!strcmp(n,"Duel_SetupCardRecord")||!strcmp(n,"DuelEffect_ApplyTerrain")||!strcmp(n,"func_80037DA4")||!strcmp(n,"func_80035E20");}
+static int trace_critical(int index){const char*n=trace_target(index);return !strcmp(n,"func_80028220")||!strcmp(n,"func_8001B938")||!strcmp(n,"DuelScene_UpdateCardPlacement")||!strcmp(n,"DuelScene_UpdateCardUse")||!strcmp(n,"AiScript_Run")||!strcmp(n,"func_8001BAF0")||!strcmp(n,"DuelScene_UpdateHandActions")||!strcmp(n,"DuelEffect_ApplyRitual")||!strcmp(n,"DuelCard_DeactivateRecord")||!strcmp(n,"Duel_SetupCardRecord")||!strcmp(n,"DuelEffect_ApplyTerrain")||!strcmp(n,"func_80037DA4")||!strcmp(n,"func_80035E20");}
 static void trace_segment(CallFrame*f)
 {
  int hand=trace_hand_count(f->side);unsigned short phase=*(uint16_t*)datum("gDuel_wSceneStateFlags"),sub=*(uint16_t*)datum("D_8009B20C");
@@ -31,6 +31,7 @@ static __attribute__((force_align_arg_pointer,noinline)) void traced_begin(int i
  traced(index);if(!trace_returns||!trace_critical(index))return;CHECK(return_depth<256);
  if(return_depth)trace_segment(&return_frames[return_depth-1]);
  if(return_depth)printf("CALLBACK_EDGE parent=%d child=%d\n",return_frames[return_depth-1].index,index);
+ support_trace(index,"enter");
  CallFrame*f=&return_frames[return_depth++];memset(f,0,sizeof*f);f->ret=*ret;f->index=index;
  f->consumption_record=-1;
  if(!strcmp(trace_target(index),"DuelCard_DeactivateRecord")){
@@ -45,7 +46,7 @@ static __attribute__((force_align_arg_pointer,noinline)) void traced_begin(int i
 }
 static __attribute__((force_align_arg_pointer,noinline)) uintptr_t traced_end(void)
 {
- CHECK(return_depth);CallFrame*f=&return_frames[--return_depth];trace_segment(f);
+ CHECK(return_depth);CallFrame*f=&return_frames[--return_depth];trace_segment(f);support_trace(f->index,"exit");
  if(f->consumption_record>=0){DuelCardRecord*c=(DuelCardRecord*)datum("D_801A7AD8")+f->consumption_record;printf("CONSUME_EXIT node=%d record=%d id=%d occupied=%d data=%08x\n",f->index,f->consumption_record,c->card_id,!!(c->flags&DUEL_CARD_FLAG_OCCUPIED),(unsigned)(uintptr_t)c->data);}
 
  printf("CALLBACK_EXIT node=%d target=%s selection_changed=%d deck_changed=%d consumed=%d materializations=%u\n",f->index,trace_target(f->index),memcmp(f->selection,datum("D_800EAE88"),12)!=0,memcmp(f->deck,datum("gDuel_aDeckCardRecords"),480)!=0,f->hand-trace_hand_count(f->side),setup_count-f->setups);

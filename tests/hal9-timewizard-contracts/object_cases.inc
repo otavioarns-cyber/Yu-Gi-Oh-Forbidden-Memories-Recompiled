@@ -55,6 +55,7 @@ static void hal9_time_magic_action(void){
  result("actual-TimeMagic-single-physical",hand_count()==4&&conserved()&&setup_count<=1,"Actual planner/controller commit of TW Support; no hand selection/pending injected. Wheel presentation tested separately.");
  if(Mods_Active(mi(D)))result("actual-TimeMagic-Dual-support-quota",ds()[1]==2,"Actual Dual ledger must count Support for TW materialized into Time Magic.");
 }
+#include "../hal9-support/support.inc"
 static void hal9_object_cases(void){
  int t=mi(T);CHECK(t>=0);printf("HAL9_ABI host=%u mod=%d pointer_bytes=%u\n",Hal25_Host(t)->api,Hal9_TestModAPI(t),(unsigned)sizeof(void*));int mode=Settings_GetNamed("test.tw-case",0);
  if(Settings_GetNamed("test.tw-reference",0)){
@@ -91,6 +92,7 @@ static void hal9_object_cases(void){
 
  if(mode==6&&!Mods_Active(mi(D))){Mods_SetEnabled(mi(D),1);result("late-unknown-Dual-refused",!Hal9_TestReady()&&Hal9_TestDual()==NULL&&resolve_dual()==NULL,"Real manager activates unqualified digest; query fails closed and old cached state is not exposed.");puts("SAFE_REFUSAL HAL9 late unknown Dual remains outside admitted collection");return;}
  if(mode==7&&!Mods_Active(mi(H))){Hal25_ForceApplied(mi(H),1);result("late-unknown-HARD-refused",Hal9_TestHard()==-1&&!Hal9_TestReady(),"Instrumented effective activation of changed owner digest: UNKNOWN is explicit, not a qualified OFF/ON state.");puts("SAFE_REFUSAL HAL9 late unknown HARD remains outside admitted collection");return;}
+ if(mode>=20){support_cases(mode);return;}
  if(mode==9){hal9_encore_real_provider();return;}
  if(mode==11){hal9_collection_action();return;}
  if(mode==12||mode==13){hal9_time_magic_action();return;}

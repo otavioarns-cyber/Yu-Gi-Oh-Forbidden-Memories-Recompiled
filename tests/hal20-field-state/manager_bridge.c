@@ -1,7 +1,13 @@
 /* Test-only bridge to official base; no guard source imported. */
 static unsigned hal9_test_hard_calls;
 #define HAL9_TRACE_HARD() (++hal9_test_hard_calls)
+#define clock_gettime HalSupportClock
 #include "../../src/pc/mods/mods.c"
+#undef clock_gettime
+extern int clock_gettime(clockid_t,struct timespec*);
+static uint64_t support_clock=1000000;
+int HalSupportClock(clockid_t id,struct timespec*out){if(Settings_GetNamed("test.tw-case",0)>=25){out->tv_sec=support_clock/1000000;out->tv_nsec=(support_clock%1000000)*1000;return 0;}return clock_gettime(id,out);}
+void HalSupportAdvance(void){support_clock+=16667;}
 void Hal25_ForceApplied(int i,int on){activate(i,on);}
 const MemoriesModHost*Hal25_Host(int i){return &mods[i].host;}
 

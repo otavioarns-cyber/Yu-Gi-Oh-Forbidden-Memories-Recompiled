@@ -83,6 +83,7 @@ static __attribute__((force_align_arg_pointer,noinline)) void traced(int index){
   printf("TRACE case=%s owner=%s kind=%s name=%s\n",case_name,modules[registrations[index].owner].id,registrations[index].kind?"event":"hook",registrations[index].name);
  }else{index=-index-1;CHECK(index<ne);++engine_calls[index];if(!strcmp(engine[index].name,"func_8001BAF0"))strcat(swap_path,"engine>");if(!strncmp(engine[index].name,"Cards_",6)||!strncmp(engine[index].name,"Tables_",7))return;printf("TRACE case=%s owner=engine name=%s\n",case_name,engine[index].name);}
 }
+static void support_trace(int,const char*);
 #include "return_trace.inc"
 static void emit32(unsigned char**p,uint32_t n){memcpy(*p,&n,4);*p+=4;}
 static void *thunk(void*destination,int trace_index,unsigned char*memory){
@@ -131,9 +132,9 @@ static int no_legacy(int n,void*p){(void)n;(void)p;return -1;}
 static _Alignas(16) unsigned char displays[512][512];static int display_count;
 static void *allocate(int slot,int tag){(void)slot;(void)tag;CHECK(display_count<512);void*p=displays[display_count++];memset(p,0,512);return p;}
 static void *spawn(int id,int x,int y){++spawn_count;DuelCardDisplayObject*p=allocate(0,0);p->out_x=x;p->out_y=y;p->field_68=card_type(id);return p;}
-static void *spawn_hand(DuelCardRecord*r,int x,int y){DuelCardDisplayObject*p=spawn(r->card_id,x,y);p->card_index=r-(DuelCardRecord*)datum("D_801A7AD8");r->object=(void*)p;return p;}
+static void *spawn_hand(DuelCardRecord*r,int x,int y){DuelCardDisplayObject*p=spawn(r->card_id,x,y);p->card_index=r-(DuelCardRecord*)datum("D_801A7AD8");if(Settings_GetNamed("test.tw-case",0)>=23&&r->data)p->field_6B=((uint8_t*)r->data)[2];r->object=(void*)p;return p;}
 static void *setup_record(int r,int pos){
- ++setup_count;CHECK(r>=0&&r<30&&pos>=0&&pos<80);DuelCardRecord*c=datum("D_801A7AD8");DuelDeckCardRecord*d=datum("gDuel_aDeckCardRecords");
+ ++setup_count;if(Settings_GetNamed("test.tw-case",0)>=23){if(r&128)r=(r&127)+15;if(r>=15&&pos<40)pos+=40;if(pos&128)pos=(pos&127)+40;}CHECK(r>=0&&r<30&&pos>=0&&pos<80);DuelCardRecord*c=datum("D_801A7AD8");DuelDeckCardRecord*d=datum("gDuel_aDeckCardRecords");
  memset(&c[r],0,sizeof c[r]);c[r].card_id=d[pos].id;c[r].data=&d[pos];c[r].flags=DUEL_CARD_FLAG_OCCUPIED;uint32_t stats=((uint32_t*)datum("gDuel_adwCardStats"))[d[pos].id-1];c[r].attack=(stats&511)*10;c[r].defense=(stats>>9&511)*10;c[r].terrain_modifier=field_primary(card_type(c[r].card_id));return &c[r];
 }
 static void deactivate(DuelCardRecord*r){if(r)r->flags=0;}
@@ -146,12 +147,16 @@ static int named(const char*n){
 }
 static void stock_deal(int src,uint8_t*out16,uint8_t*out8){(void)src;for(int i=0;i<40;i++){((uint16_t*)out16)[i]=99;out8[i]=i;}puts("MODEL_STOCK_DEAL fallback");}
 
+static int support_card_name(int id,char*out,unsigned cap){const char*n=id==41?"Celtic Guardian":id==72?"Cocoon of Evolution":"";size_t z=strlen(n);if(!z||z+1>cap)return 0;memcpy(out,n,z+1);return (int)z;}
+static void*support_render_allocate(void){return Settings_GetNamed("test.tw-case",0)>=25?allocate(0,0):NULL;}
 static unsigned guard_notices;
 static void guard_notice(const char*title,const char*message){++guard_notices;printf("VISIBLE_ERROR %s: %s\n",title,message);}
 static int field_tables(int,int,int*);
 static int field_primary(int);
 static int field_mark(void){return Settings_GetNamed("test.field-probe",0)?1:0;}
 static void *body(const char*n){
+ if(!strcmp(n,"Cards_NameUtf8"))return support_card_name;
+ if(!strcmp(n,"func_800291E0")||!strcmp(n,"Duel_CreateCardEffectOverlay"))return support_render_allocate;
  if(!strcmp(n,"Tables_TerrainBonus"))return field_tables;
  if(!strcmp(n,"Duel_GetTerrainBoost"))return field_primary;
  if(!strcmp(n,"DuelEffect_MarkInitialized"))return field_mark;
@@ -245,7 +250,7 @@ int Memories_DiscReadSectors(int lba,int sectors,void*out){(void)lba;memset(out,
 int Memories_DiscSectorCount(void){return 10000;}
 int Memories_DiscOriginalFileInfo(const char*path,int*lba,unsigned*size){(void)path;(void)lba;(void)size;return -1;}
 int Memories_DiscFileInfo(const char*path,int*lba,unsigned*size){return Memories_DiscOriginalFileInfo(path,lba,size);}
-int Memories_DiscFileStart(const char*path){(void)path;return -1;}
+int Memories_DiscFileStart(const char*path){if(Settings_GetNamed("test.tw-case",0)>=38)printf("SUPPORT_DISC_LOOKUP path=%s result=-1 no legitimate disc available\n",path);return -1;}
 static LoadedObject native_objects[24];static int nn;
 static void native_load(const char*directory,const char*unit,const char*exports){
  char path[4096],error[512],names[1024];snprintf(path,sizeof path,"%s/src_game_%s.c.o",directory,unit);FILE*f=fopen(path,"rb");CHECK(f);fseek(f,0,SEEK_END);long n=ftell(f);rewind(f);void*bytes=malloc(n);CHECK(bytes&&fread(bytes,1,n,f)==(size_t)n);fclose(f);
@@ -368,6 +373,7 @@ int main(int argc,char**argv){
  {char f[4096];snprintf(f,sizeof f,"%s/src_game_guard_main.c.o",argv[6]);if(!access(f,R_OK))native_load(argv[6],"guard_main","Main_RunDuel");}
  if(!strcmp(argv[4],"field-boundary-ritual"))native_load(argv[2],"duel_calc_card_stats","Duel_CalcCardStats");
  if(!strcmp(argv[4],"field")||!strcmp(argv[4],"field-controller")){native_load(argv[2],"func_80024E58","DuelEffect_ApplyTerrain");native_load(argv[2],"duel_calc_card_stats","Duel_CalcCardStats");}
+ if(getenv("HAL9_SUPPORT_NATIVE")&&*getenv("HAL9_SUPPORT_NATIVE"))native_load(argv[2],"func_80019608","DuelScene_UpdateCardUse");
  prepare_exports();*(int*)datum("gCard_nCount")=722;Settings_Load();
  trace_returns=Settings_GetNamed("test.return-trace",0);
  return_trampoline=mmap(NULL,4096,PROT_READ|PROT_WRITE|PROT_EXEC,MAP_PRIVATE|MAP_ANONYMOUS,-1,0);CHECK(return_trampoline!=MAP_FAILED);
@@ -376,7 +382,7 @@ int main(int argc,char**argv){
  for(int i=0;i<Mods_Count();i++){printf("LOADED %s active=%d code=%08x status=%s\n",Mods_Id(i),Mods_Active(i),Mods_CodeHash(i),Mods_Status(i));}
  char admission[256]={0};int ready=Mods_Hal2224GuardReady(admission,sizeof admission);
  printf("ADMISSION %s reason=%s\n",ready?"PASS":"REFUSED",admission);
- if(Settings_GetNamed("test.fence",0)){uint8_t*st=ObjectLoader_Symbol(&native_objects[nn-1],"D_8009B26C");CHECK(st);*st=0;*(uint8_t*)datum("D_8009B0A3")=0;((void(*)(void))engine_function("Main_RunDuel"))();int entered=*(uint8_t*)datum("D_8009B0A3")==10;result("native-MainRunDuel-admission-fence",entered==ready,"Actual current Main_RunDuel body; engine beyond first entry is not executed.");if(!ready)result("native-fence-explicit-error",guard_notices>0,"Platform notice sink observed; not Windows UI certification.");}
+ if(Settings_GetNamed("test.fence",0)){uint8_t*st=NULL;for(int g=0;g<nn;g++){void*sym=ObjectLoader_Symbol(&native_objects[g],"D_8009B26C");if(sym)st=sym;}CHECK(st);*st=0;*(uint8_t*)datum("D_8009B0A3")=0;((void(*)(void))engine_function("Main_RunDuel"))();int entered=*(uint8_t*)datum("D_8009B0A3")==10;result("native-MainRunDuel-admission-fence",entered==ready,"Actual current Main_RunDuel body; engine beyond first entry is not executed.");if(!ready)result("native-fence-explicit-error",guard_notices>0,"Platform notice sink observed; not Windows UI certification.");}
  if(!ready){result("guard-refuses-before-controller",!ecalls("DuelScene_UpdateHandActions")&&!setup_count,"No controller or materialization before refusal.");result("admission-matches-request",!Settings_GetNamed("test.expect-admission",1),"Safe profile must not be accidentally blocked.");goto done;}
  result("admission-matches-request",Settings_GetNamed("test.expect-admission",1),"Unsafe requested order must not enter controller.");
  if(!strcmp(argv[4],"timewizard-object")){hal9_object_cases();goto done;}
