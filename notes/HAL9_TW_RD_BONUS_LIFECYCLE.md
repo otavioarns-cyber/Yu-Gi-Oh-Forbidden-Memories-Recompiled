@@ -1,6 +1,6 @@
 # HAL-9 / HAL-20 — Time Wizard × RD, bônus e lifecycle
 
-Continuação do [PR32](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/32), HEAD `54234112bb26e0586d7a1779a33cafa806842d26`. Branch independente `test/hal-9-tw-rd-bonus-lifecycle`, destino `integration/hal-20-v0.3.1-preview.2`. [HAL-9](https://linear.app/half-programer/issue/HAL-9) e [HAL-20](https://linear.app/half-programer/issue/HAL-20). Nenhum merge, release, alteração dos PRs anteriores ou admissão de Time Wizard.
+Continuação do [PR32](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/32), HEAD `54234112bb26e0586d7a1779a33cafa806842d26`. Publicado no [PR33 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/33), branch independente `test/hal-9-tw-rd-bonus-lifecycle`, destino `integration/hal-20-v0.3.1-preview.2`. [HAL-9](https://linear.app/half-programer/issue/HAL-9) e [HAL-20](https://linear.app/half-programer/issue/HAL-20). Nenhum merge, release, alteração dos PRs anteriores ou admissão de Time Wizard.
 
 ## Resultado e escopo
 
@@ -107,3 +107,5 @@ H/D OFF/ON e dois ranks R são executados. As dependências podem produzir a mes
 Nenhum `WA_MRG.MRG`, imagem legítima ou backend Windows utilizável foi encontrado entre os recursos selecionados. Transformações completas ficam NOT_REACHED; renderer/UI/duelo Windows ficam AUTOMATION_UNAVAILABLE/NOT_REACHED por recursos, não por proibição do usuário. Não repetimos Wine/QEMU PE sem mudança técnica. Somente a bateria pessoal jogada pelo usuário permanece para a fase final.
 
 **Prontidão:** o bônus tem uma candidata técnica verificável no adapter, mas TW ainda não pode ser admitido à coleção completa. Próximo passo mínimo é revisar a proposta de finalização/handoff com RD, autorizar a política para propostas não obrigatórias e definir o contrato de cancelamento terminal do núcleo. Não é necessário repetir migrações/detectores. Até lá, preservar recusas, B e todos os artefatos anteriores.
+
+Publicação: [branch](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-9-tw-rd-bonus-lifecycle), [recibo e branches preservadas](hal-9-compat/PUBLICATION.json), [atualizações Linear](hal-9-compat/LINEAR_UPDATES.json). Implementação `e7336fbb5`; todos os37 heads anteriores preservados. Sem merge/release ou publicação de dependências privadas.
