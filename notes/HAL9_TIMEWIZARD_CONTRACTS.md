@@ -1,6 +1,6 @@
 # HAL-20 / HAL-9 — correções executáveis de detecção Time Wizard
 
-Continuação do [PR30](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/30), commit `eca0453cee9f4ac91082b73de756cd6afb7609b3`, na branch independente `test/hal-20-time-wizard-contracts`. Destino: `integration/hal-20-v0.3.1-preview.2` (`d649647c159c91d615c07d6960928a37e270b461`). [HAL-9](https://linear.app/half-programer/issue/HAL-9). Entrega experimental; sem merge/release e sem promoção de políticas.
+Entrega no [PR31 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/31). Continuação do [PR30](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/30), commit `eca0453cee9f4ac91082b73de756cd6afb7609b3`, na branch independente `test/hal-20-time-wizard-contracts`. Destino: `integration/hal-20-v0.3.1-preview.2` (`d649647c159c91d615c07d6960928a37e270b461`). [HAL-9](https://linear.app/half-programer/issue/HAL-9). Entrega experimental; sem merge/release e sem promoção de políticas.
 
 ## Resultado
 
@@ -103,6 +103,8 @@ A tentativa oficial Linux inicial precisou de `-lpthread` no sysroot Debian11, c
 A qualificação assume objetos legítimos/preservados e alterações de lifecycle no thread do jogo. Não cria sandbox contra um MOD que reescreva memória de outro, nem protocolo de unload concorrente. Consulta UNKNOWN em ambiente diagnóstico com guard OFF não autoriza continuidade segura. Core binário legado, renderer/transporte real, materializadores interpostos e todas as categorias bônus ainda limitam a admissão.
 
 ## Publicação e próximo passo mínimo
+
+Publicação confirmada: [branch](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-20-time-wizard-contracts), [PR31 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/31), [verificação dos35 heads anteriores](hal-9/PUBLICATION.json). O diff contra a integração inclui a coleção herdada do PR30; a implementação nova está no commit `36c9896e1` acima desse ancestral, sem merge dos PRs anteriores.
 
 Publicados: código próprio do bridge/probes/builder, patch mínimo do adapter Time Wizard, testes, hashes, metadados e logs próprios. O objeto Time Wizard recomposto e seu núcleo/sons ficam privados porque a redistribuição das partes incorporadas de terceiros não foi verificada; [auditoria](hal-9/AUDIT.json). Nenhum arquivo do Dual, imagem de jogo ou save é incluído. Os pacotes canônicos já autorizados continuam idênticos.
 

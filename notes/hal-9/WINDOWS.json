@@ -12,5 +12,11 @@
     "evidence": "PR30 authenticated GitHub notice: Actions suspended for scale of usage. Current Actions API still lists no new run, latest 2026-10-06. Managed environment is Linux desktop, no native Windows runner/VM or configured remote identity, no legitimate disc image present.",
     "alternatives": "Existing isolated PE32 workflow can run on a legitimate authorized Windows runner after Actions restriction is resolved. No repeat of unchanged Wine/QEMU PE failures, no VM/OS license invented.",
     "private_artifacts_published": false
+  },
+  "pull_request_workflow_observation": {
+    "pr": 31,
+    "commit": "36c9896e1b209c1b624727db90f8749e6dc49bf8",
+    "pull_request_runs": 0,
+    "scope": "Connector filters pull_request runs; no native Windows execution inferred."
   }
 }
