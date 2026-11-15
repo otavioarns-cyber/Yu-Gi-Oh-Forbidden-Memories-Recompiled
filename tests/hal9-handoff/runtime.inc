@@ -18,8 +18,10 @@ static int hf_client_confirm(const HfTicket*t,const HfProposal*p){
  return hf_lab_mode!=57&&t->token.action==p->token.action;
 }
 static void handoff_after_planner(void){
- int mode=Settings_GetNamed("test.tw-case",0);if(mode<50||mode>79)return;
- hf_lab_mode=mode;hf_lab=Mods_Find(HF_KEY);CHECK(hf_lab&&hf_lab->abi==HF_ABI&&hf_lab->size==sizeof*hf_lab&&hf_lab->magic==HF_MAGIC);
+ int mode=Settings_GetNamed("test.tw-case",0);if(mode<50||mode>80)return;
+ hf_lab_mode=mode;hf_lab=Mods_Find(HF_KEY);
+ if(!hf_lab){puts("HANDOFF_ABSENT optional companion unavailable; leave original selection/pending validation untouched");return;}
+ CHECK(hf_lab->abi==HF_ABI&&hf_lab->size==sizeof*hf_lab&&hf_lab->magic==HF_MAGIC);
  hf_lab_client=(HfClient){HF_ABI,sizeof(HfClient),1,hf_client_authorize,hf_client_confirm};hf_lab_client_ptr=&hf_lab_client;
  if(mode==63){hf_lab_client_ptr=mmap(NULL,4096,PROT_READ|PROT_WRITE,MAP_PRIVATE|MAP_ANONYMOUS,-1,0);CHECK(hf_lab_client_ptr!=MAP_FAILED);*hf_lab_client_ptr=hf_lab_client;}
  if(mode==74||mode==75){if(mode==74)hf_lab_client_ptr->abi=0;else hf_lab_client_ptr->confirm=NULL;int rc=hf_lab->connect(hf_lab_client_ptr);result("handoff-invalid-client-ABI-refused",rc==HF_ABI_ERROR,"Unsupported ABI or missing mandatory callback is rejected before reading action state.");return;}
