@@ -55,6 +55,8 @@ static char data_directory[]="/tmp/hal2224-XXXXXX";
 static int native_ai_result=1,stock_choice=12;
 static int was_admitted;
 void HAL2224_AfterPlanner(void);
+static void handoff_after_planner(void);
+static void handoff_controller_fault(void);
 static void load_checkpoint(const char*);
 static void state_seam(void);
 static void field_seed(void);
@@ -290,6 +292,7 @@ void HAL2224_AfterPlanner(void){
  }
  const RhsRendezvous*binding=Mods_Find(RHS_RENDEZVOUS);
  printf("PUBLIC_BIND abi=%u provider=%d\n",binding?binding->abi:0,binding&&binding->rules&&binding->rules()!=0);
+ handoff_after_planner();
  ++after_calls;Pull*p=pull();uint8_t*sel=datum("D_800EAE88");AiActiveCard*a=datum("gDuel_aActiveCards");planned_pending=p->active;plan_selection=sel[0];plan_id=sel[0]>=11&&sel[0]<56?a[sel[0]].card_id:0;plan_type=card_type(plan_id);
  state_seam();load_checkpoint("after-real-planners");pending_log("after-real-planners");printf("PLAN pending=%d selection=%u id=%d type=%d bonus=%u used=%u\n",planned_pending,sel[0],plan_id,plan_type,Mods_Active(mi(D))?ds()[5]:0,Mods_Active(mi(D))?ds()[1]:0);
 }
@@ -325,6 +328,7 @@ static int hand_action(void){
  for(int frame=0;frame<180;frame++){
   char why[256];if(!Mods_Hal2224GuardReady(why,sizeof why)){printf("ADMISSION REFUSED mid-controller %s\n",why);return 4;}
 
+  handoff_controller_fault();
   *(uint16_t*)datum("D_8009B162")=0;((void(*)(void))engine_function("DuelScene_UpdateHandActions"))();int phase=*(uint16_t*)datum("gDuel_wSceneStateFlags")&0x3fff;
   if(Mods_Active(mi(D))&&ds()[21]&&!checked_rejection){checked_rejection=1;result("rejection-preserves-hand-and-deck",hand_count()==checkpoint_hand&&setup_count==checkpoint_swaps&&!memcmp(checkpoint,datum("gDuel_aDeckCardRecords"),sizeof checkpoint),"Observe actual rejected empty plan before cleanup; no substitute plan or pending supplied.");}
   if(phase==4&&*(uint16_t*)datum("D_8009B20C")==0x8000){logical_window=((int(*)(void))engine_function("Ai_GetHandSize"))();AiActiveCard*a=datum("gDuel_aActiveCards");printf("SNAPSHOT bonus=%u used=%u window=%d ids=",Mods_Active(mi(D))?ds()[5]:0,Mods_Active(mi(D))?ds()[1]:0,logical_window);for(int i=0;i<logical_window;i++){int id=a[11+i].card_id;printf("%s%d",i?",":"",id);if(Mods_Active(mi(D))&&ds()[5]&&id&&(card_type(id)==22||((card_type(id)<20?1:2)&ds()[1])))mask_ok=0;}puts("");}

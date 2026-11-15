@@ -28,6 +28,15 @@ if a.state_pair_preview:
  dirs['F']=Path(os.environ['MEMORIES_FUSION_STATE_PREVIEW_DIR']);component=next(c for c in meta['components'] if c['symbol']=='F');component['files']=[dict(path=str(f.relative_to(dirs['F'])),bytes=f.stat().st_size,sha256=sha(f)) for f in dirs['F'].rglob('*') if f.is_file() and '__pycache__' not in f.parts]
  meta['fusion_reference']['files']=[dict(path=f.name,bytes=f.stat().st_size,sha256=sha(f)) for f in dirs['F'].iterdir() if f.is_file() and f.name in ('mod.json','fusion-auxiliary-balance.o')]
 if a.timewizard_object:dirs['T']=a.timewizard_object
+handoff_receipt=None
+if os.environ.get('HAL9_HANDOFF_BUILD'):
+ hb=Path(os.environ['HAL9_HANDOFF_BUILD']);handoff_receipt=json.loads((hb/'BUILD.json').read_text())
+ assert handoff_receipt['reference_sha256']==sha(dirs['RD']/'ritual-duelists.o')
+ for f,h in handoff_receipt['source_sha256'].items():assert sha(repo/'experiments/hal9-handoff'/f)==h
+ dirs['RD']=hb/'ritual-duelists';assert sha(dirs['RD']/'ritual-duelists.o')==handoff_receipt['candidate_sha256']
+ for c in meta['components']:
+  if c['symbol']=='RD':c['files']=[dict(path=str(f.relative_to(dirs['RD'])),sha256=sha(f)) for f in dirs['RD'].rglob('*') if f.is_file()]
+
 # Private test overlay only: permit the exact rebuilt adapter in this harness.
 # Production caller pin, provider ABI, hook guard and admission remain untouched.
 tw_receipt=None
@@ -45,6 +54,8 @@ checks += [(x,byid[x['id']]/x['path']) for x in meta['local_dependencies']]
 checks += [(x,dirs[c['symbol']]/x['path']) for c in meta['components'] for x in c['files']]
 if a.composition or a.boundary or a.subsets or a.providers or a.consolidation or a.manager or a.spoof or a.field or a.field_bonus:checks += [(x,dirs['F']/x['path']) for x in meta['fusion_reference']['files']]
 results={'test_sources_sha256':{str(f.relative_to(repo)):sha(f) for f in (repo/'tests/hal20-field-state').glob('*') if f.is_file()},'scope':__doc__,'preflight':[],'builds':[],'profiles':[],'postflight':[]}
+results['handoff_build']=handoff_receipt
+results['handoff_test_sources_sha256']={str(f.relative_to(repo)):sha(f) for directory in ('tests/hal9-handoff','experiments/hal9-handoff') for f in (repo/directory).glob('*') if f.is_file()}
 results['support_sources_sha256']={str(f.relative_to(repo)):sha(f) for f in list((repo/'tests/hal9-support').glob('*'))+[repo/'tests/hal9-timewizard-contracts/object_cases.inc'] if f.is_file()}
 results['hal26_sources_sha256']={str(f.relative_to(repo)):sha(f) for folder in ('tests/hal26-state-timewizard','experiments/hal26') for f in (repo/folder).glob('*') if f.is_file()}
 for x,f in checks:results['preflight'].append(dict(path=str(f),status='PASS' if f.is_file() and sha(f)==x['sha256'] else 'BLOCKED'))
@@ -166,7 +177,7 @@ with tempfile.TemporaryDirectory(prefix='hal25-real-') as tmp:
   bridge.write_text((repo/'tests/hal20-field-state/manager_bridge.c').read_text().replace('../../src/pc/mods/mods.c',str(overlay/'src/pc/mods/mods.c')))
   sources[sources.index('tests/hal20-field-state/manager_bridge.c')]=str(bridge)
   results['private_candidate_receipt']=tw_receipt
- builds=[('build-harness',cc+(['-DHAL26_TW_PROBE'] if a.timewizard_source else [])+['-m32','-std=gnu11','-O1','-D_FILE_OFFSET_BITS=64','-DMEMORIES_PC','-ffunction-sections','-fdata-sections','-I'+str(tmp),'-Isrc',*sources,'-Wl,--gc-sections','-Wl,--wrap=Hooks_Add','-Wl,--wrap=Hooks_Inspect','-Wl,--wrap=Mods_RegisterState','-Wl,--wrap=ObjectLoader_Load','-lpng','-lm','-lpthread','-o',tmp/'harness'])]
+ builds=[('build-harness',cc+(['-DHAL26_TW_PROBE'] if a.timewizard_source else [])+['-m32','-std=gnu11','-O1','-D_FILE_OFFSET_BITS=64','-DMEMORIES_PC','-ffunction-sections','-fdata-sections','-I'+str(tmp),'-Isrc','-Imods/ritual-duelists',*sources,'-Wl,--gc-sections','-Wl,--wrap=Hooks_Add','-Wl,--wrap=Hooks_Inspect','-Wl,--wrap=Mods_RegisterState','-Wl,--wrap=ObjectLoader_Load','-lpng','-lm','-lpthread','-o',tmp/'harness'])]
  if a.fence:builds.append(('build-duel-entry',cc+['-D_LANGUAGE_C','-DLANGUAGE_C','-m32','-std=gnu11','-O1','-DMEMORIES_PC','-Isrc','-fno-pic','-fno-pie','-fno-stack-protector','-fno-asynchronous-unwind-tables','-fno-unwind-tables','-c','src/game/main_run_duel.c','-o',tmp/'src_game_guard_main.c.o']))
  builds.append(('build-observer',cc+['-D_LANGUAGE_C','-DLANGUAGE_C','-m32','-std=gnu11','-O1','-DMEMORIES_PC','-Isrc','-fno-pic','-fno-pie','-fno-stack-protector','-fno-asynchronous-unwind-tables','-c','tests/hal20-field-state/observer.c','-o',tmp/'observer.o']))
  builds.append(('build-interposer',cc+['-D_LANGUAGE_C','-DLANGUAGE_C','-m32','-std=gnu11','-O1','-DMEMORIES_PC','-Isrc','-fno-pic','-fno-pie','-fno-stack-protector','-fno-asynchronous-unwind-tables','-c','tests/hal20-field-state/interposer.c','-o',tmp/'interposer.o']))

@@ -130,7 +130,10 @@ static void support_human(int mode){
  }
  puts("HAL9_NOT_REACHED human controller waits on unavailable display/input boundary");
 }
+static void handoff_cases(int);
+#include "../hal9-handoff/runtime.inc"
 static void support_cases(int mode){
+ if(mode>=50){handoff_cases(mode);return;}
  if((mode>=28&&mode<=30)||mode==36||mode==47){support_human(mode);return;}
  setup(5);DuelDeckCardRecord*d=datum("gDuel_aDeckCardRecords");DuelCardRecord*r=datum("D_801A7AD8");d[40].id=16;r[15].card_id=16;
  set_stat(16,500,400,CARD_TYPE_SPELLCASTER);r[15].attack=500;r[15].defense=400;((DuelCardDisplayObject*)r[15].object)->field_68=CARD_TYPE_SPELLCASTER;
