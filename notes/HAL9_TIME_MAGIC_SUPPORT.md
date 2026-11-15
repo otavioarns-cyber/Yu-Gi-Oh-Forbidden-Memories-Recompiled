@@ -1,6 +1,6 @@
 # HAL-9 / HAL-20 — Time Magic Support e integração física
 
-Continuação do [PR31](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/31), commit `377e8ca4e606da68b3c29f815eff4a646a5ba917`, branch independente `test/hal-9-time-magic-support`, destino `integration/hal-20-v0.3.1-preview.2`. [HAL-9](https://linear.app/half-programer/issue/HAL-9), [HAL-20](https://linear.app/half-programer/issue/HAL-20). Sem merge, release ou admissão automática.
+Publicado no [PR32 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/32). Continuação do [PR31](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/31), commit `377e8ca4e606da68b3c29f815eff4a646a5ba917`, branch independente `test/hal-9-time-magic-support`, destino `integration/hal-20-v0.3.1-preview.2`. [HAL-9](https://linear.app/half-programer/issue/HAL-9), [HAL-20](https://linear.app/half-programer/issue/HAL-20). Sem merge, release ou admissão automática.
 
 ## Resultado
 
@@ -107,3 +107,5 @@ O fence agora identifica seu objeto por símbolo; não presume o último objeto 
 O próximo ajuste deve tratar o ponto exato de handoff/snapshot no código próprio, com testes das identidades e categorias já registrados. Não é necessário repetir os detectores. A correção de bônus pode ser localizada no adapter TW disponível; não exige editar Dual. A arbitragem com RD precisa de contrato explícito antes de qualquer cancelamento/substituição de pending. Nenhuma dessas propostas foi promovida como solução definitiva.
 
 B do PR30/31 permanece idêntica e independente do guard; A continua desabilitada. Não certificamos states antigos. O core0.23.1 continua binário fixado, sem recompilação integral. Nenhuma mudança técnica tornou Wine/QEMU PE ou Actions suspenso utilizáveis nesta sessão; não repetimos tentativas idênticas. Toda automação Windows continua autorizada quando houver recursos legítimos. Somente gameplay pessoal fica para o final; não se pede teste manual intermediário.
+
+Publicação: [branch](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-9-time-magic-support), [verificação das branches](hal-9-support/PUBLICATION.json), [registros Linear](hal-9-support/LINEAR_UPDATES.json). HAL-9 e HAL-20 receberam atualização de progresso/bloqueios, sem fechamento. A implementação nova é `1f4b3146515` sobre PR31; o diff contra integração inclui a coleção herdada e não significa merge dos PRs anteriores.
