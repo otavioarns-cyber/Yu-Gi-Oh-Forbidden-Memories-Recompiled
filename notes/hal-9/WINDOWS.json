@@ -1,0 +1,16 @@
+{
+  "build": {
+    "status": "PASS",
+    "target": "Windows PE32 i386",
+    "command": "python tools/pc/build_game32.py --target windows --release",
+    "bytes": 5219840,
+    "sha256": "0cefe1400d38b14e51a06941497ece1d7363186d07070cdb7f1b0ebfcfff3020"
+  },
+  "runtime": {
+    "status": "AUTOMATION_UNAVAILABLE",
+    "gameplay": "NOT_REACHED",
+    "evidence": "PR30 authenticated GitHub notice: Actions suspended for scale of usage. Current Actions API still lists no new run, latest 2026-10-06. Managed environment is Linux desktop, no native Windows runner/VM or configured remote identity, no legitimate disc image present.",
+    "alternatives": "Existing isolated PE32 workflow can run on a legitimate authorized Windows runner after Actions restriction is resolved. No repeat of unchanged Wine/QEMU PE failures, no VM/OS license invented.",
+    "private_artifacts_published": false
+  }
+}

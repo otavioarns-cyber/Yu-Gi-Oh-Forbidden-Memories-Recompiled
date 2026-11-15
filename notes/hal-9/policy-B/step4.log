@@ -1,0 +1,2 @@
+HAL9_LOG raw_sha256=238fe4ab94a83bd211d221ff3b05d6e0a4a2f0937fda265e53789ae7a66c5b21; only exact duplicate trace lines after their third occurrence omitted; all results and distinct state lines preserved.
+PASS HAL26 portable policy 88 checks: active/resident OFF, cold OFF, unknown/data-only; no state restore executed

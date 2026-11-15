@@ -3251,9 +3251,10 @@ int Mods_PrintExports(void)
 
 /* --- loading --------------------------------------------------------- */
 
+#include "hal9_runtime.h"
 static void *resolve(const char *name, void *context)
 {
-    (void)context;
+    if(!strncmp(name,"Hal9_Core",9))return hal9_resolve(name,(Mod*)context);
     return Mods_Lookup(name);
 }
 
@@ -3309,13 +3310,13 @@ static void *load_object(Mod *mod, const char *path)
         return NULL;
     }
     fclose(file);
+    Sha256(data,(size_t)size,mod->file_sha256); /* attest private imports before relocation */
     if (ObjectLoader_Load(data, (size_t)size, resolve, mod, &mod->object, error, sizeof(error))) {
         free(data);
         note(mod, "%s %s", mod->library, error);
         return NULL;
     }
     mod->code_hash = mod->object.hash;
-    Sha256(data,(size_t)size,mod->file_sha256);
     free(data);
     entry = ObjectLoader_Symbol(&mod->object, "MemoriesModInit");
     if (!entry) {

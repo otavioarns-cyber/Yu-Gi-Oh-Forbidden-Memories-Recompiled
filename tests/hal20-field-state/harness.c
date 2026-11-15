@@ -37,9 +37,9 @@ extern void Hal25_ForceApplied(int,int);
 #include "pc/platform/settings.h"
 #include "pc/debug/symbols.h"
 #include "export_names.h"
-enum { H,D,RD,OBS,M,W,F,RE,E,NMOD };
+enum { H,D,RD,OBS,M,W,F,RE,E,T,NMOD };
 typedef struct {const char*id;void*state;size_t state_size;unsigned state_version;LoadedObject object;} Module;
-static Module modules[NMOD]={{.id="ai-hard-mode"},{.id="dual-play"},{.id="ritual-duelists"},{.id="hal2224-observer"},{.id="melhoria-dos-rituais"},{.id="hal2224-wrapper"},{.id="fusion-auxiliary-balance"},{.id="ritual-card-effects-test"},{.id="field-effects-secondary-types"}};
+static Module modules[NMOD]={{.id="ai-hard-mode"},{.id="dual-play"},{.id="ritual-duelists"},{.id="hal2224-observer"},{.id="melhoria-dos-rituais"},{.id="hal2224-wrapper"},{.id="fusion-auxiliary-balance"},{.id="ritual-card-effects-test"},{.id="field-effects-secondary-types"},{.id="time-wizard-time-magic"}};
 static int mi(int m){for(int i=0;i<Mods_Count();i++)if(!strcmp(Mods_Id(i),modules[m].id))return i;return -1;}
 static int which(int owner){for(int i=0;i<NMOD;i++)if(!strcmp(Mods_Id(owner),modules[i].id))return i;return -1;}
 static unsigned assertions,failures;
@@ -227,6 +227,7 @@ int __wrap_ObjectLoader_Load(const void*data,size_t size,ObjectResolver resolver
   for(size_t i=0;i<object->symbol_count;i++)if(!strcmp(object->symbols[i].name,"deck_pull")){m=RD;modules[RD].object=*object;}
 for(size_t k=0;k<object->symbol_count;k++)if(!strcmp(object->symbols[k].name,"selection_rules"))m=RE;
 for(size_t k=0;k<object->symbol_count;k++)if(!strcmp(object->symbols[k].name,"surrender_host"))m=M;
+for(size_t k=0;k<object->symbol_count;k++)if(!strcmp(object->symbols[k].name,"TimeWizardV019MemoriesModInit"))m=T;
 if(m>=0){modules[m].object=*object;++mod_loads[m];printf("LIBRARY_INIT owner=%s hash=%08x loads=%u\n",modules[m].id,object->hash,mod_loads[m]);}}
  return rc;
 }
@@ -354,6 +355,7 @@ static int deck_changes(const DuelDeckCardRecord*before){int n=0;DuelDeckCardRec
 #include "state_preview.inc"
 #include "../hal26-state-timewizard/state_pair.inc"
 #include "../hal26-state-timewizard/timewizard_cases.inc"
+#include "../hal9-timewizard-contracts/object_cases.inc"
 int main(int argc,char**argv){
  CHECK(argc==7);setvbuf(stdout,NULL,_IOLBF,0);CHECK(mkdtemp(data_directory));memory_init(argv[1]);trace_memory=mmap(NULL,65536,PROT_READ|PROT_WRITE|PROT_EXEC,MAP_PRIVATE|MAP_ANONYMOUS,-1,0);CHECK(trace_memory!=MAP_FAILED);
  native_load(argv[2],"duel_field_layout","");native_load(argv[2],"ai_opponent_data","");native_load(argv[2],"duel_scene_hand_actions","DuelScene_UpdateHandActions");native_load(argv[2],"func_8001B938","func_8001B938,func_8001BAF0");native_load(argv[2],"duel_card_state_helpers","func_80028220");native_load(argv[2],"func_80027DF8","func_80027DF8");native_load(argv[2],"ai_script_vm","AiScript_Init");native_load(argv[2],"ai_get_hand_size","Ai_GetHandSize");native_load(argv[2],"func_8001B7AC","func_8001B780,func_8001B7AC");native_load(argv[2],"duel_state_init","Duel_ClearHandSlots");
@@ -377,6 +379,7 @@ int main(int argc,char**argv){
  if(Settings_GetNamed("test.fence",0)){uint8_t*st=ObjectLoader_Symbol(&native_objects[nn-1],"D_8009B26C");CHECK(st);*st=0;*(uint8_t*)datum("D_8009B0A3")=0;((void(*)(void))engine_function("Main_RunDuel"))();int entered=*(uint8_t*)datum("D_8009B0A3")==10;result("native-MainRunDuel-admission-fence",entered==ready,"Actual current Main_RunDuel body; engine beyond first entry is not executed.");if(!ready)result("native-fence-explicit-error",guard_notices>0,"Platform notice sink observed; not Windows UI certification.");}
  if(!ready){result("guard-refuses-before-controller",!ecalls("DuelScene_UpdateHandActions")&&!setup_count,"No controller or materialization before refusal.");result("admission-matches-request",!Settings_GetNamed("test.expect-admission",1),"Safe profile must not be accidentally blocked.");goto done;}
  result("admission-matches-request",Settings_GetNamed("test.expect-admission",1),"Unsafe requested order must not enter controller.");
+ if(!strcmp(argv[4],"timewizard-object")){hal9_object_cases();goto done;}
  for(int i=0;i<Mods_Count();i++)CHECK(!Mods_Failed(i));
  if(Settings_GetNamed("test.effects-off",0)&&mi(RE)>=0&&Mods_Active(mi(RE)))Hal25_ForceApplied(mi(RE),0);
 

@@ -1,0 +1,195 @@
+{
+  "scope": "Private input metadata only. No binary/source/assets are redistributed by this inventory.",
+  "files": [
+    {
+      "path": "ATUALIZACAO-v0.24.0.txt",
+      "bytes": 7650,
+      "sha256": "ab93365298a6051366b5235f2034c5975ed0f1246b040944c6899c91467174d7"
+    },
+    {
+      "path": "DUAL-PLAY-FIX-README.md",
+      "bytes": 7443,
+      "sha256": "0e26a9ff653162dcfa5aa6127b5acbf63693a8917e589f85064084ba6fb6c609"
+    },
+    {
+      "path": "ENCORE-v0.23.4-LEIA-ME.txt",
+      "bytes": 919,
+      "sha256": "24eeb7625ff5587445048af393ec642223e08617a8a5f9376e6f9b3ec3150fbd"
+    },
+    {
+      "path": "ENCORE-v0.23.6-LEIA-ME.txt",
+      "bytes": 1086,
+      "sha256": "3236f1e17472af93c6ee605590439752dbe4096de682d06cb65d78d6d408a71a"
+    },
+    {
+      "path": "ENCORE-v0.23.7-LEIA-ME.txt",
+      "bytes": 1179,
+      "sha256": "46fb48dcdc4d60a03e54eef8ad242ef8e7d42f588b723da56f23c3ad586c7924"
+    },
+    {
+      "path": "ENCORE-v0.23.8-LEIA-ME.txt",
+      "bytes": 1080,
+      "sha256": "2a50034fd9e9074a16808eeee44d1eba031009be8b6b0c5adb3325a2a7535548"
+    },
+    {
+      "path": "ENCORE-v0.23.9-LEIA-ME.txt",
+      "bytes": 1231,
+      "sha256": "213619e538b0086337f8a8f884633aefa035fb1ede04dc59d9b955d6850fb294"
+    },
+    {
+      "path": "LEIA-ME.txt",
+      "bytes": 2834,
+      "sha256": "1bf5ef05eec89310ac8753fdcd97fca853883d96cae02c65c010372ed8f453ee"
+    },
+    {
+      "path": "OPTIMIZATION-CHECKPOINT-v0.19.md",
+      "bytes": 4912,
+      "sha256": "3fea7729b2ceb5bc1f0219b5c8b1afe959ba8d7cc07359f1334d49fa4de8536c"
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "bytes": 3420,
+      "sha256": "ced46b048e9fee748ebfed66a8f2bf0914c374ff027bdbcba7d6b90472f98499"
+    },
+    {
+      "path": "TESTE-DUAL-PLAY-CORRECAO.txt",
+      "bytes": 1070,
+      "sha256": "f5fbd16adbef280225e4915032a00e69a25330406ae7443623f7507bef80f512"
+    },
+    {
+      "path": "TESTE-EVOLUCOES-1000-ANOS.txt",
+      "bytes": 1865,
+      "sha256": "b4ad8437becb35eb3e5a97d871e3ada426505074649b46097b1d8cb5177642a8"
+    },
+    {
+      "path": "TESTE-v0.23.1-Descricao.txt",
+      "bytes": 775,
+      "sha256": "6a8288825514421aa4ceb7f392ea6b70635dd8f318304fa8c2f9ce1bdeff0b9f"
+    },
+    {
+      "path": "TESTE-v0.23.txt",
+      "bytes": 345,
+      "sha256": "c44ba58382faca0e43c59a2c8ed304e281f7ab774b453a352454550cf12cd996"
+    },
+    {
+      "path": "mod.json",
+      "bytes": 3796,
+      "sha256": "e35a0b6d79f39bfb32cd84548ba3522177a31a3c4aeb555157d964102bc234d2"
+    },
+    {
+      "path": "skin/LEIA-ME.txt",
+      "bytes": 173,
+      "sha256": "227324dba91bf48bddcf8d1ac1d9b43463b537dcd671f35ff55f4833e73fd5df"
+    },
+    {
+      "path": "sounds/burst.wav",
+      "bytes": 114704,
+      "sha256": "01ffa688f17d87bef802656af7bbd30f8168b7286b4ed20fc956ae650a96e4ea"
+    },
+    {
+      "path": "sounds/lose.wav",
+      "bytes": 132344,
+      "sha256": "be60584e386afbef80a494fa303f3ef6642a407715937faed7d5666f3e98c28c"
+    },
+    {
+      "path": "sounds/tick.wav",
+      "bytes": 3130,
+      "sha256": "c4a7723679052ada5a8175d50ebddd23c95e3db8993c04151bdcf195bcea2c7f"
+    },
+    {
+      "path": "sounds/win.wav",
+      "bytes": 167624,
+      "sha256": "7212414211bffe54dde76b3ec392634064a17668912f0541a20b9cb26b125498"
+    },
+    {
+      "path": "source/DESCRIPTION-FIT-BUILD.md",
+      "bytes": 2068,
+      "sha256": "cf507a1df9a2a08bbd87a484088126d4e0c008854fb2fefc6b4fb2b916aff97c"
+    },
+    {
+      "path": "source/EVOLUTIONS-BUILD.md",
+      "bytes": 3987,
+      "sha256": "61c7c0c72d14b3e49fac842f495779ebf43fad48112de1520d821807f382b022"
+    },
+    {
+      "path": "source/README.txt",
+      "bytes": 545,
+      "sha256": "cf313f1cfa40f55b6c8a14eeeb877686948cd7a0a26eaedba4bfc70363cc5f2f"
+    },
+    {
+      "path": "source/build_v024.py",
+      "bytes": 2198,
+      "sha256": "e99818fb26cd8cf948fb63583adaf24ce4d6d85f85e3b30cf1d61667562ab371"
+    },
+    {
+      "path": "source/tests/run_native_tests.py",
+      "bytes": 3404,
+      "sha256": "cb1b1840ead1c26d3d522eace79dbba575834b7f2237203b1cf75836c4a93b27"
+    },
+    {
+      "path": "source/tests/test_beta18_adapter.py",
+      "bytes": 275,
+      "sha256": "a09595326d5c9deda165aabe24c01e6aec58ee5768db5f55f4c71d8e6d679739"
+    },
+    {
+      "path": "source/tests/test_direct_native.c",
+      "bytes": 3820,
+      "sha256": "01ec11863fce54b8b27b671f6f5cfeeb33e281813beeb2452ed6f972bad174f8"
+    },
+    {
+      "path": "source/tests/test_dual_play_decisions.c",
+      "bytes": 2980,
+      "sha256": "e9878933754198e9ca613b4e3f422ec0553891427d5b56e9b9d7968339d1795b"
+    },
+    {
+      "path": "source/tests/test_dual_play_hand_selection.c",
+      "bytes": 1710,
+      "sha256": "e8b2402e9f31f3cbb82da4e3148ad1f0c90b38d653c62766e785266bbec4d42f"
+    },
+    {
+      "path": "source/tests/test_encore_native.c",
+      "bytes": 3855,
+      "sha256": "83cafb0f8bb70f66bd3add2d4b0851e4e2dbfc190018a7500df49305788411d7"
+    },
+    {
+      "path": "source/tests/test_evolutions.c",
+      "bytes": 2640,
+      "sha256": "d728913466bd6c60c913cbbe53248ff26d77f6b1a4d7a1d61e1aa9a4f6261cb4"
+    },
+    {
+      "path": "source/time-wizard-base-v0.23.1.o",
+      "bytes": 150244,
+      "sha256": "5b4252dafbc07532f859cda92e49e75d15e531a880f90cc7924371b7e37f9b4a"
+    },
+    {
+      "path": "source/time_wizard_ai.c",
+      "bytes": 41129,
+      "sha256": "efc2fdc95b376c6cbf69fe82ce1dd5ace25a1d3ec2dd16758d247f36d6525467"
+    },
+    {
+      "path": "source/time_wizard_description_fit.c",
+      "bytes": 9141,
+      "sha256": "b4fb157af85e2437f8fa4a9268347b6acc31f7d6752aa4f1030c30a3667dff41"
+    },
+    {
+      "path": "source/time_wizard_dual_play_compat.c",
+      "bytes": 45913,
+      "sha256": "149b9fbc5d186fd8d7fe82e6781942316158a43185cbfcf6990d2aff7090bd8b"
+    },
+    {
+      "path": "source/time_wizard_encore.c",
+      "bytes": 5654,
+      "sha256": "20e3e60fc6e8a7c9dc32dc69cb0d8990b8b4cc1bc153bd35db13e3e30905b7cc"
+    },
+    {
+      "path": "source/time_wizard_evolution.c",
+      "bytes": 4327,
+      "sha256": "9c8812284e8d32dcc4772d9221bd43bb25b06a12b4967fd3c15aafb6ac412ff2"
+    },
+    {
+      "path": "time-wizard.o",
+      "bytes": 277544,
+      "sha256": "828a5879a81ee33078c7cd2e60ba7c8e87557f889b035455211ed700ca8d6b07"
+    }
+  ]
+}

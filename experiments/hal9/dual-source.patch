@@ -1,0 +1,37 @@
+--- a/source/time_wizard_dual_play_compat.c
++++ b/source/time_wizard_dual_play_compat.c
+@@ -298,6 +298,7 @@
+  * from the user-provided object.  At +0x25 the relocated imm32 is &g_state;
+  * the next store at +0x2C targets &g_state + 2.  Validate both before using
+  * the pointer so another draw-phase mod is never mistaken for Dual Play. */
++extern const void *Hal9_CoreDualDrawV1(void);
+ static DualPlayStatePrefix *resolve_dual_state(void)
+ {
+     const uint8_t *fn;
+@@ -305,22 +306,10 @@
+     uint32_t b;
+     DualPlayStatePrefix *state;
+ 
+-    if (!compat_original_draw ||
+-        compat_original_draw == (void *)DuelScene_UpdateDrawPhase) {
+-        cached_dual_draw = compat_original_draw;
+-        cached_dual_state = 0;
+-        diag_dual_seen = 0;
+-        return 0;
+-    }
+-    if (cached_dual_draw == compat_original_draw) {
+-        diag_dual_seen = cached_dual_state != 0;
+-        return cached_dual_state;
+-    }
+-
+-    cached_dual_draw = compat_original_draw;
+-    cached_dual_state = 0;
+-    fn = (const uint8_t *)compat_original_draw;
+-
++    fn = (const uint8_t *)Hal9_CoreDualDrawV1();
++    if (!fn) { cached_dual_draw=0;cached_dual_state=0;diag_dual_seen=0;return 0; }
++    if (cached_dual_draw==(void*)fn) {diag_dual_seen=cached_dual_state!=0;return cached_dual_state;}
++    cached_dual_draw=(void*)fn;cached_dual_state=0;
+     if (fn[0x23] != 0xC6 || fn[0x24] != 0x80 || fn[0x29] != 0x00 ||
+         fn[0x2A] != 0xC6 || fn[0x2B] != 0x80 || fn[0x30] != 0x00)
+         return 0;
