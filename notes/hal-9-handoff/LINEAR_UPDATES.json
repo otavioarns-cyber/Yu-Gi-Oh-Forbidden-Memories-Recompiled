@@ -1,0 +1,14 @@
+{
+  "HAL_9": {
+    "issue": "HAL-9",
+    "url": "https://linear.app/half-programer/issue/HAL-9",
+    "comment_id": "821575a6-479f-49f8-a369-1e51e6aa48e2"
+  },
+  "HAL_20": {
+    "issue": "HAL-20",
+    "url": "https://linear.app/half-programer/issue/HAL-20",
+    "comment_id": "ef139205-26b8-4dee-9909-3eebb0bbed01"
+  },
+  "PR": 34,
+  "operation": "New top-level progress comments; histories/descriptions/statuses preserved; issues not closed."
+}

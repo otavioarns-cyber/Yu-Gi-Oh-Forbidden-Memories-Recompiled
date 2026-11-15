@@ -1,6 +1,6 @@
 # HAL-9 / HAL-20 — Fronteira cooperativa RD × Time Wizard
 
-Continuação do [PR33](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/33), commit `c82e1efbfd0a49e37652364398adebdb85ecd043`. Branch experimental `test/hal-9-selection-handoff`, destino `integration/hal-20-v0.3.1-preview.2`. [HAL-9](https://linear.app/half-programer/issue/HAL-9) e [HAL-20](https://linear.app/half-programer/issue/HAL-20). Sem merge/release ou admissão no guard.
+Continuação do [PR33](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/33), commit `c82e1efbfd0a49e37652364398adebdb85ecd043`. Publicado no [PR34 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/34), branch experimental `test/hal-9-selection-handoff`, destino `integration/hal-20-v0.3.1-preview.2`. [HAL-9](https://linear.app/half-programer/issue/HAL-9) e [HAL-20](https://linear.app/half-programer/issue/HAL-20). Sem merge/release ou admissão no guard.
 
 ## Resultado e decisão ainda necessária
 
@@ -97,3 +97,5 @@ O cliente ACK é o driver experimental. Ainda falta implementar e revisar um cli
 Windows, interface/renderer e duelos completos continuam AUTOMATION_UNAVAILABLE/NOT_REACHED por ausência de backend PE32 e recursos legítimos selecionados, como no PR33. Não repetimos tentativas Wine/QEMU PE sem mudança técnica e não solicitamos gameplay manual intermediário. Transformações que dependem de WA_MRG.MRG não são requalificadas por esta prova.
 
 **Conclusão:** o mecanismo pode ser revisto como draft testável de transferência; não está pronto para promoção automática ou integração completa. A decisão necessária é precisamente KEEP_RD versus ALLOW_TW nos conflitos não obrigatórios. Até essa revisão, a coleção preserva seu comportamento e suas recusas, e TW continua fora do guard.
+
+Publicação: [branch](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tree/test/hal-9-selection-handoff), [recibo de publicação/38 branches antigas preservadas](hal-9-handoff/PUBLICATION.json), [progresso HAL-9/HAL-20 no Linear](hal-9-handoff/LINEAR_UPDATES.json). Implementação/evidências em9c460d7b; nenhum PR anterior foi alterado ou mesclado.
