@@ -1,0 +1,2 @@
+test_encore_native: PASS (native ELF32 controller)
+test_direct_native: PASS (native ELF32 controller)

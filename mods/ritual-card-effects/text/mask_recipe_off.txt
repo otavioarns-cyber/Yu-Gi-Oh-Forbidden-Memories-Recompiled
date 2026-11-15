@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B5]
+Mask of Darkness +
+Masked Clown +
+Masked Sorcerer

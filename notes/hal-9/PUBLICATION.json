@@ -1,0 +1,20 @@
+{
+  "old_heads_verified": 35,
+  "old_heads_changed": [],
+  "new_branch": "test/hal-20-time-wizard-contracts",
+  "published_implementation_commit": "36c9896e1b209c1b624727db90f8749e6dc49bf8",
+  "base": "integration/hal-20-v0.3.1-preview.2",
+  "base_sha": "d649647c159c91d615c07d6960928a37e270b461",
+  "pull_request": 31,
+  "draft": true,
+  "merged": false,
+  "private_binary_publication": false,
+  "github_metadata_verified": {
+    "number": 31,
+    "state": "open",
+    "draft": true,
+    "merged": false,
+    "head_sha": "36c9896e1b209c1b624727db90f8749e6dc49bf8",
+    "base_sha": "d649647c159c91d615c07d6960928a37e270b461"
+  }
+}

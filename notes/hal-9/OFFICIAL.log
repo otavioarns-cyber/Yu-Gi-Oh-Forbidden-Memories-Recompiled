@@ -1,0 +1,13 @@
+memories-pc: cannot create /home/agent/.local/share/YFM Re-Decomp; using ./saves
+memories-pc: mod reject: refused to start
+memories-pc: mod no-api: MemoriesModInit did not set mod->api
+memories-pc: cannot create /home/agent/.local/share/YFM Re-Decomp; using ./saves
+memories-pc: mods: overlay loaded its code (overlay.o)
+mods overlay: 2444 of 4000 passes drawn in part, 1556 with nothing changed
+mods overlay: sustained partial redraws recycle the image cache
+mods overlay: a sink takes the calls in order; pictures the host made keep their hash
+mods overlay: pictures read ahead kept to their budget and let go with their mod
+hooks: passed
+mods lifecycle: linux passed
+mods overlay: linux passed
+mod save-state compatibility: linux passed

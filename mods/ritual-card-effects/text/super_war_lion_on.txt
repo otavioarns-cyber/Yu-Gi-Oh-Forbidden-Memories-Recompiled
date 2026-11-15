@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D264]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+{f8 0A 03}+500{f8 0A 00} ATK/DEF per
+other allied {f8 0B 05}
+in hand or field.
+Attacks on other
+{f8 0B 05} hit this.

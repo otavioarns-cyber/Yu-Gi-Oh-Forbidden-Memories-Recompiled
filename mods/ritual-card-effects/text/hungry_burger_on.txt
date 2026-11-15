@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3BE]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Each battle kill
+gives {f8 0A 03}+500{f8 0A 00} ATK/DEF.

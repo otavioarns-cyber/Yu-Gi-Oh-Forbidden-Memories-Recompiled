@@ -1,0 +1,851 @@
+﻿PROMPT PARA O CHAT PROGRAMADOR — YU-GI-OH! FORBIDDEN MEMORIES RECOMPILED
+FUSION EFFECTS + RECEITAS — RODADA 03 (30/10/2026)
+CONTINUAÇÃO DO PLANEJAMENTO DOS 48 FUSION MONSTERS
+
+===============================================================================
+0. LEIA PRIMEIRO — ESCOPO E HIERARQUIA DAS DECISÕES
+===============================================================================
+
+Este documento transfere para o Chat Programador as decisões APROVADAS PELO
+USUÁRIO na rodada posterior ao arquivo:
+  Prompt_Programador_Fusion_Effects_Receitas_Rodada_02_2026-10-29.txt
+
+A RODADA 02 já cobre os monstros #03 a #19 do roteiro e suas receitas/efeitos;
+este documento cobre os monstros #20 a #48, incluindo aqueles que já tinham
+outros efeitos e devem ser PULADOS. NÃO implementar os mesmos efeitos duas
+vezes. Também existe um prompt separado sobre Trap Master, Holograph, Disk
+Magician, Elegant Egotist e Fusionist; respeite-o.
+
+ESCOPO DESTA RODADA:
+- 22 novos <Fusion Effects> aprovados, com condições exatas;
+- receitas oficiais do TCG a acrescentar SOMENTE se necessárias;
+- UMA receita personalizada (Rare Fish com Wolf);
+- UMA exceção de precedência que muda resultado de combinação específica
+  (Skelgon com The Snake Hair + Blackland Fire Dragon);
+- cartas explicitamente PULADAS porque já possuem outros efeitos;
+- compatibilidade, origem de efeitos e testes indispensáveis.
+
+ESTE DOCUMENTO É UMA ESPECIFICAÇÃO DE DESIGN, NÃO PROVA DE IMPLEMENTAÇÃO.
+Antes de alterar qualquer código:
+1) INSPECIONAR o projeto, a versão real do recompiled/FM Editor, os MODs
+   instalados, Settings, as receitas carregadas e as implementações anteriores.
+2) Verificar nomes/IDs nos dados da versão em uso. IDs aqui são índices de
+   referência do planejamento. Não corrigir regras de design unilateralmente.
+3) Preservar todas as fusões Vanilla e todos os efeitos já implementados,
+   exceto uma alteração EXPLICITAMENTE aprovada neste documento.
+4) Aplicar a regra geral do usuário: se a receita TCG utiliza materiais
+   existentes no FMR, garantir a combinação sem duplicar a receita se já
+   funciona. Comandos 'adicionar/garantir' NÃO autorizam apagar outras fusões.
+5) Distinguir <Fusion Effect>, <Effect>, <Ritual Effect> e
+   <Metalmorph Effect>. Um <Fusion Effect> só funciona quando a INSTÂNCIA
+   possui origem/habilitação válida por fusão ou exceção já autorizada
+   (por exemplo, certas interações de Elegant Egotist).
+6) NÃO modificar IA, decks, drops, pools, campanhas, rituais ou visuais
+   não relacionados. Preservar Settings, compatibilidade e comportamento
+   Vanilla quando o novo efeito estiver desligado.
+7) Não acrescentar chances, limites por turno, custos, duração, novas
+   imunidades ou condições que não estejam aprovados.
+8) Tratar divergências reais de precedência de receitas e regras do motor
+   como conflitos técnicos: resolver preservando as decisões do usuário,
+   documentando o que foi alterado. Se impossível, pedir orientação.
+9) Reutilizar hooks, contadores, UI, animações e infraestrutura existentes
+   sem criar subsistemas redundantes; NÃO presumir que uma função já existe
+   sem verificar o código.
+
+REGRA SOBRE CARTAS PULADAS:
+- PULADA = NÃO inventar nem substituir o efeito que ela já possui.
+- Algumas cartas puladas exigem SOMENTE VERIFICAÇÃO/INCLUSÃO DE RECEITA.
+- 'Não alterar' significa preservar código e comportamento atual.
+
+===============================================================================
+1. ROSE SPECTRE OF DUNN (#594) — ESPINHOS AMALDIÇOADOS
+===============================================================================
+BASE: Plant, 2000 ATK / 1800 DEF.
+RECEITA TCG A GARANTIR:
+  Feral Imp (#006) + Snakeyashi (#620) -> Rose Spectre of Dunn (#594)
+  Preservar todas as receitas Vanilla; não duplicar se já funciona.
+
+<Fusion Effect> — ESPINHOS AMALDIÇOADOS
+- Enquanto Rose Spectre permanecer em campo com seu Fusion Effect ativo,
+  TODOS os monstros Plant ALIADOS, INCLUSIVE Rose Spectre, ganham a reação:
+  quando o controlador sofrer dano de LP causado por uma batalha envolvendo
+  um desses Plants, o ADVERSÁRIO também perde LP equivalentes a 50% do dano
+  de LP efetivamente sofrido pelo controlador nessa batalha.
+- NÃO reduzir nem redirecionar o dano original: trata-se de dano adicional
+  refletido ao adversário.
+- Funciona quando um Plant aliado ataca ou é atacado, mesmo que o Plant seja
+  destruído no confronto.
+- Não disparar com dano que não seja de batalha nem quando não houve perda
+  efetiva de LP do controlador.
+- Fonte precisa estar habilitada no momento pertinente da batalha; ao sair
+  de campo, Rose Spectre não concede novas reflexões.
+- Em caso de várias Rose Spectres habilitadas, verificar no motor a
+  resolução de efeitos simultâneos e não decidir empilhamento arbitrário:
+  preservar o sistema já existente e sinalizar conflito se houver.
+EXEMPLO: Plant aliado sofre 1000 LP por batalha -> inimigo sofre 500 LP.
+TESTAR: Rose Spectre como alvo; outro Plant; batalha que destrói o Plant;
+  vitória/empate sem dano aos LP; dano de efeito; perda exata/imprecisa
+  por arredondamento; controlador em LP crítico.
+
+===============================================================================
+2. RABID HORSEMAN (#092) — JÁ POSSUI EFEITO (PULAR)
+===============================================================================
+- O usuário confirmou que Rabid Horseman JÁ RECEBEU efeito previamente.
+- NÃO criar novo Fusion Effect nem substituir o existente.
+- Receita TCG Battle Ox (#026) + Mystic Horseman (#091) -> Rabid Horseman
+  já foi tratada como Vanilla; manter o que existe, sem receita duplicada.
+
+===============================================================================
+3. SKULLBIRD (#521) — SOPRO DEVORADOR
+===============================================================================
+BASE: Winged Beast, 1900 ATK / 1700 DEF.
+RECEITA TCG A GARANTIR:
+  Takuhee (#581) + Temple of Skulls (#146) -> Skullbird (#521)
+  Confirmar no banco carregado se já existe; adicionar se faltar.
+
+<Fusion Effect> — SOPRO DEVORADOR
+- Quando Skullbird ATACAR monstro adversário, durante aquela batalha:
+    Skullbird ganha +400 ATK;
+    o monstro ALVO perde -400 ATK.
+- Efeito temporário de transferência (vantagem total de 800 na diferença
+  entre os ATKs). NÃO alterar DEF.
+- Não ativa quando Skullbird é atacado.
+- Restaurar os valores/modificadores anteriores após a batalha, mesmo se
+  alguém for destruído. Não sobrescrever outros buffs/debuffs legítimos.
+TESTAR: adversário com equips, field, outros modificadores; alvo em ataque
+  e defesa; empate; destruição; reverter exatamente os 400 em cada lado.
+
+===============================================================================
+4. KWAGAR HERCULES (#533) — CARAPAÇA DE HÉRCULES
+===============================================================================
+BASE: Insect, 1900 ATK / 1700 DEF.
+RECEITA TCG JÁ CONTEMPLADA NO VANILLA:
+  Kuwagata α (#480) + Hercules Beetle (#052) -> Kwagar Hercules (#533)
+  Preservar; não adicionar duplicata.
+
+<Fusion Effect> — CARAPAÇA DE HÉRCULES
+- Na PRIMEIRA ocasião em que esse Kwagar Hercules seria DESTRUÍDO EM
+  BATALHA, impedir sua destruição.
+- A proteção pode ser consumida UMA VEZ POR DUELO. NÃO renovar na troca
+  de turno nem simplesmente ao recalcular estados/efeitos.
+- O cálculo de dano e o dano aos LP continuam NORMAIS.
+- Não protege de Magic/Trap/outros efeitos de destruição.
+- Foi aprovado aproveitar a INFRAESTRUTURA DO CONTADOR E DA PROTEÇÃO do
+  efeito JAVELIN BEETLE (incluindo a sequência de animações já resolvida),
+  adaptando o tempo de recarga: no Kwagar a carga NÃO se renova por turno.
+- Manter estado/contadores independentes dos de Javelin Beetle; não deixar
+  que alterações de um efeito modifiquem o outro.
+- Não tornar a proteção novamente disponível por simples saída/reentrada
+  da mesma instância; investigar ciclo de vida real sem criar novas regras
+  globais sobre cópias distintas não aprovadas.
+TESTAR: destruição evitada, segunda batalha mortal no mesmo turno e em
+  turnos diferentes, campo/Equip, dano aos LP, Javelin Beetle simultâneo,
+  várias instâncias, entrada/saída de campo, Settings OFF.
+
+===============================================================================
+5. WARRIOR OF TRADITION (#618) — MEMÓRIAS DE GUERRA
+===============================================================================
+BASE: Warrior, 1900 ATK / 1700 DEF.
+RECEITA TCG A GARANTIR:
+  Sonic Maid (#299) + Beautiful Headhuntress (#234)
+    -> Warrior of Tradition (#618)
+  Preservar qualquer receita Vanilla válida.
+
+<Fusion Effect> — MEMÓRIAS DE GUERRA
+- Sempre que OUTRO monstro ALIADO classificado como Female for DESTRUÍDO
+  EM BATALHA, Warrior of Tradition recebe PERMANENTEMENTE:
+    +400 ATK e +400 DEF.
+- O bônus é cumulativo e não tem limite adicional por turno.
+- A própria Warrior of Tradition NÃO conta para sua ativação.
+- Contar a classificação Female efetiva usada pelo MOD, não deduzir a
+  partir do tipo Warrior ou aparência/nome da carta.
+- Não dispara se aliado for destruído exclusivamente por efeitos.
+- Os bônus acumulados da Warrior permanecem nela após saída do aliado.
+EXEMPLO: três outras Females morrem em batalha -> 3100 ATK / 2900 DEF,
+  desconsiderando outros modificadores.
+TESTAR: várias Females em lutas sucessivas; Female protegida contra
+  destruição (não dispara); Warrior destruída; outras cartas com Female tag.
+
+===============================================================================
+6. DEEPSEA SHARK (#437) — EMBOSCADA NAS PROFUNDEZAS
+===============================================================================
+BASE: Fish, 1900 ATK / 1600 DEF.
+RECEITA TCG A GARANTIR:
+  Bottom Dweller (#439) + Tongyo (#543) -> Deepsea Shark (#437)
+  Sem receita Vanilla confirmada nesta etapa; validar na base atual.
+
+<Fusion Effect> — EMBOSCADA NAS PROFUNDEZAS
+- Quando Deepsea Shark ATACAR um monstro que esteja VIRADO PARA BAIXO
+  (face-down) NO MOMENTO DA DECLARAÇÃO/ESCOLHA DO ALVO DO ATAQUE,
+  Deepsea Shark recebe +700 ATK durante aquela batalha.
+- Se o alvo for virado para cima para resolver o combate, isso NÃO remove
+  a condição já cumprida.
+- Não precisa destruir o alvo para ganhar o bônus.
+- Não ativa contra monstro já face-up e não funciona se Deepsea Shark
+  estiver defendendo um ataque.
+- Bônus termina após essa batalha, sem alterar o ATK original da carta.
+TESTAR: alvo face-down, flip/revelação, alvo já face-up em DEF, mudanças
+  de alvo, outros bônus, derrota/vitória.
+
+===============================================================================
+7. VERMILLION SPARROW (#473) — BEACON
+===============================================================================
+BASE: Pyro, atributo FIRE, 1900 ATK / 1500 DEF.
+RECEITA TCG A GARANTIR:
+  Queen Bird (#673) + Peacock (#264) -> Vermillion Sparrow (#473)
+  Preservar fusões Vanilla e evitar duplicações.
+
+<Fusion Effect> — BEACON
+- Enquanto Vermillion Sparrow permanecer em campo com Fusion Effect
+  ativo, recebe +200 ATK E +200 DEF PARA CADA OUTRO MONSTRO ALIADO
+  de ATRIBUTO FIRE em campo.
+- O PRÓPRIO VERMILLION SPARROW NÃO ENTRA NA CONTAGEM. Esta é uma
+  CORREÇÃO EXPRESSA do usuário: NÃO usar a versão antiga que o incluía.
+- Contar ATRIBUTO FIRE (não apenas tipo Pyro).
+- Bônus contínuo, recalculado quando entram/saem aliados FIRE ou quando
+  suas classificações/atributos efetivos mudam; não acumular por frame.
+- Não contar monstros adversários. Contar no máximo os quatro outros slots
+  de monstro do lado de Vermillion Sparrow, nas regras de campo tradicionais.
+REFERÊNCIA sem outros modificadores:
+  0 outros FIRE -> 1900/1500;
+  1 -> 2100/1700; 2 -> 2300/1900;
+  3 -> 2500/2100; 4 -> 2700/2300.
+TESTAR: apenas Sparrow em campo, ally FIRE entra/sai, adversário FIRE,
+  Monster type Pyro de atributo não FIRE, perda/desabilitação do efeito.
+
+===============================================================================
+8. PRAGTICAL (#482) — CAÇADA EM GRUPO
+===============================================================================
+BASE: Dinosaur, 1900 ATK / 1500 DEF.
+RECEITA TCG A GARANTIR:
+  Trakodon (#570) + Flame Viper (#644) -> Pragtical (#482)
+  Preservar outras combinações Vanilla eventualmente existentes.
+
+<Fusion Effect> — CAÇADA EM GRUPO
+- Quando Pragtical ATACAR, recebe +300 ATK durante AQUELA BATALHA
+  para cada OUTRO MONSTRO DINOSAUR ALIADO em campo.
+- O próprio Pragtical NÃO entra na contagem.
+- Não concede DEF e não fica ativo fora das batalhas iniciadas por
+  Pragtical. Não ativa quando Pragtical é atacado.
+- Contar tipo Dinosaur real, independentemente do atributo.
+REFERÊNCIA sem outros modificadores: 0 -> 1900; 1 -> 2200;
+  2 -> 2500; 3 -> 2800; 4 -> 3100 ATK.
+TESTAR: 0 a 4 aliados Dinosaur; outro Pragtical; ataque e defesa;
+  temporário após a batalha; coexistência com outras fontes de ATK.
+
+===============================================================================
+9. KAMINARI ATTACK (#458) — CHOQUE PARALISANTE
+===============================================================================
+BASE: Thunder, 1900 ATK / 1400 DEF.
+RECEITA TCG A GARANTIR:
+  Ocubeam (#396) + Mega Thunderball (#537) -> Kaminari Attack (#458)
+  Preservar receitas Vanilla já disponíveis.
+
+<Fusion Effect> — CHOQUE PARALISANTE
+- GATILHO É ENTRADA EM CAMPO de Kaminari Attack COM FUSION EFFECT ATIVO,
+  NÃO uma batalha.
+- Como consequência, o adversário NÃO CONSEGUE REALIZAR NENHUM ATAQUE
+  DURANTE O PRÓXIMO TURNO DELE.
+- Restringir o ato de atacar, inclusive por monstros adversários que
+  sejam invocados no turno bloqueado; não impedir outras ações da rodada.
+- O efeito é de ativação ÚNICA POR ENTRADA válida, não uma aura permanente.
+  Manter Kaminari em campo não repete o bloqueio indefinidamente.
+- Nova entrada que cumpra os requisitos pode gerar novo bloqueio.
+- A restrição pendente deve durar o próximo turno adversário mesmo que
+  Kaminari saia depois de ativar, a menos que a infraestrutura existente
+  tenha regra explícita contrária; registrar qualquer conflito.
+TESTAR: Kaminari entrando no próprio turno, entrada no turno inimigo
+  (se possível), adversário com monstros pré-existentes e recém-invocados,
+  Kaminari destruído antes do próximo turno, múltiplas instâncias, Settings.
+
+===============================================================================
+10. METAL DRAGON (#409) — PULAR: METALMORPH EFFECT EXISTENTE
+===============================================================================
+- O usuário instruiu PULAR Metal Dragon: já possui <Metalmorph Effect>.
+- NÃO implementar novo Fusion Effect nem alterar Metalmorph Effect.
+- Receita oficial TCG Steel Ogre Grotto #1 (#557) + Lesser Dragon (#561)
+  foi tratada como já contemplada pela fusão Vanilla; preservar.
+
+===============================================================================
+11. GILTIA THE D. KNIGHT (#389) — LANÇA SAGRADA
+===============================================================================
+BASE: Warrior, 1850 ATK / 1500 DEF; atributo LIGHT.
+RECEITA TCG A GARANTIR:
+  Guardian of the Labyrinth (#236) + Protector of the Throne (#280)
+    -> Giltia the D. Knight (#389)
+  Preservar outras receitas Vanilla, se existirem.
+
+<Fusion Effect> — LANÇA SAGRADA
+- Quando Giltia ATACAR um monstro adversário de atributo DARK,
+  Giltia recebe +600 ATK durante ESSA BATALHA.
+- Não funciona contra outros atributos nem quando Giltia é atacado.
+- Não altera DEF e não é bônus permanente.
+- Atributo DARK usa a classificação efetiva da carta no duelo.
+EXEMPLO sem outros modificadores: 1850 -> 2450 ATK.
+TESTAR: DARK/ LIGHT; monstro em DEF, face-down revelado, alterações de
+  atributo, ATK restaurado, múltiplos ataques se outro efeito permitir.
+
+===============================================================================
+12. AMPHIBIOUS BUGROTH (#639) — ADAPTAÇÃO ANFÍBIA
+===============================================================================
+BASE: Aqua, 1850 ATK / 1300 DEF.
+RECEITA TCG A GARANTIR, SE AINDA NECESSÁRIO:
+  Ground Attacker Bugroth (#275) + Guardian of the Sea (#445)
+    -> Amphibious Bugroth (#639)
+  Confirmar nome/alias de Guardian of the Sea / Sentinel of the Seas
+  conforme banco real. Preservar fusões Vanilla.
+
+<Fusion Effect> — ADAPTAÇÃO ANFÍBIA
+- Enquanto o FIELD UMI estiver ativo: Amphibious Bugroth recebe +800 ATK.
+- Enquanto o FIELD WASTELAND estiver ativo: recebe +800 DEF.
+- Sem esses campos, não há bônus especial deste Fusion Effect.
+- NÃO trocar ATK e DEF nem adicionar ambos em cada terreno.
+- O bônus é ADICIONAL aos bônus Vanilla/DLC normalmente causados pelo
+  Field no ambiente instalado. Não desligar, substituir ou duplicar o
+  sistema geral de Field Effects.
+- Atualizar automaticamente quando o campo mudar; não empilhar se o
+  mesmo campo for renovado.
+VALORES DO FUSION EFFECT ISOLADAMENTE, sem Field bônus normal:
+  Sem campo: 1850/1300; UMI: 2650/1300; WASTELAND: 1850/2100.
+TESTAR: UMI, WASTELAND, campo diferente, alterações instantâneas, DLC,
+  Settings Vanilla/DLC, bônus de campo preexistentes e remoção do efeito.
+
+===============================================================================
+13. FLAME SWORDSMAN (#015) — ESPADA FLAMEJANTE
+===============================================================================
+BASE: Warrior, 1800 ATK / 1600 DEF.
+RECEITA TCG A GARANTIR:
+  Flame Manipulator (#142) + Masaki the Legendary Swordsman (#293)
+    -> Flame Swordsman (#015)
+  Preservar as diversas receitas Vanilla existentes.
+
+<Fusion Effect> — ESPADA FLAMEJANTE
+- Quando Flame Swordsman ATACAR monstro adversário cujo TIPO seja Plant
+  OU Zombie, ganha +600 ATK DURANTE AQUELA BATALHA.
+- Independente do atributo da vítima; não exige campo FIRE.
+- Não ativa quando Flame Swordsman é atacado; não altera DEF.
+EXEMPLO sem outros bônus: 1800 -> 2400 ATK.
+TESTAR: Plant, Zombie, outros tipos, defender/atacar, buffs simultâneos.
+
+===============================================================================
+14. FLOWER WOLF (#487) — CAMUFLAGEM FLORAL
+===============================================================================
+BASE: Beast, 1800 ATK / 1400 DEF.
+RECEITA TCG JÁ CONTEMPLADA NO VANILLA:
+  Silver Fang (#065) + Darkworld Thorns (#567) -> Flower Wolf (#487)
+  Preservar e não duplicar.
+
+<Fusion Effect> — CAMUFLAGEM FLORAL
+- Enquanto existir AO MENOS UM OUTRO MONSTRO PLANT ALIADO no campo,
+  Flower Wolf NÃO PODE SER ESCOLHIDO COMO ALVO DE ATAQUES ADVERSÁRIOS.
+- Basta 1 outro Plant; não exigir Field Forest nem mais condições.
+- Flower Wolf é tipo Beast e NÃO conta a si mesmo como Plant.
+- A proteção termina quando não houver outro Plant aliado ou quando
+  o Fusion Effect deixar de estar habilitado.
+- NÃO impede destruição por Magic, Trap ou outros efeitos.
+- Respeitar regras de seleção de alvo e ataques diretos do motor sem
+  criar novas permissões ou bloqueios não autorizados.
+TESTAR: outro Plant presente/ausente, outro aliado Beast, Plant destruído
+  antes da seleção, múltiplos alvos, Flower Wolf único monstro em campo.
+
+===============================================================================
+15. CYBER SAURUS (#508) — PULAR: METALMORPH EFFECT EXISTENTE
+===============================================================================
+- O usuário instruiu PULAR Cyber Saurus: já possui <Metalmorph Effect>.
+- NÃO implementar novo Fusion Effect nem alterar esse Metalmorph Effect.
+- Receita TCG Blast Juggler (#417) + Two-headed King Rex (#032)
+  já consta das fusões Vanilla; preservar, sem duplicação.
+
+===============================================================================
+16. MUSICIAN KING (#495) — PULAR EFEITOS; VERIFICAR RECEITA
+===============================================================================
+- Já foi trabalhado em etapa anterior. Preservar sem mudanças:
+  <Effect> Encore!!!
+  <Fusion Effect> The Show Must Go On!
+- NÃO adicionar nenhum dos quatro novos efeitos meramente sugeridos na
+  conversa desta rodada.
+- USUÁRIO AUTORIZOU inclusão condicional da receita oficial do TCG:
+  Witch of the Black Forest (#574) + Lady of Faith (#612)
+    -> Musician King (#495)
+- Antes de adicionar, verificar se essa combinação JÁ foi alterada ou
+  já existe no MOD; adicionar apenas se ausente, sem duplicar ou apagar
+  as outras receitas Vanilla.
+
+===============================================================================
+17. SKELGON (#545) — FÚRIA DOS MORTOS
+===============================================================================
+BASE: Zombie, 1700 ATK / 1900 DEF.
+RECEITA TCG APROVADA:
+  The Snake Hair (#036) + Blackland Fire Dragon (#010) -> Skelgon (#545)
+- Foi relatado no planejamento que essa combinação no Vanilla tende a
+  resultar em Dragon Zombie (#097). O usuário aprovou incluir a receita
+  específica para Skelgon. A exceção ESPECÍFICA deve ter precedência
+  sobre o resultado genérico para ESSES DOIS materiais.
+- NÃO reescrever globalmente a regra Dragon + Zombie e NÃO apagar as
+  demais receitas que produzem Dragon Zombie ou Skelgon.
+- Verificar por teste o resultado atual antes de aplicar a exceção e
+  em ambas as ordens de materiais aceitas.
+
+<Fusion Effect> — FÚRIA DOS MORTOS
+- Quando Skelgon ATACAR monstro adversário do tipo DRAGON, recebe
+  +800 ATK apenas DURANTE AQUELA BATALHA.
+- Não ativa se for atacado, nem contra outros tipos.
+- Não conceder proteção especial, DEF extra ou buff permanente.
+EXEMPLO sem outros bônus: 1700 -> 2500 ATK.
+TESTAR: Dragon / não Dragon, batalha em DEF, efeitos temporários, recipe
+  específico versus as fusões genéricas preservadas.
+
+===============================================================================
+18. MARINE BEAST (#617) — INSTINTO ABISSAL
+===============================================================================
+BASE: Fish, 1700 ATK / 1600 DEF.
+RECEITA TCG A GARANTIR:
+  Water Magician (#430) + Behegon (#550) -> Marine Beast (#617)
+  Preservar todas as fusões Vanilla que produzem Marine Beast.
+
+<Fusion Effect> — INSTINTO ABISSAL
+- Em QUALQUER batalha que envolva Marine Beast, seja quando ela ATACA,
+  seja quando é ATACADA, comparar os ATKs ATUAIS dos dois monstros ANTES
+  DA APLICAÇÃO DESTE EFEITO.
+- Se o ATK atual do adversário for MAIOR que o ATK atual de Marine Beast,
+  o monstro adversário perde -600 ATK DURANTE AQUELA BATALHA.
+- Se ATK adversário for igual ou inferior, não aplicar redução.
+- O bônus/debuff não é permanente. Não debuffar DEF.
+- A condição envolve ATK mesmo que Marine Beast esteja em posição DEF;
+  respeitar cálculo normal de batalha da posição em seguida.
+EXEMPLO: Marine Beast 1700 ATK vs adversário 2000 ATK -> adversário
+  passa a 1400 ATK nessa batalha.
+TESTAR: atacante e defensor, comparações 1699/1700/1701, alvo equipado,
+  alvo em defesa, reverter redução ao final e não reaplicar em loop.
+
+===============================================================================
+19. DARKFIRE DRAGON (#168) — JÁ CONCLUÍDO (PULAR)
+===============================================================================
+- O usuário confirmou que os EFEITOS e as ALTERAÇÕES DE RECEITA do
+  Darkfire Dragon já foram feitos anteriormente.
+- NÃO acrescentar as sugestões de Fusion Effect desta rodada, NÃO criar
+  novamente a receita TCG Firegrass + Petit Dragon e NÃO substituir as
+  alterações anteriores.
+- PRESERVAR integralmente o estado existente desse monstro.
+
+===============================================================================
+20. KARBONALA WARRIOR (#043) — INVERSÃO MAGNÉTICA
+===============================================================================
+BASE: Warrior, 1500 ATK / 1200 DEF.
+RECEITA TCG JÁ CONTEMPLADA NO VANILLA:
+  M-Warrior #1 (#160) + M-Warrior #2 (#161) -> Karbonala Warrior (#043)
+  Preservar; não duplicar.
+
+<Fusion Effect> — INVERSÃO MAGNÉTICA
+- Quando Karbonala Warrior ATACAR monstro adversário cujo ATK ATUAL
+  seja MAIOR que o ATK ATUAL de Karbonala Warrior, LANÇAR UMA MOEDA.
+- Chance de SUCESSO: 50%. Usar o sistema/animação de moeda já existente
+  no MOD, se compatível, em vez de criar uma roleta nova.
+- SUCESSO: Karbonala Warrior e o monstro atacado TROCAM SEUS ATKs
+  ATUAIS APENAS DURANTE AQUELA BATALHA.
+- FALHA: não modificar nenhum atributo; resolver a batalha normalmente.
+  Isso normalmente faz Karbonala perder ao enfrentar ATK superior, salvo
+  se a posição defensiva ou outros efeitos mudarem o resultado.
+- A troca não muda DEF, ATK original, Equips nem efeitos permanentes.
+- Reverter a troca após a batalha, preservando todos os demais bônus e
+  penalidades. Não executar ao ser atacado.
+EXEMPLO: Karbonala 1500 ATK ataca monstro 2500 ATK:
+  sucesso -> Karbonala 2500, inimigo 1500 nessa batalha;
+  falha   -> Karbonala 1500, inimigo 2500.
+TESTAR: 50% real/animado, sucesso e falha, ATK igual (não lança),
+  defender em DEF, ATK modificado por equips, retorno ao normal.
+
+===============================================================================
+21. RARE FISH (#230) — FERA MARINHA + RECEITA PERSONALIZADA
+===============================================================================
+BASE: Fish, 1500 ATK / 1200 DEF.
+RECEITA PERSONALIZADA DO MOD, EXPRESSAMENTE APROVADA PELO USUÁRIO:
+  Wolf (#061) + Enchanting Mermaid (#251) -> Rare Fish (#230)
+- O usuário instruiu TROCAR FUSIONIST POR WOLF na receita proposta.
+- Portanto, NÃO criar como nova receita desta rodada a combinação
+  Fusionist (#189) + Enchanting Mermaid (#251) -> Rare Fish;
+  usar WOLF + Enchanting Mermaid no lugar dela.
+- Atenção: essa troca é na RECEITA PLANEJADA; não apagar uma eventual
+  combinação Vanilla legitimamente existente envolvendo Fusionist sem
+  aprovação expressa para excluir Vanilla.
+- Preservar todas as outras receitas Vanilla que produzem Rare Fish.
+- Conferir precedência porque Wolf + Enchanting Mermaid pode acionar
+  outra fusão genérica; a receita específica aprovada deve produzir
+  Rare Fish nas ordens apropriadas.
+
+<Fusion Effect> — FERA MARINHA
+- Quando Rare Fish ATACAR monstro adversário cujo tipo é BEAST ou
+  BEAST-WARRIOR, recebe +700 ATK DURANTE AQUELA BATALHA.
+- Só quando Rare Fish ataca; não funciona quando é atacado.
+- Não altera DEF, não depende de atributo, não é bônus permanente.
+EXEMPLO sem outros bônus: 1500 -> 2200 ATK.
+TESTAR: Beast, Beast-Warrior, outros tipos, receita específica, conflito
+  com regras Vanilla, e interação com regras pré-existentes de Fusionist.
+
+===============================================================================
+22. BAROX (#086) — NATUREZA DISTORCIDA
+===============================================================================
+BASE: Fiend, 1380 ATK / 1530 DEF.
+RECEITA TCG A GARANTIR:
+  Frenzied Panda (#201) + Ryu-Kishin (#005) -> Barox (#086)
+  Conferir no banco se já existe e preservar outras Vanilla.
+
+<Fusion Effect> — NATUREZA DISTORCIDA
+- Quando Barox ATACAR monstro adversário, TROCA TEMPORARIAMENTE
+  OS PRÓPRIOS VALORES ATUAIS DE ATK E DEF durante aquela batalha.
+- Não trocar os stats do adversário.
+- Os valores ATUAIS incluem modificadores já existentes. A troca se
+  aplica à leitura de stats de Barox durante o cálculo de batalha;
+  não reescrever permanentemente stats originais ou modificar Equips.
+- Após a batalha, restaurar os valores apropriados, sem perder outros
+  buffs/debuffs que devam permanecer.
+- Não ativa quando Barox é atacado.
+EXEMPLO sem outros modificadores: 1380/1530 -> 1530/1380 na batalha.
+TESTAR: atacando alvo em ATK/DEF, Equip antes e durante a batalha,
+  múltiplos modificadores, reversão após vitória/derrota.
+
+===============================================================================
+23. KAMION WIZARD (#115) — EFEITO EXISTENTE; ADICIONAR RECEITA
+===============================================================================
+- O usuário informou que Kamion Wizard JÁ TEM EFEITO DEFINIDO.
+- NÃO alterar seu efeito existente nem implementar as quatro sugestões
+  feitas durante esta rodada.
+- Receita oficial do TCG AUTORIZADA:
+  Mystical Elf (#002) + Curtain of the Dark Ones (#104)
+    -> Kamion Wizard (#115)
+- Verificar se já existe na base atual; adicionar se faltar, preservando
+  qualquer outra receita Vanilla.
+
+===============================================================================
+24. MAVELUS (#272) — RENASCER DAS CINZAS
+===============================================================================
+BASE: Winged Beast, 1300 ATK / 900 DEF.
+RECEITA TCG JÁ CONTEMPLADA NO VANILLA:
+  Tyhone (#013) + Wings of Wicked Flame (#101) -> Mavelus (#272)
+  Preservar e não duplicar.
+
+<Fusion Effect> — RENASCER DAS CINZAS
+- Quando Mavelus com Fusion Effect ativo FOR DESTRUÍDA (sem limitar só a
+  destruição por batalha, porque o usuário disse simplesmente 'destruída'),
+  agendar seu RETORNO para O PRÓXIMO TURNO DO SEU CONTROLADOR.
+- Na janela apropriada desse próximo turno, caso haja MONSTER ZONE LIVRE
+  do controlador, invocar Mavelus automaticamente em campo.
+- Se não houver vaga naquele momento, não invocar e NÃO adiar
+  indefinidamente para outra rodada.
+- O efeito pode RESSUSCITAR aquela Mavelus APENAS UMA VEZ.
+- A ressurreição não é uma nova fusão e NÃO REINICIA a carga do efeito;
+  a segunda destruição não gera novo retorno.
+- Não exigir carta Mavelus na mão; a própria instância destruída é a
+  referência conceitual para a invocação; integrar o mecanismo real de
+  graveyard/duel state sem duplicar carta nem alterar decks.
+- Como o momento exato de entrada automática é dependente da engine,
+  integrar à fase/início de turno existente com estabilidade visual,
+  sem impor custos, animações especiais ou atraso além do próximo turno.
+TESTAR: destruída no próprio turno e no do oponente, por batalha e
+  por efeito, vaga disponível, sem vaga, segunda destruição, fim do duelo
+  antes do retorno, origem válida, ID e controles de jogador/IA.
+
+===============================================================================
+25. ZOMBIE WARRIOR (#030) — ÚLTIMO SACRIFÍCIO
+===============================================================================
+BASE: Zombie, 1200 ATK / 900 DEF.
+RECEITA TCG JÁ CONTEMPLADA NO VANILLA:
+  Skull Servant (#024) + Battle Warrior (#100) -> Zombie Warrior (#030)
+  Preservar e não duplicar.
+
+<Fusion Effect> — ÚLTIMO SACRIFÍCIO
+- Quando Zombie Warrior com Fusion Effect ativo FOR DESTRUÍDO EM BATALHA,
+  TODOS OS OUTROS MONSTROS ALIADOS QUE SEJAM 'SKULL MONSTERS'
+  recebem PERMANENTEMENTE +300 ATK E +300 DEF.
+- 'SKULL MONSTERS' é uma CLASSIFICAÇÃO ESPECÍFICA DO MOD, não o tipo
+  Zombie, nem uma busca textual cega pela palavra 'Skull' no nome.
+- A própria carta destruída não recebe buff; somente outros aliados.
+- Efeito cumulativo caso ocorram novas destruições válidas de outros
+  Zombie Warriors com <Fusion Effect> habilitado.
+- NÃO ativar quando Zombie Warrior tiver sido INVOCADO DIRETAMENTE por
+  'Exército dos Mortos' de Skull Knight (#707), pois ali NÃO houve
+  origem válida de fusão e seu <Fusion Effect> não está habilitado.
+- Não ativar em destruição por Magic/Trap ou outros efeitos.
+TESTAR: Skull Monsters de tipos variados, Zombies que NÃO são Skull,
+  Zombie Warrior criado por fusão vs criado por Skull Knight, efeitos
+  cumulativos e interações com outras proteções.
+
+===============================================================================
+26. DRAGONESS THE WICKED KNIGHT (#294) — ARMADURA DRACÔNICA
+===============================================================================
+BASE: Warrior, 1200 ATK / 900 DEF.
+RECEITA TCG A GARANTIR:
+  Armaill (#172) + One-Eyed Shield Dragon (#296)
+    -> Dragoness the Wicked Knight (#294)
+  Preservar outras fusões Vanilla, checar precedência da combinação.
+
+<Fusion Effect> — ARMADURA DRACÔNICA
+- Dragoness recebe CONTINUAMENTE +500 ATK E +500 DEF enquanto houver
+  AO MENOS UM OUTRO MONSTRO DRAGON ALIADO em campo.
+- Recebe MAIS +500 ATK E +500 DEF, INDEPENDENTEMENTE, enquanto houver
+  AO MENOS UM OUTRO MONSTRO WARRIOR ALIADO em campo.
+- Os bônus somam se ambos os requisitos forem cumpridos.
+- Cada condição é SIM/NÃO: não multiplicar pela quantidade de Dragon
+  ou Warrior; vários de um só tipo não geram bônus extras.
+- A própria Dragoness NÃO conta para a condição Warrior.
+- Remover automaticamente os respectivos bônus quando cada condição
+  deixar de existir, sem apagar buffs de outras fontes.
+VALORES sem outros modificadores:
+  nenhum -> 1200/900;
+  Dragon OU Warrior -> 1700/1400;
+  Dragon E Warrior -> 2200/1900.
+TESTAR: apenas Dragon, apenas Warrior, ambos, vários de um tipo, troca
+  de campo, auto-contagem indevida, desabilitação do efeito.
+
+===============================================================================
+27. CHARUBIN THE FIRE KNIGHT (#133) — ÚLTIMA CENTELHA
+===============================================================================
+BASE: Pyro, 1100 ATK / 800 DEF.
+RECEITA TCG JÁ CONTEMPLADA NO VANILLA:
+  Monster Egg (#147) + Hinotama Soul (#210) -> Charubin the Fire Knight
+  Preservar e não duplicar.
+
+<Fusion Effect> — ÚLTIMA CENTELHA
+- Quando Charubin com Fusion Effect ativo for DESTRUÍDO EM BATALHA,
+  invocar AUTOMATICAMENTE 1 Hinotama Soul (#210) em uma Monster Zone
+  aliada LIVRE, depois da destruição de Charubin.
+- Pode ocorrer se Charubin era atacante ou defensor.
+- Se não houver vaga, não invocar; não substituir outro monstro.
+- Não ativa para destruição por Magic, Trap ou outros efeitos.
+- O Hinotama Soul produzido pelo efeito é invocação DIRETA, não fusão;
+  não ganhar habilitação de <Fusion Effect> por essa origem.
+- Não adicionar limite por turno que não tenha sido aprovado.
+TESTAR: derrota como atacante/defensor, espaço criado pela destruição,
+  zonas cheias, vários Charubins, animações e cartas resultantes.
+
+===============================================================================
+28. FLAME GHOST (#215) — LABAREDA FINAL
+===============================================================================
+BASE: Zombie, 1000 ATK / 800 DEF.
+RECEITA TCG JÁ CONTEMPLADA NO VANILLA:
+  Skull Servant (#024) + Dissolverock (#244) -> Flame Ghost (#215)
+  Preservar e não duplicar.
+
+<Fusion Effect> — LABAREDA FINAL
+- Quando Flame Ghost com Fusion Effect ativo for DESTRUÍDO EM BATALHA,
+  causar 500 PONTOS DE DANO AOS LP DO ADVERSÁRIO, após a destruição.
+- Funciona quando Flame Ghost ataca ou é atacado.
+- Não ativa por destruição causada por Magic, Trap ou outros efeitos.
+- Não precisa sobreviver ao confronto; esta é a utilidade do efeito.
+- O cálculo de batalha e dano normal aos LP continuam, além desse dano
+  adicional de 500, quando cabível.
+TESTAR: atacante/defensor, inimigo muito forte, LP adversário <=500,
+  combate que termina duelo, animações e término correto.
+
+===============================================================================
+29. FUSIONIST (#189) — JÁ PLANEJADO EM DOCUMENTO PRÓPRIO (PULAR)
+===============================================================================
+- NÃO reinventar nem substituir as mecânicas já aprovadas de Fusionist.
+- Documento de referência:
+  Prompt_Programador_Novos_Efeitos_5_Cartas_V1.txt
+- <Effect> (Fusionist como SEGUNDO material): selecionar o resultado de
+  fusão válido mais FRACO pelo ATK original; desempate por DEF original,
+  empate total por sorteio.
+- <Fusion Effect> (Fusionist como PRIMEIRO material habilitado): selecionar
+  o resultado válido mais FORTE, usando os mesmos desempates.
+- Existem regras adicionais sobre fusão na mão, Elegant Egotist,
+  Metalmorph e impossibilidade de Fusionist + Fusionist naquele prompt.
+- Preservar também as alterações planejadas para as ovelhas/Petit Angel
+  sem implementá-las novamente só por constarem neste índice.
+
+===============================================================================
+30. MATRIZ DAS RECEITAS DESTA RODADA — CONFERÊNCIA ANTES DE CODAR
+===============================================================================
+
+CARTA                    MATERIAIS                                AÇÃO
+Rose Spectre of Dunn     Feral Imp + Snakeyashi                  GARANTIR TCG
+Rabid Horseman           Battle Ox + Mystic Horseman             PRESERVAR
+Skullbird                Takuhee + Temple of Skulls              GARANTIR TCG
+Kwagar Hercules          Kuwagata α + Hercules Beetle            PRESERVAR
+Warrior of Tradition     Sonic Maid + Beautiful Headhuntress    GARANTIR TCG
+Deepsea Shark            Bottom Dweller + Tongyo                 GARANTIR TCG
+Vermillion Sparrow       Queen Bird + Peacock                    GARANTIR TCG
+Pragtical                Trakodon + Flame Viper                  GARANTIR TCG
+Kaminari Attack          Ocubeam + Mega Thunderball              GARANTIR TCG
+Metal Dragon             Steel Ogre Grotto #1 + Lesser Dragon   PRESERVAR
+Giltia the D. Knight     Guardian of Labyrinth + Protector      GARANTIR TCG
+Amphibious Bugroth       Ground Attacker Bugroth + Guardian Sea GARANTIR TCG
+Flame Swordsman          Flame Manipulator + Masaki             GARANTIR TCG
+Flower Wolf              Silver Fang + Darkworld Thorns         PRESERVAR
+Cyber Saurus             Blast Juggler + Two-headed King Rex    PRESERVAR
+Musician King            Witch of Black Forest + Lady of Faith  SÓ SE FALTAR
+Skelgon                  The Snake Hair + Blackland Fire Dragon EXCEÇÃO TCG
+Marine Beast             Water Magician + Behegon                GARANTIR TCG
+Darkfire Dragon          Receitas alteradas anteriormente       NÃO MEXER
+Karbonala Warrior        M-Warrior #1 + M-Warrior #2             PRESERVAR
+Rare Fish                Wolf + Enchanting Mermaid              PERSONALIZADA
+Barox                    Frenzied Panda + Ryu-Kishin             GARANTIR TCG
+Kamion Wizard            Mystical Elf + Curtain Dark Ones       SÓ SE FALTAR
+Mavelus                  Tyhone + Wings of Wicked Flame          PRESERVAR
+Zombie Warrior           Skull Servant + Battle Warrior         PRESERVAR
+Dragoness Wicked Knight  Armaill + One-Eyed Shield Dragon       GARANTIR TCG
+Charubin Fire Knight     Monster Egg + Hinotama Soul            PRESERVAR
+Flame Ghost              Skull Servant + Dissolverock           PRESERVAR
+Fusionist                Planejamento anterior                  NÃO REFAZER
+
+OBSERVAÇÃO: 'GARANTIR TCG' não quer dizer que a fusão não exista no
+Vanilla. Consultar o banco de receitas em execução; adicionar somente se
+não existir. 'PRESERVAR' significa nenhuma mudança de receita é pedida.
+
+===============================================================================
+31. TESTES GERAIS / COMPATIBILIDADE — OBRIGATÓRIO
+===============================================================================
+
+ORIGEM DE FUSÃO:
+- Certificar que só instâncias com <Fusion Effect> habilitado dispararam
+  habilidades desta rodada.
+- Verificar cartas compradas diretamente, invocadas por efeitos, recriadas
+  e provenientes de fusões na mão ou no campo.
+- Regras de Elegant Egotist, Fusionist, rituais e Metalmorph mantidas.
+- Não converter <Metalmorph Effect> de Metal Dragon/Cyber Saurus em
+  <Fusion Effect> nem quebrar seus efeitos atuais.
+
+MONSTROS DE CATEGORIAS ESPECIAIS:
+- 'Female', 'Skull Monsters', Dragon, Warrior, Dinosaur, Plant, Fish e
+  tipos/atributos devem usar a classificação efetiva já mantida pelo MOD.
+- Não substituir 'Skull Monsters' por Zombie, nem FIRE por Pyro.
+- Efeitos que dizem OUTROS não podem contar a própria fonte.
+
+TEMPORÁRIOS / PERMANENTES / CONTÍNUOS:
+- Temporários devem acabar ao fim exato da batalha, mesmo em morte,
+  empate, mudança de posição, anulamento ou troca de alvo.
+- Permanentes se aplicam à INSTÂNCIA afetada, acumulam quando indicado,
+  e não desaparecem só porque a fonte saiu do campo.
+- Contínuos recalculam por alteração de estado e nunca acumulam a cada
+  frame/turno por engano. Remover apenas seu próprio modificador.
+- Permitir sobreposição legítima entre efeitos, Fields, Equips e outros
+  bônus sem perda de estado nem duplo lançamento.
+
+BATALHA, TURNO E EVENTOS:
+- Diferenciar DECLARAÇÃO DE ATAQUE, INÍCIO DE BATALHA, cálculo, destruição,
+  pós-batalha, entrada em campo e início do próximo turno.
+- Não confundir destruição por batalha e por efeito.
+- Kwagar: prevenção única por duelo; Javelin Beetle intacto.
+- Kaminari: bloqueio de ataque em TURNO ADVERSÁRIO posterior, não aura.
+- Mavelus: retorno no PRÓXIMO TURNO DO CONTROLADOR e carga já gasta.
+- Refletir dano de Rose apenas quando houve dano real de LP por batalha.
+- Dano extra Flame Ghost após destruição, sem apagar dano de batalha.
+
+RECEITAS:
+- Verificar resultados atuais (em ambas as ordens que a engine aceite)
+  ANTES de aplicar cada mudança.
+- Receita específica Skelgon deve sobrepor apenas resultado conflitante
+  da combinação The Snake Hair + Blackland Fire Dragon, não Dragon Zombie
+  em todas as demais fusões.
+- Rare Fish recebe Wolf + Enchanting Mermaid, NÃO a versão proposta com
+  Fusionist; preservar alterações anteriores de Fusionist e demais Vanilla.
+- Confirmar que receitas novas funcionam em cadeias e nas interações de
+  fusão usadas pelo MOD, sem falsificar origem dos efeitos.
+
+UI / TEXTOS / ANIMAÇÕES:
+- Manter os nomes aprovados dos efeitos, rótulo <Fusion Effect> e padrão
+  de descrições do projeto (inclusive cores por status/origem).
+- Descrições precisam caber corretamente na caixa e manter tipografia
+  legível, sem vazar para outras telas (Build Deck, Library, deck pré-duelo,
+  mão e duelo). Não recolorir tipos/atributos/UI por acidente.
+- Reutilizar animação de moeda de Karbonala e contador/feedback visual do
+  Javelin Beetle para Kwagar quando tecnicamente compatíveis.
+- Não introduzir efeitos visuais inéditos sem necessidade e validação.
+
+VALIDAÇÃO / ENTREGA:
+- Documentar arquivos realmente alterados, receita antes/depois, módulos
+  tocados, Settings e conflitos encontrados.
+- Compilar/testar na versão real disponível e informar claramente quais
+  cenários foram testados de verdade. Não alegar runtime test sem fazê-lo.
+- Fornecer instruções de instalação compatíveis com o MOD afetado, sem
+  mandar substituir pastas alheias se não forem necessárias.
+- Preservar outros MODs, inclusive Ritual Duelists, campos e interface.
+
+===============================================================================
+32. ÍNDICE FECHADO DOS 48 MONSTROS (ORDEM DE ATK)
+===============================================================================
+
+01  #713 Meteor B. Dragon             — efeito tratado antes da Rodada 02
+02  #217 B. Skull Dragon              — efeito tratado antes da Rodada 02
+03  #613 Twin-headed Thunder Dragon   — Rodada 02
+04  #707 Skull Knight                 — Rodada 02
+05  #037 Gaia the Dragon Champion     — efeito tratado antes da Rodada 02
+06  #370 Labyrinth Tank               — Rodada 02
+07  #069 Thousand Dragon              — Rodada 02
+08  #385 Bickuribox                   — Rodada 02
+09  #427 Kaiser Dragon                — Rodada 02
+10  #467 Crimson Sunbird              — Rodada 02
+11  #442 Aqua Dragon                  — Rodada 02
+12  #509 Bracchio-raidus              — Rodada 02
+13  #471 Soul Hunter                  — Rodada 02
+14  #564 Great Mammoth of Goldfine    — Rodada 02
+15  #223 Roaring Ocean Snake          — Rodada 02
+16  #465 Punished Eagle               — Rodada 02
+17  #531 Mystical Sand                — Rodada 02
+18  #572 Empress Judge                — Rodada 02
+19  #565 Man-eating Black Shark       — Rodada 02
+20  #594 Rose Spectre of Dunn         — novo Fusion Effect nesta Rodada 03
+21  #092 Rabid Horseman               — já tinha efeito; pular
+22  #521 Skullbird                    — novo Fusion Effect nesta Rodada 03
+23  #533 Kwagar Hercules              — novo Fusion Effect nesta Rodada 03
+24  #618 Warrior of Tradition         — novo Fusion Effect nesta Rodada 03
+25  #437 Deepsea Shark                — novo Fusion Effect nesta Rodada 03
+26  #473 Vermillion Sparrow           — novo Fusion Effect nesta Rodada 03
+27  #482 Pragtical                    — novo Fusion Effect nesta Rodada 03
+28  #458 Kaminari Attack              — novo Fusion Effect nesta Rodada 03
+29  #409 Metal Dragon                 — Metalmorph Effect; pular
+30  #389 Giltia the D. Knight         — novo Fusion Effect nesta Rodada 03
+31  #639 Amphibious Bugroth           — novo Fusion Effect nesta Rodada 03
+32  #015 Flame Swordsman              — novo Fusion Effect nesta Rodada 03
+33  #487 Flower Wolf                  — novo Fusion Effect nesta Rodada 03
+34  #508 Cyber Saurus                 — Metalmorph Effect; pular
+35  #495 Musician King                — efeitos existentes; receita condicional
+36  #545 Skelgon                      — novo Fusion Effect nesta Rodada 03
+37  #617 Marine Beast                 — novo Fusion Effect nesta Rodada 03
+38  #168 Darkfire Dragon              — efeito e receita anteriores; pular
+39  #043 Karbonala Warrior            — novo Fusion Effect nesta Rodada 03
+40  #230 Rare Fish                    — novo Fusion Effect e receita custom
+41  #086 Barox                        — novo Fusion Effect nesta Rodada 03
+42  #115 Kamion Wizard                — efeito existente; acrescentar receita
+43  #272 Mavelus                      — novo Fusion Effect nesta Rodada 03
+44  #030 Zombie Warrior               — novo Fusion Effect nesta Rodada 03
+45  #294 Dragoness the Wicked Knight  — novo Fusion Effect nesta Rodada 03
+46  #133 Charubin the Fire Knight     — novo Fusion Effect nesta Rodada 03
+47  #215 Flame Ghost                  — novo Fusion Effect nesta Rodada 03
+48  #189 Fusionist                    — efeitos complexos em prompt separado
+
+RESUMO:
+- 48 cartas no escopo mestre do planejamento histórico.
+- 22 novos Fusion Effects nesta Rodada 03.
+- 7 cartas da seção #20–#48 não recebem um efeito NOVO nesta rodada:
+  Rabid Horseman, Metal Dragon, Cyber Saurus, Musician King,
+  Darkfire Dragon, Kamion Wizard e Fusionist.
+- Não inferir que 48 efeitos novos foram escritos ou que todas as
+  cartas já foram compiladas/testadas.
+
+===============================================================================
+33. PONTOS QUE O PROGRAMADOR DEVE VERIFICAR — SEM INVENTAR DESIGN
+===============================================================================
+
+A) O estado REAL das receitas Vanilla e das receitas de TCG já adicionadas:
+   palavras como 'sim/não Vanilla' no histórico são pesquisas preliminares.
+B) A nomenclatura/cadastro exato de Female e Skull Monsters em cada MOD.
+C) O contrato da engine para duração de buffs temporários e resolução de
+   dano de LP/reflexão, principalmente em empates e término de duelo.
+D) Kwagar: persistência do contador entre reentradas e cópias; manter a
+   promessa 'uma vez por duelo', sem alterar Javelin Beetle.
+E) Kaminari: qual hook marca o próximo turno inimigo e bloqueia ataque de
+   unidades que chegarem durante o próprio turno bloqueado.
+F) Mavelus: janela estável de retorno no próximo turno do controlador.
+G) Precedência da receita Skelgon; precedência da receita custom Rare Fish.
+H) Possível conflito entre efeitos simultâneos de múltiplas fontes
+   (ex.: duas Rose Spectres). Inspecionar sem criar regras de acumulação.
+I) O efeito original de Musician King, Darkfire Dragon, Kamion Wizard,
+   Rabid Horseman, Fusionist e Metalmorph dos dois monstros pulados.
+J) O funcionamento dos bônus dos Field Effects Vanilla/DLC no Amphibious
+   Bugroth, garantindo que +800 não substitui o efeito normal do campo.
+
+Se um conflito técnico exigir mudar a lógica aprovada, relatar o caso
+concreto e pedir decisão. NÃO ajustar o balanceamento em silêncio.
+
+FIM DO PROMPT — FUSION EFFECTS / RECEITAS — RODADA 03 — 30/10/2026
