@@ -1,0 +1,21 @@
+{
+  "scope": "Build LAB-ONLY RD companion; canonical source/object/manifest stay unchanged.",
+  "reference_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+  "candidate_sha256": "d044cfef6019c8a97c869bade40dfe91ae081fda797e62e6f2f53fbe2a7b2a97",
+  "object": "ritual-duelists.o",
+  "source_sha256": {
+    "selection_finalization_v1.h": "1fc6c3be7c9db0a545315f05c1e9ff8940333d554a0f35552368ffc42f9cd8ff",
+    "rd_companion.inc": "cbf7cb11c5ba67efe4c4f1cf688f92c40fae737601115ca5a1d5a98e01793445"
+  },
+  "canonical_files_unchanged": true,
+  "SDK_API": 24,
+  "target": "i386",
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/tools/build_mod.py",
+    "/workspace/work/hal9-selection-handoff/local/candidate-rd/ritual-duelists",
+    "--target",
+    "i386"
+  ],
+  "returncode": 0
+}

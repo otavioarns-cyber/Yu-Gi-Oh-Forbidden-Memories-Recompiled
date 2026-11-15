@@ -33,6 +33,7 @@ O runner valida o baseline RD e os hashes dos dois fontes do companion, verifica
 |78–79|Nonce adulterado; desconexão após confirmação antes do swap|
 |80|Companion ausente, sem inventar fallback ou mudar a ABI1|
 |81–82|Inspeção adicional de recuperação: cursor tardio → QUARANTINE; ACK ausente → BLOCKED|
+|83–84|Callback tenta escrever no ticket/proposta emprestados: cópias locais verificadas, recusa antes do consumo|
 
 Os casos negativos alteram somente os metadados ou campos físicos explicitamente identificados e são INSTRUMENTED. Não injetam um plano/pending para simular alcance natural. Identidade corrompida não é reparada nem restaurada por ID. Os casos51/52 usam pending e seleção produzidos pelos planners reais. As políticas são hipóteses alternativas de laboratório, não defaults novos.
 
@@ -40,4 +41,4 @@ Regressões pertinentes:8 (guard),11 (Queen sem conflito),46 (Support→Monster,
 
 O `abi.c` recompila as asserções das tabelas ABI1 e da draft. SDK/i386 gera ELF relocatable para o loader Windows; execução aqui é ELF32/QEMU, não backend PE32. O objeto de laboratório tem paths de debug do build; registrar seu hash exato, sem prometer identidade entre diretórios/toolchains diferentes.
 
-Proposta e limites em `notes/hal-9-handoff/CONTRATO.md`. O snapshot/source do conjunto principal é o commit85166136; o caso80 foi acrescentado depois, sem alterar o objeto RD ou TW. Cada suite registra fontes e hash do harness efetivamente utilizados.
+Proposta e limites em `notes/hal-9-handoff/CONTRATO.md`. O controle pré-hardening usa o source85166136 e objeto f3d2b5ae. A variante de entrega inclui cópias verificadas dos pacotes de callback e validações de identidade física; não modifica TW. Cada variante é identificada pelo seu próprio recibo. Cada suite registra fontes e hash do harness efetivamente utilizados.

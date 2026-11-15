@@ -6,7 +6,7 @@ Companion experimental independente: `ritual-duelists:selection-finalization-v1`
 
 O owner RD conserva sua transação e o pending original até uma confirmação explícita anterior a qualquer troca de records ou consumo. O cliente de laboratório observa a proposta final dos callbacks TW/R reais. O companion não calcula score, não chama recover(), não escolhe uma política, não valida quotas em nome do Dual e não executa cartas. O fixture seleciona explicitamente KEEP_RD ou ALLOW_TW. OBSERVE não muda nada.
 
-O protótipo suporta **uma carta na proposta final e na proposta anterior**. A transferência testada revoga um pending RD de set ritual680, ainda no deck, para executar TW da mão; a outra política mantém esse pending. Pending HOLD/ações combinadas e rituais que já começaram a consumir tributos não são autorizados por esta draft. Uma recusa não é licença para converter a ação em outra. Não há promessa de rollback ou de solução para materializadores externos não cooperativos.
+O protótipo suporta **uma carta na proposta final e na proposta anterior**. A transferência testada revoga um pending RD de set ritual680, ainda no deck, para executar TW da mão; a outra política mantém esse pending. Time Magic Support face-up está no escopo; banking face-down não foi autorizado pelo companion. Pending HOLD/ações combinadas e rituais que já começaram a consumir tributos não são autorizados por esta draft. Uma recusa não é licença para converter a ação em outra. Não há promessa de rollback ou de solução para materializadores externos não cooperativos.
 
 ```mermaid
 sequenceDiagram
@@ -56,6 +56,10 @@ Todos os pacotes têm abi/size estritos. O token de32 bytes vincula action, gene
 |HfStatus|60|Última fase, motivo, token, busy, conexão e consumo observado|
 |HfFinalization|44|ABI/size/magic e oito operações|
 
+Callbacks de cliente recebem **cópias locais verificadas** de ticket/proposta e não podem reter esses ponteiros após o retorno síncrono. ACK assíncrono e ponteiros persistidos não são suportados. Mudança de contexto do cliente exige desconexão/reconexão. Os callbacks alterações nos argumentos são recusadas e não atingem o armazenamento interno. `const` sozinho não é uma fronteira de imutabilidade em C. O controle pré-hardening confirmou o risco; não é uma falha nova dos objetos canônicos.
+
+A janela nativa da mão não inicializa `AiActiveCard.deck_index` (`func_80027DF8` só o preenche no tail do deck). A identidade da mão vem de side.hand, record, ponteiro data e objeto. Não confundir `logical_index` da mão com um índice físico válido nem usar igualdade de ID como substituto. O payload ainda carrega a janela lógica como parte do snapshot para detectar alterações.
+
 O RhsSnapshot é reutilizado **com seu layout congelado** como valor de observação; nenhum campo antigo muda de significado. As referências data/object são comparadas como endereços de32 bits do processo, juntamente com index/record/id/flags, snapshot do deck, estatísticas e janela lógica. Não são serializáveis nem válidas em outro processo. Cópias com mesmo ID não equivalem à mesma identidade.
 
 `HF_NATIVE` exige categoria/destino consistentes com o tipo nativo. `HF_TIME_MAGIC` aceita somente ID16 físico e Support/M/T, além da cooperação do cliente. Isso não reinterpreta `rhs_selected` da ABI1 como permissão geral para híbridos. A categoria declarada não é uma nova regra do jogo: deve descrever a proposta efetiva, que o owner ainda verifica.
@@ -88,6 +92,8 @@ stateDiagram-v2
     AUTHORIZED --> ABORTED: veto/estado alterado
     OFFERED --> OFFERED: OBSERVE sem decisão
 ```
+
+HF_EXHAUSTED por nonce/epoch exige reinício; recover() do RHS não reinicia o allocator do companion. Callbacks não devem criar/destruir/mover cartas durante a negociação. ABA de instância com todos os bytes/endereços reutilizados permanece fora da qualificação e exige revisão/invalidação física cooperativa.
 
 Fases/erro não substituem o RHS BLOCKED/QUARANTINE/EXHAUSTED. O materializador só passa com confirmação e token ainda válido. O monitor RD já existente continua conferindo cursor/pilha/identidades até a coleta. Não existe reparo após uma carta ter sido consumida. Se outro materializador contornar o owner ou um wrapper alterar dados depois da última validação, é necessária sua cooperação; esta draft não é um mecanismo de isolamento contra código nativo arbitrário.
 

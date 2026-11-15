@@ -1,0 +1,94 @@
+{
+  "primary": {
+    "processes": 120,
+    "checks": {
+      "PASS": 1148
+    },
+    "execution": {
+      "REFUSED": 96,
+      "PASS": 24
+    },
+    "incomplete": 0
+  },
+  "boundaries": {
+    "processes": 120,
+    "checks": {
+      "PASS": 1184
+    },
+    "execution": {
+      "REFUSED": 104,
+      "PASS": 16
+    },
+    "incomplete": 0
+  },
+  "extra": {
+    "processes": 32,
+    "checks": {
+      "PASS": 304
+    },
+    "execution": {
+      "REFUSED": 32
+    },
+    "incomplete": 0
+  },
+  "regressions": {
+    "processes": 32,
+    "checks": {
+      "PASS": 324,
+      "FAIL": 8
+    },
+    "execution": {
+      "REFUSED": 8,
+      "PASS": 16,
+      "FAIL": 8
+    },
+    "incomplete": 0
+  },
+  "absence": {
+    "processes": 8,
+    "checks": {
+      "PASS": 72
+    },
+    "execution": {
+      "REFUSED": 8
+    },
+    "incomplete": 0
+  },
+  "pre-hardening-control": {
+    "processes": 16,
+    "checks": {
+      "PASS": 136,
+      "FAIL": 8
+    },
+    "execution": {
+      "REFUSED": 8,
+      "FAIL": 8
+    },
+    "incomplete": 0
+  },
+  "protocol_total": {
+    "processes": 280,
+    "checks": {
+      "PASS": 2708
+    },
+    "execution": {
+      "REFUSED": 240,
+      "PASS": 40
+    },
+    "incomplete": 0
+  },
+  "delivery_total": {
+    "processes": 312,
+    "checks": {
+      "PASS": 3032,
+      "FAIL": 8
+    },
+    "execution": {
+      "REFUSED": 248,
+      "PASS": 56,
+      "FAIL": 8
+    },
+    "incomplete": 0
+  },
+  "interpretation": "Controlled real planners/objects plus lab client/faults, NOT gameplay Windows. REFUSED is safe denial, not a completed duel; eight regression FAIL are inherited reset terminal hypothesis. Pre-hardening control is separate, not added to candidate coverage."
+}
