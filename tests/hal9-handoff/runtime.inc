@@ -9,16 +9,18 @@ static HfClient *hf_lab_client_ptr;
 static int hf_fault_fired;
 static int hf_client_authorize(const HfTicket*t,const HfProposal*p){
  ++hf_authorize_calls;
+ if(hf_lab_mode==83){((HfTicket*)t)->policy=HF_KEEP_RD;puts("INSTRUMENTED callback mutates borrowed ticket copy");}
  if(hf_lab_mode==64){int r=hf_lab->authorize(t);printf("HANDOFF_REENTRANT authorize=%d\n",r);return 1;}
  return hf_lab_mode!=56&&p->physical.id>0&&p->physical.data!=0;
 }
 static int hf_client_confirm(const HfTicket*t,const HfProposal*p){
  ++hf_confirm_calls;
+ if(hf_lab_mode==84){((HfProposal*)p)->snapshot.selection[0]=12;puts("INSTRUMENTED callback mutates borrowed proposal copy");}
  if(hf_lab_mode==72){int r=hf_lab->disconnect(&hf_lab_client);printf("HANDOFF_REENTRANT disconnect=%d\n",r);}
  return hf_lab_mode!=57&&t->token.action==p->token.action;
 }
 static void handoff_after_planner(void){
- int mode=Settings_GetNamed("test.tw-case",0);if(mode<50||mode>80)return;
+ int mode=Settings_GetNamed("test.tw-case",0);if(mode==81)mode=76;else if(mode==82)mode=57;if(mode<50||mode>84)return;
  hf_lab_mode=mode;hf_lab=Mods_Find(HF_KEY);
  if(!hf_lab){puts("HANDOFF_ABSENT optional companion unavailable; leave original selection/pending validation untouched");return;}
  CHECK(hf_lab->abi==HF_ABI&&hf_lab->size==sizeof*hf_lab&&hf_lab->magic==HF_MAGIC);
@@ -60,7 +62,7 @@ static void handoff_after_planner(void){
  if(mode==67&&hf_last_confirm==HF_OK){int again=hf_lab->confirm(&hf_lab_ticket,&status,sizeof status);result("handoff-no-ticket-reuse-before-consumption",again==HF_STALE,"One explicit confirmation only; replay is rejected without modifying approved transaction.");}
 }
 static void handoff_controller_fault(void){
- int mode=Settings_GetNamed("test.tw-case",0);if((mode!=76&&mode!=77)||hf_fault_fired||!hf_lab)return;
+ int mode=Settings_GetNamed("test.tw-case",0);if(mode==81)mode=76;if((mode!=76&&mode!=77)||hf_fault_fired||!hf_lab)return;
  HfStatus z;CHECK(hf_lab->read(&z,sizeof z)==HF_OK);
  if(z.state!=HF_MATERIALIZED||(*(uint16_t*)datum("D_8009B20C")&15)<2)return;
  hf_fault_fired=1;
@@ -74,6 +76,9 @@ static void handoff_cases(int mode){
  setup_count=spawn_count=0;begin("handoff-real-planners-explicit-lab-policy");int p=hand_action(),id=action_card();
  HfStatus status={0};if(hf_lab)CHECK(hf_lab->read(&status,sizeof status)==HF_OK);
  printf("HANDOFF_STOP mode=%d phase=%d id=%d hand=%d exchanges=%u pending=%d gate=%u RD=%u H=%u hf_state=%u consumed=%u reason=%d\n",mode,p,id,hand_count(),setup_count,pull()->active,calls(D,"func_8001BAF0"),calls(RD,"func_8001BAF0"),calls(H,"func_8001BAF0"),status.state,status.consumed,status.reason);
+ RhsRecovery owner=recovery();
+ printf("HANDOFF_RECOVERY owner_state=%u cause=%u last=%u attempts=%u mode=%u generation=%u connection=%u\n",owner.state,owner.cause,owner.last_cause,owner.attempts,owner.recovery,owner.generation,owner.connection_epoch);
+ if(mode==81||mode==82)result("handoff-recovery-observable-no-silent-resume",owner.state==(mode==81?RHS_STATE_QUARANTINE:RHS_STATE_BLOCKED)&&owner.recovery!=RHS_RECOVER_NONE&&hand_count()==5,"Read-only existing lifecycle; no recover call, pending resurrection, physical repair or implicit resumption.");
  int positive=mode==51||mode==52||mode==53||mode==67||mode==71;
  if(positive){
   int expected=mode==51?680:mode==53?395:16;

@@ -32,7 +32,12 @@ handoff_receipt=None
 if os.environ.get('HAL9_HANDOFF_BUILD'):
  hb=Path(os.environ['HAL9_HANDOFF_BUILD']);handoff_receipt=json.loads((hb/'BUILD.json').read_text())
  assert handoff_receipt['reference_sha256']==sha(dirs['RD']/'ritual-duelists.o')
- for f,h in handoff_receipt['source_sha256'].items():assert sha(repo/'experiments/hal9-handoff'/f)==h
+ href=os.environ.get('HAL9_HANDOFF_SOURCE_REF')
+ if href:assert href=='85166136b957d6b66723f5a849755672808cad05', 'Only pinned pre-hardening control source is permitted'
+ for f,h in handoff_receipt['source_sha256'].items():
+  actual=hashlib.sha256(subprocess.check_output(['git','show',href+':experiments/hal9-handoff/'+f],cwd=repo)).hexdigest() if href else sha(repo/'experiments/hal9-handoff'/f)
+  assert actual==h
+
  dirs['RD']=hb/'ritual-duelists';assert sha(dirs['RD']/'ritual-duelists.o')==handoff_receipt['candidate_sha256']
  for c in meta['components']:
   if c['symbol']=='RD':c['files']=[dict(path=str(f.relative_to(dirs['RD'])),sha256=sha(f)) for f in dirs['RD'].rglob('*') if f.is_file()]
@@ -55,6 +60,7 @@ checks += [(x,dirs[c['symbol']]/x['path']) for c in meta['components'] for x in 
 if a.composition or a.boundary or a.subsets or a.providers or a.consolidation or a.manager or a.spoof or a.field or a.field_bonus:checks += [(x,dirs['F']/x['path']) for x in meta['fusion_reference']['files']]
 results={'test_sources_sha256':{str(f.relative_to(repo)):sha(f) for f in (repo/'tests/hal20-field-state').glob('*') if f.is_file()},'scope':__doc__,'preflight':[],'builds':[],'profiles':[],'postflight':[]}
 results['handoff_build']=handoff_receipt
+results['handoff_source_ref']=os.environ.get('HAL9_HANDOFF_SOURCE_REF')
 results['handoff_test_sources_sha256']={str(f.relative_to(repo)):sha(f) for directory in ('tests/hal9-handoff','experiments/hal9-handoff') for f in (repo/directory).glob('*') if f.is_file()}
 results['support_sources_sha256']={str(f.relative_to(repo)):sha(f) for f in list((repo/'tests/hal9-support').glob('*'))+[repo/'tests/hal9-timewizard-contracts/object_cases.inc'] if f.is_file()}
 results['hal26_sources_sha256']={str(f.relative_to(repo)):sha(f) for folder in ('tests/hal26-state-timewizard','experiments/hal26') for f in (repo/folder).glob('*') if f.is_file()}

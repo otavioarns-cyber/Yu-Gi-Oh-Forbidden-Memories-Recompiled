@@ -108,27 +108,37 @@ static int hf_prepare(const HfProposal*p,HfTicket*out,uint32_t size){
  int h=(int)p->snapshot.selection[0]-11,side=p->snapshot.side;
  if(h<0||h>=5||p->snapshot.selection[1]||p->snapshot.selection[5]||p->snapshot.selection[7]||
  p->destination!=p->snapshot.selection[6]||memcmp(&p->physical,&p->snapshot.hand[h],sizeof p->physical)||
- p->physical.id<=0||p->physical.id!=p->snapshot.logical_id[h]||!p->physical.object||
+ p->physical.id<=0||p->physical.id>722||p->physical.id!=p->snapshot.logical_id[h]||
+ /* Native hand snapshots do NOT initialize deck_index; only the deck
+  * tail does. The physical hand mapping, record and data pointer own it. */
+ p->physical.slot!=11+h||
+ p->physical.record<side*15||p->physical.record>=side*15+5||!p->physical.object||
  !(p->physical.flags&DUEL_CARD_FLAG_OCCUPIED)||p->physical.index<side*40||
  p->physical.index>=side*40+p->snapshot.draw[side]||p->physical.data!=(uint32_t)(uintptr_t)&gDuel_aDeckCardRecords[p->physical.index]||
- p->physical.id!=gDuel_aDeckCardRecords[p->physical.index].id)return hf_fail(HF_IDENTITY);
+ p->physical.id!=gDuel_aDeckCardRecords[p->physical.index].id||
+ gDuel_aDeckCardRecords[p->physical.index].deck_index!=p->physical.index)return hf_fail(HF_IDENTITY);
  int category=Cards_Type(p->physical.id)<CARD_TYPE_MAGIC?HF_MONSTER:HF_SUPPORT;
- if(p->kind==HF_TIME_MAGIC){if(p->physical.id!=16||p->category!=HF_SUPPORT||p->destination<6||p->destination>10)return hf_fail(HF_IDENTITY);}
+ if(p->kind==HF_TIME_MAGIC){if(p->physical.id!=16||p->category!=HF_SUPPORT||p->destination<6||p->destination>10||p->snapshot.selection[8]!=0)return hf_fail(HF_IDENTITY);}
  else if(p->kind!=HF_NATIVE||p->category!=(unsigned)category||
  (category==HF_MONSTER?(p->destination<1||p->destination>5):(p->destination<6||p->destination>10)))return hf_fail(HF_IDENTITY);
  RhsResponse r;if(!hf_owner(&r))return hf_fail(HF_CHANGED);
  if(p->policy==HF_ALLOW_TW&&(hf_offer_value.mandatory||r.mandatory))return hf_fail(HF_MANDATORY);
  hf_proposal=*p;
  int id=hf_offer_value.previous[0]>=11&&hf_offer_value.previous[0]<=55?hf_offer_value.observed.logical_id[hf_offer_value.previous[0]-11]:0;
+ if(id<=0||id>722)return hf_fail(HF_IDENTITY);
  hf_ticket.category=p->policy==HF_ALLOW_TW?p->category:Cards_Type(id)<CARD_TYPE_MAGIC?HF_MONSTER:HF_SUPPORT;
  hf_ticket.destination=p->policy==HF_ALLOW_TW?p->destination:hf_offer_value.previous[6];
  hf_ticket.count=1;hf_state=HF_PREPARED;hf_reason=0;*out=hf_ticket;return HF_OK;
 }
 static int hf_client_call(int commit){
  if(!hf_client)return hf_fail(HF_ACK_MISSING);
+ HfTicket ticket=hf_ticket;HfProposal proposal=hf_proposal;
  hf_reentered=0;
- hf_busy=1;int ok=(commit?hf_client_copy.confirm:hf_client_copy.authorize)(&hf_ticket,&hf_proposal);hf_busy=0;
- if(!ok||hf_reentered||!hf_unchanged())return hf_fail(HF_ACK_MISSING);
+ hf_busy=1;int ok=(commit?hf_client_copy.confirm:hf_client_copy.authorize)(&ticket,&proposal);hf_busy=0;
+ /* Never lend mutable aliases to the internal transaction, even through
+  * const callback arguments. Reject mutation of the borrowed copies too. */
+ if(!ok||memcmp(&ticket,&hf_ticket,sizeof ticket)||memcmp(&proposal,&hf_proposal,sizeof proposal)||
+ hf_reentered||!hf_unchanged())return hf_fail(HF_ACK_MISSING);
  return HF_OK;
 }
 static int hf_authorize(const HfTicket*t){

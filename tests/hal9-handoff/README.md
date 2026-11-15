@@ -32,6 +32,7 @@ O runner valida o baseline RD e os hashes dos dois fontes do companion, verifica
 |76–77|Escrita tardia de cursor/identidade após ACK e antes da coleta|
 |78–79|Nonce adulterado; desconexão após confirmação antes do swap|
 |80|Companion ausente, sem inventar fallback ou mudar a ABI1|
+|81–82|Inspeção adicional de recuperação: cursor tardio → QUARANTINE; ACK ausente → BLOCKED|
 
 Os casos negativos alteram somente os metadados ou campos físicos explicitamente identificados e são INSTRUMENTED. Não injetam um plano/pending para simular alcance natural. Identidade corrompida não é reparada nem restaurada por ID. Os casos51/52 usam pending e seleção produzidos pelos planners reais. As políticas são hipóteses alternativas de laboratório, não defaults novos.
 
