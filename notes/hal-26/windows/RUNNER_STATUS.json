@@ -1,0 +1,11 @@
+{
+  "status": "AUTOMATION_UNAVAILABLE",
+  "url": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/actions",
+  "public_notice": "Workflows are not currently being run on this fork due to the scale of GitHub Actions usage. A repository maintainer can choose to re-enable these.",
+  "commit": "52c4fe1b1ad6c36e50d701f631ccf76d2b6e9b3d",
+  "connector_pull_request_runs": [],
+  "control": "Own x86 C control prepared in .github/workflows/hal26-windows-state-control.yml; no execution observed.",
+  "scope": "No global Actions re-enable or repository permission change performed. Native runner or selective maintainer activation is an external dependency. Wine/QEMU failures were not repeated.",
+  "implementation_commit_probed": "28e5f6cdce23b62ce27649d9eb6c3e6bcbd5ec9d",
+  "implementation_pull_request_runs": []
+}

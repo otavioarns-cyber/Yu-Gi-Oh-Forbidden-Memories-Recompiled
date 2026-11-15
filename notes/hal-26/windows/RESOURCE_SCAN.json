@@ -1,0 +1,9 @@
+{
+  "scope": "Accessible /workspace filenames scanned; no proprietary contents read or published.",
+  "file_types": {
+    ".bin": 494
+  },
+  "largest_candidate_bytes": 76800,
+  "disc_image_candidates": 0,
+  "resources_from_other_context_not_assumed_accessible": true
+}

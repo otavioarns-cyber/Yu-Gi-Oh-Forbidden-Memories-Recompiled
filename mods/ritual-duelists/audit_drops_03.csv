@@ -1,0 +1,950 @@
+duelist_id,duelist,card_id,card_name,category,weight_before_alpha4,weight_after_alpha5,vanilla_expanded_weight,change_cause,source
+3,Jono,7,Winged Dragon #1,BCD,20,19,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,16,Time Wizard,BCD,64,62,63,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,50,Basic Insect,BCD,45,44,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,64,Tiger Axe,BCD,0,48,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,104,Curtain of the Dark Ones,BCD,45,44,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,105,Tomozaurus,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,122,Yamatano Dragon Scroll,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,130,Weather Control,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,135,Fiend's Hand,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,137,Mystery Hand,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,152,The Melting Red Shadow,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,154,Fire Reaper,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,174,Hurricail,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,182,Masked Clown,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,185,Eyearmor,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,191,LaLa Li-oon,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,197,Mech Mole Zombie,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,202,Air Marmot of Nefariousness,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,207,Droll Bird,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,210,Hinotama Soul,BCD,44,43,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,214,Kagemusha of the Blue Flame,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,237,Haniwa,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,242,Candle of Fate,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,245,Meda Bat,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,268,Sectarian of Secrets,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,333,Sogen,BCD,36,35,36,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,410,Mechanical Spider,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,420,Cyber-Stein,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,422,Jinzo #7,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,436,White Dolphin,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,444,Turu-Purun,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,485,Korogashi,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,486,Boo Koo,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,488,Rainbow Flower,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,492,Hoshiningen,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,501,Man-eater Bug,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,516,Muka Muka,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,524,Star Boy,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,549,Frog The Jam,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,558,Pot the Trick,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,563,Wretched Ghost of the Attic,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,579,Abyss Flower,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,589,Tentacle Plant,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,598,Little Chimera,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,603,Fairy Dragon,BCD,20,19,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,611,Hiro's Shadow Scout,BCD,43,42,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,651,Kunai with Chain,BCD,34,33,34,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+3,Jono,690,Fake Trap,BCD,18,17,18,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,1,Blue-eyes White Dragon,POW,0,10,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,8,Mushroom Man,POW,43,42,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,75,Man-eating Plant,POW,114,113,111,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,76,Krokodilus,POW,43,42,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,157,Firegrass,POW,43,42,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,158,Man Eater,POW,43,42,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,176,Fire Eye,POW,43,42,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,428,Magician of Faith,POW,41,40,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,510,Laughing Flower,POW,43,42,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,579,Abyss Flower,POW,43,42,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+7,Seto,589,Tentacle Plant,POW,43,42,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,3,Hitotsu-me Giant,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,8,Mushroom Man,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,10,Blackland Fire Dragon,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,25,Horn Imp,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,50,Basic Insect,BCD,82,80,82,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,53,Killer Needle,BCD,117,114,117,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,77,Grappler,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,80,Uraby,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,109,Goddess with the Third Eye,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,115,Kamion Wizard,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,116,Nightmare Scorpion,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,119,Trial of Nightmares,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,121,Sleeping Lion,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,123,Dark Plant,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,141,Spiked Snail,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,157,Firegrass,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,158,Man Eater,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,164,Lord of Zemia,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,166,Mysterious Puppeteer,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,171,Big Eye,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,180,Arlownay,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,186,Fiend Refrection #2,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,193,Turtle Tiger,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,194,Terra the Terrible,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,196,Arma Knight,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,330,Forest,BCD,29,28,29,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,479,Cockroach Knight,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,485,Korogashi,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,488,Rainbow Flower,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,496,Wilmee,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,501,Man-eater Bug,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,506,Gale Dogra,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,510,Laughing Flower,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,514,Brave Scizzar,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,534,Minar,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,535,Kamakiriman,BCD,0,48,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,547,Griggle,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,552,Winged Dragon #2,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,567,Darkworld Thorns,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,576,Giant Scorpion of the Tundra,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,579,Abyss Flower,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,589,Tentacle Plant,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,608,Shining Friendship,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,609,Bladefly,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,620,Snakeyashi,BCD,41,40,41,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+10,Weevil Underwood,643,Disk Magician,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,4,Baby Dragon,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,10,Blackland Fire Dragon,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,122,Yamatano Dragon Scroll,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,140,Toad Master,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,152,The Melting Red Shadow,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,177,Monsturtle,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,193,Turtle Tiger,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,196,Arma Knight,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,199,Penguin Knight,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,200,Petit Dragon,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,206,Twin Long Rods #1,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,227,Hitodenchak,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,243,Water Element,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,247,Root Water,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,251,Enchanting Mermaid,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,258,Beastking of the Swamps,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,265,The Furious Sea King,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,270,Wetha,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,289,Change Slime,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,292,Psychic Kappa,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,296,One-eyed Shield Dragon,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,298,Wicked Dragon with the Ersatz Head,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,393,Zone Eater,BCD,58,57,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,430,Water Magician,BCD,88,87,88,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,431,Ice Water,BCD,88,87,88,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+16,Isis,449,"30,000-Year White Turtle",BCD,0,25,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,1,Blue-eyes White Dragon,POW,0,16,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,3,Hitotsu-me Giant,POW,141,140,135,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,4,Baby Dragon,POW,71,70,68,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,5,Ryu-kishin,POW,141,140,135,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,10,Blackland Fire Dragon,POW,71,70,68,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,23,The Wicked Worm Beast,POW,141,140,135,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,26,Battle Ox,POW,154,153,147,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,34,Saggi the Dark Clown,POW,143,142,137,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,77,Grappler,POW,131,130,125,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,91,Mystic Horseman,POW,149,148,143,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,122,Yamatano Dragon Scroll,POW,65,64,62,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,168,Darkfire Dragon,POW,80,79,77,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,200,Petit Dragon,POW,65,64,62,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,296,One-eyed Shield Dragon,POW,65,64,62,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,298,Wicked Dragon with the Ersatz Head,POW,65,64,62,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,333,Sogen,POW,61,60,58,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+17,Kaiba,379,La Jinn the Mystical Genie,POW,141,140,135,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,4,Baby Dragon,BCD,23,22,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,29,Mountain Warrior,BCD,23,22,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,43,Karbonala Warrior,BCD,23,22,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,50,Basic Insect,BCD,46,45,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,61,Wolf,BCD,23,22,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,64,Tiger Axe,BCD,0,64,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,78,Axe Raider,BCD,23,22,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,100,Battle Warrior,BCD,23,22,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,104,Curtain of the Dark Ones,BCD,46,45,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,105,Tomozaurus,BCD,46,45,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,122,Yamatano Dragon Scroll,BCD,46,45,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,130,Weather Control,BCD,46,45,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,135,Fiend's Hand,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,137,Mystery Hand,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,152,The Melting Red Shadow,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,154,Fire Reaper,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,174,Hurricail,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,182,Masked Clown,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,185,Eyearmor,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,191,LaLa Li-oon,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,197,Mech Mole Zombie,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,202,Air Marmot of Nefariousness,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,207,Droll Bird,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,210,Hinotama Soul,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,214,Kagemusha of the Blue Flame,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,237,Haniwa,BCD,46,44,46,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,242,Candle of Fate,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,245,Meda Bat,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,268,Sectarian of Secrets,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,333,Sogen,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,344,Hinotama,BCD,20,19,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,410,Mechanical Spider,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,420,Cyber-Stein,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,422,Jinzo #7,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,436,White Dolphin,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,444,Turu-Purun,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,485,Korogashi,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,486,Boo Koo,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,488,Rainbow Flower,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,492,Hoshiningen,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,501,Man-eater Bug,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,516,Muka Muka,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,524,Star Boy,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,549,Frog The Jam,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,558,Pot the Trick,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,563,Wretched Ghost of the Attic,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,579,Abyss Flower,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,589,Tentacle Plant,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,598,Little Chimera,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,611,Hiro's Shadow Scout,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+19,Jono 2nd,651,Kunai with Chain,BCD,20,19,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,70,Fiend Kraken,BCD,55,54,55,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,71,Jellyfish,BCD,55,54,55,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,140,Toad Master,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,152,The Melting Red Shadow,BCD,37,36,37,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,177,Monsturtle,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,193,Turtle Tiger,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,196,Arma Knight,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,199,Penguin Knight,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,205,Dorover,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,206,Twin Long Rods #1,BCD,37,36,37,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,227,Hitodenchak,BCD,37,36,37,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,230,Rare Fish,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,243,Water Element,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,247,Root Water,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,251,Enchanting Mermaid,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,258,Beastking of the Swamps,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,265,The Furious Sea King,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,270,Wetha,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,285,Serpent Marauder,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,292,Psychic Kappa,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,334,Umi,BCD,29,28,29,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,432,Waterdragon Fairy,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,446,Aqua Snake,BCD,25,24,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,449,"30,000-Year White Turtle",BCD,0,32,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,451,Kanikabuto,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,452,Zarigun,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,503,Turtle Raccoon,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,524,Star Boy,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,536,Mechaleon,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,549,Frog The Jam,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,569,Drooling Lizard,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,602,Penguin Soldier,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+21,Ocean Mage,606,Twin Long Rods #2,BCD,39,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,2,Mystical Elf,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,14,Battle Steer,BCD,35,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,34,Saggi the Dark Clown,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,44,Rogue Doll,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,87,Dark Chimera,BCD,35,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,89,Catapult Turtle,BCD,35,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,93,Zanki,BCD,35,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,104,Curtain of the Dark Ones,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,106,Spirit of the Winds,BCD,76,73,76,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,109,Goddess with the Third Eye,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,114,White Magical Hat,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,115,Kamion Wizard,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,124,Ancient Tool,BCD,35,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,129,Nemuriko,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,130,Weather Control,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,131,Octoberser,BCD,35,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,134,Mystical Capture Chain,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,142,Flame Manipulator,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,143,Necrolancer the Timelord,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,144,Djinn the Watcher of the Wind,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,145,The Bewitching Phantom Thief,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,150,Akihiron,BCD,35,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,170,Spirit of the Harp,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,174,Hurricail,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,179,Phantom Dewan,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,183,Lucky Trinket,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,184,Genin,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,190,Akakieisu,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,198,Happy Lover,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,204,Mabarrel,BCD,35,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,208,Petit Angel,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,213,Aqua Madoor,BCD,76,73,76,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,220,Masked Sorcerer,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,229,Hourglass of Life,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,253,Angelwitch,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,259,Ancient Sorcerer,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,260,Lunar Queen Elzaim,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,264,Wing Egg Elf,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,268,Sectarian of Secrets,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,276,Ray & Temperature,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,334,Umi,BCD,48,46,48,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,366,Labyrinth Wall,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,413,Cyber Soldier,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,425,Thunder Dragon,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,449,"30,000-Year White Turtle",BCD,0,64,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,468,Queen Bird,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,486,Boo Koo,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,491,Peacock,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,492,Hoshiningen,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,508,Cyber Saurus,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,513,Guardian of the Throne Room,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,540,Skelengel,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,584,Binding Chain,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,601,Tenderness,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,608,Shining Friendship,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,612,Lady of Faith,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,633,Winged Egg of New Life,BCD,76,73,76,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+22,High Mage Secmeton,650,Whiptail Crow,BCD,33,32,33,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,8,Mushroom Man,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,75,Man-eating Plant,BCD,117,114,117,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,76,Krokodilus,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,101,Wings of Wicked Flame,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,157,Firegrass,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,158,Man Eater,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,176,Fire Eye,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,182,Masked Clown,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,183,Lucky Trinket,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,185,Eyearmor,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,191,LaLa Li-oon,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,195,Doron,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,198,Happy Lover,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,200,Petit Dragon,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,202,Air Marmot of Nefariousness,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,203,Phantom Ghost,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,207,Droll Bird,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,209,Winged Cleaver,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,210,Hinotama Soul,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,211,Kaminarikozou,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,212,Meotoko,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,214,Kagemusha of the Blue Flame,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,222,Midnight Fiend,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,227,Hitodenchak,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,229,Hourglass of Life,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,232,Madjinn Gunn,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,237,Haniwa,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,242,Candle of Fate,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,245,Meda Bat,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,254,Embryonic Beast,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,261,Wicked Mirror,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,268,Sectarian of Secrets,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,273,Ancient Tree of Enlightenment,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,274,Green Phantom King,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,285,Serpent Marauder,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,291,Fireyarou,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,292,Psychic Kappa,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,330,Forest,BCD,30,29,30,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,420,Cyber-Stein,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,452,Zarigun,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,476,Ganigumo,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,483,Garvas,BCD,0,32,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,486,Boo Koo,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,492,Hoshiningen,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,501,Man-eater Bug,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,506,Gale Dogra,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,510,Laughing Flower,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,511,Bean Soldier,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,524,Star Boy,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,535,Kamakiriman,BCD,0,32,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,536,Mechaleon,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,540,Skelengel,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,544,Dharma Cannon,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,549,Frog The Jam,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,556,The Wandering Doomed,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,567,Darkworld Thorns,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,579,Abyss Flower,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,589,Tentacle Plant,BCD,42,41,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,591,Morphing Jar,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,598,Little Chimera,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,602,Penguin Soldier,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,609,Bladefly,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,611,Hiro's Shadow Scout,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+23,Forest Mage,620,Snakeyashi,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,3,Hitotsu-me Giant,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,8,Mushroom Man,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,10,Blackland Fire Dragon,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,13,Tyhone,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,25,Horn Imp,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,41,Celtic Guardian,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,44,Rogue Doll,BCD,24,23,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,49,Big Insect,BCD,72,69,72,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,50,Basic Insect,BCD,72,69,72,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,53,Killer Needle,BCD,102,98,102,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,54,Gokibore,BCD,102,98,102,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,55,Giant Flea,BCD,72,69,72,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,70,Fiend Kraken,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,77,Grappler,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,80,Uraby,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,109,Goddess with the Third Eye,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,115,Kamion Wizard,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,116,Nightmare Scorpion,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,119,Trial of Nightmares,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,121,Sleeping Lion,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,125,Faith Bird,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,141,Spiked Snail,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,149,Lord of the Lamp,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,157,Firegrass,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,158,Man Eater,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,164,Lord of Zemia,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,166,Mysterious Puppeteer,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,171,Big Eye,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,180,Arlownay,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,186,Fiend Refrection #2,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,193,Turtle Tiger,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,194,Terra the Terrible,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,196,Arma Knight,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,201,Frenzied Panda,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,209,Winged Cleaver,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,220,Masked Sorcerer,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,221,Kumootoko,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,225,Fiend Sword,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,233,Dark Titan of Terror,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,236,Guardian of the Labyrinth,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,248,Master & Expert,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,255,Prevent Rat,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,256,Dimensional Warrior,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,259,Ancient Sorcerer,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,272,Mavelus,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,273,Ancient Tree of Enlightenment,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,274,Green Phantom King,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,280,Protector of the Throne,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,291,Fireyarou,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,293,Masaki the Legendary Swordsman,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,330,Forest,BCD,36,34,36,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,406,Yaiba Robo,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,412,Giga-tech Wolf,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,459,Tripwire Beast,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,476,Ganigumo,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,477,Alinsection,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,478,Insect Soldiers of the Sky,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,479,Cockroach Knight,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,483,Garvas,BCD,0,25,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,496,Wilmee,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,501,Man-eater Bug,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,506,Gale Dogra,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,510,Laughing Flower,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,511,Bean Soldier,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,514,Brave Scizzar,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,534,Minar,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,535,Kamakiriman,BCD,0,64,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,552,Winged Dragon #2,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,567,Darkworld Thorns,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,576,Giant Scorpion of the Tundra,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,579,Abyss Flower,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,589,Tentacle Plant,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,608,Shining Friendship,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,609,Bladefly,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,620,Snakeyashi,BCD,42,40,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,638,Queen of Autumn Leaves,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+24,High Mage Anubisius,643,Disk Magician,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,2,Mystical Elf,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,6,Feral Imp,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,9,Shadow Specter,BCD,178,170,178,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,10,Blackland Fire Dragon,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,19,Right Arm of the Forbidden One,BCD,12,11,12,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,25,Horn Imp,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,27,Beaver Warrior,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,30,Zombie Warrior,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,31,Koumori Dragon,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,41,Celtic Guardian,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,46,Griffore,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,47,Torike,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,48,Sangan,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,59,Mammoth Graveyard,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,64,Tiger Axe,BCD,0,96,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,65,Silver Fang,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,89,Catapult Turtle,BCD,50,48,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,94,Crawling Dragon,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,102,Mask of Darkness,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,111,Doma The Angel of Silence,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,130,Weather Control,BCD,100,95,100,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,238,Yashinoki,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,333,Sogen,BCD,66,63,66,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,396,Ocubeam,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,408,Giant Mech-soldier,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,409,Metal Dragon,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,422,Jinzo #7,BCD,96,91,96,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,436,White Dolphin,BCD,96,91,96,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,437,Deepsea Shark,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,439,Bottom Dweller,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,444,Turu-Purun,BCD,96,91,96,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,458,Kaminari Attack,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,473,Vermillion Sparrow,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,482,Pragtical,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,485,Korogashi,BCD,96,91,96,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,487,Flower Wolf,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,516,Muka Muka,BCD,96,91,96,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,521,Skullbird,BCD,12,11,12,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,533,Kwagar Hercules,BCD,12,11,12,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,542,Misairuzame,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,557,Steel Ogre Grotto #1,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,563,Wretched Ghost of the Attic,BCD,96,91,96,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,618,Warrior of Tradition,BCD,12,11,12,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,637,Trent,BCD,22,21,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,659,Winged Trumpeter,BCD,12,11,12,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+29,Meadow Mage,712,Meteor Dragon,BCD,12,11,12,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,3,Hitotsu-me Giant,BCD,80,74,80,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,4,Baby Dragon,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,5,Ryu-kishin,BCD,80,74,80,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,10,Blackland Fire Dragon,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,12,Swamp Battleguard,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,15,Flame Swordsman,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,19,Right Arm of the Forbidden One,BCD,6,5,6,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,23,The Wicked Worm Beast,BCD,80,73,80,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,26,Battle Ox,BCD,80,73,80,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,31,Koumori Dragon,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,34,Saggi the Dark Clown,BCD,80,73,80,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,42,Illusionist Faceless Mage,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,64,Tiger Axe,BCD,0,160,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,68,Garoozis,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,73,Kairyu-shin,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,74,Giant Soldier of Stone,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,77,Grappler,BCD,78,72,78,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,84,Reaper of the Cards,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,88,Metal Guardian,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,91,Mystic Horseman,BCD,78,72,78,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,93,Zanki,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,122,Yamatano Dragon Scroll,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,126,Orion the Battle King,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,168,Darkfire Dragon,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,200,Petit Dragon,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,213,Aqua Madoor,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,286,Gatekeeper,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,296,One-eyed Shield Dragon,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,298,Wicked Dragon with the Ersatz Head,BCD,40,37,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,333,Sogen,BCD,30,27,30,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,376,Monster Tamer,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,379,La Jinn the Mystical Genie,BCD,78,72,78,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,400,Emperor of the Land and Sea,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,403,Leogun,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,413,Cyber Soldier,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,423,Dice Armadillo,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,441,Mech Bass,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,464,Wing Eagle,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,468,Queen Bird,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,491,Peacock,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,508,Cyber Saurus,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,513,Guardian of the Throne Room,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,528,Togex,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,577,Crow Goblin,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,638,Queen of Autumn Leaves,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+30,High Mage Kepura,650,Whiptail Crow,BCD,39,36,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,10,Blackland Fire Dragon,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,23,The Wicked Worm Beast,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,25,Horn Imp,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,30,Zombie Warrior,BCD,40,38,39,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,34,Saggi the Dark Clown,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,36,The Snake Hair,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,40,Dragon Piper,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,45,Oscillo Hero #2,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,53,Killer Needle,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,59,Mammoth Graveyard,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,61,Wolf,BCD,17,16,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,65,Silver Fang,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,70,Fiend Kraken,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,71,Jellyfish,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,80,Uraby,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,96,Armored Zombie,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,97,Dragon Zombie,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,98,Clown Zombie,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,103,Job-change Mirror,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,108,Graveyard and the Hand of Invitation,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,109,Goddess with the Third Eye,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,110,Hero of the East,BCD,16,15,16,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,115,Kamion Wizard,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,118,Supporter in the Shadows,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,119,Trial of Nightmares,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,120,Dream Clown,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,121,Sleeping Lion,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,132,The 13th Grave,BCD,38,36,37,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,135,Fiend's Hand,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,138,Dragon Statue,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,139,Blue-eyed Silver Zombie,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,140,Toad Master,BCD,38,36,37,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,196,Arma Knight,BCD,30,29,29,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,244,Dissolverock,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,246,One Who Hunts Souls,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,248,Master & Expert,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,250,Hyo,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,251,Enchanting Mermaid,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,256,Dimensional Warrior,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,257,Stone Armadiller,BCD,30,29,29,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,258,Beastking of the Swamps,BCD,30,29,29,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,259,Ancient Sorcerer,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,262,The Little Swordsman of Aile,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,263,Rock Ogre Grotto #2,BCD,30,29,29,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,265,The Furious Sea King,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,269,Versago the Destroyer,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,270,Wetha,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,272,Mavelus,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,273,Ancient Tree of Enlightenment,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,274,Green Phantom King,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,276,Ray & Temperature,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,280,Protector of the Throne,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,290,Moon Envoy,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,291,Fireyarou,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,292,Psychic Kappa,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,293,Masaki the Legendary Swordsman,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,294,Dragoness the Wicked Knight,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,296,One-eyed Shield Dragon,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,335,Yami,BCD,36,34,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,366,Labyrinth Wall,BCD,30,29,29,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,368,Shadow Ghoul,BCD,30,29,29,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,371,Sanga of the Thunder,BCD,0,32,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,372,Kazejin,BCD,0,32,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,373,Suijin,BCD,0,32,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,406,Yaiba Robo,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,414,Shovel Crusher,BCD,15,14,15,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,432,Waterdragon Fairy,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,446,Aqua Snake,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,451,Kanikabuto,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,452,Zarigun,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,459,Tripwire Beast,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,460,Bolt Escargot,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,461,Bolt Penguin,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,462,The Immortal of Thunder,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,463,Electric Snake,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,496,Wilmee,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,503,Turtle Raccoon,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,514,Brave Scizzar,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,524,Star Boy,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,549,Frog The Jam,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,552,Winged Dragon #2,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,556,The Wandering Doomed,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,567,Darkworld Thorns,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,576,Giant Scorpion of the Tundra,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,584,Binding Chain,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,591,Morphing Jar,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,601,Tenderness,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,602,Penguin Soldier,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,605,Liquid Beast,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,606,Twin Long Rods #2,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,608,Shining Friendship,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,620,Snakeyashi,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,629,Armored Rat,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,642,Mystical Sheep #1,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+31,Labyrinth Mage,643,Disk Magician,BCD,14,13,14,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,1,Blue-eyes White Dragon,POW,0,25,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,2,Mystical Elf,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,6,Feral Imp,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,10,Blackland Fire Dragon,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,25,Horn Imp,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,27,Beaver Warrior,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,30,Zombie Warrior,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,35,Dark Magician,POW,49,48,48,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,38,Gaia the Fierce Knight,POW,62,61,60,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,39,Curse of Dragon,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,41,Celtic Guardian,POW,51,50,50,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,46,Griffore,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,47,Torike,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,48,Sangan,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,59,Mammoth Graveyard,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,65,Silver Fang,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,74,Giant Soldier of Stone,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,89,Catapult Turtle,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,445,Guardian of the Sea,POW,45,44,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,474,Sea Kamen,POW,45,44,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,515,The Statue of Easter Island,POW,27,26,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,546,Wow Warrior,POW,45,44,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,559,Oscillo Hero,POW,45,44,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,561,Lesser Dragon,POW,45,44,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,572,Empress Judge,POW,33,32,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+32,Seto 2nd,583,Weather Report,POW,27,26,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,2,Mystical Elf,POW,24,25,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,36,The Snake Hair,POW,72,73,73,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,93,Zanki,POW,72,73,73,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,95,Crass Clown,POW,48,49,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,97,Dragon Zombie,POW,72,73,73,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,99,Pumpking the King of Ghosts,POW,72,73,73,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,124,Ancient Tool,POW,48,49,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,217,B. Skull Dragon,POW,0,10,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,351,Yaranzo,POW,39,40,40,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,368,Shadow Ghoul,POW,48,49,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,388,Pendulum Machine,POW,72,73,73,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,391,Zoa,POW,50,51,51,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,405,Saber Slasher,POW,48,49,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,413,Cyber Soldier,POW,48,49,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,508,Cyber Saurus,POW,48,49,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,648,Machine Attacker,POW,48,49,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,704,Skull Guardian,POW,25,0,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,36,The Snake Hair,BCD,75,74,75,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,93,Zanki,BCD,75,74,75,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,95,Crass Clown,BCD,75,74,75,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,97,Dragon Zombie,BCD,75,74,75,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,99,Pumpking the King of Ghosts,BCD,75,74,75,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,124,Ancient Tool,BCD,49,48,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,368,Shadow Ghoul,BCD,49,48,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,388,Pendulum Machine,BCD,69,68,69,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,405,Saber Slasher,BCD,49,48,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,412,Giga-tech Wolf,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,413,Cyber Soldier,BCD,49,48,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,414,Shovel Crusher,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,415,Mechanicalchacer,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,416,Blocker,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,417,Blast Juggler,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,419,Giganto,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,423,Dice Armadillo,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,425,Thunder Dragon,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,438,Metal Fish,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,441,Mech Bass,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,460,Bolt Escargot,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,462,The Immortal of Thunder,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,468,Queen Bird,BCD,26,25,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,508,Cyber Saurus,BCD,49,48,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,648,Machine Attacker,BCD,49,48,49,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+33,Guardian Sebek,704,Skull Guardian,BCD,0,25,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,6,Feral Imp,POW,43,44,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,13,Tyhone,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,25,Horn Imp,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,26,Battle Ox,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,27,Beaver Warrior,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,32,Two-headed King Rex,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,36,The Snake Hair,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,41,Celtic Guardian,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,43,Karbonala Warrior,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,44,Rogue Doll,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,46,Griffore,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,48,Sangan,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,49,Big Insect,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,54,Gokibore,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,55,Giant Flea,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,70,Fiend Kraken,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,71,Jellyfish,POW,22,23,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,77,Grappler,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,81,Crawling Dragon #2,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,83,Castle of Dark Illusions,POW,66,68,66,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,84,Reaper of the Cards,POW,66,68,66,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,85,King of Yamimakai,POW,66,0,66,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,86,Barox,POW,66,68,66,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,87,Dark Chimera,POW,66,68,66,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,88,Metal Guardian,POW,66,68,66,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,95,Crass Clown,POW,42,43,42,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,103,Job-change Mirror,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,115,Kamion Wizard,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,119,Trial of Nightmares,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,121,Sleeping Lion,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,125,Faith Bird,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,136,Witty Phantom,POW,41,42,41,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,149,Lord of the Lamp,POW,41,42,41,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,162,Tainted Wisdom,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,164,Lord of Zemia,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,166,Mysterious Puppeteer,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,168,Darkfire Dragon,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,169,Dark King of the Abyss,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,170,Spirit of the Harp,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,171,Big Eye,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,173,Dark Prisoner,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,175,Ancient Brain,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,178,Claw Reacher,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,181,Dark Shade,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,186,Fiend Refrection #2,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,193,Turtle Tiger,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,194,Terra the Terrible,POW,41,42,41,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,204,Mabarrel,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,230,Rare Fish,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,233,Dark Titan of Terror,POW,41,42,41,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,255,Prevent Rat,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,269,Versago the Destroyer,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,277,Gorgon Egg,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,279,King Fog,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,295,Bio Plant,POW,20,21,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,379,La Jinn the Mystical Genie,POW,41,42,41,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,391,Zoa,POW,35,36,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,401,Ushi Oni,POW,35,36,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,471,Soul Hunter,POW,35,36,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,472,Air Eater,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,500,Dragon Seeker,POW,35,36,35,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,526,Neck Hunter,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,85,King of Yamimakai,BCD,66,67,66,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+34,Guardian Neku,88,Metal Guardian,BCD,66,65,66,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,35,Dark Magician,POW,4,32,4,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,455,Barrel Rock,POW,47,46,47,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,457,Stone Ghost,POW,47,46,47,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,564,Great Mammoth of Goldfine,POW,47,46,47,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,722,Magician of Black Chaos,POW,25,0,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,35,Dark Magician,BCD,0,15,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,99,Pumpking the King of Ghosts,BCD,48,47,48,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,268,Sectarian of Secrets,BCD,28,27,28,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,366,Labyrinth Wall,BCD,28,27,28,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,368,Shadow Ghoul,BCD,28,27,28,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,455,Barrel Rock,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,457,Stone Ghost,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,470,Magical Ghost,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,505,Prisman,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,531,Mystical Sand,BCD,44,43,44,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,532,Gemini Elf,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,599,Violent Rain,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,623,The Thing That Hides in the Mud,BCD,28,27,28,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,631,Maiden of the Moonlight,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,634,Night Lizard,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+35,Heishin 2nd,646,Gruesome Goo,BCD,64,63,64,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,6,Feral Imp,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,25,Horn Imp,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,38,Gaia the Fierce Knight,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,79,Megazowler,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,90,Gyakutenno Megami,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,99,Pumpking the King of Ghosts,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,223,Roaring Ocean Snake,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,391,Zoa,POW,47,48,47,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,401,Ushi Oni,POW,47,48,47,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,407,Machine King,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,426,Stone D.,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,449,"30,000-Year White Turtle",POW,10,0,10,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,453,Millennium Golem,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,465,Punished Eagle,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,467,Crimson Sunbird,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,471,Soul Hunter,POW,47,48,47,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,472,Air Eater,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,497,Yado Karu,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,500,Dragon Seeker,POW,47,48,47,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,522,Monstrous Bird,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,523,The Bistro Butcher,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,526,Neck Hunter,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,531,Mystical Sand,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,535,Kamakiriman,POW,26,0,26,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,539,Corroding Shark,POW,43,44,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,551,Dark Elf,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,553,Mushroom Man #2,POW,43,44,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,560,Invader from Another Dimension,POW,43,44,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,564,Great Mammoth of Goldfine,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,571,B. Dragon Jungle King,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,572,Empress Judge,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,574,Witch of the Black Forest,POW,43,44,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,594,Rose Spectre of Dunn,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,600,Key Mace #2,POW,43,44,43,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,613,Twin-headed Thunder Dragon,POW,26,27,26,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,627,Nekogal #2,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,647,Hyosube,POW,25,26,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,650,Whiptail Crow,POW,24,25,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,1,Blue-eyes White Dragon,BCD,0,20,0,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,137,Mystery Hand,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,148,The Shadow Who Controls the Dark,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,149,Lord of the Lamp,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,162,Tainted Wisdom,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,164,Lord of Zemia,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,169,Dark King of the Abyss,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,171,Big Eye,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,173,Dark Prisoner,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,175,Ancient Brain,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,178,Claw Reacher,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,497,Yado Karu,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,523,The Bistro Butcher,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,539,Corroding Shark,BCD,54,53,54,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,551,Dark Elf,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,553,Mushroom Man #2,BCD,54,53,54,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,560,Invader from Another Dimension,BCD,54,53,54,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,574,Witch of the Black Forest,BCD,54,53,54,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,600,Key Mace #2,BCD,54,53,54,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,647,Hyosube,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,650,Whiptail Crow,BCD,32,31,32,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,83,Castle of Dark Illusions,TEC,22,23,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,84,Reaper of the Cards,TEC,22,23,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,86,Barox,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,87,Dark Chimera,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,88,Metal Guardian,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,95,Crass Clown,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,136,Witty Phantom,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,149,Lord of the Lamp,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,162,Tainted Wisdom,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,164,Lord of Zemia,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,169,Dark King of the Abyss,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,171,Big Eye,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,178,Claw Reacher,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,181,Dark Shade,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,194,Terra the Terrible,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,204,Mabarrel,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,222,Midnight Fiend,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,232,Madjinn Gunn,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,233,Dark Titan of Terror,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,240,The Drdek,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,242,Candle of Fate,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,245,Meda Bat,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,254,Embryonic Beast,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,261,Wicked Mirror,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,269,Versago the Destroyer,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,271,Megirus Light,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,277,Gorgon Egg,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,279,King Fog,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,295,Bio Plant,TEC,21,22,20,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,449,"30,000-Year White Turtle",TEC,9,0,8,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,497,Yado Karu,TEC,26,27,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,523,The Bistro Butcher,TEC,26,27,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,535,Kamakiriman,TEC,26,0,24,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,551,Dark Elf,TEC,26,27,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,647,Hyosube,TEC,26,27,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,672,Harpie's Feather Duster,TEC,25,26,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+36,Seto 3rd,684,Invisible Wire,TEC,25,26,24,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,3,Hitotsu-me Giant,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,4,Baby Dragon,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,10,Blackland Fire Dragon,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,11,Sword Arm of Dragon,POW,25,26,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,13,Tyhone,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,14,Battle Steer,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,15,Flame Swordsman,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,19,Right Arm of the Forbidden One,POW,8,9,8,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,23,The Wicked Worm Beast,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,26,Battle Ox,POW,24,25,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,27,Beaver Warrior,POW,24,25,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,33,Judge Man,POW,25,26,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,39,Curse of Dragon,POW,57,60,57,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,40,Dragon Piper,POW,55,58,55,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,42,Illusionist Faceless Mage,POW,70,73,69,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,44,Rogue Doll,POW,45,47,45,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,46,Griffore,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,47,Torike,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,61,Wolf,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,64,Tiger Axe,POW,40,0,40,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,65,Silver Fang,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,68,Garoozis,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,79,Megazowler,POW,24,25,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,85,King of Yamimakai,POW,24,25,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,90,Gyakutenno Megami,POW,24,25,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,91,Mystic Horseman,POW,23,24,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,99,Pumpking the King of Ghosts,POW,24,25,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,113,Dark Gray,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,121,Sleeping Lion,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,125,Faith Bird,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,155,Larvas,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,168,Darkfire Dragon,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,186,Fiend Refrection #2,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,188,Synchar,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,189,Fusionist,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,200,Petit Dragon,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,201,Frenzied Panda,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,219,Solitude,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,246,One Who Hunts Souls,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,248,Master & Expert,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,255,Prevent Rat,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,272,Mavelus,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,282,Mystical Sheep #2,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,296,One-eyed Shield Dragon,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,298,Wicked Dragon with the Ersatz Head,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,376,Monster Tamer,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,388,Pendulum Machine,POW,24,25,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,403,Leogun,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,419,Giganto,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,423,Dice Armadillo,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,438,Metal Fish,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,443,Sea King Dragon,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,464,Wing Eagle,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,465,Punished Eagle,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,466,Skull Red Bird,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,467,Crimson Sunbird,POW,25,26,25,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,468,Queen Bird,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,472,Air Eater,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,481,Burglar,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,483,Garvas,POW,47,0,47,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,491,Peacock,POW,22,23,22,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,496,Wilmee,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,522,Monstrous Bird,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,526,Neck Hunter,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,528,Togex,POW,45,47,45,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,531,Mystical Sand,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,538,Niwatori,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,552,Winged Dragon #2,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,571,B. Dragon Jungle King,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,572,Empress Judge,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,575,Ancient One of the Deep Forest,POW,47,49,47,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,577,Crow Goblin,POW,45,47,45,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,582,Dark Witch,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,594,Rose Spectre of Dunn,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,597,Pale Beast,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,627,Nekogal #2,POW,23,24,23,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,629,Armored Rat,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,636,Blue-winged Crown,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,642,Mystical Sheep #1,POW,21,22,21,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,42,Illusionist Faceless Mage,BCD,71,70,71,Native 2048-point weight normalization from approved overrides,Vanilla USA + Drop Missing Cards + Packages 01/02/03
+37,DarkNite,483,Garvas,BCD,45,46,45,Approved explicit Pack 03 override,Vanilla USA + Drop Missing Cards + Packages 01/02/03

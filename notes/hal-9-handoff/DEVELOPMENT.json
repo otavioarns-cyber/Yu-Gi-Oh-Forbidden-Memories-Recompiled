@@ -1,0 +1,171 @@
+{
+  "scope": "Development history, not candidate validation. Raw outputs and private prototype objects kept locally.",
+  "observed": {
+    "first": {
+      "summary": {
+        "processes": 40,
+        "checks": {
+          "PASS": 392,
+          "FAIL": 28
+        },
+        "execution": {
+          "REFUSED": 8,
+          "PASS": 16,
+          "FAIL": 16
+        },
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "positive-v2": {
+      "summary": {
+        "processes": 32,
+        "checks": {
+          "PASS": 348
+        },
+        "execution": {
+          "PASS": 24,
+          "REFUSED": 8
+        },
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "boundaries-v3": {
+      "summary": {
+        "processes": 96,
+        "checks": {
+          "PASS": 928
+        },
+        "execution": {
+          "REFUSED": 80,
+          "PASS": 16
+        },
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "final-primary": {
+      "summary": {
+        "processes": 120,
+        "checks": {
+          "PASS": 1148
+        },
+        "execution": {
+          "REFUSED": 96,
+          "PASS": 24
+        },
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "final-boundaries": {
+      "summary": {
+        "processes": 120,
+        "checks": {
+          "PASS": 1184
+        },
+        "execution": {
+          "REFUSED": 104,
+          "PASS": 16
+        },
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "hardened-extra": {
+      "summary": {
+        "processes": 32,
+        "checks": {
+          "PASS": 304
+        },
+        "execution": {
+          "REFUSED": 32
+        },
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "recovery-observation": {
+      "summary": {
+        "processes": 0,
+        "checks": {},
+        "execution": {},
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        1
+      ]
+    },
+    "optional-absence-trace": {
+      "summary": {
+        "processes": 0,
+        "checks": {},
+        "execution": {},
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        1
+      ]
+    },
+    "mutable-arguments-control": {
+      "summary": {
+        "processes": 16,
+        "checks": {
+          "PASS": 136,
+          "FAIL": 8
+        },
+        "execution": {
+          "REFUSED": 8,
+          "FAIL": 8
+        },
+        "incomplete": 0
+      },
+      "build_returncodes": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "notes": [
+    "First prototype accepted only Time Magic physical proposals; Queen had restored Female395 but face byte8 differed. General native/mandatory preservation added; no Queen rule altered.",
+    "Additional recovery log initially had a malformed C newline: compile failed before any MOD ran; fixed and reexecuted.",
+    "Quota verifier now rejects zero-profile/build-failed suites; optional absence was reexecuted with return tracing rather than counted without evidence.",
+    "Callback arguments were internal const pointers in pre-hardening prototype. Control at source85166136 reproduces wrong card99 consumption under explicit faulty-client injection; local copies plus immutable comparison eliminate it in candidate.",
+    "Hand AiActiveCard.deck_index is uninitialized by native snapshot. Rejected an inspection-only check; use physical hand/record/data instead. No game rule changed.",
+    "Superseded exploratory matrices were stopped after security change; their written logs remain local and are not presented as completed candidate coverage."
+  ],
+  "private_artifacts_published": false
+}

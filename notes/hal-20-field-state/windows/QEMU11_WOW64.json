@@ -1,0 +1,21 @@
+{
+  "cases": [
+    {
+      "binary": "control64.exe",
+      "returncode": 0,
+      "status": "PASS"
+    },
+    {
+      "binary": "control32.exe",
+      "returncode": 1,
+      "status": "AUTOMATION_UNAVAILABLE"
+    },
+    {
+      "binary": "memories-pc.exe",
+      "returncode": 1,
+      "status": "AUTOMATION_UNAVAILABLE"
+    }
+  ],
+  "cleanup": "First helper expected a sibling wineserver next to the wrapper; after cases it failed. Own prefix server/display subsequently stopped; optional wineserver path added to the reproducer.",
+  "backend": "QEMU11.1.2 x86_64 + Wine11 WOW64"
+}

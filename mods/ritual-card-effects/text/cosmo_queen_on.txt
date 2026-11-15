@@ -1,0 +1,9 @@
+@bank descriptions
+
+[D3C4]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+{f8 0A 03}+500{f8 0A 00} ATK/DEF per
+other Female field.
+Opponent must play
+a Female from hand
+if legally able.

@@ -1,0 +1,37 @@
+[
+  {
+    "capability": "A complete collection persistence",
+    "status": "FAIL",
+    "reason": "Fusion lease lost, other owner states not covered"
+  },
+  {
+    "capability": "A guard admission",
+    "status": "REFUSED",
+    "reason": "Unqualified variant SHA; not canonical R"
+  },
+  {
+    "capability": "B pre-write load",
+    "status": "REFUSED",
+    "reason": "Expected safe refusal with effective M/R/RD/F/E + guard ON"
+  },
+  {
+    "capability": "Composed render text icons",
+    "status": "NOT_REACHED",
+    "reason": "Backend not reached; registrations alone insufficient"
+  },
+  {
+    "capability": "Complete native/cross-process load",
+    "status": "NOT_REACHED",
+    "reason": "No full state/context roundtrip executed"
+  },
+  {
+    "capability": "PE32 Wine/QEMU backend",
+    "status": "AUTOMATION_UNAVAILABLE",
+    "reason": "Minimal own control fails before main"
+  },
+  {
+    "capability": "Current game Windows duel/UI",
+    "status": "NOT_REACHED",
+    "reason": "Backend and accessible legitimate game image unavailable"
+  }
+]

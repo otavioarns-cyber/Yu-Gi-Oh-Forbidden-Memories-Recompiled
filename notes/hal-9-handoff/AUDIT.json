@@ -1,0 +1,30 @@
+{
+  "reference": "c82e1efbfd0a49e37652364398adebdb85ecd043",
+  "canonical_mod_files_identical": 507,
+  "production_src_mods_config_workflows": "UNCHANGED",
+  "frozen_ABI_files_sha256": {
+    "mods/ritual-duelists/mandatory_hand_lifecycle_v1.h": "1e20dc9ee29984eec1097baea2a2e497fbf6c2f9ee39c91d185d4ce170b69fc5",
+    "mods/ritual-duelists/mandatory_hand_selection_v1.h": "ac1a5385c4441ee0f14e41b68a4dc293c111197b6fe961ff89265025f32df49d",
+    "mods/ritual-duelists/mandatory_hand_consumer.h": "560097a4cd6f510087ac2aaab3a4dcffef3f5d8df637ae982393f3c168a07a54",
+    "mods/ritual-card-effects/mandatory_hand_lifecycle_v1.h": "1e20dc9ee29984eec1097baea2a2e497fbf6c2f9ee39c91d185d4ce170b69fc5",
+    "mods/ritual-card-effects/mandatory_hand_provider.h": "b4b67c669e91a4c2ce0b252988b1fdf7f1f9b93b65ad998118b4338e13b779e2",
+    "mods/ritual-card-effects/mandatory_hand_selection_v1.h": "ac1a5385c4441ee0f14e41b68a4dc293c111197b6fe961ff89265025f32df49d"
+  },
+  "TW_sha256": "46f63050a5761b6f7ca3ec44c7a267ee4a7f79ec1572fb3d41ecd1e6313d9093",
+  "Dual_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+  "RD_original_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+  "RD_laboratory_sha256": "d044cfef6019c8a97c869bade40dfe91ae081fda797e62e6f2f53fbe2a7b2a97",
+  "private_lab_changed_existing_files": [
+    "mod.c",
+    "ritual-duelists.o"
+  ],
+  "lab_added_own_files": [
+    "selection_finalization_v1.h",
+    "rd_companion.inc"
+  ],
+  "guard": "UNCHANGED; no admission",
+  "policy_B": "UNCHANGED; A disabled",
+  "policy": "Explicit lab parameters only; no canonical default",
+  "legacy_core": "UNCHANGED",
+  "new_private_objects_assets_published": false
+}

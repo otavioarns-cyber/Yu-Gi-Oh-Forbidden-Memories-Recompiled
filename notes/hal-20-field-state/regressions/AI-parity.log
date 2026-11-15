@@ -1,0 +1,2 @@
+REAL_FIELD_DECISION Skull ATK1200 DEF1000, Dragon ATK1750 DEF1500, Yami: old=12 new=11; +500 primary +200 secondary
+PASS 2000 exact historical hand/field decision comparisons with provider OFF; real-provider ON changes approved terrain input only

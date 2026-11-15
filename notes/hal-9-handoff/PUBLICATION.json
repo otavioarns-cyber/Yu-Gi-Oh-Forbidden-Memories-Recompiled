@@ -1,0 +1,15 @@
+{
+  "pr": 34,
+  "url": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/34",
+  "draft": true,
+  "merged": false,
+  "base": "integration/hal-20-v0.3.1-preview.2",
+  "branch": "test/hal-9-selection-handoff",
+  "implementation_commit": "9c460d7b70ddae580d10f73995ea45a8066c4259",
+  "old_heads_verified": 38,
+  "old_heads_changed": [],
+  "new_heads": [
+    "refs/heads/test/hal-9-selection-handoff"
+  ],
+  "private_artifacts_published": false
+}

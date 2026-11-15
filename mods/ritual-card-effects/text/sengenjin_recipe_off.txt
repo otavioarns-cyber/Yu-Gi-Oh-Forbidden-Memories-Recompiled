@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3A6]
+Hitotsu-me Giant +
+Tiger Axe +
+Millennium Golem

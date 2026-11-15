@@ -1,0 +1,2250 @@
+{
+  "scope": "Read-only checks over the actual raw callback traces; never inject state.",
+  "profiles": 280,
+  "physical_PASS": 280,
+  "quota_PASS": 140,
+  "quota_not_applicable": 140,
+  "definitive_Support_category_at_Dual_preconsumption_gate": "NOT_DEMONSTRATED: native type16 remains Monster; original adapter final ledger agrees; no handoff bonus qualification implied.",
+  "rows": [
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m50",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "32ad967f7ee158606c06a8219eeda0dbe32035a6fc755991f9df1d74777d8b02"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m51",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "a07b98103201e0c12f9ec1eb32eb2477981d93468f5db98fe4ad80505fbaa4c8"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m52",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "6ae6526fb92edf13e0de448618ebe7d718b5e92ad338aa1d0b07f0114b28f652"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m53",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "d8fa166dcc255f366fcec0d963a590812013890f1c555aaefd0c92ed38c6ef62"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m54",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "1972b23fb3023b7747555626b922d2b7aaa866c6aea802aac3ddf0ac4092ce75"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m55",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "d5da2647d21bd266ed9cb7ad875d06dda6e3e319e6482302a9b1e4a8ff4e2131"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m56",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "79c8334c9ee0b0d0a762025f3518f7891aceed4a2ede07eddbde86cd3e419c5f"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m57",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "ded3eadb2d91f9105dc3d15bd209f51da878ebfb8be4f1d242f3417113da92c6"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m58",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "5958ba0b31708ddd9432a4b0a1a3324b3a305ff641df534d48efb3dcc4a3f065"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m59",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "94f9b196fd693cc37d41fda80e286109171a47507f49fefcc4265c251bffc7d0"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m60",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "28ed9b4070697dc718fa3ca9ffd3eedee92f96f0d73670388b9080f9fc69dca0"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m61",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "fdea063bae84ef67e2b037d7349accd0764c1f421dc4bac4ff8fd14d4a26d2a1"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m62",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "4bff893a37bff1a1b8aca35eebc74031a375729f17e21167d415241222379ec2"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m63",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b0c5573ed6163ed6e7c7f28c7b947b253065cb10978c3fea6f339a9d5496bcad"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-before-m64",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "11265b748b461797d89fccb83f913794d3e75392252f3b1798c382c810d74012"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m50",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "32ad967f7ee158606c06a8219eeda0dbe32035a6fc755991f9df1d74777d8b02"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m51",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "a07b98103201e0c12f9ec1eb32eb2477981d93468f5db98fe4ad80505fbaa4c8"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m52",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "6ae6526fb92edf13e0de448618ebe7d718b5e92ad338aa1d0b07f0114b28f652"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m53",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "d8fa166dcc255f366fcec0d963a590812013890f1c555aaefd0c92ed38c6ef62"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m54",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "1972b23fb3023b7747555626b922d2b7aaa866c6aea802aac3ddf0ac4092ce75"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m55",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "d5da2647d21bd266ed9cb7ad875d06dda6e3e319e6482302a9b1e4a8ff4e2131"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m56",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "79c8334c9ee0b0d0a762025f3518f7891aceed4a2ede07eddbde86cd3e419c5f"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m57",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "ded3eadb2d91f9105dc3d15bd209f51da878ebfb8be4f1d242f3417113da92c6"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m58",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "5958ba0b31708ddd9432a4b0a1a3324b3a305ff641df534d48efb3dcc4a3f065"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m59",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "94f9b196fd693cc37d41fda80e286109171a47507f49fefcc4265c251bffc7d0"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m60",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "28ed9b4070697dc718fa3ca9ffd3eedee92f96f0d73670388b9080f9fc69dca0"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m61",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "fdea063bae84ef67e2b037d7349accd0764c1f421dc4bac4ff8fd14d4a26d2a1"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m62",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "4bff893a37bff1a1b8aca35eebc74031a375729f17e21167d415241222379ec2"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m63",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b0c5573ed6163ed6e7c7f28c7b947b253065cb10978c3fea6f339a9d5496bcad"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d0-after-m64",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "11265b748b461797d89fccb83f913794d3e75392252f3b1798c382c810d74012"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m50",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ccdf20db4965a16bfa6f58787a89b3cfe55a396ef4bf0641d21206ff20779d67"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m51",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "2b2feb5b99479c0b7293022ee72ab88da12935bbe6c590bb2ecb2c2beb93ffa6"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m52",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "3443cf5af40c315bab193c21de4e0c9a7cc8c3830142a3027a142dbe0e42a844"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m53",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "e77526d2584f70e0a6a8a65ca37b4aeae9c46e781f93fc71cb4b4cede97e9cf3"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m54",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "67131b7280d4a2dde68f77e164f103945ece3a8aca4d1bff1d6d101b2e3a32f6"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m55",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "231c37154cdd7318829f9cc88a4c8163e54ae5e03f1ebf33dfe0d05a401c7d79"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m56",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "83878d5812f5b499ac66d0ed526cfae50f4d01040953c1e08f4da7c578c83e7d"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m57",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "b32d967f3b2c5f7107b0f9414a001b7294d086bdfc0d5f184cb83dac353cdfb5"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m58",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "e8cae1afcb4ae1f07074b14064af5fdeee22e46a66823e32e51448a0003b9e06"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m59",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "33abf764a0ef8f70f699109e9ccf8c517389d35b8a5e10ddea970b5fd9248654"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m60",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "9480b08ecacd52421fefe25f3430bb5234110252764fcf7ec43240b7896eb408"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m61",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "62a98314eaa673843c94479fd35d0ffa350d719c33158f0268f182a0e1ad391d"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m62",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "920377b7ff7b589decb4b0a714b5c0eaea7358b10918c9cae64c18bc9a41b9e5"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m63",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "f0031aecb921921ebf8bb2bed33773e34074255c8a45f6a14a6864107a7ca458"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-before-m64",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8fa24a63f6549cf4fcc00edb5a7c43b4820400e8982cac6ff3599f82931c7a0c"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m50",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ccdf20db4965a16bfa6f58787a89b3cfe55a396ef4bf0641d21206ff20779d67"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m51",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "2b2feb5b99479c0b7293022ee72ab88da12935bbe6c590bb2ecb2c2beb93ffa6"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m52",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "3443cf5af40c315bab193c21de4e0c9a7cc8c3830142a3027a142dbe0e42a844"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m53",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "e77526d2584f70e0a6a8a65ca37b4aeae9c46e781f93fc71cb4b4cede97e9cf3"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m54",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "67131b7280d4a2dde68f77e164f103945ece3a8aca4d1bff1d6d101b2e3a32f6"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m55",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "231c37154cdd7318829f9cc88a4c8163e54ae5e03f1ebf33dfe0d05a401c7d79"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m56",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "83878d5812f5b499ac66d0ed526cfae50f4d01040953c1e08f4da7c578c83e7d"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m57",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "b32d967f3b2c5f7107b0f9414a001b7294d086bdfc0d5f184cb83dac353cdfb5"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m58",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "e8cae1afcb4ae1f07074b14064af5fdeee22e46a66823e32e51448a0003b9e06"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m59",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "33abf764a0ef8f70f699109e9ccf8c517389d35b8a5e10ddea970b5fd9248654"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m60",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "9480b08ecacd52421fefe25f3430bb5234110252764fcf7ec43240b7896eb408"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m61",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "62a98314eaa673843c94479fd35d0ffa350d719c33158f0268f182a0e1ad391d"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m62",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "920377b7ff7b589decb4b0a714b5c0eaea7358b10918c9cae64c18bc9a41b9e5"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m63",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "f0031aecb921921ebf8bb2bed33773e34074255c8a45f6a14a6864107a7ca458"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h0-d1-after-m64",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8fa24a63f6549cf4fcc00edb5a7c43b4820400e8982cac6ff3599f82931c7a0c"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m50",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "1a66f39ad4fa833d330ed481b3ca1da0796580ce1ba2c2551e6cc0e5b347d92c"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m51",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b129bd68cb6aeabc7326b2a5d77ff582a7f5a8984ec4443d492cac8aadf52d19"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m52",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "68d1a0399baf1037f405005b4eab49c11b190784d28e17aa5728ddaab3fce8b2"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m53",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "51dd1e06c4ffead9b0040900acf28dbf15dba2885d5bee9620d6e44fadad544d"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m54",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "f857aeaaf2e9d2e22259e194a29d5c43eca8937973079582abc24c12701017f4"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m55",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b9ea94663bcea9133bacba025f68edd7542ac23968b848bc7b0b7885e16dd676"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m56",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "28c9998232689ceef3e8a00358f9d99940e9d87d567ab0cca018265cedef7aac"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m57",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "9a878cf5896c4c4ab5edec6058877741e09cc216ecb9760665e14590baf59f88"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m58",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b037a038c912a389c456a74ae66656fb717cb35bc0fb4ae7a0bb34c632aeaaf4"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m59",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "bb64f693369711f31262186809538564ae7b13e7331cf7b4dafa10a00775449b"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m60",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b73194db3c60067d45cb255b102cd4fc2cedbdd4ff1131abfa6a193af315dac3"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m61",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "5dd83a824cc5130f955c928d04733171341295feeb25c41cc1fdbfff4bb637b7"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m62",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "5015063e4f5dff9f0112d3495b4ddc52759f1b19b2bd679c54fe6bdcba3fad90"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m63",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "746affcc8138401905453d394172852aa146ae8c749e17cb96dd0e98f4c9c586"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-before-m64",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "df30a723897d2e238c59a5b4aabb102beb5e7b0140395763e6f89650f9a0efcb"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m50",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "1a66f39ad4fa833d330ed481b3ca1da0796580ce1ba2c2551e6cc0e5b347d92c"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m51",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b129bd68cb6aeabc7326b2a5d77ff582a7f5a8984ec4443d492cac8aadf52d19"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m52",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "68d1a0399baf1037f405005b4eab49c11b190784d28e17aa5728ddaab3fce8b2"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m53",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "51dd1e06c4ffead9b0040900acf28dbf15dba2885d5bee9620d6e44fadad544d"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m54",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "f857aeaaf2e9d2e22259e194a29d5c43eca8937973079582abc24c12701017f4"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m55",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b9ea94663bcea9133bacba025f68edd7542ac23968b848bc7b0b7885e16dd676"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m56",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "28c9998232689ceef3e8a00358f9d99940e9d87d567ab0cca018265cedef7aac"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m57",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "9a878cf5896c4c4ab5edec6058877741e09cc216ecb9760665e14590baf59f88"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m58",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b037a038c912a389c456a74ae66656fb717cb35bc0fb4ae7a0bb34c632aeaaf4"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m59",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "bb64f693369711f31262186809538564ae7b13e7331cf7b4dafa10a00775449b"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m60",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b73194db3c60067d45cb255b102cd4fc2cedbdd4ff1131abfa6a193af315dac3"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m61",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "5dd83a824cc5130f955c928d04733171341295feeb25c41cc1fdbfff4bb637b7"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m62",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "5015063e4f5dff9f0112d3495b4ddc52759f1b19b2bd679c54fe6bdcba3fad90"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m63",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "746affcc8138401905453d394172852aa146ae8c749e17cb96dd0e98f4c9c586"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d0-after-m64",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "df30a723897d2e238c59a5b4aabb102beb5e7b0140395763e6f89650f9a0efcb"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m50",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "a03366c56620193c3ee5c64be6e774c1240bb9febf04319b8a6edc0750480a69"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m51",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ff4389830dacafd042eb338b305845924f60e917320d64df0fcbc37454162df0"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m52",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "63d3a37faf8273594aba41f46ae5a960b24557130853bdf0368fda8f36c833af"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m53",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "adaa843dbc19a4b5f965293de68ce3a82c3a7fad5e82215e87b278ae7b991f19"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m54",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "97c63291d6515f1a6d45443919f5254f13f6fa9ffbce915b211750a394c82a2f"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m55",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "c8711e86a694f1e056cbb9aafc51a311619c23982ee0a696b1d93ad385e46f74"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m56",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "6a34159cb323d7d99e92192d25446df729282c7530dec19cfa29c9425f3bdb59"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m57",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ade2344db445d16456f5000db95f5570a53f710fa806edc79f912fb30736f699"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m58",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8698e31fbc7147c3eff918862b5790e02250432aae062a78c6174607c34e0f72"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m59",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "c984d5cee0102058b59bf881a1de05d26d85a2cf6259fc473928fff5e34194dd"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m60",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "b1566fc55db5d4ce977d9e00f54307bdd6270dcfc57a3ad7aa8b5ff45e7c9317"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m61",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "1ab54d622a5a6e5e6a14d6dd192273cb3bf4d3af9490dfcaf98b120d26c625d2"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m62",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "2b3819f0301e3d7863a5718d6b05d35f80e6b562972720d06eb3591217454e50"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m63",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "f529b1bbc6d88c5d84f46b2a2b6ea0983995552640c1b80c8de070c5ac72856b"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-before-m64",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8d816a33d78a652077dab5030e70a19b0902ea175e32a3e688b48276efd3a3b2"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m50",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "a03366c56620193c3ee5c64be6e774c1240bb9febf04319b8a6edc0750480a69"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m51",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ff4389830dacafd042eb338b305845924f60e917320d64df0fcbc37454162df0"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m52",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "63d3a37faf8273594aba41f46ae5a960b24557130853bdf0368fda8f36c833af"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m53",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "adaa843dbc19a4b5f965293de68ce3a82c3a7fad5e82215e87b278ae7b991f19"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m54",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "97c63291d6515f1a6d45443919f5254f13f6fa9ffbce915b211750a394c82a2f"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m55",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "c8711e86a694f1e056cbb9aafc51a311619c23982ee0a696b1d93ad385e46f74"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m56",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "6a34159cb323d7d99e92192d25446df729282c7530dec19cfa29c9425f3bdb59"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m57",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ade2344db445d16456f5000db95f5570a53f710fa806edc79f912fb30736f699"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m58",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8698e31fbc7147c3eff918862b5790e02250432aae062a78c6174607c34e0f72"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m59",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "c984d5cee0102058b59bf881a1de05d26d85a2cf6259fc473928fff5e34194dd"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m60",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "b1566fc55db5d4ce977d9e00f54307bdd6270dcfc57a3ad7aa8b5ff45e7c9317"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m61",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "1ab54d622a5a6e5e6a14d6dd192273cb3bf4d3af9490dfcaf98b120d26c625d2"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m62",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "2b3819f0301e3d7863a5718d6b05d35f80e6b562972720d06eb3591217454e50"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m63",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "f529b1bbc6d88c5d84f46b2a2b6ea0983995552640c1b80c8de070c5ac72856b"
+    },
+    {
+      "group": "delivery-primary",
+      "case": "tw-object-h1-d1-after-m64",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8d816a33d78a652077dab5030e70a19b0902ea175e32a3e688b48276efd3a3b2"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m65",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "16e6987c8b0909c6cfa4c4866bedaad82a5a75da801b08e44b486b373df5a90d"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m66",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "a6268753bc747097c33f2739bf499104e03e76f33bd4abed8cbf9522dd797986"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m67",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "8000a39630bf100dd32810fc65207a2137cdb7217084b4f6ffd7dc50d8f01c2b"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m68",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "acb5dc844365c885b0f75b2308b7e4a75d763b25ca71d5cd9978982754610357"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m69",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "d5dfdee0608edd805ec8ee3e0a42f7603845de6aa3f64bbad7df8181fd8d5c78"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m70",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "4b46e5f4a6ecf45a3b31230bef429dd119d3cc53a736918f5e3e074a938f62f3"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m71",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b4ec862b2b7d612ac22a038d8cbc4db04fc53b729adb7bb1fdda20dace7233c9"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m72",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "04f8d41df8e95e6d3e07ef04693e18f94a8bec534d8f2e6ff5a691e4d1835272"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m73",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "c0aa3f8fd2b6c7dab69f34d8260268d6f0cf4d5b7973598176fc3c2149fa4662"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m74",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "207da859c5cd7e1984599a392d5e8b5c34d812b6b675b6c7bfd667de28fc452c"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m75",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "ca81b640c970f127baf893aef8bf1435d18d45b6fece2977fe01c27f7d3736bb"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m76",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "281b62457a268e7a547ad7f4160f2eebd5ffe407ff8da525d54b22f0108c7749"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m77",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "e70b641252728a93080adeb801118f2f02cbe3cd05d06dd4a39f1d2e729d3087"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m78",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "cb370d478e71aad7a109b2ce8010ec26d3fb1bd46d26b6c1e0f8c86af3dc1d3a"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-before-m79",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "841fd9ec2c25f1cab586ad315cb0b46627a65422428f43178f11d93c1d801ecc"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m65",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "16e6987c8b0909c6cfa4c4866bedaad82a5a75da801b08e44b486b373df5a90d"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m66",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "a6268753bc747097c33f2739bf499104e03e76f33bd4abed8cbf9522dd797986"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m67",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "8000a39630bf100dd32810fc65207a2137cdb7217084b4f6ffd7dc50d8f01c2b"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m68",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "acb5dc844365c885b0f75b2308b7e4a75d763b25ca71d5cd9978982754610357"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m69",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "d5dfdee0608edd805ec8ee3e0a42f7603845de6aa3f64bbad7df8181fd8d5c78"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m70",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "4b46e5f4a6ecf45a3b31230bef429dd119d3cc53a736918f5e3e074a938f62f3"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m71",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b4ec862b2b7d612ac22a038d8cbc4db04fc53b729adb7bb1fdda20dace7233c9"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m72",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "04f8d41df8e95e6d3e07ef04693e18f94a8bec534d8f2e6ff5a691e4d1835272"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m73",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "c0aa3f8fd2b6c7dab69f34d8260268d6f0cf4d5b7973598176fc3c2149fa4662"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m74",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "207da859c5cd7e1984599a392d5e8b5c34d812b6b675b6c7bfd667de28fc452c"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m75",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "ca81b640c970f127baf893aef8bf1435d18d45b6fece2977fe01c27f7d3736bb"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m76",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "281b62457a268e7a547ad7f4160f2eebd5ffe407ff8da525d54b22f0108c7749"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m77",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "e70b641252728a93080adeb801118f2f02cbe3cd05d06dd4a39f1d2e729d3087"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m78",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "cb370d478e71aad7a109b2ce8010ec26d3fb1bd46d26b6c1e0f8c86af3dc1d3a"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d0-after-m79",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "841fd9ec2c25f1cab586ad315cb0b46627a65422428f43178f11d93c1d801ecc"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m65",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "31927b301ccd43961161408ba06f45c676c1c8126c14fe2be49c148db37f264a"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m66",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "f376abc2a8dc7af08926f980b06550e20a8a556530bb94b5bc8827a09b1bc934"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m67",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ff991025d03d400aa2d5e82485a0ddf4f9a7eb183954f07d8070a7d6bc411e88"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m68",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "9d2f4f54afab7d39626364758912aa439ee9b7a9b478f872b86217016e964015"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m69",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "5e19b6902defb98c2fa1bda495c660aefefa914263e1dc7d288952dace740b10"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m70",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "cb92bea8e281dd86a29ec4baa205f6b0bfd1eb05978b10cdfe2955eadbde90be"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m71",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "0f99f43d3eea9f55b2130b413ef37963c7c33ae9fc77c1b544c13afa4ccc8642"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m72",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "25d43ce982e2e1b7f2ed9d4d81a981096aa41dd376bb9442270d118fd16c36eb"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m73",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "55fcc8832e32c94b4b5f985988e262f025bd24709e79b66d1209d274f861444a"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m74",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8477b4a74749dff4838227f239f1930bf12200ba055e424f68fab138731c633e"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m75",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "92f8200674b7e41d382739a44c7595ac454f7c1932f35fa3e75ed02a4f67b901"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m76",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "82c3e5fab36c5dcbe2c91948cff59d485b3376de341272b01c5c1960c3111a64"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m77",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "0166b4caa698a5fe83833040dccbd4c76ab8a2d48e98392fea60c3fade2fb01b"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m78",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "cee3038e7094e94795aaf965238295bb20ddd6eb3dbda9ccd4da673952de1aca"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-before-m79",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "5efdf0ba811b938d0ea386f8dbd4b1d53d05a926b843b4433fbf9a4d08187b91"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m65",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "31927b301ccd43961161408ba06f45c676c1c8126c14fe2be49c148db37f264a"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m66",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "f376abc2a8dc7af08926f980b06550e20a8a556530bb94b5bc8827a09b1bc934"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m67",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ff991025d03d400aa2d5e82485a0ddf4f9a7eb183954f07d8070a7d6bc411e88"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m68",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "9d2f4f54afab7d39626364758912aa439ee9b7a9b478f872b86217016e964015"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m69",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "5e19b6902defb98c2fa1bda495c660aefefa914263e1dc7d288952dace740b10"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m70",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "cb92bea8e281dd86a29ec4baa205f6b0bfd1eb05978b10cdfe2955eadbde90be"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m71",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "0f99f43d3eea9f55b2130b413ef37963c7c33ae9fc77c1b544c13afa4ccc8642"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m72",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "25d43ce982e2e1b7f2ed9d4d81a981096aa41dd376bb9442270d118fd16c36eb"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m73",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "55fcc8832e32c94b4b5f985988e262f025bd24709e79b66d1209d274f861444a"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m74",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8477b4a74749dff4838227f239f1930bf12200ba055e424f68fab138731c633e"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m75",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "92f8200674b7e41d382739a44c7595ac454f7c1932f35fa3e75ed02a4f67b901"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m76",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "82c3e5fab36c5dcbe2c91948cff59d485b3376de341272b01c5c1960c3111a64"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m77",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "0166b4caa698a5fe83833040dccbd4c76ab8a2d48e98392fea60c3fade2fb01b"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m78",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "cee3038e7094e94795aaf965238295bb20ddd6eb3dbda9ccd4da673952de1aca"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h0-d1-after-m79",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "5efdf0ba811b938d0ea386f8dbd4b1d53d05a926b843b4433fbf9a4d08187b91"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m65",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "582f8db64bd76c3c6fdf541902391789d841c6dc31bdf8bf0774ae9df1ae2550"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m66",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b89e088544d3ddb16f484f6581957b56ed1610c5bb9bd8eb11331f027ae0e936"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m67",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "0d3e2fae458b92aff17e66546736a7cc24486d267e20a276a710237f71ed3972"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m68",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "0f6fc4c9be79f6fb1b895868bab0afd8e47c2ae246fc8a53ff41b2ce006a986e"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m69",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "1c618cf8cdb71a9a0e9cf67883863abf6a3a26bac5ee3dd15c5a5779f84585a3"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m70",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "45fcdcf1b768f8e34c0e9aa54a00363ffc0488bbb5462bf9e0d0d848fe3bbcf8"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m71",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "be71c43d373cb641563c7f2ca702cfb591c58c8832cf09551495bfb727496d6f"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m72",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "da68414800526fb082b8804ed6c3a3a6559d2ef4dda642b09723149c01462904"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m73",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "2a254811b6bc9c607af01913b5ead1b9cedf9ac7f3984f26792c8b77fb3ceb8d"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m74",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "ebe6f967e9472380eab227108bc57ed6c1dd87f779e7053a139b18614c3f1311"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m75",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "6dea4fd5fd1cc9320b90c732dd3d60c20ed66c0f5129518ae387956ff263a981"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m76",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "548b4497bde58eb4400cc7123710fbf5c13298d1bbe44b7ca1c657f6e0a3ea9b"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m77",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "43778942a1fe1f77d38ccf0295daa3c270b40f00c8862659b77c8fd5cae1b8eb"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m78",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "1194528fe3749452fcd83cec9fd6ec57c00b002bcb0a92d2372ec2817c8c7fa1"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-before-m79",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "524ddc46e13bcb2a307b4145ab30915fe7b6f1070128221cf12b30a4e68dbfb6"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m65",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "582f8db64bd76c3c6fdf541902391789d841c6dc31bdf8bf0774ae9df1ae2550"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m66",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b89e088544d3ddb16f484f6581957b56ed1610c5bb9bd8eb11331f027ae0e936"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m67",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "0d3e2fae458b92aff17e66546736a7cc24486d267e20a276a710237f71ed3972"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m68",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "0f6fc4c9be79f6fb1b895868bab0afd8e47c2ae246fc8a53ff41b2ce006a986e"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m69",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "1c618cf8cdb71a9a0e9cf67883863abf6a3a26bac5ee3dd15c5a5779f84585a3"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m70",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "45fcdcf1b768f8e34c0e9aa54a00363ffc0488bbb5462bf9e0d0d848fe3bbcf8"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m71",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "be71c43d373cb641563c7f2ca702cfb591c58c8832cf09551495bfb727496d6f"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m72",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "da68414800526fb082b8804ed6c3a3a6559d2ef4dda642b09723149c01462904"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m73",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "2a254811b6bc9c607af01913b5ead1b9cedf9ac7f3984f26792c8b77fb3ceb8d"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m74",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "ebe6f967e9472380eab227108bc57ed6c1dd87f779e7053a139b18614c3f1311"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m75",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "6dea4fd5fd1cc9320b90c732dd3d60c20ed66c0f5129518ae387956ff263a981"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m76",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "548b4497bde58eb4400cc7123710fbf5c13298d1bbe44b7ca1c657f6e0a3ea9b"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m77",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "43778942a1fe1f77d38ccf0295daa3c270b40f00c8862659b77c8fd5cae1b8eb"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m78",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "1194528fe3749452fcd83cec9fd6ec57c00b002bcb0a92d2372ec2817c8c7fa1"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d0-after-m79",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "524ddc46e13bcb2a307b4145ab30915fe7b6f1070128221cf12b30a4e68dbfb6"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m65",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "40c6d7ed9d078c9b43de9ccdde0da8d0ba10af9983f452b7569c0d606974df69"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m66",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "7a59388ac660daeedd99e7a110b1a6faccb868dc36e3546abbc747688b9dc506"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m67",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "eb8a769c76e22a3c8e9bcb45a162abf808fb71ce32de1ca7c4d30984ada1662f"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m68",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "f20547cb556ed1f406c7ac57264012429b50f0bd578ac79fa8eb3243be55250b"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m69",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "33a85d4e98982943dea561d21d8a00a547b1926b0096f6f29fcefbc99a8a67b0"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m70",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "e6f8e1ddd5985da27c209ef3d1f94de94d371e4e90c1a7eef349984eeb538da0"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m71",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "5795bd736684ef4f758679eeb2c12ae2b399aa09ed0937d67db2da3a35491e17"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m72",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8824a1342dadf0b5cc65c75b5f6a0805515e5ee0a350340ad48718bda598c54e"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m73",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "cc9bdc2cb607c4191c4eeaed6e541e3e0f2c1b19ba9daf395e55aab9db3cef3a"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m74",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ab2f3abf0b6c8cc5a81f0ceece1e7a51cb269377fbfbe27682d252d69be76dd6"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m75",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "19d0d6fb90cb0a8277da634ff06420858408920409005bf8ad76d51a89143772"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m76",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "b038b5e3191e761eb4d623f146dc37e0d231ad8ef87bbad5dc9b52831efabcf3"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m77",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "d9734ffa51115ee8d4b630c1d3a304080cec556ff83a29f1f998637d946da4db"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m78",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "6ccd20533f8dce519191f8eb928ded0b030dec4144de21257eaeef6bf52333c7"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-before-m79",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "c4eed16c682e1e2358cce87f63698adf691c38b686f2671f4ebf341e32db45db"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m65",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "40c6d7ed9d078c9b43de9ccdde0da8d0ba10af9983f452b7569c0d606974df69"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m66",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "7a59388ac660daeedd99e7a110b1a6faccb868dc36e3546abbc747688b9dc506"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m67",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "eb8a769c76e22a3c8e9bcb45a162abf808fb71ce32de1ca7c4d30984ada1662f"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m68",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "f20547cb556ed1f406c7ac57264012429b50f0bd578ac79fa8eb3243be55250b"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m69",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "33a85d4e98982943dea561d21d8a00a547b1926b0096f6f29fcefbc99a8a67b0"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m70",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "e6f8e1ddd5985da27c209ef3d1f94de94d371e4e90c1a7eef349984eeb538da0"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m71",
+      "classification": "PASS",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "5795bd736684ef4f758679eeb2c12ae2b399aa09ed0937d67db2da3a35491e17"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m72",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "8824a1342dadf0b5cc65c75b5f6a0805515e5ee0a350340ad48718bda598c54e"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m73",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "cc9bdc2cb607c4191c4eeaed6e541e3e0f2c1b19ba9daf395e55aab9db3cef3a"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m74",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ab2f3abf0b6c8cc5a81f0ceece1e7a51cb269377fbfbe27682d252d69be76dd6"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m75",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "19d0d6fb90cb0a8277da634ff06420858408920409005bf8ad76d51a89143772"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m76",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "b038b5e3191e761eb4d623f146dc37e0d231ad8ef87bbad5dc9b52831efabcf3"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m77",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "d9734ffa51115ee8d4b630c1d3a304080cec556ff83a29f1f998637d946da4db"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m78",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "6ccd20533f8dce519191f8eb928ded0b030dec4144de21257eaeef6bf52333c7"
+    },
+    {
+      "group": "delivery-boundaries",
+      "case": "tw-object-h1-d1-after-m79",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "c4eed16c682e1e2358cce87f63698adf691c38b686f2671f4ebf341e32db45db"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d0-before-m81",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "a0445dbfd9a93652d503ed9d152ab7694ddc4c2815121edbd2c36478bd42b502"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d0-before-m82",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "f3881fa65833adb2c3ebbc64c8a03309c5dc412ae58d0f3e802f5dad34199a4e"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d0-before-m83",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b42aa686e8cd509ff408ca07a0722e1ed98ecfabf7c93f637905739035689a3d"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d0-before-m84",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "11d9b3ada8227be12d47b1388ea1d7c73bc32b65abaf135ff5b84e8d2fce4b43"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d0-after-m81",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "a0445dbfd9a93652d503ed9d152ab7694ddc4c2815121edbd2c36478bd42b502"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d0-after-m82",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "f3881fa65833adb2c3ebbc64c8a03309c5dc412ae58d0f3e802f5dad34199a4e"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d0-after-m83",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "b42aa686e8cd509ff408ca07a0722e1ed98ecfabf7c93f637905739035689a3d"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d0-after-m84",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "11d9b3ada8227be12d47b1388ea1d7c73bc32b65abaf135ff5b84e8d2fce4b43"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d1-before-m81",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "0dbf17f2edafec8e9c1fac206b86ecbf57aaadd9646d2f6d522677d70620ef70"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d1-before-m82",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "5d8b0140f736d15f09f691dae4af99c26b01d25f5c917be8744f096d3252fe1a"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d1-before-m83",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ebf02fbb33217afa43f7c6c711201e25a2ca59687451622804f5dcd2b96cb390"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d1-before-m84",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "e1cf1f3ac01acf69a8fd5d98e963877bf3e96a696a646ce675e29f8cff0fd4ad"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d1-after-m81",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "0dbf17f2edafec8e9c1fac206b86ecbf57aaadd9646d2f6d522677d70620ef70"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d1-after-m82",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "5d8b0140f736d15f09f691dae4af99c26b01d25f5c917be8744f096d3252fe1a"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d1-after-m83",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "ebf02fbb33217afa43f7c6c711201e25a2ca59687451622804f5dcd2b96cb390"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h0-d1-after-m84",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "e1cf1f3ac01acf69a8fd5d98e963877bf3e96a696a646ce675e29f8cff0fd4ad"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d0-before-m81",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "c47b900ac6cf74333f999cc94cc53c41b39c23a8b44a9f499586f9bfcfb870cd"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d0-before-m82",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "3b356f18a4122013421e3b8fda3726b8bb6a46416ad17ee56f0153acda2a7db1"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d0-before-m83",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "8df10c92b75b220900f5fd086b93d0cf85a51af2ed6cc7eb160ba8fa71ff54cc"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d0-before-m84",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "69a1f6dd3895f9458d09805eeda1044c9a0589bce06cd98a600110149611eb9a"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d0-after-m81",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "c47b900ac6cf74333f999cc94cc53c41b39c23a8b44a9f499586f9bfcfb870cd"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d0-after-m82",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "3b356f18a4122013421e3b8fda3726b8bb6a46416ad17ee56f0153acda2a7db1"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d0-after-m83",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "8df10c92b75b220900f5fd086b93d0cf85a51af2ed6cc7eb160ba8fa71ff54cc"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d0-after-m84",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "69a1f6dd3895f9458d09805eeda1044c9a0589bce06cd98a600110149611eb9a"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d1-before-m81",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "a0ae38516766efe31e90acc1547b7c7b392197aa6e50920efb409d1617afa7e7"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d1-before-m82",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "60d25b9108a753905901909a8f1719060be36f3de9bf69ae11ba61a682086d6b"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d1-before-m83",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "4c40f514170ee5c222c0825a8d60b9238e6d5971a5596e65b7aea51884624d9d"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d1-before-m84",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "58a074a0f0f89f5f9bc035be84d13e4633801a252f1a1a1b45e6b767db1d4dd0"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d1-after-m81",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "a0ae38516766efe31e90acc1547b7c7b392197aa6e50920efb409d1617afa7e7"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d1-after-m82",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "60d25b9108a753905901909a8f1719060be36f3de9bf69ae11ba61a682086d6b"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d1-after-m83",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "4c40f514170ee5c222c0825a8d60b9238e6d5971a5596e65b7aea51884624d9d"
+    },
+    {
+      "group": "delivery-extra",
+      "case": "tw-object-h1-d1-after-m84",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "58a074a0f0f89f5f9bc035be84d13e4633801a252f1a1a1b45e6b767db1d4dd0"
+    },
+    {
+      "group": "final-absence",
+      "case": "tw-object-h0-d0-before-m80",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "69f4336e5d8be5f3390dca648020014c64376d321264f74bd3c0e149cc695996"
+    },
+    {
+      "group": "final-absence",
+      "case": "tw-object-h0-d0-after-m80",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "69f4336e5d8be5f3390dca648020014c64376d321264f74bd3c0e149cc695996"
+    },
+    {
+      "group": "final-absence",
+      "case": "tw-object-h0-d1-before-m80",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "05f2c873e7da514ec5de3d3daa52939a2128a3dbba17d89592d9035b4a3438ef"
+    },
+    {
+      "group": "final-absence",
+      "case": "tw-object-h0-d1-after-m80",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "05f2c873e7da514ec5de3d3daa52939a2128a3dbba17d89592d9035b4a3438ef"
+    },
+    {
+      "group": "final-absence",
+      "case": "tw-object-h1-d0-before-m80",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "f26e42dc5337a2121eaf2f8285e000321f4636a7dae12161c23742dd6d366237"
+    },
+    {
+      "group": "final-absence",
+      "case": "tw-object-h1-d0-after-m80",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "NOT_APPLICABLE",
+      "raw_sha256": "f26e42dc5337a2121eaf2f8285e000321f4636a7dae12161c23742dd6d366237"
+    },
+    {
+      "group": "final-absence",
+      "case": "tw-object-h1-d1-before-m80",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "c7b6c1c548b605d19968b55954adabc5891828a2730aab936f07093ce90a9c3e"
+    },
+    {
+      "group": "final-absence",
+      "case": "tw-object-h1-d1-after-m80",
+      "classification": "REFUSED",
+      "physical": "PASS",
+      "quota_after_actual_callbacks": "PASS",
+      "raw_sha256": "c7b6c1c548b605d19968b55954adabc5891828a2730aab936f07093ce90a9c3e"
+    }
+  ]
+}

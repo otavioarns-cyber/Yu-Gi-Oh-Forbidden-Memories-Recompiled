@@ -1,0 +1,29 @@
+{
+  "os": "Linux",
+  "resources": [],
+  "tools": [
+    {
+      "name": "wine",
+      "available": false
+    },
+    {
+      "name": "wine64",
+      "available": false
+    },
+    {
+      "name": "qemu-system-i386",
+      "available": false
+    },
+    {
+      "name": "qemu-system-x86_64",
+      "available": false
+    },
+    {
+      "name": "ssh",
+      "available": true
+    }
+  ],
+  "windows_runtime": "AUTOMATION_UNAVAILABLE",
+  "reason": "Linux workspace, no configured Windows execution backend or legitimate disc image. Prior PE32 Wine/QEMU/Actions failures retained; no unchanged retries.",
+  "personal_gameplay": "Only personal participation is deferred, no broad user block."
+}
