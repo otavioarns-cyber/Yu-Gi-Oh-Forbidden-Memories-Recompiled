@@ -1,0 +1,4 @@
+@bank descriptions
+
+[D3BC]
+Mech Bass + 2 {f8 0B 0C}

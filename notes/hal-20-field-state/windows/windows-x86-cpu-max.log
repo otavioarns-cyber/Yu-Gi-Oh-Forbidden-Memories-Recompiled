@@ -1,0 +1,5 @@
+wine: Unhandled illegal instruction at address 00403A00 (thread 0024), starting debugger...
+wine: could not open working directory L"unix\\workspace\\work\\hal20-field-state\\repo\\", starting in the Windows directory.
+Can't attach process 0020: error 5
+qemu: uncaught target signal 11 (Segmentation fault) - core dumped
+qemu: uncaught target signal 11 (Segmentation fault) - core dumped

@@ -10,6 +10,9 @@ void Hooks_Remove(int owner, int token);
 void Hooks_Clear(int owner);
 /* Rebuild every chain from the mods now applied (Mods_Active). */
 void Hooks_Relink(void);
+/* Read-only qualification view. No registration/relink semantics change. */
+int Hooks_Inspect(int index,int *owner,const void **target,const void **replacement,
+                  const void **previous,const void **body);
 int Hooks_IsHooked(const void *function);
 /* Hook `index` (from 0) of any mod, applied or not: 0 past the last, else 1
  * with its mod and the function it hooks (the Mods window's overlaps). */

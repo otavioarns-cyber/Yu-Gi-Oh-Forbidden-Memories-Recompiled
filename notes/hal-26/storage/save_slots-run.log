@@ -1,0 +1,5 @@
+memories-pc: copied the save on /workspace/work/hal20-state-timewizard/logs/storage/memories-save-slots-p88396-ncF3Vc/memcard1.mcd into /workspace/work/hal20-state-timewizard/logs/storage/memories-save-slots-p88396-ncF3Vc/saves/slot01.sav
+memories-pc: cannot write save slot /workspace/work/hal20-state-timewizard/logs/storage/memories-save-slots-p88396-ncF3Vc/saves/slot05.sav: Invalid argument.
+memories-pc: imported the save at offset 0x6000 of /workspace/work/hal20-state-timewizard/logs/storage/memories-save-slots-p88396-ncF3Vc/saves/epsxe000.mcr into save slot 2
+memories-pc: imported the save at offset 0xf40 of /workspace/work/hal20-state-timewizard/logs/storage/memories-save-slots-p88396-ncF3Vc/saves/card.gme into save slot 6
+save slots: ok

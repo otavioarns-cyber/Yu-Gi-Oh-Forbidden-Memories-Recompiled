@@ -1,0 +1,266 @@
+{
+  "id": "fusion-auxiliary-balance",
+  "name": "Balanceamento de Fusoes e Efeitos Auxiliares",
+  "version": "0.1.0-beta.31",
+  "author": "Otavio",
+  "description": "Fusionist: Weakest/Strongest Fusion; Elegant Egotist: libera efeitos de origem.",
+  "game": "slus_01411",
+  "min_api": 11,
+  "enabled": true,
+  "library": "fusion-auxiliary-balance",
+  "restart": true,
+  "cards": [
+    {
+      "replace": 37,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIts charge knows no mercy. Inflicts 500 damage to the opponent's LP after destroying a monster in battle."
+    },
+    {
+      "replace": 168,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nDoubles Explosive Damage.\n{f8 0A 07}<Fusion Effect>{f8 0A 00}\nSummons 2 Explosive Magic Cards each turn."
+    },
+    {
+      "replace": 369,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nAfter attacking, this monster returns to {f8 0A 06}Defense Position{f8 0A 00}."
+    },
+    {
+      "replace": 390,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 392,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 409,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 438,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 412,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 441,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 508,
+      "frame": "Orange",
+      "description": "{f8 0A 04}<Metalmorph Effect>{f8 0A 00}\nThis monster is unaffected by the opponent's Magic Cards."
+    },
+    {
+      "replace": 358,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nWhile face-up, protects your other Dragons of {f8 0A 06}Level 6 or lower{f8 0A 00} from destruction by battle, Magic or monster effects."
+    },
+    {
+      "replace": 713,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nA blazing meteor scorches the sky. Inflicts 1000 damage to the opponent's LP."
+    },
+    {
+      "replace": 217,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIts terrifying aura weakens all foes. All opposing monsters lose 500 ATK and DEF."
+    },
+    {
+      "replace": 92,
+      "frame": "Orange",
+      "description": "{f8 0A 07}<Fusion Effect>{f8 0A 00}\nIts fierce charge shatters defenses. Inflicts piercing battle damage against monsters in Defense Position."
+    },
+    {
+      "replace": 495,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nEncore!!! One retry.\n{f8 0A 07}<Fusion Effect>{f8 0A 00}\nSHOW MUST GO ON!!!\nBattle-proof. Can't switch to Defense Mode"
+    },
+    {
+      "replace": 100,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\n50%: swap ATK vs Level 4+ foes."
+    },
+    {
+      "replace": 115,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nIts mystical aura rejects enemy equipment.\n{f8 0A 07}<Fusion Effect>{f8 0A 00}\nDoubles allied Equip bonuses. Does not stack."
+    },
+    {
+      "replace": 551,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nHalf the LP you recover damages your opponent."
+    },
+    {
+      "replace": 2,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nFace-up: restores 1000 LP once while on the field."
+    },
+    {
+      "replace": 189,
+      "frame": "Orange",
+      "description": "{f8 0A 05}<Effect>{f8 0A 00}\nSecond material: weakest possible fusion.\n{f8 0A 07}<Fusion Effect>{f8 0A 00}\nFirst material: strongest possible fusion."
+    },
+    {
+      "replace": 318,
+      "type": "Equip",
+      "effect": 303,
+      "description": "Achieving true potential never goes out of style. A touch of elegance is all it takes to let yours shine."
+    }
+  ],
+  "fusions": [
+    {
+      "remove": 168
+    },
+    {
+      "remove": 613
+    },
+    {
+      "remove": 433
+    },
+    {
+      "with": [
+        122,
+        343
+      ],
+      "result": 168
+    },
+    {
+      "with": [
+        122,
+        344
+      ],
+      "result": 168
+    },
+    {
+      "with": [
+        425,
+        425
+      ],
+      "result": 613
+    },
+    {
+      "with": [
+        16,
+        72
+      ],
+      "result": 67
+    },
+    {
+      "with": [
+        72,
+        56
+      ],
+      "result": 57
+    },
+    {
+      "with": [
+        57,
+        339
+      ],
+      "result": 67
+    },
+    {
+      "with": [
+        368,
+        366
+      ],
+      "result": 369
+    },
+    {
+      "with": [
+        61,
+        658
+      ],
+      "result": 412
+    },
+    {
+      "with": [
+        65,
+        658
+      ],
+      "result": 412
+    },
+    {
+      "with": [
+        542,
+        658
+      ],
+      "result": 441
+    },
+    {
+      "with": [
+        436,
+        658
+      ],
+      "result": 441
+    },
+    {
+      "with": [
+        568,
+        658
+      ],
+      "result": 508
+    },
+    {
+      "with": [
+        573,
+        658
+      ],
+      "result": 508
+    },
+    {
+      "with": [
+        208,
+        282
+      ],
+      "result": 189
+    },
+    {
+      "with": [
+        62,
+        318
+      ],
+      "result": 63
+    }
+  ],
+  "settings": [
+    {
+      "key": "ignore_effect_conditions",
+      "label": "Ignore Metalmorph / Fusion summon conditions",
+      "type": "bool",
+      "default": 0,
+      "description": "Test mode: effects activate on eligible monsters even when they were not Fusion Summoned. OFF preserves the required fusions."
+    },
+    {
+      "key": "fusionist_effects",
+      "label": "Fusionist: Weakest / Strongest Fusion",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "elegant_egotist",
+      "label": "Elegant Egotist: unlock origin effects",
+      "type": "bool",
+      "default": 1
+    }
+  ],
+  "equips": [
+    {
+      "card": 318,
+      "bonus": 0
+    }
+  ],
+  "palette_ramps": {
+    "7": "#D78BE8"
+  }
+}

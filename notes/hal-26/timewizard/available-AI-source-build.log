@@ -1,0 +1,483 @@
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:7:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:170:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  170 | typedef char AiScriptState_card_set_offset_must_be_0x3E[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:178:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  178 | typedef char AiScriptState_type_set_offset_must_be_0x7E[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:182:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  182 | typedef char AiScriptState_combo_offset_must_be_0x38[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:186:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  186 | typedef char AiScriptState_field_97_offset_must_be_0x97[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:189:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  189 | typedef char AiScriptState_attack_best_stat_offset_must_be_0x98[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:192:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  192 | typedef char AiScriptState_attack_best_slot_offset_must_be_0x9A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:195:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  195 | typedef char AiScriptState_attack_best_target_offset_must_be_0x9B[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:198:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  198 | typedef char AiScriptState_fusion_count_offset_must_be_0x9C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:202:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  202 | typedef char AiScriptState_fusion_limit_offset_must_be_0x9D[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:206:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  206 | typedef char AiScriptState_fusion_set_offset_must_be_0x9E[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:210:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  210 | typedef char AiScriptState_fusion_best_stat_offset_must_be_0xA0[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:214:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  214 | typedef char AiScriptState_fusion_depth_offset_must_be_0xA2[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:218:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  218 | typedef char AiScriptState_fusion_best_depth_offset_must_be_0xA3[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:222:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  222 | typedef char AiScriptState_fusion_path_offset_must_be_0xA4[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:226:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  226 | typedef char AiScriptState_fusion_used_offset_must_be_0xAA[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:233:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  233 | typedef char AiSelection_value_offset_must_be_0x06[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:236:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  236 | typedef char AiSelection_zero_offset_must_be_0x07[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:239:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  239 | typedef char AiSelection_random_offset_must_be_0x08[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai.h:242:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  242 | typedef char AiSelection_field_09_offset_must_be_0x09[
+      |              ^
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:8:
+In file included from /workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/ai_opponent_data.h:5:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:19:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   19 | typedef char HighMemoryModelAddressPrefix_modules_offset_must_be_0xC[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:126:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  126 | typedef char SpritePrim_cy_must_be_at_0x12[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:231:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  231 | typedef char SoundIndexList_indices_offset_must_be_0x10[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:334:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  334 | typedef char DuelEffectEntry_code_00_offset_must_be_0[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:337:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  337 | typedef char DuelEffectEntry_x_0C_offset_must_be_0x0C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:340:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  340 | typedef char DuelEffectEntry_field_10_offset_must_be_0x10[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:343:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  343 | typedef char DuelEffectEntry_flags_11_offset_must_be_0x11[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:346:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  346 | typedef char DuelEffectEntry_field_12_offset_must_be_0x12[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:349:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  349 | typedef char DuelEffectEntry_field_13_offset_must_be_0x13[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:352:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  352 | typedef char DuelEffectEntry_field_15_offset_must_be_0x15[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:355:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  355 | typedef char DuelEffectEntry_field_18_offset_must_be_0x18[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:404:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  404 | typedef char TextStreamOwner_stream_index_offset_must_be_0x58[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:407:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  407 | typedef char EffectObject_depth_offset_must_be_0x58[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:416:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  416 | typedef char ScriptImageEntry_field_10_offset_must_be_0x10[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:450:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  450 | typedef char LibraryMotionState_x_offset_must_be_0x8[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:453:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  453 | typedef char LibraryMotionState_frames_offset_must_be_0x16[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:456:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  456 | typedef char LibraryMotionState_velocity_x_offset_must_be_0x18[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:459:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  459 | typedef char LibraryMotionState_render_offset_must_be_0x44[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:560:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  560 | typedef char DuelEffectChannel_entry_end_20_offset_must_be_0x20[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:563:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  563 | typedef char DuelEffectChannel_entry_head_24_offset_must_be_0x24[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:566:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  566 | typedef char DuelEffectChannel_field_28_offset_must_be_0x28[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:569:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  569 | typedef char DuelEffectChannel_field_2C_offset_must_be_0x2C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:572:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  572 | typedef char DuelEffectChannel_field_30_offset_must_be_0x30[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:575:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  575 | typedef char DuelEffectChannel_flags_34_offset_must_be_0x34[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:578:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  578 | typedef char DuelEffectChannel_field_3C_offset_must_be_0x3C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:581:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  581 | typedef char DuelEffectChannel_state_51_offset_must_be_0x51[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:584:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  584 | typedef char DuelEffectChannel_field_53_offset_must_be_0x53[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:587:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  587 | typedef char DuelEffectChannel_field_56_offset_must_be_0x56[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:590:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  590 | typedef char DuelEffectChannel_index_57_offset_must_be_0x57[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:593:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  593 | typedef char DuelEffectChannel_stream_58_offset_must_be_0x58[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:596:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  596 | typedef char DuelEffectChannel_field_5A_offset_must_be_0x5A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:599:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  599 | typedef char DuelEffectChannel_range_start_5C_offset_must_be_0x5C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:602:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  602 | typedef char DuelEffectChannel_field_61_offset_must_be_0x61[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:631:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  631 | typedef char GlyphSprite_scale_offset_must_be_0x44[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:634:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  634 | typedef char GlyphSprite_source_offset_must_be_0x4C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:637:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  637 | typedef char GlyphSprite_saved_x_offset_must_be_0x5A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:640:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  640 | typedef char GlyphSprite_frame_offset_must_be_0x60[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:643:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  643 | typedef char GlyphSprite_sequence_offset_must_be_0x6A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:664:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  664 | typedef char DialogCaret_position_offset_must_be_0x30[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:667:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  667 | typedef char DialogCaret_slide_offset_must_be_0x60[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:670:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  670 | typedef char DialogCaret_status_offset_must_be_0x6C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:732:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  732 | typedef char PasswordCursorView_phase_offset_must_be_0x22[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:735:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  735 | typedef char PasswordCursorView_step_x_offset_must_be_0x36[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:738:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  738 | typedef char PasswordCursorView_timer_offset_must_be_0x60[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:741:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  741 | typedef char PasswordCursorView_update_flags_offset_must_be_0x6C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:784:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  784 | typedef char SelectionFrame_priority_offset_must_be_0x14[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:787:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  787 | typedef char SelectionFrame_position_offset_must_be_0x30[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:790:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  790 | typedef char SelectionFrame_velocity_offset_must_be_0x36[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:793:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  793 | typedef char SelectionFrame_extent_offset_must_be_0x3C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:796:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  796 | typedef char SelectionFrame_bonus_offset_must_be_0x5E[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:799:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  799 | typedef char SelectionFrame_timer_offset_must_be_0x60[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:814:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  814 | typedef char NameEntryStarterDeckPool_weights_offset_must_be_2[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:848:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  848 | typedef char CampaignMapExit_input_mask_offset_must_be_6[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:851:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  851 | typedef char CampaignMapExit_destination_offset_must_be_9[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:857:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  857 | typedef char MapLocation_marker_offset_must_be_12[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:860:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  860 | typedef char MapLocation_exits_offset_must_be_18[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:877:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  877 | typedef char MapObject_position_offset_must_be_48[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:880:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  880 | typedef char MapObject_transition_offset_must_be_96[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:896:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  896 | typedef char ModelEffectEndpoint_kind_offset_must_be_0x6[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:912:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  912 | typedef char ModelEffectAdjustment_max_offset_must_be_0x6[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:970:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  970 | typedef char FileTransferDescriptor_w_offset_must_be_0x04[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:973:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  973 | typedef char FileTransferDescriptor_h_offset_must_be_0x06[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:976:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  976 | typedef char FileTransferDescriptor_value_08_offset_must_be_0x08[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:979:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  979 | typedef char FileTransferDescriptor_total_bytes_offset_must_be_0x10[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:982:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  982 | typedef char FileTransferDescriptor_phase_size_offset_must_be_0x1C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:985:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  985 | typedef char FileTransferDescriptor_phase_callback_offset_must_be_0x20[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:988:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  988 | typedef char FileTransferDescriptor_absolute_lba_offset_must_be_0x24[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:991:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  991 | typedef char FileTransferDescriptor_status_flags_offset_must_be_0x2C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:994:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  994 | typedef char FileTransferDescriptor_counter_offset_must_be_0x30[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:997:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+  997 | typedef char FileTransferDescriptor_field_32_offset_must_be_0x32[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1000:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1000 | typedef char FileTransferDescriptor_callback_data_offset_must_be_0x38[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1003:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1003 | typedef char FileTransferDescriptor_done_offset_must_be_0x46[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1006:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1006 | typedef char FileTransferDescriptor_substate_offset_must_be_0x47[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1041:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1041 | typedef char FileRequestSlot_field_00_offset_must_be_0x00[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1044:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1044 | typedef char FileRequestSlot_field_04_offset_must_be_0x04[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1047:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1047 | typedef char FileRequestSlot_field_0C_offset_must_be_0x0C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1050:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1050 | typedef char FileRequestSlot_field_10_offset_must_be_0x10[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1053:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1053 | typedef char FileRequestSlot_field_14_offset_must_be_0x14[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1056:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1056 | typedef char FileRequestSlot_field_18_offset_must_be_0x18[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1059:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1059 | typedef char FileRequestSlot_field_1C_offset_must_be_0x1C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1062:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1062 | typedef char FileRequestSlot_field_1E_offset_must_be_0x1E[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1065:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1065 | typedef char FileRequestSlot_field_1F_offset_must_be_0x1F[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1080:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1080 | typedef char ModelTransferItem_id_offset_must_be_0[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1083:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1083 | typedef char ModelTransferItem_state_offset_must_be_6[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1097:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1097 | typedef char MovieStreamRange_end_frame_offset_must_be_2[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1114:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1114 | typedef char SaveDataDuelistRecord_losses_offset_must_be_2[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1138:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1138 | typedef char FadeTransitionState_level_offset_must_be_0x04[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1141:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1141 | typedef char FadeTransitionState_target_level_offset_must_be_0x05[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1144:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1144 | typedef char FadeTransitionState_flags_offset_must_be_0x06[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1147:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1147 | typedef char FadeTransitionState_step_offset_must_be_0x07[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1150:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1150 | typedef char FadeTransitionState_field_08_offset_must_be_0x08[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1153:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1153 | typedef char FadeTransitionState_band_levels_offset_must_be_0x0A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1185:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1185 | typedef char DisplayObjectStreamState_field_22_offset_must_be_0x22[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1188:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1188 | typedef char DisplayObjectStreamState_field_48_offset_must_be_0x48[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1191:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1191 | typedef char DisplayObjectStreamState_field_4A_offset_must_be_0x4A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1194:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1194 | typedef char DisplayObjectStreamState_field_4C_offset_must_be_0x4C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1197:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1197 | typedef char DisplayObjectStreamState_current_offset_must_be_0x50[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1200:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1200 | typedef char DisplayObjectStreamState_base_offset_must_be_0x54[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1203:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1203 | typedef char DisplayObjectStreamState_field_58_offset_must_be_0x58[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1206:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1206 | typedef char DisplayObjectStreamState_field_5A_offset_must_be_0x5A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/../ygo_types.h:1224:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+ 1224 | typedef char DuelStatusDigitPacket_field_14_offset_must_be_0x14[
+      |              ^
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:10:
+In file included from /workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card_display_state.h:5:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:48:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   48 | typedef char DuelCardRecord_object_offset_must_be_0x00[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:51:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   51 | typedef char DuelCardRecord_data_offset_must_be_0x04[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:54:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   54 | typedef char DuelCardRecord_card_id_offset_must_be_0x0C[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:57:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   57 | typedef char DuelCardRecord_attack_offset_must_be_0x0E[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:60:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   60 | typedef char DuelCardRecord_defense_offset_must_be_0x10[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:63:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   63 | typedef char DuelCardRecord_stat_modifier_offset_must_be_0x12[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:67:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   67 | typedef char DuelCardRecord_defense_modifier_offset_must_be_0x1A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:71:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   71 | typedef char DuelCardRecord_terrain_modifier_offset_must_be_0x14[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:74:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   74 | typedef char DuelCardRecord_flags_offset_must_be_0x16[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card.h:77:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   77 | typedef char DuelCardRecord_table_index_offset_must_be_0x18[
+      |              ^
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:13:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:20:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   20 | typedef char DuelDeckCardRecord_id_offset_must_be_0[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:23:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   23 | typedef char DuelDeckCardRecord_index_offset_must_be_2[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:26:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   26 | typedef char DuelDeckCardRecord_data_block_offset_must_be_3[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:29:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   29 | typedef char DuelDeckCardRecord_flags_offset_must_be_4[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_deck_card.h:32:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   32 | typedef char DuelDeckCardRecord_unknown_offset_must_be_5[
+      |              ^
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:19:
+In file included from /workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_selection_layout.h:5:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card_pick_cursor.h:25:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   25 | typedef char DuelCardPickCursor_col_offset_must_be_0xF[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card_pick_cursor.h:28:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   28 | typedef char DuelCardPickCursor_row_offset_must_be_0x10[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card_pick_cursor.h:31:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   31 | typedef char DuelCardPickCursor_status_offset_must_be_0x19[
+      |              ^
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:19:
+In file included from /workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_selection_layout.h:6:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_hand.h:31:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   31 | typedef char DuelHandSlot_child_offset_must_be_0x04[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_hand.h:34:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   34 | typedef char DuelHandSlot_active_09_offset_must_be_0x09[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_hand.h:75:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   75 | typedef char DuelHandStackState_position_object_offset_must_be_0x4[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_hand.h:78:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   78 | typedef char DuelHandStackState_slot_index_offset_must_be_0xE[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_hand.h:81:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   81 | typedef char DuelHandStackState_count_offset_must_be_0x15[
+      |              ^
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:19:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_selection_layout.h:21:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   21 | typedef char DuelSelectionSideView_hand_offset_must_be_8[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_selection_layout.h:70:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   70 | typedef char DuelSelectionRecord_hand_offset_must_be_8[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_selection_layout.h:73:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   73 | typedef char DuelSelectionRecord_field_0E_offset_must_be_0xE[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_selection_layout.h:76:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   76 | typedef char DuelSelectionRecord_field_15_offset_must_be_0x15[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_selection_layout.h:79:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   79 | typedef char DuelSelectionRecord_field_13_offset_must_be_0x13[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_selection_layout.h:82:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   82 | typedef char DuelSelectionRecord_field_18_offset_must_be_0x18[
+      |              ^
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:22:
+In file included from /workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_side_state.h:8:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card_effects.h:34:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   34 | typedef char DuelFieldEffectObject_callback_offset_must_be_0x24[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card_effects.h:37:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   37 | typedef char DuelFieldEffectObject_mark_offset_must_be_0x67[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_card_effects.h:40:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   40 | typedef char DuelFieldEffectObject_active_offset_must_be_0x6C[
+      |              ^
+In file included from /workspace/work/hal20-state-timewizard/local/timewizard-final/package/source/time_wizard_ai.c:22:
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_side_state.h:77:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   77 | typedef char DuelSideState_hand_must_be_at_0x1A[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_side_state.h:83:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   83 | typedef char DuelSideState_deck_draw_cursor_must_be_at_0x18[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_side_state.h:86:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   86 | typedef char DuelSideState_swords_turns_remaining_must_be_at_0x19[
+      |              ^
+/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/game/duel_side_state.h:89:14: warning: variable length array folded to constant array as an extension [-Wgnu-folding-constant]
+   89 | typedef char DuelSideState_card_view_mode_must_be_at_0x1F[
+      |              ^
+156 warnings generated.

@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D3A7]
+Materials:
+Kamakiriman +
+1 Skull Monster +
+1 {f8 0B 03}

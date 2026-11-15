@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D399]
+Prevent Rat +
+One-eyed Shield
+Dragon + Armored
+Rat

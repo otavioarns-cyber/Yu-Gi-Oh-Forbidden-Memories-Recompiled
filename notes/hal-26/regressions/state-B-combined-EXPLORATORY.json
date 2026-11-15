@@ -1,0 +1,137 @@
+{
+  "scope": "Superseded fixture/scope error, retained rather than counted as positive final validation.",
+  "summary": {
+    "processes": 40,
+    "checks": {
+      "PASS": 168,
+      "FAIL": 16
+    },
+    "execution": {
+      "PASS": 32,
+      "FAIL": 8
+    },
+    "incomplete": 0
+  },
+  "failed_checks": [
+    {
+      "case": "consolidation-g0-bridge0-h1-d0-rd1-before-on-c0-consolidation-m4-x0-a0",
+      "checks": [
+        {
+          "name": "wrong-qualified-owner-callback-rejected",
+          "status": "FAIL",
+          "details": "Known owner is not enough: target/callback address/size and duplicates checked."
+        },
+        {
+          "name": "corrupted-delegation-rejected",
+          "status": "FAIL",
+          "details": "Actual previous pointer, not declared rank alone."
+        },
+        {
+          "name": "unknown-critical-wrapper-rejected",
+          "status": "FAIL",
+          "details": "Unknown wrapper rejected before controller."
+        }
+      ]
+    },
+    {
+      "case": "consolidation-g0-bridge0-h1-d0-rd1-after-on-c0-consolidation-m4-x0-a0",
+      "checks": [
+        {
+          "name": "wrong-qualified-owner-callback-rejected",
+          "status": "FAIL",
+          "details": "Known owner is not enough: target/callback address/size and duplicates checked."
+        },
+        {
+          "name": "corrupted-delegation-rejected",
+          "status": "FAIL",
+          "details": "Actual previous pointer, not declared rank alone."
+        },
+        {
+          "name": "unknown-critical-wrapper-rejected",
+          "status": "FAIL",
+          "details": "Unknown wrapper rejected before controller."
+        }
+      ]
+    },
+    {
+      "case": "consolidation-g0-bridge0-h1-d1-rd1-before-on-c0-consolidation-m4-x0-a0",
+      "checks": [
+        {
+          "name": "wrong-qualified-owner-callback-rejected",
+          "status": "FAIL",
+          "details": "Known owner is not enough: target/callback address/size and duplicates checked."
+        },
+        {
+          "name": "corrupted-delegation-rejected",
+          "status": "FAIL",
+          "details": "Actual previous pointer, not declared rank alone."
+        },
+        {
+          "name": "unknown-critical-wrapper-rejected",
+          "status": "FAIL",
+          "details": "Unknown wrapper rejected before controller."
+        }
+      ]
+    },
+    {
+      "case": "consolidation-g0-bridge0-h1-d1-rd1-after-on-c0-consolidation-m4-x0-a0",
+      "checks": [
+        {
+          "name": "wrong-qualified-owner-callback-rejected",
+          "status": "FAIL",
+          "details": "Known owner is not enough: target/callback address/size and duplicates checked."
+        },
+        {
+          "name": "corrupted-delegation-rejected",
+          "status": "FAIL",
+          "details": "Actual previous pointer, not declared rank alone."
+        },
+        {
+          "name": "unknown-critical-wrapper-rejected",
+          "status": "FAIL",
+          "details": "Unknown wrapper rejected before controller."
+        }
+      ]
+    },
+    {
+      "case": "consolidation-g0-bridge0-h1-d0-rd1-before-on-c0-consolidation-m5-x0-a0",
+      "checks": [
+        {
+          "name": "inverted-order-refused",
+          "status": "FAIL",
+          "details": "No unsafe new profile accepted."
+        }
+      ]
+    },
+    {
+      "case": "consolidation-g0-bridge0-h1-d0-rd1-after-on-c0-consolidation-m5-x0-a0",
+      "checks": [
+        {
+          "name": "inverted-order-refused",
+          "status": "FAIL",
+          "details": "No unsafe new profile accepted."
+        }
+      ]
+    },
+    {
+      "case": "consolidation-g0-bridge0-h1-d1-rd1-before-on-c0-consolidation-m5-x0-a0",
+      "checks": [
+        {
+          "name": "inverted-order-refused",
+          "status": "FAIL",
+          "details": "No unsafe new profile accepted."
+        }
+      ]
+    },
+    {
+      "case": "consolidation-g0-bridge0-h1-d1-rd1-after-on-c0-consolidation-m5-x0-a0",
+      "checks": [
+        {
+          "name": "inverted-order-refused",
+          "status": "FAIL",
+          "details": "No unsafe new profile accepted."
+        }
+      ]
+    }
+  ]
+}

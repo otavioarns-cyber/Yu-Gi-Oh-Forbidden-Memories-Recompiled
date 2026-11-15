@@ -1,0 +1,4274 @@
+[
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 99
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 78,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 95,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 78,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 99
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 55,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 105
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 100,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 95,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 100,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 105
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 93,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 61,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 93,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 108
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 104,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 108
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 96,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 64,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 96,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 114
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 109,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 104,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 109,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 0,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 114
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 102,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E0",
+    "guard": 1,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 70,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 102,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 103
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 82,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 99,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 82,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 103
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 59,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 109
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 104,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 99,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 104,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 109
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 97,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 65,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 97,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 112
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 108,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 112
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 100,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 68,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 100,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 118
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 113,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 108,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 113,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 0,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 118
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 106,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field0-E1",
+    "guard": 1,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 74,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 106,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 99
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 78,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 95,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 78,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 99
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 55,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 105
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 100,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 95,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 100,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 105
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 93,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 61,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 93,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 108
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 104,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 108
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 96,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 64,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 96,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 114
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 109,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 104,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 109,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 0,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 114
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 102,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E0",
+    "guard": 1,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 70,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 102,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 103
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 82,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 99,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 82,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 103
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 59,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 109
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 104,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 99,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 104,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 109
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 97,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 65,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 97,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 112
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 108,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 112
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 100,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 68,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 100,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 118
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 113,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 108,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 113,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 0,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 118
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 106,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field4-E1",
+    "guard": 1,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 74,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 106,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 99
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 78,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 95,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 78,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 99
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 55,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 105
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 100,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 95,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 100,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 105
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 93,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 61,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 93,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 108
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 104,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 87,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 108
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 96,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 64,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 96,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 114
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 109,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 104,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 109,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 0,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 114
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 102,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E0",
+    "guard": 1,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 70,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 102,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 103
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 82,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 99,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 82,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 103
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 59,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 109
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 104,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 99,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 104,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 0,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 109
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 97,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h0-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 1,
+    "status": "FAIL",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "FAIL",
+        "details": "actual_H=0 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 65,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 97,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 112
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 108,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 91,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 112
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 100,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d0-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 68,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=0 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 100,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 0,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 118
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 113,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-before-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 1,
+    "status": "PASS",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-duelists",
+        "callback_nodes": [
+          {
+            "owner": "ritual-duelists",
+            "code": "3d26698f",
+            "target": "AiScript_Run",
+            "function": "rd_ai",
+            "bytes": 774,
+            "node": 108,
+            "artifact_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+            "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+            "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "PASS",
+        "details": "actual_D=1 recognized=1 predecessor_owner=dual-play",
+        "callback_nodes": [
+          {
+            "owner": "dual-play",
+            "code": "3028c68a",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "dual_draw_phase",
+            "bytes": 152,
+            "node": 113,
+            "artifact_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+            "body_sha256": "9bbea34ce20392b92e13bdba723fbd14c8ea4b8098cdc5dbef030ce9897a22c7",
+            "relocations_sha256": "0686ea193ef2b134f2bd47c1bf803e03014821096e9b6cef0eec96caea3eebd2"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g0-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 0,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=hal2224-observer",
+        "callback_nodes": [
+          {
+            "owner": "hal2224-observer",
+            "code": "c6f2e63b",
+            "target": "AiScript_Run",
+            "function": "run",
+            "bytes": 25,
+            "node": 118
+          }
+        ],
+        "known_hash_binding": false
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 106,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  },
+  {
+    "case": "field-bonus-g1-bridge0-h1-d1-rd1-after-on-c0-field-controller-m0-x0-a0-field6-E1",
+    "guard": 1,
+    "status": "REFUSED",
+    "scope": "Supplied source predicates replayed on actual relocated callbacks; guard0 observer is instrumentation. Not complete Time Wizard gameplay.",
+    "observations": [
+      {
+        "audit": "TW_AI_DETECTOR",
+        "status": "PASS",
+        "details": "actual_H=1 inferred=1 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "AiScript_Run",
+            "function": "selection_ai_run",
+            "bytes": 3217,
+            "node": 74,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+            "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+          }
+        ],
+        "known_hash_binding": true
+      },
+      {
+        "audit": "TW_DUAL_SIGNATURE",
+        "status": "REFUSED",
+        "details": "actual_D=1 recognized=0 predecessor_owner=ritual-card-effects-test",
+        "callback_nodes": [
+          {
+            "owner": "ritual-card-effects-test",
+            "code": "1e478c68",
+            "target": "DuelScene_UpdateDrawPhase",
+            "function": "draw_phase",
+            "bytes": 33,
+            "node": 106,
+            "artifact_sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+            "body_sha256": "b698818d687c46530d598daaf768e1f91b0dd56b08e933b160f89b3392aab239",
+            "relocations_sha256": "ec9d12049c84252a82b869da4568e885eaf5fe473bbbe409ac89d9ad875ce895"
+          }
+        ],
+        "known_hash_binding": true
+      }
+    ]
+  }
+]

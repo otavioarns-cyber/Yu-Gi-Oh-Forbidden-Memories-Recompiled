@@ -1,0 +1,18 @@
+--- a/mod.c
++++ b/mod.c
+@@ -7485,6 +7485,8 @@
+ static s32 selection_ai_run(void)
+ { selection_connect();return serpent_ai_run(); }
+ 
++
++#include "queen_state_preview.h"
+ int MemoriesModInit(const MemoriesModHost *from, MemoriesMod *mod)
+ {
+     if (!from || !mod || from->api < 4 || !from->hook || !from->unhook) return 0;
+@@ -7577,5 +7579,6 @@
+     mod->overlay = overlay;
+     mod->overlay_signature = overlay_signature;
+     selection_ready=1;selection_connect();
++    if(!qs_init(mod)){shutdown();return 0;}
+     return 1;
+ }
