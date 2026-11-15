@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D26A]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Battle destruction
+only. Gains {f8 0A 03}+500{f8 0A 00} DEF
+for each monster in
+Attack Position.

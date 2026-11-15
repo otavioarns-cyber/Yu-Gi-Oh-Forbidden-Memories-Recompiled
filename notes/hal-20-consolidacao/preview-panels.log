@@ -1,0 +1,23 @@
+Package freetype2 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `freetype2.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'freetype2', required by 'virtual:world', not found
+Package 'fontconfig', required by 'virtual:world', not found
+Package freetype2 was not found in the pkg-config search path.
+Perhaps you should add the directory containing `freetype2.pc'
+to the PKG_CONFIG_PATH environment variable
+Package 'freetype2', required by 'virtual:world', not found
+Package 'fontconfig', required by 'virtual:world', not found
+In file included from tests/pc/panels_preview.c:12:
+tests/pc/../../src/pc/platform/menu.c:44:10: fatal error: fontconfig/fontconfig.h: No such file or directory
+   44 | #include <fontconfig/fontconfig.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+src/pc/mods/mods.c:55:10: fatal error: png.h: No such file or directory
+   55 | #include <png.h>
+      |          ^~~~~~~
+compilation terminated.
+src/pc/platform/controls_art.c:3:10: fatal error: png.h: No such file or directory
+    3 | #include <png.h>
+      |          ^~~~~~~
+compilation terminated.

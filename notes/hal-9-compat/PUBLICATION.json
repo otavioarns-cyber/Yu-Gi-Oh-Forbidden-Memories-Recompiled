@@ -1,0 +1,15 @@
+{
+  "pr": 33,
+  "url": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/33",
+  "draft": true,
+  "merged": false,
+  "base": "integration/hal-20-v0.3.1-preview.2",
+  "branch": "test/hal-9-tw-rd-bonus-lifecycle",
+  "implementation_commit": "e7336fbb5b31687879a97f30aa6bb545738e99ed",
+  "old_heads_verified": 37,
+  "old_heads_changed": [],
+  "new_heads": [
+    "refs/heads/test/hal-9-tw-rd-bonus-lifecycle"
+  ],
+  "private_artifacts_published": false
+}

@@ -1,0 +1,5 @@
+@bank descriptions
+
+[D3A5]
+Battle Steer + 1
+{f8 0B 13} + 1 {f8 0B 11}

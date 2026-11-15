@@ -1,0 +1,10 @@
+@bank descriptions
+
+[D3CB]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Steals 1 random foe.
+Attacks on Puppet
+hit the stolen card.
+Control lasts until
+Puppet dies; returns
+it at turn end.

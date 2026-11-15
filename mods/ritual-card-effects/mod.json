@@ -1,0 +1,748 @@
+{
+  "id": "ritual-card-effects-test",
+  "name": "MOD Efeitos de Cartas Rituais",
+  "version": "0.78.74-effect-ai",
+  "description": "v0.78.73: compact Psycho-Puppet description to fit card text box; all ritual effects and type icons preserved. CPU effect forecast.",
+  "author": "Otavio",
+  "enabled": true,
+  "min_api": 4,
+  "game": "slus_01411",
+  "library": "ritual-card-effects",
+  "restart": true,
+  "settings": [
+    {
+      "key": "recipes_bulk",
+      "label": "RECIPES - Bulk command",
+      "type": "choice",
+      "default": 0,
+      "choices": [
+        "Keep individual settings",
+        "Set ALL ON",
+        "Set ALL OFF"
+      ],
+      "restart": true,
+      "description": "On Apply, sets every Modified Recipe switch ON or OFF, then returns to Keep individual settings."
+    },
+    {
+      "key": "effects_bulk",
+      "label": "EFFECTS - Bulk command",
+      "type": "choice",
+      "default": 0,
+      "choices": [
+        "Keep individual settings",
+        "Set ALL ON",
+        "Set ALL OFF"
+      ],
+      "restart": true,
+      "description": "On Apply, sets every Ritual Effect switch ON or OFF, then returns to Keep individual settings."
+    },
+    {
+      "key": "title_color_diagnostic",
+      "label": "DEBUG - Show Effect Title State",
+      "type": "bool",
+      "default": 0,
+      "description": "Shows renderer mode, card ID, ritual-origin state, title-glyph matches. Enable only when investigating title colors; no gameplay effects."
+    },
+    {
+      "key": "millennium_shield_recipe",
+      "label": "Millennium Shield - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Use the modified Ritual recipe and Ritual Magic description for Millennium Shield."
+    },
+    {
+      "key": "millennium_shield",
+      "label": "Millennium Shield - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Battle-only destruction and +500 DEF per Attack Position monster."
+    },
+    {
+      "key": "yamadron_recipe",
+      "label": "Yamadron - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Use the modified Ritual recipe and Ritual Magic description for Yamadron."
+    },
+    {
+      "key": "yamadron",
+      "label": "Yamadron - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Generates up to 3 random Burn Magic Cards each turn."
+    },
+    {
+      "key": "psycho_puppet_recipe",
+      "label": "Psycho-Puppet - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Use the modified Ritual recipe and Ritual Magic description for Psycho-Puppet."
+    },
+    {
+      "key": "psycho_puppet",
+      "label": "Psycho-Puppet - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Temporarily controls one random enemy monster until the opponent turn; attacks against the ritual Puppet target the controlled monster instead."
+    },
+    {
+      "key": "hungry_burger_recipe",
+      "label": "Hungry Burger - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Use the modified Ritual recipe and Ritual Magic description for Hungry Burger."
+    },
+    {
+      "key": "hungry_burger",
+      "label": "Hungry Burger - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Gains 500 ATK/DEF whenever it destroys an enemy monster in battle."
+    },
+    {
+      "key": "fiends_mirror_recipe",
+      "label": "Fiend's Mirror - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Use the modified Ritual recipe and Ritual Magic description for Fiend's Mirror."
+    },
+    {
+      "key": "fiends_mirror",
+      "label": "Fiend's Mirror - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Reflects LP loss; a ritual-summoned Fiend's Mirror in Defense Position cannot be destroyed by battle."
+    },
+    {
+      "key": "mask_shine_dark_recipe",
+      "label": "Mask of Shine & Dark - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Mask of Darkness OR Masked Clown OR Masked Sorcerer + Fiend + Spellcaster."
+    },
+    {
+      "key": "mask_shine_dark",
+      "label": "Mask of Shine & Dark - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Blocks only opposing Fusions. AI learns after a blocked Fusion; Equips remain valid."
+    },
+    {
+      "key": "javelin_beetle_recipe",
+      "label": "Javelin Beetle - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Hercules Beetle + Kwagar Hercules + 1 Insect."
+    },
+    {
+      "key": "javelin_beetle",
+      "label": "Javelin Beetle - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Other allied Insects gain 400 ATK/DEF per allied Insect; first battle destruction each turn is prevented."
+    },
+    {
+      "key": "gate_guardian_recipe",
+      "label": "Gate Guardian - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Sanga of the Thunder + Kazejin + Suijin."
+    },
+    {
+      "key": "gate_guardian",
+      "label": "Gate Guardian - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Can attack up to 3 times per turn."
+    },
+    {
+      "key": "crab_turtle_recipe",
+      "label": "Crab Turtle - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Kanikabuto + 1 Turtle Monster + 1 Aqua."
+    },
+    {
+      "key": "crab_turtle",
+      "label": "Crab Turtle - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Sets Umi; battle protection by attacker Type; allied sea-family aura."
+    },
+    {
+      "key": "fortress_whale_recipe",
+      "label": "Fortress Whale - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Mech Bass + 2 Fish."
+    },
+    {
+      "key": "fortress_whale",
+      "label": "Fortress Whale - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "DEF per Fish in hand/field; Umi Magic/Trap protection for other sea-family allies."
+    },
+    {
+      "key": "garma_sword_recipe",
+      "label": "Garma Sword - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Vishwar Randi OR Succubus Knight + 1 Warrior + 1 Fiend."
+    },
+    {
+      "key": "garma_sword",
+      "label": "Garma Sword - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Five extra blades: each battle kill can grant one additional attack."
+    },
+    {
+      "key": "tri_horned",
+      "label": "Tri-Horned Dragon - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Ritual Wasteland, +1000 ATK/DEF to other allied Dinosaurs, Magic protection in Wasteland and 3 personal horns."
+    },
+    {
+      "key": "serpent_night_recipe",
+      "label": "Serpent Night Dragon - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Dragoness the Wicked Knight + 1 Fiend + 1 Dragon."
+    },
+    {
+      "key": "serpent_night",
+      "label": "Serpent Night Dragon - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Fear: avoids attack targeting while another legal ally exists; face-down allies revealed by enemy attacks gain +1000 ATK/DEF per ritual Serpent for that battle."
+    },
+    {
+      "key": "performance_sword_recipe",
+      "label": "Performance of Sword - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true
+    },
+    {
+      "key": "performance_sword",
+      "label": "Performance of Sword - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "restart": true
+    },
+    {
+      "key": "black_chaos",
+      "label": "Magician of Black Chaos - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "restart": true
+    },
+    {
+      "key": "super_war_lion_recipe",
+      "label": "Super War-Lion - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Leogun + Garvas + 1 Beast."
+    },
+    {
+      "key": "super_war_lion",
+      "label": "Super War-Lion - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "+500 ATK/DEF per other allied Beast in hand/field; attacks on other allied Beasts are redirected to Super War-Lion."
+    },
+    {
+      "key": "sengenjin_recipe",
+      "label": "Sengenjin - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Millennium Golem + 1 Beast with at least 1500 ATK + 1 Warrior with at least 1500 ATK."
+    },
+    {
+      "key": "sengenjin",
+      "label": "Sengenjin - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Immune to Trap effects; in battle ignores positive ATK/DEF modifiers on the opposing monster while preserving negative ones."
+    },
+    {
+      "key": "black_luster_soldier",
+      "label": "Black Luster Soldier - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Sets Meadow after Ritual Summon; each Ritual BLS gives +1000 ATK/DEF to every other allied Warrior."
+    },
+    {
+      "key": "blue_eyes_ultimate",
+      "label": "Blue-Eyes Ultimate Dragon - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Unaffected by opposing Magic, Trap and monster effects; Dark Hole cannot destroy it even when activated by its own side. Field and Guardian Star rules still apply."
+    },
+    {
+      "key": "cosmo_queen",
+      "label": "Cosmo Queen - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Gains +500 ATK/DEF per other Female on the field; Female includes results of generic fusion recipes that explicitly require [Female]. On the opponent turn, a legally playable Female in the real 5-card hand must be the hand play."
+    },
+    {
+      "key": "dokurorider_recipe",
+      "label": "Dokurorider - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Temple of Skulls + 2 Zombies."
+    },
+    {
+      "key": "dokurorider",
+      "label": "Dokurorider - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Other allied Zombies gain +1200 ATK; evades Level 6+ attacks that would defeat or tie it."
+    },
+    {
+      "key": "chakra_recipe",
+      "label": "Chakra - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Resurrection of Chakra: Wall Shadow + 2 Fiends Level 7+ (excluding Chakra). No ATK/DEF ceiling; OFF uses Vanilla tributes."
+    },
+    {
+      "key": "chakra",
+      "label": "Chakra - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Ritual Summon: destroy opposing monsters left-to-right; gain permanent ATK equal to half of their effective ATK rounded to nearest 10 with ones 0-5 down, 6-9 up. Ultimate immune."
+    },
+    {
+      "key": "zera",
+      "label": "Zera the Mant - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "On Ritual Summon sets Yami. While that Zera is on the field, non-Fiend monsters on both sides lose 1500 ATK/DEF; Ultimate immune."
+    },
+    {
+      "key": "skull_guardian_recipe",
+      "label": "Skull Guardian - Modified Recipe",
+      "type": "bool",
+      "default": 1,
+      "restart": true,
+      "description": "Novox Prayer: Kamakiriman + 1 Skull Monster + 1 Warrior (three distinct cards)."
+    },
+    {
+      "key": "skull_guardian",
+      "label": "Skull Guardian - Ritual Effect",
+      "type": "bool",
+      "default": 1,
+      "description": "Ritual-only; +1000 ATK/DEF per other Skull on either field, +500 ATK/DEF per Skull in own real five-card hand."
+    },
+    {
+      "key": "effects_without_ritual_summon",
+      "label": "EFFECTS - Ignore Ritual Summon",
+      "type": "bool",
+      "default": 0,
+      "restart": true,
+      "description": "OFF (default): Ritual Effects work only on monsters Ritual Summoned correctly. ON: Effects also activate on monsters placed normally; optional sandbox mode, not the intended gameplay."
+    },
+    {
+      "key": "effect_ai",
+      "label": "Effect-aware CPU decisions",
+      "type": "bool",
+      "default": 1
+    },
+    {
+      "key": "effect_ai_trace",
+      "label": "Log effect-aware decisions",
+      "type": "bool",
+      "default": 0
+    }
+  ],
+  "text": [
+    {
+      "file": "text/millennium_shield_recipe_off.txt",
+      "setting": "millennium_shield_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/millennium_shield_recipe_on.txt",
+      "setting": "millennium_shield_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/yamadron_recipe_off.txt",
+      "setting": "yamadron_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/yamadron_recipe_on.txt",
+      "setting": "yamadron_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/psycho_puppet_recipe_off.txt",
+      "setting": "psycho_puppet_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/psycho_puppet_recipe_on.txt",
+      "setting": "psycho_puppet_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/hungry_burger_recipe_off.txt",
+      "setting": "hungry_burger_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/hungry_burger_recipe_on.txt",
+      "setting": "hungry_burger_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/fiends_mirror_recipe_off.txt",
+      "setting": "fiends_mirror_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/fiends_mirror_recipe_on.txt",
+      "setting": "fiends_mirror_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/millennium_shield_on.txt",
+      "setting": "millennium_shield",
+      "value": 1
+    },
+    {
+      "file": "text/yamadron_on.txt",
+      "setting": "yamadron",
+      "value": 1
+    },
+    {
+      "file": "text/psycho_puppet_on.txt",
+      "setting": "psycho_puppet",
+      "value": 1
+    },
+    {
+      "file": "text/hungry_burger_on.txt",
+      "setting": "hungry_burger",
+      "value": 1
+    },
+    {
+      "file": "text/fiends_mirror_on.txt",
+      "setting": "fiends_mirror",
+      "value": 1
+    },
+    {
+      "file": "text/mask_recipe_on.txt",
+      "setting": "mask_shine_dark_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/mask_recipe_off.txt",
+      "setting": "mask_shine_dark_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/mask_on.txt",
+      "setting": "mask_shine_dark",
+      "value": 1
+    },
+    {
+      "file": "text/javelin_recipe_on.txt",
+      "setting": "javelin_beetle_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/javelin_recipe_off.txt",
+      "setting": "javelin_beetle_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/javelin_on.txt",
+      "setting": "javelin_beetle",
+      "value": 1
+    },
+    {
+      "file": "text/gate_recipe_on.txt",
+      "setting": "gate_guardian_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/gate_recipe_off.txt",
+      "setting": "gate_guardian_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/gate_on.txt",
+      "setting": "gate_guardian",
+      "value": 1
+    },
+    {
+      "file": "text/crab_recipe_off.txt",
+      "setting": "crab_turtle_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/crab_recipe_on.txt",
+      "setting": "crab_turtle_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/crab_on.txt",
+      "setting": "crab_turtle",
+      "value": 1
+    },
+    {
+      "file": "text/fortress_recipe_off.txt",
+      "setting": "fortress_whale_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/fortress_recipe_on.txt",
+      "setting": "fortress_whale_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/fortress_on.txt",
+      "setting": "fortress_whale",
+      "value": 1
+    },
+    {
+      "file": "text/garma_recipe_on.txt",
+      "setting": "garma_sword_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/garma_recipe_off.txt",
+      "setting": "garma_sword_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/garma_on.txt",
+      "setting": "garma_sword",
+      "value": 1
+    },
+    {
+      "file": "text/tri_horned_on.txt",
+      "setting": "tri_horned",
+      "value": 1
+    },
+    {
+      "file": "text/serpent_recipe_on.txt",
+      "setting": "serpent_night_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/serpent_recipe_off.txt",
+      "setting": "serpent_night_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/serpent_on.txt",
+      "setting": "serpent_night",
+      "value": 1
+    },
+    {
+      "file": "text/performance_recipe_on.txt",
+      "setting": "performance_sword_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/performance_recipe_off.txt",
+      "setting": "performance_sword_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/performance_on.txt",
+      "setting": "performance_sword",
+      "value": 1
+    },
+    {
+      "file": "text/black_chaos_on.txt",
+      "setting": "black_chaos",
+      "value": 1
+    },
+    {
+      "file": "text/super_war_lion_recipe_on.txt",
+      "setting": "super_war_lion_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/super_war_lion_recipe_off.txt",
+      "setting": "super_war_lion_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/super_war_lion_on.txt",
+      "setting": "super_war_lion",
+      "value": 1
+    },
+    {
+      "file": "text/sengenjin_recipe_on.txt",
+      "setting": "sengenjin_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/sengenjin_recipe_off.txt",
+      "setting": "sengenjin_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/sengenjin_on.txt",
+      "setting": "sengenjin",
+      "value": 1
+    },
+    {
+      "file": "text/black_luster_soldier_on.txt",
+      "setting": "black_luster_soldier",
+      "value": 1
+    },
+    {
+      "file": "text/ultimate_dragon_on.txt",
+      "setting": "blue_eyes_ultimate",
+      "value": 1
+    },
+    {
+      "file": "text/cosmo_queen_on.txt",
+      "setting": "cosmo_queen",
+      "value": 1
+    },
+    {
+      "file": "text/dokurorider_on.txt",
+      "setting": "dokurorider",
+      "value": 1
+    },
+    {
+      "file": "text/black_luster_soldier_recipe.txt"
+    },
+    {
+      "file": "text/zera_recipe.txt"
+    },
+    {
+      "file": "text/zera_on.txt",
+      "setting": "zera",
+      "value": 1
+    },
+    {
+      "file": "text/ultimate_dragon_recipe.txt"
+    },
+    {
+      "file": "text/novox_recipe.txt",
+      "setting": "skull_guardian_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/skull_guardian_on.txt",
+      "setting": "skull_guardian",
+      "value": 1
+    },
+    {
+      "file": "text/tri_horned_recipe.txt"
+    },
+    {
+      "file": "text/chakra_recipe_off.txt",
+      "setting": "chakra_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/chakra_recipe_on.txt",
+      "setting": "chakra_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/chakra_on.txt",
+      "setting": "chakra",
+      "value": 1
+    },
+    {
+      "file": "text/cosmo_queen_recipe.txt"
+    },
+    {
+      "file": "text/dokurorider_recipe_off.txt",
+      "setting": "dokurorider_recipe",
+      "value": 0
+    },
+    {
+      "file": "text/dokurorider_recipe_on.txt",
+      "setting": "dokurorider_recipe",
+      "value": 1
+    },
+    {
+      "file": "text/black_chaos_recipe.txt"
+    }
+  ],
+  "after": [
+    "melhoria-dos-rituais",
+    "ai-hard-mode",
+    "time-wizard-time-magic"
+  ],
+  "cards": [
+    {
+      "replace": 705,
+      "type": "Dinosaur"
+    }
+  ],
+  "equips": [
+    {
+      "card": 313,
+      "add": [
+        705
+      ]
+    },
+    {
+      "card": 314,
+      "add": [
+        705
+      ]
+    },
+    {
+      "card": 326,
+      "add": [
+        705
+      ]
+    }
+  ],
+  "audio": {
+    "sfx": {
+      "0xFFFE": {
+        "file": "assets/dokurorider_escape.wav",
+        "volume": 100
+      },
+      "0xFFFD": {
+        "file": "assets/tri_horn_break.wav",
+        "volume": 100
+      },
+      "0xFFFC": {
+        "file": "assets/garma_sword_spend.wav",
+        "volume": 100
+      },
+      "0xFFFB": {
+        "file": "assets/javelin_shell.wav",
+        "volume": 100
+      },
+      "0xFFFA": {
+        "file": "assets/hungry_bite.wav",
+        "volume": 100
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3B7]
+Mysterious
+Puppeteer + Saber
+Slasher + Blocker

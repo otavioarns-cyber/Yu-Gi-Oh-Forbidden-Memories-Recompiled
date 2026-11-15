@@ -1,0 +1,152 @@
+0024:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\wineboot.exe" image L"C:\\windows\\system32\\wineboot.exe" cmdline L"\"C:\\windows\\system32\\wineboot.exe\" --init" parent (nil) machine 0
+0024:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\wineboot.exe" pid 0028 tid 002c handles 0x14/0x18
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x7ffffe2ffa30,0x00000040,(nil))
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2ff5a8,0x00000008,(nil))
+002c:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 00007FFFFE2FF210 85)
+002c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 0000000000000000 0)
+002c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 00007FFFFE3252F0 18)
+002c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 0000000000000000 0)
+002c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 00007FFFFE325320 18)
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x7ffffe2ff9e0,0x00000008,(nil))
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2fef28,0x00000008,(nil))
+002c:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\winemenubuilder.exe -a -r"
+002c:trace:process:find_exe_file looking for L"C:\\windows\\system32\\winemenubuilder.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+002c:trace:process:find_exe_file looking for L"C:\\windows\\system32\\winemenubuilder.exe -a" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+002c:trace:process:find_exe_file looking for L"C:\\windows\\system32\\winemenubuilder.exe -a -r" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+002c:err:wineboot:process_run_key Error running cmd L"C:\\windows\\system32\\winemenubuilder.exe -a -r" (2).
+002c:trace:process:CreateProcessInternalW app L"C:\\windows\\system32\\services.exe" cmdline (null)
+002c:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\services.exe" image L"C:\\windows\\system32\\services.exe" cmdline L"\"C:\\windows\\system32\\services.exe\"" parent (nil) machine 0
+002c:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\services.exe" pid 0030 tid 0034 handles 0x3c/0x40
+002c:trace:process:CreateProcessInternalW started process pid 0030 tid 0034
+0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x7ffffe2ffa30,0x00000040,(nil))
+0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2ff5a8,0x00000008,(nil))
+0034:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 00007FFFFE2FF210 85)
+0034:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 00007FFFFE3275C0 18)
+0034:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 00007FFFFE3275F0 18)
+0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x7ffffe2ff9e0,0x00000008,(nil))
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 00007FFFFE32E0E0 41)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winedevice.exe" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winedevice.exe" 00007FFFFE32F5C0 35)
+0034:trace:process:GetEnvironmentVariableW (L"SystemRoot" 00007FFFFE2EF080 32767)
+0034:trace:process:GetEnvironmentVariableW (L"SystemDrive" 00007FFFFE2EF080 32767)
+0034:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2eecf8,0x00000008,(nil))
+0034:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 00007FFFFE8A2D40 257)
+0034:trace:process:GetEnvironmentVariableW (L"WINEBOOTSTRAPMODE" 00007FFFFE2FF170 16)
+0034:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\winedevice.exe"
+0034:trace:process:find_exe_file looking for L"C:\\windows\\system32\\winedevice.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\winedevice.exe" image L"C:\\windows\\system32\\winedevice.exe" cmdline L"C:\\windows\\system32\\winedevice.exe" parent (nil) machine 0
+0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\winedevice.exe" pid 003c tid 0040 handles 0xe8/0xec
+0034:trace:process:CreateProcessInternalW started process pid 003c tid 0040
+0040:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x7ffffe2ffa30,0x00000040,(nil))
+0040:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2ff5a8,0x00000008,(nil))
+0040:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 00007FFFFE2FF210 85)
+0040:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 0000000000000000 0)
+0040:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 00007FFFFE325AE0 18)
+0040:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 0000000000000000 0)
+0040:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 00007FFFFE325B10 18)
+0040:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x7ffffe2ff9e0,0x00000008,(nil))
+0050:trace:process:NtQueryInformationProcess (0x4c,0x00000000,0x7ffffe32e9a8,0x00000030,(nil))
+0050:trace:process:NtQueryInformationProcess (0x4c,0x0000001a,0x7ffffeeff438,0x00000008,(nil))
+004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 0000000000000000 0)
+004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\mountmgr.sys" 00007FFFFE32EB90 41)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\plugplay.exe" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\plugplay.exe" 00007FFFFE32F5C0 33)
+0034:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\plugplay.exe"
+0034:trace:process:find_exe_file looking for L"C:\\windows\\system32\\plugplay.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\plugplay.exe" image L"C:\\windows\\system32\\plugplay.exe" cmdline L"C:\\windows\\system32\\plugplay.exe" parent (nil) machine 0
+0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\plugplay.exe" pid 0060 tid 0064 handles 0x104/0x108
+0034:trace:process:CreateProcessInternalW started process pid 0060 tid 0064
+0064:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x7ffffe2ffa30,0x00000040,(nil))
+0064:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2ff5a8,0x00000008,(nil))
+0064:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 00007FFFFE2FF210 85)
+0064:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 0000000000000000 0)
+0064:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 00007FFFFE326320 18)
+0064:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 0000000000000000 0)
+0064:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 00007FFFFE326350 18)
+Fontconfig error: No writable cache directories
+Fontconfig error: No writable cache directories
+0064:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x7ffffe2ff9e0,0x00000008,(nil))
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted" 00007FFFFE8EDAC0 65)
+0034:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted"
+0034:trace:process:find_exe_file looking for L"C:\\windows\\system32\\svchost.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\svchost.exe" image L"C:\\windows\\system32\\svchost.exe" cmdline L"C:\\windows\\system32\\svchost.exe -k LocalServiceNetworkRestricted" parent (nil) machine 0
+0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\svchost.exe" pid 0078 tid 007c handles 0x120/0x124
+0034:trace:process:CreateProcessInternalW started process pid 0078 tid 007c
+007c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x7ffffe2ffa30,0x00000040,(nil))
+007c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2ff5a8,0x00000008,(nil))
+007c:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 00007FFFFE2FF210 85)
+007c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 0000000000000000 0)
+007c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 00007FFFFE325880 18)
+007c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 0000000000000000 0)
+007c:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 00007FFFFE3258B0 18)
+007c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x7ffffe2ff9e0,0x00000008,(nil))
+007c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\wevtsvc.dll" 0000000000000000 0)
+007c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\wevtsvc.dll" 00007FFFFE3297A0 32)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 00007FFFFE32E0E0 41)
+004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 0000000000000000 0)
+004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\nsiproxy.sys" 00007FFFFE32ECB0 41)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 00007FFFFE32E0E0 37)
+004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 0000000000000000 0)
+004c:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\ndis.sys" 00007FFFFE32ED70 37)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 00007FFFFE32E0E0 40)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winedevice.exe" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\winedevice.exe" 00007FFFFE32F700 35)
+0034:trace:process:CreateProcessInternalW app (null) cmdline L"C:\\windows\\system32\\winedevice.exe"
+0034:trace:process:find_exe_file looking for L"C:\\windows\\system32\\winedevice.exe" in L"C:\\windows\\system32;.;C:\\windows\\system32;C:\\windows\\system;C:\\windows;C:\\windows\\system32;C:\\windows;C:\\windows\\system32\\wbem;C:\\windows\\system32\\WindowsPowershell\\v1.0"
+0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\winedevice.exe" image L"C:\\windows\\system32\\winedevice.exe" cmdline L"C:\\windows\\system32\\winedevice.exe" parent (nil) machine 0
+0034:trace:process:NtCreateUserProcess L"\\??\\C:\\windows\\system32\\winedevice.exe" pid 0094 tid 0098 handles 0x140/0x144
+0034:trace:process:CreateProcessInternalW started process pid 0094 tid 0098
+0098:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x7ffffe2ffa30,0x00000040,(nil))
+0098:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2ff5a8,0x00000008,(nil))
+0098:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 00007FFFFE2FF210 85)
+0098:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 0000000000000000 0)
+0098:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 00007FFFFE325AE0 18)
+0098:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 0000000000000000 0)
+0098:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 00007FFFFE325B10 18)
+0098:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x7ffffe2ff9e0,0x00000008,(nil))
+00a4:trace:process:NtQueryInformationProcess (0x40,0x00000000,0x7ffffe32f548,0x00000030,(nil))
+00a4:trace:process:NtQueryInformationProcess (0x40,0x0000001a,0x7ffffeeff438,0x00000008,(nil))
+00a0:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 0000000000000000 0)
+00a0:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebus.sys" 00007FFFFE32CC00 40)
+00a8:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winehid.sys" 0000000000000000 0)
+00a8:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winehid.sys" 00007FFFFF201250 40)
+Fontconfig error: No writable cache directories
+Fontconfig error: No writable cache directories
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\wineusb.sys" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\wineusb.sys" 00007FFFFE32E0E0 40)
+00a0:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\wineusb.sys" 0000000000000000 0)
+00a0:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\wineusb.sys" 00007FFFFE32CE40 40)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 0000000000000000 0)
+0034:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 00007FFFFE32E0E0 40)
+00a0:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 0000000000000000 0)
+00a0:trace:process:ExpandEnvironmentStringsW (L"C:\\windows\\system32\\drivers\\winebth.sys" 00007FFFFE32CF00 40)
+00a0:err:ntoskrnl:ZwLoadDriver failed to create driver L"\\Registry\\Machine\\System\\CurrentControlSet\\Services\\winebth": c00000e5
+0034:fixme:service:scmdatabase_autostart_services Auto-start service L"winebth" failed to start: 1359
+Fontconfig error: No writable cache directories
+Fontconfig error: No writable cache directories
+002c:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 00007FFFFE2FDFF0 260)
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7ffffe2fe9cc,0x00000004,(nil))
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7ffffe2fe9cc,0x00000004,(nil))
+002c:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 00007FFFFE2FE7D0 260)
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7ffffe2fe9cc,0x00000004,(nil))
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7ffffe2fe9cc,0x00000004,(nil))
+002c:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 00007FFFFE2FF6F0 260)
+002c:trace:process:GetEnvironmentVariableW (L"WINEUSERNAME" 00007FFFFE2FDFF0 260)
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7ffffe2fe9cc,0x00000004,(nil))
+002c:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000000c,0x7ffffe2fe9cc,0x00000004,(nil))
+0024:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x7ffffe1ffa30,0x00000040,(nil))
+0024:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe1ff5a8,0x00000008,(nil))
+0024:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 00007FFFFE1FF210 85)
+0024:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 0000000000000000 0)
+0024:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 00007FFFFE2246A0 18)
+0024:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 0000000000000000 0)
+0024:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 00007FFFFE2246D0 18)
+0024:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x7ffffe1ff9e0,0x00000008,(nil))
+WINDOWS_CONTROL pid=32 pointer_bytes=8

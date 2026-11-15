@@ -1,0 +1,60 @@
+{
+  "primary": {
+    "processes": 144,
+    "checks": {
+      "PASS": 1432,
+      "FAIL": 8
+    },
+    "execution": {
+      "REFUSED": 24,
+      "NOT_REACHED": 30,
+      "PASS": 82,
+      "FAIL": 8
+    },
+    "incomplete": 0
+  },
+  "bonus-reset-trace": {
+    "processes": 16,
+    "checks": {
+      "PASS": 172,
+      "FAIL": 8
+    },
+    "execution": {
+      "PASS": 4,
+      "FAIL": 8,
+      "NOT_REACHED": 4
+    },
+    "incomplete": 0
+  },
+  "evolution-goal-failures": {
+    "processes": 8,
+    "checks": {
+      "PASS": 76,
+      "FAIL": 16
+    },
+    "execution": {
+      "FAIL": 8
+    },
+    "incomplete": 0
+  },
+  "asset-boundary": {
+    "processes": 8,
+    "checks": {
+      "PASS": 84
+    },
+    "execution": {
+      "NOT_REACHED": 8
+    },
+    "incomplete": 0
+  },
+  "collection": {
+    "processes": 16,
+    "checks": {
+      "PASS": 164
+    },
+    "execution": {
+      "PASS": 16
+    },
+    "incomplete": 0
+  }
+}

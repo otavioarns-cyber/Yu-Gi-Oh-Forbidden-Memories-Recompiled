@@ -1,0 +1,45 @@
+[
+  {
+    "check": "melhoria-dos-rituais",
+    "status": "PASS",
+    "scope": "Every original package file unchanged, including ABI/settings/assets."
+  },
+  {
+    "check": "ritual-card-effects",
+    "status": "PASS",
+    "scope": "Every original package file unchanged, including ABI/settings/assets."
+  },
+  {
+    "check": "ritual-duelists",
+    "status": "PASS",
+    "scope": "Every original package file unchanged, including ABI/settings/assets."
+  },
+  {
+    "check": "Fusion F1 and source delta",
+    "status": "PASS",
+    "changed": [
+      "SDK-PROVENANCE.json",
+      "fusion-auxiliary-balance.o",
+      "fusion_round2_runtime.h",
+      "fusion_round3_runtime.h",
+      "generated_card_restore.h",
+      "mod.c"
+    ],
+    "scope": "Only five terrain assignments plus optional helper; F1 owner/revoke files, manifest43 settings, assets and all other baseline files unchanged."
+  },
+  {
+    "check": "Field approved source",
+    "status": "PASS",
+    "scope": "Only effective-owner provider fix; full Vanilla V2 mechanics/subtype table/UI source and manifest preserved. DLC/Sanctuary excluded by user."
+  },
+  {
+    "check": "Core and AI boundaries",
+    "status": "PASS",
+    "scope": "Host ABI/hooks/order/controller/load placement unchanged from PR28; only role/target qualification expansion. Strategic options/visibility/deck/swap functions unchanged."
+  },
+  {
+    "check": "State A isolation",
+    "status": "PASS",
+    "scope": "260-byte typed wire schema in experiments; canonical R unchanged; preview not staged/admitted by guard. No game/third-party state snapshot or pointer blob."
+  }
+]
