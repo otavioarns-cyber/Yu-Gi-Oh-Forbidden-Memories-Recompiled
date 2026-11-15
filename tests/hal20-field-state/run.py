@@ -28,6 +28,15 @@ if a.state_pair_preview:
  dirs['F']=Path(os.environ['MEMORIES_FUSION_STATE_PREVIEW_DIR']);component=next(c for c in meta['components'] if c['symbol']=='F');component['files']=[dict(path=str(f.relative_to(dirs['F'])),bytes=f.stat().st_size,sha256=sha(f)) for f in dirs['F'].rglob('*') if f.is_file() and '__pycache__' not in f.parts]
  meta['fusion_reference']['files']=[dict(path=f.name,bytes=f.stat().st_size,sha256=sha(f)) for f in dirs['F'].iterdir() if f.is_file() and f.name in ('mod.json','fusion-auxiliary-balance.o')]
 if a.timewizard_object:dirs['T']=a.timewizard_object
+# Private test overlay only: permit the exact rebuilt adapter in this harness.
+# Production caller pin, provider ABI, hook guard and admission remain untouched.
+tw_receipt=None
+if os.environ.get('HAL9_BONUS_RECEIPT'):
+ assert a.timewizard_object
+ tw_receipt=json.loads(Path(os.environ['HAL9_BONUS_RECEIPT']).read_text())
+ assert tw_receipt['reference_sha256']=='6470024d45bd099b7800bd5f84ccdcef1a895a8a2447ecef058af11ada97d5d7'
+ assert tw_receipt['candidate_sha256']==sha(a.timewizard_object/'time-wizard.o')
+ assert tw_receipt['patch_sha256']==sha(repo/'experiments/hal9-compat/bonus-snapshot.patch')
 if a.timewizard_object and any(m>=25 for m in (a.tw_case or [])):
  f=engine/'src_game_func_80019608.c.o';meta['native_engine_objects'].append(dict(path=f.name,sha256=sha(f),source='src/game/func_80019608.c'))
 ids={k:json.loads((v/'mod.json').read_text())['id'] for k,v in dirs.items()};objects={k:json.loads((v/'mod.json').read_text())['library']+'.o' for k,v in dirs.items()};byid={ids[k]:v for k,v in dirs.items()}
@@ -133,8 +142,8 @@ if a.timewizard_object:
  keys=('M','F','R','H','RD','D','E','T')
  cases=[]
  for h,d,o,m in itertools.product((0,1),(0,1),('before','after'),a.tw_case or (0,)):
-  inc=('M','F','R','E','T')+('RD',)*(m not in (13,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39))+('H',)*h+('D',)*d
-  cases.append(dict(name=f'tw-object-h{h}-d{d}-{o}-m{m}',variant='actual-pinned-object',composition='+'.join(inc),bridge=0,ai=h,dual=d,rd=int(m not in (13,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39)),where=o,effects='on',condition=0,scenario='timewizard-object',mode=m,cancel=0,guard=int(m==8),active=inc))
+  inc=('M','F','R','E','T')+('RD',)*(m not in (13,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,46,47))+('H',)*h+('D',)*d
+  cases.append(dict(name=f'tw-object-h{h}-d{d}-{o}-m{m}',variant='actual-pinned-object',composition='+'.join(inc),bridge=0,ai=h,dual=d,rd=int(m not in (13,22,23,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,46,47)),where=o,effects='on',condition=0,scenario='timewizard-object',mode=m,cancel=0,guard=int(m==8),active=inc))
 if not cases:finish();raise SystemExit('No profiles selected: not a successful test run')
 with tempfile.TemporaryDirectory(prefix='hal25-real-') as tmp:
  tmp=Path(tmp);names=exports([dirs[k]/objects[k] for k in keys]+[engine/x['path'] for x in meta['native_engine_objects']]);(tmp/'export_names.h').write_text('#define TEST_EXPORT_COUNT '+str(len(names))+'\nstatic const char*test_export_names[]={'+','.join(json.dumps(x) for x in names)+'};\n')
@@ -149,6 +158,14 @@ with tempfile.TemporaryDirectory(prefix='hal25-real-') as tmp:
  sources=['tests/hal20-field-state/harness.c','tests/hal20-field-state/manager_bridge.c','tests/hal20-field-state/window_bridge.c','src/pc/compat/fs.c','src/pc/mods/events.c','src/pc/mods/hooks.c','src/pc/mods/manager.c','src/pc/guest/sha256.c','src/pc/mods/overlap.c','src/pc/mods/mod_libc.c','src/pc/mods/object_loader.c','src/pc/guest/branch_thunks.c','src/pc/mod_packets.c','src/pc/mods/json.c','src/pc/platform/settings.c','src/pc/platform/paths.c']
  if a.timewizard_source:sources.append('tests/hal26-state-timewizard/timewizard_probe.c')
  sources.append('tests/hal9-timewizard-contracts/machine_probe.S')
+ if tw_receipt:
+  overlay=tmp/'overlay';shutil.copytree(repo/'src',overlay/'src')
+  pins=overlay/'src/pc/mods/hal9_runtime_pins.h'
+  pins.write_text('/* Private harness-only receipt pin. No production admission. */\n#define HAL9_TW_SHA '+json.dumps(tw_receipt['candidate_sha256'])+'\n#define HAL9_TW_DRAW_BYTES '+str(tw_receipt['draw_bytes'])+'\n')
+  bridge=tmp/'candidate_manager_bridge.c'
+  bridge.write_text((repo/'tests/hal20-field-state/manager_bridge.c').read_text().replace('../../src/pc/mods/mods.c',str(overlay/'src/pc/mods/mods.c')))
+  sources[sources.index('tests/hal20-field-state/manager_bridge.c')]=str(bridge)
+  results['private_candidate_receipt']=tw_receipt
  builds=[('build-harness',cc+(['-DHAL26_TW_PROBE'] if a.timewizard_source else [])+['-m32','-std=gnu11','-O1','-D_FILE_OFFSET_BITS=64','-DMEMORIES_PC','-ffunction-sections','-fdata-sections','-I'+str(tmp),'-Isrc',*sources,'-Wl,--gc-sections','-Wl,--wrap=Hooks_Add','-Wl,--wrap=Hooks_Inspect','-Wl,--wrap=Mods_RegisterState','-Wl,--wrap=ObjectLoader_Load','-lpng','-lm','-lpthread','-o',tmp/'harness'])]
  if a.fence:builds.append(('build-duel-entry',cc+['-D_LANGUAGE_C','-DLANGUAGE_C','-m32','-std=gnu11','-O1','-DMEMORIES_PC','-Isrc','-fno-pic','-fno-pie','-fno-stack-protector','-fno-asynchronous-unwind-tables','-fno-unwind-tables','-c','src/game/main_run_duel.c','-o',tmp/'src_game_guard_main.c.o']))
  builds.append(('build-observer',cc+['-D_LANGUAGE_C','-DLANGUAGE_C','-m32','-std=gnu11','-O1','-DMEMORIES_PC','-Isrc','-fno-pic','-fno-pie','-fno-stack-protector','-fno-asynchronous-unwind-tables','-c','tests/hal20-field-state/observer.c','-o',tmp/'observer.o']))

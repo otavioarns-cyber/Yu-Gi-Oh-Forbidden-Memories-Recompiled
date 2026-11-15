@@ -1,0 +1,4 @@
+RAW_SHA256 42be021b00dd303c895d99656ce4cc2ce6ba5eee24ee2dd55bd0e441d4015d54; exact repeated trace lines after third occurrence omitted; trailing spaces normalized.
+test_encore_native: PASS (native ELF32 controller)
+test_direct_native: PASS (native ELF32 controller)
+REPETITIONS {}
