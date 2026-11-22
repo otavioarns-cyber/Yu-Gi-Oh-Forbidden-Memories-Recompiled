@@ -1,0 +1,6 @@
+@bank descriptions
+
+[D3D1]
+Winged Dragon #1 +
+Dark Magician +
+Blast Juggler

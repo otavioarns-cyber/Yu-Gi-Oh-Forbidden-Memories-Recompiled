@@ -1,0 +1,168 @@
+PROMPT PARA O CHAT PROGRAMADOR — RITUAL DUELISTS
+Expansão de perfis: Jono (1st), Jono 2nd, Weevil e Shadi
+Status: DECISÕES DE DESIGN APROVADAS (implementação ainda solicitada)
+
+CONTEXTO / ARQUIVOS
+Estamos continuando o MOD independente Ritual Duelists do Yu-Gi-Oh! Forbidden Memories Recompiled. Não é um projeto novo. Vou fornecer o ZIP atual do MOD "Ritual Duelists" (mod.json informado como v0.2.9-alpha, protótipo da Isis), o "Prompt Mestre New Chats(5).pdf" e, como referência obrigatória de dados, a planilha/CSV "Weevil_Pool_71_Cartas_Proposta". O CSV integral consta também no ANEXO A abaixo para não haver perda de pesos.
+
+Leia e preserve o funcionamento atual da Isis e os mecanismos genéricos já implementados (deck híbrido, seleção de dificuldades, busca de Ritual/tributos, proteção de materiais, receita ativa via providers, interface de regras do Melhoria dos Rituais, decisão pós-Ritual e fallback). Não refaça o MOD nem altere outros MODs ou a decompilação original sem necessidade e autorização. A versão atual está estruturada para Yu-Gi-Oh! Forbidden Memories Recompiled v0.3.0 (Windows). Confirme o SDK/versão real antes de compilar.
+
+ESCOPO DESTA ENTREGA
+Adicionar perfis de deck e IA para quatro duelistas: Jono, Jono 2nd, Weevil, Shadi. Preservar Isis 100% e os perfis de dificuldade definidos. NÃO programar os efeitos próprios dos monstros Ritual neste MOD: isso pertence ao MOD Efeitos de Rituais; o Ritual Duelists deve apenas reconhecer os efeitos disponíveis para planejar jogadas, quando houver interfaces reais. Não tocar em master, upstream Unchiga nem outros MODs/branches do usuário.
+
+REGRAS GLOBAIS APROVADAS PARA OS 4 NOVOS PERFIS
+1) Cada deck tem exatamente 40 cartas, com no máximo 3 cópias por ID somadas entre garantias e sorteios. Cartas garantidas também entram no embaralhamento final (não em posições predeterminadas).
+2) A pool ponderada de cada duelista totaliza 2.048 pontos; os pesos são os MESMOS no Fácil/Médio/Difícil. Quando uma carta atingir o limite de 3 cópias, o sorteio precisa considerar corretamente as restantes sem distorcer os pesos aprovados.
+3) Seleção aleatória de dificuldade uma vez por duelo:
+   - Story Mode: Fácil 15% / Médio 50% / Difícil 35%.
+   - Free Duel: Fácil 50% / Médio 35% / Difícil 15%.
+4) Para cada Ritual com três requisitos: garantir 1/2/3 cópias da MAGIA de Ritual no Fácil/Médio/Difícil, respectivamente; e garantir 1/2/3 cópias de um monstro elegível POR REQUISITO. Assim, são 4/8/12 cartas garantidas e 36/32/28 vagas sorteadas normalmente da pool.
+5) NÃO garantir o MONSTRO RESULTADO DO RITUAL para Jono, Jono 2nd, Weevil ou Shadi. Quando incluído, ele aparece apenas por sorteio ponderado da pool. Esta mudança é específica desses quatro perfis: não remover garantias especiais de Isis nem reescrever seu balanceamento.
+6) O número e as condições de requisitos devem vir da RECEITA ATIVA, nunca de IDs travados como se apenas a receita Vanilla existisse. Consultar em modo Auto os providers de Efeitos de Rituais, as tabelas da recompilação e, na ausência deles, a receita original. Melhoria dos Rituais é outro MOD: controla de onde vêm os materiais (Campo/Mão/Deck) e a sua validação/consumo; não confundir essa funcionalidade com o MOD Efeitos de Rituais que altera receitas/efeitos.
+7) Para escolher monstros de requisitos genéricos: a) preferências de tributos aprovadas para o duelista, QUANDO satisfizerem a receita ativa; b) cartas elegíveis que já estejam na própria pool do duelista; c) outras cartas válidas do catálogo somente se necessário. Requisitos de carta específica usam a carta exata da receita ativa. Preferências explícitas aprovadas abaixo se sobrepõem à preferência genérica pela pool (por exemplo, Charubin de Jono 1 e Trent de Jono 2nd podem não estar na pool Vanilla). Evitar usar o mesmo exemplar físico para satisfazer dois requisitos simultâneos; cumprir cap de cópias e 40 cartas.
+8) Uma carta escolhida como tributo garantido NÃO precisa ser removida da pool. Não alterar pesos da pool por conta do sistema de garantias. Se a receita não tiver solução válida, fazer fallback seguro e registrar o motivo sem inventar cartas.
+9) Aproveitar a IA ritual-first do perfil Isis: busca real de Ritual Magic e tributos no Deck da CPU, uso de troca física real, preservação de materiais e campo, baixar Ritual Magic face-down antes de ativar, evitar exposição desnecessária de monstros fracos, evitar paralisia e permitir jogadas emergenciais. A "cheat draw" já aprovada para a CPU permanece como padrão; não gerar cartas inexistentes, nem mudar o Deck do jogador. Respeitar limite mínimo de tributos em campo e configurações reais do Melhoria dos Rituais; preferimos mínimo de um tributo em campo, demais na mão, sem consumir diretamente o Deck quando essa opção estiver desligada.
+10) Não copiar cegamente os avaliadores de efeito da Isis: para Hunger Burger, Javelin Beetle e Garma Sword, usar avaliadores de efeito pós-Ritual específicos, fundamentados nas regras verdadeiras do MOD Efeitos de Rituais. Se não houver dados/API suficientes, preservar fallback seguro em vez de presumir buffs ou poderes.
+
+PERFIL A — JONO 1ST
+Ritual: Hungry Burger (#702). Ritual Magic: Hamburger Recipe (#677).
+Pool: partir do deck original deste duelista, preservar a variedade original (23 cartas distintas no fechamento aprovado). Modificações exatas de pesos:
+- REMOVER Monster Eye: peso Vanilla 72 -> MOD 0.
+- INSERIR Hungry Burger: 0 -> 20. É raro e NÃO garantido.
+- Ancient Jar (#167): 72 -> 98.
+- Armed Ninja (#469): 72 -> 98.
+- Todas as demais cartas/pesos originais inalterados.
+Confirmação da conta: -72 +20 +26 +26 = 0. Total final da pool = 2.048; variedade preservada.
+Preferências de materiais quando o Efeitos de Rituais habilitar sua receita para Hungry Burger (Battle Steer + 1 Plant + 1 Pyro):
+- Específico: Battle Steer (#14).
+- Plant: Dark Plant (#123).
+- Pyro: Charubin the Fire Knight (#133).
+As preferências não impedem a escolha dinâmica se a receita ativa for diferente; não adicionar Charubin à pool ponderada apenas porque ele é garantido como tributo.
+
+PERFIL B — JONO 2ND
+Ritual: Hungry Burger (#702). Ritual Magic: Hamburger Recipe (#677).
+Pool: partir do deck original do Jono 2nd, preservar variedade (51 cartas distintas no fechamento aprovado). Modificações exatas:
+- REMOVER Umi: 70 -> 0.
+- INSERIR Hungry Burger: 0 -> 70. NÃO garantido; é mais frequente que no Jono 1.
+- Todas as demais cartas/pesos originais inalterados.
+Conta: -70+70=0; total final 2.048; variedade preservada.
+Preferências com receita modificada Battle Steer + 1 Plant + 1 Pyro:
+- Específico: Battle Steer (#14).
+- Plant: Trent (#637).
+- Pyro: Vermillion Sparrow (#473).
+A escolha dos materiais deve continuar dependente da receita ativa; Trent pode entrar pelas garantias sem ser acrescentado à pool original.
+
+PERFIL C — WEEVIL
+Ritual: Javelin Beetle (#717); Ritual Magic: Javelin Beetle Pact (#696).
+Pool final: usar EXATAMENTE os 71 registros e pesos do CSV ANEXO A; é uma nova distribuição de design aceita pelo usuário, e NÃO é a mesma tabela personalizada antiga do chat que chegou ao limite.
+- Todas as 36 cartas do tipo Insect existentes no catálogo de FM entram na pool, inclusive Javelin Beetle, Great Moth e Perfectly Ultimate Great Moth.
+- Entre os monstros de outros tipos, manter somente os que ganham bônus no campo Forest (Beast, Beast-Warrior, Plant); preservar as 2 cartas Equip e a carta Forest já presentes no original. Remover monstros que não recebam bônus de Forest.
+- Total: 71 entradas distintas / 2.048 pontos. Peso Insect 1.502 (73,34%); demais 546 (26,66%).
+- Pesos especiais: Javelin Beetle 50 (não garantido); Great Moth 10; Perfectly Ultimate Great Moth 5; Jirai Gumo 48 na pool, SEM garantia própria.
+- Hercules Beetle 31; Kwagar Hercules 21 na pool.
+- Para a receita modificada Javelin Beetle = Hercules Beetle + Kwagar Hercules + 1 Insect (elegível pelos limites de stats definidos no Efeitos de Rituais), preferir Hercules Beetle e Kwagar Hercules para requisitos específicos e escolher o terceiro Insect elegível priorizando a pool do próprio Weevil. Não criar garantia adicional de Jirai Gumo; obedecer requisitos exatos que a receita ativa realmente exigir.
+- Se outros MODs alterarem requisitos, as garantias mudam dinamicamente sem mudar a pool de 71 entradas.
+IMPORTANTE: todas as 71 linhas do ANEXO A são parte da especificação; não redistribuir pesos por preferência pessoal.
+
+PERFIL D — SHADI
+Ritual: Garma Sword (#716). Ritual Magic: Garma Sword Oath (#697).
+Filosofia: Shadi é fraco; preservar quase integralmente sua pool Vanilla, sem redesenhar o arquétipo.
+Pool: preservar 118 cartas distintas e peso 2.048. Modificação exata:
+- REMOVER Basic Insect (#050): 20 -> 0.
+- INSERIR Garma Sword (#716): 0 -> 20; raro e NÃO garantido.
+- Demais cartas/pesos originais inalterados.
+Com receita Vanilla, a tabela do jogo exige Vishwar Randi (#239), Swordstalker (#378) e Succubus Knight (#621). Com Efeitos de Rituais, a receita configurada é 1 Six-Armed Woman + 1 Warrior + 1 Fiend. O gerador deve escolher materiais conforme a receita ativa e, nos requisitos genéricos, priorizar cartas que já existam na pool do Shadi e satisfaçam condições/limites. Não forçar os três nomes Vanilla sob receita modificada. Não aumentar a força da pool para facilitar o Ritual.
+
+CONDIÇÕES TÉCNICAS E REVISÃO DE CÓDIGO
+- Inspecionar os arquivos reais do ZIP antes de alterar. No pacote atual, `profiles.c` só registra Isis e `profile_data.h` contém suas cartas; `recipe_decks.c` preserva garantias fixas, inclusive resultados de Ritual, e prioriza baseline antes da pool. Adaptar esses mecanismos para os novos perfis segundo as regras acima, mantendo comportamento de Isis inalterado.
+- Verificar se há caminhos de AI/planner/diagnóstico/Settings hardcoded em Isis e generalizá-los quando necessário, evitando hook exclusivo que substitua todo o AI original.
+- Separar callbacks de efeitos de Ritual: não tratar Javelin ou Garma Sword como se fossem Skull Guardian.
+- Efeitos para ORIENTAR a avaliação estratégica (não reimplementar a mecânica aqui): Hungry Burger ritualizado ganha +500 ATK/DEF cumulativos a cada monstro inimigo destruído em batalha; Javelin Beetle ritualizado fortalece outros Insects aliados em +400 ATK/DEF por Insect aliado no campo (conta a si, mas não recebe o próprio bônus) e sobrevive à primeira destruição por batalha por turno; Garma Sword ritualizado dispõe de cinco ataques extras potenciais (swords), consumindo uma carga para atacar de novo após destruir um inimigo em batalha. Versões não ritualizadas não ativam esses efeitos. Verificar comportamento/descrições da versão realmente instalada do MOD Efeitos de Rituais antes de codificar heurísticas.
+- Garantir que as probabilidades Story/Free Duel e os perfis dos quatro oponentes não se confundem com outros duelistas da campanha.
+- Não modificar master, repositório Unchiga, branch mod-field-effects nem fontes de Field Effects, Melhoria dos Rituais ou Efeitos de Rituais sem necessidade técnica real. Se for inevitável alguma integração, identificar previamente o problema e pedir decisão.
+
+VALIDAÇÃO SOLICITADA ANTES DE ENVIAR BUILD
+1. Validar pools com teste automático: Jono 1 23 opções/2048, Jono 2nd 51/2048, Weevil 71/2048, Shadi 118/2048; pesos de cartas explicitamente definidos; nenhuma carta removida ainda presente na pool do perfil correspondente.
+2. Weevil: 36 Insects do catálogo, demais monstros compatíveis com Forest e Magic/Equip preservados; somas 1502/546; Moths 10/5 e Javelin 50; Jirai não garantido.
+3. Testar simulações para fácil/médio/difícil com 40 cartas, 3 cópias no máximo, 1/2/3 de magia e por requisito; sem garantia do resultado; embaralhamento normal; dificuldades aproximam as proporções pedidas ao simular muitos duelos.
+4. Validar receitas Vanilla, modificadas por Efeitos de Rituais, mudança/ausência dos providers, requisitos de tipos e limites de ATK/DEF, cartas exatas, papéis físicos distintos, falta de candidato e fallback.
+5. Regressão Isis: pool de 83 cartas e pesos 2048 inalterados, garantias particulares da Isis intactas, IA anterior e APIs de compatibilidade preservadas.
+6. Confirmar compilação da build Windows v0.3.0 no SDK correspondente, integridade do ZIP e testes de componentes. Se runtime Windows não estiver disponível, diferenciar claramente teste automatizado, compilação, simulação e confirmação em jogo.
+7. Enviar versão ZIP utilizável e checklist objetivo de validação em campo, pronto para ser testado por mim sem etapas manuais de código.
+
+SE HOUVER CONFLITO
+Prioridade: decisões deste prompt > suposições; arquivo CSV anexo para pesos Weevil > tabelas genéricas; os arquivos reais do ZIP e o SDK definem os pontos de integração. Não dizer que está finalizado sem validar. Evite interromper para cada detalhe pequeno; só peça informações se houver um bloqueio real.
+
+ANEXO A — WEEVIL, POOL EXATA DE 71 CARTAS (CSV COM SEPARADOR ;)
+﻿ID;Carta;Tipo;Peso_Vanilla;Peso_MOD;Diferenca;Criterio
+3;Hitotsu-me Giant;Beast-Warrior;16;16;0;Forest +500 (Vanilla)
+8;Mushroom Man;Plant;1;1;0;Forest +500 (Vanilla)
+23;The Wicked Worm Beast;Beast;16;16;0;Forest +500 (Vanilla)
+49;Big Insect;Insect;0;48;48;Todos os Insects (regra aprovada)
+50;Basic Insect;Insect;1;62;61;Todos os Insects (regra aprovada)
+52;Hercules Beetle;Insect;0;31;31;Todos os Insects (regra aprovada)
+53;Killer Needle;Insect;72;70;-2;Todos os Insects (regra aprovada)
+54;Gokibore;Insect;0;54;54;Todos os Insects (regra aprovada)
+55;Giant Flea;Insect;0;27;27;Todos os Insects (regra aprovada)
+56;Larvae Moth;Insect;32;40;8;Todos os Insects (regra aprovada)
+57;Great Moth;Insect;0;10;10;Todos os Insects (regra aprovada)
+61;Wolf;Beast;8;8;0;Forest +500 (Vanilla)
+64;Tiger Axe;Beast-Warrior;8;8;0;Forest +500 (Vanilla)
+65;Silver Fang;Beast;8;8;0;Forest +500 (Vanilla)
+67;Perfectly Ultimate Great Moth;Insect;0;5;5;Todos os Insects (regra aprovada)
+72;Cocoon of Evolution;Insect;32;42;10;Todos os Insects (regra aprovada)
+75;Man-eating Plant;Plant;1;1;0;Forest +500 (Vanilla)
+116;Nightmare Scorpion;Insect;1;50;49;Todos os Insects (regra aprovada)
+121;Sleeping Lion;Beast;8;8;0;Forest +500 (Vanilla)
+123;Dark Plant;Plant;1;1;0;Forest +500 (Vanilla)
+141;Spiked Snail;Insect;24;50;26;Todos os Insects (regra aprovada)
+157;Firegrass;Plant;1;1;0;Forest +500 (Vanilla)
+158;Man Eater;Plant;1;1;0;Forest +500 (Vanilla)
+180;Arlownay;Plant;2;2;0;Forest +500 (Vanilla)
+201;Frenzied Panda;Beast;16;16;0;Forest +500 (Vanilla)
+209;Winged Cleaver;Insect;1;42;41;Todos os Insects (regra aprovada)
+219;Solitude;Beast-Warrior;12;12;0;Forest +500 (Vanilla)
+221;Kumootoko;Insect;48;42;-6;Todos os Insects (regra aprovada)
+238;Yashinoki;Plant;1;1;0;Forest +500 (Vanilla)
+246;One Who Hunts Souls;Beast-Warrior;12;12;0;Forest +500 (Vanilla)
+248;Master & Expert;Beast;16;16;0;Forest +500 (Vanilla)
+252;Nekogal #1;Beast;8;8;0;Forest +500 (Vanilla)
+273;Ancient Tree of Enlightenment;Plant;48;48;0;Forest +500 (Vanilla)
+274;Green Phantom King;Plant;48;48;0;Forest +500 (Vanilla)
+278;Petit Moth;Insect;1;50;49;Todos os Insects (regra aprovada)
+305;Laser Cannon Armor;Equip;50;50;0;Magic/Equip preservado
+306;Insect Armor with Laser Cannon;Equip;50;50;0;Magic/Equip preservado
+330;Forest;Magic;48;48;0;Magic/Equip preservado
+367;Jirai Gumo;Insect;48;48;0;Todos os Insects (regra aprovada)
+375;Dungeon Worm;Insect;0;28;28;Todos os Insects (regra aprovada)
+397;Leghul;Insect;1;54;53;Todos os Insects (regra aprovada)
+476;Ganigumo;Insect;1;44;43;Todos os Insects (regra aprovada)
+477;Alinsection;Insect;1;44;43;Todos os Insects (regra aprovada)
+478;Insect Soldiers of the Sky;Insect;2;44;42;Todos os Insects (regra aprovada)
+479;Cockroach Knight;Insect;1;44;43;Todos os Insects (regra aprovada)
+480;Kuwagata a;Insect;48;45;-3;Todos os Insects (regra aprovada)
+485;Korogashi;Insect;1;44;43;Todos os Insects (regra aprovada)
+488;Rainbow Flower;Plant;1;1;0;Forest +500 (Vanilla)
+489;Barrel Lily;Plant;1;1;0;Forest +500 (Vanilla)
+496;Wilmee;Beast;16;16;0;Forest +500 (Vanilla)
+499;Kattapillar;Insect;1;44;43;Todos os Insects (regra aprovada)
+501;Man-eater Bug;Insect;1;44;43;Todos os Insects (regra aprovada)
+506;Gale Dogra;Insect;1;44;43;Todos os Insects (regra aprovada)
+510;Laughing Flower;Plant;1;1;0;Forest +500 (Vanilla)
+533;Kwagar Hercules;Insect;0;21;21;Todos os Insects (regra aprovada)
+534;Minar;Insect;1;44;43;Todos os Insects (regra aprovada)
+535;Kamakiriman;Insect;0;44;44;Todos os Insects (regra aprovada)
+547;Griggle;Plant;1;1;0;Forest +500 (Vanilla)
+562;Needle Worm;Insect;1;44;43;Todos os Insects (regra aprovada)
+567;Darkworld Thorns;Plant;48;48;0;Forest +500 (Vanilla)
+576;Giant Scorpion of the Tundra;Insect;48;34;-14;Todos os Insects (regra aprovada)
+579;Abyss Flower;Plant;1;1;0;Forest +500 (Vanilla)
+588;Living Vase;Plant;24;24;0;Forest +500 (Vanilla)
+589;Tentacle Plant;Plant;1;1;0;Forest +500 (Vanilla)
+609;Bladefly;Insect;1;44;43;Todos os Insects (regra aprovada)
+614;Hunter Spider;Insect;0;27;27;Todos os Insects (regra aprovada)
+620;Snakeyashi;Plant;48;48;0;Forest +500 (Vanilla)
+629;Armored Rat;Beast;12;12;0;Forest +500 (Vanilla)
+640;Acid Crawler;Insect;1;44;43;Todos os Insects (regra aprovada)
+642;Mystical Sheep #1;Beast;12;12;0;Forest +500 (Vanilla)
+717;Javelin Beetle;Insect;0;50;50;Todos os Insects (regra aprovada)

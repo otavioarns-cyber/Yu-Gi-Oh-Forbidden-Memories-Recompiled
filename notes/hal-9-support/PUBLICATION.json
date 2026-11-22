@@ -1,0 +1,12 @@
+{
+  "pr": 32,
+  "url": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/32",
+  "draft": true,
+  "merged": false,
+  "base": "integration/hal-20-v0.3.1-preview.2",
+  "branch": "test/hal-9-time-magic-support",
+  "implementation_commit": "1f4b314651595923db6f3e63c037923d60753eee",
+  "old_heads_verified": 36,
+  "old_heads_changed": [],
+  "scope": "New branch only; private artifacts not published."
+}

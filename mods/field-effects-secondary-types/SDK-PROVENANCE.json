@@ -1,0 +1,62 @@
+{
+  "mod_id": "field-effects-secondary-types",
+  "mod_version": "0.19-adaptive-description-test",
+  "sdk": "v0.3.1-preview.2",
+  "sdk_api": 24,
+  "targets": [
+    "i386"
+  ],
+  "engine_commit": "aceac3782902746f35ddb0148809450933327cb3",
+  "integration_commit": "d649647c159c91d615c07d6960928a37e270b461",
+  "reference_PR28": "414a1b7cd149582d674792dd66b375ca46a7fcd2",
+  "source_reference": "296c5919479711b550d00aea8cd042b1c34ba306",
+  "status": "Experimental collection candidate, no merge/release",
+  "compiler": "Clang 23.1.2 / llvm-mingw 20260922",
+  "compiler_sha256": "bab7f174d7e136ae093ad232d5a894ee00f0a8f9051bcff4eb6a70c132898248",
+  "builder_sha256": "181ba2e2d5363b90bae87e5a0c531b1ba3640e74d4d17f6f026d1db055a609b9",
+  "sdk_include_digest": "12a683c57ebb419ebc43493647ca54fbaee403ccc08e957371b1ce66677bfcab",
+  "production_inputs_sha256": {
+    "field_effects.c": "b162a2f0a61d6e021a7526245f94167215c53e1fe72de645c48092db1dfd18fb"
+  },
+  "artifact": {
+    "path": "mods/field-effects-secondary-types/field_effects.o",
+    "sha256": "729ff106787d477def41feb42a1a5d168f5bb050af870a25738c977e02c1cd21",
+    "bytes": 56836,
+    "format": "ELF32 little-endian REL i386 (SDK Windows MOD format)",
+    "api": "runtime init checked by run.py",
+    "imports": [
+      "Cards_Type",
+      "D_8009B240",
+      "D_8009B24C",
+      "D_8009B250",
+      "D_801A7AD8",
+      "DuelEffect_ApplyTerrain",
+      "Duel_SetupCardRecord",
+      "Glyphs_Cell",
+      "Glyphs_RetailCell",
+      "Glyphs_TinyCell",
+      "GsSortPoly",
+      "HdText_Enabled",
+      "SetPolyFT4",
+      "Tables_TerrainBonus",
+      "__x86_indirect_thunk_eax",
+      "func_80035E20",
+      "func_80037DA4",
+      "gDuel_aTerrainBoost",
+      "gDuel_bTerrain",
+      "gDuel_wViewerCardID"
+    ],
+    "exports": [
+      "MemoriesModInit"
+    ]
+  },
+  "object_loader_code_hash": "cfd0dcf3",
+  "manifest_sha256": "44ae35ba1c59d3e757cf56a57382409c97f8a83662bf38eae0054b8b887ffac2",
+  "manifest_changed": false,
+  "assets_changed": false,
+  "public_exports_unchanged": true,
+  "imports_unchanged": true,
+  "game_runtime_tested": false,
+  "change": "Only provider owner_effective flag/gate; approved Vanilla V2 rules and layout unchanged.",
+  "future_features": "DLC and Sanctuary are not implemented and were explicitly excluded by user clarification."
+}

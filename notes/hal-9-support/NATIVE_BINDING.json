@@ -1,0 +1,8 @@
+{
+  "original_sha256": "7c6624c41bc79a4f04a51c029b8cd4adaccef3bc1fd8fe5782be5163598b0c29",
+  "fixture_sha256": "882a8507980c003bfa5d37acd666014b99c889974df2bff69fa9838a8cf42fef",
+  "changed": [
+    "D_8009B150"
+  ],
+  "scope": "Loader-only fixture binding: the resident COMMON D_8009B150 belongs to\npinned guest memory. Change this single ELF symbol to an import, preserving all\nsection bytes/relocations. Never write the official input or production source.\n"
+}

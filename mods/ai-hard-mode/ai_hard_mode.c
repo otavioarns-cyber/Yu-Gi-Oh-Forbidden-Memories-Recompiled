@@ -136,9 +136,18 @@ static int terrain(int type, int field)
     return type >= 0 && type < 20 && field >= 1 && field <= 6 ?
         gDuel_aTerrainBoost[type][field - 1] * CARD_STAT_SCALE : 0;
 }
+/* Existing optional Field Effects ABI. Modules remain resident until exit;
+ * effective OFF is enforced by the provider, not by the saved preference. */
+static int terrain_card(int id,int type,int field)
+{
+    typedef int (*TerrainCardDeltaV1)(int,int,int);
+    TerrainCardDeltaV1 extra=host&&host->find?(TerrainCardDeltaV1)host->find(
+        host,"field-effects-secondary-types:terrain-card-delta-v1"):0;
+    return terrain(type,field)+(extra&&id>0?extra(id,type,field):0);
+}
 static int ritual(int id) { return Duel_CheckRitual(0, id); }
 static int star_matchup(int attacker, int defender) { return Duel_CalcGuardianStarMatchup(attacker, defender); }
-static const HmRules rules = {card_info, Duel_CheckFusion, Duel_CheckEquip, terrain, ritual};
+static const HmRules rules = {card_info, Duel_CheckFusion, Duel_CheckEquip, terrain, ritual, terrain_card};
 
 static HmCard snapshot(int index, int effective, int secret)
 {

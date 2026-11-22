@@ -1,0 +1,10 @@
+{
+  "host": "Linux",
+  "Windows_PE32": "AUTOMATION_UNAVAILABLE",
+  "basis": "No newly provided usable Windows backend or authorized Windows runner. Existing PR30-34 PE32/Wine/Actions blockers retained; no unchanged Wine/QEMU PE attempt repeated.",
+  "legitimate_game_image_supplied_this_task": false,
+  "WA_MRG_files_found": 0,
+  "cue_iso_file_count": 0,
+  "partial_i386_engine": "Executed under QEMU; not Windows gameplay.",
+  "manual_user_gameplay_requested": false
+}

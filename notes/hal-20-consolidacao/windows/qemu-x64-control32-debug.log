@@ -1,0 +1,16 @@
+00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000025,0x7ffffe2ffa30,0x00000040,(nil))
+00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x0000001a,0x7ffffe2ff5a8,0x00000008,(nil))
+00dc:trace:process:GetEnvironmentVariableW (L"WINEUNIXCP" 00007FFFFE2FF210 85)
+00dc:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 0000000000000000 0)
+00dc:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47168" 00007FFFFE321C20 18)
+00dc:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 0000000000000000 0)
+00dc:trace:process:ExpandEnvironmentStringsW (L"@tzres.dll,-47169" 00007FFFFE321C50 18)
+Fontconfig error: No writable cache directories
+Fontconfig error: No writable cache directories
+00dc:trace:process:NtQueryInformationProcess (0xffffffffffffffff,0x00000007,0x7ffffe2ff9e0,0x00000008,(nil))
+00dc:trace:process:GetEnvironmentVariableW (L"PATHEXT" 00007FFFFE2FBD70 8192)
+00dc:trace:process:CreateProcessInternalW app L"Z:\\workspace\\work\\hal25-boundary\\local\\windows-final\\control32.exe" cmdline L"\"Z:\\workspace\\work\\hal25-boundary\\local\\windows-final\\control32.exe\" "
+00dc:trace:process:NtCreateUserProcess L"\\??\\Z:\\workspace\\work\\hal25-boundary\\local\\windows-final\\control32.exe" image L"Z:\\workspace\\work\\hal25-boundary\\local\\windows-final\\control32.exe" cmdline L"\"Z:\\workspace\\work\\hal25-boundary\\local\\windows-final\\control32.exe\" " parent (nil) machine 0
+00e4:err:environ:init_peb starting L"Z:\\workspace\\work\\hal25-boundary\\local\\windows-final\\control32.exe" in experimental wow64 mode
+Application could not be started, or no application associated with the specified file.
+ShellExecuteEx failed: 00dc:err:start:fatal_error FormatMessage failed

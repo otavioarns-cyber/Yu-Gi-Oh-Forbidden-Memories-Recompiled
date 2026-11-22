@@ -1,0 +1,18 @@
+--- a/mod.c
++++ b/mod.c
+@@ -2331,6 +2331,7 @@
+  for(int k=0;k<5;k++)if(n.row[0][k].id>0)for(int d=0;d<2;d++)v+=(ea_aura(&n,0,k,d)-(k==p?0:ea_aura(&ea_combo,0,k,d)))/3;
+  if(formed&&ea_f(c,713))v+=n.lp[1]<=1000?6500:1000;if(formed&&ea_f(c,217))v+=400*(5-ea_free(n.row[1]));if(formed&&ea_f(c,458))v+=350*(5-ea_free(n.row[1]));
+  int t=0;for(int j=0;j<5;j++)if(n.row[1][j].id>0){EaResult f=ea_fight(&n,0,p,j,0);if(f.relevant&&f.legal&&f.kill&&f.score>0&&c.at<=(n.row[1][j].flags&2048?n.row[1][j].df:n.row[1][j].at))t=ea_max(t,ea_min(800,f.score/4));}return v+t;}
++#include "fusion_lease_preview.h"
+ int MemoriesModInit(const MemoriesModHost *host,MemoriesMod *mod)
+ {
+     if(!host || !mod || host->api<4 || !host->hook || !host->subscribe) return 0;
+@@ -2349,6 +2350,7 @@
+     mod->api=MEMORIES_MOD_API;
+     mod->name="Balanceamento de Fusoes e Efeitos Auxiliares";
+     mod->reset=aux_reset;mod->applied=ea_apply;
++    if(!fl_init(mod))return 0;
+     if(!host->subscribe(host,MEMORIES_EVENT_FUSION,60,aux_fusion)) {
+         if(host->log) host->log(host,"fusion-auxiliary-balance: cannot subscribe FUSION");
+         return 0;

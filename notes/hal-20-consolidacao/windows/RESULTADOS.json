@@ -1,0 +1,82 @@
+{
+  "scope": "Isolated WinAPI control + original Windows PE32 startup probes under Wine.\nWine is a compatibility layer, not a native Windows OS. No game data synthesized.\n",
+  "wine_version": "wine-11.0",
+  "game_sha256": "9e1f6553357a6a61c3622f25a3c10b88576ef460e591860ca08e3afbe6dbbf66",
+  "SDL3_sha256": "a11c7db83cb704b634c97c979fd4b9ffadbcf2eb3d058d3407a155f11fd4ec0b",
+  "builds": [
+    {
+      "binary": "control32.exe",
+      "source_sha256": "94e51ca17227af36c2c2e56716f5ecd15a1da53ef519c8469eacee9065274b88",
+      "artifact_sha256": "597f77d2b41182939fbea476f750e3cd3a8d4f8e01d0520e04c7d76e8854d88b",
+      "command": [
+        "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/i686-w64-mingw32-clang",
+        "/workspace/work/hal20-consolidacao/repo/tests/hal20-consolidacao/windows/hello.c",
+        "-O1",
+        "-o",
+        "/workspace/work/hal20-consolidacao/local/windows11/control32.exe"
+      ]
+    },
+    {
+      "binary": "control64.exe",
+      "source_sha256": "94e51ca17227af36c2c2e56716f5ecd15a1da53ef519c8469eacee9065274b88",
+      "artifact_sha256": "51cb268c226d1cf7e91f6d2054f47c060b46c4680713fa658b100eceafd14d59",
+      "command": [
+        "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/x86_64-w64-mingw32-clang",
+        "/workspace/work/hal20-consolidacao/repo/tests/hal20-consolidacao/windows/hello.c",
+        "-O1",
+        "-o",
+        "/workspace/work/hal20-consolidacao/local/windows11/control64.exe"
+      ]
+    },
+    {
+      "binary": "driver64.exe",
+      "source_sha256": "d3a3d954fe6cddddfd4fa7526606d14a9cbcfa998f96ce9bd838868cc4d52712",
+      "artifact_sha256": "3bac1d237abd36c1a02d47b430be120425f2342f4f9d06dfa3d743c8c011d582",
+      "command": [
+        "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/x86_64-w64-mingw32-clang",
+        "/workspace/work/hal20-consolidacao/repo/tests/hal20-consolidacao/windows/driver.c",
+        "-O1",
+        "-o",
+        "/workspace/work/hal20-consolidacao/local/windows11/driver64.exe"
+      ]
+    }
+  ],
+  "cases": [
+    {
+      "case": "prefix-init",
+      "returncode": 0,
+      "seconds": 16.022,
+      "status": "PASS",
+      "log": "prefix-init.log"
+    },
+    {
+      "case": "control64",
+      "returncode": 0,
+      "seconds": 8.497,
+      "status": "PASS",
+      "log": "control64.log"
+    },
+    {
+      "case": "control32",
+      "returncode": 91,
+      "seconds": 7.737,
+      "status": "AUTOMATION_UNAVAILABLE",
+      "log": "control32.log"
+    },
+    {
+      "case": "game-headless",
+      "returncode": 91,
+      "seconds": 7.585,
+      "status": "AUTOMATION_UNAVAILABLE",
+      "log": "game-headless.log"
+    },
+    {
+      "case": "game-visible",
+      "returncode": 91,
+      "seconds": 7.549,
+      "status": "AUTOMATION_UNAVAILABLE",
+      "log": "game-visible.log"
+    }
+  ],
+  "gameplay": "NOT_REACHED: PE32 backend must pass the control before game checks. No legal game disc found in supplied workspace; no image downloaded or invented."
+}

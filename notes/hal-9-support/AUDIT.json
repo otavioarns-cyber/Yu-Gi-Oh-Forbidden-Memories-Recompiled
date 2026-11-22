@@ -1,0 +1,22 @@
+{
+  "parent": "377e8ca4e606da68b3c29f815eff4a646a5ba917",
+  "canonical_mod_files_identical": 507,
+  "production_src_mods_config_workflows": "unchanged",
+  "TW_sha256": "6470024d45bd099b7800bd5f84ccdcef1a895a8a2447ecef058af11ada97d5d7",
+  "Dual_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+  "public_abi_and_guard": "unchanged, TW not admitted",
+  "savestate_policy": "B unchanged, A disabled",
+  "new_private_binaries_published": false,
+  "new_production_patch": false,
+  "fixture_changes": [
+    "enemy record geometry",
+    "display source identity field6B",
+    "native slot argument decoding",
+    "COMMON binding only",
+    "real native CardUse body",
+    "16.667ms simulated host clock",
+    "mock wheel transport delivers native chosen sector",
+    "input presses/read-only callback traces"
+  ],
+  "scope": "No speculative core reconstruction or strategic change."
+}

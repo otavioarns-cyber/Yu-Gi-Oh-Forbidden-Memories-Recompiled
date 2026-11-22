@@ -1,0 +1,66 @@
+[
+  {
+    "component": "Time Wizard",
+    "id": "time-wizard-time-magic",
+    "version": "0.24.0-test",
+    "source": "Updated user ZIP",
+    "artifact_sha256": "828a5879a81ee33078c7cd2e60ba7c8e87557f889b035455211ed700ca8d6b07",
+    "core_sha256": "5b4252dafbc07532f859cda92e49e75d15e531a880f90cc7924371b7e37f9b4a",
+    "status": "NOT_REACHED",
+    "available_now": "Inspect partial adapters; replay their isolated contracts in private copies.",
+    "blocker": "Full roulette/controller core source absent. build_v024.py relinks a fixed binary core with hard-coded BSS offsets; Dual state discovery uses instruction signatures. No full API24 source rebuild or real final lease/attempt-cache qualification.",
+    "guard": "Not in staged profile, not qualified."
+  },
+  {
+    "component": "Field Effects + Secondary Types",
+    "id": "field-effects-secondary-types",
+    "version": "0.19-adaptive-description-test",
+    "source_commit": "296c5919479711b550d00aea8cd042b1c34ba306",
+    "source_branch": "mod-field-effects",
+    "in_updated_zip": false,
+    "status": "NOT_REACHED",
+    "compile_API24_i386": "PASS",
+    "local_artifact_sha256": "b8e14c70b019b39082c0dfd93276d42ed02f281e714689b4179b89694aa129a5",
+    "hooks": [
+      "Duel_SetupCardRecord",
+      "DuelEffect_ApplyTerrain",
+      "func_80037DA4",
+      "func_80035E20"
+    ],
+    "provider": "terrain-card-delta-v1",
+    "blocker": "Source available and compiles; identity/stats/text/AI/provider runtime interaction not qualified. Historical branch is not proof of newest package.",
+    "guard": "Outside six-object composition; noncritical hook tolerance does not qualify it."
+  },
+  {
+    "component": "Dual Play",
+    "id": "dual-play",
+    "version": "0.5.7",
+    "status": "PASS",
+    "scope": "Local pinned API24 object, real controller/quota callbacks in partial host; no full Windows duel.",
+    "blocker": "Redistribution permission absent; no source/manifest/object published. Private staging only."
+  },
+  {
+    "component": "Droplist external",
+    "version": "1.4.0",
+    "author": "PauloH-Gudang",
+    "status": "NOT_REACHED",
+    "blocker": "External package absent from updated ZIP/workspace; no source/runtime/redistribution terms to qualify.",
+    "constraint": "RD internal viewer remains removed; do not substitute it."
+  },
+  {
+    "component": "AI adapter",
+    "version": "0.1.1",
+    "status": "NOT_REACHED",
+    "blocker": "Separate adapter not supplied; its absence does not remove the official AI tested here."
+  },
+  {
+    "component": "Official optional 3d-monsters, hand-camera, yamyi-mods",
+    "status": "NOT_REACHED",
+    "blocker": "Public base sources present; not in staged six-object native profile. No automatic compatibility qualification from an official name."
+  },
+  {
+    "component": "Full visual/assets collection",
+    "status": "NOT_REACHED",
+    "blocker": "Only authorized package assets are included; absent proprietary/game-derived/other MOD resources are not replaced or fetched."
+  }
+]

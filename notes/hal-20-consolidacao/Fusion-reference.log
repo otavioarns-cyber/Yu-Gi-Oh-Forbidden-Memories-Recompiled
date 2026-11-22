@@ -1,0 +1,134 @@
+test_attribute_icons PASS
+PASS: six HD custom attribute assets, F8 logical 16x16 layout, description width, renderer hook, Mavelus fire
+test_manifest PASS
+FM Editor manifest + forbidden retail fusions + old text: PASS
+Beta.9 Square routing and Vanilla fallback: PASS
+Beta11: seven metal transforms, six exact recipes, title markup: PASS
+Beta12: Fusion Effects + Seiyaryu + settings OFF: PASS
+Beta13: concise descriptions, protected-card sprite repair, Direct LP Damage: PASS
+Beta21: current card owners, whitelist, runtime hooks and test coverage: PASS
+Beta25: independent lilac fusion heading and white inactive titles: PASS
+test_preview2_assets PASS
+PASS production PNG decoder: 28 coin frames, ASan/UBSan
+PASS assets: 34 PNGs, 28 runtime coin frames, six custom icons, 59 card entries
+test_round2_manifest PASS
+PASS: 16 Round02 effects + 22 Round03 effects, older cards/settings/recipes intact
+test_visual_dispatch PASS
+PASS: titles only; Labyrinth Tank description is five lines
+PASS: Labyrinth Tank fits four short body lines
+run_fusionist PASS
+PASS: runtime chains, field identity, actual metal, finalization, equip triggers, AI scope, ranking and uniform distinct ties
+test_battle_stat_tween-build PASS
+test_battle_stat_tween PASS
+PASS native-pace battle stat tween; increases/decreases/dual stats; no permanent changes
+test_effect_title_instance-build PASS
+test_effect_title_instance PASS
+PASS: per-instance hand/field selection and off-duel isolation
+test_effect_title_visual-build PASS
+test_effect_title_visual PASS
+PASS: active silver/lilac/orange, inactive white, restore, untouched body
+test_forecast_parity-build PASS
+test_forecast_parity PASS
+PASS: 88 forecast/executor comparisons, both sides, ATK/DEF, fusion/direct copies
+test_round2_runtime-build PASS
+test_round2_runtime PASS
+PASS: all 16 runtime effects, scopes, actual origin/lease, LP boundaries, restoration and recipes
+test_round3_recipes-build PASS
+test_round3_recipes PASS
+PASS: 17 symmetric recipes; Skelgon/Rare Fish narrow override, no Fusionist+Mermaid
+test_round3_runtime-build PASS
+test_round3_runtime PASS
+PASS: 22 Round03 Fusion Effects incl Flower Wolf and Kaminari entry/turn isolation
+test_rules-build PASS
+test_rules PASS
+Beta13: Direct LP Damage registration, fusion & metal effects, default strict conditions: PASS
+preview2_loader-build PASS
+In file included from /workspace/work/hal20-consolidacao/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:13:
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:50:1: warning: variably modified ‘DuelCardRecord_object_offset_must_be_0x00’ at file scope
+   50 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:53:1: warning: variably modified ‘DuelCardRecord_data_offset_must_be_0x04’ at file scope
+   53 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:56:1: warning: variably modified ‘DuelCardRecord_card_id_offset_must_be_0x0C’ at file scope
+   56 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:59:1: warning: variably modified ‘DuelCardRecord_attack_offset_must_be_0x0E’ at file scope
+   59 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:62:1: warning: variably modified ‘DuelCardRecord_defense_offset_must_be_0x10’ at file scope
+   62 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:65:1: warning: variably modified ‘DuelCardRecord_stat_modifier_offset_must_be_0x12’ at file scope
+   65 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:69:1: warning: variably modified ‘DuelCardRecord_defense_modifier_offset_must_be_0x1A’ at file scope
+   69 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:73:1: warning: variably modified ‘DuelCardRecord_terrain_modifier_offset_must_be_0x14’ at file scope
+   73 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:76:1: warning: variably modified ‘DuelCardRecord_flags_offset_must_be_0x16’ at file scope
+   76 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_card.h:79:1: warning: variably modified ‘DuelCardRecord_table_index_offset_must_be_0x18’ at file scope
+   79 | ];
+      | ^
+In file included from /workspace/work/hal20-consolidacao/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:14:
+/workspace/work/hal20-consolidacao/repo/src/game/duel_deck_card.h:22:1: warning: variably modified ‘DuelDeckCardRecord_id_offset_must_be_0’ at file scope
+   22 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_deck_card.h:25:1: warning: variably modified ‘DuelDeckCardRecord_index_offset_must_be_2’ at file scope
+   25 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_deck_card.h:28:1: warning: variably modified ‘DuelDeckCardRecord_data_block_offset_must_be_3’ at file scope
+   28 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_deck_card.h:31:1: warning: variably modified ‘DuelDeckCardRecord_flags_offset_must_be_4’ at file scope
+   31 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/duel_deck_card.h:34:1: warning: variably modified ‘DuelDeckCardRecord_unknown_offset_must_be_5’ at file scope
+   34 | ];
+      | ^
+In file included from /workspace/work/hal20-consolidacao/repo/mods/fusion-auxiliary-balance/tests/preview2_loader.c:16:
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:438:1: warning: variably modified ‘DisplayObject_field_22_must_be_at_0x22’ at file scope
+  438 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:441:1: warning: variably modified ‘DisplayObject_update_must_be_at_0x24’ at file scope
+  441 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:444:1: warning: variably modified ‘DisplayObject_position_must_be_at_0x28’ at file scope
+  444 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:447:1: warning: variably modified ‘DisplayObject_field_3E_must_be_at_0x3E’ at file scope
+  447 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:450:1: warning: variably modified ‘DisplayObject_field_42_must_be_at_0x42’ at file scope
+  450 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:453:1: warning: variably modified ‘DisplayObject_field_4A_must_be_at_0x4A’ at file scope
+  453 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:456:1: warning: variably modified ‘DisplayObject_field_3A_must_be_at_0x3A’ at file scope
+  456 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:459:1: warning: variably modified ‘DisplayObject_field_52_must_be_at_0x52’ at file scope
+  459 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:462:1: warning: variably modified ‘DisplayObject_field_58_must_be_at_0x58’ at file scope
+  462 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:465:1: warning: variably modified ‘DisplayObject_field_64_must_be_at_0x64’ at file scope
+  465 | ];
+      | ^
+/workspace/work/hal20-consolidacao/repo/src/game/display_object.h:468:1: warning: variably modified ‘DisplayObject_field_65_must_be_at_0x65’ at file scope
+  468 | ];
+      | ^
+preview2_loader PASS
+object_hash=afb75202 declared_api=24 hooks=33 subscriptions=4 providers=4
+PASS 2652 characterization assertions (synthetic host, no duel)
+preview2_contract_off PASS
+object_hash=afb75202 declared_api=24 hooks=33 subscriptions=4 providers=4
+OFF_CONTRACT: expected encore=0 lease=0 extended=0; observed encore=0 lease=0 extended=0 forecast=0
+PASS 214 characterization assertions (synthetic host, no duel)
+SUMMARY test groups (build steps separate): {'PASS': 16, 'FAIL': 0}

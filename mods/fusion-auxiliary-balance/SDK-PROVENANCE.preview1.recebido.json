@@ -1,0 +1,21 @@
+{
+  "sdk": "yfm-redecomp-v0.3.1-preview.1",
+  "engine_commit": "10ee7e5ecf",
+  "targets": [
+    "i386",
+    "x86_64-windows"
+  ],
+  "build_date": "2026-11-05",
+  "game_runtime_tested": false,
+  "compilers": {
+    "i386": "SDK tools/build_mod.py --target i386",
+    "x86_64-windows": "SDK tools/build_mod.py --target x86_64-windows"
+  },
+  "objects": {
+    "fusion-auxiliary-balance.o": "2ca29e9f763d81b5bbb6b83476dc83f872ae26baab3638405502418c410683cb",
+    "fusion-auxiliary-balance.x86_64-windows.o": "7fb6b1898ad05412bcfd0e53f1acad6cc124d83589969957f2e69d4f4fed323f"
+  },
+  "unit_runtime_tested": true,
+  "validation_note": "Beta.43: six 256x256 HD PNG assets, all visuals preserve 16x16 logical sprite size; binaries identical to Beta.42; no Windows runtime test.",
+  "mod_version": "0.1.0-beta.43-hd-attribute-icons"
+}

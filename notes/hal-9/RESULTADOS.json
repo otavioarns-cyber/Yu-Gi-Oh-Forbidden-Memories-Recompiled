@@ -1,0 +1,183 @@
+{
+  "runtime": {
+    "processes": 112,
+    "checks": {
+      "PASS": 1270
+    },
+    "execution": {
+      "PASS": 56,
+      "REFUSED": 40,
+      "NOT_REACHED": 16
+    },
+    "incomplete": 0
+  },
+  "original": {
+    "processes": 8,
+    "checks": {
+      "PASS": 12,
+      "FAIL": 8
+    },
+    "execution": {
+      "FAIL": 6,
+      "PASS": 2
+    },
+    "incomplete": 0
+  },
+  "collection": {
+    "processes": 32,
+    "checks": {
+      "PASS": 296
+    },
+    "execution": {
+      "PASS": 32
+    },
+    "incomplete": 0
+  },
+  "probe-no-fxsr": {
+    "processes": 8,
+    "checks": {
+      "PASS": 132
+    },
+    "execution": {
+      "PASS": 8
+    },
+    "incomplete": 0
+  },
+  "native": {
+    "steps": [
+      {
+        "name": "actual-candidate-native-controller",
+        "returncode": 0
+      },
+      {
+        "name": "test_dual_play_decisions-build",
+        "returncode": 0
+      },
+      {
+        "name": "test_dual_play_decisions",
+        "returncode": 0
+      },
+      {
+        "name": "test_dual_play_hand_selection-build",
+        "returncode": 0
+      },
+      {
+        "name": "test_dual_play_hand_selection",
+        "returncode": 0
+      },
+      {
+        "name": "test_evolutions-build",
+        "returncode": 0
+      },
+      {
+        "name": "test_evolutions",
+        "returncode": 0
+      }
+    ]
+  },
+  "policy-B": {
+    "steps": [
+      {
+        "name": "0",
+        "returncode": 0
+      },
+      {
+        "name": "1",
+        "returncode": 0
+      },
+      {
+        "name": "2",
+        "returncode": 0
+      },
+      {
+        "name": "3",
+        "returncode": 0
+      },
+      {
+        "name": "4",
+        "returncode": 0
+      }
+    ]
+  },
+  "prewrite-B": {
+    "steps": [
+      {
+        "name": "0",
+        "returncode": 0
+      },
+      {
+        "name": "1",
+        "returncode": 0
+      }
+    ]
+  },
+  "official": {
+    "steps": [
+      {
+        "name": "0",
+        "returncode": 0
+      },
+      {
+        "name": "1",
+        "returncode": 0
+      },
+      {
+        "name": "2",
+        "returncode": 0
+      },
+      {
+        "name": "3",
+        "returncode": 0
+      },
+      {
+        "name": "4",
+        "returncode": 0
+      },
+      {
+        "name": "5",
+        "returncode": 0
+      },
+      {
+        "name": "6",
+        "returncode": 0
+      },
+      {
+        "name": "7",
+        "returncode": 0
+      },
+      {
+        "name": "8",
+        "returncode": 0
+      },
+      {
+        "name": "9",
+        "returncode": 0
+      },
+      {
+        "name": "10",
+        "returncode": 0
+      },
+      {
+        "name": "11",
+        "returncode": 0
+      },
+      {
+        "name": "12",
+        "returncode": 0
+      },
+      {
+        "name": "13",
+        "returncode": 0
+      },
+      {
+        "name": "14",
+        "returncode": 0
+      }
+    ]
+  },
+  "aggregate_candidate_and_collection": {
+    "processes": 152,
+    "checks_PASS": 1698,
+    "warning": "Contract/fixture/controller qualification, not full gameplay Windows. Historical FAIL controls below remain failures; NOT_REACHED does not become compatibility."
+  }
+}

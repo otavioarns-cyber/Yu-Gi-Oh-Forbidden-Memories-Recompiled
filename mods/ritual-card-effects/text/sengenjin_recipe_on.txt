@@ -1,0 +1,7 @@
+@bank descriptions
+
+[D3A6]
+Millennium Golem +
+1 {f8 0B 05} (1500+ ATK)
++ 1 {f8 0B 03} (1500+
+ATK)

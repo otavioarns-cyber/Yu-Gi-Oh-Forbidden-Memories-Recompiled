@@ -1,0 +1,120 @@
+{
+  "scope": "Targeted continuation of PR29. Collection checks and Time Wizard source-consumer qualification are different assessments. No full native save/load or Windows gameplay certification.",
+  "groups": {
+    "canonical_collection": {
+      "suites": [
+        {
+          "suite": "state-B-hd-final",
+          "processes": 48,
+          "checks": {
+            "PASS": 192
+          },
+          "execution": {
+            "PASS": 48
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "consolidation-guarded",
+          "processes": 20,
+          "checks": {
+            "PASS": 92
+          },
+          "execution": {
+            "PASS": 20
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "manager",
+          "processes": 24,
+          "checks": {
+            "PASS": 96
+          },
+          "execution": {
+            "PASS": 24
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "tw-residency-final",
+          "processes": 96,
+          "checks": {
+            "PASS": 1848
+          },
+          "execution": {
+            "PASS": 96
+          },
+          "incomplete": 0
+        }
+      ],
+      "processes": 188,
+      "execution": {
+        "PASS": 188
+      },
+      "checks": {
+        "PASS": 2228
+      }
+    },
+    "partial_A_NOT_ADMITTED": {
+      "suites": [
+        {
+          "suite": "pair-issuer-final",
+          "processes": 80,
+          "checks": {
+            "PASS": 440
+          },
+          "execution": {
+            "PASS": 56,
+            "REFUSED": 24
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "pair-generated-gap",
+          "processes": 8,
+          "checks": {
+            "PASS": 16
+          },
+          "execution": {
+            "REFUSED": 8
+          },
+          "incomplete": 0
+        },
+        {
+          "suite": "pair-guard-refused",
+          "processes": 8,
+          "checks": {
+            "PASS": 16
+          },
+          "execution": {
+            "REFUSED": 8
+          },
+          "incomplete": 0
+        }
+      ],
+      "processes": 96,
+      "execution": {
+        "PASS": 56,
+        "REFUSED": 40
+      },
+      "checks": {
+        "PASS": 472
+      }
+    }
+  },
+  "timewizard_source_qualification": {
+    "processes": 96,
+    "execution": {
+      "FAIL": 48,
+      "PASS": 36,
+      "REFUSED": 12
+    },
+    "guard_on_execution": {
+      "FAIL": 24,
+      "PASS": 18,
+      "REFUSED": 6
+    },
+    "warning": "FAIL is source-contract mismatch, not demonstrated full-game illegal action. REFUSED is direct-signature mismatch. These failures are not suppressed by passing diagnostic checks."
+  }
+}
