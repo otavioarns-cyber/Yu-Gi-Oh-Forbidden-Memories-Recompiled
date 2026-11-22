@@ -1,5 +1,7 @@
 # HAL-9 / HAL-20 — Cliente TW cooperativo e categoria definitiva
 
+[PR #35 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/35). HAL-9/HAL-20 atualizadas no Linear por comentários, sem encerrar tarefas; recibos em [LINEAR_UPDATES.json](hal-9-client/LINEAR_UPDATES.json).
+
 Candidata experimental derivada do PR #34, branch `test/hal-9-tw-client-category`, referência `7855862525222ae6dbecfa02ae607352a41cc675`. PR destinado a `integration/hal-20-v0.3.1-preview.2`. Nenhuma política de gameplay foi escolhida. Time Wizard continua fora do guard.
 
 ## Resultado e decisão pendente
