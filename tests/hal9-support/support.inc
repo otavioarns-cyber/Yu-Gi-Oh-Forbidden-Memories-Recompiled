@@ -12,6 +12,10 @@ static void support_trace(int index,const char*stage){
   if(tx)printf("SUPPORT_SELECTION stage=%s owner=%s callback=%s tx=%d action=%u generation=%u captured=%u destination=%u mandatory=%d pending=%d pending_card=%d pending_source=%d live=%u live_destination=%u hand=%d materializations=%u\n",stage,modules[registrations[index].owner].id,registrations[index].name,tx->state,tx->request.state.action,tx->request.state.generation,tx->request.state.selection[0],tx->request.state.selection[6],tx->answer.mandatory,p->active,p->card,p->source,sel[0],sel[6],hand_count(),setup_count);
  }
  if(registrations[index].owner==D&&!strcmp(registrations[index].name,"func_80028220")){printf("SUPPORT_QUOTA_SNAPSHOT stage=%s used=%u bonus=%u mode=%u substate=%u selection=%u destination=%u\n",stage,ds()[1],ds()[5],*(uint8_t*)datum("D_8009B174"),*(uint16_t*)datum("D_8009B20C"),((uint8_t*)datum("D_800EAE88"))[0],((uint8_t*)datum("D_800EAE88"))[6]);}
+ if(registrations[index].owner==D&&!strcmp(registrations[index].name,"func_8001BAF0")){
+  uint8_t*s=datum("D_800EAE88");AiActiveCard*a=datum("gDuel_aActiveCards");
+  printf("CLIENT_GATE stage=%s source=%u type=%d destination=%u used=%u bonus=%u last=%u\n",stage,s[0],s[0]<90?a[s[0]].card_type:-1,s[6],ds()[1],ds()[5],ds()[15]);
+ }
  if(registrations[index].owner!=T||strcmp(registrations[index].name,"AiScript_Run"))return;
  int*d=local(T,"diag");if(!d)return;AiActiveCard*a=datum("gDuel_aActiveCards");
  printf("SUPPORT_PLANNER stage=%s side=%u cpu=%d script=%d handTW=%d enemy=%d,%d,%d diag_enemy=%d worth=%d reason=%d evaluations=%u available=%d locked=%d EV=%d normal=%d bank=%d choice=%d selected=%u destination=%u\n",stage,*(uint8_t*)datum("D_8009B1D5"),((int8_t*)datum("D_8009B360"))[1],*(void**)((char*)datum("gAiScript_State")+4)==datum("D_801A8000"),a[11].card_id,a[56].card_id,a[57].card_id,a[58].card_id,d[4],d[9],d[10],d[11],d[41],d[42],d[45],d[36],d[20],d[49],((uint8_t*)datum("D_800EAE88"))[0],((uint8_t*)datum("D_800EAE88"))[6]);
@@ -132,7 +136,9 @@ static void support_human(int mode){
 }
 static void handoff_cases(int);
 #include "../hal9-handoff/runtime.inc"
+#include "../hal9-client/runtime.inc"
 static void support_cases(int mode){
+ if(mode>=100){client_cases(mode);return;}
  if(mode>=50){handoff_cases(mode);return;}
  if((mode>=28&&mode<=30)||mode==36||mode==47){support_human(mode);return;}
  setup(5);DuelDeckCardRecord*d=datum("gDuel_aDeckCardRecords");DuelCardRecord*r=datum("D_801A7AD8");d[40].id=16;r[15].card_id=16;
@@ -155,6 +161,7 @@ static void support_cases(int mode){
    result("RD-repeated-conflict-bounded",p==4&&again.state==RHS_STATE_BLOCKED&&again.attempts==3&&again.last_cause==RHS_CAUSE_SNAPSHOT&&hand_count()==5&&!setup_count&&!memcmp(before,d,sizeof before),"Same real planners disagree again; explicit recovery never silently approves vetoed action or consumes stale materials.");
   }
   puts("SAFE_REFUSAL Support existing RD transaction disagrees with later TW action");return;}
+ if(mode==26)result("Queen-without-RD-preserves-mandatory-action",(p==6||p==7)&&id==395&&hand_count()==4,"Outer real R mandatory correction precedes quota validation; provisional TW client has no ownership of a different unconfirmed native action.");
  if((mode==26||mode==45)&&(p==6||p==7)&&id==395){result("real-Monster-before-Support",hand_count()==4&&(!Mods_Active(mi(D))||ds()[1]==1),"Queen producer's actual required Female action; no quota injection.");resolve_model(p);if(mode==26)support_bonus();return;}
  if(p==7&&id==16&&(*(DuelCardPickCursor**)datum("D_8009B1B4"))->row==3&&mode>=23){
   int before=hand_count();unsigned materialized=setup_count;((void(*)(void))engine_function("DuelScene_UpdateCardPlacement"))();

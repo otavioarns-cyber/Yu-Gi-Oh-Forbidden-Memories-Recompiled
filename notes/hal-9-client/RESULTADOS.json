@@ -1,0 +1,61 @@
+{
+  "processes": 352,
+  "execution": {
+    "REFUSED": 196,
+    "PASS": 144,
+    "NOT_REACHED": 4,
+    "FAIL": 8
+  },
+  "checks": {
+    "PASS": 3508,
+    "FAIL": 8
+  },
+  "groups": {
+    "primary": {
+      "processes": 88,
+      "checks": {
+        "PASS": 904
+      },
+      "execution": {
+        "REFUSED": 24,
+        "PASS": 64
+      },
+      "incomplete": 0
+    },
+    "boundaries": {
+      "processes": 112,
+      "checks": {
+        "PASS": 1032
+      },
+      "execution": {
+        "REFUSED": 108,
+        "NOT_REACHED": 4
+      },
+      "incomplete": 0
+    },
+    "absence": {
+      "processes": 8,
+      "checks": {
+        "PASS": 72
+      },
+      "execution": {
+        "REFUSED": 8
+      },
+      "incomplete": 0
+    },
+    "regressions": {
+      "processes": 144,
+      "checks": {
+        "PASS": 1500,
+        "FAIL": 8
+      },
+      "execution": {
+        "REFUSED": 56,
+        "PASS": 80,
+        "FAIL": 8
+      },
+      "incomplete": 0
+    }
+  },
+  "scope": "Real relocated objects, actual available controllers and private Dual, partial engine fixture. Not Windows gameplay. Eight historical reset FAIL retained."
+}

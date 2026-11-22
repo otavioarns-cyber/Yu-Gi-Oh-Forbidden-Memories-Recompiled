@@ -56,6 +56,8 @@ static int native_ai_result=1,stock_choice=12;
 static int was_admitted;
 void HAL2224_AfterPlanner(void);
 static void handoff_after_planner(void);
+static void client_after_planner(void);
+static void *local(int,const char*);
 static void handoff_controller_fault(void);
 static void load_checkpoint(const char*);
 static void state_seam(void);
@@ -293,6 +295,7 @@ void HAL2224_AfterPlanner(void){
  const RhsRendezvous*binding=Mods_Find(RHS_RENDEZVOUS);
  printf("PUBLIC_BIND abi=%u provider=%d\n",binding?binding->abi:0,binding&&binding->rules&&binding->rules()!=0);
  handoff_after_planner();
+ client_after_planner();
  ++after_calls;Pull*p=pull();uint8_t*sel=datum("D_800EAE88");AiActiveCard*a=datum("gDuel_aActiveCards");planned_pending=p->active;plan_selection=sel[0];plan_id=sel[0]>=11&&sel[0]<56?a[sel[0]].card_id:0;plan_type=card_type(plan_id);
  state_seam();load_checkpoint("after-real-planners");pending_log("after-real-planners");printf("PLAN pending=%d selection=%u id=%d type=%d bonus=%u used=%u\n",planned_pending,sel[0],plan_id,plan_type,Mods_Active(mi(D))?ds()[5]:0,Mods_Active(mi(D))?ds()[1]:0);
 }
@@ -337,6 +340,7 @@ static int hand_action(void){
   if((Settings_GetNamed("test.fault",0)||Settings_GetNamed("test.badmode",0))&&v&&v->outcome&&v->outcome()<0){printf("TRANSACTION outcome=%d before physical commit\n",v->outcome());return phase;}
   if((Settings_GetNamed("test.fault",0)||Settings_GetNamed("test.badmode",0))&&v&&v->outcome&&v->outcome()==2){puts("TRANSACTION retry scheduled; rejected action ended before new planning");return phase;}
   if(Settings_GetNamed("test.hcase",0)==2||Settings_GetNamed("test.hcase",0)==3||Settings_GetNamed("test.hcase",0)==7||Settings_GetNamed("test.hcase",0)==8){const RhsRendezvous*r=Mods_Find(RHS_RENDEZVOUS);if(r&&(r->outcome()<0||r->outcome()==2))return phase;}
+  if((Settings_GetNamed("test.tw-case",0)==123||Settings_GetNamed("test.tw-case",0)==125)&&*(int*)local(T,"tw_hf_result")<0){puts("INSTRUMENTED stop at first invalidated transaction before any later new planner");return phase;}
   if(phase!=4)return phase;
  }
  return 4;
