@@ -1,0 +1,77 @@
+{
+  "original": {
+    "path": "/workspace/work/hal20-field-state/local/field-original/field_effects.o",
+    "sha256": "71915bc5f119961d064d8f86269706727910bfded0684b5f89dc0bbacdaa0100",
+    "bytes": 56648,
+    "format": "ELF32 little-endian REL i386 (SDK Windows MOD format)",
+    "api": "runtime init checked by run.py",
+    "imports": [
+      "Cards_Type",
+      "D_8009B240",
+      "D_8009B24C",
+      "D_8009B250",
+      "D_801A7AD8",
+      "DuelEffect_ApplyTerrain",
+      "Duel_SetupCardRecord",
+      "Glyphs_Cell",
+      "Glyphs_RetailCell",
+      "Glyphs_TinyCell",
+      "GsSortPoly",
+      "HdText_Enabled",
+      "SetPolyFT4",
+      "Tables_TerrainBonus",
+      "__x86_indirect_thunk_eax",
+      "func_80035E20",
+      "func_80037DA4",
+      "gDuel_aTerrainBoost",
+      "gDuel_bTerrain",
+      "gDuel_wViewerCardID"
+    ],
+    "exports": [
+      "MemoriesModInit"
+    ]
+  },
+  "candidates": [
+    {
+      "candidate": {
+        "path": "mods/field-effects-secondary-types/field_effects.o",
+        "sha256": "729ff106787d477def41feb42a1a5d168f5bb050af870a25738c977e02c1cd21",
+        "bytes": 56836,
+        "format": "ELF32 little-endian REL i386 (SDK Windows MOD format)",
+        "api": "runtime init checked by run.py",
+        "imports": [
+          "Cards_Type",
+          "D_8009B240",
+          "D_8009B24C",
+          "D_8009B250",
+          "D_801A7AD8",
+          "DuelEffect_ApplyTerrain",
+          "Duel_SetupCardRecord",
+          "Glyphs_Cell",
+          "Glyphs_RetailCell",
+          "Glyphs_TinyCell",
+          "GsSortPoly",
+          "HdText_Enabled",
+          "SetPolyFT4",
+          "Tables_TerrainBonus",
+          "__x86_indirect_thunk_eax",
+          "func_80035E20",
+          "func_80037DA4",
+          "gDuel_aTerrainBoost",
+          "gDuel_bTerrain",
+          "gDuel_wViewerCardID"
+        ],
+        "exports": [
+          "MemoriesModInit"
+        ]
+      },
+      "checks": {
+        "public_exports_unchanged": true,
+        "imports_unchanged": true,
+        "imports_in_SDK": true
+      },
+      "added_imports": [],
+      "removed_imports": []
+    }
+  ]
+}

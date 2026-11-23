@@ -1,0 +1,2 @@
+HAL9_LOG raw_sha256=572f5f4c1786be90bedd0b4a6c5b85e66db28b4aa18050a98918485d3ce7a454; only exact duplicate trace lines after their third occurrence omitted; all results and distinct state lines preserved.
+PASS actual manager policy 1048576 profiles including resident OFF/cold OFF/H/D-only/TW; independent of order guard

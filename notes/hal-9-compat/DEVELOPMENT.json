@@ -1,0 +1,23 @@
+{
+  "snapshot_only_candidate": "d5668f0134a1c61345064160834f259f35a2bfbe19d940c2d1dd50a9c82e6265",
+  "final_candidate": "46f63050a5761b6f7ca3ec44c7a267ee4a7f79ec1572fb3d41ecd1e6313d9093",
+  "discarded_attempts": [
+    {
+      "operation": "first adapter compile",
+      "reason": "Missing duel_action_lock.h declaration of official D_8009B20C. Header added; no ABI invention."
+    },
+    {
+      "operation": "first harness candidate receipt",
+      "reason": "Used first duplicate compat_draw_phase symbol23 instead of actually registered adapter symbol40; rejected bridge. Corrected test-only receipt; no production relaxation."
+    },
+    {
+      "operation": "snapshot substate-only predicate and extra setup wrapper",
+      "reason": "Native mode2 first clears old nonzero substate when initialization bit is absent. Conditions incomplete; wrapper discarded. Final adapter adds no hooks."
+    },
+    {
+      "operation": "snapshot-only two-TW control",
+      "reason": "Real embedded ai_select_zone late redirect; four functional FAIL retained as control. Final same-instance approved-Monster preservation passes same cases."
+    }
+  ],
+  "publication": "Metadata only. Raw development outputs and private disassemblies remain local. Final and historical matrices explicit."
+}

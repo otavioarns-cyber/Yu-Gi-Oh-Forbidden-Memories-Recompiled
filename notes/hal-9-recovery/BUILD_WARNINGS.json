@@ -1,0 +1,7 @@
+{
+  "PR35_warnings": 76,
+  "candidate_warnings": 76,
+  "PR35_log_sha256": "dfc11279a04f829e1b13d0015d1c736ad0847199349a069fd73d8fe4676119a6",
+  "candidate_log_sha256": "63eb7c4b4b9b9f0ea111c1c7e514fb6597628fe02931ce503650adb373a6c7f0",
+  "scope": "Existing SDK folding-constant and unused adapter variable warnings; no third-party code changed."
+}

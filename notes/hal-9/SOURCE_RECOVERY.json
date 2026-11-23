@@ -1,0 +1,42 @@
+{
+  "scope": "Search available Git history for exact core definitions; emit metadata only.\nA negative result covers only the supplied refs/history, not unavailable backups.\n",
+  "heads": 35,
+  "refs_sha256": "6398d9f2322d7645f0693b4df87c16f91571e9775c091bcf6039a2e0430dac96",
+  "history_search": {
+    "returncode": 0,
+    "matching_bytes": 0,
+    "seconds": 4.06,
+    "pattern": "TimeWizardOriginalMemoriesModInit|snapshot_targets",
+    "include": [
+      "*.c",
+      "*.h"
+    ]
+  },
+  "history_hits": [],
+  "available_C": [
+    {
+      "path": "source/time_wizard_ai.c",
+      "sha256": "efc2fdc95b376c6cbf69fe82ce1dd5ace25a1d3ec2dd16758d247f36d6525467"
+    },
+    {
+      "path": "source/time_wizard_description_fit.c",
+      "sha256": "b4fb157af85e2437f8fa4a9268347b6acc31f7d6752aa4f1030c30a3667dff41"
+    },
+    {
+      "path": "source/time_wizard_dual_play_compat.c",
+      "sha256": "149b9fbc5d186fd8d7fe82e6781942316158a43185cbfcf6990d2aff7090bd8b"
+    },
+    {
+      "path": "source/time_wizard_encore.c",
+      "sha256": "20e3e60fc6e8a7c9dc32dc69cb0d8990b8b4cc1bc153bd35db13e3e30905b7cc"
+    },
+    {
+      "path": "source/time_wizard_evolution.c",
+      "sha256": "9c8812284e8d32dcc4772d9221bd43bb25b06a12b4967fd3c15aafb6ac412ff2"
+    }
+  ],
+  "full_core_recovered": false,
+  "debug_info": "Only description-fit compilation-unit metadata in supplied core; primary gameplay/AI core source absent.",
+  "required_for_full_rebuild": "Exact 0.23.1 primary gameplay+AI+roulette sources/headers and original toolchain/build/link recipe, matching pinned core; current AI C is an unlinked adapter.",
+  "remaining_option": "Strictly pinned object/API24 compatibility repair, not reconstruction of missing effects."
+}

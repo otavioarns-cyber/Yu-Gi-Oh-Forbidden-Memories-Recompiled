@@ -1,0 +1,14 @@
+{
+  "pr": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/35",
+  "number": 35,
+  "draft": true,
+  "merged": false,
+  "base": "integration/hal-20-v0.3.1-preview.2",
+  "base_sha": "d649647c159c91d615c07d6960928a37e270b461",
+  "code_commit": "2cc2f1c4fc89fd09b765da7f94f7993f38b26d94",
+  "branch": "test/hal-9-tw-client-category",
+  "scope": "At PR creation; later documentation-only commit adds links/receipts. No merge/release.",
+  "previous_remote_heads_preserved": 39,
+  "old_remote_head_changes": {},
+  "new_branch_remote_sha": "2cc2f1c4fc89fd09b765da7f94f7993f38b26d94"
+}

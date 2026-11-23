@@ -1,0 +1,8 @@
+@bank descriptions
+
+[D27C]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Unaffected by
+opponent Magic,
+Trap and monster
+effects.

@@ -1,0 +1,103 @@
+{
+  "processes": 544,
+  "execution": {
+    "PASS": 224,
+    "REFUSED": 264,
+    "NOT_REACHED": 48,
+    "FAIL": 8
+  },
+  "checks": {
+    "PASS": 5978,
+    "FAIL": 8
+  },
+  "groups": {
+    "lifecycle": {
+      "processes": 104,
+      "checks": {
+        "PASS": 1528
+      },
+      "execution": {
+        "PASS": 72,
+        "REFUSED": 32
+      },
+      "incomplete": 0
+    },
+    "end-boundary": {
+      "processes": 8,
+      "checks": {
+        "PASS": 128
+      },
+      "execution": {
+        "PASS": 8
+      },
+      "incomplete": 0
+    },
+    "projections": {
+      "processes": 72,
+      "checks": {
+        "PASS": 734
+      },
+      "execution": {
+        "NOT_REACHED": 36,
+        "REFUSED": 36
+      },
+      "incomplete": 0
+    },
+    "off-projection": {
+      "processes": 8,
+      "checks": {
+        "PASS": 80
+      },
+      "execution": {
+        "NOT_REACHED": 8
+      },
+      "incomplete": 0
+    },
+    "primary": {
+      "processes": 88,
+      "checks": {
+        "PASS": 904
+      },
+      "execution": {
+        "REFUSED": 24,
+        "PASS": 64
+      },
+      "incomplete": 0
+    },
+    "boundaries": {
+      "processes": 112,
+      "checks": {
+        "PASS": 1032
+      },
+      "execution": {
+        "REFUSED": 108,
+        "NOT_REACHED": 4
+      },
+      "incomplete": 0
+    },
+    "regressions": {
+      "processes": 144,
+      "checks": {
+        "PASS": 1500,
+        "FAIL": 8
+      },
+      "execution": {
+        "REFUSED": 56,
+        "PASS": 80,
+        "FAIL": 8
+      },
+      "incomplete": 0
+    },
+    "absence": {
+      "processes": 8,
+      "checks": {
+        "PASS": 72
+      },
+      "execution": {
+        "REFUSED": 8
+      },
+      "incomplete": 0
+    }
+  },
+  "scope": "Actual pinned objects/callbacks, native Main_RunDuel and available controller; InitScene IO/renderer body and new boards modeled. Not Windows gameplay. Historical reset34 FAIL separate."
+}

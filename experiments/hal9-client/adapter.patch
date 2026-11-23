@@ -1,0 +1,108 @@
+--- a/source/time_wizard_dual_play_compat.c
++++ b/source/time_wizard_dual_play_compat.c
+@@ -121,6 +121,14 @@
+ 
+ 
+ 
++static int tw_final_live(void);
++static int tw_client_disconnect(void);
++static int tw_client_tick_ok(void);
++static unsigned tw_final_armed,tw_final_gate,tw_final_block;
++static unsigned tw_final_category;
++static int tw_final_slot;
++static uint8_t tw_final_selection[12];
++static void *tw_final_object;
+ static int current_side(void);
+ static DualPlayStatePrefix *resolve_dual_state(void);
+ 
+@@ -707,6 +715,8 @@
+ }
+ static void tw_direct_reset(void)
+ {
++    tw_final_armed=tw_final_gate=0;
++    tw_client_disconnect();
+     if(tw_direct_stage)tw_direct_release();
+     if(compat_previous_reset)compat_previous_reset();
+ }
+@@ -763,6 +773,13 @@
+         D_8009B1B4->field_12 = FIELD_ROW_MONSTER + 1;
+         D_8009B1B4->row = FIELD_ROW_MONSTER;
+         D_8009B1B4->col = (u8)(destination - 1);
++    }
++    if(tw_final_armed&&tw_final_gate&&current_side()==1&&selection&&
++       (int)(int8_t)selection->field_0E==tw_final_slot&&!selection->field_15&&
++       D_800EA030[tw_final_slot].object==tw_final_object&&tw_final_live()&&D_8009B1B4) {
++        int row=tw_final_category==PLAY_SUPPORT?FIELD_ROW_SUPPORT:FIELD_ROW_MONSTER;
++        D_8009B1B4->field_11=row;D_8009B1B4->field_12=row+1;
++        D_8009B1B4->row=row;D_8009B1B4->col=(tw_final_selection[6]-1)%5;
+     }
+     if (current_side()!=0 || tw_player_side!=0 || !tw_player_role ||
+         !selection || !human_cursor_is_tw(0,resolve_dual_state()) ||
+@@ -822,6 +839,9 @@
+ static void compat_hand_actions(void)
+ {
+     DualPlayStatePrefix *state = resolve_dual_state();
++    if(current_side()==1 && phase_now()==SCENE_HAND && tw_final_armed && (tw_final_gate||tw_final_block) && !tw_client_tick_ok()) {
++        tw_final_block=1;return;
++    }
+     unsigned before = phase_now();
+     unsigned after;
+     unsigned mode_before = D_8009B174 & 0x0Fu;
+@@ -1109,7 +1129,9 @@
+     return 1;
+ }
+ 
+-static int compat_ai_run(void)
++#include "tw_client.inc"
++
++static int compat_ai_run_plan(void)
+ {
+     DualPlayStatePrefix *state = resolve_dual_state();
+     uint8_t used_before = 0;
+@@ -1151,27 +1173,8 @@
+     return result;
+ }
+ 
+-static void compat_ai_swap(void)
+-{
+-    DualPlayStatePrefix *state = resolve_dual_state();
+-    int side = current_side();
+-    uint8_t used_before = 0;
+-    int bypass = 0;
+-
+-    if (state && side == 1 && state->bonus_hand[side] &&
+-        state->used[side] == PLAY_MONSTER && ai_selection_is_single_tw()) {
+-        unsigned destination = D_800EAE88[6];
+-        if (destination >= 6 && destination <= 10) {
+-            used_before = state->used[side];
+-            state->used[side] = 0;
+-            bypass = 1;
+-        }
+-    }
+-
+-    ((void (*)(void))compat_original_ai_swap)();
+-    if (bypass)
+-        state->used[side] = used_before;
+-}
++static int compat_ai_run(void) {return tw_client_finish(compat_ai_run_plan());}
++static void compat_ai_swap(void) {tw_client_swap();}
+ 
+ static void compat_draw_phase(void)
+ {
+@@ -1193,6 +1196,8 @@
+     if (!ok)
+         return 0;
+ 
++    tw_client_old_applied=mod->applied;mod->applied=tw_client_applied;
++    tw_client_old_shutdown=mod->shutdown;mod->shutdown=tw_client_shutdown;
+     /* The outer Encore wrapper will chain to these per-frame and reset
+        callbacks. Keep the invisible hand source alive only during Time Magic. */
+     compat_previous_frame=mod->frame;
+@@ -1223,6 +1228,7 @@
+     if (!host->hook(host, func_8001B938,
+                     compat_select_zone, &compat_original_select_zone))
+         return 0;
++    if (!host->hook(host, host->symbol(host,"func_80028220"),tw_client_snapshot,&tw_client_original_snapshot))return 0;
+     if (!host->hook(host, AiScript_Run,
+                     compat_ai_run, &compat_original_ai_run))
+         return 0;

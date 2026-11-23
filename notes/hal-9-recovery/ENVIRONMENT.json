@@ -1,0 +1,8 @@
+{
+  "host": "Linux",
+  "Windows_PE32": "AUTOMATION_UNAVAILABLE",
+  "game_assets": "NOT_REACHED: no legitimate image/WA_MRG provided; filename inventory has 0 matches",
+  "unchanged_failed_backend_attempts_repeated": false,
+  "manual_user_tests_requested": false,
+  "basis": "PR35 environment blockers remain; no new usable Windows runner/backend supplied. No Windows gameplay claim."
+}

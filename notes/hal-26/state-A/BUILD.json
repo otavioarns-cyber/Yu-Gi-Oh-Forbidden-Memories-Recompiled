@@ -1,0 +1,15 @@
+{
+  "scope": "Partial Queen+Fusion lease schemas only, no complete owner coverage and no collection admission.",
+  "artifacts": [
+    {
+      "path": "/workspace/work/hal20-state-timewizard/local/state-pair/R/ritual-card-effects/ritual-card-effects.o",
+      "bytes": 742492,
+      "sha256": "2e09337e099b62d2e9070d090e26967b383b4cf821ce80197289620350af4a36"
+    },
+    {
+      "path": "/workspace/work/hal20-state-timewizard/local/state-pair/fusion-auxiliary-balance/fusion-auxiliary-balance.o",
+      "bytes": 391848,
+      "sha256": "00405c8cf9d7c0af7531b92e9694ced481eb5015f147601a44e72b72e059457b"
+    }
+  ]
+}

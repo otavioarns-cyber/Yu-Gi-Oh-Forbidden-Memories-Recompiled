@@ -1,0 +1,91 @@
+{
+  "scope": "Received native-controller regressions on the actual pinned candidate.\nWheel/presentation and three host queries are modeled here. Real manager/owner\nqueries and complete .o execute separately in object_cases.inc. No Windows claim.\n",
+  "candidate_sha256": "46f63050a5761b6f7ca3ec44c7a267ee4a7f79ec1572fb3d41ecd1e6313d9093",
+  "steps": [
+    {
+      "name": "actual-candidate-native-controller",
+      "returncode": 0,
+      "command": [
+        "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+        "-c",
+        "\nimport sys,subprocess,runpy,pathlib,shlex,os\nold=subprocess.run;runner=shlex.split(os.environ.get('MEMORIES_I386_RUNNER',''))\ndef execute(args,*a,**kw):\n args=list(map(str,args))\n if args[0]=='as':\n  f=pathlib.Path(args[2]);s=f.read_text()\n  for name in ('Hal9_CoreHardStateV1','Hal9_CoreDualDrawV1','Hal9_CoreOwnersReadyV1'):\n   s=s.replace('.comm '+name+',65536,16','\\n.text\\n.globl '+name+'\\n'+name+': xor %eax,%eax; ret\\n')\n  f.write_text(s)\n if pathlib.Path(args[0]).name=='test' and pathlib.Path(args[0]).is_absolute():args=runner+args\n return old(args,*a,**kw)\nsubprocess.run=execute\nsys.argv=['source/tests/run_native_tests.py',sys.argv[1]]\nrunpy.run_path('source/tests/run_native_tests.py',run_name='__main__')\n",
+        "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk"
+      ]
+    },
+    {
+      "name": "test_dual_play_decisions-build",
+      "returncode": 0,
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+        "/workspace/work/hal9-tw-rd-bonus/local/final/package/source/tests/test_dual_play_decisions.c",
+        "-o",
+        "/workspace/work/hal9-tw-rd-bonus/logs/native-final/test_dual_play_decisions"
+      ]
+    },
+    {
+      "name": "test_dual_play_decisions",
+      "returncode": 0,
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/workspace/work/hal9-tw-rd-bonus/logs/native-final/test_dual_play_decisions"
+      ]
+    },
+    {
+      "name": "test_dual_play_hand_selection-build",
+      "returncode": 0,
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+        "/workspace/work/hal9-tw-rd-bonus/local/final/package/source/tests/test_dual_play_hand_selection.c",
+        "-o",
+        "/workspace/work/hal9-tw-rd-bonus/logs/native-final/test_dual_play_hand_selection"
+      ]
+    },
+    {
+      "name": "test_dual_play_hand_selection",
+      "returncode": 0,
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/workspace/work/hal9-tw-rd-bonus/logs/native-final/test_dual_play_hand_selection"
+      ]
+    },
+    {
+      "name": "test_evolutions-build",
+      "returncode": 0,
+      "command": [
+        "/workspace/Yu-Gi-Oh-Forbidden-Memories-Recompiled/tmp/onboarding/bin/gcc",
+        "-m32",
+        "-std=gnu11",
+        "-O1",
+        "-DMEMORIES_PC",
+        "-I/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+        "/workspace/work/hal9-tw-rd-bonus/local/final/package/source/tests/test_evolutions.c",
+        "-o",
+        "/workspace/work/hal9-tw-rd-bonus/logs/native-final/test_evolutions"
+      ]
+    },
+    {
+      "name": "test_evolutions",
+      "returncode": 0,
+      "command": [
+        "/workspace/work/hal20-base/tools/qemu-i386-static",
+        "-L",
+        "/workspace/work/hal20-base/repo/tmp/pc/linux-sysroot",
+        "/workspace/work/hal9-tw-rd-bonus/logs/native-final/test_evolutions"
+      ]
+    }
+  ]
+}
