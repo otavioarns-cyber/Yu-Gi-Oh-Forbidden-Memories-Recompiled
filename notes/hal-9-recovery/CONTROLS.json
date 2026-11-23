@@ -1,0 +1,4621 @@
+[
+  {
+    "name": "control-v1-selection",
+    "logs": {
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h1-d0-after-m230.log": {
+        "sha256": "ebec34df95edfeb0fe1fe40bd59fb76cdedda77dcc9cf70bc095deae9e11a468",
+        "bytes": 959921
+      },
+      "tw-object-h1-d1-before-m230.log": {
+        "sha256": "3a1f8e67cb8df794b49a236524d5c910625965d89f456bad2bd44101b39c46e9",
+        "bytes": 962271
+      },
+      "tw-object-h0-d0-before-m230.log": {
+        "sha256": "319b7d907c551b0f6ea98319f152dc64c80fd28f1ddec26194584adf0be07e74",
+        "bytes": 46431
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h1-d1-after-m230.log": {
+        "sha256": "3a1f8e67cb8df794b49a236524d5c910625965d89f456bad2bd44101b39c46e9",
+        "bytes": 962271
+      },
+      "tw-object-h1-d0-before-m230.log": {
+        "sha256": "ebec34df95edfeb0fe1fe40bd59fb76cdedda77dcc9cf70bc095deae9e11a468",
+        "bytes": 959921
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d1-before-m230.log": {
+        "sha256": "737a10041c70799c428cb4b1cf28f8c2f1bfc76902c111140620051bcec66cac",
+        "bytes": 48685
+      },
+      "tw-object-h0-d1-after-m230.log": {
+        "sha256": "737a10041c70799c428cb4b1cf28f8c2f1bfc76902c111140620051bcec66cac",
+        "bytes": 48685
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h0-d0-after-m230.log": {
+        "sha256": "319b7d907c551b0f6ea98319f152dc64c80fd28f1ddec26194584adf0be07e74",
+        "bytes": 46431
+      }
+    },
+    "summary": {
+      "processes": 8,
+      "checks": {
+        "PASS": 72,
+        "FAIL": 8
+      },
+      "execution": {
+        "FAIL": 8
+      },
+      "incomplete": 0
+    },
+    "builds": [
+      {
+        "returncode": 0,
+        "seconds": 4.237,
+        "log": "build-harness.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.093,
+        "log": "build-duel-entry.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.062,
+        "log": "build-observer.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.069,
+        "log": "build-interposer.log"
+      }
+    ],
+    "candidate": {
+      "scope": "Build own cooperative TW client in a private copy of the PR35 adapter; keep core pinned.\nNo private source/binary is copied into the repository. Not a full core rebuild.\n",
+      "reference_sha256": "d70a25110d5bff51a90cd2634ec7c9182536ad0c94e209b9f4dadbd6803361a7",
+      "candidate_sha256": "9d7c6e088e575154fd9f529dcc27a5663f152e018db1fe624e48d6e8da031d0e",
+      "draw_bytes": 40,
+      "patch_sha256": "49122b9426ff89707c580f93b241c822c4b61307a771660537d4d79b4a0ff71a",
+      "client_source_sha256": "cee0c722f2ee4990c80fae0222fa4a6068a231b196368ec9065075dc429d034d",
+      "unchanged_link_objects": {
+        "renamed-core.o": "297990eabf3e77ed2e68c4be367d8889f9c96e488cd9735bc71d0c3c5ac764de",
+        "time_wizard_description_fit.o": "4e7d2baafbe9823d63df1cd4225deb5099a1a51dec66085eabb911862384956d",
+        "time_wizard_evolution.o": "96938bc05ba7eaadf59edcc2b58d12df5429f984f30d85325a4a397156256a1b",
+        "time_wizard_encore.o": "2287f78ce4ddbb827f3bac71a0e5067fa3ca48bea6cf76aff2f045be689f1e6a",
+        "contracts_entry.o": "bf1b18f7a099500d471a4bf9d38fdbc2852d22aad512c4a144f352b1a24ce332",
+        "ai_probe_i386.o": "13da2f9e31af2279c352aa871ddc397c4f6b05c7af1fbf4096e3969d3d9cd08f"
+      },
+      "changed_package_files": [
+        "time-wizard.o",
+        "source/tw_client.inc",
+        "source/time_wizard_dual_play_compat.c"
+      ],
+      "added_official_imports": [],
+      "all_imports": [
+        "AiScript_Run",
+        "CardRules_Fusion",
+        "Cards_BaseId",
+        "Cards_FrameColor",
+        "Cards_NameUtf8",
+        "Cards_PatchThumbnail",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907AC",
+        "D_800907CC",
+        "D_800907D8",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B19C",
+        "D_8009B1B4",
+        "D_8009B1D5",
+        "D_8009B20C",
+        "D_8009B21A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA030",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EB0F8",
+        "D_800F2848",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "D_801A8000",
+        "DisplayObject_ReleaseIfPresent",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelEffect_CreateRequest",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateCardUse",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "Duel_CalcCardStats",
+        "Duel_CheckEquip",
+        "Duel_CheckFusion",
+        "Duel_GetTerrainBoost",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_SetupCardRecord",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSortPoly",
+        "Hal9_CoreDualDrawV1",
+        "Hal9_CoreHardStateV1",
+        "Hal9_CoreOwnersReadyV1",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "SD_SEPlayFull",
+        "SetPolyFT4",
+        "TextBox_Destroy",
+        "TextureDump_Delivered",
+        "__udivdi3",
+        "__x86_indirect_thunk_eax",
+        "abs",
+        "atan2",
+        "cos",
+        "fclose",
+        "floor",
+        "fmod",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80017DB4",
+        "func_80017E3C",
+        "func_80017F04",
+        "func_8001B170",
+        "func_8001B938",
+        "func_8001BAF0",
+        "func_80022D94",
+        "func_80028220",
+        "func_80035E20",
+        "func_80037DA4",
+        "gAiScript_State",
+        "gCard_nCount",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_bOpponentID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "malloc",
+        "memcmp",
+        "memcpy",
+        "memset",
+        "realloc",
+        "sin",
+        "snprintf",
+        "sqrt",
+        "strncpy",
+        "strstr",
+        "strtod"
+      ],
+      "steps": [
+        {
+          "name": "adapter",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang",
+            "-std=gnu11",
+            "-O2",
+            "-g",
+            "-fno-pic",
+            "-fno-pie",
+            "-fno-common",
+            "-fno-stack-protector",
+            "-fno-asynchronous-unwind-tables",
+            "-fno-unwind-tables",
+            "-fstack-clash-protection",
+            "-march=i686",
+            "-mno-sse",
+            "-mno-mmx",
+            "-ffreestanding",
+            "-nostdinc",
+            "-DMEMORIES_PC",
+            "-DMEMORIES_MOD",
+            "-D_LANGUAGE_C",
+            "-DLANGUAGE_C",
+            "-Wall",
+            "-Wno-unused-function",
+            "-Wno-missing-braces",
+            "--target=i386-pc-linux-gnu",
+            "-mstackrealign",
+            "-mretpoline-external-thunk",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/lib/clang/23/include",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/libc",
+            "-I",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/package=/hal9/package",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/repo=/hal9/repo",
+            "-fdebug-compilation-dir=/hal9/build",
+            "-DMemoriesModInit=TimeWizardV023MemoriesModInit",
+            "-c",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/package/source/time_wizard_dual_play_compat.c",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/time_wizard_dual_play_compat.o"
+          ]
+        },
+        {
+          "name": "reference-relink",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/reference-relinked.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        },
+        {
+          "name": "link",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/package/time-wizard.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        }
+      ]
+    },
+    "failures": [
+      {
+        "case": "tw-object-h0-d0-before-m230",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-selection-change-still-restores-owned-type",
+            "status": "FAIL",
+            "details": "Selection changed, but physical owner did not: release borrowed type then refuse the altered action."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d0-after-m230",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-selection-change-still-restores-owned-type",
+            "status": "FAIL",
+            "details": "Selection changed, but physical owner did not: release borrowed type then refuse the altered action."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m230",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-selection-change-still-restores-owned-type",
+            "status": "FAIL",
+            "details": "Selection changed, but physical owner did not: release borrowed type then refuse the altered action."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m230",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-selection-change-still-restores-owned-type",
+            "status": "FAIL",
+            "details": "Selection changed, but physical owner did not: release borrowed type then refuse the altered action."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-before-m230",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-selection-change-still-restores-owned-type",
+            "status": "FAIL",
+            "details": "Selection changed, but physical owner did not: release borrowed type then refuse the altered action."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-after-m230",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-selection-change-still-restores-owned-type",
+            "status": "FAIL",
+            "details": "Selection changed, but physical owner did not: release borrowed type then refuse the altered action."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m230",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-selection-change-still-restores-owned-type",
+            "status": "FAIL",
+            "details": "Selection changed, but physical owner did not: release borrowed type then refuse the altered action."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m230",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-selection-change-still-restores-owned-type",
+            "status": "FAIL",
+            "details": "Selection changed, but physical owner did not: release borrowed type then refuse the altered action."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "projection-v2",
+    "logs": {
+      "tw-object-h0-d0-after-m223.log": {
+        "sha256": "f253cc3c5053b2dbfcb03ea89240d92e0a29e0fc248dc2eb4774e9efa0d7384e",
+        "bytes": 29947
+      },
+      "tw-object-h1-d0-after-m223.log": {
+        "sha256": "ad31f3413fe44eebf70eca1540344d94917c9ba71d8c71f221faea1f86265b80",
+        "bytes": 31686
+      },
+      "tw-object-h0-d1-after-m226.log": {
+        "sha256": "4b448d3085288533d53128947c23ca4334202e2ddece3a00714ff344111635c2",
+        "bytes": 75210
+      },
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h0-d0-before-m225.log": {
+        "sha256": "f253cc3c5053b2dbfcb03ea89240d92e0a29e0fc248dc2eb4774e9efa0d7384e",
+        "bytes": 29947
+      },
+      "tw-object-h0-d1-after-m220.log": {
+        "sha256": "9b5082b91423717733d312aef6a6795ab3f8a8439f6c0e2eea07f6d49fcb33c5",
+        "bytes": 72370
+      },
+      "tw-object-h1-d1-after-m225.log": {
+        "sha256": "469c0a4c4532a902dfcb12183b9f5a2830ea78a13f1b08f957bb6cd715014dab",
+        "bytes": 1076882
+      },
+      "tw-object-h1-d0-before-m220.log": {
+        "sha256": "185a127c2fed9f7b69328221e377d004335276cda255edd2558fbe614825c87e",
+        "bytes": 976243
+      },
+      "tw-object-h1-d0-after-m230.log": {
+        "sha256": "f56577e4b78c462ec998b04505bb2dbf3ae1f66f9e568e1d873c1f1266cef51f",
+        "bytes": 978255
+      },
+      "tw-object-h1-d1-before-m222.log": {
+        "sha256": "b941bb058d62cda8fb710c95559c31e39fa8262ac20fcf480cfe9a0619f27638",
+        "bytes": 1076760
+      },
+      "tw-object-h0-d0-before-m223.log": {
+        "sha256": "f253cc3c5053b2dbfcb03ea89240d92e0a29e0fc248dc2eb4774e9efa0d7384e",
+        "bytes": 29947
+      },
+      "tw-object-h1-d0-after-m225.log": {
+        "sha256": "ad31f3413fe44eebf70eca1540344d94917c9ba71d8c71f221faea1f86265b80",
+        "bytes": 31686
+      },
+      "tw-object-h1-d0-after-m227.log": {
+        "sha256": "3f6058246dd2e1585bb527842dedf20252f2be58525e4d73e1ad6438fee08ab5",
+        "bytes": 978209
+      },
+      "tw-object-h0-d0-before-m224.log": {
+        "sha256": "f253cc3c5053b2dbfcb03ea89240d92e0a29e0fc248dc2eb4774e9efa0d7384e",
+        "bytes": 29947
+      },
+      "tw-object-h1-d1-before-m221.log": {
+        "sha256": "1abf7ba27765bd28e4bc67763ddedbfa12590aed06022ba5d070c911e80d362f",
+        "bytes": 989715
+      },
+      "tw-object-h0-d0-after-m221.log": {
+        "sha256": "ab277cf8b6f167e77c4b391de120a7c0e9c14a1a44129fe9855e4e607d0e27dd",
+        "bytes": 63830
+      },
+      "tw-object-h1-d0-before-m226.log": {
+        "sha256": "5a9d10be09757637bcfc0d90b7476866b70f28740be494bd340b05798fa82ff3",
+        "bytes": 978239
+      },
+      "tw-object-h1-d1-after-m220.log": {
+        "sha256": "d434eaaaa948440cd67c36cbe606cbc5930555a78cc82a171e4a6b18bcd33a6d",
+        "bytes": 986236
+      },
+      "tw-object-h0-d0-before-m221.log": {
+        "sha256": "ab277cf8b6f167e77c4b391de120a7c0e9c14a1a44129fe9855e4e607d0e27dd",
+        "bytes": 63830
+      },
+      "tw-object-h1-d1-before-m226.log": {
+        "sha256": "d097142a361c7a1d15123bc01b2b11d85324b0ab607283672341470591d5bcd5",
+        "bytes": 989715
+      },
+      "tw-object-h1-d1-before-m227.log": {
+        "sha256": "cc48f98b39895845df9704952d219f0329774a7bd3cdcb965fc9d699ee084297",
+        "bytes": 989685
+      },
+      "tw-object-h1-d0-after-m222.log": {
+        "sha256": "ad31f3413fe44eebf70eca1540344d94917c9ba71d8c71f221faea1f86265b80",
+        "bytes": 31686
+      },
+      "tw-object-h1-d1-before-m220.log": {
+        "sha256": "d434eaaaa948440cd67c36cbe606cbc5930555a78cc82a171e4a6b18bcd33a6d",
+        "bytes": 986236
+      },
+      "tw-object-h0-d1-after-m224.log": {
+        "sha256": "542e5a83f08e34d23fb524988f87d8440d5e3891ad56dd132166b7b8a0d423ff",
+        "bytes": 98928
+      },
+      "tw-object-h0-d0-after-m220.log": {
+        "sha256": "17fe9c1b88246ea75d9e63ecc5aca525b2b837b1c03cc4e79b5d533ee66d17ae",
+        "bytes": 62377
+      },
+      "tw-object-h0-d1-after-m221.log": {
+        "sha256": "4e30a6a51fbea75858571f6daecac2af26910459d3e1248be1bad4183398fa02",
+        "bytes": 75210
+      },
+      "tw-object-h1-d1-before-m230.log": {
+        "sha256": "7254f3e314d0785b4681f6280828f8fe5447b91c0812c9f034fc4670a505a64a",
+        "bytes": 989731
+      },
+      "tw-object-h0-d0-after-m224.log": {
+        "sha256": "f253cc3c5053b2dbfcb03ea89240d92e0a29e0fc248dc2eb4774e9efa0d7384e",
+        "bytes": 29947
+      },
+      "tw-object-h0-d1-after-m222.log": {
+        "sha256": "8171005af759c6e3c006f0ffd46aeded36aa208173adfb84da7b4af0b22f84bb",
+        "bytes": 100451
+      },
+      "tw-object-h0-d0-before-m230.log": {
+        "sha256": "5e6225452c6f5d3d5c0c5fa45b49dce55f032c4196e91d9f8dd6870e0d721bb7",
+        "bytes": 63846
+      },
+      "tw-object-h0-d1-before-m223.log": {
+        "sha256": "135f9cd5ee807ee095a91eac5d6b8fa52d3175a6f66ac17f21ad5443ef24287e",
+        "bytes": 100581
+      },
+      "tw-object-h1-d0-after-m220.log": {
+        "sha256": "185a127c2fed9f7b69328221e377d004335276cda255edd2558fbe614825c87e",
+        "bytes": 976243
+      },
+      "tw-object-h1-d1-before-m225.log": {
+        "sha256": "469c0a4c4532a902dfcb12183b9f5a2830ea78a13f1b08f957bb6cd715014dab",
+        "bytes": 1076882
+      },
+      "tw-object-h0-d0-after-m222.log": {
+        "sha256": "f253cc3c5053b2dbfcb03ea89240d92e0a29e0fc248dc2eb4774e9efa0d7384e",
+        "bytes": 29947
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d1-after-m227.log": {
+        "sha256": "b4767ebb2460ede2034e36a5588c0859d6c6987685146fc0b90c19f87fe81059",
+        "bytes": 75180
+      },
+      "tw-object-h1-d1-before-m224.log": {
+        "sha256": "6fb767496629bf07bef79f7b4349059bc82499cdb79c36ccc15c73bf0f414990",
+        "bytes": 1075139
+      },
+      "tw-object-h1-d0-before-m222.log": {
+        "sha256": "ad31f3413fe44eebf70eca1540344d94917c9ba71d8c71f221faea1f86265b80",
+        "bytes": 31686
+      },
+      "tw-object-h1-d1-after-m230.log": {
+        "sha256": "7254f3e314d0785b4681f6280828f8fe5447b91c0812c9f034fc4670a505a64a",
+        "bytes": 989731
+      },
+      "tw-object-h0-d0-after-m227.log": {
+        "sha256": "1e262f86ffd7ea16c342988a24eddd3338ee6bf1eb9f2b44684fe67af5491918",
+        "bytes": 63800
+      },
+      "tw-object-h0-d1-before-m220.log": {
+        "sha256": "9b5082b91423717733d312aef6a6795ab3f8a8439f6c0e2eea07f6d49fcb33c5",
+        "bytes": 72370
+      },
+      "tw-object-h0-d1-before-m225.log": {
+        "sha256": "0c1aec6621d3ad774f9a24a9bd1032ce2f1e88642917e5b96b5668907875f246",
+        "bytes": 100573
+      },
+      "tw-object-h1-d0-before-m224.log": {
+        "sha256": "ad31f3413fe44eebf70eca1540344d94917c9ba71d8c71f221faea1f86265b80",
+        "bytes": 31686
+      },
+      "tw-object-h1-d0-after-m224.log": {
+        "sha256": "ad31f3413fe44eebf70eca1540344d94917c9ba71d8c71f221faea1f86265b80",
+        "bytes": 31686
+      },
+      "tw-object-h0-d0-after-m226.log": {
+        "sha256": "4ef3c3e7b2250b190ff84c4dd08b05e2d38428094e4549db59ccd5e29962c5d1",
+        "bytes": 63830
+      },
+      "tw-object-h0-d0-after-m225.log": {
+        "sha256": "f253cc3c5053b2dbfcb03ea89240d92e0a29e0fc248dc2eb4774e9efa0d7384e",
+        "bytes": 29947
+      },
+      "tw-object-h0-d0-before-m222.log": {
+        "sha256": "f253cc3c5053b2dbfcb03ea89240d92e0a29e0fc248dc2eb4774e9efa0d7384e",
+        "bytes": 29947
+      },
+      "tw-object-h0-d1-before-m227.log": {
+        "sha256": "b4767ebb2460ede2034e36a5588c0859d6c6987685146fc0b90c19f87fe81059",
+        "bytes": 75180
+      },
+      "tw-object-h1-d0-before-m230.log": {
+        "sha256": "f56577e4b78c462ec998b04505bb2dbf3ae1f66f9e568e1d873c1f1266cef51f",
+        "bytes": 978255
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h1-d1-after-m226.log": {
+        "sha256": "d097142a361c7a1d15123bc01b2b11d85324b0ab607283672341470591d5bcd5",
+        "bytes": 989715
+      },
+      "tw-object-h1-d0-after-m226.log": {
+        "sha256": "5a9d10be09757637bcfc0d90b7476866b70f28740be494bd340b05798fa82ff3",
+        "bytes": 978239
+      },
+      "tw-object-h0-d1-before-m221.log": {
+        "sha256": "4e30a6a51fbea75858571f6daecac2af26910459d3e1248be1bad4183398fa02",
+        "bytes": 75210
+      },
+      "tw-object-h0-d1-before-m230.log": {
+        "sha256": "9cec0b0decdd30b21160ef2e09d6cb8386db3ea90091e899de43d4f0e3b0ae95",
+        "bytes": 75226
+      },
+      "tw-object-h1-d1-after-m223.log": {
+        "sha256": "b2df2f113a392d33c8917f8ba2bf11824a3b01f6bcfda58d2425952c69662971",
+        "bytes": 1077020
+      },
+      "tw-object-h0-d1-after-m225.log": {
+        "sha256": "0c1aec6621d3ad774f9a24a9bd1032ce2f1e88642917e5b96b5668907875f246",
+        "bytes": 100573
+      },
+      "tw-object-h1-d0-before-m227.log": {
+        "sha256": "3f6058246dd2e1585bb527842dedf20252f2be58525e4d73e1ad6438fee08ab5",
+        "bytes": 978209
+      },
+      "tw-object-h1-d0-before-m225.log": {
+        "sha256": "ad31f3413fe44eebf70eca1540344d94917c9ba71d8c71f221faea1f86265b80",
+        "bytes": 31686
+      },
+      "tw-object-h0-d1-after-m223.log": {
+        "sha256": "135f9cd5ee807ee095a91eac5d6b8fa52d3175a6f66ac17f21ad5443ef24287e",
+        "bytes": 100581
+      },
+      "tw-object-h0-d1-after-m230.log": {
+        "sha256": "9cec0b0decdd30b21160ef2e09d6cb8386db3ea90091e899de43d4f0e3b0ae95",
+        "bytes": 75226
+      },
+      "tw-object-h0-d1-before-m226.log": {
+        "sha256": "4b448d3085288533d53128947c23ca4334202e2ddece3a00714ff344111635c2",
+        "bytes": 75210
+      },
+      "tw-object-h1-d1-after-m222.log": {
+        "sha256": "b941bb058d62cda8fb710c95559c31e39fa8262ac20fcf480cfe9a0619f27638",
+        "bytes": 1076760
+      },
+      "tw-object-h1-d1-after-m224.log": {
+        "sha256": "6fb767496629bf07bef79f7b4349059bc82499cdb79c36ccc15c73bf0f414990",
+        "bytes": 1075139
+      },
+      "tw-object-h1-d1-after-m221.log": {
+        "sha256": "1abf7ba27765bd28e4bc67763ddedbfa12590aed06022ba5d070c911e80d362f",
+        "bytes": 989715
+      },
+      "tw-object-h1-d1-after-m227.log": {
+        "sha256": "cc48f98b39895845df9704952d219f0329774a7bd3cdcb965fc9d699ee084297",
+        "bytes": 989685
+      },
+      "tw-object-h1-d0-before-m223.log": {
+        "sha256": "ad31f3413fe44eebf70eca1540344d94917c9ba71d8c71f221faea1f86265b80",
+        "bytes": 31686
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h1-d0-after-m221.log": {
+        "sha256": "8866316f11f9c006909c932a3c24749477fbf32faff52d5c015c58b7341aa00b",
+        "bytes": 978239
+      },
+      "tw-object-h1-d0-before-m221.log": {
+        "sha256": "8866316f11f9c006909c932a3c24749477fbf32faff52d5c015c58b7341aa00b",
+        "bytes": 978239
+      },
+      "tw-object-h0-d1-before-m224.log": {
+        "sha256": "542e5a83f08e34d23fb524988f87d8440d5e3891ad56dd132166b7b8a0d423ff",
+        "bytes": 98928
+      },
+      "tw-object-h0-d0-after-m230.log": {
+        "sha256": "5e6225452c6f5d3d5c0c5fa45b49dce55f032c4196e91d9f8dd6870e0d721bb7",
+        "bytes": 63846
+      },
+      "tw-object-h0-d0-before-m226.log": {
+        "sha256": "4ef3c3e7b2250b190ff84c4dd08b05e2d38428094e4549db59ccd5e29962c5d1",
+        "bytes": 63830
+      },
+      "tw-object-h1-d1-before-m223.log": {
+        "sha256": "b2df2f113a392d33c8917f8ba2bf11824a3b01f6bcfda58d2425952c69662971",
+        "bytes": 1077020
+      },
+      "tw-object-h0-d0-before-m227.log": {
+        "sha256": "1e262f86ffd7ea16c342988a24eddd3338ee6bf1eb9f2b44684fe67af5491918",
+        "bytes": 63800
+      },
+      "tw-object-h0-d0-before-m220.log": {
+        "sha256": "17fe9c1b88246ea75d9e63ecc5aca525b2b837b1c03cc4e79b5d533ee66d17ae",
+        "bytes": 62377
+      },
+      "tw-object-h0-d1-before-m222.log": {
+        "sha256": "8171005af759c6e3c006f0ffd46aeded36aa208173adfb84da7b4af0b22f84bb",
+        "bytes": 100451
+      }
+    },
+    "summary": {
+      "processes": 72,
+      "checks": {
+        "PASS": 734
+      },
+      "execution": {
+        "REFUSED": 56,
+        "NOT_REACHED": 16
+      },
+      "incomplete": 0
+    },
+    "builds": [
+      {
+        "returncode": 0,
+        "seconds": 6.971,
+        "log": "build-harness.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.172,
+        "log": "build-duel-entry.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.115,
+        "log": "build-observer.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.116,
+        "log": "build-interposer.log"
+      }
+    ],
+    "candidate": {
+      "scope": "Build own cooperative TW client in a private copy of the PR35 adapter; keep core pinned.\nNo private source/binary is copied into the repository. Not a full core rebuild.\n",
+      "reference_sha256": "d70a25110d5bff51a90cd2634ec7c9182536ad0c94e209b9f4dadbd6803361a7",
+      "candidate_sha256": "b6f14bc745bab0bcc92e943107f6bbd839cc4753747f76c2ba63d7d88369a7dc",
+      "draw_bytes": 40,
+      "patch_sha256": "49122b9426ff89707c580f93b241c822c4b61307a771660537d4d79b4a0ff71a",
+      "client_source_sha256": "c5a88b4fe435a5a5951ad6610c8acc99bd95329d7d0dd47186266047aa690102",
+      "unchanged_link_objects": {
+        "renamed-core.o": "297990eabf3e77ed2e68c4be367d8889f9c96e488cd9735bc71d0c3c5ac764de",
+        "time_wizard_description_fit.o": "4e7d2baafbe9823d63df1cd4225deb5099a1a51dec66085eabb911862384956d",
+        "time_wizard_evolution.o": "96938bc05ba7eaadf59edcc2b58d12df5429f984f30d85325a4a397156256a1b",
+        "time_wizard_encore.o": "2287f78ce4ddbb827f3bac71a0e5067fa3ca48bea6cf76aff2f045be689f1e6a",
+        "contracts_entry.o": "bf1b18f7a099500d471a4bf9d38fdbc2852d22aad512c4a144f352b1a24ce332",
+        "ai_probe_i386.o": "13da2f9e31af2279c352aa871ddc397c4f6b05c7af1fbf4096e3969d3d9cd08f"
+      },
+      "changed_package_files": [
+        "time-wizard.o",
+        "source/tw_client.inc",
+        "source/time_wizard_dual_play_compat.c"
+      ],
+      "added_official_imports": [],
+      "all_imports": [
+        "AiScript_Run",
+        "CardRules_Fusion",
+        "Cards_BaseId",
+        "Cards_FrameColor",
+        "Cards_NameUtf8",
+        "Cards_PatchThumbnail",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907AC",
+        "D_800907CC",
+        "D_800907D8",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B19C",
+        "D_8009B1B4",
+        "D_8009B1D5",
+        "D_8009B20C",
+        "D_8009B21A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA030",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EB0F8",
+        "D_800F2848",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "D_801A8000",
+        "DisplayObject_ReleaseIfPresent",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelEffect_CreateRequest",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateCardUse",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "Duel_CalcCardStats",
+        "Duel_CheckEquip",
+        "Duel_CheckFusion",
+        "Duel_GetTerrainBoost",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_SetupCardRecord",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSortPoly",
+        "Hal9_CoreDualDrawV1",
+        "Hal9_CoreHardStateV1",
+        "Hal9_CoreOwnersReadyV1",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "SD_SEPlayFull",
+        "SetPolyFT4",
+        "TextBox_Destroy",
+        "TextureDump_Delivered",
+        "__udivdi3",
+        "__x86_indirect_thunk_eax",
+        "abs",
+        "atan2",
+        "cos",
+        "fclose",
+        "floor",
+        "fmod",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80017DB4",
+        "func_80017E3C",
+        "func_80017F04",
+        "func_8001B170",
+        "func_8001B938",
+        "func_8001BAF0",
+        "func_80022D94",
+        "func_80028220",
+        "func_80035E20",
+        "func_80037DA4",
+        "gAiScript_State",
+        "gCard_nCount",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_bOpponentID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "malloc",
+        "memcmp",
+        "memcpy",
+        "memset",
+        "realloc",
+        "sin",
+        "snprintf",
+        "sqrt",
+        "strncpy",
+        "strstr",
+        "strtod"
+      ],
+      "steps": [
+        {
+          "name": "adapter",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang",
+            "-std=gnu11",
+            "-O2",
+            "-g",
+            "-fno-pic",
+            "-fno-pie",
+            "-fno-common",
+            "-fno-stack-protector",
+            "-fno-asynchronous-unwind-tables",
+            "-fno-unwind-tables",
+            "-fstack-clash-protection",
+            "-march=i686",
+            "-mno-sse",
+            "-mno-mmx",
+            "-ffreestanding",
+            "-nostdinc",
+            "-DMEMORIES_PC",
+            "-DMEMORIES_MOD",
+            "-D_LANGUAGE_C",
+            "-DLANGUAGE_C",
+            "-Wall",
+            "-Wno-unused-function",
+            "-Wno-missing-braces",
+            "--target=i386-pc-linux-gnu",
+            "-mstackrealign",
+            "-mretpoline-external-thunk",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/lib/clang/23/include",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/libc",
+            "-I",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/package=/hal9/package",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/repo=/hal9/repo",
+            "-fdebug-compilation-dir=/hal9/build",
+            "-DMemoriesModInit=TimeWizardV023MemoriesModInit",
+            "-c",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/package/source/time_wizard_dual_play_compat.c",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/time_wizard_dual_play_compat.o"
+          ]
+        },
+        {
+          "name": "reference-relink",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/reference-relinked.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        },
+        {
+          "name": "link",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/package/time-wizard.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        }
+      ]
+    },
+    "failures": []
+  },
+  {
+    "name": "baseline-lifecycle",
+    "logs": {
+      "tw-object-h1-d0-after-m208.log": {
+        "sha256": "d2444de3dbc4078d8ff056f077a464d1bb95d037b4fbcd5150c9d034e8cdd30d",
+        "bytes": 1674270
+      },
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h0-d0-after-m200.log": {
+        "sha256": "c5b50845373e333dafef07b115a0151416dd89ae61ae0eb9795555ab5a3b9bfc",
+        "bytes": 45250
+      },
+      "tw-object-h1-d1-before-m208.log": {
+        "sha256": "42ea95a933e9e4708d411eac46c566ff3c6f540598820a07189f5de4bb6973bd",
+        "bytes": 1679725
+      },
+      "tw-object-h1-d1-after-m200.log": {
+        "sha256": "de4ed807b112ed36ccceec46e108c30908fa83fe400edcf7343c9b98ecf5b812",
+        "bytes": 847115
+      },
+      "tw-object-h1-d0-after-m206.log": {
+        "sha256": "08f97d176b8b714a4e9a50813619c706c6fb0d9a8720e208fbe0374f8f663950",
+        "bytes": 2537759
+      },
+      "tw-object-h0-d0-after-m208.log": {
+        "sha256": "8d601dcaa46ea0d370e1a18dce20923a0ef9e44ba8f8e5a6655a65a44e08933b",
+        "bytes": 76022
+      },
+      "tw-object-h0-d1-after-m206.log": {
+        "sha256": "19ecd5ecb2af948e5ad2e50508abac6c471e715b3a3a243a7fa74b6c6dd51549",
+        "bytes": 160971
+      },
+      "tw-object-h1-d1-before-m200.log": {
+        "sha256": "de4ed807b112ed36ccceec46e108c30908fa83fe400edcf7343c9b98ecf5b812",
+        "bytes": 847115
+      },
+      "tw-object-h1-d0-after-m200.log": {
+        "sha256": "2b83c4f2fc62962477f157370e512d12acd2d87890913dcf2bbecf6f831dbe32",
+        "bytes": 845250
+      },
+      "tw-object-h1-d0-after-m202.log": {
+        "sha256": "81b04487470552e780f4d7c750148f1904bbdae8a3d4364c8bdd77cd8ed6a738",
+        "bytes": 845122
+      },
+      "tw-object-h1-d0-before-m202.log": {
+        "sha256": "81b04487470552e780f4d7c750148f1904bbdae8a3d4364c8bdd77cd8ed6a738",
+        "bytes": 845122
+      },
+      "tw-object-h1-d1-before-m202.log": {
+        "sha256": "323fef89a5390ac8961d0eb3467b5ff17dd48a8dacfc51eb18be72e6a36455d8",
+        "bytes": 846987
+      },
+      "tw-object-h0-d0-before-m208.log": {
+        "sha256": "8d601dcaa46ea0d370e1a18dce20923a0ef9e44ba8f8e5a6655a65a44e08933b",
+        "bytes": 76022
+      },
+      "tw-object-h1-d0-before-m200.log": {
+        "sha256": "2b83c4f2fc62962477f157370e512d12acd2d87890913dcf2bbecf6f831dbe32",
+        "bytes": 845250
+      },
+      "tw-object-h1-d1-before-m206.log": {
+        "sha256": "6108517ef6cb5baa2a67f7cb7c0e1620ba7fdab09e7c8e78fcf740cfab41f685",
+        "bytes": 2557240
+      },
+      "tw-object-h0-d1-after-m202.log": {
+        "sha256": "ac719451a6e3ab7b7572812de00103cd466a48dee249bfda42447e6586c91680",
+        "bytes": 47071
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d1-before-m202.log": {
+        "sha256": "ac719451a6e3ab7b7572812de00103cd466a48dee249bfda42447e6586c91680",
+        "bytes": 47071
+      },
+      "tw-object-h0-d0-before-m202.log": {
+        "sha256": "0c85a05a26d6653db0727b38e2fcac320a82d19816c0608d4c31a83de7eb38a9",
+        "bytes": 45206
+      },
+      "tw-object-h0-d1-before-m200.log": {
+        "sha256": "55a45e6693f344d04809f5fb620aa4aeb267217861ab7aef86d356964b936113",
+        "bytes": 47115
+      },
+      "tw-object-h0-d0-before-m200.log": {
+        "sha256": "c5b50845373e333dafef07b115a0151416dd89ae61ae0eb9795555ab5a3b9bfc",
+        "bytes": 45250
+      },
+      "tw-object-h0-d0-after-m206.log": {
+        "sha256": "c26727d0430d400cad919341f745b2cdfa89711d4092c56e1f58be6a251e96a7",
+        "bytes": 141490
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d1-after-m200.log": {
+        "sha256": "55a45e6693f344d04809f5fb620aa4aeb267217861ab7aef86d356964b936113",
+        "bytes": 47115
+      },
+      "tw-object-h0-d1-before-m208.log": {
+        "sha256": "21976d4789f685910f1f811459c818ab03751461ec91070e04c94d23ee7bdabd",
+        "bytes": 81309
+      },
+      "tw-object-h0-d0-after-m202.log": {
+        "sha256": "0c85a05a26d6653db0727b38e2fcac320a82d19816c0608d4c31a83de7eb38a9",
+        "bytes": 45206
+      },
+      "tw-object-h0-d1-after-m208.log": {
+        "sha256": "21976d4789f685910f1f811459c818ab03751461ec91070e04c94d23ee7bdabd",
+        "bytes": 81309
+      },
+      "tw-object-h1-d1-after-m202.log": {
+        "sha256": "323fef89a5390ac8961d0eb3467b5ff17dd48a8dacfc51eb18be72e6a36455d8",
+        "bytes": 846987
+      },
+      "tw-object-h1-d0-before-m206.log": {
+        "sha256": "08f97d176b8b714a4e9a50813619c706c6fb0d9a8720e208fbe0374f8f663950",
+        "bytes": 2537759
+      },
+      "tw-object-h1-d0-before-m208.log": {
+        "sha256": "d2444de3dbc4078d8ff056f077a464d1bb95d037b4fbcd5150c9d034e8cdd30d",
+        "bytes": 1674270
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h1-d1-after-m206.log": {
+        "sha256": "6108517ef6cb5baa2a67f7cb7c0e1620ba7fdab09e7c8e78fcf740cfab41f685",
+        "bytes": 2557240
+      },
+      "tw-object-h0-d0-before-m206.log": {
+        "sha256": "c26727d0430d400cad919341f745b2cdfa89711d4092c56e1f58be6a251e96a7",
+        "bytes": 141490
+      },
+      "tw-object-h1-d1-after-m208.log": {
+        "sha256": "42ea95a933e9e4708d411eac46c566ff3c6f540598820a07189f5de4bb6973bd",
+        "bytes": 1679725
+      },
+      "tw-object-h0-d1-before-m206.log": {
+        "sha256": "19ecd5ecb2af948e5ad2e50508abac6c471e715b3a3a243a7fa74b6c6dd51549",
+        "bytes": 160971
+      }
+    },
+    "summary": {
+      "processes": 32,
+      "checks": {
+        "PASS": 408,
+        "FAIL": 24
+      },
+      "execution": {
+        "FAIL": 24,
+        "REFUSED": 8
+      },
+      "incomplete": 0
+    },
+    "builds": [
+      {
+        "returncode": 0,
+        "seconds": 4.896,
+        "log": "build-harness.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.096,
+        "log": "build-duel-entry.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.065,
+        "log": "build-observer.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.076,
+        "log": "build-interposer.log"
+      }
+    ],
+    "candidate": {
+      "scope": "Build own cooperative TW client in a private copy of the PR33 adapter; keep core pinned.\nNo private source/binary is copied into the repository. Not a full core rebuild.\n",
+      "reference_sha256": "46f63050a5761b6f7ca3ec44c7a267ee4a7f79ec1572fb3d41ecd1e6313d9093",
+      "candidate_sha256": "d70a25110d5bff51a90cd2634ec7c9182536ad0c94e209b9f4dadbd6803361a7",
+      "draw_bytes": 40,
+      "patch_sha256": "bb76c986ac08c8d9b272d7b3e41fbb3b6efcebb4c2a5017ab6765e250ac47732",
+      "client_source_sha256": "15b15058234c3522145b808bde0f60d31013599cbb6ae92b844a84540c0a9130",
+      "unchanged_link_objects": {
+        "renamed-core.o": "297990eabf3e77ed2e68c4be367d8889f9c96e488cd9735bc71d0c3c5ac764de",
+        "time_wizard_description_fit.o": "4e7d2baafbe9823d63df1cd4225deb5099a1a51dec66085eabb911862384956d",
+        "time_wizard_evolution.o": "96938bc05ba7eaadf59edcc2b58d12df5429f984f30d85325a4a397156256a1b",
+        "time_wizard_encore.o": "2287f78ce4ddbb827f3bac71a0e5067fa3ca48bea6cf76aff2f045be689f1e6a",
+        "contracts_entry.o": "bf1b18f7a099500d471a4bf9d38fdbc2852d22aad512c4a144f352b1a24ce332",
+        "ai_probe_i386.o": "13da2f9e31af2279c352aa871ddc397c4f6b05c7af1fbf4096e3969d3d9cd08f"
+      },
+      "changed_package_files": [
+        "time-wizard.o",
+        "source/selection_finalization_v1.h",
+        "source/tw_client.inc",
+        "source/mandatory_hand_selection_v1.h",
+        "source/time_wizard_dual_play_compat.c"
+      ],
+      "added_official_imports": [],
+      "all_imports": [
+        "AiScript_Run",
+        "CardRules_Fusion",
+        "Cards_BaseId",
+        "Cards_FrameColor",
+        "Cards_NameUtf8",
+        "Cards_PatchThumbnail",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907AC",
+        "D_800907CC",
+        "D_800907D8",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B19C",
+        "D_8009B1B4",
+        "D_8009B1D5",
+        "D_8009B20C",
+        "D_8009B21A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA030",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EB0F8",
+        "D_800F2848",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "D_801A8000",
+        "DisplayObject_ReleaseIfPresent",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelEffect_CreateRequest",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateCardUse",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "Duel_CalcCardStats",
+        "Duel_CheckEquip",
+        "Duel_CheckFusion",
+        "Duel_GetTerrainBoost",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_SetupCardRecord",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSortPoly",
+        "Hal9_CoreDualDrawV1",
+        "Hal9_CoreHardStateV1",
+        "Hal9_CoreOwnersReadyV1",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "SD_SEPlayFull",
+        "SetPolyFT4",
+        "TextBox_Destroy",
+        "TextureDump_Delivered",
+        "__udivdi3",
+        "__x86_indirect_thunk_eax",
+        "abs",
+        "atan2",
+        "cos",
+        "fclose",
+        "floor",
+        "fmod",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80017DB4",
+        "func_80017E3C",
+        "func_80017F04",
+        "func_8001B170",
+        "func_8001B938",
+        "func_8001BAF0",
+        "func_80022D94",
+        "func_80028220",
+        "func_80035E20",
+        "func_80037DA4",
+        "gAiScript_State",
+        "gCard_nCount",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_bOpponentID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "malloc",
+        "memcmp",
+        "memcpy",
+        "memset",
+        "realloc",
+        "sin",
+        "snprintf",
+        "sqrt",
+        "strncpy",
+        "strstr",
+        "strtod"
+      ],
+      "steps": [
+        {
+          "name": "adapter",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang",
+            "-std=gnu11",
+            "-O2",
+            "-g",
+            "-fno-pic",
+            "-fno-pie",
+            "-fno-common",
+            "-fno-stack-protector",
+            "-fno-asynchronous-unwind-tables",
+            "-fno-unwind-tables",
+            "-fstack-clash-protection",
+            "-march=i686",
+            "-mno-sse",
+            "-mno-mmx",
+            "-ffreestanding",
+            "-nostdinc",
+            "-DMEMORIES_PC",
+            "-DMEMORIES_MOD",
+            "-D_LANGUAGE_C",
+            "-DLANGUAGE_C",
+            "-Wall",
+            "-Wno-unused-function",
+            "-Wno-missing-braces",
+            "--target=i386-pc-linux-gnu",
+            "-mstackrealign",
+            "-mretpoline-external-thunk",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/lib/clang/23/include",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/libc",
+            "-I",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-client-category/local/delivery2/package=/hal9/package",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-client-category/repo=/hal9/repo",
+            "-fdebug-compilation-dir=/hal9/build",
+            "-DMemoriesModInit=TimeWizardV023MemoriesModInit",
+            "-c",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/package/source/time_wizard_dual_play_compat.c",
+            "-o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o"
+          ]
+        },
+        {
+          "name": "reference-relink",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/reference-relinked.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-rd-bonus/local/final/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        },
+        {
+          "name": "link",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/package/time-wizard.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        }
+      ]
+    },
+    "failures": [
+      {
+        "case": "tw-object-h0-d0-before-m200",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d0-before-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d0-before-m208",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d0-after-m200",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d0-after-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d0-after-m208",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m200",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m208",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m200",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m208",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-before-m200",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-before-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-before-m208",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-after-m200",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-after-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-after-m208",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m200",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m208",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m200",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m208",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-clears-only-local-fence",
+            "status": "FAIL",
+            "details": "Local adapter state only, after acknowledged disconnection; no owner pending writes."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "baseline-projection",
+    "logs": {
+      "tw-object-h0-d0-after-m223.log": {
+        "sha256": "43c5144bba9de0ea961dda7a8542d181de40ce7544f4058b3e047f9e0450ad5d",
+        "bytes": 29674
+      },
+      "tw-object-h1-d0-after-m223.log": {
+        "sha256": "b7dfc4353d118155904f198e2dbf264ba880455e314bfe4c0ffc52d65fa90a63",
+        "bytes": 31413
+      },
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h1-d1-before-m222.log": {
+        "sha256": "bf176c3ce946e966968e6d64a33e97cd65cbcb5fe4d903377436a438b2683a7b",
+        "bytes": 815140
+      },
+      "tw-object-h0-d0-before-m223.log": {
+        "sha256": "43c5144bba9de0ea961dda7a8542d181de40ce7544f4058b3e047f9e0450ad5d",
+        "bytes": 29674
+      },
+      "tw-object-h0-d0-before-m224.log": {
+        "sha256": "43c5144bba9de0ea961dda7a8542d181de40ce7544f4058b3e047f9e0450ad5d",
+        "bytes": 29674
+      },
+      "tw-object-h1-d1-before-m221.log": {
+        "sha256": "998c2ce1c0b888c3628d5c0ae8d43dbb8b5176e08b359871acece20581d66557",
+        "bytes": 961982
+      },
+      "tw-object-h0-d0-after-m221.log": {
+        "sha256": "357924c35d1e6a72eb779548956e20e87697bc73f500c1be539625f3f4f838af",
+        "bytes": 46142
+      },
+      "tw-object-h0-d0-before-m221.log": {
+        "sha256": "357924c35d1e6a72eb779548956e20e87697bc73f500c1be539625f3f4f838af",
+        "bytes": 46142
+      },
+      "tw-object-h1-d0-after-m222.log": {
+        "sha256": "b7dfc4353d118155904f198e2dbf264ba880455e314bfe4c0ffc52d65fa90a63",
+        "bytes": 31413
+      },
+      "tw-object-h0-d1-after-m224.log": {
+        "sha256": "9df5a64b62960983393e7fe02c52c8ed1ec7ee161b42e2e73b19b73c3a7f688f",
+        "bytes": 50353
+      },
+      "tw-object-h0-d1-after-m221.log": {
+        "sha256": "fb9ea2ca6e2ccc691d8446579e9500accb9a9144a189c2dd035980d07c49efb5",
+        "bytes": 48396
+      },
+      "tw-object-h0-d0-after-m224.log": {
+        "sha256": "43c5144bba9de0ea961dda7a8542d181de40ce7544f4058b3e047f9e0450ad5d",
+        "bytes": 29674
+      },
+      "tw-object-h0-d1-after-m222.log": {
+        "sha256": "f9c3fbba01d02b202ecd7db42be606258df1bd81cd2187df2e55c7f28e3a7f78",
+        "bytes": 50996
+      },
+      "tw-object-h0-d1-before-m223.log": {
+        "sha256": "63f69a32428d292aae13acea73c121b400d31d46801520a3adbecae767917e36",
+        "bytes": 51126
+      },
+      "tw-object-h0-d0-after-m222.log": {
+        "sha256": "43c5144bba9de0ea961dda7a8542d181de40ce7544f4058b3e047f9e0450ad5d",
+        "bytes": 29674
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h1-d1-before-m224.log": {
+        "sha256": "00af61f0209094d68d9e23f42823e73d7d27434369ae8daf4411086bbd42c7a7",
+        "bytes": 814401
+      },
+      "tw-object-h1-d0-before-m222.log": {
+        "sha256": "b7dfc4353d118155904f198e2dbf264ba880455e314bfe4c0ffc52d65fa90a63",
+        "bytes": 31413
+      },
+      "tw-object-h1-d0-before-m224.log": {
+        "sha256": "b7dfc4353d118155904f198e2dbf264ba880455e314bfe4c0ffc52d65fa90a63",
+        "bytes": 31413
+      },
+      "tw-object-h1-d0-after-m224.log": {
+        "sha256": "b7dfc4353d118155904f198e2dbf264ba880455e314bfe4c0ffc52d65fa90a63",
+        "bytes": 31413
+      },
+      "tw-object-h0-d0-before-m222.log": {
+        "sha256": "43c5144bba9de0ea961dda7a8542d181de40ce7544f4058b3e047f9e0450ad5d",
+        "bytes": 29674
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d1-before-m221.log": {
+        "sha256": "fb9ea2ca6e2ccc691d8446579e9500accb9a9144a189c2dd035980d07c49efb5",
+        "bytes": 48396
+      },
+      "tw-object-h1-d1-after-m223.log": {
+        "sha256": "2645f921f5dbe8701e6678633eeaf0c542ccc4024377c8cfdcb08192516dd19a",
+        "bytes": 815400
+      },
+      "tw-object-h0-d1-after-m223.log": {
+        "sha256": "63f69a32428d292aae13acea73c121b400d31d46801520a3adbecae767917e36",
+        "bytes": 51126
+      },
+      "tw-object-h1-d1-after-m222.log": {
+        "sha256": "bf176c3ce946e966968e6d64a33e97cd65cbcb5fe4d903377436a438b2683a7b",
+        "bytes": 815140
+      },
+      "tw-object-h1-d1-after-m224.log": {
+        "sha256": "00af61f0209094d68d9e23f42823e73d7d27434369ae8daf4411086bbd42c7a7",
+        "bytes": 814401
+      },
+      "tw-object-h1-d1-after-m221.log": {
+        "sha256": "998c2ce1c0b888c3628d5c0ae8d43dbb8b5176e08b359871acece20581d66557",
+        "bytes": 961982
+      },
+      "tw-object-h1-d0-before-m223.log": {
+        "sha256": "b7dfc4353d118155904f198e2dbf264ba880455e314bfe4c0ffc52d65fa90a63",
+        "bytes": 31413
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h1-d0-after-m221.log": {
+        "sha256": "4e46cac5491ed31135a654072947ec18286d7a2d2074f62b38b92815bed090c2",
+        "bytes": 959632
+      },
+      "tw-object-h1-d0-before-m221.log": {
+        "sha256": "4e46cac5491ed31135a654072947ec18286d7a2d2074f62b38b92815bed090c2",
+        "bytes": 959632
+      },
+      "tw-object-h0-d1-before-m224.log": {
+        "sha256": "9df5a64b62960983393e7fe02c52c8ed1ec7ee161b42e2e73b19b73c3a7f688f",
+        "bytes": 50353
+      },
+      "tw-object-h1-d1-before-m223.log": {
+        "sha256": "2645f921f5dbe8701e6678633eeaf0c542ccc4024377c8cfdcb08192516dd19a",
+        "bytes": 815400
+      },
+      "tw-object-h0-d1-before-m222.log": {
+        "sha256": "f9c3fbba01d02b202ecd7db42be606258df1bd81cd2187df2e55c7f28e3a7f78",
+        "bytes": 50996
+      }
+    },
+    "summary": {
+      "processes": 32,
+      "checks": {
+        "PASS": 308,
+        "FAIL": 22
+      },
+      "execution": {
+        "FAIL": 20,
+        "NOT_REACHED": 12
+      },
+      "incomplete": 0
+    },
+    "builds": [
+      {
+        "returncode": 0,
+        "seconds": 4.728,
+        "log": "build-harness.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.088,
+        "log": "build-duel-entry.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.069,
+        "log": "build-observer.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.069,
+        "log": "build-interposer.log"
+      }
+    ],
+    "candidate": {
+      "scope": "Build own cooperative TW client in a private copy of the PR33 adapter; keep core pinned.\nNo private source/binary is copied into the repository. Not a full core rebuild.\n",
+      "reference_sha256": "46f63050a5761b6f7ca3ec44c7a267ee4a7f79ec1572fb3d41ecd1e6313d9093",
+      "candidate_sha256": "d70a25110d5bff51a90cd2634ec7c9182536ad0c94e209b9f4dadbd6803361a7",
+      "draw_bytes": 40,
+      "patch_sha256": "bb76c986ac08c8d9b272d7b3e41fbb3b6efcebb4c2a5017ab6765e250ac47732",
+      "client_source_sha256": "15b15058234c3522145b808bde0f60d31013599cbb6ae92b844a84540c0a9130",
+      "unchanged_link_objects": {
+        "renamed-core.o": "297990eabf3e77ed2e68c4be367d8889f9c96e488cd9735bc71d0c3c5ac764de",
+        "time_wizard_description_fit.o": "4e7d2baafbe9823d63df1cd4225deb5099a1a51dec66085eabb911862384956d",
+        "time_wizard_evolution.o": "96938bc05ba7eaadf59edcc2b58d12df5429f984f30d85325a4a397156256a1b",
+        "time_wizard_encore.o": "2287f78ce4ddbb827f3bac71a0e5067fa3ca48bea6cf76aff2f045be689f1e6a",
+        "contracts_entry.o": "bf1b18f7a099500d471a4bf9d38fdbc2852d22aad512c4a144f352b1a24ce332",
+        "ai_probe_i386.o": "13da2f9e31af2279c352aa871ddc397c4f6b05c7af1fbf4096e3969d3d9cd08f"
+      },
+      "changed_package_files": [
+        "time-wizard.o",
+        "source/selection_finalization_v1.h",
+        "source/tw_client.inc",
+        "source/mandatory_hand_selection_v1.h",
+        "source/time_wizard_dual_play_compat.c"
+      ],
+      "added_official_imports": [],
+      "all_imports": [
+        "AiScript_Run",
+        "CardRules_Fusion",
+        "Cards_BaseId",
+        "Cards_FrameColor",
+        "Cards_NameUtf8",
+        "Cards_PatchThumbnail",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907AC",
+        "D_800907CC",
+        "D_800907D8",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B19C",
+        "D_8009B1B4",
+        "D_8009B1D5",
+        "D_8009B20C",
+        "D_8009B21A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA030",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EB0F8",
+        "D_800F2848",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "D_801A8000",
+        "DisplayObject_ReleaseIfPresent",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelEffect_CreateRequest",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateCardUse",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "Duel_CalcCardStats",
+        "Duel_CheckEquip",
+        "Duel_CheckFusion",
+        "Duel_GetTerrainBoost",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_SetupCardRecord",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSortPoly",
+        "Hal9_CoreDualDrawV1",
+        "Hal9_CoreHardStateV1",
+        "Hal9_CoreOwnersReadyV1",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "SD_SEPlayFull",
+        "SetPolyFT4",
+        "TextBox_Destroy",
+        "TextureDump_Delivered",
+        "__udivdi3",
+        "__x86_indirect_thunk_eax",
+        "abs",
+        "atan2",
+        "cos",
+        "fclose",
+        "floor",
+        "fmod",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80017DB4",
+        "func_80017E3C",
+        "func_80017F04",
+        "func_8001B170",
+        "func_8001B938",
+        "func_8001BAF0",
+        "func_80022D94",
+        "func_80028220",
+        "func_80035E20",
+        "func_80037DA4",
+        "gAiScript_State",
+        "gCard_nCount",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_bOpponentID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "malloc",
+        "memcmp",
+        "memcpy",
+        "memset",
+        "realloc",
+        "sin",
+        "snprintf",
+        "sqrt",
+        "strncpy",
+        "strstr",
+        "strtod"
+      ],
+      "steps": [
+        {
+          "name": "adapter",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang",
+            "-std=gnu11",
+            "-O2",
+            "-g",
+            "-fno-pic",
+            "-fno-pie",
+            "-fno-common",
+            "-fno-stack-protector",
+            "-fno-asynchronous-unwind-tables",
+            "-fno-unwind-tables",
+            "-fstack-clash-protection",
+            "-march=i686",
+            "-mno-sse",
+            "-mno-mmx",
+            "-ffreestanding",
+            "-nostdinc",
+            "-DMEMORIES_PC",
+            "-DMEMORIES_MOD",
+            "-D_LANGUAGE_C",
+            "-DLANGUAGE_C",
+            "-Wall",
+            "-Wno-unused-function",
+            "-Wno-missing-braces",
+            "--target=i386-pc-linux-gnu",
+            "-mstackrealign",
+            "-mretpoline-external-thunk",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/lib/clang/23/include",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/libc",
+            "-I",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-client-category/local/delivery2/package=/hal9/package",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-client-category/repo=/hal9/repo",
+            "-fdebug-compilation-dir=/hal9/build",
+            "-DMemoriesModInit=TimeWizardV023MemoriesModInit",
+            "-c",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/package/source/time_wizard_dual_play_compat.c",
+            "-o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o"
+          ]
+        },
+        {
+          "name": "reference-relink",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/reference-relinked.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-rd-bonus/local/final/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        },
+        {
+          "name": "link",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/package/time-wizard.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        }
+      ]
+    },
+    "failures": [
+      {
+        "case": "tw-object-h0-d0-before-m221",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-does-not-clobber-new-logical-type",
+            "status": "FAIL",
+            "details": "A callback-owned type, including same-ID logical replacement, must survive; no restore by ID."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d0-after-m221",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-does-not-clobber-new-logical-type",
+            "status": "FAIL",
+            "details": "A callback-owned type, including same-ID logical replacement, must survive; no restore by ID."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m221",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-does-not-clobber-new-logical-type",
+            "status": "FAIL",
+            "details": "A callback-owned type, including same-ID logical replacement, must survive; no restore by ID."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m222",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-global-owned-type-only",
+            "status": "FAIL",
+            "details": "Type projection must not overwrite another callback's attack/defense/stat bits."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m223",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-preserves-logical-callback-type",
+            "status": "FAIL",
+            "details": "Adapter cannot replace another callback's type with its own saved default."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m224",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "early-return-does-not-retag-preexisting-record",
+            "status": "FAIL",
+            "details": "No snapshot was produced. Pre-existing logical records are not owned by the projection."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m221",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-does-not-clobber-new-logical-type",
+            "status": "FAIL",
+            "details": "A callback-owned type, including same-ID logical replacement, must survive; no restore by ID."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m222",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-global-owned-type-only",
+            "status": "FAIL",
+            "details": "Type projection must not overwrite another callback's attack/defense/stat bits."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m223",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-preserves-logical-callback-type",
+            "status": "FAIL",
+            "details": "Adapter cannot replace another callback's type with its own saved default."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m224",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "early-return-does-not-retag-preexisting-record",
+            "status": "FAIL",
+            "details": "No snapshot was produced. Pre-existing logical records are not owned by the projection."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-before-m221",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-does-not-clobber-new-logical-type",
+            "status": "FAIL",
+            "details": "A callback-owned type, including same-ID logical replacement, must survive; no restore by ID."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-after-m221",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-does-not-clobber-new-logical-type",
+            "status": "FAIL",
+            "details": "A callback-owned type, including same-ID logical replacement, must survive; no restore by ID."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m221",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-does-not-clobber-new-logical-type",
+            "status": "FAIL",
+            "details": "A callback-owned type, including same-ID logical replacement, must survive; no restore by ID."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m222",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-global-owned-type-only",
+            "status": "FAIL",
+            "details": "Type projection must not overwrite another callback's attack/defense/stat bits."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m223",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-preserves-logical-callback-type",
+            "status": "FAIL",
+            "details": "Adapter cannot replace another callback's type with its own saved default."
+          },
+          {
+            "name": "projection-preserves-logical-callback-type",
+            "status": "FAIL",
+            "details": "Adapter cannot replace another callback's type with its own saved default."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m224",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "early-return-does-not-retag-preexisting-record",
+            "status": "FAIL",
+            "details": "No snapshot was produced. Pre-existing logical records are not owned by the projection."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m221",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-does-not-clobber-new-logical-type",
+            "status": "FAIL",
+            "details": "A callback-owned type, including same-ID logical replacement, must survive; no restore by ID."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m222",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-global-owned-type-only",
+            "status": "FAIL",
+            "details": "Type projection must not overwrite another callback's attack/defense/stat bits."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m223",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "projection-preserves-logical-callback-type",
+            "status": "FAIL",
+            "details": "Adapter cannot replace another callback's type with its own saved default."
+          },
+          {
+            "name": "projection-preserves-logical-callback-type",
+            "status": "FAIL",
+            "details": "Adapter cannot replace another callback's type with its own saved default."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m224",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "early-return-does-not-retag-preexisting-record",
+            "status": "FAIL",
+            "details": "No snapshot was produced. Pre-existing logical records are not owned by the projection."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "lifecycle-v2",
+    "logs": {
+      "tw-object-h1-d0-after-m208.log": {
+        "sha256": "efc348139ed3d8751f6bd44011cade994b4debbd0bc87c4250850205194a0e4a",
+        "bytes": 1776309
+      },
+      "tw-object-h0-d0-before-m203.log": {
+        "sha256": "64d4f1d1f96b4d6ab8f9e459ded72744611451b5538bd1bc8336b573feb6f99b",
+        "bytes": 59221
+      },
+      "tw-object-h0-d0-after-m207.log": {
+        "sha256": "b47111e86d638777966eaad9eadabaa526eb10f0f7f3fa0ae520599d2cef2f8d",
+        "bytes": 401745
+      },
+      "tw-object-h0-d0-after-m211.log": {
+        "sha256": "2c3398fb8a029fdbb6350d7e42e80b1eafd15829a9da588c3f7e24a4769da2e0",
+        "bytes": 131504
+      },
+      "tw-object-h0-d1-before-m212.log": {
+        "sha256": "3068640e5f06cbbb5c9e24b5e335600ea9d54dbcaef59e500488f360de7c94b5",
+        "bytes": 70237
+      },
+      "tw-object-h1-d1-before-m205.log": {
+        "sha256": "70aa906c0946ead4c3b74942e3ae83758b59b80330d46e7e9db54a8147eb8277",
+        "bytes": 1780936
+      },
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h1-d0-after-m204.log": {
+        "sha256": "22326d01b35196fef3e9a8221850828aa15828b1acfccbb3fcdb037d5b250d04",
+        "bytes": 1730222
+      },
+      "tw-object-h0-d0-after-m200.log": {
+        "sha256": "cc7e29f668b59c03491c336518031ce54e3be1fdbe57d189dd7c093e8b0b468c",
+        "bytes": 58355
+      },
+      "tw-object-h0-d0-before-m204.log": {
+        "sha256": "094b00faa828cf8ece182821c05e02d68efd88319fcd6afe6b8323801887e918",
+        "bytes": 130587
+      },
+      "tw-object-h1-d1-after-m209.log": {
+        "sha256": "f5aa22f72455b9a09d520f00d6448ed972a0f4a6e61b60717c06051f0bf64dd8",
+        "bytes": 2255527
+      },
+      "tw-object-h1-d0-before-m209.log": {
+        "sha256": "3504b0c7aa7a0cd45a3c279ace1446bbcce715a7fc155978783f2e10270e7a0c",
+        "bytes": 2004892
+      },
+      "tw-object-h1-d0-after-m209.log": {
+        "sha256": "3504b0c7aa7a0cd45a3c279ace1446bbcce715a7fc155978783f2e10270e7a0c",
+        "bytes": 2004892
+      },
+      "tw-object-h1-d1-after-m203.log": {
+        "sha256": "693b60df26c2817b0b65ff691ffce5e14d45d760e6fdd1d3bc0a973c504d5d55",
+        "bytes": 869549
+      },
+      "tw-object-h0-d0-after-m210.log": {
+        "sha256": "df548fae40049374aa3e7bd08b0dc2f5a1da41e68079dc58e762d739e2362ede",
+        "bytes": 131431
+      },
+      "tw-object-h0-d0-after-m201.log": {
+        "sha256": "b7758fe797494745b3561f63fdce423dc90dc1aeed3fe14c1be663cceed4ac27",
+        "bytes": 131431
+      },
+      "tw-object-h1-d1-before-m208.log": {
+        "sha256": "00b657095bf21064605f3909275fc54ca405786655e9346d6dceba92c5d69c5f",
+        "bytes": 1857216
+      },
+      "tw-object-h1-d1-after-m207.log": {
+        "sha256": "b4b146df61eb854f369fcdd06ec37885268e6430a2dfb31b2049c924bbc144b1",
+        "bytes": 1546569
+      },
+      "tw-object-h1-d1-after-m200.log": {
+        "sha256": "723da192f65e2dc02590a8694c0b7da837866a2eefc95d4ccd0b0971e36d1a7a",
+        "bytes": 868602
+      },
+      "tw-object-h1-d0-before-m205.log": {
+        "sha256": "f11ba726b6f3307b259c754760bddf170c85b0d04b75ae8542567598d64ec06d",
+        "bytes": 1731152
+      },
+      "tw-object-h1-d0-after-m206.log": {
+        "sha256": "d447f1b844279017f9982504b635f679027ae2251e4e23d268b5aef48b274d2e",
+        "bytes": 2843851
+      },
+      "tw-object-h0-d1-after-m205.log": {
+        "sha256": "69d4650166bda1b281d0571b8d49e140144552c6fa969024381ca744c26f8962",
+        "bytes": 181217
+      },
+      "tw-object-h1-d1-after-m201.log": {
+        "sha256": "234a18e2d47d3621be34f9c827ba0db2907ebff671a80457d51d65e3e11a2070",
+        "bytes": 1780850
+      },
+      "tw-object-h0-d0-after-m208.log": {
+        "sha256": "de71c3c3a239aaf031a83ca29bb9355e5b59f7877d745ea23f3a375d096bfcdc",
+        "bytes": 176215
+      },
+      "tw-object-h0-d1-after-m206.log": {
+        "sha256": "266ee8204f84e4fb24b56e17485fe7cb2515b5a393f8d676c63188e26cd070db",
+        "bytes": 803024
+      },
+      "tw-object-h0-d1-after-m201.log": {
+        "sha256": "4b6124fe1781110f818a3213d0c1bd8ffea0c807e855ca1d74969287fd0c2c45",
+        "bytes": 181131
+      },
+      "tw-object-h1-d1-after-m212.log": {
+        "sha256": "60c30ac9a830c95d6588ec7ba310fc46fae53969bdd10248199cb9df887073c7",
+        "bytes": 870691
+      },
+      "tw-object-h1-d1-before-m200.log": {
+        "sha256": "723da192f65e2dc02590a8694c0b7da837866a2eefc95d4ccd0b0971e36d1a7a",
+        "bytes": 868602
+      },
+      "tw-object-h0-d0-after-m212.log": {
+        "sha256": "5a9e45bbbe6c74c63ad7cfcc05cd6b62b4f507a4d55342f061a7d86273e55f3b",
+        "bytes": 60195
+      },
+      "tw-object-h1-d0-after-m200.log": {
+        "sha256": "322d98870cf28848f4714ec9197f210c44210d8623254510f01669d0eaf4b096",
+        "bytes": 858695
+      },
+      "tw-object-h0-d1-before-m210.log": {
+        "sha256": "f6ff5085eeff743f565f085a4217ecb57af677d4ccb21ac84547020dd8cf9686",
+        "bytes": 181131
+      },
+      "tw-object-h0-d1-before-m204.log": {
+        "sha256": "c0cdd01b9946c188732de58b8a34b5c0d185ce629daf6b3ece282689e2ec71ce",
+        "bytes": 180287
+      },
+      "tw-object-h1-d1-after-m204.log": {
+        "sha256": "e39ae63c71c840f3f1bd2d8de24b151e0f3a925f91824f275f93e776bdef0c13",
+        "bytes": 1780006
+      },
+      "tw-object-h1-d0-after-m202.log": {
+        "sha256": "fb2680dae2d387dac49457023dcb305ac9080886ad2de753a28657f30d68603a",
+        "bytes": 1202115
+      },
+      "tw-object-h1-d0-before-m202.log": {
+        "sha256": "fb2680dae2d387dac49457023dcb305ac9080886ad2de753a28657f30d68603a",
+        "bytes": 1202115
+      },
+      "tw-object-h1-d1-before-m202.log": {
+        "sha256": "6589a71b3c26802ed36be5cef912e8fe5ce9b710d399bac70e97a5dacb25b8ca",
+        "bytes": 1546569
+      },
+      "tw-object-h1-d1-before-m212.log": {
+        "sha256": "60c30ac9a830c95d6588ec7ba310fc46fae53969bdd10248199cb9df887073c7",
+        "bytes": 870691
+      },
+      "tw-object-h0-d0-before-m207.log": {
+        "sha256": "b47111e86d638777966eaad9eadabaa526eb10f0f7f3fa0ae520599d2cef2f8d",
+        "bytes": 401745
+      },
+      "tw-object-h0-d1-before-m211.log": {
+        "sha256": "b83e61d36bab97cff3d95a4d3dc9f6299d2c14a43b077063dc15d974de176de5",
+        "bytes": 181204
+      },
+      "tw-object-h1-d1-after-m205.log": {
+        "sha256": "70aa906c0946ead4c3b74942e3ae83758b59b80330d46e7e9db54a8147eb8277",
+        "bytes": 1780936
+      },
+      "tw-object-h0-d0-before-m208.log": {
+        "sha256": "de71c3c3a239aaf031a83ca29bb9355e5b59f7877d745ea23f3a375d096bfcdc",
+        "bytes": 176215
+      },
+      "tw-object-h0-d0-before-m209.log": {
+        "sha256": "1c26c0beec2e1b9398301ec56b0a3f141568a239fe78cee6db398f89d65c8ccc",
+        "bytes": 405337
+      },
+      "tw-object-h0-d0-after-m203.log": {
+        "sha256": "64d4f1d1f96b4d6ab8f9e459ded72744611451b5538bd1bc8336b573feb6f99b",
+        "bytes": 59221
+      },
+      "tw-object-h1-d1-before-m211.log": {
+        "sha256": "b835bf8f01dc813c4f670ad4025d10428f3ca52141d0c70682538eaf8c6e2c97",
+        "bytes": 1780923
+      },
+      "tw-object-h1-d0-before-m200.log": {
+        "sha256": "322d98870cf28848f4714ec9197f210c44210d8623254510f01669d0eaf4b096",
+        "bytes": 858695
+      },
+      "tw-object-h1-d0-after-m212.log": {
+        "sha256": "5029ce7dae336bbaef0414cf867d9bfd4263d29f66bac96fe26636e580896125",
+        "bytes": 860649
+      },
+      "tw-object-h1-d1-before-m206.log": {
+        "sha256": "754aba46ef89eb0c74a85eba9da2d7c5bc99b4bfbd92e78e8d87ea75c8ab4952",
+        "bytes": 3200670
+      },
+      "tw-object-h0-d1-before-m209.log": {
+        "sha256": "fd73df15b652e1f3ee6d3157738dc719c426626e8c962a257f7ca7e1f877ca0b",
+        "bytes": 655803
+      },
+      "tw-object-h1-d1-before-m204.log": {
+        "sha256": "e39ae63c71c840f3f1bd2d8de24b151e0f3a925f91824f275f93e776bdef0c13",
+        "bytes": 1780006
+      },
+      "tw-object-h1-d0-after-m211.log": {
+        "sha256": "b9aed0641d99a9b0c700e0dbc02234bf612bd582a0ed795b5842e770df81f81b",
+        "bytes": 1731139
+      },
+      "tw-object-h0-d0-after-m209.log": {
+        "sha256": "1c26c0beec2e1b9398301ec56b0a3f141568a239fe78cee6db398f89d65c8ccc",
+        "bytes": 405337
+      },
+      "tw-object-h0-d1-after-m202.log": {
+        "sha256": "a27ed06c4c3a244ba757cd80f5b4331119e7fba7a393bbc774919cecc170ed02",
+        "bytes": 746200
+      },
+      "tw-object-h0-d0-before-m210.log": {
+        "sha256": "df548fae40049374aa3e7bd08b0dc2f5a1da41e68079dc58e762d739e2362ede",
+        "bytes": 131431
+      },
+      "tw-object-h0-d0-after-m205.log": {
+        "sha256": "6f5c2bc1734237a26ea5e0b9e0bc26713c3d10d5517fb89ec1454b57b5abe3a6",
+        "bytes": 131517
+      },
+      "tw-object-h0-d0-before-m211.log": {
+        "sha256": "2c3398fb8a029fdbb6350d7e42e80b1eafd15829a9da588c3f7e24a4769da2e0",
+        "bytes": 131504
+      },
+      "tw-object-h1-d0-after-m201.log": {
+        "sha256": "a6c41c9129dc1d4b1fef773b5a4303aca7ce71d1c7d88bc26e13e3e0266cb996",
+        "bytes": 1731066
+      },
+      "tw-object-h1-d0-before-m207.log": {
+        "sha256": "678841678436430374a823d760f7e11c6cded164b3fdf206a71d15982ea5792a",
+        "bytes": 1202115
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d0-before-m205.log": {
+        "sha256": "6f5c2bc1734237a26ea5e0b9e0bc26713c3d10d5517fb89ec1454b57b5abe3a6",
+        "bytes": 131517
+      },
+      "tw-object-h1-d0-after-m205.log": {
+        "sha256": "f11ba726b6f3307b259c754760bddf170c85b0d04b75ae8542567598d64ec06d",
+        "bytes": 1731152
+      },
+      "tw-object-h1-d0-after-m203.log": {
+        "sha256": "dfe969401b675a60fc0f112da82d295b7a484fe0d13ba136b162effb64b0b0c8",
+        "bytes": 859561
+      },
+      "tw-object-h0-d1-before-m202.log": {
+        "sha256": "a27ed06c4c3a244ba757cd80f5b4331119e7fba7a393bbc774919cecc170ed02",
+        "bytes": 746200
+      },
+      "tw-object-h1-d0-before-m211.log": {
+        "sha256": "b9aed0641d99a9b0c700e0dbc02234bf612bd582a0ed795b5842e770df81f81b",
+        "bytes": 1731139
+      },
+      "tw-object-h0-d0-before-m202.log": {
+        "sha256": "21c535cd971f592f90f976e9f4d0ee05596e21463774383653d68e14ecc12aad",
+        "bytes": 401745
+      },
+      "tw-object-h0-d1-before-m200.log": {
+        "sha256": "78ca9a8736d680e4d159f15ed7ac0de98527d32379cdd5eb749a316954fbdaec",
+        "bytes": 68262
+      },
+      "tw-object-h1-d0-after-m210.log": {
+        "sha256": "46531957a250381f9036b7eace3d262aea8feff1915b074936b7a2b19bccbabd",
+        "bytes": 1731066
+      },
+      "tw-object-h0-d0-before-m200.log": {
+        "sha256": "cc7e29f668b59c03491c336518031ce54e3be1fdbe57d189dd7c093e8b0b468c",
+        "bytes": 58355
+      },
+      "tw-object-h1-d1-before-m210.log": {
+        "sha256": "0d70ac7d54f45cac6d7103a574af04ad367806b0aca8ead2f673eab3e30219cd",
+        "bytes": 1780850
+      },
+      "tw-object-h1-d0-before-m203.log": {
+        "sha256": "dfe969401b675a60fc0f112da82d295b7a484fe0d13ba136b162effb64b0b0c8",
+        "bytes": 859561
+      },
+      "tw-object-h0-d1-after-m209.log": {
+        "sha256": "fd73df15b652e1f3ee6d3157738dc719c426626e8c962a257f7ca7e1f877ca0b",
+        "bytes": 655803
+      },
+      "tw-object-h0-d0-after-m206.log": {
+        "sha256": "e0b01b25de11fae56e3880c0f0cf0fb07ac35eeb71a3408b7ba34c587ab8f1f5",
+        "bytes": 446205
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d1-after-m200.log": {
+        "sha256": "78ca9a8736d680e4d159f15ed7ac0de98527d32379cdd5eb749a316954fbdaec",
+        "bytes": 68262
+      },
+      "tw-object-h0-d1-before-m208.log": {
+        "sha256": "fb375b63f6d0f800e76fdbb53e50cf6758227b24fb4470563563605896ca5e33",
+        "bytes": 256954
+      },
+      "tw-object-h0-d0-after-m204.log": {
+        "sha256": "094b00faa828cf8ece182821c05e02d68efd88319fcd6afe6b8323801887e918",
+        "bytes": 130587
+      },
+      "tw-object-h1-d0-before-m212.log": {
+        "sha256": "5029ce7dae336bbaef0414cf867d9bfd4263d29f66bac96fe26636e580896125",
+        "bytes": 860649
+      },
+      "tw-object-h0-d1-before-m201.log": {
+        "sha256": "4b6124fe1781110f818a3213d0c1bd8ffea0c807e855ca1d74969287fd0c2c45",
+        "bytes": 181131
+      },
+      "tw-object-h0-d1-after-m207.log": {
+        "sha256": "6258d2474b4037c88af45d016d6638fcd84bb2c0fab071b9f66ac6a5297502ff",
+        "bytes": 746200
+      },
+      "tw-object-h0-d0-after-m202.log": {
+        "sha256": "21c535cd971f592f90f976e9f4d0ee05596e21463774383653d68e14ecc12aad",
+        "bytes": 401745
+      },
+      "tw-object-h0-d1-after-m208.log": {
+        "sha256": "fb375b63f6d0f800e76fdbb53e50cf6758227b24fb4470563563605896ca5e33",
+        "bytes": 256954
+      },
+      "tw-object-h1-d1-after-m202.log": {
+        "sha256": "6589a71b3c26802ed36be5cef912e8fe5ce9b710d399bac70e97a5dacb25b8ca",
+        "bytes": 1546569
+      },
+      "tw-object-h1-d1-before-m207.log": {
+        "sha256": "b4b146df61eb854f369fcdd06ec37885268e6430a2dfb31b2049c924bbc144b1",
+        "bytes": 1546569
+      },
+      "tw-object-h0-d1-before-m203.log": {
+        "sha256": "4baf44a258fb1c43eebcac421f01f978e92719fc41fb83e55a176dfbedded8ec",
+        "bytes": 69209
+      },
+      "tw-object-h1-d1-before-m209.log": {
+        "sha256": "f5aa22f72455b9a09d520f00d6448ed972a0f4a6e61b60717c06051f0bf64dd8",
+        "bytes": 2255527
+      },
+      "tw-object-h0-d1-after-m211.log": {
+        "sha256": "b83e61d36bab97cff3d95a4d3dc9f6299d2c14a43b077063dc15d974de176de5",
+        "bytes": 181204
+      },
+      "tw-object-h1-d0-after-m207.log": {
+        "sha256": "678841678436430374a823d760f7e11c6cded164b3fdf206a71d15982ea5792a",
+        "bytes": 1202115
+      },
+      "tw-object-h1-d1-after-m210.log": {
+        "sha256": "0d70ac7d54f45cac6d7103a574af04ad367806b0aca8ead2f673eab3e30219cd",
+        "bytes": 1780850
+      },
+      "tw-object-h0-d1-after-m210.log": {
+        "sha256": "f6ff5085eeff743f565f085a4217ecb57af677d4ccb21ac84547020dd8cf9686",
+        "bytes": 181131
+      },
+      "tw-object-h1-d1-before-m203.log": {
+        "sha256": "693b60df26c2817b0b65ff691ffce5e14d45d760e6fdd1d3bc0a973c504d5d55",
+        "bytes": 869549
+      },
+      "tw-object-h1-d0-before-m201.log": {
+        "sha256": "a6c41c9129dc1d4b1fef773b5a4303aca7ce71d1c7d88bc26e13e3e0266cb996",
+        "bytes": 1731066
+      },
+      "tw-object-h1-d0-before-m206.log": {
+        "sha256": "d447f1b844279017f9982504b635f679027ae2251e4e23d268b5aef48b274d2e",
+        "bytes": 2843851
+      },
+      "tw-object-h1-d1-before-m201.log": {
+        "sha256": "234a18e2d47d3621be34f9c827ba0db2907ebff671a80457d51d65e3e11a2070",
+        "bytes": 1780850
+      },
+      "tw-object-h1-d0-before-m208.log": {
+        "sha256": "efc348139ed3d8751f6bd44011cade994b4debbd0bc87c4250850205194a0e4a",
+        "bytes": 1776309
+      },
+      "tw-object-h0-d1-after-m204.log": {
+        "sha256": "c0cdd01b9946c188732de58b8a34b5c0d185ce629daf6b3ece282689e2ec71ce",
+        "bytes": 180287
+      },
+      "tw-object-h0-d0-before-m212.log": {
+        "sha256": "5a9e45bbbe6c74c63ad7cfcc05cd6b62b4f507a4d55342f061a7d86273e55f3b",
+        "bytes": 60195
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h1-d0-before-m204.log": {
+        "sha256": "22326d01b35196fef3e9a8221850828aa15828b1acfccbb3fcdb037d5b250d04",
+        "bytes": 1730222
+      },
+      "tw-object-h1-d1-after-m206.log": {
+        "sha256": "754aba46ef89eb0c74a85eba9da2d7c5bc99b4bfbd92e78e8d87ea75c8ab4952",
+        "bytes": 3200670
+      },
+      "tw-object-h0-d1-after-m212.log": {
+        "sha256": "3068640e5f06cbbb5c9e24b5e335600ea9d54dbcaef59e500488f360de7c94b5",
+        "bytes": 70237
+      },
+      "tw-object-h0-d1-before-m205.log": {
+        "sha256": "69d4650166bda1b281d0571b8d49e140144552c6fa969024381ca744c26f8962",
+        "bytes": 181217
+      },
+      "tw-object-h1-d0-before-m210.log": {
+        "sha256": "46531957a250381f9036b7eace3d262aea8feff1915b074936b7a2b19bccbabd",
+        "bytes": 1731066
+      },
+      "tw-object-h0-d1-before-m207.log": {
+        "sha256": "6258d2474b4037c88af45d016d6638fcd84bb2c0fab071b9f66ac6a5297502ff",
+        "bytes": 746200
+      },
+      "tw-object-h0-d1-after-m203.log": {
+        "sha256": "4baf44a258fb1c43eebcac421f01f978e92719fc41fb83e55a176dfbedded8ec",
+        "bytes": 69209
+      },
+      "tw-object-h1-d1-after-m211.log": {
+        "sha256": "b835bf8f01dc813c4f670ad4025d10428f3ca52141d0c70682538eaf8c6e2c97",
+        "bytes": 1780923
+      },
+      "tw-object-h0-d0-before-m206.log": {
+        "sha256": "e0b01b25de11fae56e3880c0f0cf0fb07ac35eeb71a3408b7ba34c587ab8f1f5",
+        "bytes": 446205
+      },
+      "tw-object-h1-d1-after-m208.log": {
+        "sha256": "00b657095bf21064605f3909275fc54ca405786655e9346d6dceba92c5d69c5f",
+        "bytes": 1857216
+      },
+      "tw-object-h0-d0-before-m201.log": {
+        "sha256": "b7758fe797494745b3561f63fdce423dc90dc1aeed3fe14c1be663cceed4ac27",
+        "bytes": 131431
+      },
+      "tw-object-h0-d1-before-m206.log": {
+        "sha256": "266ee8204f84e4fb24b56e17485fe7cb2515b5a393f8d676c63188e26cd070db",
+        "bytes": 803024
+      }
+    },
+    "summary": {
+      "processes": 104,
+      "checks": {
+        "PASS": 1432
+      },
+      "execution": {
+        "INCOMPLETE": 16,
+        "PASS": 56,
+        "REFUSED": 32
+      },
+      "incomplete": 16
+    },
+    "builds": [
+      {
+        "returncode": 0,
+        "seconds": 4.516,
+        "log": "build-harness.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.117,
+        "log": "build-duel-entry.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.069,
+        "log": "build-observer.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.077,
+        "log": "build-interposer.log"
+      }
+    ],
+    "candidate": {
+      "scope": "Build own cooperative TW client in a private copy of the PR35 adapter; keep core pinned.\nNo private source/binary is copied into the repository. Not a full core rebuild.\n",
+      "reference_sha256": "d70a25110d5bff51a90cd2634ec7c9182536ad0c94e209b9f4dadbd6803361a7",
+      "candidate_sha256": "b6f14bc745bab0bcc92e943107f6bbd839cc4753747f76c2ba63d7d88369a7dc",
+      "draw_bytes": 40,
+      "patch_sha256": "49122b9426ff89707c580f93b241c822c4b61307a771660537d4d79b4a0ff71a",
+      "client_source_sha256": "c5a88b4fe435a5a5951ad6610c8acc99bd95329d7d0dd47186266047aa690102",
+      "unchanged_link_objects": {
+        "renamed-core.o": "297990eabf3e77ed2e68c4be367d8889f9c96e488cd9735bc71d0c3c5ac764de",
+        "time_wizard_description_fit.o": "4e7d2baafbe9823d63df1cd4225deb5099a1a51dec66085eabb911862384956d",
+        "time_wizard_evolution.o": "96938bc05ba7eaadf59edcc2b58d12df5429f984f30d85325a4a397156256a1b",
+        "time_wizard_encore.o": "2287f78ce4ddbb827f3bac71a0e5067fa3ca48bea6cf76aff2f045be689f1e6a",
+        "contracts_entry.o": "bf1b18f7a099500d471a4bf9d38fdbc2852d22aad512c4a144f352b1a24ce332",
+        "ai_probe_i386.o": "13da2f9e31af2279c352aa871ddc397c4f6b05c7af1fbf4096e3969d3d9cd08f"
+      },
+      "changed_package_files": [
+        "time-wizard.o",
+        "source/tw_client.inc",
+        "source/time_wizard_dual_play_compat.c"
+      ],
+      "added_official_imports": [],
+      "all_imports": [
+        "AiScript_Run",
+        "CardRules_Fusion",
+        "Cards_BaseId",
+        "Cards_FrameColor",
+        "Cards_NameUtf8",
+        "Cards_PatchThumbnail",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907AC",
+        "D_800907CC",
+        "D_800907D8",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B19C",
+        "D_8009B1B4",
+        "D_8009B1D5",
+        "D_8009B20C",
+        "D_8009B21A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA030",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EB0F8",
+        "D_800F2848",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "D_801A8000",
+        "DisplayObject_ReleaseIfPresent",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelEffect_CreateRequest",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateCardUse",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "Duel_CalcCardStats",
+        "Duel_CheckEquip",
+        "Duel_CheckFusion",
+        "Duel_GetTerrainBoost",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_SetupCardRecord",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSortPoly",
+        "Hal9_CoreDualDrawV1",
+        "Hal9_CoreHardStateV1",
+        "Hal9_CoreOwnersReadyV1",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "SD_SEPlayFull",
+        "SetPolyFT4",
+        "TextBox_Destroy",
+        "TextureDump_Delivered",
+        "__udivdi3",
+        "__x86_indirect_thunk_eax",
+        "abs",
+        "atan2",
+        "cos",
+        "fclose",
+        "floor",
+        "fmod",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80017DB4",
+        "func_80017E3C",
+        "func_80017F04",
+        "func_8001B170",
+        "func_8001B938",
+        "func_8001BAF0",
+        "func_80022D94",
+        "func_80028220",
+        "func_80035E20",
+        "func_80037DA4",
+        "gAiScript_State",
+        "gCard_nCount",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_bOpponentID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "malloc",
+        "memcmp",
+        "memcpy",
+        "memset",
+        "realloc",
+        "sin",
+        "snprintf",
+        "sqrt",
+        "strncpy",
+        "strstr",
+        "strtod"
+      ],
+      "steps": [
+        {
+          "name": "adapter",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang",
+            "-std=gnu11",
+            "-O2",
+            "-g",
+            "-fno-pic",
+            "-fno-pie",
+            "-fno-common",
+            "-fno-stack-protector",
+            "-fno-asynchronous-unwind-tables",
+            "-fno-unwind-tables",
+            "-fstack-clash-protection",
+            "-march=i686",
+            "-mno-sse",
+            "-mno-mmx",
+            "-ffreestanding",
+            "-nostdinc",
+            "-DMEMORIES_PC",
+            "-DMEMORIES_MOD",
+            "-D_LANGUAGE_C",
+            "-DLANGUAGE_C",
+            "-Wall",
+            "-Wno-unused-function",
+            "-Wno-missing-braces",
+            "--target=i386-pc-linux-gnu",
+            "-mstackrealign",
+            "-mretpoline-external-thunk",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/lib/clang/23/include",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/libc",
+            "-I",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/package=/hal9/package",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/repo=/hal9/repo",
+            "-fdebug-compilation-dir=/hal9/build",
+            "-DMemoriesModInit=TimeWizardV023MemoriesModInit",
+            "-c",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/package/source/time_wizard_dual_play_compat.c",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/time_wizard_dual_play_compat.o"
+          ]
+        },
+        {
+          "name": "reference-relink",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/reference-relinked.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        },
+        {
+          "name": "link",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/package/time-wizard.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        }
+      ]
+    },
+    "failures": [
+      {
+        "case": "tw-object-h0-d0-before-m200",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h0-d0-before-m203",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h0-d0-after-m200",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h0-d0-after-m203",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h0-d1-before-m200",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h0-d1-before-m203",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h0-d1-after-m200",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h0-d1-after-m203",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h1-d0-before-m200",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h1-d0-before-m203",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h1-d0-after-m200",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h1-d0-after-m203",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h1-d1-before-m200",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h1-d1-before-m203",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h1-d1-after-m200",
+        "classification": "INCOMPLETE",
+        "checks": []
+      },
+      {
+        "case": "tw-object-h1-d1-after-m203",
+        "classification": "INCOMPLETE",
+        "checks": []
+      }
+    ],
+    "interpretation": "Harness errors: attempted access to inlined private function and replay through a one-shot fault proxy. Corrected to real public operations; incomplete results not delivery."
+  },
+  {
+    "name": "candidate-v1",
+    "logs": {
+      "tw-object-h1-d0-after-m208.log": {
+        "sha256": "f40eb5579c5c363d2b7a4170b2c6e29d2a2a615e5a5f6727afc79804b0d1b1a6",
+        "bytes": 1776165
+      },
+      "tw-object-h0-d0-after-m223.log": {
+        "sha256": "22cf4414794a87d7584034157ebfaa2e5c8e4194b2eb25ac2d30e8601bfaf41e",
+        "bytes": 29947
+      },
+      "tw-object-h1-d0-after-m223.log": {
+        "sha256": "77a0722efd3ebb7716e28b48b3ad4045090501abdb290719d76d95e8d4f93049",
+        "bytes": 31686
+      },
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h0-d0-after-m200.log": {
+        "sha256": "ad6b1a30535145d5f7dfe3cfa997c47ab1bfa6673f462d534be62e572bdde486",
+        "bytes": 131287
+      },
+      "tw-object-h1-d1-before-m222.log": {
+        "sha256": "56a8ba211fe0d935a6051a81c4941acd99386e76d3a1a29bc39163f6b6d9a93d",
+        "bytes": 1076760
+      },
+      "tw-object-h1-d1-before-m208.log": {
+        "sha256": "a0099b633c9d2df8e305697c798420a79b7c7eaa318964c296bd4854105b15b5",
+        "bytes": 1857072
+      },
+      "tw-object-h0-d0-before-m223.log": {
+        "sha256": "22cf4414794a87d7584034157ebfaa2e5c8e4194b2eb25ac2d30e8601bfaf41e",
+        "bytes": 29947
+      },
+      "tw-object-h0-d0-before-m224.log": {
+        "sha256": "22cf4414794a87d7584034157ebfaa2e5c8e4194b2eb25ac2d30e8601bfaf41e",
+        "bytes": 29947
+      },
+      "tw-object-h1-d1-after-m200.log": {
+        "sha256": "be6f6cac1c6a2193e7bf07fd57e7a8f0ca1b9de7843260966e3a6ec9ab37df77",
+        "bytes": 1780706
+      },
+      "tw-object-h1-d1-before-m221.log": {
+        "sha256": "ee4fc7ca4fc1a6e61c223343a81e10e2293343f676962f2a451bd434497fc0be",
+        "bytes": 989715
+      },
+      "tw-object-h0-d0-after-m221.log": {
+        "sha256": "20e46dd100e072e320162460da84193016cb60ad2a3ec097c5667ce8b3ae7b55",
+        "bytes": 63830
+      },
+      "tw-object-h1-d0-after-m206.log": {
+        "sha256": "c77f6b36b809d7be2b80aab9fe6f7eff48b1bc232728c9af2d5de7f45f56b6f4",
+        "bytes": 2843851
+      },
+      "tw-object-h0-d0-after-m208.log": {
+        "sha256": "65962992bd9bb1328e3615aade43ecf5627e1e0b82f37cca0124140e520f617e",
+        "bytes": 176071
+      },
+      "tw-object-h0-d1-after-m206.log": {
+        "sha256": "5ce9aeb6969f8f072604d116cbd33b0e8970317d906266d329eac365e5090bc0",
+        "bytes": 803024
+      },
+      "tw-object-h1-d1-before-m200.log": {
+        "sha256": "be6f6cac1c6a2193e7bf07fd57e7a8f0ca1b9de7843260966e3a6ec9ab37df77",
+        "bytes": 1780706
+      },
+      "tw-object-h1-d0-after-m200.log": {
+        "sha256": "1cd9be0bf7965688b7fc5b28928d0c67116acbba367167b11d7a9a2c29e26abf",
+        "bytes": 1730922
+      },
+      "tw-object-h1-d0-after-m202.log": {
+        "sha256": "b961b7ee72a926327797fed356bdb125f82971508e72808540eb6d003e29b739",
+        "bytes": 1201943
+      },
+      "tw-object-h1-d0-before-m202.log": {
+        "sha256": "b961b7ee72a926327797fed356bdb125f82971508e72808540eb6d003e29b739",
+        "bytes": 1201943
+      },
+      "tw-object-h1-d1-before-m202.log": {
+        "sha256": "0b81a73d0533582908d2f279763faf1915230251640c0a108bd0aa736580f77b",
+        "bytes": 1546397
+      },
+      "tw-object-h0-d0-before-m221.log": {
+        "sha256": "20e46dd100e072e320162460da84193016cb60ad2a3ec097c5667ce8b3ae7b55",
+        "bytes": 63830
+      },
+      "tw-object-h1-d0-after-m222.log": {
+        "sha256": "77a0722efd3ebb7716e28b48b3ad4045090501abdb290719d76d95e8d4f93049",
+        "bytes": 31686
+      },
+      "tw-object-h0-d1-after-m224.log": {
+        "sha256": "de765d5bd6d8b75e7859e5e76c5c1ea17be8daa514c8f1902a8d2bf4428356c6",
+        "bytes": 98928
+      },
+      "tw-object-h0-d0-before-m208.log": {
+        "sha256": "65962992bd9bb1328e3615aade43ecf5627e1e0b82f37cca0124140e520f617e",
+        "bytes": 176071
+      },
+      "tw-object-h0-d1-after-m221.log": {
+        "sha256": "b8b3ebe189d3212251db78745db196afb0aec52ebe0dc4eab826c9d6315bddbe",
+        "bytes": 75210
+      },
+      "tw-object-h0-d0-after-m224.log": {
+        "sha256": "22cf4414794a87d7584034157ebfaa2e5c8e4194b2eb25ac2d30e8601bfaf41e",
+        "bytes": 29947
+      },
+      "tw-object-h1-d0-before-m200.log": {
+        "sha256": "1cd9be0bf7965688b7fc5b28928d0c67116acbba367167b11d7a9a2c29e26abf",
+        "bytes": 1730922
+      },
+      "tw-object-h0-d1-after-m222.log": {
+        "sha256": "3ac26867bd5572f2f6a0486b7fc319404befc68463dd9a2a70a4d228d4160f29",
+        "bytes": 100451
+      },
+      "tw-object-h1-d1-before-m206.log": {
+        "sha256": "0c3668089d7f55122738457a2cd2468d61a6ce26785203c939499b1aa1cb8b6b",
+        "bytes": 3200670
+      },
+      "tw-object-h0-d1-before-m223.log": {
+        "sha256": "6dfb45bc5d375691bdeff0fc3596a3cc656bcfb55b534e8ac299019d43afde03",
+        "bytes": 100581
+      },
+      "tw-object-h0-d0-after-m222.log": {
+        "sha256": "22cf4414794a87d7584034157ebfaa2e5c8e4194b2eb25ac2d30e8601bfaf41e",
+        "bytes": 29947
+      },
+      "tw-object-h0-d1-after-m202.log": {
+        "sha256": "a04aa4f783216ea7dd1e149a398e2800ddc67ae172e28865cf13887b9e5713e6",
+        "bytes": 746028
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h1-d1-before-m224.log": {
+        "sha256": "8a733c5d84d64330ac0f3fc28af176efef072787915eb95f53b77669edd0e3de",
+        "bytes": 1075139
+      },
+      "tw-object-h1-d0-before-m222.log": {
+        "sha256": "77a0722efd3ebb7716e28b48b3ad4045090501abdb290719d76d95e8d4f93049",
+        "bytes": 31686
+      },
+      "tw-object-h0-d1-before-m202.log": {
+        "sha256": "a04aa4f783216ea7dd1e149a398e2800ddc67ae172e28865cf13887b9e5713e6",
+        "bytes": 746028
+      },
+      "tw-object-h0-d0-before-m202.log": {
+        "sha256": "c5eee7adad54263c1d7d37ed66c195125766a3b52bffa41a606835555508abf8",
+        "bytes": 401573
+      },
+      "tw-object-h0-d1-before-m200.log": {
+        "sha256": "de4a139b9753a4ec41f21b6907fdc9ca135776c46d9baefa2400675e259023ad",
+        "bytes": 180987
+      },
+      "tw-object-h1-d0-before-m224.log": {
+        "sha256": "77a0722efd3ebb7716e28b48b3ad4045090501abdb290719d76d95e8d4f93049",
+        "bytes": 31686
+      },
+      "tw-object-h1-d0-after-m224.log": {
+        "sha256": "77a0722efd3ebb7716e28b48b3ad4045090501abdb290719d76d95e8d4f93049",
+        "bytes": 31686
+      },
+      "tw-object-h0-d0-before-m200.log": {
+        "sha256": "ad6b1a30535145d5f7dfe3cfa997c47ab1bfa6673f462d534be62e572bdde486",
+        "bytes": 131287
+      },
+      "tw-object-h0-d0-before-m222.log": {
+        "sha256": "22cf4414794a87d7584034157ebfaa2e5c8e4194b2eb25ac2d30e8601bfaf41e",
+        "bytes": 29947
+      },
+      "tw-object-h0-d0-after-m206.log": {
+        "sha256": "e5c65fea9db873e4175eb201f59c6d474644ea7beb4b6312e2af060ebc8c23cd",
+        "bytes": 446205
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d1-after-m200.log": {
+        "sha256": "de4a139b9753a4ec41f21b6907fdc9ca135776c46d9baefa2400675e259023ad",
+        "bytes": 180987
+      },
+      "tw-object-h0-d1-before-m208.log": {
+        "sha256": "9c2098bc66dceaba76382a6dea33f8089a038f09238b8b3782e50963e60072d5",
+        "bytes": 256810
+      },
+      "tw-object-h0-d1-before-m221.log": {
+        "sha256": "b8b3ebe189d3212251db78745db196afb0aec52ebe0dc4eab826c9d6315bddbe",
+        "bytes": 75210
+      },
+      "tw-object-h1-d1-after-m223.log": {
+        "sha256": "75b65399e188605daae9f222f5ef6ac58efbc30b1a2e5b3cca3ee1b88714ae17",
+        "bytes": 1077020
+      },
+      "tw-object-h0-d0-after-m202.log": {
+        "sha256": "c5eee7adad54263c1d7d37ed66c195125766a3b52bffa41a606835555508abf8",
+        "bytes": 401573
+      },
+      "tw-object-h0-d1-after-m208.log": {
+        "sha256": "9c2098bc66dceaba76382a6dea33f8089a038f09238b8b3782e50963e60072d5",
+        "bytes": 256810
+      },
+      "tw-object-h1-d1-after-m202.log": {
+        "sha256": "0b81a73d0533582908d2f279763faf1915230251640c0a108bd0aa736580f77b",
+        "bytes": 1546397
+      },
+      "tw-object-h0-d1-after-m223.log": {
+        "sha256": "6dfb45bc5d375691bdeff0fc3596a3cc656bcfb55b534e8ac299019d43afde03",
+        "bytes": 100581
+      },
+      "tw-object-h1-d0-before-m206.log": {
+        "sha256": "c77f6b36b809d7be2b80aab9fe6f7eff48b1bc232728c9af2d5de7f45f56b6f4",
+        "bytes": 2843851
+      },
+      "tw-object-h1-d1-after-m222.log": {
+        "sha256": "56a8ba211fe0d935a6051a81c4941acd99386e76d3a1a29bc39163f6b6d9a93d",
+        "bytes": 1076760
+      },
+      "tw-object-h1-d1-after-m224.log": {
+        "sha256": "8a733c5d84d64330ac0f3fc28af176efef072787915eb95f53b77669edd0e3de",
+        "bytes": 1075139
+      },
+      "tw-object-h1-d0-before-m208.log": {
+        "sha256": "f40eb5579c5c363d2b7a4170b2c6e29d2a2a615e5a5f6727afc79804b0d1b1a6",
+        "bytes": 1776165
+      },
+      "tw-object-h1-d1-after-m221.log": {
+        "sha256": "ee4fc7ca4fc1a6e61c223343a81e10e2293343f676962f2a451bd434497fc0be",
+        "bytes": 989715
+      },
+      "tw-object-h1-d0-before-m223.log": {
+        "sha256": "77a0722efd3ebb7716e28b48b3ad4045090501abdb290719d76d95e8d4f93049",
+        "bytes": 31686
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h1-d0-after-m221.log": {
+        "sha256": "1d2d825cc8bbf2cdaa56d0adbb481d112b1eb6b4d0d7395bea1097ae807532f7",
+        "bytes": 978239
+      },
+      "tw-object-h1-d0-before-m221.log": {
+        "sha256": "1d2d825cc8bbf2cdaa56d0adbb481d112b1eb6b4d0d7395bea1097ae807532f7",
+        "bytes": 978239
+      },
+      "tw-object-h1-d1-after-m206.log": {
+        "sha256": "0c3668089d7f55122738457a2cd2468d61a6ce26785203c939499b1aa1cb8b6b",
+        "bytes": 3200670
+      },
+      "tw-object-h0-d1-before-m224.log": {
+        "sha256": "de765d5bd6d8b75e7859e5e76c5c1ea17be8daa514c8f1902a8d2bf4428356c6",
+        "bytes": 98928
+      },
+      "tw-object-h1-d1-before-m223.log": {
+        "sha256": "75b65399e188605daae9f222f5ef6ac58efbc30b1a2e5b3cca3ee1b88714ae17",
+        "bytes": 1077020
+      },
+      "tw-object-h0-d0-before-m206.log": {
+        "sha256": "e5c65fea9db873e4175eb201f59c6d474644ea7beb4b6312e2af060ebc8c23cd",
+        "bytes": 446205
+      },
+      "tw-object-h1-d1-after-m208.log": {
+        "sha256": "a0099b633c9d2df8e305697c798420a79b7c7eaa318964c296bd4854105b15b5",
+        "bytes": 1857072
+      },
+      "tw-object-h0-d1-before-m222.log": {
+        "sha256": "3ac26867bd5572f2f6a0486b7fc319404befc68463dd9a2a70a4d228d4160f29",
+        "bytes": 100451
+      },
+      "tw-object-h0-d1-before-m206.log": {
+        "sha256": "5ce9aeb6969f8f072604d116cbd33b0e8970317d906266d329eac365e5090bc0",
+        "bytes": 803024
+      }
+    },
+    "summary": {
+      "processes": 64,
+      "checks": {
+        "PASS": 770,
+        "FAIL": 8
+      },
+      "execution": {
+        "PASS": 16,
+        "FAIL": 8,
+        "REFUSED": 28,
+        "NOT_REACHED": 12
+      },
+      "incomplete": 0
+    },
+    "builds": [
+      {
+        "returncode": 0,
+        "seconds": 4.622,
+        "log": "build-harness.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.098,
+        "log": "build-duel-entry.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.072,
+        "log": "build-observer.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.12,
+        "log": "build-interposer.log"
+      }
+    ],
+    "candidate": {
+      "scope": "Build own cooperative TW client in a private copy of the PR35 adapter; keep core pinned.\nNo private source/binary is copied into the repository. Not a full core rebuild.\n",
+      "reference_sha256": "d70a25110d5bff51a90cd2634ec7c9182536ad0c94e209b9f4dadbd6803361a7",
+      "candidate_sha256": "9d7c6e088e575154fd9f529dcc27a5663f152e018db1fe624e48d6e8da031d0e",
+      "draw_bytes": 40,
+      "patch_sha256": "49122b9426ff89707c580f93b241c822c4b61307a771660537d4d79b4a0ff71a",
+      "client_source_sha256": "cee0c722f2ee4990c80fae0222fa4a6068a231b196368ec9065075dc429d034d",
+      "unchanged_link_objects": {
+        "renamed-core.o": "297990eabf3e77ed2e68c4be367d8889f9c96e488cd9735bc71d0c3c5ac764de",
+        "time_wizard_description_fit.o": "4e7d2baafbe9823d63df1cd4225deb5099a1a51dec66085eabb911862384956d",
+        "time_wizard_evolution.o": "96938bc05ba7eaadf59edcc2b58d12df5429f984f30d85325a4a397156256a1b",
+        "time_wizard_encore.o": "2287f78ce4ddbb827f3bac71a0e5067fa3ca48bea6cf76aff2f045be689f1e6a",
+        "contracts_entry.o": "bf1b18f7a099500d471a4bf9d38fdbc2852d22aad512c4a144f352b1a24ce332",
+        "ai_probe_i386.o": "13da2f9e31af2279c352aa871ddc397c4f6b05c7af1fbf4096e3969d3d9cd08f"
+      },
+      "changed_package_files": [
+        "time-wizard.o",
+        "source/tw_client.inc",
+        "source/time_wizard_dual_play_compat.c"
+      ],
+      "added_official_imports": [],
+      "all_imports": [
+        "AiScript_Run",
+        "CardRules_Fusion",
+        "Cards_BaseId",
+        "Cards_FrameColor",
+        "Cards_NameUtf8",
+        "Cards_PatchThumbnail",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907AC",
+        "D_800907CC",
+        "D_800907D8",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B19C",
+        "D_8009B1B4",
+        "D_8009B1D5",
+        "D_8009B20C",
+        "D_8009B21A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA030",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EB0F8",
+        "D_800F2848",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "D_801A8000",
+        "DisplayObject_ReleaseIfPresent",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelEffect_CreateRequest",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateCardUse",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "Duel_CalcCardStats",
+        "Duel_CheckEquip",
+        "Duel_CheckFusion",
+        "Duel_GetTerrainBoost",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_SetupCardRecord",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSortPoly",
+        "Hal9_CoreDualDrawV1",
+        "Hal9_CoreHardStateV1",
+        "Hal9_CoreOwnersReadyV1",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "SD_SEPlayFull",
+        "SetPolyFT4",
+        "TextBox_Destroy",
+        "TextureDump_Delivered",
+        "__udivdi3",
+        "__x86_indirect_thunk_eax",
+        "abs",
+        "atan2",
+        "cos",
+        "fclose",
+        "floor",
+        "fmod",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80017DB4",
+        "func_80017E3C",
+        "func_80017F04",
+        "func_8001B170",
+        "func_8001B938",
+        "func_8001BAF0",
+        "func_80022D94",
+        "func_80028220",
+        "func_80035E20",
+        "func_80037DA4",
+        "gAiScript_State",
+        "gCard_nCount",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_bOpponentID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "malloc",
+        "memcmp",
+        "memcpy",
+        "memset",
+        "realloc",
+        "sin",
+        "snprintf",
+        "sqrt",
+        "strncpy",
+        "strstr",
+        "strtod"
+      ],
+      "steps": [
+        {
+          "name": "adapter",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang",
+            "-std=gnu11",
+            "-O2",
+            "-g",
+            "-fno-pic",
+            "-fno-pie",
+            "-fno-common",
+            "-fno-stack-protector",
+            "-fno-asynchronous-unwind-tables",
+            "-fno-unwind-tables",
+            "-fstack-clash-protection",
+            "-march=i686",
+            "-mno-sse",
+            "-mno-mmx",
+            "-ffreestanding",
+            "-nostdinc",
+            "-DMEMORIES_PC",
+            "-DMEMORIES_MOD",
+            "-D_LANGUAGE_C",
+            "-DLANGUAGE_C",
+            "-Wall",
+            "-Wno-unused-function",
+            "-Wno-missing-braces",
+            "--target=i386-pc-linux-gnu",
+            "-mstackrealign",
+            "-mretpoline-external-thunk",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/lib/clang/23/include",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/libc",
+            "-I",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/package=/hal9/package",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/repo=/hal9/repo",
+            "-fdebug-compilation-dir=/hal9/build",
+            "-DMemoriesModInit=TimeWizardV023MemoriesModInit",
+            "-c",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/package/source/time_wizard_dual_play_compat.c",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/time_wizard_dual_play_compat.o"
+          ]
+        },
+        {
+          "name": "reference-relink",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/reference-relinked.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        },
+        {
+          "name": "link",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/package/time-wizard.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/candidate-v1/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        }
+      ]
+    },
+    "failures": [
+      {
+        "case": "tw-object-h0-d0-before-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-new-explicit-transaction",
+            "status": "FAIL",
+            "details": "Fresh real RD/TW planning, consent and physical collection. No old ticket reuse or card rollback."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d0-after-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-new-explicit-transaction",
+            "status": "FAIL",
+            "details": "Fresh real RD/TW planning, consent and physical collection. No old ticket reuse or card rollback."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-before-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-new-explicit-transaction",
+            "status": "FAIL",
+            "details": "Fresh real RD/TW planning, consent and physical collection. No old ticket reuse or card rollback."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h0-d1-after-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-new-explicit-transaction",
+            "status": "FAIL",
+            "details": "Fresh real RD/TW planning, consent and physical collection. No old ticket reuse or card rollback."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-before-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-new-explicit-transaction",
+            "status": "FAIL",
+            "details": "Fresh real RD/TW planning, consent and physical collection. No old ticket reuse or card rollback."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d0-after-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-new-explicit-transaction",
+            "status": "FAIL",
+            "details": "Fresh real RD/TW planning, consent and physical collection. No old ticket reuse or card rollback."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-before-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-new-explicit-transaction",
+            "status": "FAIL",
+            "details": "Fresh real RD/TW planning, consent and physical collection. No old ticket reuse or card rollback."
+          }
+        ]
+      },
+      {
+        "case": "tw-object-h1-d1-after-m202",
+        "classification": "FAIL",
+        "checks": [
+          {
+            "name": "new-duel-new-explicit-transaction",
+            "status": "FAIL",
+            "details": "Fresh real RD/TW planning, consent and physical collection. No old ticket reuse or card rollback."
+          }
+        ]
+      }
+    ],
+    "interpretation": "Eight FAIL of universal-recovery hypothesis after RD HANDOFF. Local reset works, RD monitor refuses changed world. Final oracle explicitly requires owner quarantine/REFUSED, never gameplay success."
+  },
+  {
+    "name": "regressions-v2",
+    "logs": {
+      "tw-object-h0-d0-after-m64.log": {
+        "sha256": "810e6de8106add70a983e4a75fa3b8216de6d286655673907d2681957fc5bd5a",
+        "bytes": 450828
+      },
+      "tw-object-h0-d1-before-m34.log": {
+        "sha256": "b30d7a75d6c73b4483f4cc7bff8e839352db30be63a0ebeebab522060cfa00d1",
+        "bytes": 220122
+      },
+      "tw-object-h0-d1-before-m11.log": {
+        "sha256": "3f3004e68c161abcda29a4200f069eccae88b231a42daaebe92dc3f8527a603d",
+        "bytes": 275015
+      },
+      "tw-object-h0-d0-after-m8.log": {
+        "sha256": "629bd772f51453f0f8f40c790251536359d57958a0c28a5589f3558c2be72060",
+        "bytes": 30900
+      },
+      "tw-object-h0-d0-before-m52.log": {
+        "sha256": "dfab0b9ff93a27529c83690263aceafa4400bdcbca2f9cb36bdb10cb703a26a1",
+        "bytes": 108489
+      },
+      "tw-object-h0-d1-before-m31.log": {
+        "sha256": "7a8f29efc106943c3be253a86245c6b6f3c83a076acb5a5079879d485225ad17",
+        "bytes": 310047
+      },
+      "tw-object-h0-d0-before-m64.log": {
+        "sha256": "810e6de8106add70a983e4a75fa3b8216de6d286655673907d2681957fc5bd5a",
+        "bytes": 450828
+      },
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h0-d0-after-m54.log": {
+        "sha256": "ea9a34059d1dd531cca651d565dc5c7961423fb12e1b7cdccd774c77a04bd8e5",
+        "bytes": 452251
+      },
+      "tw-object-h0-d1-before-m26.log": {
+        "sha256": "d2c6ab32053d9b64068fc5829639ac2ee31069de2e8cad7aee21ae494ebbf53f",
+        "bytes": 260978
+      },
+      "tw-object-h0-d1-before-m51.log": {
+        "sha256": "60e8b15db5b1623e2111340fbce401446666c56bd9934127487638ca4cbf0edc",
+        "bytes": 300099
+      },
+      "tw-object-h0-d0-before-m34.log": {
+        "sha256": "68e9679ec4cfe647e8f4301759a8a1c2af54809f771630dfd9685e600033e864",
+        "bytes": 209215
+      },
+      "tw-object-h0-d0-after-m34.log": {
+        "sha256": "68e9679ec4cfe647e8f4301759a8a1c2af54809f771630dfd9685e600033e864",
+        "bytes": 209215
+      },
+      "tw-object-h0-d1-after-m53.log": {
+        "sha256": "076439aee03d130ee98241466e65178820f1c719c1cd8eb3b433ca5b91495d81",
+        "bytes": 409116
+      },
+      "tw-object-h0-d1-before-m33.log": {
+        "sha256": "ce6e1f35a1d54cd0bca3ab2ada52d40361108fefa9d5e8d94ca5e65aeb745842",
+        "bytes": 309278
+      },
+      "tw-object-h0-d0-before-m23.log": {
+        "sha256": "4229d20cd383cb9cdd3e44c80606dc8de695f43ebbc1a50f6752f2ee364497be",
+        "bytes": 97609
+      },
+      "tw-object-h0-d0-after-m53.log": {
+        "sha256": "b70e3a0621c2c98751dae0089e8b3c53a4ebda6a0606a1b08be608d3f3f22103",
+        "bytes": 259476
+      },
+      "tw-object-h0-d1-before-m76.log": {
+        "sha256": "616860619c5679144c478b7c1b6bf50f491c7cd87d8d61061278b5d08b4863e5",
+        "bytes": 769808
+      },
+      "tw-object-h0-d0-before-m84.log": {
+        "sha256": "d5f317104ba59c7eb9f07b3ae2ecdd88f7c69c02cf3906dfc62348704dbf1c68",
+        "bytes": 451131
+      },
+      "tw-object-h0-d1-before-m83.log": {
+        "sha256": "3f70cbb20880fed4acb4e8b1c99089fdc8f6f36339d9d0cc6c82061d98d9cbe6",
+        "bytes": 797969
+      },
+      "tw-object-h0-d1-after-m8.log": {
+        "sha256": "038cb8ee2a7bc47660a33589370663469859558111787c768eb9946c570a0d44",
+        "bytes": 32180
+      },
+      "tw-object-h0-d0-after-m83.log": {
+        "sha256": "b7e7f6a1115be8d3c277c3752c65ede083e917b200d21ce9626f6602eadaee5c",
+        "bytes": 450888
+      },
+      "tw-object-h0-d0-after-m26.log": {
+        "sha256": "df2f4b40a41561057fddb28d56192355ca097ca0e0d4382e58ce5b958d9c4a51",
+        "bytes": 165642
+      },
+      "tw-object-h0-d0-before-m31.log": {
+        "sha256": "b98a278d4a342eb25c36bf04b4fa84f4e55476f021c2c19f24ef677a8fd577a2",
+        "bytes": 299140
+      },
+      "tw-object-h0-d1-before-m23.log": {
+        "sha256": "f1b7f8bd69e74057559d09bcd4e11cd1c46ad2bdd6a9e8f704854d711abc3bed",
+        "bytes": 108516
+      },
+      "tw-object-h0-d1-before-m46.log": {
+        "sha256": "61d720c0eb4b26286706c8aab92b87389844a62c39056c42fc8d953cf0e1b6d5",
+        "bytes": 394703
+      },
+      "tw-object-h0-d1-after-m11.log": {
+        "sha256": "3f3004e68c161abcda29a4200f069eccae88b231a42daaebe92dc3f8527a603d",
+        "bytes": 275015
+      },
+      "tw-object-h0-d1-after-m54.log": {
+        "sha256": "7b83c2ce1d9f18c233164e0f6a29fb3daee72700288a54a78f3a5a37dc67ee03",
+        "bytes": 799331
+      },
+      "tw-object-h0-d1-before-m64.log": {
+        "sha256": "4a5356310c913ee58f5b419a4367f44451869f0f21867103995e8f35a2669ace",
+        "bytes": 797909
+      },
+      "tw-object-h0-d1-after-m46.log": {
+        "sha256": "61d720c0eb4b26286706c8aab92b87389844a62c39056c42fc8d953cf0e1b6d5",
+        "bytes": 394703
+      },
+      "tw-object-h0-d0-after-m51.log": {
+        "sha256": "296a6283979c20f4ec858a0704420e042b6185ecda9af3599dc4807aa964f7ee",
+        "bytes": 195711
+      },
+      "tw-object-h0-d0-before-m63.log": {
+        "sha256": "66be71443e2ca3c04f77d0b1154302e24fd33493a80d37798f8e251f7280c685",
+        "bytes": 451065
+      },
+      "tw-object-h0-d1-before-m8.log": {
+        "sha256": "038cb8ee2a7bc47660a33589370663469859558111787c768eb9946c570a0d44",
+        "bytes": 32180
+      },
+      "tw-object-h0-d0-before-m33.log": {
+        "sha256": "7ebb23e1cf11283a75572ffff20b036879393eebf6c0f2f777767d478ed18c1c",
+        "bytes": 298371
+      },
+      "tw-object-h0-d0-after-m11.log": {
+        "sha256": "f851a077e9489fbf2b22bee2c049c295089e9159c276c0c47c77be1eaf94134e",
+        "bytes": 244409
+      },
+      "tw-object-h0-d0-before-m54.log": {
+        "sha256": "ea9a34059d1dd531cca651d565dc5c7961423fb12e1b7cdccd774c77a04bd8e5",
+        "bytes": 452251
+      },
+      "tw-object-h0-d1-after-m63.log": {
+        "sha256": "81f92e8f4bd6fa2cbd77fdb73eb96c5970a4807a6419e2f19f715ba5059cbbff",
+        "bytes": 798146
+      },
+      "tw-object-h0-d1-after-m26.log": {
+        "sha256": "d2c6ab32053d9b64068fc5829639ac2ee31069de2e8cad7aee21ae494ebbf53f",
+        "bytes": 260978
+      },
+      "tw-object-h0-d1-before-m53.log": {
+        "sha256": "076439aee03d130ee98241466e65178820f1c719c1cd8eb3b433ca5b91495d81",
+        "bytes": 409116
+      },
+      "tw-object-h0-d1-after-m34.log": {
+        "sha256": "b30d7a75d6c73b4483f4cc7bff8e839352db30be63a0ebeebab522060cfa00d1",
+        "bytes": 220122
+      },
+      "tw-object-h0-d0-before-m46.log": {
+        "sha256": "62b3d901b9943466e3e44b7fa185111983cd223bc14e324a029fe794e9bd2764",
+        "bytes": 256753
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d0-after-m33.log": {
+        "sha256": "7ebb23e1cf11283a75572ffff20b036879393eebf6c0f2f777767d478ed18c1c",
+        "bytes": 298371
+      },
+      "tw-object-h0-d0-after-m76.log": {
+        "sha256": "9fedc1f81b49d4014dd8555aa2fc20994b9f72becd659908394dfa5564a87a8d",
+        "bytes": 421964
+      },
+      "tw-object-h0-d1-before-m52.log": {
+        "sha256": "eb0f7f5c4d4771e57fe282af62bf8d528b87b4c52908a3a8816504290ad60dac",
+        "bytes": 150025
+      },
+      "tw-object-h0-d0-after-m46.log": {
+        "sha256": "62b3d901b9943466e3e44b7fa185111983cd223bc14e324a029fe794e9bd2764",
+        "bytes": 256753
+      },
+      "tw-object-h0-d0-before-m76.log": {
+        "sha256": "9fedc1f81b49d4014dd8555aa2fc20994b9f72becd659908394dfa5564a87a8d",
+        "bytes": 421964
+      },
+      "tw-object-h0-d1-after-m31.log": {
+        "sha256": "7a8f29efc106943c3be253a86245c6b6f3c83a076acb5a5079879d485225ad17",
+        "bytes": 310047
+      },
+      "tw-object-h0-d1-before-m63.log": {
+        "sha256": "81f92e8f4bd6fa2cbd77fdb73eb96c5970a4807a6419e2f19f715ba5059cbbff",
+        "bytes": 798146
+      },
+      "tw-object-h0-d0-before-m26.log": {
+        "sha256": "df2f4b40a41561057fddb28d56192355ca097ca0e0d4382e58ce5b958d9c4a51",
+        "bytes": 165642
+      },
+      "tw-object-h0-d0-after-m31.log": {
+        "sha256": "b98a278d4a342eb25c36bf04b4fa84f4e55476f021c2c19f24ef677a8fd577a2",
+        "bytes": 299140
+      },
+      "tw-object-h0-d1-after-m23.log": {
+        "sha256": "f1b7f8bd69e74057559d09bcd4e11cd1c46ad2bdd6a9e8f704854d711abc3bed",
+        "bytes": 108516
+      },
+      "tw-object-h0-d1-after-m51.log": {
+        "sha256": "60e8b15db5b1623e2111340fbce401446666c56bd9934127487638ca4cbf0edc",
+        "bytes": 300099
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d0-after-m84.log": {
+        "sha256": "d5f317104ba59c7eb9f07b3ae2ecdd88f7c69c02cf3906dfc62348704dbf1c68",
+        "bytes": 451131
+      },
+      "tw-object-h0-d1-after-m32.log": {
+        "sha256": "33d18afc9087e25a25b799997489af4d820a37c24adfa2e60ae0005acbd0449b",
+        "bytes": 527083
+      },
+      "tw-object-h0-d0-before-m51.log": {
+        "sha256": "296a6283979c20f4ec858a0704420e042b6185ecda9af3599dc4807aa964f7ee",
+        "bytes": 195711
+      },
+      "tw-object-h0-d0-before-m8.log": {
+        "sha256": "629bd772f51453f0f8f40c790251536359d57958a0c28a5589f3558c2be72060",
+        "bytes": 30900
+      },
+      "tw-object-h0-d1-after-m33.log": {
+        "sha256": "ce6e1f35a1d54cd0bca3ab2ada52d40361108fefa9d5e8d94ca5e65aeb745842",
+        "bytes": 309278
+      },
+      "tw-object-h0-d0-after-m63.log": {
+        "sha256": "66be71443e2ca3c04f77d0b1154302e24fd33493a80d37798f8e251f7280c685",
+        "bytes": 451065
+      },
+      "tw-object-h0-d0-before-m11.log": {
+        "sha256": "f851a077e9489fbf2b22bee2c049c295089e9159c276c0c47c77be1eaf94134e",
+        "bytes": 244409
+      },
+      "tw-object-h0-d0-before-m83.log": {
+        "sha256": "b7e7f6a1115be8d3c277c3752c65ede083e917b200d21ce9626f6602eadaee5c",
+        "bytes": 450888
+      },
+      "tw-object-h0-d0-before-m53.log": {
+        "sha256": "b70e3a0621c2c98751dae0089e8b3c53a4ebda6a0606a1b08be608d3f3f22103",
+        "bytes": 259476
+      },
+      "tw-object-h0-d0-after-m32.log": {
+        "sha256": "01521351cb79487e4218aacc96e529459d98c86489b47fde8663fdc0eb99886f",
+        "bytes": 516175
+      },
+      "tw-object-h0-d0-after-m23.log": {
+        "sha256": "4229d20cd383cb9cdd3e44c80606dc8de695f43ebbc1a50f6752f2ee364497be",
+        "bytes": 97609
+      },
+      "tw-object-h0-d0-before-m32.log": {
+        "sha256": "01521351cb79487e4218aacc96e529459d98c86489b47fde8663fdc0eb99886f",
+        "bytes": 516175
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h0-d1-before-m84.log": {
+        "sha256": "31f135a80fd01428dafb2254cfea0cc3a11120241c6a888b5e18114992655bd9",
+        "bytes": 798212
+      },
+      "tw-object-h0-d1-after-m52.log": {
+        "sha256": "eb0f7f5c4d4771e57fe282af62bf8d528b87b4c52908a3a8816504290ad60dac",
+        "bytes": 150025
+      },
+      "tw-object-h0-d1-before-m54.log": {
+        "sha256": "7b83c2ce1d9f18c233164e0f6a29fb3daee72700288a54a78f3a5a37dc67ee03",
+        "bytes": 799331
+      },
+      "tw-object-h0-d0-after-m52.log": {
+        "sha256": "dfab0b9ff93a27529c83690263aceafa4400bdcbca2f9cb36bdb10cb703a26a1",
+        "bytes": 108489
+      },
+      "tw-object-h0-d1-before-m32.log": {
+        "sha256": "33d18afc9087e25a25b799997489af4d820a37c24adfa2e60ae0005acbd0449b",
+        "bytes": 527083
+      }
+    },
+    "stopped": {
+      "reason": "Superseded by final pinned artifact and corrected comparison against authentic offered nonce, not a poisoned caller ticket. Incomplete jobs not counted.",
+      "command": "python tests/hal20-field-state/run.py --inputs notes/hal-9/INPUTS.json --fence --trace-returns --timewizard-object /workspace/work/hal9-tw-recovery-hardening/local/candidate-v2/package --tw-case 8 --tw-case 11 --tw-case 23 --tw-case 26 --tw-case 31 --tw-case 32 --tw-case 33 --tw-case 34 --tw-case 46 --tw-case 51 --tw-case 52 --tw-case 53 --tw-case 54 --tw-case 63 --tw-case 64 --tw-case 76 --tw-case 83 --tw-case 84 --output /workspace/work/hal9-tw-recovery-hardening/logs/regressions-v2"
+    }
+  },
+  {
+    "name": "delivery-lifecycle",
+    "logs": {
+      "tw-object-h0-d0-before-m203.log": {
+        "sha256": "6142b856ad064e0d87d446487b81e44f83340e664b02654d5c28945487a86bf0",
+        "bytes": 131432
+      },
+      "tw-object-h0-d0-after-m207.log": {
+        "sha256": "07fd1d432ee2b3ac43a0f14c35c8d50fd96841dfb10dff6e0295e47a45f5a524",
+        "bytes": 401746
+      },
+      "tw-object-h0-d0-after-m211.log": {
+        "sha256": "9ef16e4742597d0df3afd4ae361110278266989f33d8c25223f4cc4c0e9d6311",
+        "bytes": 131505
+      },
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h0-d0-after-m200.log": {
+        "sha256": "b39bb9e055a6641703b704b3631ddac0202722100f0d953e89d72fe17d4fd2fe",
+        "bytes": 134367
+      },
+      "tw-object-h0-d0-before-m204.log": {
+        "sha256": "0c615b700b35a51db7dc75ceec00db4f5a82adca5514e19ff1fd036db5ab6f5f",
+        "bytes": 130588
+      },
+      "tw-object-h0-d0-after-m210.log": {
+        "sha256": "f90141e6310b6f281b6af1ab3574434b10f18eee6bae4aac16477f32b98b6575",
+        "bytes": 131432
+      },
+      "tw-object-h0-d0-after-m201.log": {
+        "sha256": "726172dca8b08193b0fa5e78b712065a0bd442767e9490019ac6bb0fd0d4f262",
+        "bytes": 131432
+      },
+      "tw-object-h0-d0-after-m208.log": {
+        "sha256": "bd1e2933e026a42201e9dc99de3f97fc85cd7ff4cc809d839ed64b3e1916ddde",
+        "bytes": 176216
+      },
+      "tw-object-h0-d0-after-m212.log": {
+        "sha256": "e39ba6b14b0f129d08816d53e50dc78111cc8a2a9a69df81a7bd7e0ac6578e4d",
+        "bytes": 60196
+      },
+      "tw-object-h0-d0-before-m207.log": {
+        "sha256": "07fd1d432ee2b3ac43a0f14c35c8d50fd96841dfb10dff6e0295e47a45f5a524",
+        "bytes": 401746
+      },
+      "tw-object-h0-d0-before-m208.log": {
+        "sha256": "bd1e2933e026a42201e9dc99de3f97fc85cd7ff4cc809d839ed64b3e1916ddde",
+        "bytes": 176216
+      },
+      "tw-object-h0-d0-before-m209.log": {
+        "sha256": "a9177c9d09fbd8c28af08417b35bb6aec03a6b0003e2d208e1967dd188bf2a92",
+        "bytes": 405338
+      },
+      "tw-object-h0-d0-after-m203.log": {
+        "sha256": "6142b856ad064e0d87d446487b81e44f83340e664b02654d5c28945487a86bf0",
+        "bytes": 131432
+      },
+      "tw-object-h0-d0-after-m209.log": {
+        "sha256": "a9177c9d09fbd8c28af08417b35bb6aec03a6b0003e2d208e1967dd188bf2a92",
+        "bytes": 405338
+      },
+      "tw-object-h0-d0-before-m210.log": {
+        "sha256": "f90141e6310b6f281b6af1ab3574434b10f18eee6bae4aac16477f32b98b6575",
+        "bytes": 131432
+      },
+      "tw-object-h0-d0-after-m205.log": {
+        "sha256": "4044c486e360b5bc4109f55932fb7682846d4f610c09d8b34b72f38f4b77e9f4",
+        "bytes": 131518
+      },
+      "tw-object-h0-d0-before-m211.log": {
+        "sha256": "9ef16e4742597d0df3afd4ae361110278266989f33d8c25223f4cc4c0e9d6311",
+        "bytes": 131505
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d0-before-m205.log": {
+        "sha256": "4044c486e360b5bc4109f55932fb7682846d4f610c09d8b34b72f38f4b77e9f4",
+        "bytes": 131518
+      },
+      "tw-object-h0-d1-before-m202.log": {
+        "sha256": "bf3a28db5fb8fa33eeeedc9dd03dc522fb559d56752eb110fccb2b60639bac4f",
+        "bytes": 746201
+      },
+      "tw-object-h0-d0-before-m202.log": {
+        "sha256": "eaa6569abf04c9d729e80a7536211426c63645dfa65d2058ebebf2e7cbcf2676",
+        "bytes": 401746
+      },
+      "tw-object-h0-d1-before-m200.log": {
+        "sha256": "b8a0e2ff27067229c86516619b537fb1d071ea71086e5dda4acca11155bce12d",
+        "bytes": 185855
+      },
+      "tw-object-h0-d0-before-m200.log": {
+        "sha256": "b39bb9e055a6641703b704b3631ddac0202722100f0d953e89d72fe17d4fd2fe",
+        "bytes": 134367
+      },
+      "tw-object-h0-d0-after-m206.log": {
+        "sha256": "0058189a63ba0d18c86e4a5677dc82a4a3e9ece998328a63d77067cce026c3fc",
+        "bytes": 446206
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d0-after-m204.log": {
+        "sha256": "0c615b700b35a51db7dc75ceec00db4f5a82adca5514e19ff1fd036db5ab6f5f",
+        "bytes": 130588
+      },
+      "tw-object-h0-d1-before-m201.log": {
+        "sha256": "1e8acb3536293c2123ff3adb177a5ef02acecf5fb7ba0cdd61f63787fd094ffe",
+        "bytes": 181132
+      },
+      "tw-object-h0-d0-after-m202.log": {
+        "sha256": "eaa6569abf04c9d729e80a7536211426c63645dfa65d2058ebebf2e7cbcf2676",
+        "bytes": 401746
+      },
+      "tw-object-h0-d0-before-m212.log": {
+        "sha256": "e39ba6b14b0f129d08816d53e50dc78111cc8a2a9a69df81a7bd7e0ac6578e4d",
+        "bytes": 60196
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h0-d0-before-m206.log": {
+        "sha256": "0058189a63ba0d18c86e4a5677dc82a4a3e9ece998328a63d77067cce026c3fc",
+        "bytes": 446206
+      },
+      "tw-object-h0-d0-before-m201.log": {
+        "sha256": "726172dca8b08193b0fa5e78b712065a0bd442767e9490019ac6bb0fd0d4f262",
+        "bytes": 131432
+      }
+    },
+    "stopped": {
+      "reason": "Superseded by final pinned artifact and corrected comparison against authentic offered nonce, not a poisoned caller ticket. Incomplete jobs not counted.",
+      "command": "python tests/hal20-field-state/run.py --inputs notes/hal-9/INPUTS.json --fence --trace-returns --timewizard-object /workspace/work/hal9-tw-recovery-hardening/local/delivery/package --tw-case 200 --tw-case 201 --tw-case 202 --tw-case 203 --tw-case 204 --tw-case 205 --tw-case 206 --tw-case 207 --tw-case 208 --tw-case 209 --tw-case 210 --tw-case 211 --tw-case 212 --output /workspace/work/hal9-tw-recovery-hardening/logs/delivery-lifecycle"
+    },
+    "interpretation": "Caller ticket nonce was deliberately poisoned. Monotonicity must compare fresh server nonce to authentic offered nonce, not forged caller value; full old token still refused."
+  },
+  {
+    "name": "projection-label-control",
+    "logs": {
+      "tw-object-h0-d0-after-m223.log": {
+        "sha256": "e0b0aa9658d0982dea72542918ef7fbbe17c0e9ab094fa495e61ae831c52fa98",
+        "bytes": 29948
+      },
+      "tw-object-h1-d0-after-m223.log": {
+        "sha256": "b4442462d476a860cb1e2cb8a1f853b32b14345e7bd76b5179ba579820e2ed84",
+        "bytes": 31687
+      },
+      "tw-object-h0-d1-after-m226.log": {
+        "sha256": "df19cedf8c6981be0e481220124316da3f0f930a9ec68b9bb6f2289961f46908",
+        "bytes": 75211
+      },
+      "build-duel-entry.log": {
+        "sha256": "3c08a89964fb909d33c1f2c7da66a476625191ea32c977938382953a6badb294",
+        "bytes": 35691
+      },
+      "tw-object-h0-d0-before-m225.log": {
+        "sha256": "e0b0aa9658d0982dea72542918ef7fbbe17c0e9ab094fa495e61ae831c52fa98",
+        "bytes": 29948
+      },
+      "tw-object-h0-d1-after-m220.log": {
+        "sha256": "8e69a86c8b8f7800b8bb671680c4dcfc79622ccf0abb1dc5eb4ab8911f39826a",
+        "bytes": 72371
+      },
+      "tw-object-h1-d1-after-m225.log": {
+        "sha256": "2b1a2717640a6f36fb70ca4c885ee90b9ace7ebe3a76be27b13c331b18cbc3db",
+        "bytes": 1076883
+      },
+      "tw-object-h1-d0-before-m220.log": {
+        "sha256": "fab37ace106e49a3f43a40187f73ad15cc0d6ef096037e52de0b8a4ab71b1f6f",
+        "bytes": 976244
+      },
+      "tw-object-h1-d0-after-m230.log": {
+        "sha256": "adcaf4cc7b6073733da363b9cf23f363edf785ad1105f48317380b96144269ae",
+        "bytes": 978256
+      },
+      "tw-object-h1-d1-before-m222.log": {
+        "sha256": "2fa0e2a2a9e653553fe523b28eb2649757e59c5ad95267a4e0500c71682d3c30",
+        "bytes": 1076761
+      },
+      "tw-object-h0-d0-before-m223.log": {
+        "sha256": "e0b0aa9658d0982dea72542918ef7fbbe17c0e9ab094fa495e61ae831c52fa98",
+        "bytes": 29948
+      },
+      "tw-object-h1-d0-after-m225.log": {
+        "sha256": "b4442462d476a860cb1e2cb8a1f853b32b14345e7bd76b5179ba579820e2ed84",
+        "bytes": 31687
+      },
+      "tw-object-h1-d0-after-m227.log": {
+        "sha256": "3961252ee01aef69440bdf1d47ec31361dfdadc9c1270be56983cb3b87a54554",
+        "bytes": 978210
+      },
+      "tw-object-h0-d0-before-m224.log": {
+        "sha256": "e0b0aa9658d0982dea72542918ef7fbbe17c0e9ab094fa495e61ae831c52fa98",
+        "bytes": 29948
+      },
+      "tw-object-h1-d1-before-m221.log": {
+        "sha256": "44f2cd6204a641a9b0031dc0f3f41c59087009c484f33232215f73a45759b11f",
+        "bytes": 989716
+      },
+      "tw-object-h0-d0-after-m221.log": {
+        "sha256": "f5b76ab1a622c9352d281373c66f5a6a9757e2322288b3ab977e377541d299df",
+        "bytes": 63831
+      },
+      "tw-object-h1-d0-before-m226.log": {
+        "sha256": "1ef7a11a61839d16a3e711e24b1adfef57adb5cb7390d4e17a7638f63d0022f9",
+        "bytes": 978240
+      },
+      "tw-object-h1-d1-after-m220.log": {
+        "sha256": "16a4d26b7b6bd89c9883e5351445ec71feeb4850ec7e187102628d30f547b85d",
+        "bytes": 986237
+      },
+      "tw-object-h0-d0-before-m221.log": {
+        "sha256": "f5b76ab1a622c9352d281373c66f5a6a9757e2322288b3ab977e377541d299df",
+        "bytes": 63831
+      },
+      "tw-object-h1-d1-before-m226.log": {
+        "sha256": "8eb6aa257e9bc0edb948363acdaabdad244318a4714bb617e9d590f42c928cce",
+        "bytes": 989716
+      },
+      "tw-object-h1-d1-before-m227.log": {
+        "sha256": "08b0c9dd58792665578814f6f18dace1bcdd8288f41ead450f490041ea602e59",
+        "bytes": 989686
+      },
+      "tw-object-h1-d0-after-m222.log": {
+        "sha256": "b4442462d476a860cb1e2cb8a1f853b32b14345e7bd76b5179ba579820e2ed84",
+        "bytes": 31687
+      },
+      "tw-object-h1-d1-before-m220.log": {
+        "sha256": "16a4d26b7b6bd89c9883e5351445ec71feeb4850ec7e187102628d30f547b85d",
+        "bytes": 986237
+      },
+      "tw-object-h0-d1-after-m224.log": {
+        "sha256": "c370acd09d9f95ece92f0b4cc2e83b839e77298db85aa47ec0955c894be2f4d8",
+        "bytes": 98929
+      },
+      "tw-object-h0-d0-after-m220.log": {
+        "sha256": "fdc79c241df160a74698aed36c91da645f4df07fc208f69b7230efc0623ac781",
+        "bytes": 62378
+      },
+      "tw-object-h0-d1-after-m221.log": {
+        "sha256": "2b6973e6fe272e70f2b754179e891ba04a0c23dee152943a9a168dc4cf86614f",
+        "bytes": 75211
+      },
+      "tw-object-h1-d1-before-m230.log": {
+        "sha256": "a585d31590c19ad062d0ebf64e5775f57ea647c94009df657a2d4ddd7680724d",
+        "bytes": 989732
+      },
+      "tw-object-h0-d0-after-m224.log": {
+        "sha256": "e0b0aa9658d0982dea72542918ef7fbbe17c0e9ab094fa495e61ae831c52fa98",
+        "bytes": 29948
+      },
+      "tw-object-h0-d1-after-m222.log": {
+        "sha256": "c329785a19e908e7f7ca5705f6e264320992f655d0effe19291de28cb6c0026c",
+        "bytes": 100452
+      },
+      "tw-object-h0-d0-before-m230.log": {
+        "sha256": "e5e299d3a6b802a96a5c997e682d4eb5d8671a7566c09fd704371a25f0b7d46d",
+        "bytes": 63847
+      },
+      "tw-object-h0-d1-before-m223.log": {
+        "sha256": "fa4277a24ebc63cdd320c129d347f2478af3cc561fe1dd6c119d8dd77d1dd97c",
+        "bytes": 100582
+      },
+      "tw-object-h1-d0-after-m220.log": {
+        "sha256": "fab37ace106e49a3f43a40187f73ad15cc0d6ef096037e52de0b8a4ab71b1f6f",
+        "bytes": 976244
+      },
+      "tw-object-h1-d1-before-m225.log": {
+        "sha256": "2b1a2717640a6f36fb70ca4c885ee90b9ace7ebe3a76be27b13c331b18cbc3db",
+        "bytes": 1076883
+      },
+      "tw-object-h0-d0-after-m222.log": {
+        "sha256": "e0b0aa9658d0982dea72542918ef7fbbe17c0e9ab094fa495e61ae831c52fa98",
+        "bytes": 29948
+      },
+      "build-interposer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h0-d1-after-m227.log": {
+        "sha256": "93138d7a1d1670865374e17a0d641f52141298c1b87127695c3cd724e8319fa8",
+        "bytes": 75181
+      },
+      "tw-object-h1-d1-before-m224.log": {
+        "sha256": "645769926b1b42840612560a113e5587cd4e9766090af9a176f0eb3aa75390b3",
+        "bytes": 1075140
+      },
+      "tw-object-h1-d0-before-m222.log": {
+        "sha256": "b4442462d476a860cb1e2cb8a1f853b32b14345e7bd76b5179ba579820e2ed84",
+        "bytes": 31687
+      },
+      "tw-object-h1-d1-after-m230.log": {
+        "sha256": "a585d31590c19ad062d0ebf64e5775f57ea647c94009df657a2d4ddd7680724d",
+        "bytes": 989732
+      },
+      "tw-object-h0-d0-after-m227.log": {
+        "sha256": "e92bd8e9c1f5f21ff7b0e51cedcf26d7a2a33d70857b3ed76a7720af9ddcd082",
+        "bytes": 63801
+      },
+      "tw-object-h0-d1-before-m220.log": {
+        "sha256": "8e69a86c8b8f7800b8bb671680c4dcfc79622ccf0abb1dc5eb4ab8911f39826a",
+        "bytes": 72371
+      },
+      "tw-object-h0-d1-before-m225.log": {
+        "sha256": "ca53734fcc2ee04b365eb4b3850719dcbf6782933f7903083f5d4958d8d4bf41",
+        "bytes": 100574
+      },
+      "tw-object-h1-d0-before-m224.log": {
+        "sha256": "b4442462d476a860cb1e2cb8a1f853b32b14345e7bd76b5179ba579820e2ed84",
+        "bytes": 31687
+      },
+      "tw-object-h1-d0-after-m224.log": {
+        "sha256": "b4442462d476a860cb1e2cb8a1f853b32b14345e7bd76b5179ba579820e2ed84",
+        "bytes": 31687
+      },
+      "tw-object-h0-d0-after-m226.log": {
+        "sha256": "09667386488a43325284f5a24a2e0646935366ef21fa50b670846a9bb4611ecb",
+        "bytes": 63831
+      },
+      "tw-object-h0-d0-after-m225.log": {
+        "sha256": "e0b0aa9658d0982dea72542918ef7fbbe17c0e9ab094fa495e61ae831c52fa98",
+        "bytes": 29948
+      },
+      "tw-object-h0-d0-before-m222.log": {
+        "sha256": "e0b0aa9658d0982dea72542918ef7fbbe17c0e9ab094fa495e61ae831c52fa98",
+        "bytes": 29948
+      },
+      "tw-object-h0-d1-before-m227.log": {
+        "sha256": "93138d7a1d1670865374e17a0d641f52141298c1b87127695c3cd724e8319fa8",
+        "bytes": 75181
+      },
+      "tw-object-h1-d0-before-m230.log": {
+        "sha256": "adcaf4cc7b6073733da363b9cf23f363edf785ad1105f48317380b96144269ae",
+        "bytes": 978256
+      },
+      "build-observer.log": {
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0
+      },
+      "tw-object-h1-d1-after-m226.log": {
+        "sha256": "8eb6aa257e9bc0edb948363acdaabdad244318a4714bb617e9d590f42c928cce",
+        "bytes": 989716
+      },
+      "tw-object-h1-d0-after-m226.log": {
+        "sha256": "1ef7a11a61839d16a3e711e24b1adfef57adb5cb7390d4e17a7638f63d0022f9",
+        "bytes": 978240
+      },
+      "tw-object-h0-d1-before-m221.log": {
+        "sha256": "2b6973e6fe272e70f2b754179e891ba04a0c23dee152943a9a168dc4cf86614f",
+        "bytes": 75211
+      },
+      "tw-object-h0-d1-before-m230.log": {
+        "sha256": "5e946030172b6bab43d0535bd4c865137d9aa0ddc7d9adcf31d1a47223df96c4",
+        "bytes": 75227
+      },
+      "tw-object-h1-d1-after-m223.log": {
+        "sha256": "80dc2cc914bf90f25b47cf07f8c8717341c7a8c3a38072ac7cab21b37d86040c",
+        "bytes": 1077021
+      },
+      "tw-object-h0-d1-after-m225.log": {
+        "sha256": "ca53734fcc2ee04b365eb4b3850719dcbf6782933f7903083f5d4958d8d4bf41",
+        "bytes": 100574
+      },
+      "tw-object-h1-d0-before-m227.log": {
+        "sha256": "3961252ee01aef69440bdf1d47ec31361dfdadc9c1270be56983cb3b87a54554",
+        "bytes": 978210
+      },
+      "tw-object-h1-d0-before-m225.log": {
+        "sha256": "b4442462d476a860cb1e2cb8a1f853b32b14345e7bd76b5179ba579820e2ed84",
+        "bytes": 31687
+      },
+      "tw-object-h0-d1-after-m223.log": {
+        "sha256": "fa4277a24ebc63cdd320c129d347f2478af3cc561fe1dd6c119d8dd77d1dd97c",
+        "bytes": 100582
+      },
+      "tw-object-h0-d1-after-m230.log": {
+        "sha256": "5e946030172b6bab43d0535bd4c865137d9aa0ddc7d9adcf31d1a47223df96c4",
+        "bytes": 75227
+      },
+      "tw-object-h0-d1-before-m226.log": {
+        "sha256": "df19cedf8c6981be0e481220124316da3f0f930a9ec68b9bb6f2289961f46908",
+        "bytes": 75211
+      },
+      "tw-object-h1-d1-after-m222.log": {
+        "sha256": "2fa0e2a2a9e653553fe523b28eb2649757e59c5ad95267a4e0500c71682d3c30",
+        "bytes": 1076761
+      },
+      "tw-object-h1-d1-after-m224.log": {
+        "sha256": "645769926b1b42840612560a113e5587cd4e9766090af9a176f0eb3aa75390b3",
+        "bytes": 1075140
+      },
+      "tw-object-h1-d1-after-m221.log": {
+        "sha256": "44f2cd6204a641a9b0031dc0f3f41c59087009c484f33232215f73a45759b11f",
+        "bytes": 989716
+      },
+      "tw-object-h1-d1-after-m227.log": {
+        "sha256": "08b0c9dd58792665578814f6f18dace1bcdd8288f41ead450f490041ea602e59",
+        "bytes": 989686
+      },
+      "tw-object-h1-d0-before-m223.log": {
+        "sha256": "b4442462d476a860cb1e2cb8a1f853b32b14345e7bd76b5179ba579820e2ed84",
+        "bytes": 31687
+      },
+      "build-harness.log": {
+        "sha256": "d6996bbaa4593cf640e6e01278e09969ebbd5123383d425df276e18ee4a0031c",
+        "bytes": 11485
+      },
+      "tw-object-h1-d0-after-m221.log": {
+        "sha256": "5c47d07e3906d42f5579b28ec0ce84ac1b4ff98bdba7b43cde1fcca227fdc033",
+        "bytes": 978240
+      },
+      "tw-object-h1-d0-before-m221.log": {
+        "sha256": "5c47d07e3906d42f5579b28ec0ce84ac1b4ff98bdba7b43cde1fcca227fdc033",
+        "bytes": 978240
+      },
+      "tw-object-h0-d1-before-m224.log": {
+        "sha256": "c370acd09d9f95ece92f0b4cc2e83b839e77298db85aa47ec0955c894be2f4d8",
+        "bytes": 98929
+      },
+      "tw-object-h0-d0-after-m230.log": {
+        "sha256": "e5e299d3a6b802a96a5c997e682d4eb5d8671a7566c09fd704371a25f0b7d46d",
+        "bytes": 63847
+      },
+      "tw-object-h0-d0-before-m226.log": {
+        "sha256": "09667386488a43325284f5a24a2e0646935366ef21fa50b670846a9bb4611ecb",
+        "bytes": 63831
+      },
+      "tw-object-h1-d1-before-m223.log": {
+        "sha256": "80dc2cc914bf90f25b47cf07f8c8717341c7a8c3a38072ac7cab21b37d86040c",
+        "bytes": 1077021
+      },
+      "tw-object-h0-d0-before-m227.log": {
+        "sha256": "e92bd8e9c1f5f21ff7b0e51cedcf26d7a2a33d70857b3ed76a7720af9ddcd082",
+        "bytes": 63801
+      },
+      "tw-object-h0-d0-before-m220.log": {
+        "sha256": "fdc79c241df160a74698aed36c91da645f4df07fc208f69b7230efc0623ac781",
+        "bytes": 62378
+      },
+      "tw-object-h0-d1-before-m222.log": {
+        "sha256": "c329785a19e908e7f7ca5705f6e264320992f655d0effe19291de28cb6c0026c",
+        "bytes": 100452
+      }
+    },
+    "summary": {
+      "processes": 72,
+      "checks": {
+        "PASS": 734
+      },
+      "execution": {
+        "REFUSED": 56,
+        "NOT_REACHED": 16
+      },
+      "incomplete": 0
+    },
+    "builds": [
+      {
+        "returncode": 0,
+        "seconds": 7.495,
+        "log": "build-harness.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.138,
+        "log": "build-duel-entry.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.113,
+        "log": "build-observer.log"
+      },
+      {
+        "returncode": 0,
+        "seconds": 0.157,
+        "log": "build-interposer.log"
+      }
+    ],
+    "candidate": {
+      "scope": "Build own cooperative TW client in a private copy of the PR35 adapter; keep core pinned.\nNo private source/binary is copied into the repository. Not a full core rebuild.\n",
+      "reference_sha256": "d70a25110d5bff51a90cd2634ec7c9182536ad0c94e209b9f4dadbd6803361a7",
+      "candidate_sha256": "03cc67b9ff6e54a096e0acfcb89451ca6d5da980e4ce0918f1923ce267869834",
+      "draw_bytes": 40,
+      "patch_sha256": "49122b9426ff89707c580f93b241c822c4b61307a771660537d4d79b4a0ff71a",
+      "client_source_sha256": "c2331b25437f1e7205c885f87b6eaff0790bf5d757631d8931f307ed92a6e8d4",
+      "unchanged_link_objects": {
+        "renamed-core.o": "297990eabf3e77ed2e68c4be367d8889f9c96e488cd9735bc71d0c3c5ac764de",
+        "time_wizard_description_fit.o": "4e7d2baafbe9823d63df1cd4225deb5099a1a51dec66085eabb911862384956d",
+        "time_wizard_evolution.o": "96938bc05ba7eaadf59edcc2b58d12df5429f984f30d85325a4a397156256a1b",
+        "time_wizard_encore.o": "2287f78ce4ddbb827f3bac71a0e5067fa3ca48bea6cf76aff2f045be689f1e6a",
+        "contracts_entry.o": "bf1b18f7a099500d471a4bf9d38fdbc2852d22aad512c4a144f352b1a24ce332",
+        "ai_probe_i386.o": "13da2f9e31af2279c352aa871ddc397c4f6b05c7af1fbf4096e3969d3d9cd08f"
+      },
+      "changed_package_files": [
+        "time-wizard.o",
+        "source/tw_client.inc",
+        "source/time_wizard_dual_play_compat.c"
+      ],
+      "added_official_imports": [],
+      "all_imports": [
+        "AiScript_Run",
+        "CardRules_Fusion",
+        "Cards_BaseId",
+        "Cards_FrameColor",
+        "Cards_NameUtf8",
+        "Cards_PatchThumbnail",
+        "Cards_Type",
+        "Cards_Valid",
+        "D_800907AC",
+        "D_800907CC",
+        "D_800907D8",
+        "D_800908A0",
+        "D_8009AF20",
+        "D_8009B162",
+        "D_8009B174",
+        "D_8009B19C",
+        "D_8009B1B4",
+        "D_8009B1D5",
+        "D_8009B20C",
+        "D_8009B21A",
+        "D_8009B240",
+        "D_8009B24C",
+        "D_8009B250",
+        "D_8009B360",
+        "D_800E9EF0",
+        "D_800E9F10",
+        "D_800E9FF0",
+        "D_800EA030",
+        "D_800EAD88",
+        "D_800EAE88",
+        "D_800EB0F8",
+        "D_800F2848",
+        "D_8018C2D8",
+        "D_801A7AD8",
+        "D_801A8000",
+        "DisplayObject_ReleaseIfPresent",
+        "DrawSync",
+        "DuelCard_DeactivateRecord",
+        "DuelCard_RemoveFromField",
+        "DuelEffect_CreateRequest",
+        "DuelScene_UpdateCardPlacement",
+        "DuelScene_UpdateCardUse",
+        "DuelScene_UpdateDrawPhase",
+        "DuelScene_UpdateFieldActions",
+        "DuelScene_UpdateHandActions",
+        "Duel_CalcCardStats",
+        "Duel_CheckEquip",
+        "Duel_CheckFusion",
+        "Duel_GetTerrainBoost",
+        "Duel_PopulateCombinedDeckData",
+        "Duel_SetupCardRecord",
+        "Glyphs_Cell",
+        "Glyphs_TinyCell",
+        "GsSortPoly",
+        "Hal9_CoreDualDrawV1",
+        "Hal9_CoreHardStateV1",
+        "Hal9_CoreOwnersReadyV1",
+        "HdText_Enabled",
+        "Input_UpdatePads",
+        "LoadImage",
+        "SD_SEPlayFull",
+        "SetPolyFT4",
+        "TextBox_Destroy",
+        "TextureDump_Delivered",
+        "__udivdi3",
+        "__x86_indirect_thunk_eax",
+        "abs",
+        "atan2",
+        "cos",
+        "fclose",
+        "floor",
+        "fmod",
+        "fread",
+        "free",
+        "fseek",
+        "ftell",
+        "func_80017DB4",
+        "func_80017E3C",
+        "func_80017F04",
+        "func_8001B170",
+        "func_8001B938",
+        "func_8001BAF0",
+        "func_80022D94",
+        "func_80028220",
+        "func_80035E20",
+        "func_80037DA4",
+        "gAiScript_State",
+        "gCard_nCount",
+        "gDuel_aActiveCards",
+        "gDuel_aDeckCardRecords",
+        "gDuel_adwCardStats",
+        "gDuel_bOpponentID",
+        "gDuel_wSceneStateFlags",
+        "gDuel_wViewerCardID",
+        "gInput_wPad1Pressed",
+        "gInput_wPad1Repeat",
+        "malloc",
+        "memcmp",
+        "memcpy",
+        "memset",
+        "realloc",
+        "sin",
+        "snprintf",
+        "sqrt",
+        "strncpy",
+        "strstr",
+        "strtod"
+      ],
+      "steps": [
+        {
+          "name": "adapter",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/clang",
+            "-std=gnu11",
+            "-O2",
+            "-g",
+            "-fno-pic",
+            "-fno-pie",
+            "-fno-common",
+            "-fno-stack-protector",
+            "-fno-asynchronous-unwind-tables",
+            "-fno-unwind-tables",
+            "-fstack-clash-protection",
+            "-march=i686",
+            "-mno-sse",
+            "-mno-mmx",
+            "-ffreestanding",
+            "-nostdinc",
+            "-DMEMORIES_PC",
+            "-DMEMORIES_MOD",
+            "-D_LANGUAGE_C",
+            "-DLANGUAGE_C",
+            "-Wall",
+            "-Wno-unused-function",
+            "-Wno-missing-braces",
+            "--target=i386-pc-linux-gnu",
+            "-mstackrealign",
+            "-mretpoline-external-thunk",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/lib/clang/23/include",
+            "-isystem",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include/libc",
+            "-I",
+            "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/include",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/local/delivery/package=/hal9/package",
+            "-ffile-prefix-map=/workspace/work/hal9-tw-recovery-hardening/repo=/hal9/repo",
+            "-fdebug-compilation-dir=/hal9/build",
+            "-DMemoriesModInit=TimeWizardV023MemoriesModInit",
+            "-c",
+            "/workspace/work/hal9-tw-recovery-hardening/local/delivery/package/source/time_wizard_dual_play_compat.c",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/delivery/time_wizard_dual_play_compat.o"
+          ]
+        },
+        {
+          "name": "reference-relink",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/delivery/reference-relinked.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-client-category/local/delivery2/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        },
+        {
+          "name": "link",
+          "returncode": 0,
+          "command": [
+            "/workspace/work/hal20-base/repo/tmp/pc/llvm-mingw/bin/ld.lld",
+            "-r",
+            "-o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/delivery/package/time-wizard.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/renamed-core.o",
+            "/workspace/work/hal9-tw-recovery-hardening/local/delivery/time_wizard_dual_play_compat.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_description_fit.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_evolution.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/time_wizard_encore.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/contracts_entry.o",
+            "/workspace/work/hal20-timewizard-contracts/local/candidate-final/ai_probe_i386.o"
+          ]
+        }
+      ]
+    },
+    "failures": [],
+    "interpretation": "Broad SAFE_REFUSAL label corrected: only latched adapter conflicts are REFUSED; projection-only probes without execution are NOT_REACHED. Checks unchanged."
+  }
+]

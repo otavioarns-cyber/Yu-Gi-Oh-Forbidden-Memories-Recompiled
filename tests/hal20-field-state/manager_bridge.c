@@ -22,3 +22,8 @@ void *Hal9_TestImport(const char*n,int i){return resolve(n,i>=0?&mods[i]:NULL);}
 unsigned Hal9_TestCalls(void){return hal9_test_hard_calls;}
 
 int Hal9_TestModAPI(int i){return mods[i].hooks.api;}
+
+static unsigned hal9_recovery_reset_calls;
+void __real_Mods_Reset(void);
+void __wrap_Mods_Reset(void){++hal9_recovery_reset_calls;__real_Mods_Reset();}
+unsigned Hal9_ResetCount(void){return hal9_recovery_reset_calls;}

@@ -137,7 +137,9 @@ static void support_human(int mode){
 static void handoff_cases(int);
 #include "../hal9-handoff/runtime.inc"
 #include "../hal9-client/runtime.inc"
+#include "../hal9-recovery/runtime.inc"
 static void support_cases(int mode){
+ if(mode>=200){recovery_cases(mode);return;}
  if(mode>=100){client_cases(mode);return;}
  if(mode>=50){handoff_cases(mode);return;}
  if((mode>=28&&mode<=30)||mode==36||mode==47){support_human(mode);return;}

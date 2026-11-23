@@ -57,6 +57,10 @@ static int was_admitted;
 void HAL2224_AfterPlanner(void);
 static void handoff_after_planner(void);
 static void client_after_planner(void);
+static void recovery_after_planner(void);
+static int recovery_break_hand(void);
+static void recovery_main_init(void);
+static int recovery_new_duel_only;
 static void *local(int,const char*);
 static void handoff_controller_fault(void);
 static void load_checkpoint(const char*);
@@ -296,6 +300,7 @@ void HAL2224_AfterPlanner(void){
  printf("PUBLIC_BIND abi=%u provider=%d\n",binding?binding->abi:0,binding&&binding->rules&&binding->rules()!=0);
  handoff_after_planner();
  client_after_planner();
+ recovery_after_planner();
  ++after_calls;Pull*p=pull();uint8_t*sel=datum("D_800EAE88");AiActiveCard*a=datum("gDuel_aActiveCards");planned_pending=p->active;plan_selection=sel[0];plan_id=sel[0]>=11&&sel[0]<56?a[sel[0]].card_id:0;plan_type=card_type(plan_id);
  state_seam();load_checkpoint("after-real-planners");pending_log("after-real-planners");printf("PLAN pending=%d selection=%u id=%d type=%d bonus=%u used=%u\n",planned_pending,sel[0],plan_id,plan_type,Mods_Active(mi(D))?ds()[5]:0,Mods_Active(mi(D))?ds()[1]:0);
 }
@@ -317,7 +322,7 @@ static void setup(int variant){
  for(int i=0;i<5;i++){d[40+i].id=hand[i];s[1].hand[i]=40+i;DuelCardRecord*r=setup_record(15+i,40+i);((DuelHandSlot*)datum("D_800EA030"))[i].object=spawn_hand(r,14+i*60,194);}
  if(variant==6||variant==8){int ids[]={6,47,571},n=variant==6?3:1;for(int i=0;i<n;i++){d[45+i].id=ids[i];DuelCardRecord*r=setup_record(20+i,45+i);r->object=spawn_hand(r,0,0);}s[1].deck_draw_cursor=5+n;d[45+n].id=535;}
  *(uint8_t*)datum("D_8009B368")=2;uint16_t row[]={680,6,47,571,705,0};memcpy(datum("gDuel_awRitualData"),row,sizeof row);
- Mods_Reset();((void(*)(void))engine_function("Duel_InitScene"))();*(uint16_t*)datum("gDuel_wSceneStateFlags")=4;
+ if(recovery_new_duel_only)recovery_main_init();else{Mods_Reset();((void(*)(void))engine_function("Duel_InitScene"))();}*(uint16_t*)datum("gDuel_wSceneStateFlags")=4;
  memset(engine_calls,0,sizeof engine_calls);for(int i=0;i<nr;i++)registrations[i].calls=0;setup_count=spawn_count=after_calls=planned_pending=0;swap_path[0]=0;mask_ok=1;
 }
 static int conserved(void){int count[80]={0};DuelDeckCardRecord*d=datum("gDuel_aDeckCardRecords");for(int i=0;i<80;i++){if(d[i].deck_index!=i||d[i].data_block_index>=80)return 0;count[d[i].data_block_index]++;}for(int i=0;i<80;i++)if(count[i]!=1)return 0;return 1;}
@@ -341,6 +346,7 @@ static int hand_action(void){
   if((Settings_GetNamed("test.fault",0)||Settings_GetNamed("test.badmode",0))&&v&&v->outcome&&v->outcome()==2){puts("TRANSACTION retry scheduled; rejected action ended before new planning");return phase;}
   if(Settings_GetNamed("test.hcase",0)==2||Settings_GetNamed("test.hcase",0)==3||Settings_GetNamed("test.hcase",0)==7||Settings_GetNamed("test.hcase",0)==8){const RhsRendezvous*r=Mods_Find(RHS_RENDEZVOUS);if(r&&(r->outcome()<0||r->outcome()==2))return phase;}
   if((Settings_GetNamed("test.tw-case",0)==123||Settings_GetNamed("test.tw-case",0)==125)&&*(int*)local(T,"tw_hf_result")<0){puts("INSTRUMENTED stop at first invalidated transaction before any later new planner");return phase;}
+  if(recovery_break_hand())return phase;
   if(phase!=4)return phase;
  }
  return 4;

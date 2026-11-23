@@ -1,0 +1,25 @@
+{
+  "reference": "e5c97876009e0e57127166039821426a617729db",
+  "canonical_mod_files_identical": 507,
+  "src_mods_config_workflows": "UNCHANGED",
+  "TW_reference_sha256": "d70a25110d5bff51a90cd2634ec7c9182536ad0c94e209b9f4dadbd6803361a7",
+  "TW_private_candidate_sha256": "03cc67b9ff6e54a096e0acfcb89451ca6d5da980e4ce0918f1923ce267869834",
+  "repeat_byte_identical": true,
+  "unchanged_link_objects": {
+    "renamed-core.o": "297990eabf3e77ed2e68c4be367d8889f9c96e488cd9735bc71d0c3c5ac764de",
+    "time_wizard_description_fit.o": "4e7d2baafbe9823d63df1cd4225deb5099a1a51dec66085eabb911862384956d",
+    "time_wizard_evolution.o": "96938bc05ba7eaadf59edcc2b58d12df5429f984f30d85325a4a397156256a1b",
+    "time_wizard_encore.o": "2287f78ce4ddbb827f3bac71a0e5067fa3ca48bea6cf76aff2f045be689f1e6a",
+    "contracts_entry.o": "bf1b18f7a099500d471a4bf9d38fdbc2852d22aad512c4a144f352b1a24ce332",
+    "ai_probe_i386.o": "13da2f9e31af2279c352aa871ddc397c4f6b05c7af1fbf4096e3969d3d9cd08f"
+  },
+  "unchanged_imports_exports": true,
+  "Dual_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+  "RD_sha256": "d044cfef6019c8a97c869bade40dfe91ae081fda797e62e6f2f53fbe2a7b2a97",
+  "manifest_settings_assets": "UNCHANGED",
+  "frozen_ABI": "UNCHANGED",
+  "policy": "OBSERVE default; KEEP_RD/ALLOW_TW explicit tests only",
+  "guard": "UNCHANGED; TW not admitted",
+  "savestate": "B preserved; A disabled",
+  "private_binaries_assets_published": false
+}
