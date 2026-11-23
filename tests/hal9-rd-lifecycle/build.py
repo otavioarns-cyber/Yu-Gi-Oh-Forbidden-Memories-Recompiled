@@ -1,0 +1,18 @@
+"""Rebuild only a private RD owner copy based on the pinned PR34 companion."""
+from pathlib import Path
+import argparse,hashlib,json,shutil,subprocess,sys,difflib,importlib.util
+p=argparse.ArgumentParser();p.add_argument('--reference',type=Path,required=True);p.add_argument('--sdk',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args();root=Path(__file__).resolve().parents[2];sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
+assert sha(a.reference/'ritual-duelists.o')=='d044cfef6019c8a97c869bade40dfe91ae081fda797e62e6f2f53fbe2a7b2a97'
+assert '#define MEMORIES_MOD_API 24' in (a.sdk/'include/pc/mods/mod_types.h').read_text().splitlines()
+a.output.mkdir(parents=True,exist_ok=False);dst=a.output/'ritual-duelists';shutil.copytree(a.reference,dst)
+old=(dst/'mod.c').read_text();new=old.replace('#include "rd_companion.inc"','#include "rd_companion.inc"\n#include "rd_duel_lifecycle.inc"',1).replace('(void *)hf_materialize,&previous_swap','(void *)rd_duel_materialize,&previous_swap',1).replace('(void*)hf_hand_tick,&rd_selection_old_hand','(void*)rd_duel_hand_tick,&rd_selection_old_hand',1).replace('(void *)rd_ai,&previous_ai','(void *)rd_duel_ai,&previous_ai',1).replace('    mod->frame=0; /* Free Duel viewer','    if(!rd_duel_register())return 0;\n    mod->frame=0; /* Free Duel viewer',1);assert new!=old;(dst/'mod.c').write_text(new)
+source=root/'experiments/hal9-rd-lifecycle/rd_duel_lifecycle.inc';shutil.copy2(source,dst/source.name)
+patch=''.join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile='a/mod.c',tofile='b/mod.c'));(a.output/'owner.patch').write_text(patch)
+driver="import importlib.util,sys;from pathlib import Path;p=Path(sys.argv[1]);s=importlib.util.spec_from_file_location('hal_rd_sdk',p);b=importlib.util.module_from_spec(s);s.loader.exec_module(b);d=sys.argv[2];r=sys.argv[3];b.build(d,target='i386',extra_flags=['-ffile-prefix-map='+d+'=/hal9/rd-package','-ffile-prefix-map='+r+'=/hal9/repo','-fdebug-compilation-dir=/hal9/rd-build'])"
+cmd=[sys.executable,'-c',driver,str(a.sdk/'tools/build_mod.py'),str(dst.resolve()),str(root.resolve())];q=subprocess.run(cmd,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=120);(a.output/'build.log').write_text(q.stdout);assert not q.returncode,q.stdout
+imports=lambda p: sorted(x.split()[-1] for x in subprocess.check_output(['nm','-u',str(p)],text=True).splitlines())
+exports=lambda p: sorted(x.split()[-1] for x in subprocess.check_output(['nm','-g','--defined-only',str(p)],text=True).splitlines())
+assert imports(dst/'ritual-duelists.o')==imports(a.reference/'ritual-duelists.o');assert exports(dst/'ritual-duelists.o')==exports(a.reference/'ritual-duelists.o')
+changed=[str(f.relative_to(dst)) for f in dst.rglob('*') if f.is_file() and (not (a.reference/f.relative_to(dst)).exists() or sha(f)!=sha(a.reference/f.relative_to(dst)))];assert sorted(changed)==['mod.c','rd_duel_lifecycle.inc','ritual-duelists.o'],changed
+receipt=dict(scope=__doc__,reference_sha256=sha(a.reference/'ritual-duelists.o'),canonical_sha256=sha(root/'mods/ritual-duelists/ritual-duelists.o'),candidate_sha256=sha(dst/'ritual-duelists.o'),source_sha256={str(source.relative_to(root)):sha(source)},patch_sha256=hashlib.sha256(patch.encode()).hexdigest(),SDK_API=24,target='i386',imports_exports_unchanged=True,changed_package_files=changed,unchanged_companion_sha256={f:sha(dst/f) for f in ('rd_companion.inc','selection_finalization_v1.h','mandatory_hand_consumer.h','mandatory_hand_selection_v1.h','mandatory_hand_lifecycle_v1.h')},command=cmd,returncode=q.returncode)
+(a.output/'BUILD.json').write_text(json.dumps(receipt,indent=2)+'\n');print(receipt['candidate_sha256'])

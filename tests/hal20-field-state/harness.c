@@ -58,6 +58,11 @@ void HAL2224_AfterPlanner(void);
 static void handoff_after_planner(void);
 static void client_after_planner(void);
 static void recovery_after_planner(void);
+static void rd_owner_after_planner(void);
+static void rd_owner_controller_fault(void);
+static int rd_owner_break_hand(void);
+static int rd_owner_pause_controller(void);
+static void rd_owner_native_init(void);
 static int recovery_break_hand(void);
 static void recovery_main_init(void);
 static int recovery_new_duel_only;
@@ -181,6 +186,8 @@ static void *body(const char*n){
  if(!strcmp(n,"Duel_CheckEquip"))return simple_equip;
  if(!strcmp(n,"Tables_FilterFusion"))return one;
  if(!strcmp(n,"HAL2224_AfterPlanner"))return HAL2224_AfterPlanner;
+ if(!strcmp(n,"HAL_RD_DUEL_PAUSE"))return rd_owner_pause_controller;
+ if(!strcmp(n,"Duel_InitScene"))return rd_owner_native_init;
  if(!strcmp(n,"Duelists_Named"))return named;
  if(!strcmp(n,"SoftGpu_Bank"))return gpu_bank;
  if(!strcmp(n,"Cards_Valid"))return valid;if(!strcmp(n,"Cards_BaseId")||!strcmp(n,"Cards_EffectId")||!strcmp(n,"Cards_AiId"))return base;
@@ -247,7 +254,8 @@ if(m>=0){modules[m].object=*object;++mod_loads[m];printf("LIBRARY_INIT owner=%s 
 MemoriesModExport test_export_storage[TEST_EXPORT_COUNT];
 __asm__(".globl Memories_ModExports\n.set Memories_ModExports,test_export_storage");
 const unsigned Memories_ModExportCount=TEST_EXPORT_COUNT;
-static void prepare_exports(void){for(int i=0;i<TEST_EXPORT_COUNT;i++){test_export_storage[i].name=test_export_names[i];test_export_storage[i].address=resolve(test_export_names[i],NULL);}printf("REAL_HOST_EXPORTS count=%u\n",Memories_ModExportCount);}
+static void *native_main_data(const char*);
+static void prepare_exports(void){for(int i=0;i<TEST_EXPORT_COUNT;i++){test_export_storage[i].name=test_export_names[i];test_export_storage[i].address=native_main_data(test_export_names[i]);if(!test_export_storage[i].address)test_export_storage[i].address=resolve(test_export_names[i],NULL);}printf("REAL_HOST_EXPORTS count=%u\n",Memories_ModExportCount);}
 /* External platform/disc services, same boundary used by official mods_test.c. */
 int Log_Enabled(int channel){(void)channel;return 0;}
 int Log_Wanted(int channel){(void)channel;return 0;}
@@ -260,6 +268,12 @@ int Memories_DiscOriginalFileInfo(const char*path,int*lba,unsigned*size){(void)p
 int Memories_DiscFileInfo(const char*path,int*lba,unsigned*size){return Memories_DiscOriginalFileInfo(path,lba,size);}
 int Memories_DiscFileStart(const char*path){if(Settings_GetNamed("test.tw-case",0)>=38)printf("SUPPORT_DISC_LOOKUP path=%s result=-1 no legitimate disc available\n",path);return -1;}
 static LoadedObject native_objects[24];static int nn;
+/* Main owns these definitions. Export the actual loaded storage, not the
+ * guest-address mirror used for imported globals in this partial engine. */
+static void *native_main_data(const char*n){
+ if(strcmp(n,"D_8009B26C")&&strcmp(n,"D_8009B26E"))return NULL;
+ for(int i=0;i<nn;i++){void*p=ObjectLoader_Symbol(&native_objects[i],n);if(p)return p;}return NULL;
+}
 static void native_load(const char*directory,const char*unit,const char*exports){
  char path[4096],error[512],names[1024];snprintf(path,sizeof path,"%s/src_game_%s.c.o",directory,unit);FILE*f=fopen(path,"rb");CHECK(f);fseek(f,0,SEEK_END);long n=ftell(f);rewind(f);void*bytes=malloc(n);CHECK(bytes&&fread(bytes,1,n,f)==(size_t)n);fclose(f);
  CHECK(nn<24);LoadedObject*q=&native_objects[nn++];int rc=ObjectLoader_Load(bytes,n,resolve,NULL,q,error,sizeof error);if(rc)fprintf(stderr,"NATIVE_LOAD %s %s\n",unit,error);CHECK(!rc);free(bytes);
@@ -299,8 +313,9 @@ void HAL2224_AfterPlanner(void){
  const RhsRendezvous*binding=Mods_Find(RHS_RENDEZVOUS);
  printf("PUBLIC_BIND abi=%u provider=%d\n",binding?binding->abi:0,binding&&binding->rules&&binding->rules()!=0);
  handoff_after_planner();
- client_after_planner();
+ if(mi(T)>=0&&Mods_Active(mi(T)))client_after_planner();
  recovery_after_planner();
+ rd_owner_after_planner();
  ++after_calls;Pull*p=pull();uint8_t*sel=datum("D_800EAE88");AiActiveCard*a=datum("gDuel_aActiveCards");planned_pending=p->active;plan_selection=sel[0];plan_id=sel[0]>=11&&sel[0]<56?a[sel[0]].card_id:0;plan_type=card_type(plan_id);
  state_seam();load_checkpoint("after-real-planners");pending_log("after-real-planners");printf("PLAN pending=%d selection=%u id=%d type=%d bonus=%u used=%u\n",planned_pending,sel[0],plan_id,plan_type,Mods_Active(mi(D))?ds()[5]:0,Mods_Active(mi(D))?ds()[1]:0);
 }
@@ -337,6 +352,7 @@ static int hand_action(void){
   char why[256];if(!Mods_Hal2224GuardReady(why,sizeof why)){printf("ADMISSION REFUSED mid-controller %s\n",why);return 4;}
 
   handoff_controller_fault();
+  rd_owner_controller_fault();
   *(uint16_t*)datum("D_8009B162")=0;((void(*)(void))engine_function("DuelScene_UpdateHandActions"))();int phase=*(uint16_t*)datum("gDuel_wSceneStateFlags")&0x3fff;
   if(Mods_Active(mi(D))&&ds()[21]&&!checked_rejection){checked_rejection=1;result("rejection-preserves-hand-and-deck",hand_count()==checkpoint_hand&&setup_count==checkpoint_swaps&&!memcmp(checkpoint,datum("gDuel_aDeckCardRecords"),sizeof checkpoint),"Observe actual rejected empty plan before cleanup; no substitute plan or pending supplied.");}
   if(phase==4&&*(uint16_t*)datum("D_8009B20C")==0x8000){logical_window=((int(*)(void))engine_function("Ai_GetHandSize"))();AiActiveCard*a=datum("gDuel_aActiveCards");printf("SNAPSHOT bonus=%u used=%u window=%d ids=",Mods_Active(mi(D))?ds()[5]:0,Mods_Active(mi(D))?ds()[1]:0,logical_window);for(int i=0;i<logical_window;i++){int id=a[11+i].card_id;printf("%s%d",i?",":"",id);if(Mods_Active(mi(D))&&ds()[5]&&id&&(card_type(id)==22||((card_type(id)<20?1:2)&ds()[1])))mask_ok=0;}puts("");}
@@ -346,7 +362,7 @@ static int hand_action(void){
   if((Settings_GetNamed("test.fault",0)||Settings_GetNamed("test.badmode",0))&&v&&v->outcome&&v->outcome()==2){puts("TRANSACTION retry scheduled; rejected action ended before new planning");return phase;}
   if(Settings_GetNamed("test.hcase",0)==2||Settings_GetNamed("test.hcase",0)==3||Settings_GetNamed("test.hcase",0)==7||Settings_GetNamed("test.hcase",0)==8){const RhsRendezvous*r=Mods_Find(RHS_RENDEZVOUS);if(r&&(r->outcome()<0||r->outcome()==2))return phase;}
   if((Settings_GetNamed("test.tw-case",0)==123||Settings_GetNamed("test.tw-case",0)==125)&&*(int*)local(T,"tw_hf_result")<0){puts("INSTRUMENTED stop at first invalidated transaction before any later new planner");return phase;}
-  if(recovery_break_hand())return phase;
+  if(recovery_break_hand()||rd_owner_break_hand())return phase;
   if(phase!=4)return phase;
  }
  return 4;
@@ -375,6 +391,7 @@ static int deck_changes(const DuelDeckCardRecord*before){int n=0;DuelDeckCardRec
 #include "../hal26-state-timewizard/state_pair.inc"
 #include "../hal26-state-timewizard/timewizard_cases.inc"
 #include "../hal9-timewizard-contracts/object_cases.inc"
+#include "../hal9-rd-lifecycle/runtime.inc"
 int main(int argc,char**argv){
  CHECK(argc==7);setvbuf(stdout,NULL,_IOLBF,0);CHECK(mkdtemp(data_directory));memory_init(argv[1]);trace_memory=mmap(NULL,65536,PROT_READ|PROT_WRITE|PROT_EXEC,MAP_PRIVATE|MAP_ANONYMOUS,-1,0);CHECK(trace_memory!=MAP_FAILED);
  native_load(argv[2],"duel_field_layout","");native_load(argv[2],"ai_opponent_data","");native_load(argv[2],"duel_scene_hand_actions","DuelScene_UpdateHandActions");native_load(argv[2],"func_8001B938","func_8001B938,func_8001BAF0");native_load(argv[2],"duel_card_state_helpers","func_80028220");native_load(argv[2],"func_80027DF8","func_80027DF8");native_load(argv[2],"ai_script_vm","AiScript_Init");native_load(argv[2],"ai_get_hand_size","Ai_GetHandSize");native_load(argv[2],"func_8001B7AC","func_8001B780,func_8001B7AC");native_load(argv[2],"duel_state_init","Duel_ClearHandSlots");
@@ -399,7 +416,7 @@ int main(int argc,char**argv){
  if(Settings_GetNamed("test.fence",0)){uint8_t*st=NULL;for(int g=0;g<nn;g++){void*sym=ObjectLoader_Symbol(&native_objects[g],"D_8009B26C");if(sym)st=sym;}CHECK(st);*st=0;*(uint8_t*)datum("D_8009B0A3")=0;((void(*)(void))engine_function("Main_RunDuel"))();int entered=*(uint8_t*)datum("D_8009B0A3")==10;result("native-MainRunDuel-admission-fence",entered==ready,"Actual current Main_RunDuel body; engine beyond first entry is not executed.");if(!ready)result("native-fence-explicit-error",guard_notices>0,"Platform notice sink observed; not Windows UI certification.");}
  if(!ready){result("guard-refuses-before-controller",!ecalls("DuelScene_UpdateHandActions")&&!setup_count,"No controller or materialization before refusal.");result("admission-matches-request",!Settings_GetNamed("test.expect-admission",1),"Safe profile must not be accidentally blocked.");goto done;}
  result("admission-matches-request",Settings_GetNamed("test.expect-admission",1),"Unsafe requested order must not enter controller.");
- if(!strcmp(argv[4],"timewizard-object")){hal9_object_cases();goto done;}
+ if(!strcmp(argv[4],"timewizard-object")){int m=Settings_GetNamed("test.tw-case",0);if(m>=300)rd_owner_cases(m);else hal9_object_cases();goto done;}
  for(int i=0;i<Mods_Count();i++)CHECK(!Mods_Failed(i));
  if(Settings_GetNamed("test.effects-off",0)&&mi(RE)>=0&&Mods_Active(mi(RE)))Hal25_ForceApplied(mi(RE),0);
 

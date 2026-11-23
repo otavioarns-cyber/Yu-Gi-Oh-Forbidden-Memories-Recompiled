@@ -1,0 +1,4262 @@
+{
+  "scope": "Read-only cross-checks of actual runtime logs; not Windows certification.",
+  "profiles": 608,
+  "rows": [
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m300",
+      "classification": "REFUSED",
+      "raw_sha256": "672032f28bdb645821993b566821ccb01e9049e04052e506956b2b8b5a8cf849",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m301",
+      "classification": "PASS",
+      "raw_sha256": "3012942db9e6fea2d27733cd89dcdccc1efc0688861e22bdf7f0da3737e9a97a",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m302",
+      "classification": "PASS",
+      "raw_sha256": "07db8a5a22ca8ad8a106925e1b601463aecf29efafe7ca5259949f41fe98f18b",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m303",
+      "classification": "PASS",
+      "raw_sha256": "ca0777d13373e30de4c876e90a566024225237c409a9b28a6d38ee9f7fc69248",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m304",
+      "classification": "PASS",
+      "raw_sha256": "26115ae524846d92cc1118c823816313d23d11ce369be1960a35f675756a1af2",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m305",
+      "classification": "PASS",
+      "raw_sha256": "6c0e1c91e3ec750f6ff3dfca5b427026e3c45f53acd19786ef975d5dc0e5b348",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m306",
+      "classification": "PASS",
+      "raw_sha256": "eed4bf07abd4fb884f2d26745989760c86825a29903cabf27a24fde08c82157d",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m307",
+      "classification": "REFUSED",
+      "raw_sha256": "f281ffefab56b2dcf1dde29b4149d664689e06d9e2c87514070e1518e93a9de7",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m308",
+      "classification": "REFUSED",
+      "raw_sha256": "d3efc3592369c0cb0a3e3dcba3141e8701ce44c5b33d3c511e2e6df0f208c0b6",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m309",
+      "classification": "PASS",
+      "raw_sha256": "b33f9798807d3b1931fb8823cc30eae725ac99045045d0265a498101506407fa",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m310",
+      "classification": "PASS",
+      "raw_sha256": "03215ccab220083af17d58125af8ed8785ecca6478d06571f1d3c1ed9a92b2a3",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m311",
+      "classification": "PASS",
+      "raw_sha256": "275e4ff76d806ba169173d845a58a88b4ef67450c0274e4e0c9502d220067067",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m312",
+      "classification": "PASS",
+      "raw_sha256": "0cdc2c4ba60c0fd3eb602870756d2ec32fd1ca52125dabe5588ea284e50d4c34",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m313",
+      "classification": "REFUSED",
+      "raw_sha256": "7267c0cadceef8d29551350044563f6c6cb79ec9ebb95f4c2ad2ab05352ef9da",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-before-m315",
+      "classification": "REFUSED",
+      "raw_sha256": "fa0b8207debfc5e48cbb47bc849fd0c9c5796a4ad6247a2178c81c555b22bbe7",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m300",
+      "classification": "REFUSED",
+      "raw_sha256": "672032f28bdb645821993b566821ccb01e9049e04052e506956b2b8b5a8cf849",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m301",
+      "classification": "PASS",
+      "raw_sha256": "3012942db9e6fea2d27733cd89dcdccc1efc0688861e22bdf7f0da3737e9a97a",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m302",
+      "classification": "PASS",
+      "raw_sha256": "07db8a5a22ca8ad8a106925e1b601463aecf29efafe7ca5259949f41fe98f18b",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m303",
+      "classification": "PASS",
+      "raw_sha256": "799d712dd1d21f5e76a9aa378aeca49f730d188d6ab37acb81745a6e5df9fcff",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m304",
+      "classification": "PASS",
+      "raw_sha256": "50fcda452bf81497fb908d95ebb9bc4bfca09a16161d4adf52216d07639c582d",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m305",
+      "classification": "PASS",
+      "raw_sha256": "6c0e1c91e3ec750f6ff3dfca5b427026e3c45f53acd19786ef975d5dc0e5b348",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m306",
+      "classification": "PASS",
+      "raw_sha256": "eed4bf07abd4fb884f2d26745989760c86825a29903cabf27a24fde08c82157d",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m307",
+      "classification": "REFUSED",
+      "raw_sha256": "f281ffefab56b2dcf1dde29b4149d664689e06d9e2c87514070e1518e93a9de7",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m308",
+      "classification": "REFUSED",
+      "raw_sha256": "d3efc3592369c0cb0a3e3dcba3141e8701ce44c5b33d3c511e2e6df0f208c0b6",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m309",
+      "classification": "PASS",
+      "raw_sha256": "b33f9798807d3b1931fb8823cc30eae725ac99045045d0265a498101506407fa",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m310",
+      "classification": "PASS",
+      "raw_sha256": "e12f48086a84bb54826cccd4a44ecaf909b067057ccd5b62463fa0cd6d1f85cd",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m311",
+      "classification": "PASS",
+      "raw_sha256": "275e4ff76d806ba169173d845a58a88b4ef67450c0274e4e0c9502d220067067",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m312",
+      "classification": "PASS",
+      "raw_sha256": "0cdc2c4ba60c0fd3eb602870756d2ec32fd1ca52125dabe5588ea284e50d4c34",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m313",
+      "classification": "REFUSED",
+      "raw_sha256": "7267c0cadceef8d29551350044563f6c6cb79ec9ebb95f4c2ad2ab05352ef9da",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d0-after-m315",
+      "classification": "REFUSED",
+      "raw_sha256": "fa0b8207debfc5e48cbb47bc849fd0c9c5796a4ad6247a2178c81c555b22bbe7",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m300",
+      "classification": "REFUSED",
+      "raw_sha256": "c3f44b10037f330baa9a116162fccc191778113d27aa07477134f76538d2edbb",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m301",
+      "classification": "PASS",
+      "raw_sha256": "ab1f90cb3c33a164dc56f630d89e0f40cd054b7dae5cbaab59a52129b871ad99",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m302",
+      "classification": "PASS",
+      "raw_sha256": "1e450e37fdaaa502ef1e0ee6f26c053f7fee8700a1155cdffb45fe2ec6b2b30d",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m303",
+      "classification": "PASS",
+      "raw_sha256": "efc21133e67048ed12ace3076e72f55046e93ab986b4b55dd2e463197200391f",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m304",
+      "classification": "PASS",
+      "raw_sha256": "facf03dd734b42a52d9cf9408bcc0652d8e7fa49c0efc14b220401caf3967497",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m305",
+      "classification": "PASS",
+      "raw_sha256": "f19fe52105b1e08443fba41dd140f1fd383f76f7c8708153ae2765d2ff915bfa",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m306",
+      "classification": "PASS",
+      "raw_sha256": "0b5fe5d7d29dbeafc352533ec7dff9e9b5c95a1e3502871b810d510bb532e2f5",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m307",
+      "classification": "REFUSED",
+      "raw_sha256": "16739b2b4f0deff78c15dad40cdff0bd6e53b35080095641ff60b0f9569013e3",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m308",
+      "classification": "REFUSED",
+      "raw_sha256": "598a81ce8b9a3df08e9059650f6fe1ca7d8960f852f8f64fbe4027d89f39cdb7",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m309",
+      "classification": "PASS",
+      "raw_sha256": "4136561a801411394adb83435ee4f67242296c4ce077afadd52eedc94e7dafc1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m310",
+      "classification": "PASS",
+      "raw_sha256": "a703eedfe8765934834b7d3778b78d4e7313bcbabd683b6edca1ddb95905e3c6",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m311",
+      "classification": "PASS",
+      "raw_sha256": "d84b547b605f47d7127cfaac7a335447f8c8aa6f69758edbd13aaeae6bcd3d89",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m312",
+      "classification": "PASS",
+      "raw_sha256": "a56cce795a1d2b3ed3023753510a67b2fe49ce076a983e59257ee249c9e8abea",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m313",
+      "classification": "REFUSED",
+      "raw_sha256": "6e04b168e847aedc3423cf1bcdcc019573b8138456f6ab27816e08c129eb47b6",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-before-m315",
+      "classification": "REFUSED",
+      "raw_sha256": "208f1e87f67fe19a85be44053d239b8b1bf19f664dc30a84205b052787fd53e2",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m300",
+      "classification": "REFUSED",
+      "raw_sha256": "c3f44b10037f330baa9a116162fccc191778113d27aa07477134f76538d2edbb",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m301",
+      "classification": "PASS",
+      "raw_sha256": "ab1f90cb3c33a164dc56f630d89e0f40cd054b7dae5cbaab59a52129b871ad99",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m302",
+      "classification": "PASS",
+      "raw_sha256": "1e450e37fdaaa502ef1e0ee6f26c053f7fee8700a1155cdffb45fe2ec6b2b30d",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m303",
+      "classification": "PASS",
+      "raw_sha256": "a231d76cf3de085535faa43ea2a84bba2b038c2e46bdd7b1e2e2044dd8bb7e24",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m304",
+      "classification": "PASS",
+      "raw_sha256": "e735a160bf40fd81c2fd4f90bcee32c43927054e91261da9773343a877cef999",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m305",
+      "classification": "PASS",
+      "raw_sha256": "f19fe52105b1e08443fba41dd140f1fd383f76f7c8708153ae2765d2ff915bfa",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m306",
+      "classification": "PASS",
+      "raw_sha256": "0b5fe5d7d29dbeafc352533ec7dff9e9b5c95a1e3502871b810d510bb532e2f5",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m307",
+      "classification": "REFUSED",
+      "raw_sha256": "16739b2b4f0deff78c15dad40cdff0bd6e53b35080095641ff60b0f9569013e3",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m308",
+      "classification": "REFUSED",
+      "raw_sha256": "598a81ce8b9a3df08e9059650f6fe1ca7d8960f852f8f64fbe4027d89f39cdb7",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m309",
+      "classification": "PASS",
+      "raw_sha256": "4136561a801411394adb83435ee4f67242296c4ce077afadd52eedc94e7dafc1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m310",
+      "classification": "PASS",
+      "raw_sha256": "3ab64102800ae0ec2d8b022f2dffcd401e2c9950610a3dd121fdbfa46b5c56fd",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m311",
+      "classification": "PASS",
+      "raw_sha256": "d84b547b605f47d7127cfaac7a335447f8c8aa6f69758edbd13aaeae6bcd3d89",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m312",
+      "classification": "PASS",
+      "raw_sha256": "a56cce795a1d2b3ed3023753510a67b2fe49ce076a983e59257ee249c9e8abea",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m313",
+      "classification": "REFUSED",
+      "raw_sha256": "6e04b168e847aedc3423cf1bcdcc019573b8138456f6ab27816e08c129eb47b6",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h0-d1-after-m315",
+      "classification": "REFUSED",
+      "raw_sha256": "208f1e87f67fe19a85be44053d239b8b1bf19f664dc30a84205b052787fd53e2",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m300",
+      "classification": "REFUSED",
+      "raw_sha256": "98038a35f13e19da4c79316a0120531fb2168688a268f285ac1920dd74dafa3e",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m301",
+      "classification": "PASS",
+      "raw_sha256": "4a1c53a6b1812b6c3fca3f3db19e022f3ae50df6f94eae1ffa970dfcbcea41d8",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m302",
+      "classification": "PASS",
+      "raw_sha256": "61fb9f69b8c14219c65cb6928e00df4844f3beeb3f09f91b6ebd7b034cc530af",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m303",
+      "classification": "PASS",
+      "raw_sha256": "9fa7fd55a11046611b0db8a109ad047794a2e36eec6de2402d7ccf1d63119326",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m304",
+      "classification": "PASS",
+      "raw_sha256": "f3ae911a01d96839eb1f905d29a7c1484bb22a8e7294af4493cb5403184102c9",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m305",
+      "classification": "PASS",
+      "raw_sha256": "8ed94f1fad3146a23e3aed57f665e9722a64837e2d9c236f7423f9a059a8ba83",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m306",
+      "classification": "PASS",
+      "raw_sha256": "7a7b89c6f5493aab780fd82c4635da7a4214b626255ba5b1b255f193013f05cf",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m307",
+      "classification": "REFUSED",
+      "raw_sha256": "8098b9326bff67fdc6528cf69dc92195b04e4c86b38c01bad3305678bc2039c1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m308",
+      "classification": "REFUSED",
+      "raw_sha256": "a8276c1b1ee6d5566f178ca1d50d1ce14b767a301694288f0570095fce02fb6b",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m309",
+      "classification": "PASS",
+      "raw_sha256": "c9cbcb38d8dde3eb8d956600c821c4fd10c28902509cb24bc9ddf9a3058c9248",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m310",
+      "classification": "PASS",
+      "raw_sha256": "92d526212dbafce8ce01adbee0fd6a7a949c6a8ee80d1ad66cc2e2780ba6a3d1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m311",
+      "classification": "PASS",
+      "raw_sha256": "efb42b55c0649cfea82580cac13bc89b685af468293b39854be51157387b38c8",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m312",
+      "classification": "PASS",
+      "raw_sha256": "d1c55fb835b3064b6ef9b75a7778d95fc7d4008c63fec9b1375700e66a99a9ba",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m313",
+      "classification": "REFUSED",
+      "raw_sha256": "8958bdb5b2095a56ac70474b8e1d9203e83e19022cf636f605b28e6396b3306d",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-before-m315",
+      "classification": "REFUSED",
+      "raw_sha256": "e2fdbc2671295e238aa090291bd11250a5336b9d3b2974290ae5762686410463",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m300",
+      "classification": "REFUSED",
+      "raw_sha256": "98038a35f13e19da4c79316a0120531fb2168688a268f285ac1920dd74dafa3e",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m301",
+      "classification": "PASS",
+      "raw_sha256": "4a1c53a6b1812b6c3fca3f3db19e022f3ae50df6f94eae1ffa970dfcbcea41d8",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m302",
+      "classification": "PASS",
+      "raw_sha256": "61fb9f69b8c14219c65cb6928e00df4844f3beeb3f09f91b6ebd7b034cc530af",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m303",
+      "classification": "PASS",
+      "raw_sha256": "c5cea742504228c90583ac59c4bf21adf3eef657a48d20df803a8f9d6fddf3e4",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m304",
+      "classification": "PASS",
+      "raw_sha256": "209b53098b1fa85759b595618d1ddfce0dbb38d6a32e0f74665c4108b346461d",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m305",
+      "classification": "PASS",
+      "raw_sha256": "8ed94f1fad3146a23e3aed57f665e9722a64837e2d9c236f7423f9a059a8ba83",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m306",
+      "classification": "PASS",
+      "raw_sha256": "7a7b89c6f5493aab780fd82c4635da7a4214b626255ba5b1b255f193013f05cf",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m307",
+      "classification": "REFUSED",
+      "raw_sha256": "8098b9326bff67fdc6528cf69dc92195b04e4c86b38c01bad3305678bc2039c1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m308",
+      "classification": "REFUSED",
+      "raw_sha256": "a8276c1b1ee6d5566f178ca1d50d1ce14b767a301694288f0570095fce02fb6b",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m309",
+      "classification": "PASS",
+      "raw_sha256": "c9cbcb38d8dde3eb8d956600c821c4fd10c28902509cb24bc9ddf9a3058c9248",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m310",
+      "classification": "PASS",
+      "raw_sha256": "ad2eab7f944d9b0a698f9eb61e0fc4b6d3bdf3150d7afadde93ed455e8d10963",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m311",
+      "classification": "PASS",
+      "raw_sha256": "efb42b55c0649cfea82580cac13bc89b685af468293b39854be51157387b38c8",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m312",
+      "classification": "PASS",
+      "raw_sha256": "d1c55fb835b3064b6ef9b75a7778d95fc7d4008c63fec9b1375700e66a99a9ba",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m313",
+      "classification": "REFUSED",
+      "raw_sha256": "8958bdb5b2095a56ac70474b8e1d9203e83e19022cf636f605b28e6396b3306d",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d0-after-m315",
+      "classification": "REFUSED",
+      "raw_sha256": "e2fdbc2671295e238aa090291bd11250a5336b9d3b2974290ae5762686410463",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m300",
+      "classification": "REFUSED",
+      "raw_sha256": "7ff0bb41a85ab9644915b525ab3a81d5438a643ee8c61fd8e7d46e50f7aaf9dc",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m301",
+      "classification": "PASS",
+      "raw_sha256": "87428ea6e5a1ee22c15f73759841bd75031f1f37f12e09c421af652d8e970640",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m302",
+      "classification": "PASS",
+      "raw_sha256": "cc69a9c842c94d0a745cccc87ad79929a96bfb7aacecf2d1266cbae925013ea4",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m303",
+      "classification": "PASS",
+      "raw_sha256": "2501dd458105484f00d16f6419dbad51bd7345006e585b3a7d745338a59c1591",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m304",
+      "classification": "PASS",
+      "raw_sha256": "5e1dfb848ca98b5893211ed0ce0b643a6ef077de5e1003e66cd8ff462a66cec8",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m305",
+      "classification": "PASS",
+      "raw_sha256": "4b0468f9bc959a1a8e37505b81510fc8114af353b1b9f258cf65120bcca28fc1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m306",
+      "classification": "PASS",
+      "raw_sha256": "63fc967e629fdcbc555fd5eb375f97fa7ec7f66fd2f882446b3354f0f8459842",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m307",
+      "classification": "REFUSED",
+      "raw_sha256": "1fcd55df3423b6708a3bd44ae43f17eceb5fcd5d250cf7b54e5f92f1c91c4ada",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m308",
+      "classification": "REFUSED",
+      "raw_sha256": "6f89fd141c2655a1b40dcce27af3da9db6fae5bc84cb2d43f045df724abd0bcd",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m309",
+      "classification": "PASS",
+      "raw_sha256": "c8d8c7f8e7b1abe7aedee106be7b7a766bf02c5e9f203c8652a75ede6f32c2d1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m310",
+      "classification": "PASS",
+      "raw_sha256": "728f684a9afcb3f8183c195a4b052f55f46de580fe37eb5cd02a8c2264b8d410",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m311",
+      "classification": "PASS",
+      "raw_sha256": "fbc51cbe295f021e11616b94b703667442b013278584fafcbb7c533d36d363ff",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m312",
+      "classification": "PASS",
+      "raw_sha256": "8fdc74f12fdc6e8f3c7e1e6308418f55a31fa6de63ca84b6efd98497eb2a25c6",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m313",
+      "classification": "REFUSED",
+      "raw_sha256": "64821059a3f7cd45eab4f82012ee7929bebef325b5f9610fa813f7da3e07ba42",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-before-m315",
+      "classification": "REFUSED",
+      "raw_sha256": "9cabf97c8a2f928f78d2b297e8b03b8e9282078dfa822cc17bc63824ebd9e19b",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m300",
+      "classification": "REFUSED",
+      "raw_sha256": "7ff0bb41a85ab9644915b525ab3a81d5438a643ee8c61fd8e7d46e50f7aaf9dc",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m301",
+      "classification": "PASS",
+      "raw_sha256": "87428ea6e5a1ee22c15f73759841bd75031f1f37f12e09c421af652d8e970640",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m302",
+      "classification": "PASS",
+      "raw_sha256": "cc69a9c842c94d0a745cccc87ad79929a96bfb7aacecf2d1266cbae925013ea4",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m303",
+      "classification": "PASS",
+      "raw_sha256": "d01cfa230ceed57e84ed18f57f735b4c2273a7e305894dcdaf69059bb6330af2",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m304",
+      "classification": "PASS",
+      "raw_sha256": "d493d6d904e56216027ba30ebd14b7f0c499408d03137341699b110c18afdcd5",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m305",
+      "classification": "PASS",
+      "raw_sha256": "4b0468f9bc959a1a8e37505b81510fc8114af353b1b9f258cf65120bcca28fc1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m306",
+      "classification": "PASS",
+      "raw_sha256": "63fc967e629fdcbc555fd5eb375f97fa7ec7f66fd2f882446b3354f0f8459842",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m307",
+      "classification": "REFUSED",
+      "raw_sha256": "1fcd55df3423b6708a3bd44ae43f17eceb5fcd5d250cf7b54e5f92f1c91c4ada",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m308",
+      "classification": "REFUSED",
+      "raw_sha256": "6f89fd141c2655a1b40dcce27af3da9db6fae5bc84cb2d43f045df724abd0bcd",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m309",
+      "classification": "PASS",
+      "raw_sha256": "c8d8c7f8e7b1abe7aedee106be7b7a766bf02c5e9f203c8652a75ede6f32c2d1",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m310",
+      "classification": "PASS",
+      "raw_sha256": "6505af5564c37abdd45c9923fda743dc9630fb92020226a975b8b11781931632",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m311",
+      "classification": "PASS",
+      "raw_sha256": "fbc51cbe295f021e11616b94b703667442b013278584fafcbb7c533d36d363ff",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m312",
+      "classification": "PASS",
+      "raw_sha256": "8fdc74f12fdc6e8f3c7e1e6308418f55a31fa6de63ca84b6efd98497eb2a25c6",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m313",
+      "classification": "REFUSED",
+      "raw_sha256": "64821059a3f7cd45eab4f82012ee7929bebef325b5f9610fa813f7da3e07ba42",
+      "checks": "PASS"
+    },
+    {
+      "group": "owner",
+      "case": "tw-object-h1-d1-after-m315",
+      "classification": "REFUSED",
+      "raw_sha256": "9cabf97c8a2f928f78d2b297e8b03b8e9282078dfa822cc17bc63824ebd9e19b",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d0-before-m314",
+      "classification": "PASS",
+      "raw_sha256": "148f689ae7a1605fdea03e865e77c6b8f8c56c3c64eca382aa6f2e079b26cbbb",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d0-before-m316",
+      "classification": "REFUSED",
+      "raw_sha256": "e53131d30412b9217588bffc3f1b32a861fc3ca84e90404118ae978f2993300b",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d0-before-m317",
+      "classification": "REFUSED",
+      "raw_sha256": "079d48be28a4a372cbcbf4cf19071d08e1abf465cff7ea91e221c5e85923bca9",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d0-before-m318",
+      "classification": "REFUSED",
+      "raw_sha256": "de12905e7ca5c7c63597ee452f8bdc379ad25ac0c5471191419d62bac4c1c857",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d0-after-m314",
+      "classification": "PASS",
+      "raw_sha256": "148f689ae7a1605fdea03e865e77c6b8f8c56c3c64eca382aa6f2e079b26cbbb",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d0-after-m316",
+      "classification": "REFUSED",
+      "raw_sha256": "e53131d30412b9217588bffc3f1b32a861fc3ca84e90404118ae978f2993300b",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d0-after-m317",
+      "classification": "REFUSED",
+      "raw_sha256": "079d48be28a4a372cbcbf4cf19071d08e1abf465cff7ea91e221c5e85923bca9",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d0-after-m318",
+      "classification": "REFUSED",
+      "raw_sha256": "de12905e7ca5c7c63597ee452f8bdc379ad25ac0c5471191419d62bac4c1c857",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d1-before-m314",
+      "classification": "PASS",
+      "raw_sha256": "411d8c37b234cf7ec09aa33586a27ad824aa0e146f7ac1deb3109989e1398376",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d1-before-m316",
+      "classification": "REFUSED",
+      "raw_sha256": "4fafb0be1787dd9279674e18fe2ff8decc92dd8b8f7502b379e33f831e139175",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d1-before-m317",
+      "classification": "REFUSED",
+      "raw_sha256": "0cf7d675c027d4e8acf7c26fb16105e61e72b2cce9011778d42e130ecdfc1532",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d1-before-m318",
+      "classification": "REFUSED",
+      "raw_sha256": "30bbcc8aca3fe0a11c4ecd81a35f17c4236fba62694fb7288054c5df2327be0c",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d1-after-m314",
+      "classification": "PASS",
+      "raw_sha256": "411d8c37b234cf7ec09aa33586a27ad824aa0e146f7ac1deb3109989e1398376",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d1-after-m316",
+      "classification": "REFUSED",
+      "raw_sha256": "4fafb0be1787dd9279674e18fe2ff8decc92dd8b8f7502b379e33f831e139175",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d1-after-m317",
+      "classification": "REFUSED",
+      "raw_sha256": "0cf7d675c027d4e8acf7c26fb16105e61e72b2cce9011778d42e130ecdfc1532",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h0-d1-after-m318",
+      "classification": "REFUSED",
+      "raw_sha256": "30bbcc8aca3fe0a11c4ecd81a35f17c4236fba62694fb7288054c5df2327be0c",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d0-before-m314",
+      "classification": "PASS",
+      "raw_sha256": "8b0b9206fdd0954c8c3d6445669857e92ba0eb06f320e08df3fb3771f4599d6f",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d0-before-m316",
+      "classification": "REFUSED",
+      "raw_sha256": "3d4a98f8d906c30d29a4cc2062e23cafe73cd926658eba50421bef65fd73ccaa",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d0-before-m317",
+      "classification": "REFUSED",
+      "raw_sha256": "6f4d2c9673dd2ad64c8e9c96108235204136e324ecc2254ea8067a02dbaaab97",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d0-before-m318",
+      "classification": "REFUSED",
+      "raw_sha256": "c4a0ae4fdb4f3f7b99769005c2df3b661eeeecf6b7d23b02326eddec4deb3243",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d0-after-m314",
+      "classification": "PASS",
+      "raw_sha256": "8b0b9206fdd0954c8c3d6445669857e92ba0eb06f320e08df3fb3771f4599d6f",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d0-after-m316",
+      "classification": "REFUSED",
+      "raw_sha256": "3d4a98f8d906c30d29a4cc2062e23cafe73cd926658eba50421bef65fd73ccaa",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d0-after-m317",
+      "classification": "REFUSED",
+      "raw_sha256": "6f4d2c9673dd2ad64c8e9c96108235204136e324ecc2254ea8067a02dbaaab97",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d0-after-m318",
+      "classification": "REFUSED",
+      "raw_sha256": "c4a0ae4fdb4f3f7b99769005c2df3b661eeeecf6b7d23b02326eddec4deb3243",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d1-before-m314",
+      "classification": "PASS",
+      "raw_sha256": "00c245e80cf1824c920d247a69660ae5ab5af8666085cdbde98d4919d078096d",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d1-before-m316",
+      "classification": "REFUSED",
+      "raw_sha256": "25255cb2d7819aaffd5582807c0fd5f1fdda98efafdddf99481e9b1878ab3bfb",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d1-before-m317",
+      "classification": "REFUSED",
+      "raw_sha256": "4b8b27382fde4928128ddb042b81532e4eeafa36dce4fc8e8bee1a69b95434e0",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d1-before-m318",
+      "classification": "REFUSED",
+      "raw_sha256": "74d7d7070690a0802e931a04550d63ba4a25149016f97fb72a150b563325f0fe",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d1-after-m314",
+      "classification": "PASS",
+      "raw_sha256": "00c245e80cf1824c920d247a69660ae5ab5af8666085cdbde98d4919d078096d",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d1-after-m316",
+      "classification": "REFUSED",
+      "raw_sha256": "25255cb2d7819aaffd5582807c0fd5f1fdda98efafdddf99481e9b1878ab3bfb",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d1-after-m317",
+      "classification": "REFUSED",
+      "raw_sha256": "4b8b27382fde4928128ddb042b81532e4eeafa36dce4fc8e8bee1a69b95434e0",
+      "checks": "PASS"
+    },
+    {
+      "group": "extra",
+      "case": "tw-object-h1-d1-after-m318",
+      "classification": "REFUSED",
+      "raw_sha256": "74d7d7070690a0802e931a04550d63ba4a25149016f97fb72a150b563325f0fe",
+      "checks": "PASS"
+    },
+    {
+      "group": "bonus",
+      "case": "tw-object-h0-d0-before-m319",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "5af73b933eb344f8f12035ee19c4f5aa14cede82dddd418bd5beacb208117225",
+      "checks": "PASS"
+    },
+    {
+      "group": "bonus",
+      "case": "tw-object-h0-d0-after-m319",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "5af73b933eb344f8f12035ee19c4f5aa14cede82dddd418bd5beacb208117225",
+      "checks": "PASS"
+    },
+    {
+      "group": "bonus",
+      "case": "tw-object-h0-d1-before-m319",
+      "classification": "PASS",
+      "raw_sha256": "32eb0398a85f4a0a82cdc7989d5a3bd72a99506540035359b695a5079b0e3e96",
+      "checks": "PASS"
+    },
+    {
+      "group": "bonus",
+      "case": "tw-object-h0-d1-after-m319",
+      "classification": "PASS",
+      "raw_sha256": "32eb0398a85f4a0a82cdc7989d5a3bd72a99506540035359b695a5079b0e3e96",
+      "checks": "PASS"
+    },
+    {
+      "group": "bonus",
+      "case": "tw-object-h1-d0-before-m319",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "53e3f0d009206b8e85fd053692215f1d291fa310c3fbcd03acf18f8746b0353d",
+      "checks": "PASS"
+    },
+    {
+      "group": "bonus",
+      "case": "tw-object-h1-d0-after-m319",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "53e3f0d009206b8e85fd053692215f1d291fa310c3fbcd03acf18f8746b0353d",
+      "checks": "PASS"
+    },
+    {
+      "group": "bonus",
+      "case": "tw-object-h1-d1-before-m319",
+      "classification": "PASS",
+      "raw_sha256": "71b64e1f35be3aec0b31a1e407bbfee700272c0f9c081a9f3f4a858f66ad22cf",
+      "checks": "PASS"
+    },
+    {
+      "group": "bonus",
+      "case": "tw-object-h1-d1-after-m319",
+      "classification": "PASS",
+      "raw_sha256": "71b64e1f35be3aec0b31a1e407bbfee700272c0f9c081a9f3f4a858f66ad22cf",
+      "checks": "PASS"
+    },
+    {
+      "group": "blocked",
+      "case": "tw-object-h0-d0-before-m321",
+      "classification": "PASS",
+      "raw_sha256": "526429209a5d4589d7facb49b943cca4c8b7d58fa934d231a825a668b74c2906",
+      "checks": "PASS"
+    },
+    {
+      "group": "blocked",
+      "case": "tw-object-h0-d0-after-m321",
+      "classification": "PASS",
+      "raw_sha256": "526429209a5d4589d7facb49b943cca4c8b7d58fa934d231a825a668b74c2906",
+      "checks": "PASS"
+    },
+    {
+      "group": "blocked",
+      "case": "tw-object-h0-d1-before-m321",
+      "classification": "PASS",
+      "raw_sha256": "dff376fdfb62919ded06e2264f753b6cf68d4d8042c44e1241e8a00ad7bce666",
+      "checks": "PASS"
+    },
+    {
+      "group": "blocked",
+      "case": "tw-object-h0-d1-after-m321",
+      "classification": "PASS",
+      "raw_sha256": "dff376fdfb62919ded06e2264f753b6cf68d4d8042c44e1241e8a00ad7bce666",
+      "checks": "PASS"
+    },
+    {
+      "group": "blocked",
+      "case": "tw-object-h1-d0-before-m321",
+      "classification": "PASS",
+      "raw_sha256": "b9492005dc9d5005179710d7083d5c1ad57ce8e09e09c472181bcf99e44e3de0",
+      "checks": "PASS"
+    },
+    {
+      "group": "blocked",
+      "case": "tw-object-h1-d0-after-m321",
+      "classification": "PASS",
+      "raw_sha256": "b9492005dc9d5005179710d7083d5c1ad57ce8e09e09c472181bcf99e44e3de0",
+      "checks": "PASS"
+    },
+    {
+      "group": "blocked",
+      "case": "tw-object-h1-d1-before-m321",
+      "classification": "PASS",
+      "raw_sha256": "2748a7f4cd247896f59eb41116f39aa74797ee2e5db5a767bf7362f2b20c8534",
+      "checks": "PASS"
+    },
+    {
+      "group": "blocked",
+      "case": "tw-object-h1-d1-after-m321",
+      "classification": "PASS",
+      "raw_sha256": "2748a7f4cd247896f59eb41116f39aa74797ee2e5db5a767bf7362f2b20c8534",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m8",
+      "classification": "REFUSED",
+      "raw_sha256": "f6d406c861abb90756f4f909df6c6b88094d83c736f822e3b0edd5e372ef633e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m11",
+      "classification": "PASS",
+      "raw_sha256": "1a0332830cccb19e7beae958f320aeafef3432b3d2b2414a5038c0433db98706",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m23",
+      "classification": "PASS",
+      "raw_sha256": "a2cca96024d233434c72e85d936693e173d2a36773e73aeaa0b986aaefbe9870",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m26",
+      "classification": "PASS",
+      "raw_sha256": "253f895d63650ad5c8f50fec08c877159bca2d0a002430415aef682a6970f224",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m31",
+      "classification": "PASS",
+      "raw_sha256": "7e6837f52b6911e46215981c6fa721aeaee1ce81b2b4470e106af39864a0b450",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m32",
+      "classification": "PASS",
+      "raw_sha256": "ee74012bbbf796fd245305226aeab843e24be2196ed3ab783f5a6321006c69d7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m33",
+      "classification": "PASS",
+      "raw_sha256": "a80994e4527128f7f6aa405c9dac701ae03a87dc1c2fbe00710fa1f26fc87f96",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m34",
+      "classification": "FAIL",
+      "raw_sha256": "5868342783237010bc3aa86b1d5527cdb2c00678ebdad0697d88b752f9e32e69",
+      "checks": "HISTORICAL_FAIL"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m46",
+      "classification": "PASS",
+      "raw_sha256": "7c1a14a9e8c1acc92e2932b8945f54a653f559fd6e9ba61dc19d1b012f7e5c62",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m51",
+      "classification": "PASS",
+      "raw_sha256": "7c7eaab087cc484ea1153e30600f4461b8e70632dab61e3d625e10a1b2c3bb57",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m52",
+      "classification": "PASS",
+      "raw_sha256": "e80e2e6abfeb33aec5cfdee8590355c0e493f23682b2e538b3d7da1002965c78",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m53",
+      "classification": "PASS",
+      "raw_sha256": "2bb5b993d382a5cad977dd8d02eb78eaeafcb3b8be13c6d21551b1a1dfeaf6e1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m54",
+      "classification": "REFUSED",
+      "raw_sha256": "cdc6d0d535038c5cad77295a67789230937680707a9a18452579aaa9279382d9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m63",
+      "classification": "REFUSED",
+      "raw_sha256": "e8110978b68378aa5e7833f24b300a39641a5258e12563f89663a4ff49467c11",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m64",
+      "classification": "REFUSED",
+      "raw_sha256": "adbdd0dd37c47724abada0aa472ca2c8d0d89432b1d0ba1bca6efdc84f22fdea",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m76",
+      "classification": "REFUSED",
+      "raw_sha256": "8006bf333969e31bfc66cbad13cc4114cfac6b23c9ae5687c354bfcdbee2da39",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m83",
+      "classification": "REFUSED",
+      "raw_sha256": "c3fd2f670c33f8da321027f52f72da472058acc75b2594a24c1917a444ea8f71",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m84",
+      "classification": "REFUSED",
+      "raw_sha256": "0cd2f24c744cb201e04956d1d9048ad420e8d2af769ab300a3fd5c1aeb60e64a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m100",
+      "classification": "REFUSED",
+      "raw_sha256": "246845a3b636714a77e641be38f4eaea91be0d037f3154aa1b6b4662c078fc51",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m101",
+      "classification": "PASS",
+      "raw_sha256": "f194f9c089bdcb205c5eba37a141c4366514057076411f61ed01ce6e62f0681b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m102",
+      "classification": "PASS",
+      "raw_sha256": "0e9d4b124cee0c572c7cf2d122bacab0cde6477e91711255a0cae71fa84f3b2e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m103",
+      "classification": "PASS",
+      "raw_sha256": "6965d4c150e54562f726d8ee1486ee0db2fd49b31108b8d1a75f16cb0099039c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m104",
+      "classification": "REFUSED",
+      "raw_sha256": "98466cc36fdbfde376c44e7b3edf6a79ef423097ef3525f5527300e188f4eefa",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m105",
+      "classification": "REFUSED",
+      "raw_sha256": "ed8e465078f4e6272192610ffce2eb1e84887a7cb8ed11016570893454afb8dc",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m106",
+      "classification": "REFUSED",
+      "raw_sha256": "54369363ff5a76723351b07d3d9edf2598647898ee893e27996d67fc9db05484",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m107",
+      "classification": "REFUSED",
+      "raw_sha256": "bf89a2eba8f0c803903f77bc9d26d551075abe6b235b37278ed902e06f5f2125",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m108",
+      "classification": "REFUSED",
+      "raw_sha256": "2234f3a70ecceb2872e6c60b089cc47d12adf545c29942ed9d269713f0907203",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m109",
+      "classification": "REFUSED",
+      "raw_sha256": "a67e8799b3309a67c400eb564b9ba3b12792c091c8c66a3c34dc32ddb43ee229",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m110",
+      "classification": "REFUSED",
+      "raw_sha256": "3115a101affdbca3bb796750b08b8ee019f540c665116ff7b3cd966ab46c2a95",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m111",
+      "classification": "REFUSED",
+      "raw_sha256": "ce2fe68324c0509ded66f232c506ee72a064ca4e0deae736a080a92d5284b719",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m112",
+      "classification": "REFUSED",
+      "raw_sha256": "b8d19b81704f3b1c9d44e14a6819b284012c694a971777b72d548c14cd919f91",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m113",
+      "classification": "PASS",
+      "raw_sha256": "1fe73528b200a085f022efc3b514050889214cb237303584619d6881eea670ee",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m114",
+      "classification": "REFUSED",
+      "raw_sha256": "538df9e64205ccce748ef839a13d286792c78f67427d8e1c79a75cb46da9a641",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m115",
+      "classification": "REFUSED",
+      "raw_sha256": "4a33348e71c24742e8f8734fbbf2e02d81f060bd1fdbc7ab268dc3eae2c66233",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m116",
+      "classification": "REFUSED",
+      "raw_sha256": "16807c4a186a9e106818b3be4c8af6566c0f0e0292741e8000d6f3e5e3c3bda7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m117",
+      "classification": "REFUSED",
+      "raw_sha256": "af80b569b2adc750f67f0c8e68b4264e7f04f3f4d9b1e0f6c075409865f0ec36",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m118",
+      "classification": "PASS",
+      "raw_sha256": "be647ea64b20f5cfc79d79bbbf835382f6e59fb880d62345a5fa0a16789d864c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m119",
+      "classification": "PASS",
+      "raw_sha256": "7f5f3e9b5d7aa097cf08c1e2791db052795502e69f2e93622d94b224c6fc37d8",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m120",
+      "classification": "PASS",
+      "raw_sha256": "e65d1266bbff5c642e20b84eaea232845e94ab96b7fb57b2ab6eb45e09c6bf1f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m121",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "b87040ba088ed535f23e29e606c54a292db8e9f804935adfd627950eb04993d3",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m123",
+      "classification": "REFUSED",
+      "raw_sha256": "a7d8fe25abdeb21b1925315cfb6912d6832e5da0259ccab1afb547d11aae95d3",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m124",
+      "classification": "PASS",
+      "raw_sha256": "43d16168d492755d825ccfb652fa6a76797729d017265f9470655b9ea036ff67",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m125",
+      "classification": "REFUSED",
+      "raw_sha256": "c6a63774bc6dbb6383d86e92371be11edc8c58d67d7cf6988f05f11d8667a519",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m214",
+      "classification": "PASS",
+      "raw_sha256": "3cc824af83b971cd1b3c32e6225b890ff83cab818b5937a16ef1cd156b2053c9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m220",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "db80addbc8e5f431d52e4fd39ed43372ab8728da4881f1b0664fccf5e94bd639",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m221",
+      "classification": "REFUSED",
+      "raw_sha256": "43de6c27d7d509a85ad86dceb7e2a4b971773e5a639def0e8a3bd3328f29949e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m222",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0aa38d1322a19917a5ed7e7993271f23ee3b0c826916eae7487490abfbffdb2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m223",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0aa38d1322a19917a5ed7e7993271f23ee3b0c826916eae7487490abfbffdb2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m224",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0aa38d1322a19917a5ed7e7993271f23ee3b0c826916eae7487490abfbffdb2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m225",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0aa38d1322a19917a5ed7e7993271f23ee3b0c826916eae7487490abfbffdb2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m226",
+      "classification": "REFUSED",
+      "raw_sha256": "19be19b3d48174e4566a476d15775f419857b8de766f9f2f729eb964ff1b1948",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m227",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "6d7330bdc40bfd62248fbb655c349728162fbeb2d1af975886fd395b180a4551",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m230",
+      "classification": "REFUSED",
+      "raw_sha256": "9c20c1fae215e9c890019a7a0a84fef3f80e6b9630fcc560c79b78124db43122",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-before-m231",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "82dcea594b4cacd50d8ba6b98d1a7e66bb767eddf869d298559938a811712ccb",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m8",
+      "classification": "REFUSED",
+      "raw_sha256": "f6d406c861abb90756f4f909df6c6b88094d83c736f822e3b0edd5e372ef633e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m11",
+      "classification": "PASS",
+      "raw_sha256": "1a0332830cccb19e7beae958f320aeafef3432b3d2b2414a5038c0433db98706",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m23",
+      "classification": "PASS",
+      "raw_sha256": "a2cca96024d233434c72e85d936693e173d2a36773e73aeaa0b986aaefbe9870",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m26",
+      "classification": "PASS",
+      "raw_sha256": "253f895d63650ad5c8f50fec08c877159bca2d0a002430415aef682a6970f224",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m31",
+      "classification": "PASS",
+      "raw_sha256": "7e6837f52b6911e46215981c6fa721aeaee1ce81b2b4470e106af39864a0b450",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m32",
+      "classification": "PASS",
+      "raw_sha256": "ee74012bbbf796fd245305226aeab843e24be2196ed3ab783f5a6321006c69d7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m33",
+      "classification": "PASS",
+      "raw_sha256": "a80994e4527128f7f6aa405c9dac701ae03a87dc1c2fbe00710fa1f26fc87f96",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m34",
+      "classification": "FAIL",
+      "raw_sha256": "5868342783237010bc3aa86b1d5527cdb2c00678ebdad0697d88b752f9e32e69",
+      "checks": "HISTORICAL_FAIL"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m46",
+      "classification": "PASS",
+      "raw_sha256": "7c1a14a9e8c1acc92e2932b8945f54a653f559fd6e9ba61dc19d1b012f7e5c62",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m51",
+      "classification": "PASS",
+      "raw_sha256": "7c7eaab087cc484ea1153e30600f4461b8e70632dab61e3d625e10a1b2c3bb57",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m52",
+      "classification": "PASS",
+      "raw_sha256": "e80e2e6abfeb33aec5cfdee8590355c0e493f23682b2e538b3d7da1002965c78",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m53",
+      "classification": "PASS",
+      "raw_sha256": "2bb5b993d382a5cad977dd8d02eb78eaeafcb3b8be13c6d21551b1a1dfeaf6e1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m54",
+      "classification": "REFUSED",
+      "raw_sha256": "cdc6d0d535038c5cad77295a67789230937680707a9a18452579aaa9279382d9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m63",
+      "classification": "REFUSED",
+      "raw_sha256": "e8110978b68378aa5e7833f24b300a39641a5258e12563f89663a4ff49467c11",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m64",
+      "classification": "REFUSED",
+      "raw_sha256": "adbdd0dd37c47724abada0aa472ca2c8d0d89432b1d0ba1bca6efdc84f22fdea",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m76",
+      "classification": "REFUSED",
+      "raw_sha256": "8006bf333969e31bfc66cbad13cc4114cfac6b23c9ae5687c354bfcdbee2da39",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m83",
+      "classification": "REFUSED",
+      "raw_sha256": "c3fd2f670c33f8da321027f52f72da472058acc75b2594a24c1917a444ea8f71",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m84",
+      "classification": "REFUSED",
+      "raw_sha256": "0cd2f24c744cb201e04956d1d9048ad420e8d2af769ab300a3fd5c1aeb60e64a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m100",
+      "classification": "REFUSED",
+      "raw_sha256": "246845a3b636714a77e641be38f4eaea91be0d037f3154aa1b6b4662c078fc51",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m101",
+      "classification": "PASS",
+      "raw_sha256": "f194f9c089bdcb205c5eba37a141c4366514057076411f61ed01ce6e62f0681b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m102",
+      "classification": "PASS",
+      "raw_sha256": "0e9d4b124cee0c572c7cf2d122bacab0cde6477e91711255a0cae71fa84f3b2e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m103",
+      "classification": "PASS",
+      "raw_sha256": "6965d4c150e54562f726d8ee1486ee0db2fd49b31108b8d1a75f16cb0099039c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m104",
+      "classification": "REFUSED",
+      "raw_sha256": "98466cc36fdbfde376c44e7b3edf6a79ef423097ef3525f5527300e188f4eefa",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m105",
+      "classification": "REFUSED",
+      "raw_sha256": "ed8e465078f4e6272192610ffce2eb1e84887a7cb8ed11016570893454afb8dc",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m106",
+      "classification": "REFUSED",
+      "raw_sha256": "54369363ff5a76723351b07d3d9edf2598647898ee893e27996d67fc9db05484",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m107",
+      "classification": "REFUSED",
+      "raw_sha256": "bf89a2eba8f0c803903f77bc9d26d551075abe6b235b37278ed902e06f5f2125",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m108",
+      "classification": "REFUSED",
+      "raw_sha256": "2234f3a70ecceb2872e6c60b089cc47d12adf545c29942ed9d269713f0907203",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m109",
+      "classification": "REFUSED",
+      "raw_sha256": "a67e8799b3309a67c400eb564b9ba3b12792c091c8c66a3c34dc32ddb43ee229",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m110",
+      "classification": "REFUSED",
+      "raw_sha256": "3115a101affdbca3bb796750b08b8ee019f540c665116ff7b3cd966ab46c2a95",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m111",
+      "classification": "REFUSED",
+      "raw_sha256": "ce2fe68324c0509ded66f232c506ee72a064ca4e0deae736a080a92d5284b719",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m112",
+      "classification": "REFUSED",
+      "raw_sha256": "b8d19b81704f3b1c9d44e14a6819b284012c694a971777b72d548c14cd919f91",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m113",
+      "classification": "PASS",
+      "raw_sha256": "1fe73528b200a085f022efc3b514050889214cb237303584619d6881eea670ee",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m114",
+      "classification": "REFUSED",
+      "raw_sha256": "538df9e64205ccce748ef839a13d286792c78f67427d8e1c79a75cb46da9a641",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m115",
+      "classification": "REFUSED",
+      "raw_sha256": "4a33348e71c24742e8f8734fbbf2e02d81f060bd1fdbc7ab268dc3eae2c66233",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m116",
+      "classification": "REFUSED",
+      "raw_sha256": "16807c4a186a9e106818b3be4c8af6566c0f0e0292741e8000d6f3e5e3c3bda7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m117",
+      "classification": "REFUSED",
+      "raw_sha256": "af80b569b2adc750f67f0c8e68b4264e7f04f3f4d9b1e0f6c075409865f0ec36",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m118",
+      "classification": "PASS",
+      "raw_sha256": "be647ea64b20f5cfc79d79bbbf835382f6e59fb880d62345a5fa0a16789d864c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m119",
+      "classification": "PASS",
+      "raw_sha256": "7f5f3e9b5d7aa097cf08c1e2791db052795502e69f2e93622d94b224c6fc37d8",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m120",
+      "classification": "PASS",
+      "raw_sha256": "e65d1266bbff5c642e20b84eaea232845e94ab96b7fb57b2ab6eb45e09c6bf1f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m121",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "b87040ba088ed535f23e29e606c54a292db8e9f804935adfd627950eb04993d3",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m123",
+      "classification": "REFUSED",
+      "raw_sha256": "a7d8fe25abdeb21b1925315cfb6912d6832e5da0259ccab1afb547d11aae95d3",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m124",
+      "classification": "PASS",
+      "raw_sha256": "43d16168d492755d825ccfb652fa6a76797729d017265f9470655b9ea036ff67",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m125",
+      "classification": "REFUSED",
+      "raw_sha256": "c6a63774bc6dbb6383d86e92371be11edc8c58d67d7cf6988f05f11d8667a519",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m214",
+      "classification": "PASS",
+      "raw_sha256": "3cc824af83b971cd1b3c32e6225b890ff83cab818b5937a16ef1cd156b2053c9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m220",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "db80addbc8e5f431d52e4fd39ed43372ab8728da4881f1b0664fccf5e94bd639",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m221",
+      "classification": "REFUSED",
+      "raw_sha256": "43de6c27d7d509a85ad86dceb7e2a4b971773e5a639def0e8a3bd3328f29949e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m222",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0aa38d1322a19917a5ed7e7993271f23ee3b0c826916eae7487490abfbffdb2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m223",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0aa38d1322a19917a5ed7e7993271f23ee3b0c826916eae7487490abfbffdb2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m224",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0aa38d1322a19917a5ed7e7993271f23ee3b0c826916eae7487490abfbffdb2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m225",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0aa38d1322a19917a5ed7e7993271f23ee3b0c826916eae7487490abfbffdb2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m226",
+      "classification": "REFUSED",
+      "raw_sha256": "19be19b3d48174e4566a476d15775f419857b8de766f9f2f729eb964ff1b1948",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m227",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "6d7330bdc40bfd62248fbb655c349728162fbeb2d1af975886fd395b180a4551",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m230",
+      "classification": "REFUSED",
+      "raw_sha256": "9c20c1fae215e9c890019a7a0a84fef3f80e6b9630fcc560c79b78124db43122",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d0-after-m231",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "82dcea594b4cacd50d8ba6b98d1a7e66bb767eddf869d298559938a811712ccb",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m8",
+      "classification": "REFUSED",
+      "raw_sha256": "1d9c5b07715ec2d45c6f4ade1dbfbd8420fd5b77b233a2445318bf07d1779aeb",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m11",
+      "classification": "PASS",
+      "raw_sha256": "3a3c6d133b34d06aa5cb059db656705c5ab53e6ad6a179d3348fc13b10d991f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m23",
+      "classification": "PASS",
+      "raw_sha256": "2e0e0d21e0cbd84bfe5ab1a72f0fef250924c97a7baf864353d2b6931b42ce7f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m26",
+      "classification": "PASS",
+      "raw_sha256": "93125911969a4b781c2064b929601909b261070e165ff1a6c68ab142d79443dc",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m31",
+      "classification": "PASS",
+      "raw_sha256": "f71b428aef14e181a563c2806579916cdae2bce0cc426f4a0688ba99c7c2756e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m32",
+      "classification": "PASS",
+      "raw_sha256": "cbaac511f325eb6bb5c5bc7d146efac514e2005bd6b12f3d6991adf9d1162ab2",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m33",
+      "classification": "PASS",
+      "raw_sha256": "ab8bab52337aa2ba5b5a586e60d62dbf24d3f6941fab32b240daebcca1d8a280",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m34",
+      "classification": "FAIL",
+      "raw_sha256": "537ff3950c917847229a8fc4b9805fdf7ff37a67aa4ee1370d758d4a6f55a7b4",
+      "checks": "HISTORICAL_FAIL"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m46",
+      "classification": "PASS",
+      "raw_sha256": "d4f53050813ab5b850027f6a5b0925ef543e7a2001bbdd4623d4d31d4b751c2c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m51",
+      "classification": "PASS",
+      "raw_sha256": "70a3a3f2f21bb6afe894a25d6d627541948950d1b1143c0b6b413f7a069d4868",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m52",
+      "classification": "PASS",
+      "raw_sha256": "258344af2bc12694ccd42b419efe0aff2599b2533cd1b50c10522b1f24add090",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m53",
+      "classification": "PASS",
+      "raw_sha256": "c0b769d788467a091c603c860ce68999f8337829d5d6343a339ac60aebfd82c0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m54",
+      "classification": "REFUSED",
+      "raw_sha256": "dbbc32ecb4638c525ee25b8f24c855eaae2fff21afc8d1a6ef5f92ccfa6d505c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m63",
+      "classification": "REFUSED",
+      "raw_sha256": "ca92d52451d74ac3d950cdebb4f25d3aa169fa01a1e6533ad0474aa918b90b24",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m64",
+      "classification": "REFUSED",
+      "raw_sha256": "cc06f3c1a944869a8d23aaed36dc05145b69564b923bf305007ab50b11d4d334",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m76",
+      "classification": "REFUSED",
+      "raw_sha256": "099321611d007e2976b25753d4bdb87d94ce6f55e50022ae0b1e604f5e14be4b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m83",
+      "classification": "REFUSED",
+      "raw_sha256": "0383dea92a0c6ec3852643a53c4d469620ec6979953e2554d860c0190958abf5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m84",
+      "classification": "REFUSED",
+      "raw_sha256": "e9cacbc907628fbf4972cf6cd291f3c2cc333ac8d5e91abd61dad1a806710190",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m100",
+      "classification": "REFUSED",
+      "raw_sha256": "7bac17eb437897147949c2e352619b697b0fd80adb79cde22cfcd74cde427152",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m101",
+      "classification": "PASS",
+      "raw_sha256": "0bd5c975b5023f8cf9f963e7ac06c612125ed6e0a4d5176c2ea2a626f4cbccbe",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m102",
+      "classification": "PASS",
+      "raw_sha256": "b82e92cafe7e4df22f7c7e0ddbb08f1140505ab62e8fca59ce1f0a93f855329c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m103",
+      "classification": "PASS",
+      "raw_sha256": "2fbca7138ce2a5b1d100c4db051229dcb1bd6b9b189f26a788b61672cf9622fb",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m104",
+      "classification": "REFUSED",
+      "raw_sha256": "90dbf5354861eeac509179f1bb8dbd5c79c9a87b692799e897c69a836945dca5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m105",
+      "classification": "REFUSED",
+      "raw_sha256": "974cdd00be3d91ba31c6a44833713ed17080bd496a495b055f820147957d41d0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m106",
+      "classification": "REFUSED",
+      "raw_sha256": "efe533e14d9cc35abbd4931d536d6f1ae10a3e43fce1b7f407b05840f35f4fda",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m107",
+      "classification": "REFUSED",
+      "raw_sha256": "03c1bfe5fd0d9e297ec789c2bdfd88230b4e0a3b9fcc89fe7b0230bba03f9f8f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m108",
+      "classification": "REFUSED",
+      "raw_sha256": "cda3f86216ec008ffdbc5ec770705f35a4dd241a5858d806ff434903789c400b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m109",
+      "classification": "REFUSED",
+      "raw_sha256": "201324141e64ed1b9a418cec34022c7790a613fca945ecb70e84475e603fcd72",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m110",
+      "classification": "REFUSED",
+      "raw_sha256": "eb7fa4d9a390318b84956cbdd152d271c2ecb8d6a1a857449e167467e1fc3c05",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m111",
+      "classification": "REFUSED",
+      "raw_sha256": "01b12ea80c0f88da054cea9c9dd51749da39ca5b5ac6dc4e15729904824ae2ec",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m112",
+      "classification": "REFUSED",
+      "raw_sha256": "87ef95dff3f4030cbbc50160648d073e596309aca6b03a45c7c8593e2505f0ef",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m113",
+      "classification": "PASS",
+      "raw_sha256": "4fa71c398b07a5029ea6f3e395a14731e4b0b3b4a697b9d43edb0d72c710512b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m114",
+      "classification": "REFUSED",
+      "raw_sha256": "aace5929044b253e04285a32d7e40075adac3bb16191eb742f6ff91f32f887d6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m115",
+      "classification": "REFUSED",
+      "raw_sha256": "7296540d01ffbaf845e940af1312235d877a8e6283ec10d51f630f5531f72f8f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m116",
+      "classification": "REFUSED",
+      "raw_sha256": "895bd491b09baf90f2b79c90cdbc7c4c15de79843df5032303cab7a0cded8f02",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m117",
+      "classification": "REFUSED",
+      "raw_sha256": "c9012f484c234417535de9fa2c341c1dc3a43cf11375865a5672af860d8c8ca6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m118",
+      "classification": "PASS",
+      "raw_sha256": "80b963f1abf14eff215232cc2fe6f69671d0ea92e887a41d773a2af64877c12f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m119",
+      "classification": "PASS",
+      "raw_sha256": "259341966abbc1dd75c75557be09c40ce8ef475c41841fac2896900dfa4872d1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m120",
+      "classification": "PASS",
+      "raw_sha256": "8ed12ef8bc471d2de1eded777a8de4ba4b6f4ad8b496356519d440e9aa0eddf0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m121",
+      "classification": "REFUSED",
+      "raw_sha256": "1d32adee43bd19d9588c8ee6064166ec59e598a4f8ecce9f7f99a73f143bb530",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m123",
+      "classification": "REFUSED",
+      "raw_sha256": "6608e2a7b601650717829713e954d6b55fa3d3dea3c75ba1098d60a3f5375091",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m124",
+      "classification": "PASS",
+      "raw_sha256": "a8dc3729101e5d7ab5f29899217fa47a9ba1a4f3c297cd8cb73765b514200e6b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m125",
+      "classification": "REFUSED",
+      "raw_sha256": "2f84eeaf42de389e36b9a4cc5d2eae1b059ef75d078641995f0614e6ccbdb013",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m214",
+      "classification": "PASS",
+      "raw_sha256": "a10b595a2a70c52c547506fab4a7aa62d03c73622079a21f62ed0486e970dd60",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m220",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "9b55b6228d849a7d19ccbb4a99b3313f56f7b0353bac5ff39ffe526e37aca338",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m221",
+      "classification": "REFUSED",
+      "raw_sha256": "d4612deb266f21adf27595f21794f70af5d4e682e13ca2fdc690f88703064845",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m222",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "1351336e9810192919b967d5e123a3f94e43ddc993e551dc150cab3494cea7f0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m223",
+      "classification": "REFUSED",
+      "raw_sha256": "631d9ae4661c7fbb452a355c7be0a3b12b738575576a8e8030ffee403edd0c39",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m224",
+      "classification": "REFUSED",
+      "raw_sha256": "c72eb68d422b26445971bd45206f592534472fed99f261dfb8ca76eba1bb33a3",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m225",
+      "classification": "REFUSED",
+      "raw_sha256": "27a58110941238eaabe3ac8b99431c9a3f772f1969a446520db2c851d02e01c8",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m226",
+      "classification": "REFUSED",
+      "raw_sha256": "76be5619d41e7545eeed6b4cc590050360beb9f3c820a66c598dc68baa85c8b9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m227",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "2a621516629cc3781409c11ffaa8098210681bab1449c237a768c537830e2290",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m230",
+      "classification": "REFUSED",
+      "raw_sha256": "db612adcbfb265cb2b417eecc8f874268776bf2ba5b9833f6fc9c3e00236a895",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-before-m231",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0c155724e7ec72ce3c3f71946018a95646d1b6ec98384bbd2e40ae89c7d92b5f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m8",
+      "classification": "REFUSED",
+      "raw_sha256": "1d9c5b07715ec2d45c6f4ade1dbfbd8420fd5b77b233a2445318bf07d1779aeb",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m11",
+      "classification": "PASS",
+      "raw_sha256": "3a3c6d133b34d06aa5cb059db656705c5ab53e6ad6a179d3348fc13b10d991f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m23",
+      "classification": "PASS",
+      "raw_sha256": "2e0e0d21e0cbd84bfe5ab1a72f0fef250924c97a7baf864353d2b6931b42ce7f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m26",
+      "classification": "PASS",
+      "raw_sha256": "93125911969a4b781c2064b929601909b261070e165ff1a6c68ab142d79443dc",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m31",
+      "classification": "PASS",
+      "raw_sha256": "f71b428aef14e181a563c2806579916cdae2bce0cc426f4a0688ba99c7c2756e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m32",
+      "classification": "PASS",
+      "raw_sha256": "cbaac511f325eb6bb5c5bc7d146efac514e2005bd6b12f3d6991adf9d1162ab2",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m33",
+      "classification": "PASS",
+      "raw_sha256": "ab8bab52337aa2ba5b5a586e60d62dbf24d3f6941fab32b240daebcca1d8a280",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m34",
+      "classification": "FAIL",
+      "raw_sha256": "537ff3950c917847229a8fc4b9805fdf7ff37a67aa4ee1370d758d4a6f55a7b4",
+      "checks": "HISTORICAL_FAIL"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m46",
+      "classification": "PASS",
+      "raw_sha256": "d4f53050813ab5b850027f6a5b0925ef543e7a2001bbdd4623d4d31d4b751c2c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m51",
+      "classification": "PASS",
+      "raw_sha256": "70a3a3f2f21bb6afe894a25d6d627541948950d1b1143c0b6b413f7a069d4868",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m52",
+      "classification": "PASS",
+      "raw_sha256": "258344af2bc12694ccd42b419efe0aff2599b2533cd1b50c10522b1f24add090",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m53",
+      "classification": "PASS",
+      "raw_sha256": "c0b769d788467a091c603c860ce68999f8337829d5d6343a339ac60aebfd82c0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m54",
+      "classification": "REFUSED",
+      "raw_sha256": "dbbc32ecb4638c525ee25b8f24c855eaae2fff21afc8d1a6ef5f92ccfa6d505c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m63",
+      "classification": "REFUSED",
+      "raw_sha256": "ca92d52451d74ac3d950cdebb4f25d3aa169fa01a1e6533ad0474aa918b90b24",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m64",
+      "classification": "REFUSED",
+      "raw_sha256": "cc06f3c1a944869a8d23aaed36dc05145b69564b923bf305007ab50b11d4d334",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m76",
+      "classification": "REFUSED",
+      "raw_sha256": "099321611d007e2976b25753d4bdb87d94ce6f55e50022ae0b1e604f5e14be4b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m83",
+      "classification": "REFUSED",
+      "raw_sha256": "0383dea92a0c6ec3852643a53c4d469620ec6979953e2554d860c0190958abf5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m84",
+      "classification": "REFUSED",
+      "raw_sha256": "e9cacbc907628fbf4972cf6cd291f3c2cc333ac8d5e91abd61dad1a806710190",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m100",
+      "classification": "REFUSED",
+      "raw_sha256": "7bac17eb437897147949c2e352619b697b0fd80adb79cde22cfcd74cde427152",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m101",
+      "classification": "PASS",
+      "raw_sha256": "0bd5c975b5023f8cf9f963e7ac06c612125ed6e0a4d5176c2ea2a626f4cbccbe",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m102",
+      "classification": "PASS",
+      "raw_sha256": "b82e92cafe7e4df22f7c7e0ddbb08f1140505ab62e8fca59ce1f0a93f855329c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m103",
+      "classification": "PASS",
+      "raw_sha256": "2fbca7138ce2a5b1d100c4db051229dcb1bd6b9b189f26a788b61672cf9622fb",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m104",
+      "classification": "REFUSED",
+      "raw_sha256": "90dbf5354861eeac509179f1bb8dbd5c79c9a87b692799e897c69a836945dca5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m105",
+      "classification": "REFUSED",
+      "raw_sha256": "974cdd00be3d91ba31c6a44833713ed17080bd496a495b055f820147957d41d0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m106",
+      "classification": "REFUSED",
+      "raw_sha256": "efe533e14d9cc35abbd4931d536d6f1ae10a3e43fce1b7f407b05840f35f4fda",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m107",
+      "classification": "REFUSED",
+      "raw_sha256": "03c1bfe5fd0d9e297ec789c2bdfd88230b4e0a3b9fcc89fe7b0230bba03f9f8f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m108",
+      "classification": "REFUSED",
+      "raw_sha256": "cda3f86216ec008ffdbc5ec770705f35a4dd241a5858d806ff434903789c400b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m109",
+      "classification": "REFUSED",
+      "raw_sha256": "201324141e64ed1b9a418cec34022c7790a613fca945ecb70e84475e603fcd72",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m110",
+      "classification": "REFUSED",
+      "raw_sha256": "eb7fa4d9a390318b84956cbdd152d271c2ecb8d6a1a857449e167467e1fc3c05",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m111",
+      "classification": "REFUSED",
+      "raw_sha256": "01b12ea80c0f88da054cea9c9dd51749da39ca5b5ac6dc4e15729904824ae2ec",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m112",
+      "classification": "REFUSED",
+      "raw_sha256": "87ef95dff3f4030cbbc50160648d073e596309aca6b03a45c7c8593e2505f0ef",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m113",
+      "classification": "PASS",
+      "raw_sha256": "4fa71c398b07a5029ea6f3e395a14731e4b0b3b4a697b9d43edb0d72c710512b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m114",
+      "classification": "REFUSED",
+      "raw_sha256": "aace5929044b253e04285a32d7e40075adac3bb16191eb742f6ff91f32f887d6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m115",
+      "classification": "REFUSED",
+      "raw_sha256": "7296540d01ffbaf845e940af1312235d877a8e6283ec10d51f630f5531f72f8f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m116",
+      "classification": "REFUSED",
+      "raw_sha256": "895bd491b09baf90f2b79c90cdbc7c4c15de79843df5032303cab7a0cded8f02",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m117",
+      "classification": "REFUSED",
+      "raw_sha256": "c9012f484c234417535de9fa2c341c1dc3a43cf11375865a5672af860d8c8ca6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m118",
+      "classification": "PASS",
+      "raw_sha256": "80b963f1abf14eff215232cc2fe6f69671d0ea92e887a41d773a2af64877c12f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m119",
+      "classification": "PASS",
+      "raw_sha256": "259341966abbc1dd75c75557be09c40ce8ef475c41841fac2896900dfa4872d1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m120",
+      "classification": "PASS",
+      "raw_sha256": "8ed12ef8bc471d2de1eded777a8de4ba4b6f4ad8b496356519d440e9aa0eddf0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m121",
+      "classification": "REFUSED",
+      "raw_sha256": "1d32adee43bd19d9588c8ee6064166ec59e598a4f8ecce9f7f99a73f143bb530",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m123",
+      "classification": "REFUSED",
+      "raw_sha256": "6608e2a7b601650717829713e954d6b55fa3d3dea3c75ba1098d60a3f5375091",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m124",
+      "classification": "PASS",
+      "raw_sha256": "a8dc3729101e5d7ab5f29899217fa47a9ba1a4f3c297cd8cb73765b514200e6b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m125",
+      "classification": "REFUSED",
+      "raw_sha256": "2f84eeaf42de389e36b9a4cc5d2eae1b059ef75d078641995f0614e6ccbdb013",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m214",
+      "classification": "PASS",
+      "raw_sha256": "a10b595a2a70c52c547506fab4a7aa62d03c73622079a21f62ed0486e970dd60",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m220",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "9b55b6228d849a7d19ccbb4a99b3313f56f7b0353bac5ff39ffe526e37aca338",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m221",
+      "classification": "REFUSED",
+      "raw_sha256": "d4612deb266f21adf27595f21794f70af5d4e682e13ca2fdc690f88703064845",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m222",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "1351336e9810192919b967d5e123a3f94e43ddc993e551dc150cab3494cea7f0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m223",
+      "classification": "REFUSED",
+      "raw_sha256": "631d9ae4661c7fbb452a355c7be0a3b12b738575576a8e8030ffee403edd0c39",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m224",
+      "classification": "REFUSED",
+      "raw_sha256": "c72eb68d422b26445971bd45206f592534472fed99f261dfb8ca76eba1bb33a3",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m225",
+      "classification": "REFUSED",
+      "raw_sha256": "27a58110941238eaabe3ac8b99431c9a3f772f1969a446520db2c851d02e01c8",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m226",
+      "classification": "REFUSED",
+      "raw_sha256": "76be5619d41e7545eeed6b4cc590050360beb9f3c820a66c598dc68baa85c8b9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m227",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "2a621516629cc3781409c11ffaa8098210681bab1449c237a768c537830e2290",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m230",
+      "classification": "REFUSED",
+      "raw_sha256": "db612adcbfb265cb2b417eecc8f874268776bf2ba5b9833f6fc9c3e00236a895",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h0-d1-after-m231",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "0c155724e7ec72ce3c3f71946018a95646d1b6ec98384bbd2e40ae89c7d92b5f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m8",
+      "classification": "REFUSED",
+      "raw_sha256": "26752c08e65c6b1f83aeda4f94920743ae08cd827d4fdba9a61b3119931488a6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m11",
+      "classification": "PASS",
+      "raw_sha256": "d8bce2a8a02cc3122df814a985f63ec3c5428b6dd24843d15fc313aa7cfaef4a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m23",
+      "classification": "PASS",
+      "raw_sha256": "7a8e785b38061b066d0699bbc5583f5af33f9b589413473aca343a90d041c634",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m26",
+      "classification": "PASS",
+      "raw_sha256": "171e2580e117dc41a815fd959f46b998c22ffd408a105249692425fb8cee76e4",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m31",
+      "classification": "PASS",
+      "raw_sha256": "e924d8b27170ed28f70f14fb0e7db35a054cc2100472a8eb032faf84cbd45983",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m32",
+      "classification": "PASS",
+      "raw_sha256": "48b92896ef30842f444ca0c0240e563dd19d43fced8b3dabb1f81904c52cd5ed",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m33",
+      "classification": "PASS",
+      "raw_sha256": "5057725e7dc3eb6038a8d765c59f7082268ed27efc93f08a44ca7cc4527726da",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m34",
+      "classification": "FAIL",
+      "raw_sha256": "36f99ed8e30b08337e7eed0cea8165d0972464812efc9584b620b7c1cf3d300f",
+      "checks": "HISTORICAL_FAIL"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m46",
+      "classification": "PASS",
+      "raw_sha256": "9eb3dc46e2ed7cc201504efb2089c386dfef2ff76addda4cc3f4ae6b1f25ab6c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m51",
+      "classification": "PASS",
+      "raw_sha256": "62528c12eaa4b5f9ba562f2b2d286c78fbd5505ff5d590bbf61dbfe3f5fc1450",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m52",
+      "classification": "PASS",
+      "raw_sha256": "fff9399945231c041f3de6a356c3ccd06c7bd1e31f01417cdb8ea09e5e4f63ae",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m53",
+      "classification": "PASS",
+      "raw_sha256": "a7a33ad9c5b099a7bd2da2143f3ef744c775060dc2de680a88159aad09e63772",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m54",
+      "classification": "REFUSED",
+      "raw_sha256": "c31e7cda7f1747475bb25794471fc9e246a2fa7ca924d9b9cd7329694139519d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m63",
+      "classification": "REFUSED",
+      "raw_sha256": "34a80aa4d3f5ae6f5a4efae50bc28c4b251d914c0fa193fd497390d396012a41",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m64",
+      "classification": "REFUSED",
+      "raw_sha256": "ba4ca4fba766f8179d0f89a9d3daed203f1a4fefc51d22d49bfdd3725b1e24dc",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m76",
+      "classification": "REFUSED",
+      "raw_sha256": "fc8a88f9d8ed918899581ea02827823af89a3a57820c7f57530d15ef48796a4e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m83",
+      "classification": "REFUSED",
+      "raw_sha256": "1c88a81e4aac5e64d6909d3525956aada0e90f68070327954d70c6cddcfd7e6d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m84",
+      "classification": "REFUSED",
+      "raw_sha256": "f066215c8f21d5851aed01554deee3ff4ac66f0c4ca7a9d29b9462226ea7c5c7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m100",
+      "classification": "REFUSED",
+      "raw_sha256": "f30000b46d23a7f558e95ff127514936cee62261d84a94713f3ec812506a0138",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m101",
+      "classification": "PASS",
+      "raw_sha256": "fab433085fa4af45b463e1cf79f8ee46f3e782075e4708dae05b3d7cdcd0233f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m102",
+      "classification": "PASS",
+      "raw_sha256": "4364d814d6068c7d0cfb1fcaa2d4a9a11ca012c8c34699da8e7e1a15464b257e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m103",
+      "classification": "PASS",
+      "raw_sha256": "aed47b2b739cf80b3ce7f3f8f847072f6cc832e32e4bae503ad30d2a9a4f2981",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m104",
+      "classification": "REFUSED",
+      "raw_sha256": "7102d2843ca37ad6a5544f74d99e80665cbffc7b842075a0ebd52727a44359db",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m105",
+      "classification": "REFUSED",
+      "raw_sha256": "463632123f7cc2572034097d61cad4012827dba8d0e5db0a57e2df9f00d255bb",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m106",
+      "classification": "REFUSED",
+      "raw_sha256": "1d5b6fa05b59fa8efd95818b08ffdf2c0b7d19cd035b0bf30476ff2cbe22de49",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m107",
+      "classification": "REFUSED",
+      "raw_sha256": "0e2bf2e087d36611f128f17421b7f3ab9c26a5979b50d1e117cae8ecc4ca942e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m108",
+      "classification": "REFUSED",
+      "raw_sha256": "a02d4156256a84433cb447c33fd7b36d6c4f61d46ff8d68d3f8a3e552acd84b8",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m109",
+      "classification": "REFUSED",
+      "raw_sha256": "a72213406bea94a40b36bc80562f96e4e3d9675aa929c953663d118fad9dcbc0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m110",
+      "classification": "REFUSED",
+      "raw_sha256": "bf384f72ceb1065a68f75757ded27e994aba2204b6bd44d16871b9437064f270",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m111",
+      "classification": "REFUSED",
+      "raw_sha256": "7b6fabba217fb43da8b3acf15532ea587e206105d3089a4ff4ec21121431c1a7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m112",
+      "classification": "REFUSED",
+      "raw_sha256": "3b0af1ef4d9c88c6e5519a80ccb56066f0480a1300fe5260a371926264e853a7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m113",
+      "classification": "PASS",
+      "raw_sha256": "2a26a31dc4a5b5ef96d2c066c2d9efbfda745c3d2e0b896c7cecd6d439d20492",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m114",
+      "classification": "REFUSED",
+      "raw_sha256": "c1303b5d26ac1f1505a0b296ccc46ff511d89bc300fe67a832ac08a0348fb684",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m115",
+      "classification": "REFUSED",
+      "raw_sha256": "b4ab0a34414efd43966a30b3250d0224771341b11e7e55d1ade233db5e00ef33",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m116",
+      "classification": "REFUSED",
+      "raw_sha256": "73cdade49d80ba0c440b4b17340813fa620e338ff46338922ce3ad4d8004ef1d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m117",
+      "classification": "REFUSED",
+      "raw_sha256": "03afa0b6d0c343396fa5c3a0cddc44441e34d290d81063428d5177172eac2742",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m118",
+      "classification": "PASS",
+      "raw_sha256": "815aaab9dfe2616d28cdf0235ab241d1ad8ffd28e698b299c912660d38b10b6a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m119",
+      "classification": "PASS",
+      "raw_sha256": "497df71f59c337f2a8befe93c24643aed1eaff62b13eafb0ad07c506eaae5e3c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m120",
+      "classification": "PASS",
+      "raw_sha256": "b4635e516cdd5c3686b8d25553e7127e06145e945aae3d26c7185db05a9d0cb7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m121",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "deb472435f526ace01b4ffa1be62d7124047ce35389ca8a98a08fbb450adc238",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m123",
+      "classification": "REFUSED",
+      "raw_sha256": "7ef55e1dcafdc8e4e8e94f86a7abc5ba769de5422be29d71b2680400d040756f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m124",
+      "classification": "PASS",
+      "raw_sha256": "ad5114ffb54ea925273e5ec7ee7d42152c89dd0d70813a7cb86fdc683e09c78c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m125",
+      "classification": "REFUSED",
+      "raw_sha256": "99b37eb6efb485d1337f6db49489fe8d088bb7e2a31d51537b0320acabc5bd99",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m214",
+      "classification": "PASS",
+      "raw_sha256": "8e202da6f10cb18bbb9e2c8c4d3d2fa5cb3f1833b67c54c76bf7703b5f7dbeda",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m220",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "9d82212ea4e2508fc194833ecf75ba1372a928e141e88fc59151283271642530",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m221",
+      "classification": "REFUSED",
+      "raw_sha256": "4ff3e58cbbfea430759b17f1c151d781254bfe2a5c0f0517a45bf9075819ebd9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m222",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "03b27d9de5a7aede4897824d206771d9d933af11e4886f832cdb9e8e7839a7f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m223",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "03b27d9de5a7aede4897824d206771d9d933af11e4886f832cdb9e8e7839a7f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m224",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "03b27d9de5a7aede4897824d206771d9d933af11e4886f832cdb9e8e7839a7f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m225",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "03b27d9de5a7aede4897824d206771d9d933af11e4886f832cdb9e8e7839a7f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m226",
+      "classification": "REFUSED",
+      "raw_sha256": "d6d8fd18e2d660e31a7ad7e75f9ffe81a61958b27e60da8bc0d14b45c3a69fa5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m227",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "bb3758c368c223145c1baecf9d1f94ab9b684eb377b78580a4fb6e4c06fbba61",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m230",
+      "classification": "REFUSED",
+      "raw_sha256": "8e5f4798624c9a95cf336acd876448c60bb804a9d5904389c91b082a51c32856",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-before-m231",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "5698fe48bf0e230ec3a623e9ebc8c3defe5fdeecea740b08f32ad600e349e3f4",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m8",
+      "classification": "REFUSED",
+      "raw_sha256": "26752c08e65c6b1f83aeda4f94920743ae08cd827d4fdba9a61b3119931488a6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m11",
+      "classification": "PASS",
+      "raw_sha256": "d8bce2a8a02cc3122df814a985f63ec3c5428b6dd24843d15fc313aa7cfaef4a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m23",
+      "classification": "PASS",
+      "raw_sha256": "7a8e785b38061b066d0699bbc5583f5af33f9b589413473aca343a90d041c634",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m26",
+      "classification": "PASS",
+      "raw_sha256": "171e2580e117dc41a815fd959f46b998c22ffd408a105249692425fb8cee76e4",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m31",
+      "classification": "PASS",
+      "raw_sha256": "e924d8b27170ed28f70f14fb0e7db35a054cc2100472a8eb032faf84cbd45983",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m32",
+      "classification": "PASS",
+      "raw_sha256": "48b92896ef30842f444ca0c0240e563dd19d43fced8b3dabb1f81904c52cd5ed",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m33",
+      "classification": "PASS",
+      "raw_sha256": "5057725e7dc3eb6038a8d765c59f7082268ed27efc93f08a44ca7cc4527726da",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m34",
+      "classification": "FAIL",
+      "raw_sha256": "36f99ed8e30b08337e7eed0cea8165d0972464812efc9584b620b7c1cf3d300f",
+      "checks": "HISTORICAL_FAIL"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m46",
+      "classification": "PASS",
+      "raw_sha256": "9eb3dc46e2ed7cc201504efb2089c386dfef2ff76addda4cc3f4ae6b1f25ab6c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m51",
+      "classification": "PASS",
+      "raw_sha256": "62528c12eaa4b5f9ba562f2b2d286c78fbd5505ff5d590bbf61dbfe3f5fc1450",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m52",
+      "classification": "PASS",
+      "raw_sha256": "fff9399945231c041f3de6a356c3ccd06c7bd1e31f01417cdb8ea09e5e4f63ae",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m53",
+      "classification": "PASS",
+      "raw_sha256": "a7a33ad9c5b099a7bd2da2143f3ef744c775060dc2de680a88159aad09e63772",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m54",
+      "classification": "REFUSED",
+      "raw_sha256": "c31e7cda7f1747475bb25794471fc9e246a2fa7ca924d9b9cd7329694139519d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m63",
+      "classification": "REFUSED",
+      "raw_sha256": "34a80aa4d3f5ae6f5a4efae50bc28c4b251d914c0fa193fd497390d396012a41",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m64",
+      "classification": "REFUSED",
+      "raw_sha256": "ba4ca4fba766f8179d0f89a9d3daed203f1a4fefc51d22d49bfdd3725b1e24dc",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m76",
+      "classification": "REFUSED",
+      "raw_sha256": "fc8a88f9d8ed918899581ea02827823af89a3a57820c7f57530d15ef48796a4e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m83",
+      "classification": "REFUSED",
+      "raw_sha256": "1c88a81e4aac5e64d6909d3525956aada0e90f68070327954d70c6cddcfd7e6d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m84",
+      "classification": "REFUSED",
+      "raw_sha256": "f066215c8f21d5851aed01554deee3ff4ac66f0c4ca7a9d29b9462226ea7c5c7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m100",
+      "classification": "REFUSED",
+      "raw_sha256": "f30000b46d23a7f558e95ff127514936cee62261d84a94713f3ec812506a0138",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m101",
+      "classification": "PASS",
+      "raw_sha256": "fab433085fa4af45b463e1cf79f8ee46f3e782075e4708dae05b3d7cdcd0233f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m102",
+      "classification": "PASS",
+      "raw_sha256": "4364d814d6068c7d0cfb1fcaa2d4a9a11ca012c8c34699da8e7e1a15464b257e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m103",
+      "classification": "PASS",
+      "raw_sha256": "aed47b2b739cf80b3ce7f3f8f847072f6cc832e32e4bae503ad30d2a9a4f2981",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m104",
+      "classification": "REFUSED",
+      "raw_sha256": "7102d2843ca37ad6a5544f74d99e80665cbffc7b842075a0ebd52727a44359db",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m105",
+      "classification": "REFUSED",
+      "raw_sha256": "463632123f7cc2572034097d61cad4012827dba8d0e5db0a57e2df9f00d255bb",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m106",
+      "classification": "REFUSED",
+      "raw_sha256": "1d5b6fa05b59fa8efd95818b08ffdf2c0b7d19cd035b0bf30476ff2cbe22de49",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m107",
+      "classification": "REFUSED",
+      "raw_sha256": "0e2bf2e087d36611f128f17421b7f3ab9c26a5979b50d1e117cae8ecc4ca942e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m108",
+      "classification": "REFUSED",
+      "raw_sha256": "a02d4156256a84433cb447c33fd7b36d6c4f61d46ff8d68d3f8a3e552acd84b8",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m109",
+      "classification": "REFUSED",
+      "raw_sha256": "a72213406bea94a40b36bc80562f96e4e3d9675aa929c953663d118fad9dcbc0",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m110",
+      "classification": "REFUSED",
+      "raw_sha256": "bf384f72ceb1065a68f75757ded27e994aba2204b6bd44d16871b9437064f270",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m111",
+      "classification": "REFUSED",
+      "raw_sha256": "7b6fabba217fb43da8b3acf15532ea587e206105d3089a4ff4ec21121431c1a7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m112",
+      "classification": "REFUSED",
+      "raw_sha256": "3b0af1ef4d9c88c6e5519a80ccb56066f0480a1300fe5260a371926264e853a7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m113",
+      "classification": "PASS",
+      "raw_sha256": "2a26a31dc4a5b5ef96d2c066c2d9efbfda745c3d2e0b896c7cecd6d439d20492",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m114",
+      "classification": "REFUSED",
+      "raw_sha256": "c1303b5d26ac1f1505a0b296ccc46ff511d89bc300fe67a832ac08a0348fb684",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m115",
+      "classification": "REFUSED",
+      "raw_sha256": "b4ab0a34414efd43966a30b3250d0224771341b11e7e55d1ade233db5e00ef33",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m116",
+      "classification": "REFUSED",
+      "raw_sha256": "73cdade49d80ba0c440b4b17340813fa620e338ff46338922ce3ad4d8004ef1d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m117",
+      "classification": "REFUSED",
+      "raw_sha256": "03afa0b6d0c343396fa5c3a0cddc44441e34d290d81063428d5177172eac2742",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m118",
+      "classification": "PASS",
+      "raw_sha256": "815aaab9dfe2616d28cdf0235ab241d1ad8ffd28e698b299c912660d38b10b6a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m119",
+      "classification": "PASS",
+      "raw_sha256": "497df71f59c337f2a8befe93c24643aed1eaff62b13eafb0ad07c506eaae5e3c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m120",
+      "classification": "PASS",
+      "raw_sha256": "b4635e516cdd5c3686b8d25553e7127e06145e945aae3d26c7185db05a9d0cb7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m121",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "deb472435f526ace01b4ffa1be62d7124047ce35389ca8a98a08fbb450adc238",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m123",
+      "classification": "REFUSED",
+      "raw_sha256": "7ef55e1dcafdc8e4e8e94f86a7abc5ba769de5422be29d71b2680400d040756f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m124",
+      "classification": "PASS",
+      "raw_sha256": "ad5114ffb54ea925273e5ec7ee7d42152c89dd0d70813a7cb86fdc683e09c78c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m125",
+      "classification": "REFUSED",
+      "raw_sha256": "99b37eb6efb485d1337f6db49489fe8d088bb7e2a31d51537b0320acabc5bd99",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m214",
+      "classification": "PASS",
+      "raw_sha256": "8e202da6f10cb18bbb9e2c8c4d3d2fa5cb3f1833b67c54c76bf7703b5f7dbeda",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m220",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "9d82212ea4e2508fc194833ecf75ba1372a928e141e88fc59151283271642530",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m221",
+      "classification": "REFUSED",
+      "raw_sha256": "4ff3e58cbbfea430759b17f1c151d781254bfe2a5c0f0517a45bf9075819ebd9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m222",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "03b27d9de5a7aede4897824d206771d9d933af11e4886f832cdb9e8e7839a7f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m223",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "03b27d9de5a7aede4897824d206771d9d933af11e4886f832cdb9e8e7839a7f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m224",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "03b27d9de5a7aede4897824d206771d9d933af11e4886f832cdb9e8e7839a7f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m225",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "03b27d9de5a7aede4897824d206771d9d933af11e4886f832cdb9e8e7839a7f1",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m226",
+      "classification": "REFUSED",
+      "raw_sha256": "d6d8fd18e2d660e31a7ad7e75f9ffe81a61958b27e60da8bc0d14b45c3a69fa5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m227",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "bb3758c368c223145c1baecf9d1f94ab9b684eb377b78580a4fb6e4c06fbba61",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m230",
+      "classification": "REFUSED",
+      "raw_sha256": "8e5f4798624c9a95cf336acd876448c60bb804a9d5904389c91b082a51c32856",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d0-after-m231",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "5698fe48bf0e230ec3a623e9ebc8c3defe5fdeecea740b08f32ad600e349e3f4",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m8",
+      "classification": "REFUSED",
+      "raw_sha256": "490357d0901bc55bf5b460a83688bb8e60f2b9aef86f027a6ac6529131098eac",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m11",
+      "classification": "PASS",
+      "raw_sha256": "d3e4b3383315eeae547edaa43cf27f32c7110034b5b8defccfc8e70f5de547f5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m23",
+      "classification": "PASS",
+      "raw_sha256": "fabb75eb7ca8b688679255de11c52da4631ac897982a602f5a92f6afaaf4ca6a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m26",
+      "classification": "PASS",
+      "raw_sha256": "92ccae47ee3cb34b123f4ac64d5a9809fadeb0a4768958d3a3917a9c250cd4e7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m31",
+      "classification": "PASS",
+      "raw_sha256": "c3dc6faa77796111e8dfb3c8edb80c7949e6a3fc33e5092dbea9b0c86b6f0bd4",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m32",
+      "classification": "PASS",
+      "raw_sha256": "84ca7d8edea814966fd0c627e5816d2b28fba9c7a920b5e3038d4528d65f09d2",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m33",
+      "classification": "PASS",
+      "raw_sha256": "a09e61c752371921f3809a1b494f42f1382ffc4a51bbbd64f7f1213030cb0f2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m34",
+      "classification": "FAIL",
+      "raw_sha256": "c3b3c8e7f95d6f4a17cacfad1298d2258acaafb29e798dc1509bdbb51164d07f",
+      "checks": "HISTORICAL_FAIL"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m46",
+      "classification": "PASS",
+      "raw_sha256": "0643a1299d5fbe96e78fb7abd1423b798c3b5fa3ce60133b7824d99a391b96ea",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m51",
+      "classification": "PASS",
+      "raw_sha256": "8bbdd3368afa5d1e5558991b765961e7e56de878b9e8f8b071d67eb35521ad8e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m52",
+      "classification": "PASS",
+      "raw_sha256": "599e676606a3d34088a42771c33de59f529bb3b4f1074714a3c91b59e9a2960e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m53",
+      "classification": "PASS",
+      "raw_sha256": "8295bbf1047874147dfbeb6297d2cd4da9742a4ed8b562fc61928900ad1492ec",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m54",
+      "classification": "REFUSED",
+      "raw_sha256": "1e847167f6ea59866afb6436bdac8ea0cc7694fa00ae9d00f961b6d6f6d88604",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m63",
+      "classification": "REFUSED",
+      "raw_sha256": "e0ab00c5ea11e4ee3cf0b1fed0e62df84216630939d00ed039cfe23523064527",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m64",
+      "classification": "REFUSED",
+      "raw_sha256": "48743adcbfec3e0a34d314f28153d84dfdbf2db83685696ad08a02db57978e11",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m76",
+      "classification": "REFUSED",
+      "raw_sha256": "4efa229ff9894888dfff6671963d79dc360ae0e638afac00484b6e5fa48c4f09",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m83",
+      "classification": "REFUSED",
+      "raw_sha256": "3edacd9b25123d327960446c939994fbd8b571f952f955bbf85181df70c971d6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m84",
+      "classification": "REFUSED",
+      "raw_sha256": "421b550657232cdf1c270e5157f5fe28b5f8acb6b8b5e68cb21037c5baac48e9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m100",
+      "classification": "REFUSED",
+      "raw_sha256": "2d69c181e5d5c22cf25dd96e5d216bf736fd858aaf07fb5d65dbaded78e8538f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m101",
+      "classification": "PASS",
+      "raw_sha256": "ac6bbdec30996de9b4dfbd447e9cde7e95a0e820e7279cf2962c2257378d6800",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m102",
+      "classification": "PASS",
+      "raw_sha256": "cf54acbeb3e154422c775fc4b7b321be189802ef997fc4f2816a45da8adbc7db",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m103",
+      "classification": "PASS",
+      "raw_sha256": "9e5ee702d90858151f4db2ff2b8882cc29d747de2963bd6a8dae5cba792144f2",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m104",
+      "classification": "REFUSED",
+      "raw_sha256": "bcfae88157f503b3d03d74ba424e5e0c7b9364783a0ad675475d8236e4733e33",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m105",
+      "classification": "REFUSED",
+      "raw_sha256": "7b20f9b00ac1fa628396cf4335b649dd0dec887539cb089b7cc30a18c632d0af",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m106",
+      "classification": "REFUSED",
+      "raw_sha256": "99d97bc568bd14fc918870c4c6c25399a0f984e60516ffc70bdc63c256b6b505",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m107",
+      "classification": "REFUSED",
+      "raw_sha256": "c0535f0a15abb63498db3f5062ec9fbdd7a398c9e25e23c90df3a92ee3ddb82f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m108",
+      "classification": "REFUSED",
+      "raw_sha256": "a41b5733dab8a004c8e300f1f205d7eddf75d54981e6295947d97ee72b883a80",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m109",
+      "classification": "REFUSED",
+      "raw_sha256": "37ebf7d09413372e37c9fd57586a32ffcbcd4cae98615e45a93f4f56ac6e6854",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m110",
+      "classification": "REFUSED",
+      "raw_sha256": "41bf03bd1a4f7aa9781da7ced3d7d9e31d4e5e4dc5eec851c3ad5bc621344e37",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m111",
+      "classification": "REFUSED",
+      "raw_sha256": "07f028fc08f1abbec67ac5f8373780e62b5a5f821aa5c00f13cfdbc9d3fcb503",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m112",
+      "classification": "REFUSED",
+      "raw_sha256": "f19c0a8bf049a670466d4e32de49e82033d43f479459827e6b95dd687d007610",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m113",
+      "classification": "PASS",
+      "raw_sha256": "937b97a43063389c62a8efdd88d3967725102e58b4aae044adb96bb2325d35c8",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m114",
+      "classification": "REFUSED",
+      "raw_sha256": "35b9c3bc7f8ade074bb503f454d1de9a0940f5e343277a17e87084426a633bbe",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m115",
+      "classification": "REFUSED",
+      "raw_sha256": "151fd61467e3546d74b3d4a6ee137f22f11ec7a6090303299d63e97602eee97a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m116",
+      "classification": "REFUSED",
+      "raw_sha256": "ba14f8b72ad274f454781658d3137be01192b29844bdb9ac23d066346e8cc893",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m117",
+      "classification": "REFUSED",
+      "raw_sha256": "dc49410d58b75d85954016ab9a6d0c372683fbb8968a1f8ca2acad75713afa92",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m118",
+      "classification": "PASS",
+      "raw_sha256": "d06cce455e30fca9c227a295eaffeaf6439bc2722ccf804f4e546a6390f19d1d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m119",
+      "classification": "PASS",
+      "raw_sha256": "993ace708ba84a37df690884dcfe4b5e5dba5bf580dbc476b37818a8edb94e21",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m120",
+      "classification": "PASS",
+      "raw_sha256": "6d2c6fe65dad0abf66e7223a8fc0ec7bee3c0b77b80eb76ad7e5d3a04c3b1bf6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m121",
+      "classification": "REFUSED",
+      "raw_sha256": "a35085d744b2f5963fbc8b7a05e4080a539a712497d61c187e8d501c1f100713",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m123",
+      "classification": "REFUSED",
+      "raw_sha256": "27c3cf413cbe9eb823a9740e8546db5255baa26ed84bbf2c5ff4b406e1a68020",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m124",
+      "classification": "PASS",
+      "raw_sha256": "cb88a98678b6b3322602430245f41f86c606f996e5aa688a200ffe7df2292074",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m125",
+      "classification": "REFUSED",
+      "raw_sha256": "60bd341a0eed6d0ccf84ab5d715fee6112db10844f4460ca109600b4d38dd12a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m214",
+      "classification": "PASS",
+      "raw_sha256": "3693228a445cbfa27dd3c0e196d691f82303a7d256d1ec37baa3e985c038c54e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m220",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "87fcf604b71b51648acc3dc156ed6b8caabde90a19848baf158694847968f4e5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m221",
+      "classification": "REFUSED",
+      "raw_sha256": "71123bc0b0e83cbb039ff720aad15c5c4dd900d5c6912f36a1cabcc5e26e7480",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m222",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "6a15d05d361b98a63bf2987d4389f097d2550ee823475e007fa7aac62ba89529",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m223",
+      "classification": "REFUSED",
+      "raw_sha256": "4d067fe8f063eacc354bd37a375017926c978f06a19bc6573cdd8a40f56c641b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m224",
+      "classification": "REFUSED",
+      "raw_sha256": "6b10503255b61e900ed9c3f4af285df6a7e0a8bbc8ea959766c64e920aae2598",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m225",
+      "classification": "REFUSED",
+      "raw_sha256": "686ab998bb1cf8e210089263de9a5a52e82dab983e74bb4525fad37d63e0d60b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m226",
+      "classification": "REFUSED",
+      "raw_sha256": "74515dbb83e33cafca2c779a079b60e6a744efd3d3862fa473a8b10b582b118c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m227",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "1c5a3f63be30da590797ca0aa468c974ad0170bc743f73fad6fd955b68276f79",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m230",
+      "classification": "REFUSED",
+      "raw_sha256": "fef68fa40a301272810778aa529ed2f4cf3e869238d792283aed82545dcc2a52",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-before-m231",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "7827e6c914a33278b5903b466173d8a826a8828804adf25969e4e4e62062b454",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m8",
+      "classification": "REFUSED",
+      "raw_sha256": "490357d0901bc55bf5b460a83688bb8e60f2b9aef86f027a6ac6529131098eac",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m11",
+      "classification": "PASS",
+      "raw_sha256": "d3e4b3383315eeae547edaa43cf27f32c7110034b5b8defccfc8e70f5de547f5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m23",
+      "classification": "PASS",
+      "raw_sha256": "fabb75eb7ca8b688679255de11c52da4631ac897982a602f5a92f6afaaf4ca6a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m26",
+      "classification": "PASS",
+      "raw_sha256": "92ccae47ee3cb34b123f4ac64d5a9809fadeb0a4768958d3a3917a9c250cd4e7",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m31",
+      "classification": "PASS",
+      "raw_sha256": "c3dc6faa77796111e8dfb3c8edb80c7949e6a3fc33e5092dbea9b0c86b6f0bd4",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m32",
+      "classification": "PASS",
+      "raw_sha256": "84ca7d8edea814966fd0c627e5816d2b28fba9c7a920b5e3038d4528d65f09d2",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m33",
+      "classification": "PASS",
+      "raw_sha256": "a09e61c752371921f3809a1b494f42f1382ffc4a51bbbd64f7f1213030cb0f2d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m34",
+      "classification": "FAIL",
+      "raw_sha256": "c3b3c8e7f95d6f4a17cacfad1298d2258acaafb29e798dc1509bdbb51164d07f",
+      "checks": "HISTORICAL_FAIL"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m46",
+      "classification": "PASS",
+      "raw_sha256": "0643a1299d5fbe96e78fb7abd1423b798c3b5fa3ce60133b7824d99a391b96ea",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m51",
+      "classification": "PASS",
+      "raw_sha256": "8bbdd3368afa5d1e5558991b765961e7e56de878b9e8f8b071d67eb35521ad8e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m52",
+      "classification": "PASS",
+      "raw_sha256": "599e676606a3d34088a42771c33de59f529bb3b4f1074714a3c91b59e9a2960e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m53",
+      "classification": "PASS",
+      "raw_sha256": "8295bbf1047874147dfbeb6297d2cd4da9742a4ed8b562fc61928900ad1492ec",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m54",
+      "classification": "REFUSED",
+      "raw_sha256": "1e847167f6ea59866afb6436bdac8ea0cc7694fa00ae9d00f961b6d6f6d88604",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m63",
+      "classification": "REFUSED",
+      "raw_sha256": "e0ab00c5ea11e4ee3cf0b1fed0e62df84216630939d00ed039cfe23523064527",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m64",
+      "classification": "REFUSED",
+      "raw_sha256": "48743adcbfec3e0a34d314f28153d84dfdbf2db83685696ad08a02db57978e11",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m76",
+      "classification": "REFUSED",
+      "raw_sha256": "4efa229ff9894888dfff6671963d79dc360ae0e638afac00484b6e5fa48c4f09",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m83",
+      "classification": "REFUSED",
+      "raw_sha256": "3edacd9b25123d327960446c939994fbd8b571f952f955bbf85181df70c971d6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m84",
+      "classification": "REFUSED",
+      "raw_sha256": "421b550657232cdf1c270e5157f5fe28b5f8acb6b8b5e68cb21037c5baac48e9",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m100",
+      "classification": "REFUSED",
+      "raw_sha256": "2d69c181e5d5c22cf25dd96e5d216bf736fd858aaf07fb5d65dbaded78e8538f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m101",
+      "classification": "PASS",
+      "raw_sha256": "ac6bbdec30996de9b4dfbd447e9cde7e95a0e820e7279cf2962c2257378d6800",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m102",
+      "classification": "PASS",
+      "raw_sha256": "cf54acbeb3e154422c775fc4b7b321be189802ef997fc4f2816a45da8adbc7db",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m103",
+      "classification": "PASS",
+      "raw_sha256": "9e5ee702d90858151f4db2ff2b8882cc29d747de2963bd6a8dae5cba792144f2",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m104",
+      "classification": "REFUSED",
+      "raw_sha256": "bcfae88157f503b3d03d74ba424e5e0c7b9364783a0ad675475d8236e4733e33",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m105",
+      "classification": "REFUSED",
+      "raw_sha256": "7b20f9b00ac1fa628396cf4335b649dd0dec887539cb089b7cc30a18c632d0af",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m106",
+      "classification": "REFUSED",
+      "raw_sha256": "99d97bc568bd14fc918870c4c6c25399a0f984e60516ffc70bdc63c256b6b505",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m107",
+      "classification": "REFUSED",
+      "raw_sha256": "c0535f0a15abb63498db3f5062ec9fbdd7a398c9e25e23c90df3a92ee3ddb82f",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m108",
+      "classification": "REFUSED",
+      "raw_sha256": "a41b5733dab8a004c8e300f1f205d7eddf75d54981e6295947d97ee72b883a80",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m109",
+      "classification": "REFUSED",
+      "raw_sha256": "37ebf7d09413372e37c9fd57586a32ffcbcd4cae98615e45a93f4f56ac6e6854",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m110",
+      "classification": "REFUSED",
+      "raw_sha256": "41bf03bd1a4f7aa9781da7ced3d7d9e31d4e5e4dc5eec851c3ad5bc621344e37",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m111",
+      "classification": "REFUSED",
+      "raw_sha256": "07f028fc08f1abbec67ac5f8373780e62b5a5f821aa5c00f13cfdbc9d3fcb503",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m112",
+      "classification": "REFUSED",
+      "raw_sha256": "f19c0a8bf049a670466d4e32de49e82033d43f479459827e6b95dd687d007610",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m113",
+      "classification": "PASS",
+      "raw_sha256": "937b97a43063389c62a8efdd88d3967725102e58b4aae044adb96bb2325d35c8",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m114",
+      "classification": "REFUSED",
+      "raw_sha256": "35b9c3bc7f8ade074bb503f454d1de9a0940f5e343277a17e87084426a633bbe",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m115",
+      "classification": "REFUSED",
+      "raw_sha256": "151fd61467e3546d74b3d4a6ee137f22f11ec7a6090303299d63e97602eee97a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m116",
+      "classification": "REFUSED",
+      "raw_sha256": "ba14f8b72ad274f454781658d3137be01192b29844bdb9ac23d066346e8cc893",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m117",
+      "classification": "REFUSED",
+      "raw_sha256": "dc49410d58b75d85954016ab9a6d0c372683fbb8968a1f8ca2acad75713afa92",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m118",
+      "classification": "PASS",
+      "raw_sha256": "d06cce455e30fca9c227a295eaffeaf6439bc2722ccf804f4e546a6390f19d1d",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m119",
+      "classification": "PASS",
+      "raw_sha256": "993ace708ba84a37df690884dcfe4b5e5dba5bf580dbc476b37818a8edb94e21",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m120",
+      "classification": "PASS",
+      "raw_sha256": "6d2c6fe65dad0abf66e7223a8fc0ec7bee3c0b77b80eb76ad7e5d3a04c3b1bf6",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m121",
+      "classification": "REFUSED",
+      "raw_sha256": "a35085d744b2f5963fbc8b7a05e4080a539a712497d61c187e8d501c1f100713",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m123",
+      "classification": "REFUSED",
+      "raw_sha256": "27c3cf413cbe9eb823a9740e8546db5255baa26ed84bbf2c5ff4b406e1a68020",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m124",
+      "classification": "PASS",
+      "raw_sha256": "cb88a98678b6b3322602430245f41f86c606f996e5aa688a200ffe7df2292074",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m125",
+      "classification": "REFUSED",
+      "raw_sha256": "60bd341a0eed6d0ccf84ab5d715fee6112db10844f4460ca109600b4d38dd12a",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m214",
+      "classification": "PASS",
+      "raw_sha256": "3693228a445cbfa27dd3c0e196d691f82303a7d256d1ec37baa3e985c038c54e",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m220",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "87fcf604b71b51648acc3dc156ed6b8caabde90a19848baf158694847968f4e5",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m221",
+      "classification": "REFUSED",
+      "raw_sha256": "71123bc0b0e83cbb039ff720aad15c5c4dd900d5c6912f36a1cabcc5e26e7480",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m222",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "6a15d05d361b98a63bf2987d4389f097d2550ee823475e007fa7aac62ba89529",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m223",
+      "classification": "REFUSED",
+      "raw_sha256": "4d067fe8f063eacc354bd37a375017926c978f06a19bc6573cdd8a40f56c641b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m224",
+      "classification": "REFUSED",
+      "raw_sha256": "6b10503255b61e900ed9c3f4af285df6a7e0a8bbc8ea959766c64e920aae2598",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m225",
+      "classification": "REFUSED",
+      "raw_sha256": "686ab998bb1cf8e210089263de9a5a52e82dab983e74bb4525fad37d63e0d60b",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m226",
+      "classification": "REFUSED",
+      "raw_sha256": "74515dbb83e33cafca2c779a079b60e6a744efd3d3862fa473a8b10b582b118c",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m227",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "1c5a3f63be30da590797ca0aa468c974ad0170bc743f73fad6fd955b68276f79",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m230",
+      "classification": "REFUSED",
+      "raw_sha256": "fef68fa40a301272810778aa529ed2f4cf3e869238d792283aed82545dcc2a52",
+      "checks": "PASS"
+    },
+    {
+      "group": "regressions",
+      "case": "tw-object-h1-d1-after-m231",
+      "classification": "NOT_REACHED",
+      "raw_sha256": "7827e6c914a33278b5903b466173d8a826a8828804adf25969e4e4e62062b454",
+      "checks": "PASS"
+    },
+    {
+      "group": "absence",
+      "case": "tw-object-h0-d0-before-m122",
+      "classification": "REFUSED",
+      "raw_sha256": "dc488ca73716cc485964582e83f0b735b6224f0607d1755383b46c6d1066c7ba",
+      "checks": "PASS"
+    },
+    {
+      "group": "absence",
+      "case": "tw-object-h0-d0-after-m122",
+      "classification": "REFUSED",
+      "raw_sha256": "dc488ca73716cc485964582e83f0b735b6224f0607d1755383b46c6d1066c7ba",
+      "checks": "PASS"
+    },
+    {
+      "group": "absence",
+      "case": "tw-object-h0-d1-before-m122",
+      "classification": "REFUSED",
+      "raw_sha256": "f62f6396369ba0ad7e8ad3950e5c646d799c4116c541df8a13f4b741e3e18b9d",
+      "checks": "PASS"
+    },
+    {
+      "group": "absence",
+      "case": "tw-object-h0-d1-after-m122",
+      "classification": "REFUSED",
+      "raw_sha256": "f62f6396369ba0ad7e8ad3950e5c646d799c4116c541df8a13f4b741e3e18b9d",
+      "checks": "PASS"
+    },
+    {
+      "group": "absence",
+      "case": "tw-object-h1-d0-before-m122",
+      "classification": "REFUSED",
+      "raw_sha256": "b52cafd941c2c0ada19d5b1ffa7a13021c2bd6d90a10e493a77c30ebf793eb24",
+      "checks": "PASS"
+    },
+    {
+      "group": "absence",
+      "case": "tw-object-h1-d0-after-m122",
+      "classification": "REFUSED",
+      "raw_sha256": "b52cafd941c2c0ada19d5b1ffa7a13021c2bd6d90a10e493a77c30ebf793eb24",
+      "checks": "PASS"
+    },
+    {
+      "group": "absence",
+      "case": "tw-object-h1-d1-before-m122",
+      "classification": "REFUSED",
+      "raw_sha256": "18be12ff7cc5af35b9bf8456ced0bbfdc734f2d9ab99d89df6791f8aef08d4fe",
+      "checks": "PASS"
+    },
+    {
+      "group": "absence",
+      "case": "tw-object-h1-d1-after-m122",
+      "classification": "REFUSED",
+      "raw_sha256": "18be12ff7cc5af35b9bf8456ced0bbfdc734f2d9ab99d89df6791f8aef08d4fe",
+      "checks": "PASS"
+    }
+  ]
+}

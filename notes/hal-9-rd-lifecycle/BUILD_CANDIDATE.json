@@ -1,0 +1,34 @@
+{
+  "scope": "Rebuild only a private RD owner copy based on the pinned PR34 companion.",
+  "reference_sha256": "d044cfef6019c8a97c869bade40dfe91ae081fda797e62e6f2f53fbe2a7b2a97",
+  "canonical_sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+  "candidate_sha256": "d8123010bc0537eff83dc43edf16fc90e1168b97b72b474b3794fa21248e28df",
+  "source_sha256": {
+    "experiments/hal9-rd-lifecycle/rd_duel_lifecycle.inc": "f98ab27b7750c0ed9b372c4914ead516866a75c06b356c24a49995fbd84fd34d"
+  },
+  "patch_sha256": "f9de5838f3240b87cb415a032a6b0da96f40fea5814b49c6730a3ff99282970f",
+  "SDK_API": 24,
+  "target": "i386",
+  "imports_exports_unchanged": true,
+  "changed_package_files": [
+    "mod.c",
+    "rd_duel_lifecycle.inc",
+    "ritual-duelists.o"
+  ],
+  "unchanged_companion_sha256": {
+    "rd_companion.inc": "cbf7cb11c5ba67efe4c4f1cf688f92c40fae737601115ca5a1d5a98e01793445",
+    "selection_finalization_v1.h": "1fc6c3be7c9db0a545315f05c1e9ff8940333d554a0f35552368ffc42f9cd8ff",
+    "mandatory_hand_consumer.h": "560097a4cd6f510087ac2aaab3a4dcffef3f5d8df637ae982393f3c168a07a54",
+    "mandatory_hand_selection_v1.h": "ac1a5385c4441ee0f14e41b68a4dc293c111197b6fe961ff89265025f32df49d",
+    "mandatory_hand_lifecycle_v1.h": "1e20dc9ee29984eec1097baea2a2e497fbf6c2f9ee39c91d185d4ce170b69fc5"
+  },
+  "command": [
+    "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python",
+    "-c",
+    "import importlib.util,sys;from pathlib import Path;p=Path(sys.argv[1]);s=importlib.util.spec_from_file_location('hal_rd_sdk',p);b=importlib.util.module_from_spec(s);s.loader.exec_module(b);d=sys.argv[2];r=sys.argv[3];b.build(d,target='i386',extra_flags=['-ffile-prefix-map='+d+'=/hal9/rd-package','-ffile-prefix-map='+r+'=/hal9/repo','-fdebug-compilation-dir=/hal9/rd-build'])",
+    "/workspace/work/hal20-base/repo/tmp/pc/win32/sdk/tools/build_mod.py",
+    "/workspace/work/hal9-rd-duel-lifecycle/local/candidate-v2/ritual-duelists",
+    "/workspace/work/hal9-rd-duel-lifecycle/repo"
+  ],
+  "returncode": 0
+}

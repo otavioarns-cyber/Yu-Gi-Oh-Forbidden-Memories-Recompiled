@@ -1,0 +1,83 @@
+{
+  "processes": 608,
+  "execution": {
+    "REFUSED": 296,
+    "PASS": 252,
+    "NOT_REACHED": 52,
+    "FAIL": 8
+  },
+  "checks": {
+    "PASS": 6162,
+    "FAIL": 8
+  },
+  "groups": {
+    "owner": {
+      "processes": 120,
+      "execution": {
+        "REFUSED": 40,
+        "PASS": 80
+      },
+      "checks": {
+        "PASS": 1232
+      },
+      "incomplete": 0
+    },
+    "extra": {
+      "processes": 32,
+      "execution": {
+        "PASS": 8,
+        "REFUSED": 24
+      },
+      "checks": {
+        "PASS": 244
+      },
+      "incomplete": 0
+    },
+    "bonus": {
+      "processes": 8,
+      "execution": {
+        "NOT_REACHED": 4,
+        "PASS": 4
+      },
+      "checks": {
+        "PASS": 112
+      },
+      "incomplete": 0
+    },
+    "blocked": {
+      "processes": 8,
+      "execution": {
+        "PASS": 8
+      },
+      "checks": {
+        "PASS": 124
+      },
+      "incomplete": 0
+    },
+    "regressions": {
+      "processes": 432,
+      "execution": {
+        "REFUSED": 224,
+        "PASS": 152,
+        "FAIL": 8,
+        "NOT_REACHED": 48
+      },
+      "checks": {
+        "PASS": 4378,
+        "FAIL": 8
+      },
+      "incomplete": 0
+    },
+    "absence": {
+      "processes": 8,
+      "execution": {
+        "REFUSED": 8
+      },
+      "checks": {
+        "PASS": 72
+      },
+      "incomplete": 0
+    }
+  },
+  "scope": "Actual loaded owner callbacks and native Main_RunDuel; InitScene IO/frontend/renderer, phase-entry dispatch and new boards modeled. No Windows gameplay certification."
+}
