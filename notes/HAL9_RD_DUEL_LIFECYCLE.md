@@ -1,5 +1,7 @@
 # HAL-9 / HAL-20 — Lifecycle próprio de Ritual Duelists
 
+[PR #37 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/37). HAL-9/HAL-20 atualizadas no Linear sem encerrar tarefas; [recibos](hal-9-rd-lifecycle/LINEAR_UPDATES.json). [Publicação](hal-9-rd-lifecycle/PUBLICATION.json) e [41 heads anteriores preservados](hal-9-rd-lifecycle/REFS_AUDIT.json).
+
 Branch experimental `test/hal-9-rd-duel-lifecycle`, derivada do PR36/`c8a5605852707589d3d166ad153a88fdd0017b30`. Destino: `integration/hal-20-v0.3.1-preview.2`. A entrega não promove prioridade funcional, contrato, guard, política de savestate ou release.
 
 ## Resultado e alcance
