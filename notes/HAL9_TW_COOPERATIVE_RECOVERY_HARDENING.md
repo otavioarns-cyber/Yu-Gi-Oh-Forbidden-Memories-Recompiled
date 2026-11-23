@@ -1,5 +1,7 @@
 # HAL-9 / HAL-20 — Recuperação cooperativa e hardening do cliente TW
 
+[PR #36 em rascunho](https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/36). HAL-9/HAL-20 atualizadas por comentários, sem encerrar tarefas; [recibos](hal-9-recovery/LINEAR_UPDATES.json).
+
 Branch experimental `test/hal-9-tw-recovery-hardening`, derivada do PR35/`e5c97876009e0e57127166039821426a617729db`. Destino do PR: `integration/hal-20-v0.3.1-preview.2`. Esta entrega não promove política, ABI, guard ou release. Os507 arquivos canônicos, Dual privado e seis link units legados permanecem intactos.
 
 ## Respostas objetivas
