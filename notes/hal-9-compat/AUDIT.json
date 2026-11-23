@@ -1,0 +1,13 @@
+{
+  "parent": "54234112bb26e0586d7a1779a33cafa806842d26",
+  "canonical_mod_files_identical": 507,
+  "production_src_mods_config_workflows": "UNCHANGED",
+  "guard": "UNCHANGED; TW not admitted",
+  "savestate": "B unchanged; no partial A",
+  "public_ABI": "UNCHANGED",
+  "Dual_private_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+  "original_TW_sha256": "6470024d45bd099b7800bd5f84ccdcef1a895a8a2447ecef058af11ada97d5d7",
+  "candidate_TW_sha256": "46f63050a5761b6f7ca3ec44c7a267ee4a7f79ec1572fb3d41ecd1e6313d9093",
+  "experimental_functional_change": "Private copy of available TW adapter only; two boundaries: bonus snapshot and approved Monster cursor. Legacy core identical. Source patch only published.",
+  "new_binaries_or_private_assets_published": false
+}

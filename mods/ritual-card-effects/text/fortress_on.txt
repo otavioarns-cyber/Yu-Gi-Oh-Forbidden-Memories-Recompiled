@@ -1,0 +1,12 @@
+@bank descriptions
+
+[D3CE]
+{f8 0A 02}<Ritual Effect>{f8 0A 00}
+Gains {f8 0A 03}+500{f8 0A 00} DEF per
+{f8 0B 0C} in hand;
+{f8 0A 03}+1000{f8 0A 00} DEF per other
+allied {f8 0B 0C} on field.
+Under Umi, allied
+{f8 0B 10}/{f8 0B 0C}/{f8 0B 0D}
+resist Magic/Trap
+effects.

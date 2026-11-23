@@ -1,0 +1,3 @@
+tmp/pc/win32/mods: 3d-monsters, ai-hard-mode, drop-missing-cards (data), field-effects-secondary-types, fusion-auxiliary-balance, hand-camera, melhoria-dos-rituais, ritual-card-effects, ritual-duelists, yamyi-mods
+tmp/pc/win32/languages: de, en-eu, es, fr, it
+tmp/pc/win32/memories-pc.exe: 628 game units, 773 pinned data symbols, 12 outside_resident_image stubs, 18 sdk_asm stubs

@@ -1,0 +1,32 @@
+--- a/mods/ritual-duelists/mod.c
++++ b/LAB-ONLY/ritual-duelists/mod.c
+@@ -1265,6 +1265,8 @@
+         diag.sticky_turn=-1;
+     }
+ }
++
++#include "rd_companion.inc"
+ int MemoriesModInit(const MemoriesModHost *from,MemoriesMod *mod)
+ {
+     if(!from||from->api<4)return 0;
+@@ -1280,7 +1282,7 @@
+     if(!deal_hook){host->unhook(host,fusion_hook);host->unhook(host,ritual_hook);fusion_hook=ritual_hook=0;return 0;}
+     window_hook=host->hook(host,(void *)Ai_GetHandSize,(void *)rd_ai_window,&previous_window);
+     if(!window_hook){host->unhook(host,deal_hook);host->unhook(host,fusion_hook);host->unhook(host,ritual_hook);deal_hook=fusion_hook=ritual_hook=0;return 0;}
+-    swap_hook=host->hook(host,(void *)func_8001BAF0,(void *)rd_materialize,&previous_swap);
++    swap_hook=host->hook(host,(void *)func_8001BAF0,(void *)hf_materialize,&previous_swap);
+     if(!swap_hook){host->unhook(host,window_hook);host->unhook(host,deal_hook);host->unhook(host,fusion_hook);host->unhook(host,ritual_hook);window_hook=deal_hook=fusion_hook=ritual_hook=0;return 0;}
+     ai_hook=host->hook(host,(void *)AiScript_Run,(void *)rd_ai,&previous_ai);
+     if(!ai_hook){host->unhook(host,swap_hook);host->unhook(host,window_hook);host->unhook(host,deal_hook);host->unhook(host,fusion_hook);host->unhook(host,ritual_hook);swap_hook=window_hook=deal_hook=fusion_hook=ritual_hook=0;return 0;}
+@@ -1295,9 +1297,10 @@
+     rd_selection_old_applied=mod->applied;
+     mod->applied=rd_selection_applied;
+     if(!host->hook(host,(void*)DuelScene_UpdateHandActions,
+-        (void*)rd_selection_hand_tick,&rd_selection_old_hand))return 0;
++        (void*)hf_hand_tick,&rd_selection_old_hand))return 0;
+     if(host->provide){host->provide(host,"mandatory-hand-selection-v1",(void*)&rd_selection_rendezvous);
+         host->provide(host,"mandatory-hand-lifecycle-v1",(void*)&rd_selection_lifecycle);}
++    if(host->provide)host->provide(host,"selection-finalization-v1",(void*)&hf_api);
+     mod->frame=0; /* Free Duel viewer belongs to PauloH-Gudang's separate Droplist MOD. */
+     mod->api=12;
+     mod->reset=rd_reset;

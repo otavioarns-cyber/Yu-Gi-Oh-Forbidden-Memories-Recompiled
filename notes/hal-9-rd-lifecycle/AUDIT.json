@@ -1,0 +1,15 @@
+{
+  "reference": "c8a5605852707589d3d166ad153a88fdd0017b30",
+  "canonical_mod_files_identical": 507,
+  "src_mods_config_workflows": "UNCHANGED",
+  "RD_reference_sha256": "d044cfef6019c8a97c869bade40dfe91ae081fda797e62e6f2f53fbe2a7b2a97",
+  "RD_private_candidate_sha256": "d8123010bc0537eff83dc43edf16fc90e1168b97b72b474b3794fa21248e28df",
+  "repeat_byte_identical": true,
+  "TW_private_sha256": "03cc67b9ff6e54a096e0acfcb89451ca6d5da980e4ce0918f1923ce267869834",
+  "Dual_sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+  "manifest_settings_assets_ABI1_companion": "UNCHANGED",
+  "guard": "UNCHANGED; TW not admitted",
+  "savestate": "B preserved; A disabled",
+  "default": "OBSERVE; KEEP/ALLOW only explicit tests",
+  "private_binaries_published": false
+}

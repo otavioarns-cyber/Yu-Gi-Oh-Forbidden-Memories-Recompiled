@@ -1,0 +1,4 @@
+memories-pc: could not write the trade back to save slot 2
+memories-pc: cannot write save slot /workspace/work/hal20-state-timewizard/logs/storage/memories-save-menu-p88409-Z9N8AP/saves/slot02.sav: Invalid argument.
+memories-pc: imported the save at offset 0x4000 of /workspace/work/hal20-state-timewizard/logs/storage/memories-save-menu-p88409-Z9N8AP/saves/duckstation_shared_card_1.mcd into save slot 1
+save menu: ok

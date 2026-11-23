@@ -1,0 +1,12 @@
+{
+  "number": 37,
+  "url": "https://github.com/otavioarns-cyber/Yu-Gi-Oh-Forbidden-Memories-Recompiled/pull/37",
+  "draft": true,
+  "merged": false,
+  "head": "test/hal-9-rd-duel-lifecycle",
+  "source_commit": "98a60197aa1fa1880b9676d1feaa4222702ce66f",
+  "base": "integration/hal-20-v0.3.1-preview.2",
+  "base_sha": "d649647c159c91d615c07d6960928a37e270b461",
+  "created_at": "2026-11-23T16:30:15Z",
+  "private_artifacts_published": false
+}

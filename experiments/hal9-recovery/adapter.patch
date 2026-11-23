@@ -1,0 +1,26 @@
+--- a/source/time_wizard_dual_play_compat.c
++++ b/source/time_wizard_dual_play_compat.c
+@@ -121,6 +121,7 @@
+ 
+ 
+ 
++static unsigned tw_duel_transition;
+ static int tw_final_live(void);
+ static int tw_client_disconnect(void);
+ static int tw_client_tick_ok(void);
+@@ -839,6 +840,7 @@
+ static void compat_hand_actions(void)
+ {
+     DualPlayStatePrefix *state = resolve_dual_state();
++    if(tw_duel_transition)return;
+     if(current_side()==1 && phase_now()==SCENE_HAND && tw_final_armed && (tw_final_gate||tw_final_block) && !tw_client_tick_ok()) {
+         tw_final_block=1;return;
+     }
+@@ -1216,6 +1218,7 @@
+     /* Draw is used only as a safe runtime fingerprint/state bridge.  All
+      * other hooks are no-ops unless the exact Dual Play v0.5.7 hook is below
+      * us, so Time Wizard remains completely standalone. */
++    if (!host->hook(host,host->symbol(host,"Duel_InitScene"),tw_client_init_scene,&tw_client_original_init))return 0;
+     if (!host->hook(host, DuelScene_UpdateDrawPhase,
+                     compat_draw_phase, &compat_original_draw))
+         return 0;

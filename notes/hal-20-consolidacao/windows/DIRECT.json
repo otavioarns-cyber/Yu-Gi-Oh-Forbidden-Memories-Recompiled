@@ -1,0 +1,17 @@
+[
+  {
+    "binary": "control64.exe",
+    "returncode": 0,
+    "status": "PASS"
+  },
+  {
+    "binary": "control32.exe",
+    "returncode": 1,
+    "status": "AUTOMATION_UNAVAILABLE"
+  },
+  {
+    "binary": "memories-pc.exe",
+    "returncode": 1,
+    "status": "AUTOMATION_UNAVAILABLE"
+  }
+]

@@ -1,0 +1,8 @@
+"""Compile actual manager policy + portable control; archive commands/results."""
+from pathlib import Path
+import argparse,os,subprocess,json,shlex,hashlib
+p=argparse.ArgumentParser();p.add_argument('--output',type=Path,required=True);a=p.parse_args();a.output.mkdir(parents=True,exist_ok=False);root=Path(__file__).resolve().parents[2];cc=shlex.split(os.environ.get('MEMORIES_I386_CC','cc'));run=shlex.split(os.environ.get('MEMORIES_I386_RUNNER',''));rows=[]
+commands=[cc+['-m32','-std=gnu11','-O1','-ffunction-sections','-fdata-sections','-DMEMORIES_PC','-Isrc','-c','src/pc/mods/manager.c','-o',str(a.output/'manager.o')],cc+['-m32','-std=gnu11','-O1','-ffunction-sections','-fdata-sections','-DMEMORIES_PC','-Isrc','tests/hal26-state-timewizard/manager_policy_test.c',str(a.output/'manager.o'),'-Wl,--gc-sections','-o',str(a.output/'manager')],run+[str(a.output/'manager')],cc+['-m32','-std=gnu11','-O1','-Isrc','tests/hal26-state-timewizard/state_policy_control.c','-o',str(a.output/'control')],run+[str(a.output/'control')]]
+for i,cmd in enumerate(commands):
+ q=subprocess.run(cmd,cwd=root,text=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,timeout=60);(a.output/f'step{i}.log').write_text(q.stdout);rows.append(dict(command=cmd,returncode=q.returncode,log=f'step{i}.log'));assert q.returncode==0,q.stdout
+(a.output/'RESULTADOS.json').write_text(json.dumps(dict(steps=rows,source_hashes={f:hashlib.sha256((root/f).read_bytes()).hexdigest() for f in ['src/pc/mods/manager.c','src/pc/mods/state_policy.h','tests/hal26-state-timewizard/state_policy_control.c','tests/hal26-state-timewizard/manager_policy_test.c']}),indent=2)+'\n');print('PASS manager and portable policy (i386); see logs')

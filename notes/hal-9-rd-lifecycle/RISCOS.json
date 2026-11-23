@@ -1,0 +1,35 @@
+{
+  "scope": "RD owner lifecycle prototype over PR36; not a release or guard admission",
+  "Windows_PE32": {
+    "classification": "AUTOMATION_UNAVAILABLE",
+    "host": "Linux",
+    "reason": "No newly available functional Windows PE32 backend/runner or legitimate disc resources; prior unchanged Wine/QEMU PE and suspended Actions limitations remain documented in PR36.",
+    "new_backend_attempt": false,
+    "user_manual_test_requested": false
+  },
+  "full_IO_frontend_renderer": {
+    "classification": "NOT_REACHED",
+    "reason": "Native Main_RunDuel and real MOD callbacks execute, but InitScene IO, phase-entry dispatch, board fixtures and frontend services are modeled. Synthetic end flag is declared."
+  },
+  "terminal_wheel_reset": {
+    "classification": "FAIL",
+    "kind": "HISTORICAL",
+    "processes": 8,
+    "scope": "Instrumented reset34 in flight; SDK reset is post-load, not generic UI cancellation. Core legacy state unchanged."
+  },
+  "callback_lifetime": "Cooperative static/resident tables and ACK remain required. Arbitrary native-code unloading, non-local exits across wrappers and malicious forging of controller globals are not certified.",
+  "counter_exhaustion": "New duel never resets exhausted owner/HF allocators; process lifecycle may be required. Diagnostic state is never permission.",
+  "gameplay_policy": "OBSERVE remains default. KEEP_RD/ALLOW_TW are explicit lab tests, including the controlled policy-change negative321. No functional priority selected.",
+  "other_owners": "This is a RD/TW recovery boundary, not serialization or certification of every ecosystem effect across duels. Queen uses the existing real producer Populate callback. No other MOD changed.",
+  "remaining": [
+    "Review the localized RD candidate and qualify exact complete wrapper/materializer composition before guard admission.",
+    "Resolve terminal wheel lifecycle separately; exact core0.23.1 sources/link recipe still missing for integral rebuild.",
+    "Functional choice for optional competing non-mandatory proposals remains user decision.",
+    "Execute full Windows automation with legitimate runtime resources when available; personal gameplay remains final phase."
+  ],
+  "preserved": [
+    "507 canonical MOD files", "ABI1 and PR34 companion", "TW03cc", "private Dual77cd",
+    "Queen and approved strategies/recipes/effects/settings/assets/quotas",
+    "guard excludes TW", "savestate policy B, A disabled", "all prior branches and PRs"
+  ]
+}

@@ -1,0 +1,730 @@
+NATIVE_DATA D_800907AC size=32
+NATIVE_DATA D_800907CC size=12
+NATIVE_DATA D_800907D8 size=40
+NATIVE_DATA D_80090800 size=160
+NATIVE_DATA gDuel_aOpponentData size=360
+NATIVE_BIND DuelScene_UpdateHandActions unit=duel_scene_hand_actions
+NATIVE_NODE node=-31 target=DuelScene_UpdateHandActions unit=duel_scene_hand_actions code=84130c4f function=DuelScene_UpdateHandActions bytes=5914
+NATIVE_BIND func_8001B938 unit=func_8001B938
+NATIVE_NODE node=-20 target=func_8001B938 unit=func_8001B938 code=49bc8044 function=func_8001B938 bytes=390
+NATIVE_BIND func_8001BAF0 unit=func_8001B938
+NATIVE_NODE node=-12 target=func_8001BAF0 unit=func_8001B938 code=49bc8044 function=func_8001BAF0 bytes=618
+NATIVE_BIND func_80028220 unit=duel_card_state_helpers
+NATIVE_NODE node=-9 target=func_80028220 unit=duel_card_state_helpers code=fb0cef18 function=func_80028220 bytes=69
+NATIVE_BIND func_80027DF8 unit=func_80027DF8
+NATIVE_NODE node=-34 target=func_80027DF8 unit=func_80027DF8 code=6098d2f5 function=func_80027DF8 bytes=1082
+NATIVE_BIND AiScript_Init unit=ai_script_vm
+NATIVE_NODE node=-10 target=AiScript_Init unit=ai_script_vm code=63972523 function=AiScript_Init bytes=101
+NATIVE_BIND Ai_GetHandSize unit=ai_get_hand_size
+NATIVE_NODE node=-42 target=Ai_GetHandSize unit=ai_get_hand_size code=ab42a6cf function=Ai_GetHandSize bytes=35
+NATIVE_BIND func_8001B780 unit=func_8001B7AC
+NATIVE_NODE node=-6 target=func_8001B780 unit=func_8001B7AC code=f5748a2f function=func_8001B780 bytes=62
+NATIVE_BIND func_8001B7AC unit=func_8001B7AC
+NATIVE_NODE node=-16 target=func_8001B7AC unit=func_8001B7AC code=f5748a2f function=func_8001B7AC bytes=217
+NATIVE_BIND Duel_ClearHandSlots unit=duel_state_init
+NATIVE_NODE node=-48 target=Duel_ClearHandSlots unit=duel_state_init code=b7d1d54c function=Duel_ClearHandSlots bytes=80
+MODEL_DATA gBuildDeck_aWorkspace
+NATIVE_BIND Main_RunDuel unit=guard_main
+NATIVE_NODE node=-65 target=Main_RunDuel unit=guard_main code=0cfba455 function=Main_RunDuel bytes=443
+NATIVE_DATA D_8009B26C size=1
+NATIVE_BIND DuelScene_UpdateCardUse unit=func_80019608
+NATIVE_NODE node=-72 target=DuelScene_UpdateCardUse unit=func_80019608 code=3f8bd6b4 function=DuelScene_UpdateCardUse bytes=1237
+MODEL_DATA gCardDrops
+MODEL_DATA gCard_nCount
+MODEL_DATA gDuel_awSavedDefenseModifier
+REAL_HOST_EXPORTS count=397
+LIBRARY_INIT owner=melhoria-dos-rituais hash=1fe34a1e loads=1
+REGISTER owner=melhoria-dos-rituais target=Duel_CheckRitual token=1
+CALLBACK_NODE owner=melhoria-dos-rituais code=1fe34a1e target=Duel_CheckRitual function=ritual_check bytes=9188 node=0
+REGISTER owner=melhoria-dos-rituais target=Duel_RitualFieldObjects token=2
+CALLBACK_NODE owner=melhoria-dos-rituais code=1fe34a1e target=Duel_RitualFieldObjects function=ritual_field_objects bytes=98 node=1
+REGISTER owner=melhoria-dos-rituais target=DuelCard_DeactivateRecord token=3
+CALLBACK_NODE owner=melhoria-dos-rituais code=1fe34a1e target=DuelCard_DeactivateRecord function=ritual_deactivate bytes=664 node=2
+REGISTER owner=melhoria-dos-rituais target=DuelScene_UpdateHandActions token=4
+CALLBACK_NODE owner=melhoria-dos-rituais code=1fe34a1e target=DuelScene_UpdateHandActions function=hand_actions_hook bytes=242 node=3
+REGISTER owner=melhoria-dos-rituais target=Duel_PopulateCombinedDeckData token=5
+CALLBACK_NODE owner=melhoria-dos-rituais code=1fe34a1e target=Duel_PopulateCombinedDeckData function=populate_hook bytes=992 node=4
+REGISTER owner=melhoria-dos-rituais target=Duel_CheckQuitInput token=6
+CALLBACK_NODE owner=melhoria-dos-rituais code=1fe34a1e target=Duel_CheckQuitInput function=quit_input_hook bytes=125 node=5
+REGISTER owner=melhoria-dos-rituais target=DuelScene_UpdateWithSideInput token=7
+CALLBACK_NODE owner=melhoria-dos-rituais code=1fe34a1e target=DuelScene_UpdateWithSideInput function=side_update_hook bytes=89 node=6
+memories-pc: mods: melhoria-dos-rituais loaded its code (rituals.o)
+REGISTER owner=field-effects-secondary-types target=Duel_SetupCardRecord token=8
+CALLBACK_NODE owner=field-effects-secondary-types code=cfd0dcf3 target=Duel_SetupCardRecord function=setup_hook bytes=49 node=7
+REGISTER owner=field-effects-secondary-types target=DuelEffect_ApplyTerrain token=9
+CALLBACK_NODE owner=field-effects-secondary-types code=cfd0dcf3 target=DuelEffect_ApplyTerrain function=apply_terrain_hook bytes=323 node=8
+REGISTER owner=field-effects-secondary-types target=func_80037DA4 token=10
+CALLBACK_NODE owner=field-effects-secondary-types code=cfd0dcf3 target=func_80037DA4 function=text_command_hook bytes=137 node=9
+REGISTER owner=field-effects-secondary-types target=func_80035E20 token=11
+CALLBACK_NODE owner=field-effects-secondary-types code=cfd0dcf3 target=func_80035E20 function=text_draw_hook bytes=4659 node=10
+memories-pc: mods: field-effects-secondary-types loaded its code (field_effects.o)
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindBestAttack token=12
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=AiScript_FindBestAttack function=ea_best bytes=490 node=11
+REGISTER owner=fusion-auxiliary-balance target=AiScript_PlayFieldCard token=13
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=AiScript_PlayFieldCard function=ea_play bytes=1019 node=12
+REGISTER owner=fusion-auxiliary-balance target=AiScript_LoadGuardianStarChoice token=14
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=AiScript_LoadGuardianStarChoice function=ea_star bytes=1768 node=13
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindKiller token=15
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=AiScript_FindKiller function=ea_killer bytes=424 node=14
+REGISTER owner=fusion-auxiliary-balance target=AiScript_CalcCardPower token=16
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=AiScript_CalcCardPower function=ea_power bytes=1051 node=15
+REGISTER owner=fusion-auxiliary-balance target=Duel_CheckFusion token=17
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=Duel_CheckFusion function=aux_check_fusion bytes=1709 node=16
+REGISTER owner=fusion-auxiliary-balance target=func_80023144 token=18
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=func_80023144 function=aux_viewer_info bytes=35 node=17
+REGISTER owner=fusion-auxiliary-balance target=func_80035E20 token=19
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=func_80035E20 function=aux_viewer_draw bytes=2051 node=18
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_AppendEntry token=20
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelEffect_AppendEntry function=aux_attribute_icon_text_entry bytes=106 node=19
+REGISTER owner=fusion-auxiliary-balance target=Duel_CheckEquip token=21
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=Duel_CheckEquip function=aux_check_equip bytes=987 node=20
+REGISTER owner=fusion-auxiliary-balance target=Ai_CompleteFusion token=22
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=Ai_CompleteFusion function=aux_complete_fusion bytes=487 node=21
+REGISTER owner=fusion-auxiliary-balance target=Duel_CalcCardStats token=23
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=Duel_CalcCardStats function=aux_calc_stats bytes=2517 node=22
+REGISTER owner=fusion-auxiliary-balance target=func_8001EFD4 token=24
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=func_8001EFD4 function=r2_compare bytes=381 node=23
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyLifePointRecovery token=25
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelEffect_ApplyLifePointRecovery function=aux_healing bytes=140 node=24
+REGISTER owner=fusion-auxiliary-balance target=DuelCard_RemoveFromField token=26
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelCard_RemoveFromField function=aux_remove bytes=665 node=25
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyBoardDestruction token=27
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelEffect_ApplyBoardDestruction function=aux_board bytes=78 node=26
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyRaigeki token=28
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelEffect_ApplyRaigeki function=aux_raigeki bytes=78 node=27
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_ApplyMonsterRemoval token=29
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelEffect_ApplyMonsterRemoval function=aux_monster_removal bytes=78 node=28
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateBattle token=30
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelScene_UpdateBattle function=aux_battle bytes=8098 node=29
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateTurnSwitch token=31
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelScene_UpdateTurnSwitch function=aux_darkfire_turn_switch bytes=161 node=30
+REGISTER owner=fusion-auxiliary-balance target=DuelCard_UpdateDefenseRotation token=32
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelCard_UpdateDefenseRotation function=aux_rotate bytes=287 node=31
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateResume token=33
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelScene_UpdateResume function=aux_resume bytes=616 node=32
+REGISTER owner=fusion-auxiliary-balance target=func_80024D34 token=34
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=func_80024D34 function=aux_restore_generated_card bytes=557 node=33
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_Update token=35
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelScene_Update function=aux_scene bytes=6625 node=34
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateHandActions token=36
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelScene_UpdateHandActions function=aux_hand_actions bytes=314 node=35
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateCardPlacement token=37
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelScene_UpdateCardPlacement function=aux_card_placement bytes=2654 node=36
+REGISTER owner=fusion-auxiliary-balance target=func_8001B170 token=38
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=func_8001B170 function=aux_card_finalize bytes=839 node=37
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_UpdateCardEffect token=39
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelEffect_UpdateCardEffect function=aux_card_effect_update bytes=511 node=38
+REGISTER owner=fusion-auxiliary-balance target=DuelScene_UpdateFieldActions token=40
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelScene_UpdateFieldActions function=aux_field_actions bytes=679 node=39
+REGISTER owner=fusion-auxiliary-balance target=DuelEffect_UpdateRequests token=41
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=DuelEffect_UpdateRequests function=aux_update_requests bytes=1864 node=40
+REGISTER owner=fusion-auxiliary-balance target=Duel_GetBaseCardStat token=42
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=Duel_GetBaseCardStat function=aux_base_stat bytes=1596 node=41
+REGISTER owner=fusion-auxiliary-balance target=AiScript_FindBestCombo token=43
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=AiScript_FindBestCombo function=aux_find_combo bytes=134 node=42
+REGISTER owner=fusion-auxiliary-balance target=AiScript_EvaluateFusion token=44
+CALLBACK_NODE owner=fusion-auxiliary-balance code=69a6af85 target=AiScript_EvaluateFusion function=aux_evaluate_combo bytes=134 node=43
+memories-pc: mods: fusion-auxiliary-balance loaded its code (fusion-auxiliary-balance.o)
+REGISTER owner=ai-hard-mode target=AiScript_Init token=45
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=AiScript_Init function=initialize bytes=93 node=44
+REGISTER owner=ai-hard-mode target=AiScript_Run token=46
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=AiScript_Run function=run bytes=3820 node=45
+REGISTER owner=ai-hard-mode target=Ai_GetHandSize token=47
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=Ai_GetHandSize function=window bytes=363 node=46
+REGISTER owner=ai-hard-mode target=func_8001BAF0 token=48
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=func_8001BAF0 function=swap_selection bytes=1503 node=47
+REGISTER owner=ai-hard-mode target=AiScript_FindStrongest token=49
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=AiScript_FindStrongest function=strongest bytes=32 node=48
+REGISTER owner=ai-hard-mode target=AiScript_FindWeakest token=50
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=AiScript_FindWeakest function=weakest bytes=35 node=49
+REGISTER owner=ai-hard-mode target=AiScript_FindCard token=51
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=AiScript_FindCard function=find_card bytes=35 node=50
+REGISTER owner=ai-hard-mode target=AiScript_MatchType token=52
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=AiScript_MatchType function=match_type bytes=35 node=51
+REGISTER owner=ai-hard-mode target=AiScript_FindDefenseStopper token=53
+CALLBACK_NODE owner=ai-hard-mode code=00049e34 target=AiScript_FindDefenseStopper function=defense_stopper bytes=32 node=52
+memories-pc: mods: ai-hard-mode loaded its code (ai-hard-mode.o)
+LIBRARY_INIT owner=ritual-duelists hash=4563f8c0 loads=1
+STATE owner=ritual-duelists size=288 version=4
+REGISTER owner=ritual-duelists target=DuelEffect_ApplyRitual token=54
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=DuelEffect_ApplyRitual function=rd_ritual_commit bytes=235 node=53
+REGISTER owner=ritual-duelists target=Duel_CheckFusion token=55
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=Duel_CheckFusion function=rd_fusion_decision bytes=666 node=54
+REGISTER owner=ritual-duelists target=Duel_ShuffleDeck token=56
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=Duel_ShuffleDeck function=rd_deal bytes=1036 node=55
+REGISTER owner=ritual-duelists target=Ai_GetHandSize token=57
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=Ai_GetHandSize function=rd_ai_window bytes=214 node=56
+REGISTER owner=ritual-duelists target=func_8001BAF0 token=58
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=func_8001BAF0 function=rd_duel_materialize bytes=1839 node=57
+REGISTER owner=ritual-duelists target=AiScript_Run token=59
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=AiScript_Run function=rd_duel_ai bytes=1020 node=58
+REGISTER owner=ritual-duelists target=NameEntry_BuildStarterDeck token=60
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=NameEntry_BuildStarterDeck function=deal bytes=3926 node=59
+REGISTER owner=ritual-duelists target=Duel_SelectCardDrop token=61
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=Duel_SelectCardDrop function=rd_select_drop bytes=640 node=60
+REGISTER owner=ritual-duelists target=DuelScene_UpdateHandActions token=62
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=DuelScene_UpdateHandActions function=rd_duel_hand_tick bytes=573 node=61
+REGISTER owner=ritual-duelists target=Main_RunDuel token=63
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=Main_RunDuel function=rd_duel_main bytes=365 node=62
+REGISTER owner=ritual-duelists target=Duel_InitScene token=64
+CALLBACK_NODE owner=ritual-duelists code=4563f8c0 target=Duel_InitScene function=rd_duel_init bytes=1388 node=63
+memories-pc: mods: ritual-duelists loaded its code (ritual-duelists.o)
+LIBRARY_INIT owner=time-wizard-time-magic hash=803e95f1 loads=1
+REGISTER owner=time-wizard-time-magic target=Input_UpdatePads token=65
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=Input_UpdatePads function=update_pads bytes=82 node=64
+STATE owner=time-wizard-time-magic size=296 version=14
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateCardUse token=66
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateCardUse function=card_use bytes=1459 node=65
+REGISTER owner=time-wizard-time-magic target=func_8001B938 token=67
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=func_8001B938 function=select_zone bytes=182 node=66
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateHandActions token=68
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateHandActions function=hand_actions bytes=232 node=67
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateCardPlacement token=69
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateCardPlacement function=TimeWizard_PlaceCardInvisible bytes=828 node=68
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateFieldActions token=70
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateFieldActions function=field_actions bytes=444 node=69
+REGISTER owner=time-wizard-time-magic target=Duel_PopulateCombinedDeckData token=71
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=Duel_PopulateCombinedDeckData function=populate bytes=280 node=70
+REGISTER owner=time-wizard-time-magic target=AiScript_Run token=72
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=AiScript_Run function=ai_run bytes=4727 node=71
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateCardUse token=73
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateCardUse function=ai_card_use bytes=67 node=72
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateFieldActions token=74
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateFieldActions function=ai_field_actions bytes=841 node=73
+REGISTER owner=time-wizard-time-magic target=func_8001B938 token=75
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=func_8001B938 function=ai_select_zone bytes=377 node=74
+REGISTER owner=time-wizard-time-magic target=Duel_InitScene token=76
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=Duel_InitScene function=tw_client_init_scene bytes=1012 node=75
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateDrawPhase token=77
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateDrawPhase function=compat_draw_phase bytes=40 node=76
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateHandActions token=78
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateHandActions function=compat_hand_actions bytes=4444 node=77
+REGISTER owner=time-wizard-time-magic target=DuelScene_UpdateCardUse token=79
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=DuelScene_UpdateCardUse function=compat_card_use bytes=462 node=78
+REGISTER owner=time-wizard-time-magic target=func_8001B938 token=80
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=func_8001B938 function=compat_select_zone bytes=834 node=79
+REGISTER owner=time-wizard-time-magic target=func_80028220 token=81
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=func_80028220 function=tw_client_snapshot bytes=373 node=80
+REGISTER owner=time-wizard-time-magic target=AiScript_Run token=82
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=AiScript_Run function=compat_ai_run bytes=2520 node=81
+REGISTER owner=time-wizard-time-magic target=func_8001BAF0 token=83
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=func_8001BAF0 function=compat_ai_swap bytes=716 node=82
+REGISTER owner=time-wizard-time-magic target=func_80037DA4 token=84
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=func_80037DA4 function=view_text_command bytes=137 node=83
+REGISTER owner=time-wizard-time-magic target=func_80035E20 token=85
+CALLBACK_NODE owner=time-wizard-time-magic code=803e95f1 target=func_80035E20 function=view_text_draw bytes=2182 node=84
+memories-pc: mods: time-wizard-time-magic loaded its code (time-wizard.o)
+memories-pc: mod time-wizard-time-magic: warning: this build has no audio replacement
+LIBRARY_INIT owner=ritual-card-effects-test hash=1e478c68 loads=1
+TRACE case=init owner=engine name=SoftGpu_Bank
+REGISTER owner=ritual-card-effects-test target=Input_UpdatePads token=86
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Input_UpdatePads function=coin_update_pads bytes=92 node=85
+REGISTER owner=ritual-card-effects-test target=Main_RunDuel token=87
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Main_RunDuel function=coin_run_duel bytes=36 node=86
+REGISTER owner=ritual-card-effects-test target=Main_RunAnimatedBattle token=88
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Main_RunAnimatedBattle function=coin_animated_battle bytes=1036 node=87
+REGISTER owner=ritual-card-effects-test target=func_800559D4 token=89
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_800559D4 function=coin_model_control bytes=318 node=88
+REGISTER owner=ritual-card-effects-test target=DuelCard_UpdateDefenseRotation token=90
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelCard_UpdateDefenseRotation function=chaos_defense_rotation bytes=151 node=89
+REGISTER owner=ritual-card-effects-test target=func_80017F04 token=91
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_80017F04 function=serpent_stage_card bytes=663 node=90
+REGISTER owner=ritual-card-effects-test target=AiScript_Run token=92
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=AiScript_Run function=selection_ai_run bytes=3217 node=91
+REGISTER owner=ritual-card-effects-test target=AiScript_FindWeakest token=93
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=AiScript_FindWeakest function=serpent_ai_find_weakest bytes=107 node=92
+REGISTER owner=ritual-card-effects-test target=Ai_IsCardInSets token=94
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Ai_IsCardInSets function=serpent_ai_in_sets bytes=247 node=93
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=95
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=AiScript_FindBestAttack function=serpent_ai_best_attack bytes=440 node=94
+REGISTER owner=ritual-card-effects-test target=func_80037DA4 token=96
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_80037DA4 function=ritual_viewer_fit_command bytes=183 node=95
+REGISTER owner=ritual-card-effects-test target=func_80035E20 token=97
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_80035E20 function=ritual_viewer_effect_title_draw bytes=3584 node=96
+REGISTER owner=ritual-card-effects-test target=func_80027508 token=98
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_80027508 function=test_ai_turn_action bytes=23 node=97
+REGISTER owner=ritual-card-effects-test target=func_80024D34 token=99
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_80024D34 function=puppet_safe_rebuild bytes=268 node=98
+REGISTER owner=ritual-card-effects-test target=DuelScene_Update token=100
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelScene_Update function=scene_update bytes=2533 node=99
+REGISTER owner=ritual-card-effects-test target=func_80023144 token=101
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_80023144 function=field_card_info bytes=359 node=100
+REGISTER owner=ritual-card-effects-test target=Duel_DrawFieldCards token=102
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_DrawFieldCards function=chakra_draw_field_cards bytes=199 node=101
+REGISTER owner=ritual-card-effects-test target=func_80016784 token=103
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_80016784 function=visual_card_frame_draw bytes=2498 node=102
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRitual token=104
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelEffect_ApplyRitual function=apply_ritual bytes=3527 node=103
+REGISTER owner=ritual-card-effects-test target=Duel_CalcCardStats token=105
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_CalcCardStats function=calc_stats bytes=4860 node=104
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleAttack token=106
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_CalcBattleAttack function=battle_attack bytes=502 node=105
+REGISTER owner=ritual-card-effects-test target=Duel_CalcBattleDefense token=107
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_CalcBattleDefense function=battle_defense bytes=502 node=106
+REGISTER owner=ritual-card-effects-test target=Duel_CalcGuardianStarBonus token=108
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_CalcGuardianStarBonus function=guardian_star_bonus bytes=358 node=107
+REGISTER owner=ritual-card-effects-test target=func_8001EFD4 token=109
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_8001EFD4 function=sengenjin_battle_compare bytes=1684 node=108
+REGISTER owner=ritual-card-effects-test target=func_8001B170 token=110
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_8001B170 function=sengenjin_reverse_trap_step bytes=636 node=109
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyStatPenalty token=111
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelEffect_ApplyStatPenalty function=sengenjin_track_stat_penalty bytes=689 node=110
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyCursebreaker token=112
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelEffect_ApplyCursebreaker function=sengenjin_track_cursebreaker bytes=598 node=111
+REGISTER owner=ritual-card-effects-test target=DuelCard_RemoveFromField token=113
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelCard_RemoveFromField function=remove_card bytes=3786 node=112
+REGISTER owner=ritual-card-effects-test target=DuelCard_DeactivateRecord token=114
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelCard_DeactivateRecord function=deactivate_card bytes=2945 node=113
+REGISTER owner=ritual-card-effects-test target=Duel_ResetCardRecords token=115
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_ResetCardRecords function=reset_card_records bytes=171 node=114
+REGISTER owner=ritual-card-effects-test target=Duel_PopulateCombinedDeckData token=116
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_PopulateCombinedDeckData function=populate bytes=33 node=115
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateFieldActions token=117
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelScene_UpdateFieldActions function=field_actions bytes=18763 node=116
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateCardPlacement token=118
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelScene_UpdateCardPlacement function=card_placement bytes=430 node=117
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateHandActions token=119
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelScene_UpdateHandActions function=hand_actions bytes=1767 node=118
+REGISTER owner=ritual-card-effects-test target=func_8001BAF0 token=120
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=func_8001BAF0 function=cosmo_hand_swap bytes=187 node=119
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateBattle token=121
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelScene_UpdateBattle function=battle bytes=13339 node=120
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateRequests token=122
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelEffect_UpdateRequests function=update_effect_requests bytes=1764 node=121
+REGISTER owner=ritual-card-effects-test target=DuelEffect_UpdateCardEffect token=123
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelEffect_UpdateCardEffect function=update_card_effect bytes=6826 node=122
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateDrawPhase token=124
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelScene_UpdateDrawPhase function=draw_phase bytes=33 node=123
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyBoardDestruction token=125
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelEffect_ApplyBoardDestruction function=board_destruction bytes=101 node=124
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyMonsterRemoval token=126
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelEffect_ApplyMonsterRemoval function=monster_removal bytes=514 node=125
+REGISTER owner=ritual-card-effects-test target=DuelEffect_ApplyRaigeki token=127
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelEffect_ApplyRaigeki function=raigeki bytes=2132 node=126
+REGISTER owner=ritual-card-effects-test target=DuelScene_UpdateTurnSwitch token=128
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=DuelScene_UpdateTurnSwitch function=turn_switch bytes=2076 node=127
+REGISTER owner=ritual-card-effects-test target=Duel_CheckFusion token=129
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_CheckFusion function=mask_check_fusion bytes=603 node=128
+REGISTER owner=ritual-card-effects-test target=Duel_CheckRitual token=130
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=Duel_CheckRitual function=mask_check_ritual bytes=8747 node=129
+REGISTER owner=ritual-card-effects-test target=AiScript_PlayFieldCard token=131
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=AiScript_PlayFieldCard function=ea_play bytes=1019 node=130
+REGISTER owner=ritual-card-effects-test target=AiScript_LoadGuardianStarChoice token=132
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=AiScript_LoadGuardianStarChoice function=ea_star bytes=1768 node=131
+REGISTER owner=ritual-card-effects-test target=AiScript_FindKiller token=133
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=AiScript_FindKiller function=ea_killer bytes=424 node=132
+REGISTER owner=ritual-card-effects-test target=AiScript_CalcCardPower token=134
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=AiScript_CalcCardPower function=ea_power bytes=1051 node=133
+REGISTER owner=ritual-card-effects-test target=AiScript_FindBestAttack token=135
+CALLBACK_NODE owner=ritual-card-effects-test code=1e478c68 target=AiScript_FindBestAttack function=ea_best bytes=490 node=134
+memories-pc: mods: ritual-card-effects-test loaded its code (ritual-card-effects.o)
+memories-pc: mod ritual-card-effects-test: warning: this build has no audio replacement
+REGISTER owner=hal2224-observer target=AiScript_Run token=136
+CALLBACK_NODE owner=hal2224-observer code=5be2de69 target=AiScript_Run function=run bytes=46 node=135
+memories-pc: mods: hal2224-observer loaded its code (observer.o)
+LOADED ai-hard-mode active=1 code=00049e34 status=
+LOADED drop-missing-cards active=1 code=00000000 status=
+LOADED dual-play active=0 code=00000000 status=
+LOADED field-effects-secondary-types active=1 code=cfd0dcf3 status=
+LOADED fusion-auxiliary-balance active=1 code=69a6af85 status=
+LOADED hal2224-observer active=1 code=5be2de69 status=
+LOADED melhoria-dos-rituais active=1 code=1fe34a1e status=
+LOADED ritual-card-effects-test active=1 code=1e478c68 status=this build has no audio replacement
+LOADED ritual-duelists active=1 code=4563f8c0 status=
+LOADED time-wizard-time-magic active=1 code=803e95f1 status=this build has no audio replacement
+ADMISSION PASS reason=
+TRACE case=init owner=ritual-card-effects-test kind=hook name=Main_RunDuel
+TRACE case=init owner=ritual-duelists kind=hook name=Main_RunDuel
+TRACE case=init owner=engine name=Main_RunDuel
+TRACE case=init owner=engine name=Mods_Hal2224GuardReady
+RESULT native-MainRunDuel-admission-fence PASS Actual current Main_RunDuel body; engine beyond first entry is not executed.
+RESULT admission-matches-request PASS Unsafe requested order must not enter controller.
+TRACE case=init owner=time-wizard-time-magic kind=hook name=Duel_InitScene
+TRACE case=init owner=ritual-duelists kind=hook name=Duel_InitScene
+CASE RD-owned-duel-boundary
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=118 child=77
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=77 child=67
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=67 child=61
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=61 child=35
+TRACE case=RD-owned-duel-boundary owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=35 child=3
+TRACE case=RD-owned-duel-boundary owner=engine name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=3 child=-31
+TRACE case=RD-owned-duel-boundary owner=engine name=DisplayObject_FindFreeGeneralSlot
+TRACE case=RD-owned-duel-boundary owner=engine name=DisplayObject_AcquireSlot
+TRACE case=RD-owned-duel-boundary owner=engine name=DisplayObject_ConfigureSpriteResource
+TRACE case=RD-owned-duel-boundary owner=engine name=DisplayObject_SelectOrderingTable1
+TRACE case=RD-owned-duel-boundary owner=engine name=DisplayObject_SetDepthOffset
+TRACE case=RD-owned-duel-boundary owner=engine name=func_8001B780
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=func_80023144
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=func_80023144
+TRACE case=RD-owned-duel-boundary owner=engine name=func_80023144
+CALLBACK_EXIT node=-31 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=-31 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=1 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=3 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=3 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=3 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=35 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=35 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=35 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=61 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=61 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=61 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=67 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=67 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=67 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=77 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=77 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=77 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=118 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=118 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=118 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+STEP frame=0 phase=4 substate=0 selection=0
+RECOVERY state=0 cause=0 attempts=0 action=0 gen=3 epoch=4 sequence=1 mode=0
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=118 child=77
+CALLBACK_EDGE parent=77 child=67
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=67 child=61
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=61 child=35
+TRACE case=RD-owned-duel-boundary owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=35 child=3
+TRACE case=RD-owned-duel-boundary owner=engine name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=3 child=-31
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=func_80028220
+CALLBACK_EDGE parent=-31 child=80
+TRACE case=RD-owned-duel-boundary owner=engine name=func_80028220
+CALLBACK_EDGE parent=80 child=-9
+TRACE case=RD-owned-duel-boundary owner=engine name=func_80027DF8
+TRACE case=RD-owned-duel-boundary owner=engine name=func_80027DF8
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Duel_CalcCardStats
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=Duel_CalcCardStats
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_CalcCardStats
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Duel_CalcCardStats
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=Duel_CalcCardStats
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_CalcCardStats
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Duel_CalcCardStats
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=Duel_CalcCardStats
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_CalcCardStats
+CALLBACK_EXIT node=-9 target=func_80028220 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=-9 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=-9 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=80 target=func_80028220 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=80 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=80 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+TRACE case=RD-owned-duel-boundary owner=ai-hard-mode kind=hook name=AiScript_Init
+TRACE case=RD-owned-duel-boundary owner=engine name=AiScript_Init
+TRACE case=RD-owned-duel-boundary owner=engine name=bzero
+TRACE case=RD-owned-duel-boundary owner=engine name=bzero
+TRACE case=RD-owned-duel-boundary owner=engine name=bzero
+CALLBACK_EXIT node=-31 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=-31 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=1 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=3 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=3 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=3 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=35 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=35 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=35 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=61 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=61 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=61 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=67 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=67 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=67 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=77 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=77 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=77 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=118 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=118 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=118 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=1 identity_mask=0 terrain_mask=0
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=RD-owned-duel-boundary owner=ai-hard-mode kind=hook name=Ai_GetHandSize
+TRACE case=RD-owned-duel-boundary owner=engine name=Ai_GetHandSize
+TRACE case=RD-owned-duel-boundary owner=engine name=Duelists_AiRow
+TRACE case=RD-owned-duel-boundary owner=engine name=Duelists_Named
+TRACE case=RD-owned-duel-boundary owner=engine name=Duelists_Named
+TRACE case=RD-owned-duel-boundary owner=engine name=Duelists_Named
+SNAPSHOT bonus=0 used=0 window=20 ids=16,16,344,111,112,680,571,99,99,99,99,99,99,99,99,99,99,99,99,99
+STEP frame=1 phase=4 substate=32768 selection=0
+RECOVERY state=0 cause=0 attempts=0 action=0 gen=3 epoch=4 sequence=1 mode=0
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=118 child=77
+CALLBACK_EDGE parent=77 child=67
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=67 child=61
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=61 child=35
+TRACE case=RD-owned-duel-boundary owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=35 child=3
+TRACE case=RD-owned-duel-boundary owner=engine name=DuelScene_UpdateHandActions
+CALLBACK_EDGE parent=3 child=-31
+TRACE case=RD-owned-duel-boundary owner=hal2224-observer kind=hook name=AiScript_Run
+CALLBACK_EDGE parent=-31 child=135
+SUPPORT_SELECTION stage=enter owner=hal2224-observer callback=AiScript_Run tx=0 action=0 generation=0 captured=0 destination=0 mandatory=0 pending=0 pending_card=0 pending_source=0 live=0 live_destination=0 hand=5 materializations=0
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=AiScript_Run
+CALLBACK_EDGE parent=135 child=91
+SUPPORT_SELECTION stage=enter owner=ritual-card-effects-test callback=AiScript_Run tx=0 action=0 generation=0 captured=0 destination=0 mandatory=0 pending=0 pending_card=0 pending_source=0 live=0 live_destination=0 hand=5 materializations=0
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=AiScript_Run
+CALLBACK_EDGE parent=91 child=81
+SUPPORT_SELECTION stage=enter owner=time-wizard-time-magic callback=AiScript_Run tx=0 action=0 generation=0 captured=0 destination=0 mandatory=0 pending=0 pending_card=0 pending_source=0 live=0 live_destination=0 hand=5 materializations=0
+SUPPORT_PLANNER stage=enter side=1 cpu=9 script=1 handTW=16 enemy=22,22,22 diag_enemy=0 worth=0 reason=0 evaluations=0 available=0 locked=0 EV=0 normal=0 bank=0 choice=0 selected=0 destination=0
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=AiScript_Run
+CALLBACK_EDGE parent=81 child=71
+SUPPORT_SELECTION stage=enter owner=time-wizard-time-magic callback=AiScript_Run tx=0 action=0 generation=0 captured=0 destination=0 mandatory=0 pending=0 pending_card=0 pending_source=0 live=0 live_destination=0 hand=5 materializations=0
+SUPPORT_PLANNER stage=enter side=1 cpu=9 script=1 handTW=16 enemy=22,22,22 diag_enemy=0 worth=0 reason=0 evaluations=0 available=0 locked=0 EV=0 normal=0 bank=0 choice=0 selected=0 destination=0
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=AiScript_Run
+CALLBACK_EDGE parent=71 child=58
+SUPPORT_SELECTION stage=enter owner=ritual-duelists callback=AiScript_Run tx=0 action=0 generation=0 captured=0 destination=0 mandatory=0 pending=0 pending_card=0 pending_source=0 live=0 live_destination=0 hand=5 materializations=0
+TRACE case=RD-owned-duel-boundary owner=ai-hard-mode kind=hook name=AiScript_Run
+CALLBACK_EDGE parent=58 child=45
+SUPPORT_SELECTION stage=enter owner=ai-hard-mode callback=AiScript_Run tx=0 action=0 generation=0 captured=0 destination=0 mandatory=0 pending=0 pending_card=0 pending_source=0 live=0 live_destination=0 hand=5 materializations=0
+TRACE case=RD-owned-duel-boundary owner=engine name=Ai_GetHandSize
+TRACE case=RD-owned-duel-boundary owner=engine name=Duelists_AiRow
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Duel_CheckRitual
+TRACE case=RD-owned-duel-boundary owner=melhoria-dos-rituais kind=hook name=Duel_CheckRitual
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_CheckRitual
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=engine name=Tower_Refuses
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=engine name=Tower_Refuses
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=fusion-auxiliary-balance kind=hook name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_CheckFusion
+TRACE case=RD-owned-duel-boundary owner=engine name=Tower_Refuses
+SUPPORT_SELECTION stage=exit owner=ai-hard-mode callback=AiScript_Run tx=0 action=0 generation=0 captured=0 destination=0 mandatory=0 pending=0 pending_card=0 pending_source=0 live=15 live_destination=1 hand=5 materializations=0
+CALLBACK_EXIT node=45 target=AiScript_Run selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=45 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=45 selection_changed=1 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Ai_GetHandSize
+TRACE case=RD-owned-duel-boundary owner=ai-hard-mode kind=hook name=Ai_GetHandSize
+TRACE case=RD-owned-duel-boundary owner=engine name=Ai_GetHandSize
+TRACE case=RD-owned-duel-boundary owner=engine name=Duelists_AiRow
+SUPPORT_SELECTION stage=exit owner=ritual-duelists callback=AiScript_Run tx=1 action=1 generation=3 captured=16 destination=6 mandatory=0 pending=1 pending_card=680 pending_source=16 live=16 live_destination=6 hand=5 materializations=0
+CALLBACK_EXIT node=58 target=AiScript_Run selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=58 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=58 selection_changed=1 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+TRACE case=RD-owned-duel-boundary owner=engine name=CardRules_Fusion
+TRACE case=RD-owned-duel-boundary owner=engine name=CardRules_Fusion
+TRACE case=RD-owned-duel-boundary owner=engine name=CardRules_Fusion
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=func_80028220
+CALLBACK_EDGE parent=71 child=80
+TRACE case=RD-owned-duel-boundary owner=engine name=func_80028220
+CALLBACK_EDGE parent=80 child=-9
+TRACE case=RD-owned-duel-boundary owner=engine name=func_80027DF8
+CALLBACK_EXIT node=-9 target=func_80028220 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=-9 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=-9 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=80 target=func_80028220 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=80 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=80 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+SUPPORT_SELECTION stage=exit owner=time-wizard-time-magic callback=AiScript_Run tx=1 action=1 generation=3 captured=16 destination=6 mandatory=0 pending=1 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+SUPPORT_PLANNER stage=exit side=1 cpu=9 script=1 handTW=16 enemy=22,22,22 diag_enemy=3 worth=1 reason=7 evaluations=1 available=1 locked=0 EV=3135 normal=0 bank=0 choice=1 selected=11 destination=6
+CALLBACK_EXIT node=71 target=AiScript_Run selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=71 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=71 selection_changed=1 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+SUPPORT_SELECTION stage=exit owner=time-wizard-time-magic callback=AiScript_Run tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+SUPPORT_PLANNER stage=exit side=1 cpu=9 script=1 handTW=16 enemy=22,22,22 diag_enemy=3 worth=1 reason=7 evaluations=1 available=1 locked=0 EV=3135 normal=0 bank=0 choice=1 selected=11 destination=6
+CALLBACK_EXIT node=81 target=AiScript_Run selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=81 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=81 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+SUPPORT_SELECTION stage=exit owner=ritual-card-effects-test callback=AiScript_Run tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+CALLBACK_EXIT node=91 target=AiScript_Run selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=91 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=91 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+TRACE case=RD-owned-duel-boundary owner=engine name=HAL2224_AfterPlanner
+PUBLIC_BIND abi=1 provider=1
+CLIENT_SELECTION stage=after-planner source=11 destination=6 face=0 category=2 ticket_category=2 last_rc=1
+PENDING after-real-planners active=0 side=1 source=16 replacement=0 card=680 mode=1 target=6 fallback=15 selection=11
+PLAN pending=0 selection=11 id=16 type=1 bonus=0 used=0
+TRACE case=RD-owned-duel-boundary owner=engine name=HAL_RD_DUEL_PAUSE
+SUPPORT_SELECTION stage=exit owner=hal2224-observer callback=AiScript_Run tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+CALLBACK_EXIT node=135 target=AiScript_Run selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=135 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=135 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+GATE_INPUT owner=ritual-card-effects-test selection=11 card=16 category=1
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=func_8001BAF0
+CALLBACK_EDGE parent=-31 child=119
+SUPPORT_SELECTION stage=enter owner=ritual-card-effects-test callback=func_8001BAF0 tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+GATE_INPUT owner=time-wizard-time-magic selection=11 card=16 category=1
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=func_8001BAF0
+CALLBACK_EDGE parent=119 child=82
+SUPPORT_SELECTION stage=enter owner=time-wizard-time-magic callback=func_8001BAF0 tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+GATE_INPUT owner=ritual-duelists selection=11 card=16 category=1
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=func_8001BAF0
+CALLBACK_EDGE parent=82 child=57
+SUPPORT_SELECTION stage=enter owner=ritual-duelists callback=func_8001BAF0 tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+GATE_INPUT owner=ai-hard-mode selection=11 card=16 category=1
+TRACE case=RD-owned-duel-boundary owner=ai-hard-mode kind=hook name=func_8001BAF0
+CALLBACK_EDGE parent=57 child=47
+SUPPORT_SELECTION stage=enter owner=ai-hard-mode callback=func_8001BAF0 tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+SUPPORT_SELECTION stage=exit owner=ai-hard-mode callback=func_8001BAF0 tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+CALLBACK_EXIT node=47 target=func_8001BAF0 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=47 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=47 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+SUPPORT_SELECTION stage=exit owner=ritual-duelists callback=func_8001BAF0 tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+CALLBACK_EXIT node=57 target=func_8001BAF0 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=57 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=57 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+SUPPORT_SELECTION stage=exit owner=time-wizard-time-magic callback=func_8001BAF0 tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+CALLBACK_EXIT node=82 target=func_8001BAF0 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=82 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=82 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+SUPPORT_SELECTION stage=exit owner=ritual-card-effects-test callback=func_8001BAF0 tx=1 action=1 generation=3 captured=11 destination=6 mandatory=0 pending=0 pending_card=680 pending_source=16 live=11 live_destination=6 hand=5 materializations=0
+CALLBACK_EXIT node=119 target=func_8001BAF0 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=119 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=119 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=-31 target=DuelScene_UpdateHandActions selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=-31 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=1 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=3 target=DuelScene_UpdateHandActions selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=3 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=3 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=35 target=DuelScene_UpdateHandActions selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=35 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=35 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=61 target=DuelScene_UpdateHandActions selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=61 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=61 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=67 target=DuelScene_UpdateHandActions selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=67 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=67 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=77 target=DuelScene_UpdateHandActions selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=77 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=77 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=118 target=DuelScene_UpdateHandActions selection_changed=1 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=118 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=118 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+STEP frame=2 phase=4 substate=1 selection=11
+RECOVERY state=6 cause=0 attempts=0 action=1 gen=3 epoch=4 sequence=3 mode=0
+CALLBACK_EXIT node=-31 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=1 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=3 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+CALLBACK_SELF node=3 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=35 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+CALLBACK_SELF node=35 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=61 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+CALLBACK_SELF node=61 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=67 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+CALLBACK_SELF node=67 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=77 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+CALLBACK_SELF node=77 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=118 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=0 materializations=0
+CALLBACK_SELF node=118 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+RECOVERY state=6 cause=0 attempts=0 action=1 gen=3 epoch=4 sequence=3 mode=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=3 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=35 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=61 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=67 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=77 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=118 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+RECOVERY state=6 cause=0 attempts=0 action=1 gen=3 epoch=4 sequence=3 mode=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=1 empty_exit=0 identity_mask=0 terrain_mask=0
+TRACE case=RD-owned-duel-boundary owner=engine name=func_8001B8B8
+TRACE case=RD-owned-duel-boundary owner=engine name=SD_SEPlayFull
+TRACE case=RD-owned-duel-boundary owner=engine name=MonsterEffects_PlayFaceUp
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=func_8001B938
+CALLBACK_EDGE parent=-31 child=79
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=func_8001B938
+CALLBACK_EDGE parent=79 child=74
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=func_8001B938
+CALLBACK_EDGE parent=74 child=66
+TRACE case=RD-owned-duel-boundary owner=engine name=func_8001B938
+CALLBACK_EDGE parent=66 child=-20
+CALLBACK_EXIT node=-20 target=func_8001B938 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=-20 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=-20 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=66 target=func_8001B938 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=66 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=66 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=74 target=func_8001B938 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=74 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=74 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=79 target=func_8001B938 selection_changed=0 deck_changed=0 consumed=0 materializations=0
+FIELD_WRITES node=79 identity_mask=0 terrain_mask=0
+CALLBACK_SELF node=79 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+TRACE case=RD-owned-duel-boundary owner=engine name=func_80024088
+TRACE case=RD-owned-duel-boundary owner=engine name=SD_SEPlayFull
+CALLBACK_EXIT node=-31 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=1 materializations=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=1 materializations=0 phase_changed=0 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+CALLBACK_EXIT node=3 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=1 materializations=0
+CALLBACK_EXIT node=35 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=1 materializations=0
+CALLBACK_EXIT node=61 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=1 materializations=0
+CALLBACK_EXIT node=67 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=1 materializations=0
+CALLBACK_EXIT node=77 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=1 materializations=0
+CALLBACK_EXIT node=118 target=DuelScene_UpdateHandActions selection_changed=0 deck_changed=0 consumed=1 materializations=0
+RECOVERY state=0 cause=0 attempts=0 action=1 gen=3 epoch=4 sequence=4 mode=0
+RECOVERY state=0 cause=0 attempts=0 action=1 gen=3 epoch=4 sequence=4 mode=0
+CALLBACK_SELF node=-31 selection_changed=0 deck_changed=0 consumed=0 materializations=0 phase_changed=1 substate_changed=0 empty_exit=0 identity_mask=0 terrain_mask=0
+STEP frame=14 phase=7 substate=49155 selection=11
+RECOVERY state=0 cause=0 attempts=0 action=1 gen=3 epoch=4 sequence=4 mode=0
+OWNER_FIRST mode=315 phase=7 hand=4 RD=0 generation=3 connection=4 serial=1 pending=0 hf=6 consumed=1
+RESULT first-owner-action-boundary PASS Real planner, producer, materializer and available native controller; adversarial faults are explicit.
+INSTRUMENTED allocator exhaustion metadata only, not pending/plan/quota
+RECOVERY state=0 cause=0 attempts=0 action=4294967295 gen=4294967295 epoch=4 sequence=4 mode=0
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=engine name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=engine name=Mods_Hal2224GuardReady
+TRACE case=RD-owned-duel-boundary owner=melhoria-dos-rituais kind=hook name=DuelScene_UpdateWithSideInput
+TRACE case=RD-owned-duel-boundary owner=engine name=DuelScene_UpdateWithSideInput
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=engine name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=engine name=Mods_Hal2224GuardReady
+TRACE case=RD-owned-duel-boundary owner=engine name=Fade_WaitOut
+TRACE case=RD-owned-duel-boundary owner=engine name=SD_BGMFadeOut
+TRACE case=RD-owned-duel-boundary owner=engine name=func_80047AD0
+TRACE case=RD-owned-duel-boundary owner=engine name=Main_ClearFrameServiceCallbacks
+TRACE case=RD-owned-duel-boundary owner=engine name=Main_AdvanceFrames
+TRACE case=RD-owned-duel-boundary owner=engine name=File_WaitForTransfers
+RECOVERY state=0 cause=0 attempts=0 action=4294967295 gen=4294967295 epoch=4 sequence=4 mode=0
+RESULT end-controller-does-not-recover-owner PASS Actual Main cases1/2 over explicit fixture end flag, IO/frontend services modeled. End alone never revives an action.
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=engine name=Main_RunDuel
+TRACE case=RD-owned-duel-boundary owner=engine name=Mods_Hal2224GuardReady
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=Duel_InitScene
+TRACE case=RD-owned-duel-boundary owner=ritual-duelists kind=hook name=Duel_InitScene
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_InitScene
+RECOVERY_MAIN case=1 flag=129 init_calls=1 modeled_init_body=1
+MODELED phase-entry dispatch: actual owner Populate callbacks; native deck IO remains fixture
+TRACE case=RD-owned-duel-boundary owner=ritual-card-effects-test kind=hook name=Duel_PopulateCombinedDeckData
+TRACE case=RD-owned-duel-boundary owner=engine name=SoftGpu_Bank
+TRACE case=RD-owned-duel-boundary owner=time-wizard-time-magic kind=hook name=Duel_PopulateCombinedDeckData
+TRACE case=RD-owned-duel-boundary owner=melhoria-dos-rituais kind=hook name=Duel_PopulateCombinedDeckData
+TRACE case=RD-owned-duel-boundary owner=engine name=Duel_PopulateCombinedDeckData
+RECOVERY state=5 cause=6 attempts=0 action=4294967295 gen=4294967295 epoch=6 sequence=5 mode=3
+OWNER_NEW mode=315 reset_delta=0 RD=5 generation=4294967295 connection=6 serial=4294967295 pending=0 monitor=0 safe=0 attempts=0 owner_epoch=1 TW_block=0
+RESULT actual-Main-entry-no-ModulesReset PASS Actual Main_RunDuel case1 and owner callbacks; InitScene IO/frontend/renderer remain modeled.
+RESULT exhaustion-not-reset-at-new-duel PASS No allocator wraps or regains permission. New duel does not reset exhaustion.
+SAFE_REFUSAL exhausted owner requires process lifecycle
+CALLBACK owner=ai-hard-mode target=AiScript_Run calls=0
+CALLBACK owner=ai-hard-mode target=func_8001BAF0 calls=0
+CALLBACK owner=ritual-duelists target=func_8001BAF0 calls=0
+CALLBACK owner=ritual-duelists target=AiScript_Run calls=0
+CALLBACK owner=time-wizard-time-magic target=AiScript_Run calls=0
+CALLBACK owner=time-wizard-time-magic target=AiScript_Run calls=0
+CALLBACK owner=time-wizard-time-magic target=func_8001BAF0 calls=0
+CALLBACK owner=ritual-card-effects-test target=AiScript_Run calls=0
+CALLBACK owner=ritual-card-effects-test target=func_8001BAF0 calls=0
+CALLBACK owner=hal2224-observer target=AiScript_Run calls=0
+SUMMARY assertions=51079 failures=0 no pending/plan/quota injection in primary cases

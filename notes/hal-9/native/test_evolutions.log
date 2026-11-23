@@ -1,0 +1,2 @@
+HAL9_LOG raw_sha256=3c45e52cb8a6e01b59be3c7d86012858de0a653851117c76c91af68a245191ee; only exact duplicate trace lines after their third occurrence omitted; all results and distinct state lines preserved.
+All 18 evolution/compatibility test assertions passed.

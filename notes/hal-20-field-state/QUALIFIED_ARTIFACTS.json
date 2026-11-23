@@ -1,0 +1,223 @@
+{
+  "roles": [
+    {
+      "id": "ai-hard-mode",
+      "sha256": "05cf957bc4575503d257432cd927748367207258189856217bc1bf2adb0f7d19",
+      "loader_code": "00049e34",
+      "object_bytes": 121964,
+      "binary_in_this_branch": true
+    },
+    {
+      "id": "ritual-duelists",
+      "sha256": "9f0d7354e6ff3f44776308b18e96b960480500c814ae22c3e7d1e6b57eafea34",
+      "loader_code": "3d26698f",
+      "object_bytes": 4568940,
+      "binary_in_this_branch": true
+    },
+    {
+      "id": "dual-play",
+      "sha256": "77cd32ff89de6ca37084113fcafb933a98a1cfeea52a78a936b24640b11a2378",
+      "loader_code": "3028c68a",
+      "object_bytes": 68196,
+      "binary_in_this_branch": false
+    },
+    {
+      "id": "ritual-card-effects-test",
+      "sha256": "78ec3ce45694b1f583213530dfc0a527c8974056f67c49e7791fb6821f55ab45",
+      "loader_code": "1e478c68",
+      "object_bytes": 737280,
+      "binary_in_this_branch": true
+    },
+    {
+      "id": "melhoria-dos-rituais",
+      "sha256": "c36d033fb1dd2e9cbe38aec85409cc4f7bb849e9fdb350d1f1f737d4a8d9efc0",
+      "loader_code": "1fe34a1e",
+      "object_bytes": 89024,
+      "binary_in_this_branch": true
+    },
+    {
+      "id": "fusion-auxiliary-balance",
+      "sha256": "c259f789c5060623744bd28ab09de4044d055d9c02570a3f7f73032eb5190dd6",
+      "loader_code": "69a6af85",
+      "object_bytes": 382476,
+      "binary_in_this_branch": true
+    },
+    {
+      "id": "field-effects-secondary-types",
+      "sha256": "729ff106787d477def41feb42a1a5d168f5bb050af870a25738c977e02c1cd21",
+      "loader_code": "cfd0dcf3",
+      "object_bytes": 56836,
+      "binary_in_this_branch": true
+    }
+  ],
+  "targets": [
+    "func_8001BAF0",
+    "DuelScene_UpdateHandActions",
+    "AiScript_Run",
+    "Duel_SetupCardRecord",
+    "DuelEffect_ApplyTerrain",
+    "func_80037DA4",
+    "func_80035E20"
+  ],
+  "callbacks": [
+    {
+      "role": 0,
+      "target": "AiScript_Run",
+      "function": "run",
+      "bytes": 3820,
+      "body_sha256": "143cefc2681f9ddf8fe0152239f4740df8c5bf042797fa8cb7f2ff9a377d049e",
+      "relocations_sha256": "a015b65e4282404cd5ff6dd8681d84a9fca2d6dd973b439a74d63e078707374b"
+    },
+    {
+      "role": 0,
+      "target": "func_8001BAF0",
+      "function": "swap_selection",
+      "bytes": 1503,
+      "body_sha256": "59ed54a9c8b73439294919e2c6292ecc71216a5d993a7fa1bf14c3c0ffc41c0d",
+      "relocations_sha256": "8c3a15088a5b6841b4a551f4d9e9ba36274e5c58cb986a8cccac99156c1fc5ad"
+    },
+    {
+      "role": 1,
+      "target": "func_8001BAF0",
+      "function": "rd_materialize",
+      "bytes": 1318,
+      "body_sha256": "a2cff69c6a899e51863369c03897a1bd94ba7e1543167efd093233032efc9da3",
+      "relocations_sha256": "4af9991ec5e02b5ea47735d41844a878e96ae216b6a5d85fdb29868041825014"
+    },
+    {
+      "role": 1,
+      "target": "AiScript_Run",
+      "function": "rd_ai",
+      "bytes": 774,
+      "body_sha256": "f3eea8053c2b338a16bffcee66260b9279fa358c76435f6f338d7ed9bba4e126",
+      "relocations_sha256": "038bc3ee5ec7440c9fd86f20e2d38303e5dcb640740bb94353d6e91207c86474"
+    },
+    {
+      "role": 1,
+      "target": "DuelScene_UpdateHandActions",
+      "function": "rd_selection_hand_tick",
+      "bytes": 1020,
+      "body_sha256": "49eb2e22f4a939cf77727c7b32aadb82b4f3f7203df3cce854bbb54ab2780937",
+      "relocations_sha256": "5978a3dd0a64b082b0f894e565dd9d9fb0a474a338042cb9b39ed70ee236105b"
+    },
+    {
+      "role": 2,
+      "target": "DuelScene_UpdateHandActions",
+      "function": "dual_hand_actions",
+      "bytes": 4854,
+      "body_sha256": "67a3c73396c2176fa9648897808577fbdf58813d245c1e4c80766f57223b4dea",
+      "relocations_sha256": "5a0c720f619429c074ce133dcea1b8db360d05f46de3fccebe1c2af09a164c15"
+    },
+    {
+      "role": 2,
+      "target": "func_8001BAF0",
+      "function": "dual_ai_swap",
+      "bytes": 2410,
+      "body_sha256": "0252d58c38779855ca8a178717749cc67003e74f3e9bef4b83f31826c27f586e",
+      "relocations_sha256": "9abc30ec967f1322e9cd945bf780939a63d4282367e617c031c07c4b54a3fc07"
+    },
+    {
+      "role": 3,
+      "target": "AiScript_Run",
+      "function": "selection_ai_run",
+      "bytes": 3217,
+      "body_sha256": "2dafd5943377d0aee212b23d3ce0649eea7b294ddbb1dd5554334e759d005e57",
+      "relocations_sha256": "a7c1066f29196381491dcf86b66a2c0f81e0470de4f21363b9ab828dab941796"
+    },
+    {
+      "role": 3,
+      "target": "func_80037DA4",
+      "function": "ritual_viewer_fit_command",
+      "bytes": 183,
+      "body_sha256": "2abaa772d82a3710f9c116ac63c2d7cbed9c9f16039c28b1b71b29f342bb5215",
+      "relocations_sha256": "44de6024b91c659272a4b0d73dbc6029d475e6a368877519b0974e4c2f87bcf0"
+    },
+    {
+      "role": 3,
+      "target": "func_80035E20",
+      "function": "ritual_viewer_effect_title_draw",
+      "bytes": 3584,
+      "body_sha256": "0a3b0ac4e638becbca1fe1323fd926b10ecdd6906416388ebde14d440eaf5f87",
+      "relocations_sha256": "9ace4ca535806901da916c45b16194f04b56c5da35d4713aadac72818b35c414"
+    },
+    {
+      "role": 3,
+      "target": "DuelScene_UpdateHandActions",
+      "function": "hand_actions",
+      "bytes": 1767,
+      "body_sha256": "93817a4b28fdf7d9b31db38addab90eb90f3948c67852ccdc7933fb092d37c55",
+      "relocations_sha256": "55f6d13d90a58e952761d692f8ee246bb30a9780372044c31220013946a50030"
+    },
+    {
+      "role": 3,
+      "target": "func_8001BAF0",
+      "function": "cosmo_hand_swap",
+      "bytes": 187,
+      "body_sha256": "731ae316b561bfda0a08b5533b67a5b7a1dcf66df49cfac66487e4d07f052189",
+      "relocations_sha256": "efebeb0287cfded8fea845d1640e1ae87a4bfa48bfa1ae326cabdc245cc67996"
+    },
+    {
+      "role": 4,
+      "target": "DuelScene_UpdateHandActions",
+      "function": "hand_actions_hook",
+      "bytes": 242,
+      "body_sha256": "3796a994886c47ac2c5299cf9d9a9c36f0130d1e7ed0ff04784eeb36134b9809",
+      "relocations_sha256": "e0683000c0c18acecaa84d5e98c5e879500d9937e9a8ee1ea34b0c9919f36ca3"
+    },
+    {
+      "role": 5,
+      "target": "func_80035E20",
+      "function": "aux_viewer_draw",
+      "bytes": 2051,
+      "body_sha256": "f3d6582fbc33c43213360d24f8d46815742694d495004d5df6a2eab678f79f77",
+      "relocations_sha256": "91403d47a6b9a8f3a04229bd31f3f07eadba03e4763e5276223fed0c0d900c8c"
+    },
+    {
+      "role": 5,
+      "target": "DuelScene_UpdateHandActions",
+      "function": "aux_hand_actions",
+      "bytes": 314,
+      "body_sha256": "6ed85d1aeeb55edd116de7fa249be44a17a589104a18b9611afea77efd971952",
+      "relocations_sha256": "e378ce8648a60b7606361ebd41cb6a97dc0782592b3780cd7d3b5ded7ac14edf"
+    },
+    {
+      "role": 6,
+      "target": "Duel_SetupCardRecord",
+      "function": "setup_hook",
+      "bytes": 49,
+      "body_sha256": "e81c07cdb4a04ae6c18c48967fed1cc8b7b07d9c7095c5c7f30118c64bf7718a",
+      "relocations_sha256": "d552680c3d83bfc1f79878517db85351a41deb69205511f3d88f5c7ebcdf0ee4"
+    },
+    {
+      "role": 6,
+      "target": "DuelEffect_ApplyTerrain",
+      "function": "apply_terrain_hook",
+      "bytes": 323,
+      "body_sha256": "43d493347f4f993d4c38f1a18a8919b3c7631c5b2cb21e36f7a7dc537b39686d",
+      "relocations_sha256": "6984ff9480f6f344dafea04443ce93d3b9b6068ca462dd70ea158951c4fc43e1"
+    },
+    {
+      "role": 6,
+      "target": "func_80037DA4",
+      "function": "text_command_hook",
+      "bytes": 137,
+      "body_sha256": "64ca9321489969bbfe88b91ff59436e85023925c46d2cce6df36b19f39cd7757",
+      "relocations_sha256": "1433fd3431862b90f6d86584c10f35c34516dde633cc34e15f269b99f88254ca"
+    },
+    {
+      "role": 6,
+      "target": "func_80035E20",
+      "function": "text_draw_hook",
+      "bytes": 4659,
+      "body_sha256": "a3b70fe27a6701be8c3ebd146b126cc333c09fbec918e4ed08d5b02c0242a05e",
+      "relocations_sha256": "7ac42ee0ee6a4b0eb7f06debb716575a6c90958b4b39c72f399a1ffe46d87874"
+    }
+  ],
+  "producer": {
+    "name": "selection_evaluate",
+    "bytes": 513,
+    "body_sha256": "47135973d93397c0b39713c3f12fdfbfdf560371bd9e61dd3d434bbc681549b6",
+    "relocations_sha256": "9d5746d90aa1a594e1737f783f2565ef0d6ca1e3a3d42ff86d48de30d15f6a1b"
+  },
+  "scope": "Reviewed exact artifacts; IDs locate roles only. Private Dual metadata only, no source/manifest/object distributed."
+}

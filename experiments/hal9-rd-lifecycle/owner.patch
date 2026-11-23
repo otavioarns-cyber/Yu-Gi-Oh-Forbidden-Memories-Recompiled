@@ -1,0 +1,35 @@
+--- a/mod.c
++++ b/mod.c
+@@ -1267,6 +1267,7 @@
+ }
+ 
+ #include "rd_companion.inc"
++#include "rd_duel_lifecycle.inc"
+ int MemoriesModInit(const MemoriesModHost *from,MemoriesMod *mod)
+ {
+     if(!from||from->api<4)return 0;
+@@ -1282,9 +1283,9 @@
+     if(!deal_hook){host->unhook(host,fusion_hook);host->unhook(host,ritual_hook);fusion_hook=ritual_hook=0;return 0;}
+     window_hook=host->hook(host,(void *)Ai_GetHandSize,(void *)rd_ai_window,&previous_window);
+     if(!window_hook){host->unhook(host,deal_hook);host->unhook(host,fusion_hook);host->unhook(host,ritual_hook);deal_hook=fusion_hook=ritual_hook=0;return 0;}
+-    swap_hook=host->hook(host,(void *)func_8001BAF0,(void *)hf_materialize,&previous_swap);
++    swap_hook=host->hook(host,(void *)func_8001BAF0,(void *)rd_duel_materialize,&previous_swap);
+     if(!swap_hook){host->unhook(host,window_hook);host->unhook(host,deal_hook);host->unhook(host,fusion_hook);host->unhook(host,ritual_hook);window_hook=deal_hook=fusion_hook=ritual_hook=0;return 0;}
+-    ai_hook=host->hook(host,(void *)AiScript_Run,(void *)rd_ai,&previous_ai);
++    ai_hook=host->hook(host,(void *)AiScript_Run,(void *)rd_duel_ai,&previous_ai);
+     if(!ai_hook){host->unhook(host,swap_hook);host->unhook(host,window_hook);host->unhook(host,deal_hook);host->unhook(host,fusion_hook);host->unhook(host,ritual_hook);swap_hook=window_hook=deal_hook=fusion_hook=ritual_hook=0;return 0;}
+     if(!Rd_StarterUIInit(host,mod)){
+         host->log(host,"Ritual Duelists: starter selector initialization failed");
+@@ -1297,10 +1298,11 @@
+     rd_selection_old_applied=mod->applied;
+     mod->applied=rd_selection_applied;
+     if(!host->hook(host,(void*)DuelScene_UpdateHandActions,
+-        (void*)hf_hand_tick,&rd_selection_old_hand))return 0;
++        (void*)rd_duel_hand_tick,&rd_selection_old_hand))return 0;
+     if(host->provide){host->provide(host,"mandatory-hand-selection-v1",(void*)&rd_selection_rendezvous);
+         host->provide(host,"mandatory-hand-lifecycle-v1",(void*)&rd_selection_lifecycle);}
+     if(host->provide)host->provide(host,"selection-finalization-v1",(void*)&hf_api);
++    if(!rd_duel_register())return 0;
+     mod->frame=0; /* Free Duel viewer belongs to PauloH-Gudang's separate Droplist MOD. */
+     mod->api=12;
+     mod->reset=rd_reset;

@@ -1,0 +1,145 @@
+{
+  "final-regression": {
+    "processes": 112,
+    "checks": {
+      "PASS": 1144,
+      "FAIL": 8
+    },
+    "execution": {
+      "REFUSED": 16,
+      "PASS": 70,
+      "NOT_REACHED": 18,
+      "FAIL": 8
+    },
+    "incomplete": 0
+  },
+  "final-qualification": {
+    "processes": 72,
+    "checks": {
+      "PASS": 888
+    },
+    "execution": {
+      "PASS": 24,
+      "NOT_REACHED": 32,
+      "REFUSED": 16
+    },
+    "incomplete": 0
+  },
+  "reference32": {
+    "processes": 16,
+    "checks": {
+      "PASS": 168,
+      "FAIL": 4
+    },
+    "execution": {
+      "PASS": 4,
+      "REFUSED": 8,
+      "FAIL": 4
+    },
+    "incomplete": 0
+  },
+  "snapshot-only-control": {
+    "processes": 8,
+    "checks": {
+      "PASS": 96,
+      "FAIL": 4
+    },
+    "execution": {
+      "PASS": 4,
+      "FAIL": 4
+    },
+    "incomplete": 0
+  },
+  "native": {
+    "steps": [
+      {
+        "name": "actual-candidate-native-controller",
+        "returncode": 0
+      },
+      {
+        "name": "test_dual_play_decisions-build",
+        "returncode": 0
+      },
+      {
+        "name": "test_dual_play_decisions",
+        "returncode": 0
+      },
+      {
+        "name": "test_dual_play_hand_selection-build",
+        "returncode": 0
+      },
+      {
+        "name": "test_dual_play_hand_selection",
+        "returncode": 0
+      },
+      {
+        "name": "test_evolutions-build",
+        "returncode": 0
+      },
+      {
+        "name": "test_evolutions",
+        "returncode": 0
+      }
+    ]
+  },
+  "collection": {
+    "processes": 16,
+    "checks": {
+      "PASS": 164
+    },
+    "execution": {
+      "PASS": 16
+    },
+    "incomplete": 0
+  },
+  "policy-B": {
+    "steps": [
+      {
+        "name": "0",
+        "returncode": 0
+      },
+      {
+        "name": "1",
+        "returncode": 0
+      },
+      {
+        "name": "2",
+        "returncode": 0
+      },
+      {
+        "name": "3",
+        "returncode": 0
+      },
+      {
+        "name": "4",
+        "returncode": 0
+      }
+    ]
+  },
+  "prewrite-B": {
+    "steps": [
+      {
+        "name": "build",
+        "returncode": 0
+      },
+      {
+        "name": "run",
+        "returncode": 0
+      }
+    ]
+  },
+  "final_combined": {
+    "processes": 184,
+    "checks": {
+      "PASS": 2032,
+      "FAIL": 8
+    },
+    "execution": {
+      "REFUSED": 32,
+      "PASS": 94,
+      "NOT_REACHED": 50,
+      "FAIL": 8
+    },
+    "scope": "Distinct final cases, controlled fixtures/real callbacks; NOT Windows. Native, collection and historical controls below are separate and not added as independent gameplay."
+  }
+}
